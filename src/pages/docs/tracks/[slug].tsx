@@ -27,7 +27,7 @@ import Breadcrumb from 'components/breadcrumb'
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 import getGithubFile from 'utils/getGithubFile'
-import getDocsPaths from 'utils/getDocsPaths'
+import { getTracksPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
@@ -46,8 +46,9 @@ import {
   localeType,
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
+import { ParsedUrlQuery } from 'querystring'
 
-const docsPathsGLOBAL = await getDocsPaths()
+const docsPathsGLOBAL = await getTracksPaths()
 
 interface Props {
   sectionSelected: string
@@ -167,15 +168,21 @@ const TrackPage: NextPage<Props> = ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  //const slugs = Object.keys(await getDocsPaths())
-  //const paths = slugs.map((slug) => ({
-  //    params: { slug },
-  //}))
-  const paths = [
-    {
-      params: { slug: 'about-the-community-support-plan' },
-    },
-  ]
+  const slugs: { [slug: string]: { locale: string; path: string }[] } =
+    await getTracksPaths()
+
+  const paths: (
+    | string
+    | {
+        params: ParsedUrlQuery
+        locale?: string | undefined
+      }
+  )[] = []
+  Object.entries(slugs).forEach(([slug, locales]) => {
+    locales.forEach(({ locale }) => {
+      paths.push({ params: { slug }, locale })
+    })
+  })
   return {
     paths,
     fallback: 'blocking',
@@ -200,11 +207,11 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
-      : await getDocsPaths(branch, currentLocale)
+      : await getTracksPaths(branch)
 
   const logger = getLogger('Start here')
 
-  const path = docsPaths[slug]
+  const path = docsPaths[slug].find((e) => e.locale === locale)?.path
   if (!path) {
     return {
       notFound: true,
@@ -269,7 +276,9 @@ export const getStaticProps: GetStaticProps = async ({
       : []
     await Promise.all(
       seeAlsoUrls.map(async (seeAlsoUrl: string) => {
-        const seeAlsoPath = docsPaths[seeAlsoUrl.split('/')[3]]
+        const seeAlsoPath = docsPaths[seeAlsoUrl.split('/')[3]].find(
+          (e) => e.locale === locale
+        )?.path
         if (seeAlsoPath) {
           try {
             const documentationContent = await getGithubFile(
