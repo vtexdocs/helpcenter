@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/ban-ts-comment */
-const docsPaths: { [slug: string]: string } = {}
+const docsPaths: { [slug: string]: { locale: string; path: string }[] } = {}
 
 import octokit from 'utils/octokitConfig'
 
@@ -18,7 +18,7 @@ async function getGithubTree(org: string, repo: string, ref: string) {
 
 //https://api.github.com/repos/vtexdocs/devportal/commits?path=README.md
 
-export default async function getDocsPaths(branch = 'main', locale = 'en') {
+export async function getTracksPaths(branch = 'main') {
   const repoTree = await getGithubTree(
     'vtexdocs',
     'help-center-content',
@@ -27,18 +27,103 @@ export default async function getDocsPaths(branch = 'main', locale = 'en') {
   // @ts-ignore
   repoTree.tree.map((node: any) => {
     const path = node.path
-    const re = /^(?<path>.+\/)*(?<filename>.+)\.(?<filetype>.+)$/
-    if (
-      path.startsWith(`docs/tracks/${locale}`) ||
-      path.startsWith(`docs/faq/${locale}`) ||
-      path.startsWith(`docs/known-issues/${locale}`) ||
-      path.startsWith(`docs/tutorials/${locale}`)
-    ) {
+    const re =
+      /^(?<path>.+\/)*(?<locale>pt|es|en+)\/(?<localeDir>.+\/)*(?<filename>.+)\.(?<filetype>.+)$/
+    if (path.startsWith(`docs/tracks`)) {
       const match = path.match(re)
       const filename = match?.groups?.filename ? match?.groups?.filename : ''
       const filetype = match?.groups?.filetype ? match?.groups?.filetype : ''
+      const fileLocale = match?.groups?.locale ? match?.groups?.locale : ''
       if (filetype === 'md' || filetype === 'mdx') {
-        ;(docsPaths as any)[filename] = path
+        if (!docsPaths[filename]) docsPaths[filename] = []
+        docsPaths[filename].push({
+          locale: fileLocale,
+          path,
+        })
+      }
+    }
+  })
+  return docsPaths
+}
+
+export async function getTutorialsPaths(branch = 'main') {
+  const repoTree = await getGithubTree(
+    'vtexdocs',
+    'help-center-content',
+    branch
+  )
+  // @ts-ignore
+  repoTree.tree.map((node: any) => {
+    const path = node.path
+    const re =
+      /^(?<path>.+\/)*(?<locale>pt|es|en+)\/(?<localeDir>.+\/)*(?<filename>.+)\.(?<filetype>.+)$/
+    if (path.startsWith(`docs/tutorials`)) {
+      const match = path.match(re)
+      const filename = match?.groups?.filename ? match?.groups?.filename : ''
+      const filetype = match?.groups?.filetype ? match?.groups?.filetype : ''
+      const fileLocale = match?.groups?.locale ? match?.groups?.locale : ''
+      if (filetype === 'md' || filetype === 'mdx') {
+        if (!docsPaths[filename]) docsPaths[filename] = []
+        docsPaths[filename].push({
+          locale: fileLocale,
+          path,
+        })
+      }
+    }
+  })
+  return docsPaths
+}
+
+export async function getNewsPaths(branch = 'main') {
+  const repoTree = await getGithubTree(
+    'vtexdocs',
+    'help-center-content',
+    branch
+  )
+  // @ts-ignore
+  repoTree.tree.map((node: any) => {
+    const path = node.path
+    const re =
+      /^(?<path>.+\/)*(?<locale>pt|es|en+)\/(?<localeDir>.+\/)*(?<filename>.+)\.(?<filetype>.+)$/
+    if (path.startsWith(`docs/announcements`)) {
+      const match = path.match(re)
+      const filename = match?.groups?.filename ? match?.groups?.filename : ''
+      const filetype = match?.groups?.filetype ? match?.groups?.filetype : ''
+      const fileLocale = match?.groups?.locale ? match?.groups?.locale : ''
+      if (filetype === 'md' || filetype === 'mdx') {
+        if (!docsPaths[filename]) docsPaths[filename] = []
+        docsPaths[filename].push({
+          locale: fileLocale,
+          path,
+        })
+      }
+    }
+  })
+  return docsPaths
+}
+
+export async function getFAQPaths(branch = 'main') {
+  const repoTree = await getGithubTree(
+    'vtexdocs',
+    'help-center-content',
+    branch
+  )
+  // @ts-ignore
+  repoTree.tree.map((node: any) => {
+    const path = node.path
+    const re =
+      /^(?<path>.+\/)*(?<locale>pt|es|en+)\/(?<localeDir>.+\/)*(?<filename>.+)\.(?<filetype>.+)$/
+    if (path.startsWith(`docs/faq`)) {
+      const match = path.match(re)
+      const filename = match?.groups?.filename ? match?.groups?.filename : ''
+      const filetype = match?.groups?.filetype ? match?.groups?.filetype : ''
+      const fileLocale = match?.groups?.locale ? match?.groups?.locale : ''
+      if (filetype === 'md' || filetype === 'mdx') {
+        if (!docsPaths[filename]) docsPaths[filename] = []
+        docsPaths[filename].push({
+          locale: fileLocale,
+          path,
+        })
       }
     }
   })
