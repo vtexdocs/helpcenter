@@ -27,7 +27,7 @@ import Breadcrumb from 'components/breadcrumb'
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 import getGithubFile from 'utils/getGithubFile'
-import { getTracksPaths } from 'utils/getDocsPaths'
+import { getDocsPaths as getTracksPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
@@ -48,7 +48,7 @@ import {
 import { MarkdownRenderer } from '@vtexdocs/components'
 import { ParsedUrlQuery } from 'querystring'
 
-const docsPathsGLOBAL = await getTracksPaths()
+const docsPathsGLOBAL = await getTracksPaths('tracks')
 
 interface Props {
   sectionSelected: string
@@ -169,7 +169,7 @@ const TrackPage: NextPage<Props> = ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugs: { [slug: string]: { locale: string; path: string }[] } =
-    await getTracksPaths()
+    await getTracksPaths('tracks')
 
   const paths: (
     | string
@@ -212,6 +212,7 @@ export const getStaticProps: GetStaticProps = async ({
   const logger = getLogger('Start here')
 
   const path = docsPaths[slug].find((e) => e.locale === locale)?.path
+
   if (!path) {
     return {
       notFound: true,
@@ -325,7 +326,7 @@ export const getStaticProps: GetStaticProps = async ({
           ? docsListSlug[indexOfSlug - 1]
           : null,
         name: docsListName[indexOfSlug - 1]
-          ? docsListName[indexOfSlug - 1]
+          ? docsListName[indexOfSlug - 1][locale || 'en']
           : null,
       },
       nextDoc: {
@@ -333,7 +334,7 @@ export const getStaticProps: GetStaticProps = async ({
           ? docsListSlug[indexOfSlug + 1]
           : null,
         name: docsListName[indexOfSlug + 1]
-          ? docsListName[indexOfSlug + 1]
+          ? docsListName[indexOfSlug + 1][locale || 'en']
           : null,
       },
     }

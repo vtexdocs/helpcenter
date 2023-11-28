@@ -31,7 +31,7 @@ import {
 } from 'utils/navigation-utils'
 import getNavigation from 'utils/getNavigation'
 import getGithubFile from 'utils/getGithubFile'
-import { getNewsPaths } from 'utils/getDocsPaths'
+import { getDocsPaths as getNewsPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
@@ -42,7 +42,7 @@ import styles from 'styles/documentation-page'
 import { PreviewContext } from 'utils/contexts/preview'
 import { ParsedUrlQuery } from 'querystring'
 
-const docsPathsGLOBAL = await getNewsPaths()
+const docsPathsGLOBAL = await getNewsPaths('announcements')
 
 interface Props {
   content: string
@@ -127,7 +127,7 @@ const NewsPage: NextPage<Props> = ({ serialized, branch }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugs: { [slug: string]: { locale: string; path: string }[] } =
-    await getNewsPaths()
+    await getNewsPaths('announcements')
 
   const paths: (
     | string

@@ -28,7 +28,7 @@ import Breadcrumb from 'components/breadcrumb'
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 import getGithubFile from 'utils/getGithubFile'
-import { getTutorialsPaths } from 'utils/getDocsPaths'
+import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
@@ -48,7 +48,7 @@ import {
 } from 'utils/navigation-utils'
 import { ParsedUrlQuery } from 'querystring'
 
-const docsPathsGLOBAL = await getTutorialsPaths()
+const docsPathsGLOBAL = await getTutorialsPaths('tutorials')
 
 interface Props {
   sectionSelected: string
@@ -169,7 +169,7 @@ const TutorialPage: NextPage<Props> = ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugs: { [slug: string]: { locale: string; path: string }[] } =
-    await getTutorialsPaths()
+    await getTutorialsPaths('tutorials')
 
   const paths: (
     | string
@@ -325,7 +325,7 @@ export const getStaticProps: GetStaticProps = async ({
           ? docsListSlug[indexOfSlug - 1]
           : null,
         name: docsListName[indexOfSlug - 1]
-          ? docsListName[indexOfSlug - 1]
+          ? docsListName[indexOfSlug - 1][locale || 'en']
           : null,
       },
       nextDoc: {
@@ -333,7 +333,7 @@ export const getStaticProps: GetStaticProps = async ({
           ? docsListSlug[indexOfSlug + 1]
           : null,
         name: docsListName[indexOfSlug + 1]
-          ? docsListName[indexOfSlug + 1]
+          ? docsListName[indexOfSlug + 1][locale || 'en']
           : null,
       },
     }
