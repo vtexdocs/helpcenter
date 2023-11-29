@@ -18,6 +18,34 @@ async function getGithubTree(org: string, repo: string, ref: string) {
 
 //https://api.github.com/repos/vtexdocs/devportal/commits?path=README.md
 
+export async function getAllDocsPaths(branch = 'main') {
+  const repoTree = await getGithubTree(
+    'vtexdocs',
+    'help-center-content',
+    branch
+  )
+  // @ts-ignore
+  repoTree.tree.map((node: any) => {
+    const path = node.path
+    const re =
+      /^(?<path>.+\/)*(?<locale>pt|es|en+)\/(?<localeDir>.+\/)*(?<filename>.+)\.(?<filetype>.+)$/
+    if (path.startsWith(`docs/`)) {
+      const match = path.match(re)
+      const filename = match?.groups?.filename ? match?.groups?.filename : ''
+      const filetype = match?.groups?.filetype ? match?.groups?.filetype : ''
+      const fileLocale = match?.groups?.locale ? match?.groups?.locale : ''
+      if (filetype === 'md' || filetype === 'mdx') {
+        if (!docsPaths[filename]) docsPaths[filename] = []
+        docsPaths[filename].push({
+          locale: fileLocale,
+          path,
+        })
+      }
+    }
+  })
+  return docsPaths
+}
+
 export async function getDocsPaths(
   category: 'tracks' | 'tutorials' | 'announcements' | 'faq',
   branch = 'main'
