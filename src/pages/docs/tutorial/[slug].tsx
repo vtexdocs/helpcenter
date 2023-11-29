@@ -210,8 +210,8 @@ export const getStaticProps: GetStaticProps = async ({
       : await getTutorialsPaths(branch)
 
   const logger = getLogger('Tutorials & Solutions')
-
   const path = docsPaths[slug].find((e) => e.locale === locale)?.path
+
   if (!path) {
     return {
       notFound: true,
