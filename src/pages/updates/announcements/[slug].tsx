@@ -30,7 +30,7 @@ import {
   localeType,
 } from 'utils/navigation-utils'
 import getNavigation from 'utils/getNavigation'
-import getGithubFile from 'utils/getGithubFile'
+// import getGithubFile from 'utils/getGithubFile'
 import { getDocsPaths as getNewsPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
@@ -175,12 +175,20 @@ export const getStaticProps: GetStaticProps = async ({
     }
   }
 
-  let documentationContent = await getGithubFile(
-    'vtexdocs',
-    'help-center-content',
-    branch,
-    path
-  )
+  // let documentationContent = await getGithubFile(
+  //   'vtexdocs',
+  //   'help-center-content',
+  //   branch,
+  //   path
+  // )
+
+  let documentationContent =
+    (await fetch(
+      `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
+    )
+      .then((res) => res.text())
+      .catch((err) => console.log(err))) || ''
+
   const logger = getLogger('News')
 
   try {

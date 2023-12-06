@@ -27,7 +27,7 @@ import Breadcrumb from 'components/breadcrumb'
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
-import getGithubFile from 'utils/getGithubFile'
+// import getGithubFile from 'utils/getGithubFile'
 import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
@@ -218,19 +218,29 @@ export const getStaticProps: GetStaticProps = async ({
     }
   }
 
-  let documentationContent = await getGithubFile(
-    'vtexdocs',
-    'help-center-content',
-    branch,
-    path
-  )
+  // let documentationContent = await getGithubFile(
+  //   'vtexdocs',
+  //   'help-center-content',
+  //   branch,
+  //   path
+  // )
 
-  const contributors = await getFileContributors(
-    'vtexdocs',
-    'help-center-content',
-    branch,
-    path
-  )
+  let documentationContent =
+    (await fetch(
+      `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
+    )
+      .then((res) => res.text())
+      .catch((err) => console.log(err))) || ''
+
+  const contributors =
+    (await getFileContributors(
+      'vtexdocs',
+      'help-center-content',
+      branch,
+      path
+    ).catch((err) => {
+      console.log(err)
+    })) || []
 
   let format: 'md' | 'mdx' = 'mdx'
   try {
@@ -281,12 +291,18 @@ export const getStaticProps: GetStaticProps = async ({
         )?.path
         if (seeAlsoPath) {
           try {
-            const documentationContent = await getGithubFile(
-              'vtexdocs',
-              'help-center-content',
-              'main',
-              seeAlsoPath
-            )
+            const documentationContent =
+              (await fetch(
+                `https://raw.githubusercontent.com/vtexdocs/help-center-content/main/${seeAlsoPath}`
+              )
+                .then((res) => res.text())
+                .catch((err) => console.log(err))) || ''
+            // const documentationContent = await getGithubFile(
+            //   'vtexdocs',
+            //   'help-center-content',
+            //   'main',
+            //   seeAlsoPath
+            // )
             const serialized = await serialize(documentationContent, {
               parseFrontmatter: true,
             })
