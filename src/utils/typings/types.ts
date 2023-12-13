@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import { IconProps } from '@vtex/brand-ui'
 
 import { ActionType } from 'components/last-updates-card/functions'
-import { DocumentationTitle, UpdatesTitle, ResourceTitle } from './unionTypes'
+import { UpdatesTitle, ResourceTitle } from './unionTypes'
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type Page<P = {}, IP = P> = NextPage<P, IP> & {
@@ -19,7 +19,8 @@ export type DataElement = {
   description: string
 }
 export interface DocDataElement extends DataElement {
-  title: DocumentationTitle
+  title: string
+  isExternalLink?: boolean
 }
 export interface UpdatesDataElement extends DataElement {
   title: UpdatesTitle

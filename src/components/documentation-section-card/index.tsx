@@ -6,12 +6,14 @@ import Tooltip from 'components/tooltip'
 import styles from './styles'
 import { useEffect, useRef, useState } from 'react'
 import { useIntl } from 'react-intl'
+import LongArrowIcon from 'components/icons/long-arrow-icon'
 
 const DocumentationSectionCard = ({
   Icon,
   title,
   description,
   link,
+  isExternalLink = false,
 }: DocDataElement) => {
   const intl = useIntl()
   const [tooltipState, setTooltipState] = useState(false)
@@ -56,11 +58,22 @@ const DocumentationSectionCard = ({
             className="quickStartedContainer"
             sx={styles.quickStartedContainer}
           >
-            <Text className="learnMoreText" sx={styles.learnMoreText}>
-              {intl.formatMessage({
-                id: 'landing_page_documentation_documentation_card.learnMoreText',
-              })}
-            </Text>
+            {!isExternalLink ? (
+              <Text className="learnMoreText" sx={styles.learnMoreText}>
+                {intl.formatMessage({
+                  id: 'landing_page_documentation_card.learnMoreText',
+                })}
+              </Text>
+            ) : (
+              <Flex sx={styles.accessPortal}>
+                <Text className="accessPortal" sx={styles.learnMoreText}>
+                  {intl.formatMessage({
+                    id: 'landing_page_documentation_card.accessPortal',
+                  })}
+                </Text>
+                <LongArrowIcon size={18} />
+              </Flex>
+            )}
           </Flex>
         </Flex>
       </Link>

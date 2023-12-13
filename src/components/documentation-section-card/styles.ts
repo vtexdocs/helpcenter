@@ -2,9 +2,9 @@ import { SxStyleProp } from '@vtex/brand-ui'
 
 const cardContainer: SxStyleProp = {
   flexDirection: 'column',
-  margin: ['8px', '12px', '12px', '16px'],
-  width: ['151px', '282px'],
-  height: ['120px', '225px', '225px'],
+  margin: '16px',
+  width: '282px',
+  height: '293px',
   boxSizing: 'initial',
   borderRadius: '8px',
   border: '1px solid #E7E9EE',
@@ -40,7 +40,7 @@ const cardContainer: SxStyleProp = {
 }
 
 const infoContainer: SxStyleProp = {
-  py: ['8px', '16px', '24px'],
+  py: '24px',
   px: '16px',
   flexDirection: 'column',
   alignItems: 'center',
@@ -53,34 +53,32 @@ const infoContainer: SxStyleProp = {
 }
 
 const icon: SxStyleProp = {
-  width: ['24px', '32px'],
+  width: '24px',
   height: 'auto',
 }
 
 const title: SxStyleProp = {
   mt: ['8px'],
-  mb: ['0px', '8px'],
-  fontSize: ['16px', '22px'],
-  lineHeight: ['22px', '32px'],
+  mb: '8px',
+  fontSize: '22px',
+  lineHeight: '32px',
   fontWeight: '400',
   color: 'muted.0',
 }
 
 const description: SxStyleProp = {
-  display: ['none', '-webkit-box'],
   fontSize: '16px',
   lineHeight: '22px',
   fontWeight: '400',
   color: 'muted.1',
   minHeight: '44px',
   overflow: 'hidden',
-  WebkitLineClamp: 2,
-  WebkitBoxOrient: 'vertical',
   width: '100%',
+  height: '100%',
 }
 
 const quickStartedContainer: SxStyleProp = {
-  height: ['34px', '68px'],
+  height: '68px',
   justifyContent: 'center',
   alignItems: 'center',
   borderTop: '1px solid #E7E9EE',
@@ -104,10 +102,15 @@ const quickStartedContainer: SxStyleProp = {
 }
 
 const learnMoreText: SxStyleProp = {
-  fontSize: ['12px', '16px'],
-  lineHeight: ['16px', '22px'],
+  fontSize: '16px',
+  lineHeight: '22px',
   fontWeight: '400',
   color: 'muted.0',
+}
+
+const accessPortal: SxStyleProp = {
+  columnGap: '5px',
+  alignItems: 'center',
 }
 
 export default {
@@ -118,4 +121,5 @@ export default {
   quickStartedContainer,
   learnMoreText,
   title,
+  accessPortal,
 }

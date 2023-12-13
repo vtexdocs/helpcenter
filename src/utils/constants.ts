@@ -1,6 +1,4 @@
-import APIGuidesIcon from 'components/icons/api-guides-icon'
 import AnnouncementIcon from 'components/icons/announcement-icon'
-import DashboardsIcon from 'components/icons/dashboards-icon'
 
 import { getMessages } from 'utils/get-messages'
 import {
@@ -19,6 +17,9 @@ import {
 } from './typings/types'
 import { IntlShape } from 'react-intl'
 import libraryConfig from './libraryConfig'
+import DeveloperPortalIcon from 'components/icons/developer-portal-icon'
+import StartHereIcon from 'components/icons/start-here-icon'
+import TutorialsIcon from 'components/icons/tutorials-icon'
 
 libraryConfig
 export const messages = getMessages()
@@ -26,20 +27,35 @@ export const messages = getMessages()
 export const documentationData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
-      Icon: APIGuidesIcon,
-      title: 'Start here',
+      Icon: StartHereIcon,
+      title: intl.formatMessage({
+        id: 'documentation_start_here.title',
+      }),
       description: intl.formatMessage({
-        id: 'documentation_api_guides.description',
+        id: 'documentation_start_here.description',
       }),
       link: '/docs/tracks',
     },
     {
-      Icon: DashboardsIcon,
-      title: 'Tutorials & Solutions',
+      Icon: TutorialsIcon,
+      title: intl.formatMessage({
+        id: 'documentation_tutorials.title',
+      }),
       description: intl.formatMessage({
-        id: 'documentation_api_reference.description',
+        id: 'documentation_tutorials.description',
       }),
       link: '/docs/tutorial',
+    },
+    {
+      Icon: DeveloperPortalIcon,
+      title: intl.formatMessage({
+        id: 'documentation_developers_portal.title',
+      }),
+      description: intl.formatMessage({
+        id: 'documentation_developers_portal.description',
+      }),
+      link: 'https://developers.vtex.com/',
+      isExternalLink: true,
     },
   ]
   return data

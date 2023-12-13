@@ -1,6 +1,9 @@
 export type Locale = 'en' | 'pt' | 'es'
 
-export type DocumentationTitle = 'Start here' | 'Tutorials & Solutions'
+export type DocumentationTitle =
+  | 'Start here'
+  | 'Tutorials & Solutions'
+  | 'Developers Portal'
 
 export type UpdatesTitle = 'News' | 'Documentation Updates'
 

@@ -1,7 +1,6 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
 const sectionContainer: SxStyleProp = {
-  px: ['8px', '12px', '96px', '38px'],
   paddingTop: ['0px', '32px'],
   paddingBottom: ['24px', '52px', '52px', '48px'],
   margin: 'auto',
