@@ -14,6 +14,8 @@ import Layout from 'components/layout'
 type Props = AppProps & {
   Component: Page
 }
+import { ErrorBoundary, SuspenseFallback } from 'components/error-boundary'
+import { Suspense } from 'react'
 
 import TrackerProvider from 'utils/contexts/trackerContext'
 import PreviewContextProvider from 'utils/contexts/preview'
@@ -40,7 +42,13 @@ function MyApp({ Component, pageProps }: Props) {
             sectionSelected={pageProps.sectionSelected}
             parentsArray={pageProps.parentsArray}
           >
-            <Component {...pageProps} />
+            <ErrorBoundary>
+              <Suspense
+                fallback={<SuspenseFallback branch={pageProps.branch} />}
+              >
+                <Component {...pageProps} />
+              </Suspense>
+            </ErrorBoundary>
           </Layout>
         </PreviewContextProvider>
       </IntlProvider>

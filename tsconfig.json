@@ -37,7 +37,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/tests/cypress/support/commands.js"
+    "src/tests/cypress/support/commands.js",
+    "src/components/error-boundary/index.jsx"
   ],
   "exclude": ["node_modules"]
 }
