@@ -14,12 +14,16 @@ import {
   UpdatesDataElement,
   WhatsNextDataElement,
   ResourceDataElement,
+  FaqDataElement,
 } from './typings/types'
 import { IntlShape } from 'react-intl'
 import libraryConfig from './libraryConfig'
 import DeveloperPortalIcon from 'components/icons/developer-portal-icon'
 import StartHereIcon from 'components/icons/start-here-icon'
 import TutorialsIcon from 'components/icons/tutorials-icon'
+import PaperIcon from 'components/icons/paper-icon'
+import WarningIcon from 'components/icons/warning-icon'
+import GraphIcon from 'components/icons/graph-icon'
 
 libraryConfig
 export const messages = getMessages()
@@ -74,6 +78,65 @@ export const updatesData = (intl: IntlShape) => {
   ]
   return data
 }
+
+export const faqData = (intl: IntlShape) => {
+  const data: FaqDataElement[] = [
+    {
+      Icon: PaperIcon,
+      title: intl.formatMessage({
+        id: 'faq_order_error.title',
+      }),
+      description: intl.formatMessage({
+        id: 'faq_order_error.description',
+      }),
+      type: intl.formatMessage({
+        id: 'faq_order_error.type',
+      }),
+      link: '/',
+    },
+    {
+      Icon: WarningIcon,
+      title: intl.formatMessage({
+        id: 'faq_handling.title',
+      }),
+      description: intl.formatMessage({
+        id: 'faq_handling.description',
+      }),
+      type: intl.formatMessage({
+        id: 'faq_handling.type',
+      }),
+      link: '/',
+    },
+    {
+      Icon: GraphIcon,
+      title: intl.formatMessage({
+        id: 'faq_product_visible.title',
+      }),
+      description: intl.formatMessage({
+        id: 'faq_product_visible.description',
+      }),
+      type: intl.formatMessage({
+        id: 'faq_product_visible.type',
+      }),
+      link: '/',
+    },
+    {
+      Icon: PaperIcon,
+      title: intl.formatMessage({
+        id: 'faq_carrier.title',
+      }),
+      description: intl.formatMessage({
+        id: 'faq_carrier.description',
+      }),
+      type: intl.formatMessage({
+        id: 'faq_carrier.type',
+      }),
+      link: '/',
+    },
+  ]
+  return data
+}
+
 export const getIcon = (doc: string, intl: IntlShape) => {
   return (
     documentationData(intl).find((icon) => icon.title === doc)?.Icon ||

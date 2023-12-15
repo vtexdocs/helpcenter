@@ -22,6 +22,12 @@ export interface DocDataElement extends DataElement {
   title: string
   isExternalLink?: boolean
 }
+
+export interface FaqDataElement extends DataElement {
+  title: string
+  type: string
+}
+
 export interface UpdatesDataElement extends DataElement {
   title: UpdatesTitle
 }
