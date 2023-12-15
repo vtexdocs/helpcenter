@@ -13,7 +13,7 @@ interface Props {
   branch: string
 }
 
-const fiveHundredPage: Page<Props> = ({ branch }) => {
+const FiveHundredPage: Page<Props> = ({ branch }) => {
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
 
@@ -73,4 +73,4 @@ export const getStaticProps: GetStaticProps = async ({
   }
 }
 
-export default fiveHundredPage
+export default FiveHundredPage
