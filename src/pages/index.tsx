@@ -13,6 +13,7 @@ import { GetStaticProps } from 'next'
 import { useContext } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 import SupportSection from 'components/support-section'
+import FaqSection from 'components/faq-section'
 
 interface Props {
   branch: string
@@ -40,8 +41,9 @@ const Home: Page<Props> = ({ branch }) => {
       <Grid sx={styles.grid}>
         <NewsletterSection />
         <DocumentationSection />
-        <LastUpdatesSection />
+        <FaqSection />
         <SupportSection />
+        <LastUpdatesSection />
         <EducationSection />
       </Grid>
     </>
