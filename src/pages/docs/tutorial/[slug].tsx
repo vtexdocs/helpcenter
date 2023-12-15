@@ -207,7 +207,7 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
-      : await getTutorialsPaths(branch)
+      : await getTutorialsPaths('tutorials', branch)
 
   const logger = getLogger('Tutorials & Solutions')
   const path = docsPaths[slug].find((e) => e.locale === locale)?.path

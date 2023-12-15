@@ -207,7 +207,7 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
-      : await getTracksPaths(branch)
+      : await getTracksPaths('tracks', branch)
 
   const logger = getLogger('Start here')
 

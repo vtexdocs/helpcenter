@@ -166,7 +166,7 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
-      : await getNewsPaths(branch)
+      : await getNewsPaths('announcements', branch)
 
   const path = docsPaths[slug].find((e) => e.locale === locale)?.path
   if (!path) {
