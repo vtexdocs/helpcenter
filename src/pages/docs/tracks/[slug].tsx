@@ -395,8 +395,6 @@ export const getStaticProps: GetStaticProps = async ({
       })
     })
 
-    console.log(breadcrumbList)
-
     return {
       props: {
         sectionSelected,
