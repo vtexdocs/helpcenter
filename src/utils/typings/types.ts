@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import { IconProps } from '@vtex/brand-ui'
 
-import { ActionType } from 'components/last-updates-card/functions'
+import { ActionType } from 'components/announcement-card/functions'
 import { UpdatesTitle, ResourceTitle } from './unionTypes'
 
 // eslint-disable-next-line @typescript-eslint/ban-types

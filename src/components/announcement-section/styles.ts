@@ -4,7 +4,8 @@ const sectionContainer: SxStyleProp = {
   px: ['18px', '32px'],
   py: ['32px', '64px'],
   backgroundColor: 'muted.4',
-  textAlign: ['center', 'center', 'initial'],
+  alignItems: 'center',
+  flexDirection: 'column',
 }
 
 const title: SxStyleProp = {

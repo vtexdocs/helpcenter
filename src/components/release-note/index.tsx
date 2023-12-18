@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Flex, Timeline, Text, Box, Button, IconCaret } from '@vtex/brand-ui'
 
 import type { UpdateElement } from 'utils/typings/types'
-import { getAction } from './../last-updates-card/functions'
+import { getAction } from '../announcement-card/functions'
 import { getReleaseDate } from './functions'
 import styles from './styles'
 import ReactMarkdown from 'react-markdown'
