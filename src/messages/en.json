@@ -33,6 +33,7 @@
   "landing_page_documentation_card.learnMoreText": "Learn more",
   "landing_page_documentation_card.accessPortal": "Access the portal",
   "landing_page_last_updates.title": "News",
+  "landing_page_last_updates.description": "Stay up to date about the latest news from VTEX.",
   "dashboards.description": "Manage data from your unified commerce",
   "orders.description": "Check the status of orders placed in your store.",
   "landing_page_education.title": "Still got questions?",
