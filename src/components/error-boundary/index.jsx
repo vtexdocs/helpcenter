@@ -20,7 +20,7 @@ export class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <h1>Error occur</h1>
+      return <FiveHundredPage branch="main" />
     }
 
     return this.props.children
