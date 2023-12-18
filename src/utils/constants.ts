@@ -24,6 +24,7 @@ import TutorialsIcon from 'components/icons/tutorials-icon'
 import PaperIcon from 'components/icons/paper-icon'
 import WarningIcon from 'components/icons/warning-icon'
 import GraphIcon from 'components/icons/graph-icon'
+import SignalIcon from 'components/icons/signal-icon'
 
 libraryConfig
 export const messages = getMessages()
@@ -132,6 +133,54 @@ export const faqData = (intl: IntlShape) => {
         id: 'faq_carrier.type',
       }),
       link: '/',
+    },
+  ]
+  return data
+}
+
+export const supportData = (intl: IntlShape) => {
+  const data: DocDataElement[] = [
+    {
+      Icon: WarningIcon,
+      title: intl.formatMessage({
+        id: 'support_known_issues.title',
+      }),
+      description: intl.formatMessage({
+        id: 'support_known_issues.description',
+      }),
+      link: '/known-issues',
+    },
+    {
+      Icon: PaperIcon,
+      title: intl.formatMessage({
+        id: 'support_plans.title',
+      }),
+      description: intl.formatMessage({
+        id: 'support_plans.description',
+      }),
+      link: '/support-plans',
+    },
+    {
+      Icon: SignalIcon,
+      title: intl.formatMessage({
+        id: 'support_health_check.title',
+      }),
+      description: intl.formatMessage({
+        id: 'support_health_check.description',
+      }),
+      isExternalLink: true,
+      link: 'http://healthcheck.vtex.com/',
+    },
+    {
+      Icon: GraphIcon,
+      title: intl.formatMessage({
+        id: 'support_status.title',
+      }),
+      description: intl.formatMessage({
+        id: 'support_status.description',
+      }),
+      isExternalLink: true,
+      link: 'https://status.vtex.com/',
     },
   ]
   return data
