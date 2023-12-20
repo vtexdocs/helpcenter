@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@vtex/brand-ui'
+import { Box, Button, Flex, Text } from '@vtex/brand-ui'
 
 import { CardProps } from '../announcement-card'
 import { useIntl } from 'react-intl'
@@ -42,13 +42,16 @@ const AnnouncementSection = () => {
       <Flex>
         <Text sx={styles.title}>
           {intl.formatMessage({
-            id: 'landing_page_last_updates.title',
+            id: 'landing_page_announcements.title',
           })}
         </Text>
       </Flex>
       <Box sx={styles.cardsContainer}>
         <AnnouncementCard announcements={lastAnnouncements} />
       </Box>
+      <Button sx={styles.button}>
+        {intl.formatMessage({ id: 'landing_page_announcements.button' })}
+      </Button>
     </Flex>
   )
 }

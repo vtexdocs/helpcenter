@@ -60,13 +60,13 @@ const AnnouncementCard = ({ announcements }: Props) => {
             <MegaphoneIcon />
             <Text>
               {intl.formatMessage({
-                id: 'landing_page_last_updates.title',
+                id: 'landing_page_announcements.title',
               })}
             </Text>
           </Flex>
           <Text sx={styles.description}>
             {intl.formatMessage({
-              id: 'landing_page_last_updates.description',
+              id: 'landing_page_announcements.description',
             })}
           </Text>
         </Box>
