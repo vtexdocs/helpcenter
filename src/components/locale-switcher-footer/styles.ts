@@ -11,16 +11,15 @@ const optionContainer: SxStyleProp = {
   position: 'absolute',
   display: 'flex',
   flexDirection: 'column',
-  // width: '11rem',
   marginRight: '10px',
   top: 'auto',
   right: '0',
   bottom: '100%',
   px: 5,
-  // border: '1px solid #e7e9ed',
   borderTop: 'none',
   backgroundColor: '#ffffff',
   boxShadow: '0px 20px 25px rgba(20, 32, 50, 0.1)',
+  zIndex: 5,
 }
 
 const baseLocaleSwitcher: SxStyleProp = {
