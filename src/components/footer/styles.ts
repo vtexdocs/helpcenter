@@ -14,7 +14,7 @@ const outerBox: SxStyleProp = {
   justifyContent: 'space-between',
   flexWrap: 'wrap',
   rowGap: '32px',
-  overflow: 'auto',
+  overflow: ['initial'],
 }
 
 const socialMediaIcons: SxStyleProp = {
