@@ -7,7 +7,6 @@ import {
   getCommunityURL,
   getLearningCenterURL,
   getDeveloperPortalURL,
-  getHelpCenterURL,
   getSupportURL,
 } from 'utils/get-url'
 
@@ -142,13 +141,6 @@ export const resources = (intl: IntlShape) => {
         id: 'app_development_page_other_resources_github.description',
       }),
       link: getDeveloperPortalURL(),
-    },
-    {
-      title: 'Help Center',
-      description: intl.formatMessage({
-        id: 'app_development_page_other_resources_help_center.description',
-      }),
-      link: getHelpCenterURL(),
     },
     {
       title: 'Support',
