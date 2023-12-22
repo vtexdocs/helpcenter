@@ -14,6 +14,7 @@ const octokitConfig = {
     installationId: config.GITHUB_INSTALLATIONID,
   },
   throttle: {
+    enabled: false,
     onRateLimit: (retryAfter: any, options: any, octokit: any) => {
       octokit.log.warn(
         `Request quota exhausted for request ${options.method} ${options.url}`

@@ -15,23 +15,27 @@ export default async function getFileContributors(
   path: string
 ): Promise<unknown> {
   const contributors: ContributorsType[] = []
-  const response = await octokit.rest.repos.listCommits({
-    owner,
-    repo,
-    sha: ref,
-    path,
-  })
+  try {
+    const response = await octokit.rest.repos.listCommits({
+      owner,
+      repo,
+      sha: ref,
+      path,
+    })
 
-  response.data.forEach((commitData: any) => {
-    if (!contributors.find((e) => e.login === commitData.author.login)) {
-      contributors.push({
-        name: commitData.commit.author.name,
-        login: commitData.author.login,
-        avatar: commitData.author.avatar_url,
-        userPage: commitData.author.html_url,
-      })
-    }
-  })
+    response.data.forEach((commitData: any) => {
+      if (!contributors.find((e) => e.login === commitData.author.login)) {
+        contributors.push({
+          name: commitData.commit.author.name,
+          login: commitData.author.login,
+          avatar: commitData.author.avatar_url,
+          userPage: commitData.author.html_url,
+        })
+      }
+    })
+  } catch (e: any) {
+    console.error(e.response.data.message)
+  }
 
   return contributors
 }
