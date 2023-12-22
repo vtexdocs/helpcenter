@@ -35,9 +35,7 @@ import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
 import styles from 'styles/documentation-page'
-import getFileContributors, {
-  ContributorsType,
-} from 'utils/getFileContributors'
+import { ContributorsType } from 'utils/getFileContributors'
 
 import { getLogger } from 'utils/logging/log-util'
 import {
@@ -222,7 +220,7 @@ export const getStaticProps: GetStaticProps = async ({
   //   'vtexdocs',
   //   'help-center-content',
   //   branch,
-  //   path
+  //   pathcontribut
   // )
 
   let documentationContent =
@@ -232,15 +230,45 @@ export const getStaticProps: GetStaticProps = async ({
       .then((res) => res.text())
       .catch((err) => console.log(err))) || ''
 
+  // const contributors =
+  //   (await getFileContributors(
+  //     'vtexdocs',
+  //     'help-center-content',
+  //     branch,
+  //     path
+  //   ).catch((err) => {
+  //     console.log(err)
+  //   })) || []
+
   const contributors =
-    (await getFileContributors(
-      'vtexdocs',
-      'help-center-content',
-      branch,
-      path
-    ).catch((err) => {
-      console.log(err)
-    })) || []
+    (await fetch(
+      `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then(({ users }) => {
+        const result: ContributorsType[] = []
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        for (let i = 0; i < users.length; i++) {
+          const user = users[i]
+          if (user.id === '41898282') continue
+          result.push({
+            name: user.login,
+            login: user.login,
+            avatar: user.primaryAvatarUrl,
+            userPage: `https://github.com${user.profileLink}`,
+          })
+        }
+
+        return result
+      })
+      .catch((err) => console.log(err))) || []
 
   let format: 'md' | 'mdx' = 'mdx'
   try {
