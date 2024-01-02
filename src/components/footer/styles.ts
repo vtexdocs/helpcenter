@@ -38,10 +38,22 @@ const localeSwitchLanding: SxStyleProp = {
   positionBottom: '5px',
 }
 
+const icon: SxStyleProp = {
+  size: 32,
+  color: '#CCCED7',
+  transition: 'all 0.3s ease-out',
+  borderRadius: '50%',
+  ':hover': {
+    color: 'white',
+    backgroundColor: 'rgba(204, 206, 215, 0.3)',
+  },
+}
+
 export default {
   localeSwitchLanding,
   test,
   outerBox,
   socialMediaIcons,
   textLinkItems,
+  icon,
 }

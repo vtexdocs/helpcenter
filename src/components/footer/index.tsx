@@ -60,23 +60,23 @@ const Footer = () => {
   const socialIcons = [
     {
       to: () => getFacebookURL(),
-      component: <FacebookIcon sx={{ size: 32 }} />,
+      component: <FacebookIcon sx={styles.icon} />,
     },
     {
       to: () => getInstagramURL(),
-      component: <InstagramIcon sx={{ size: 32 }} />,
+      component: <InstagramIcon sx={styles.icon} />,
     },
     {
       to: () => getYoutubeURL(),
-      component: <YoutubeIcon sx={{ size: 32 }} />,
+      component: <YoutubeIcon sx={styles.icon} />,
     },
     {
       to: () => getLinkedinURL(),
-      component: <LinkedinIcon sx={{ size: 32 }} />,
+      component: <LinkedinIcon sx={styles.icon} />,
     },
     {
       to: () => getTwitterURL(),
-      component: <TwitterIcon sx={{ size: 32 }} />,
+      component: <TwitterIcon sx={styles.icon} />,
     },
   ]
   return (
