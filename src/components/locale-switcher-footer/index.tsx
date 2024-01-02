@@ -33,6 +33,7 @@ export default function LocaleSwitcherFooter() {
     router.push(router.pathname, router.asPath, { locale })
     disclosure.hide()
   }
+
   const disclosure = useDisclosureState({ visible: false })
   const Option = ({ screen, option, onClick, active }: OptionProps) => {
     const variant = `localeSwitcher.${screen}.option`
@@ -60,23 +61,23 @@ export default function LocaleSwitcherFooter() {
           direction={disclosure.visible ? 'up' : 'down'}
           size={30}
         />
-
-        <Box sx={styles.optionContainer}>
-          <DisclosureContent {...disclosure}>
-            {options.map((option) => (
-              <Option
-                key={option.label}
-                option={option}
-                screen="large"
-                onClick={() => {
-                  handleOptionClick(option.value)
-                }}
-                active={option.value === router.locale}
-              />
-            ))}
-          </DisclosureContent>
-        </Box>
       </Disclosure>
+
+      <DisclosureContent {...disclosure}>
+        <Box sx={styles.optionContainer}>
+          {options.map((option) => (
+            <Option
+              key={option.label}
+              option={option}
+              screen="large"
+              onClick={() => {
+                handleOptionClick(option.value)
+              }}
+              active={option.value === router.locale}
+            />
+          ))}
+        </Box>
+      </DisclosureContent>
     </Box>
   )
 }
