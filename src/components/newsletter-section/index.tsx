@@ -12,7 +12,7 @@ const NewsletterSection = () => {
       <Box sx={styles.imageContainer}>
         <Image
           src={'/images/landing.png'}
-          alt=""
+          alt="Image of the VTEX store environment"
           fill
           style={{
             width: '100%',
