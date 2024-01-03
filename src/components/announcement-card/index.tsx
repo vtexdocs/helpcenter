@@ -73,9 +73,12 @@ const AnnouncementCard = ({ announcements }: Props) => {
         <Box sx={styles.timelineContainer}>
           {announcements.map((announcement, index) => {
             return index === 0 ? (
-              <AnnouncementTimelineItem {...{ ...announcement, first: true }} />
+              <AnnouncementTimelineItem
+                key={index}
+                {...{ ...announcement, first: true }}
+              />
             ) : (
-              <AnnouncementTimelineItem {...announcement} />
+              <AnnouncementTimelineItem key={index} {...announcement} />
             )
           })}
         </Box>
