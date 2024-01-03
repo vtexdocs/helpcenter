@@ -1,10 +1,5 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
-const test: SxStyleProp = {
-  display: 'flex',
-  backgroundColor: 'aquamarine',
-}
-
 const outerBox: SxStyleProp = {
   bg: '#142032;',
   display: ['flex'],
@@ -51,7 +46,6 @@ const icon: SxStyleProp = {
 
 export default {
   localeSwitchLanding,
-  test,
   outerBox,
   socialMediaIcons,
   textLinkItems,
