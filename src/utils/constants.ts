@@ -76,6 +76,7 @@ export const menuDocumentationData = (intl: IntlShape) => {
       link: '/docs/tutorial',
     },
     {
+      // Checar com thaylly se deve ficar no mesmo lugar
       Icon: DeveloperPortalIcon,
       title: intl.formatMessage({
         id: 'documentation_developers_portal.title',
@@ -102,13 +103,19 @@ export const updatesData = (intl: IntlShape) => {
     },
     {
       Icon: MegaphoneIcon,
-      title: intl.formatMessage({
-        id: 'updates_announcements_notes.title',
-      }),
+      title: 'Announcement',
       description: intl.formatMessage({
-        id: 'updates_announcements_notes.description',
+        id: 'updates_announcements_notes.description', // TODO: Adicionar devida descricao
       }),
       link: '/updates/announcements', //TODO: verificar rota
+    },
+    {
+      Icon: InfoIcon,
+      title: 'FAQ',
+      description: intl.formatMessage({
+        id: 'updates_info_notes.description', //TODO: Adicionar devida descricao
+      }),
+      link: '/updates/announcements', //TODO: mudar rota
     },
   ]
   return data
