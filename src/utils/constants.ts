@@ -1,5 +1,3 @@
-import AnnouncementIcon from 'components/icons/announcement-icon'
-
 import { getMessages } from 'utils/get-messages'
 import {
   getCommunityURL,
@@ -15,6 +13,7 @@ import {
   WhatsNextDataElement,
   ResourceDataElement,
   FaqDataElement,
+  SupportElement,
 } from './typings/types'
 import { IntlShape } from 'react-intl'
 import libraryConfig from './libraryConfig'
@@ -25,6 +24,8 @@ import PaperIcon from 'components/icons/paper-icon'
 import WarningIcon from 'components/icons/warning-icon'
 import GraphIcon from 'components/icons/graph-icon'
 import SignalIcon from 'components/icons/signal-icon'
+import MegaphoneIcon from 'components/icons/megaphone-icon'
+import InfoIcon from 'components/icons/info-icon'
 
 libraryConfig
 export const messages = getMessages()
@@ -52,6 +53,7 @@ export const documentationData = (intl: IntlShape) => {
       link: '/docs/tutorial',
     },
     {
+      // Checar com thaylly se deve ficar no mesmo lugar
       Icon: DeveloperPortalIcon,
       title: intl.formatMessage({
         id: 'documentation_developers_portal.title',
@@ -69,14 +71,45 @@ export const documentationData = (intl: IntlShape) => {
 export const updatesData = (intl: IntlShape) => {
   const data: UpdatesDataElement[] = [
     {
-      Icon: AnnouncementIcon,
-      title: 'News',
+      Icon: MegaphoneIcon,
+      title: 'Announcement',
       description: intl.formatMessage({
-        id: 'updates_release_notes.description',
+        id: 'updates_announcements_notes.description', // TODO: Adicionar devida descricao
       }),
-      link: '/updates/announcements',
+      link: '/updates/announcements', //TODO: verificar rota
+    },
+    {
+      Icon: InfoIcon,
+      title: 'FAQ',
+      description: intl.formatMessage({
+        id: 'updates_info_notes.description', //TODO: Adicionar devida descricao
+      }),
+      link: '/updates/announcements', //TODO: mudar rota
     },
   ]
+  return data
+}
+
+export const knownIssuesData = (intl: IntlShape) => {
+  const data: SupportElement[] = [
+    {
+      Icon: WarningIcon,
+      title: 'Known Issues',
+      description: intl.formatMessage({
+        id: 'sidebar_known_issues.description',
+      }),
+      link: '/updates/announcements', //TODO: Trocar rota
+    },
+    {
+      Icon: PaperIcon,
+      title: 'Support Rules',
+      description: intl.formatMessage({
+        id: 'sidebar_support_rules.description',
+      }),
+      link: '/updates/announcements', //TODO: trocar rota
+    },
+  ]
+
   return data
 }
 
