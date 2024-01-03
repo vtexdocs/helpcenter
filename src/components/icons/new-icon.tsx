@@ -9,18 +9,18 @@ const NewIcon = (props: IconProps) => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <circle cx="8.50146" cy="8" r="8" fill="#F71963" />
-    <g clip-path="url(#clip0_462_17766)">
+    <g clipPath="url(#clip0_462_17766)">
       <path
         d="M12.6681 6L8.7098 9.95833L6.62646 7.875L3.50146 11"
         stroke="#FFF3F6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M10.1685 6H12.6685V8.5"
         stroke="#FFF3F6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </g>
     <defs>

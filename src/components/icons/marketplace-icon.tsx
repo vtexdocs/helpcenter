@@ -15,9 +15,9 @@ const MarketplaceIcon = (props: IconProps) => (
       r="32"
       fill="none"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="18"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="18"
     ></circle>
     <circle
       cx="176"
@@ -25,9 +25,9 @@ const MarketplaceIcon = (props: IconProps) => (
       r="32"
       fill="none"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="18"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="18"
     ></circle>
     <circle
       cx="176"
@@ -35,9 +35,9 @@ const MarketplaceIcon = (props: IconProps) => (
       r="32"
       fill="none"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="18"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="18"
     ></circle>
     <line
       x1="149.08436"
@@ -46,9 +46,9 @@ const MarketplaceIcon = (props: IconProps) => (
       y2="110.69864"
       fill="none"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="18"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="18"
     ></line>
     <line
       x1="90.9132"
@@ -57,9 +57,9 @@ const MarketplaceIcon = (props: IconProps) => (
       y2="182.69704"
       fill="none"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="18"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="18"
     ></line>
   </Icon>
 )

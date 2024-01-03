@@ -13,9 +13,9 @@ const CatalogIcon = (props: IconProps) => (
       d="M122.66459,25.8792,42.0101,42.0101,25.8792,122.66459a8,8,0,0,0,2.1878,7.22578L132.51977,234.34315a8,8,0,0,0,11.31371,0l90.50967-90.50967a8,8,0,0,0,0-11.31371L129.89037,28.067A8,8,0,0,0,122.66459,25.8792Z"
       fill="none"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="18"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="18"
     ></path>
     <circle cx="84" cy="84" r="12" fill="#4A596B"></circle>
   </Icon>

@@ -16,9 +16,9 @@ const SupportPlansIcon = (props: IconProps) => (
       y2="208"
       fill="none"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="18"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="18"
     ></line>
     <line
       x1="32"
@@ -27,9 +27,9 @@ const SupportPlansIcon = (props: IconProps) => (
       y2="104"
       fill="none"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="18"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="18"
     ></line>
     <rect
       x="32"
@@ -37,10 +37,10 @@ const SupportPlansIcon = (props: IconProps) => (
       width="192"
       height="160"
       rx="8"
-      stroke-width="18"
+      strokeWidth="18"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       fill="none"
     ></rect>
   </Icon>

@@ -13,9 +13,9 @@ const DashboardsIcon = (props: IconProps) => (
       points="44 208 44 136 100 136"
       fill="none"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="18"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="18"
     ></polyline>
     <line
       x1="228"
@@ -24,27 +24,27 @@ const DashboardsIcon = (props: IconProps) => (
       y2="208"
       fill="none"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="18"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="18"
     ></line>
     <polyline
       points="100 208 100 88 156 88"
       fill="none"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="18"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="18"
     ></polyline>
     <rect
       x="156"
       y="40"
       width="56"
       height="168"
-      stroke-width="18"
+      strokeWidth="18"
       stroke="#4A596B"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       fill="none"
     ></rect>
   </Icon>
