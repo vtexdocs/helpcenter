@@ -4,7 +4,8 @@ const sectionContainer: SxStyleProp = {
   px: ['18px', '32px'],
   py: ['32px', '64px'],
   backgroundColor: 'muted.4',
-  textAlign: ['center', 'center', 'initial'],
+  alignItems: 'center',
+  flexDirection: 'column',
 }
 
 const title: SxStyleProp = {
@@ -23,8 +24,15 @@ const cardsContainer: SxStyleProp = {
   width: ['auto', 'auto', '100%'],
 }
 
+const button: SxStyleProp = {
+  mt: ['31px', '60px', '60px', '54px', '69px', '58px'],
+  display: ['block', 'block', 'block', 'block', 'block', 'none'],
+  transition: 'all 0.3s ease-out',
+}
+
 export default {
   cardsContainer,
   sectionContainer,
   title,
+  button,
 }

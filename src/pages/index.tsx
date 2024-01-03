@@ -3,8 +3,8 @@ import type { Page } from 'utils/typings/types'
 
 import NewsletterSection from 'components/newsletter-section'
 import DocumentationSection from 'components/documentation-section'
-import LastUpdatesSection from 'components/last-updates-section'
 import EducationSection from 'components/education-section'
+import AnnouncementSection from 'components/announcement-section'
 
 import Head from 'next/head'
 import styles from 'styles/landing-page'
@@ -13,6 +13,7 @@ import { GetStaticProps } from 'next'
 import { useContext } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 import SupportSection from 'components/support-section'
+import FaqSection from 'components/faq-section'
 
 interface Props {
   branch: string
@@ -40,8 +41,9 @@ const Home: Page<Props> = ({ branch }) => {
       <Grid sx={styles.grid}>
         <NewsletterSection />
         <DocumentationSection />
-        <LastUpdatesSection />
+        <FaqSection />
         <SupportSection />
+        <AnnouncementSection />
         <EducationSection />
       </Grid>
     </>

@@ -3,14 +3,16 @@ import { SxStyleProp } from '@vtex/brand-ui'
 const cardContainer: SxStyleProp = {
   flexDirection: 'column',
   margin: '16px',
-  width: '282px',
-  height: '293px',
+  width: ['292px', '292px', '441px', '441px', '441px', '441px', '441px'],
+  height: ['84px', '84px', '172px'],
   boxSizing: 'initial',
   borderRadius: '8px',
   border: '1px solid #E7E9EE',
   transition: 'all 0.3s ease-out',
+  padding: '16px',
+  backgroundColor: 'white',
 
-  '.title, .description, .quickStartedContainer': {
+  '.title, .description, .typeContainer': {
     transition: 'all 0.3s ease-out',
   },
 
@@ -29,41 +31,48 @@ const cardContainer: SxStyleProp = {
       color: 'muted.0',
     },
 
-    '.quickStartedContainer': {
+    '.typeContainer': {
       borderColor: 'muted.2',
     },
 
-    '.title, .description, .quickStartedContainer': {
+    '.title, .description, .typeContainer': {
+      transition: 'all 0.3s ease-out',
+    },
+
+    '.type': {
+      color: '#F71963',
+      transition: 'all 0.3s ease-out',
+    },
+
+    '.icon': {
+      color: '#F71963',
       transition: 'all 0.3s ease-out',
     },
   },
 }
 
 const infoContainer: SxStyleProp = {
-  py: '24px',
-  px: '16px',
   flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  textAlign: 'center',
+  alignItems: 'start',
   backgroundColor: '#FEFEFE',
-  borderTopLeftRadius: '8px',
-  borderTopRightRadius: '8px',
   height: '100%',
 }
 
 const icon: SxStyleProp = {
-  width: '24px',
+  width: ['12px', '12px', '18px'],
+  minHeight: '12px',
+  minWidth: '12px',
   height: 'auto',
 }
 
 const title: SxStyleProp = {
-  mt: ['8px'],
-  mb: '8px',
-  fontSize: '22px',
-  lineHeight: '32px',
+  mt: '12px',
+  mb: '12px',
+  fontSize: ['16px', '16px', '22px'],
+  lineHeight: ['22px', '22px', '32px'],
   fontWeight: '400',
   color: 'muted.0',
+  height: '50%',
 }
 
 const description: SxStyleProp = {
@@ -74,43 +83,25 @@ const description: SxStyleProp = {
   minHeight: '44px',
   overflow: 'hidden',
   width: '100%',
-  height: '100%',
+  height: '50%',
+  display: ['none', 'none', 'block', 'block', 'block', 'block', 'block'],
 }
 
-const quickStartedContainer: SxStyleProp = {
-  height: '68px',
-  justifyContent: 'center',
+const typeContainer: SxStyleProp = {
+  height: '30px',
+  paddingBottom: '12px',
+  justifyContent: 'left',
   alignItems: 'center',
-  borderTop: '1px solid #E7E9EE',
-  borderBottomLeftRadius: '8px',
-  borderBottomRightRadius: '8px',
+  borderBottom: '1px solid #E7E9EE',
   transition: 'all 0.3s ease-out',
-
-  '.learnMoreText': {
-    transition: 'all 0.3s ease-out',
-  },
-
-  ':active, :hover': {
-    backgroundColor: '#F8F7FC',
-    transition: 'all 0.3s ease-out',
-
-    '.learnMoreText': {
-      color: '#000711',
-      transition: 'all 0.3s ease-out',
-    },
-  },
+  columnGap: '4px',
 }
 
-const learnMoreText: SxStyleProp = {
-  fontSize: '16px',
-  lineHeight: '22px',
+const type: SxStyleProp = {
+  fontSize: ['12px', '12px', '16px'],
+  lineHeight: '18px',
   fontWeight: '400',
-  color: 'muted.0',
-}
-
-const accessPortal: SxStyleProp = {
-  columnGap: '5px',
-  alignItems: 'center',
+  color: '#5E6E84',
 }
 
 export default {
@@ -118,8 +109,7 @@ export default {
   description,
   icon,
   infoContainer,
-  quickStartedContainer,
-  learnMoreText,
+  typeContainer,
+  type,
   title,
-  accessPortal,
 }

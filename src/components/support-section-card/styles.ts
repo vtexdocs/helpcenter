@@ -3,45 +3,43 @@ import { SxStyleProp } from '@vtex/brand-ui'
 const cardContainer: SxStyleProp = {
   flexDirection: 'column',
   margin: '16px',
-  width: '282px',
+  width: '290px',
   height: '293px',
   boxSizing: 'initial',
   borderRadius: '8px',
   border: '1px solid #E7E9EE',
   transition: 'all 0.3s ease-out',
 
-  '.title, .description, .quickStartedContainer': {
-    transition: 'all 0.3s ease-out',
-  },
-
   ':active, :hover': {
     cursor: 'pointer',
     backgroundColor: 'white',
     borderColor: 'muted.2',
-    boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.1)',
     transition: 'all 0.3s ease-out',
 
-    '.title': {
-      color: '#000711',
-    },
-
-    '.description': {
-      color: 'muted.0',
+    '.titleContainer': {
+      backgroundColor: '#363F4C',
     },
 
     '.quickStartedContainer': {
       borderColor: 'muted.2',
     },
-
-    '.title, .description, .quickStartedContainer': {
-      transition: 'all 0.3s ease-out',
-    },
   },
+}
+
+const titleContainer: SxStyleProp = {
+  alignItems: 'center',
+  flexDirection: 'column',
+  py: '16px',
+  backgroundColor: 'muted.0',
+  color: 'white',
+  transition: 'all 0.3s ease-out',
+  rowGap: '10px',
+  borderRadius: '8px 8px 0px 0px',
 }
 
 const infoContainer: SxStyleProp = {
   py: '24px',
-  px: '16px',
+  px: '24px',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
@@ -49,7 +47,7 @@ const infoContainer: SxStyleProp = {
   backgroundColor: '#FEFEFE',
   borderTopLeftRadius: '8px',
   borderTopRightRadius: '8px',
-  height: '100%',
+  height: '157px',
 }
 
 const icon: SxStyleProp = {
@@ -58,12 +56,9 @@ const icon: SxStyleProp = {
 }
 
 const title: SxStyleProp = {
-  mt: ['8px'],
-  mb: '8px',
   fontSize: '22px',
   lineHeight: '32px',
   fontWeight: '400',
-  color: 'muted.0',
 }
 
 const description: SxStyleProp = {
@@ -73,12 +68,10 @@ const description: SxStyleProp = {
   color: 'muted.1',
   minHeight: '44px',
   overflow: 'hidden',
-  width: '100%',
-  height: '100%',
 }
 
 const quickStartedContainer: SxStyleProp = {
-  height: '68px',
+  height: '56px',
   justifyContent: 'center',
   alignItems: 'center',
   borderTop: '1px solid #E7E9EE',
@@ -91,7 +84,6 @@ const quickStartedContainer: SxStyleProp = {
   },
 
   ':active, :hover': {
-    backgroundColor: '#F8F7FC',
     transition: 'all 0.3s ease-out',
 
     '.learnMoreText': {
@@ -117,6 +109,7 @@ export default {
   cardContainer,
   description,
   icon,
+  titleContainer,
   infoContainer,
   quickStartedContainer,
   learnMoreText,

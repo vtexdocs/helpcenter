@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useIntl } from 'react-intl'
 import LongArrowIcon from 'components/icons/long-arrow-icon'
 
-const DocumentationSectionCard = ({
+const SupportSectionCard = ({
   Icon,
   title,
   description,
@@ -41,11 +41,13 @@ const DocumentationSectionCard = ({
     <Tooltip placement="top" label={tooltipDescription} isCard={tooltipState}>
       <Link href={link} legacyBehavior>
         <Flex sx={styles.cardContainer}>
-          <Flex sx={styles.infoContainer}>
+          <Flex className="titleContainer" sx={styles.titleContainer}>
             <Icon sx={styles.icon} />
             <Text className="title" sx={styles.title}>
               {title}
             </Text>
+          </Flex>
+          <Flex sx={styles.infoContainer}>
             <Text
               ref={descriptionRef}
               className="description"
@@ -81,4 +83,4 @@ const DocumentationSectionCard = ({
   )
 }
 
-export default DocumentationSectionCard
+export default SupportSectionCard

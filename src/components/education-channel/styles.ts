@@ -2,6 +2,7 @@ import { SxStyleProp } from '@vtex/brand-ui'
 
 const channelBox: SxStyleProp = {
   flexDirection: 'column',
+  maxWidth: '340px',
   width: ['auto', '327px', 'auto'],
   mx: ['0px', '0px', '0px', '0px', '32px'],
   mt: ['32px', '64px', '64px', '64px', '0px'],
@@ -30,17 +31,18 @@ const channelBox: SxStyleProp = {
 }
 
 const channelTitle: SxStyleProp = {
-  fontSize: ['16px', '28px'],
+  fontSize: ['16px', '16px', '28px'],
   lineHeight: ['22px', '38px'],
   color: 'muted.0',
   display: 'flex',
   alignItems: 'center',
+  textAlign: 'center',
 }
 
 const channelDescription: SxStyleProp = {
-  fontSize: ['16px', '18px', '22px', '22px', '18px'],
+  fontSize: ['16px', '16px', '22px', '22px', '18px'],
   lineHeight: ['22px', '24px', '32px', '32px', '24px'],
-  color: ['muted.1', 'muted.0'],
+  color: 'muted.1',
   textAlign: 'center',
   mt: ['4px', '6px'],
   mb: ['0px', '16px', '8px', '8px', '16px'],

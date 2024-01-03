@@ -1,21 +1,18 @@
 import Link from 'next/link'
 import { Flex, Text } from '@vtex/brand-ui'
 
-import type { DocDataElement } from 'utils/typings/types'
+import type { FaqDataElement } from 'utils/typings/types'
 import Tooltip from 'components/tooltip'
 import styles from './styles'
 import { useEffect, useRef, useState } from 'react'
-import { useIntl } from 'react-intl'
-import LongArrowIcon from 'components/icons/long-arrow-icon'
 
-const DocumentationSectionCard = ({
+const FaqSectionCard = ({
   Icon,
   title,
   description,
+  type,
   link,
-  isExternalLink = false,
-}: DocDataElement) => {
-  const intl = useIntl()
+}: FaqDataElement) => {
   const [tooltipState, setTooltipState] = useState(false)
   const [tooltipDescription, setTooltipDescription] = useState(description)
   const descriptionRef = useRef<HTMLElement>()
@@ -41,8 +38,13 @@ const DocumentationSectionCard = ({
     <Tooltip placement="top" label={tooltipDescription} isCard={tooltipState}>
       <Link href={link} legacyBehavior>
         <Flex sx={styles.cardContainer}>
+          <Flex className="typeContainer" sx={styles.typeContainer}>
+            <Icon className="icon" sx={styles.icon} />
+            <Text className="type" sx={styles.type}>
+              {type}
+            </Text>
+          </Flex>
           <Flex sx={styles.infoContainer}>
-            <Icon sx={styles.icon} />
             <Text className="title" sx={styles.title}>
               {title}
             </Text>
@@ -54,31 +56,10 @@ const DocumentationSectionCard = ({
               {description}
             </Text>
           </Flex>
-          <Flex
-            className="quickStartedContainer"
-            sx={styles.quickStartedContainer}
-          >
-            {!isExternalLink ? (
-              <Text className="learnMoreText" sx={styles.learnMoreText}>
-                {intl.formatMessage({
-                  id: 'landing_page_documentation_card.learnMoreText',
-                })}
-              </Text>
-            ) : (
-              <Flex sx={styles.accessPortal}>
-                <Text className="accessPortal" sx={styles.learnMoreText}>
-                  {intl.formatMessage({
-                    id: 'landing_page_documentation_card.accessPortal',
-                  })}
-                </Text>
-                <LongArrowIcon size={18} />
-              </Flex>
-            )}
-          </Flex>
         </Flex>
       </Link>
     </Tooltip>
   )
 }
 
-export default DocumentationSectionCard
+export default FaqSectionCard

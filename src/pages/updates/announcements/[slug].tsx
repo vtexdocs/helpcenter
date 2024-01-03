@@ -36,7 +36,7 @@ import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { getReleaseDate } from 'components/release-note/functions'
-import { ActionType, getAction } from 'components/last-updates-card/functions'
+import { ActionType, getAction } from 'components/announcement-card/functions'
 
 import styles from 'styles/documentation-page'
 import { PreviewContext } from 'utils/contexts/preview'

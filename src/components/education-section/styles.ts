@@ -7,7 +7,7 @@ const container: SxStyleProp = {
 }
 
 const title: SxStyleProp = {
-  fontSize: ['20px', '28px', '28px', '28px', '40px'],
+  fontSize: ['28px', '28px', '28px', '28px', '40px'],
   lineHeight: ['30px', '38px', '38px', '38px', '50px'],
   color: 'text',
   textAlign: 'center',

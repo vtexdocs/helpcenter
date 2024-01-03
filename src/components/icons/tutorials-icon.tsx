@@ -1,45 +1,50 @@
 import type { IconProps } from '@vtex/brand-ui'
 import { Icon } from '@vtex/brand-ui'
 
-const APIGuidesIcon = (props: IconProps) => (
+const TutorialsIcon = (props: IconProps) => (
   <Icon
     {...props}
-    viewBox="0 0 32 32"
+    viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M24.5518 8.552L20.7812 4.78133C20.2812 4.28133 19.6025 4 18.8958 4H9.33317C7.85984 4 6.6665 5.19333 6.6665 6.66667V25.3333C6.6665 26.8067 7.85984 28 9.33317 28H22.6665C24.1398 28 25.3332 26.8067 25.3332 25.3333V10.4373C25.3332 9.73067 25.0518 9.052 24.5518 8.552V8.552Z"
+      d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20"
       stroke="#4A596B"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M25.3332 10.6667H19.9998C19.2638 10.6667 18.6665 10.0693 18.6665 9.33333V4"
+      d="M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2Z"
       stroke="#4A596B"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M10.6665 14.6667H18.6665"
+      d="M17 9H8"
       stroke="#4A596B"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M10.6665 18.6667H18.6665"
+      d="M15 13H8"
       stroke="#4A596B"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M10.6665 22.6667H16.4398"
+      d="M12 5H10H8"
+      stroke="#4A596B"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M16 5H15.5H15"
       stroke="#4A596B"
       strokeWidth="2"
       strokeLinecap="round"
@@ -48,4 +53,4 @@ const APIGuidesIcon = (props: IconProps) => (
   </Icon>
 )
 
-export default APIGuidesIcon
+export default TutorialsIcon
