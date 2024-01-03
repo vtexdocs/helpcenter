@@ -16,7 +16,11 @@ import {
   LibraryContextProvider,
   Sidebar,
 } from '@vtexdocs/components'
-import { documentationData, updatesData } from 'utils/constants'
+import {
+  documentationData,
+  knownIssuesData,
+  updatesData,
+} from 'utils/constants'
 import { useIntl } from 'react-intl'
 
 interface Props {
@@ -51,7 +55,11 @@ export default function Layout({
   return (
     <ThemeProvider>
       <LibraryContextProvider
-        sections={[documentationData(intl), updatesData(intl)]}
+        sections={[
+          documentationData(intl),
+          knownIssuesData(intl),
+          updatesData(intl),
+        ]}
         sectionSelected={sectionSelected ?? ''}
         fallback={sidebarfallback}
         isPreview={isPreview}

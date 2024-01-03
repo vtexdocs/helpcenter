@@ -224,5 +224,9 @@
   "support_plans.description": "Consulte los detalles de los planes de soporte disponibles para cada plan comercial.",
   "announcement_bar.headline": "📢 Queremos saber más sobre ti y cómo utilizas nuestra documentación. ",
   "announcement_bar.button": "¡Complete nuestra encuesta! Toma menos de 5 minutos.",
-  "documentation_reading_time.text": "{minutes} min de lectura"
+  "documentation_reading_time.text": "{minutes} min de lectura",
+  "sidebar_known_issues.description": "Accede a contenido y encuentra soluciones a todas tus preguntas sobre la plataforma.",
+  "sidebar_support_rules.description": "Vea los detalles de los planes de soporte disponibles para cada plan comercial.",
+  "updates_announcements_notes.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.",
+  "updates_info_notes.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
 }
