@@ -330,5 +330,6 @@
   "support_plans.title": "Planos de suporte",
   "support_plans.description": "Veja detalhes dos planos de suporte disponíveis para cada plano comercial.",
   "announcement_bar.headline": "📢 Queremos saber mais sobre você e como você utiliza a nossa documentação. ",
-  "announcement_bar.button": "Participe de nossa pesquisa! Leva menos de 5 minutos."
+  "announcement_bar.button": "Participe de nossa pesquisa! Leva menos de 5 minutos.",
+  "documentation_reading_time.text": "{minutes} min de leitura"
 }
