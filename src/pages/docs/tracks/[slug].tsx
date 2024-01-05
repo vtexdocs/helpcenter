@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useContext, useRef } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import jp from 'jsonpath'
@@ -45,6 +45,8 @@ import {
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 // import { ParsedUrlQuery } from 'querystring'
+import { useIntl } from 'react-intl'
+import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 
 const docsPathsGLOBAL = await getTracksPaths('tracks')
 
@@ -93,12 +95,16 @@ const TrackPage: NextPage<Props> = ({
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
+  const intl = useIntl()
   setBranchPreview(branch)
   const { setActiveSidebarElement } = useContext(LibraryContext)
+  const articleRef = useRef<HTMLElement>(null)
+
   useEffect(() => {
     setActiveSidebarElement(slug)
     setHeadings(headingList)
   }, [serialized.frontmatter])
+
   return (
     <>
       <Head>
@@ -118,9 +124,20 @@ const TrackPage: NextPage<Props> = ({
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <article>
+              <article ref={articleRef}>
                 <header>
-                  <Breadcrumb breadcrumbList={breadcrumbList} />
+                  <Flex sx={styles.flexContainer}>
+                    <Breadcrumb breadcrumbList={breadcrumbList} />
+                    <Text sx={styles.readingTime}>
+                      {intl.formatMessage(
+                        {
+                          id: 'documentation_reading_time.text',
+                          defaultMessage: '',
+                        },
+                        { minutes: serialized.frontmatter?.readingTime }
+                      )}
+                    </Text>
+                  </Flex>
                   <Text sx={styles.documentationTitle} className="title">
                     {serialized.frontmatter?.title}
                   </Text>
@@ -293,6 +310,7 @@ export const getStaticProps: GetStaticProps = async ({
           remarkImages,
           [getHeadings, { headingList }],
           remarkBlockquote,
+          remarkReadingTime,
         ],
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
