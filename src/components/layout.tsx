@@ -19,6 +19,7 @@ import {
 import {
   documentationData,
   knownIssuesData,
+  menuSupportData,
   updatesData,
 } from 'utils/constants'
 import { useIntl } from 'react-intl'
@@ -58,6 +59,11 @@ export default function Layout({
         sections={[
           documentationData(intl),
           knownIssuesData(intl),
+          updatesData(intl),
+        ]}
+        hamburguerMenuSections={[
+          documentationData(intl),
+          menuSupportData(intl),
           updatesData(intl),
         ]}
         sectionSelected={sectionSelected ?? ''}

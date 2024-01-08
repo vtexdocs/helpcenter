@@ -57,7 +57,7 @@
   "landing_page_footer_community.message": "Comunidade",
   "landing_page_footer_feedback.message": "Feedback",
   "landing_page_header_feedback.message": "Feedback",
-  "landing_page_header_docs.message": "Documentação",
+  "landing_page_header_docs.message": "Menu",
   "search_input.placeholder": "Pesquise no Help Center",
   "search_input.empty": "No results found. Try different search terms.",
   "feedback_section.question": "Isso foi útil?",
@@ -242,6 +242,8 @@
   "documentation_reading_time.text": "{minutes} min de leitura",
   "sidebar_known_issues.description": "Acesse conteúdo e encontre soluções para todas as suas dúvidas sobre a plataforma.",
   "sidebar_support_rules.description": "Veja detalhes dos planos de suporte disponíveis para cada plano comercial.",
-  "updates_announcements_notes.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.",
-  "updates_info_notes.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
+  "updates_announcements_notes.description": "Fique por dentro das principais notícias da VTEX.",
+  "updates_info_notes.description": "Encontre respostas para suas principais dúvidas de forma rápida e prática.",
+  "menu_health_check.description": "Verifique o status detalhado em tempo real.",
+  "menu_status.description": "Acompanhe o registro do histórico de plataforma."
 }
