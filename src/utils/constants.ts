@@ -76,7 +76,6 @@ export const menuDocumentationData = (intl: IntlShape) => {
       link: '/docs/tutorial',
     },
     {
-      // Checar com thaylly se deve ficar no mesmo lugar
       Icon: DeveloperPortalIcon,
       title: intl.formatMessage({
         id: 'documentation_developers_portal.title',
