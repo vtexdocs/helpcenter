@@ -52,8 +52,33 @@ export const documentationData = (intl: IntlShape) => {
       }),
       link: '/docs/tutorial',
     },
+  ]
+  return data
+}
+
+export const menuDocumentationData = (intl: IntlShape) => {
+  const data: DocDataElement[] = [
     {
-      // Checar com thaylly se deve ficar no mesmo lugar
+      Icon: StartHereIcon,
+      title: intl.formatMessage({
+        id: 'documentation_start_here.title',
+      }),
+      description: intl.formatMessage({
+        id: 'documentation_start_here.description',
+      }),
+      link: '/docs/tracks',
+    },
+    {
+      Icon: TutorialsIcon,
+      title: intl.formatMessage({
+        id: 'documentation_tutorials.title',
+      }),
+      description: intl.formatMessage({
+        id: 'documentation_tutorials.description',
+      }),
+      link: '/docs/tutorial',
+    },
+    {
       Icon: DeveloperPortalIcon,
       title: intl.formatMessage({
         id: 'documentation_developers_portal.title',
