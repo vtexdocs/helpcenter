@@ -2,7 +2,7 @@ import { Box } from '@vtex/brand-ui'
 
 import DocumentationCard from 'components/documentation-card'
 import {
-  documentationData,
+  menuDocumentationData,
   menuSupportData,
   updatesData,
 } from 'utils/constants'
@@ -19,7 +19,7 @@ const DropdownMenu = () => {
           sx={styles.documentationContainer}
           data-cy="dropdown-menu-first-section"
         >
-          {documentationData(intl).map((card) => (
+          {menuDocumentationData(intl).map((card) => (
             <DocumentationCard
               containerType="dropdown"
               key={card.title}
