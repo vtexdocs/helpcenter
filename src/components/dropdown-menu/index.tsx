@@ -43,6 +43,18 @@ const DropdownMenu = () => {
           sx={styles.updatesContainer}
           data-cy="dropdown-menu-second-section"
         >
+          {menuSupportData(intl).map((card) => (
+            <DocumentationCard
+              containerType="dropdown"
+              key={card.title}
+              {...card}
+            />
+          ))}
+        </Box>
+        <Box
+          sx={styles.updatesContainer}
+          data-cy="dropdown-menu-second-section"
+        >
           {updatesData(intl).map((card) => (
             <DocumentationCard
               containerType="dropdown"

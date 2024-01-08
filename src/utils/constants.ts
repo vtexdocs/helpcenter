@@ -102,20 +102,20 @@ export const updatesData = (intl: IntlShape) => {
       link: '/updates/announcements', //TODO: mudar rota
     },
     {
-      Icon: MegaphoneIcon,
-      title: 'Announcement',
-      description: intl.formatMessage({
-        id: 'updates_announcements_notes.description', // TODO: Adicionar devida descricao
-      }),
-      link: '/updates/announcements', //TODO: verificar rota
-    },
-    {
       Icon: InfoIcon,
       title: 'FAQ',
       description: intl.formatMessage({
         id: 'updates_info_notes.description', //TODO: Adicionar devida descricao
       }),
       link: '/updates/announcements', //TODO: mudar rota
+    },
+    {
+      Icon: MegaphoneIcon,
+      title: 'Announcement',
+      description: intl.formatMessage({
+        id: 'updates_announcements_notes.description', // TODO: Adicionar devida descricao
+      }),
+      link: '/updates/announcements', //TODO: verificar rota
     },
   ]
   return data
@@ -131,7 +131,23 @@ export const knownIssuesData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'sidebar_known_issues.description',
       }),
-      link: '/updates/announcements', //TODO: Trocar rota
+      link: '#', //TODO: Trocar rota
+    },
+    {
+      Icon: GraphIcon,
+      title: 'Status',
+      description: intl.formatMessage({
+        id: 'menu_status.description',
+      }),
+      link: '#',
+    },
+    {
+      Icon: SignalIcon,
+      title: 'Health Check',
+      description: intl.formatMessage({
+        id: 'menu_health_check.description',
+      }),
+      link: '#',
     },
     {
       Icon: PaperIcon,
@@ -141,7 +157,7 @@ export const knownIssuesData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'sidebar_support_rules.description',
       }),
-      link: '/updates/announcements', //TODO: trocar rota
+      link: '#', //TODO: trocar rota
     },
   ]
 

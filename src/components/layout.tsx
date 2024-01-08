@@ -19,6 +19,7 @@ import {
 import {
   documentationData,
   knownIssuesData,
+  menuSupportData,
   updatesData,
 } from 'utils/constants'
 import { useIntl } from 'react-intl'
