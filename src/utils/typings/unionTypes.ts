@@ -7,7 +7,11 @@ export type DocumentationTitle =
 
 export type UpdatesTitle = 'Announcement' | 'FAQ'
 
-export type SupportTitle = 'Known Issues' | 'Support Rules'
+export type SupportTitle =
+  | 'Known Issues'
+  | 'Support Rules'
+  | 'Health Check'
+  | 'Status'
 
 export type SlugPrefix = 'tutorial'
 

@@ -132,6 +132,8 @@ const Header = () => {
             <Flex sx={styles.dropdownButton(showDropdown)}>
               <GridIcon />
               <Text sx={styles.rightButtonsText} data-cy="docs-dropdown">
+                {' '}
+                {/*TODO: mudar data-cy no teste */}
                 <FormattedMessage id="landing_page_header_docs.message" />
               </Text>
             </Flex>
