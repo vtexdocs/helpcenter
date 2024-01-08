@@ -71,20 +71,20 @@ export const documentationData = (intl: IntlShape) => {
 export const updatesData = (intl: IntlShape) => {
   const data: UpdatesDataElement[] = [
     {
-      Icon: MegaphoneIcon,
-      title: 'Announcement',
-      description: intl.formatMessage({
-        id: 'updates_announcements_notes.description', // TODO: Adicionar devida descricao
-      }),
-      link: '/updates/announcements', //TODO: verificar rota
-    },
-    {
       Icon: InfoIcon,
       title: 'FAQ',
       description: intl.formatMessage({
         id: 'updates_info_notes.description', //TODO: Adicionar devida descricao
       }),
       link: '/updates/announcements', //TODO: mudar rota
+    },
+    {
+      Icon: MegaphoneIcon,
+      title: 'Announcement',
+      description: intl.formatMessage({
+        id: 'updates_announcements_notes.description', // TODO: Adicionar devida descricao
+      }),
+      link: '/updates/announcements', //TODO: verificar rota
     },
   ]
   return data
@@ -107,6 +107,45 @@ export const knownIssuesData = (intl: IntlShape) => {
         id: 'sidebar_support_rules.description',
       }),
       link: '/updates/announcements', //TODO: trocar rota
+    },
+  ]
+
+  return data
+}
+
+export const menuSupportData = (intl: IntlShape) => {
+  const data: SupportElement[] = [
+    {
+      Icon: WarningIcon,
+      title: 'Known Issues',
+      description: intl.formatMessage({
+        id: 'sidebar_known_issues.description',
+      }),
+      link: '#', //TODO: Trocar rota
+    },
+    {
+      Icon: GraphIcon,
+      title: 'Status',
+      description: intl.formatMessage({
+        id: 'menu_status.description',
+      }),
+      link: '#',
+    },
+    {
+      Icon: SignalIcon,
+      title: 'Health Check',
+      description: intl.formatMessage({
+        id: 'menu_health_check.description',
+      }),
+      link: '#',
+    },
+    {
+      Icon: PaperIcon,
+      title: 'Support Rules',
+      description: intl.formatMessage({
+        id: 'sidebar_support_rules.description',
+      }),
+      link: '#', //TODO: trocar rota
     },
   ]
 
