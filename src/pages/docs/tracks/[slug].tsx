@@ -383,6 +383,10 @@ export const getStaticProps: GetStaticProps = async ({
       sidebarfallback,
       `$..[?(@.type=='markdown')]..name`
     )
+    const docsListType = jp.query(
+      sidebarfallback,
+      `$..[?(@.type=='markdown')]..type`
+    )
     const indexOfSlug = docsListSlug.indexOf(slug)
     const pagination = {
       previousDoc: {
@@ -423,6 +427,7 @@ export const getStaticProps: GetStaticProps = async ({
         currentLocale,
         parentsArrayName
       )
+      parentsArrayName.push(docsListName[indexOfSlug][currentLocale])
       getParents(
         keyPath,
         'type',
@@ -430,6 +435,13 @@ export const getStaticProps: GetStaticProps = async ({
         currentLocale,
         parentsArrayType
       )
+      parentsArrayType.push(docsListType[indexOfSlug])
+
+      if (serialized.frontmatter) {
+        serialized.frontmatter.title = `${
+          docsListName[indexOfSlug][currentLocale].split(' ')[0]
+        } ${serialized.frontmatter.title}`
+      }
     }
 
     const breadcrumbList: { slug: string; name: string; type: string }[] = []
