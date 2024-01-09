@@ -40,7 +40,7 @@ import { ActionType, getAction } from 'components/announcement-card/functions'
 
 import styles from 'styles/documentation-page'
 import { PreviewContext } from 'utils/contexts/preview'
-import { ParsedUrlQuery } from 'querystring'
+// import { ParsedUrlQuery } from 'querystring'
 
 const docsPathsGLOBAL = await getNewsPaths('announcements')
 
@@ -126,24 +126,24 @@ const NewsPage: NextPage<Props> = ({ serialized, branch }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs: { [slug: string]: { locale: string; path: string }[] } =
-    await getNewsPaths('announcements')
+  // const slugs: { [slug: string]: { locale: string; path: string }[] } =
+  //   await getNewsPaths('announcements')
 
-  const paths: (
-    | string
-    | {
-        params: ParsedUrlQuery
-        locale?: string | undefined
-      }
-  )[] = []
-  Object.entries(slugs).forEach(([slug, locales]) => {
-    locales.forEach(({ locale }) => {
-      paths.push({ params: { slug }, locale })
-    })
-  })
+  // const paths: (
+  //   | string
+  //   | {
+  //       params: ParsedUrlQuery
+  //       locale?: string | undefined
+  //     }
+  // )[] = []
+  // Object.entries(slugs).forEach(([slug, locales]) => {
+  //   locales.forEach(({ locale }) => {
+  //     paths.push({ params: { slug }, locale })
+  //   })
+  // })
 
   return {
-    paths,
+    paths: [],
     fallback: 'blocking',
   }
 }

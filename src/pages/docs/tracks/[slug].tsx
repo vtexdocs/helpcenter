@@ -44,7 +44,7 @@ import {
   localeType,
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
-import { ParsedUrlQuery } from 'querystring'
+// import { ParsedUrlQuery } from 'querystring'
 
 const docsPathsGLOBAL = await getTracksPaths('tracks')
 
@@ -166,23 +166,23 @@ const TrackPage: NextPage<Props> = ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs: { [slug: string]: { locale: string; path: string }[] } =
-    await getTracksPaths('tracks')
+  // const slugs: { [slug: string]: { locale: string; path: string }[] } =
+  //   await getTracksPaths('tracks')
 
-  const paths: (
-    | string
-    | {
-        params: ParsedUrlQuery
-        locale?: string | undefined
-      }
-  )[] = []
-  Object.entries(slugs).forEach(([slug, locales]) => {
-    locales.forEach(({ locale }) => {
-      paths.push({ params: { slug }, locale })
-    })
-  })
+  // const paths: (
+  //   | string
+  //   | {
+  //       params: ParsedUrlQuery
+  //       locale?: string | undefined
+  //     }
+  // )[] = []
+  // Object.entries(slugs).forEach(([slug, locales]) => {
+  //   locales.forEach(({ locale }) => {
+  //     paths.push({ params: { slug }, locale })
+  //   })
+  // })
   return {
-    paths,
+    paths: [],
     fallback: 'blocking',
   }
 }
@@ -439,6 +439,7 @@ export const getStaticProps: GetStaticProps = async ({
         breadcrumbList,
         branch,
       },
+      revalidate: 600,
     }
   } catch (error) {
     logger.error(`Error while processing ${path}\n${error}`)

@@ -44,7 +44,7 @@ import {
   getParents,
   localeType,
 } from 'utils/navigation-utils'
-import { ParsedUrlQuery } from 'querystring'
+// import { ParsedUrlQuery } from 'querystring'
 
 const docsPathsGLOBAL = await getTutorialsPaths('tutorials')
 
@@ -166,23 +166,23 @@ const TutorialPage: NextPage<Props> = ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs: { [slug: string]: { locale: string; path: string }[] } =
-    await getTutorialsPaths('tutorials')
+  // const slugs: { [slug: string]: { locale: string; path: string }[] } =
+  //   await getTutorialsPaths('tutorials')
 
-  const paths: (
-    | string
-    | {
-        params: ParsedUrlQuery
-        locale?: string | undefined
-      }
-  )[] = []
-  Object.entries(slugs).forEach(([slug, locales]) => {
-    locales.forEach(({ locale }) => {
-      paths.push({ params: { slug }, locale })
-    })
-  })
+  // const paths: (
+  //   | string
+  //   | {
+  //       params: ParsedUrlQuery
+  //       locale?: string | undefined
+  //     }
+  // )[] = []
+  // Object.entries(slugs).forEach(([slug, locales]) => {
+  //   locales.forEach(({ locale }) => {
+  //     paths.push({ params: { slug }, locale })
+  //   })
+  // })
   return {
-    paths,
+    paths: [],
     fallback: 'blocking',
   }
 }
@@ -436,6 +436,7 @@ export const getStaticProps: GetStaticProps = async ({
         breadcrumbList,
         branch,
       },
+      revalidate: 600,
     }
   } catch (error) {
     logger.error(`Error while processing ${path}\n${error}`)
