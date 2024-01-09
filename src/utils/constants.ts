@@ -101,18 +101,12 @@ export const updatesData = (intl: IntlShape) => {
       link: '/updates/announcements', //TODO: mudar rota
     },
     {
-      Icon: InfoIcon,
-      title: 'FAQ',
-      description: intl.formatMessage({
-        id: 'updates_info_notes.description', //TODO: Adicionar devida descricao
-      }),
-      link: '/updates/announcements', //TODO: mudar rota
-    },
-    {
       Icon: MegaphoneIcon,
-      title: 'Announcement',
+      title: intl.formatMessage({
+        id: 'updates_announcements_notes.title',
+      }),
       description: intl.formatMessage({
-        id: 'updates_announcements_notes.description', // TODO: Adicionar devida descricao
+        id: 'updates_announcements_notes.description',
       }),
       link: '/updates/announcements', //TODO: verificar rota
     },
