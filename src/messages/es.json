@@ -9,7 +9,7 @@
   "documentation_start_here.description": "Aprenda, passo a passo, tudo que precisa saber para começar a usar os principais módulos da VTEX.",
   "documentation_tutorials.title": "Tutoriais & Soluções",
   "documentation_tutorials.description": "Acesse a documentação de todos os módulos da plataforma e tire suas dúvidas.",
-  "documentation_developers_portal.title": "Developers Portal",
+  "documentation_developers_portal.title": "Portal del Desarrollador",
   "documentation_developers_portal.description": "Visite nosso portal de desenvolvedores e encontre informações técnicas sobre integrações, APIs e recursos de desenvolvimento.",
   "landing_page_faq.title": "Preguntas frecuentes",
   "landing_page_faq.description": "Encuentre respuestas a preguntas frecuentes de manera rápida y práctica",
@@ -118,5 +118,10 @@
   "updates_announcements_notes.description": "Mantente al tanto de las principales noticias de VTEX.",
   "updates_info_notes.description": "Encuentra respuestas a tus preguntas clave de manera rápida y práctica.",
   "menu_health_check.description": "Verifique el estado detallado en tiempo real.",
-  "menu_status.description": "Seguir el registro histórico de la plataforma."
+  "menu_status.description": "Seguir el registro histórico de la plataforma.",
+  "sidebar_support_rules.title": "Directrices de Soporte",
+  "sidebar_known_issues.title": "Problemas Conocidos",
+  "menu_status.title": "Status",
+  "menu_health_check.title": "Verificación de Estado",
+  "updates_announcements_notes.title": "Comunicados"
 }

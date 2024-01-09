@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import { IconProps } from '@vtex/brand-ui'
 
 import { ActionType } from 'components/announcement-card/functions'
-import { UpdatesTitle, ResourceTitle, SupportTitle } from './unionTypes'
+import { UpdatesTitle, ResourceTitle } from './unionTypes'
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type Page<P = {}, IP = P> = NextPage<P, IP> & {
@@ -30,10 +30,6 @@ export interface FaqDataElement extends DataElement {
 
 export interface UpdatesDataElement extends DataElement {
   title: UpdatesTitle
-}
-
-export interface SupportElement extends DataElement {
-  title: SupportTitle
 }
 
 export type UpdateElement = {
