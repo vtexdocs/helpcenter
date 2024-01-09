@@ -8,11 +8,9 @@ import {
 
 import {
   DocDataElement,
-  UpdatesDataElement,
   WhatsNextDataElement,
   ResourceDataElement,
   FaqDataElement,
-  SupportElement,
 } from './typings/types'
 import { IntlShape } from 'react-intl'
 import libraryConfig from './libraryConfig'
@@ -93,20 +91,22 @@ export const menuDocumentationData = (intl: IntlShape) => {
 }
 
 export const updatesData = (intl: IntlShape) => {
-  const data: UpdatesDataElement[] = [
+  const data: DocDataElement[] = [
     {
       Icon: InfoIcon,
       title: 'FAQ',
       description: intl.formatMessage({
-        id: 'updates_info_notes.description', //TODO: Adicionar devida descricao
+        id: 'updates_info_notes.description',
       }),
       link: '/updates/announcements', //TODO: mudar rota
     },
     {
       Icon: MegaphoneIcon,
-      title: 'Announcement',
+      title: intl.formatMessage({
+        id: 'updates_announcements_notes.title',
+      }),
       description: intl.formatMessage({
-        id: 'updates_announcements_notes.description', // TODO: Adicionar devida descricao
+        id: 'updates_announcements_notes.description',
       }),
       link: '/updates/announcements', //TODO: verificar rota
     },
@@ -115,10 +115,12 @@ export const updatesData = (intl: IntlShape) => {
 }
 
 export const knownIssuesData = (intl: IntlShape) => {
-  const data: SupportElement[] = [
+  const data: DocDataElement[] = [
     {
       Icon: WarningIcon,
-      title: 'Known Issues',
+      title: intl.formatMessage({
+        id: 'sidebar_known_issues.title',
+      }),
       description: intl.formatMessage({
         id: 'sidebar_known_issues.description',
       }),
@@ -126,7 +128,9 @@ export const knownIssuesData = (intl: IntlShape) => {
     },
     {
       Icon: PaperIcon,
-      title: 'Support Rules',
+      title: intl.formatMessage({
+        id: 'sidebar_support_rules.title',
+      }),
       description: intl.formatMessage({
         id: 'sidebar_support_rules.description',
       }),
@@ -138,10 +142,12 @@ export const knownIssuesData = (intl: IntlShape) => {
 }
 
 export const menuSupportData = (intl: IntlShape) => {
-  const data: SupportElement[] = [
+  const data: DocDataElement[] = [
     {
       Icon: WarningIcon,
-      title: 'Known Issues',
+      title: intl.formatMessage({
+        id: 'sidebar_known_issues.title',
+      }),
       description: intl.formatMessage({
         id: 'sidebar_known_issues.description',
       }),
@@ -149,23 +155,29 @@ export const menuSupportData = (intl: IntlShape) => {
     },
     {
       Icon: GraphIcon,
-      title: 'Status',
+      title: intl.formatMessage({
+        id: 'menu_status.title',
+      }),
       description: intl.formatMessage({
         id: 'menu_status.description',
       }),
-      link: '#',
+      link: '#', // TODO: trocar rota
     },
     {
       Icon: SignalIcon,
-      title: 'Health Check',
+      title: intl.formatMessage({
+        id: 'menu_health_check.title',
+      }),
       description: intl.formatMessage({
         id: 'menu_health_check.description',
       }),
-      link: '#',
+      link: '#', // TODO: trocar rota
     },
     {
       Icon: PaperIcon,
-      title: 'Support Rules',
+      title: intl.formatMessage({
+        id: 'sidebar_support_rules.title',
+      }),
       description: intl.formatMessage({
         id: 'sidebar_support_rules.description',
       }),

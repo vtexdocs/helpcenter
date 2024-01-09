@@ -119,5 +119,10 @@
   "updates_announcements_notes.description": "Stay informed about the main news from VTEX.",
   "updates_info_notes.description": "Find answers to your key questions quickly and conveniently.",
   "menu_health_check.description": "Check the detailed real-time status.",
-  "menu_status.description": "Follow the plataform's historical record."
+  "menu_status.description": "Follow the plataform's historical record.",
+  "sidebar_support_rules.title": "Support Rules",
+  "sidebar_known_issues.title": "Known Issues",
+  "menu_status.title": "Status",
+  "menu_health_check.title": "Health Check",
+  "updates_announcements_notes.title": "Announcement"
 }
