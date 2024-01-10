@@ -80,221 +80,129 @@
   "start_here_page.subtitle": "Aprenda, passo a passo, tudo que precisa saber para começar a usar a VTEX.",
   "start_here_page.link": "Veja mais",
   "start_here_page_marketplace.title": "Marketplace",
-  "start_here_page_marketplace.content": [
-    {
-      "title": "Integração com a Amazon",
-      "description": "Venda seus produtos em um dos maiores varejistas do mundo através da integração nativa da VTEX.",
-      "link": "tracks/amazon"
-    },
-    {
-      "title": "Integração com o Mercado Livre",
-      "description": "Venda seus produtos em um dos maiores marketplaces da América Latina através da integração nativa da VTEX.",
-      "link": "tracks/mercado-libre-marketplace"
-    },
-    {
-      "title": "Integração com o Magazine Luiza",
-      "description": "Venda seus produtos em um dos maiores marketplaces do Brasil através da integração nativa da VTEX.",
-      "link": "tracks/magazine-luiza-marketplace"
-    },
-    {
-      "title": "Integração com o Carrefour",
-      "description": "Venda em um dos mercados mais tradicionais do mundo através da integração da VTEX.",
-      "link": "tracks/carrefour-marketplace"
-    },
-    {
-      "title": "Integração com a Centauro",
-      "description": "Venda seus produtos na maior rede de lojas esportivas da América Latina com a integração nativa da VTEX!",
-      "link": "tracks/centauro-marketplace"
-    },
-    {
-      "title": "Integração com o Facebook Business Extension",
-      "description": "Anuncie seus produtos pela plataforma Facebook Business Extension através da VTEX.",
-      "link": "tracks/facebook-business-extension"
-    },
-    {
-      "title": "Integração com SkyHub/B2W",
-      "description": "Venda seus produtos em um dos maiores marketplaces do Brasil, em sites como Submarino, Lojas Americanas e Shoptime, através da integração nativa da VTEX.",
-      "link": "tracks/integration-overview-b2w"
-    },
-    {
-      "title": "Integração com a Via Marketplace",
-      "description": "Venda seus produtos em lojas como Casas Bahia e Ponto Frio, marketplaces referência de móveis e eletrodomésticos do Brasil através da integração nativa da VTEX.",
-      "link": "tracks/via-varejo-marketplace"
-    },
-    {
-      "title": "Integração com a Dafiti",
-      "description": "Venda seus produtos em um dos maiores marketplaces de moda através da integração nativa da VTEX.",
-      "link": "tracks/dafiti-marketplace"
-    },
-    {
-      "title": "Integração com a Netshoes",
-      "description": "Venda seus produtos em um dos maiores marketplaces de artigos esportivos através da integração nativa da VTEX.",
-      "link": "tracks/netshoes-marketplace"
-    },
-    {
-      "title": "Integração com a Wish",
-      "description": "Venda seus produtos na Wish usando nossa integração nativa.",
-      "link": "tracks/what-to-configure-in-wish-prior-to-the-integration"
-    },
-    {
-      "title": "Integração com o Google Shopping",
-      "description": "Anuncie seus produtos na plataforma de listagem e rastreamento de produtos do Google através da integração nativa da VTEX.",
-      "link": "tracks/google-shopping-marketplace"
-    },
-    {
-      "title": "Como fazer campanhas através do Google Shopping Ads?",
-      "description": "Anuncie no Google Shopping Ads usando o mais novo recurso do Google, as Campanhas Inteligentes. Comece a anunciar em minutos usando seu catálogo de produtos.",
-      "link": "tracks/google-shopping-ads-install"
-    },
-    {
-      "title": "Integração com o Facebook",
-      "description": "Venda seus produtos em uma das maiores redes sociais do mundo através da integração nativa da VTEX.",
-      "link": "tracks/facebook"
-    },
-    {
-      "title": "Integração com o TikTok",
-      "description": "Anuncie seus produtos no TikTok através da VTEX.",
-      "link": "tracks/tiktok-for-business"
-    },
-    {
-      "title": "Integração Livelo",
-      "description": "Venda seus produtos na plataforma de marketplace com o maior programa de recompensas do Brasil.",
-      "link": "tracks/livelo-integration-overview"
-    }
-  ],
+  "start_here_page_marketplace.content.0.title": "Integração com a Amazon",
+  "start_here_page_marketplace.content.0.description": "Venda seus produtos em um dos maiores varejistas do mundo através da integração nativa da VTEX.",
+  "start_here_page_marketplace.content.0.link": "tracks/amazon",
+  "start_here_page_marketplace.content.1.title": "Integração com o Mercado Livre",
+  "start_here_page_marketplace.content.1.description": "Venda seus produtos em um dos maiores marketplaces da América Latina através da integração nativa da VTEX.",
+  "start_here_page_marketplace.content.1.link": "tracks/mercado-libre-marketplace",
+  "start_here_page_marketplace.content.2.title": "Integração com o Magazine Luiza",
+  "start_here_page_marketplace.content.2.description": "Venda seus produtos em um dos maiores marketplaces do Brasil através da integração nativa da VTEX.",
+  "start_here_page_marketplace.content.2.link": "tracks/magazine-luiza-marketplace",
+  "start_here_page_marketplace.content.3.title": "Integração com o Carrefour",
+  "start_here_page_marketplace.content.3.description": "Venda em um dos mercados mais tradicionais do mundo através da integração da VTEX.",
+  "start_here_page_marketplace.content.3.link": "tracks/carrefour-marketplace",
+  "start_here_page_marketplace.content.4.title": "Integração com a Centauro",
+  "start_here_page_marketplace.content.4.description": "Venda seus produtos na maior rede de lojas esportivas da América Latina com a integração nativa da VTEX!",
+  "start_here_page_marketplace.content.4.link": "tracks/centauro-marketplace",
+  "start_here_page_marketplace.content.5.title": "Integração com o Facebook Business Extension",
+  "start_here_page_marketplace.content.5.description": "Anuncie seus produtos pela plataforma Facebook Business Extension através da VTEX.",
+  "start_here_page_marketplace.content.5.link": "tracks/facebook-business-extension",
+  "start_here_page_marketplace.content.6.title": "Integração com SkyHub/B2W",
+  "start_here_page_marketplace.content.6.description": "Venda seus produtos em um dos maiores marketplaces do Brasil, em sites como Submarino, Lojas Americanas e Shoptime, através da integração nativa da VTEX.",
+  "start_here_page_marketplace.content.6.link": "tracks/integration-overview-b2w",
+  "start_here_page_marketplace.content.7.title": "Integração com a Via Marketplace",
+  "start_here_page_marketplace.content.7.description": "Venda seus produtos em lojas como Casas Bahia e Ponto Frio, marketplaces referência de móveis e eletrodomésticos do Brasil através da integração nativa da VTEX.",
+  "start_here_page_marketplace.content.7.link": "tracks/via-varejo-marketplace",
+  "start_here_page_marketplace.content.8.title": "Integração com a Dafiti",
+  "start_here_page_marketplace.content.8.description": "Venda seus produtos em um dos maiores marketplaces de moda através da integração nativa da VTEX.",
+  "start_here_page_marketplace.content.8.link": "tracks/dafiti-marketplace",
+  "start_here_page_marketplace.content.9.title": "Integração com a Netshoes",
+  "start_here_page_marketplace.content.9.description": "Venda seus produtos em um dos maiores marketplaces de artigos esportivos através da integração nativa da VTEX.",
+  "start_here_page_marketplace.content.9.link": "tracks/netshoes-marketplace",
+  "start_here_page_marketplace.content.10.title": "Integração com a Wish",
+  "start_here_page_marketplace.content.10.description": "Venda seus produtos na Wish usando nossa integração nativa.",
+  "start_here_page_marketplace.content.10.link": "tracks/what-to-configure-in-wish-prior-to-the-integration",
+  "start_here_page_marketplace.content.11.title": "Integração com o Google Shopping",
+  "start_here_page_marketplace.content.11.description": "Anuncie seus produtos na plataforma de listagem e rastreamento de produtos do Google através da integração nativa da VTEX.",
+  "start_here_page_marketplace.content.11.link": "tracks/google-shopping-marketplace",
+  "start_here_page_marketplace.content.12.title": "Como fazer campanhas através do Google Shopping Ads?",
+  "start_here_page_marketplace.content.12.description": "Anuncie no Google Shopping Ads usando o mais novo recurso do Google, as Campanhas Inteligentes. Comece a anunciar em minutos usando seu catálogo de produtos.",
+  "start_here_page_marketplace.content.12.link": "tracks/google-shopping-ads-install",
+  "start_here_page_marketplace.content.13.title": "Integração com o Facebook",
+  "start_here_page_marketplace.content.13.description": "Venda seus produtos em uma das maiores redes sociais do mundo através da integração nativa da VTEX.",
+  "start_here_page_marketplace.content.13.link": "tracks/facebook",
+  "start_here_page_marketplace.content.14.title": "Integração com o TikTok",
+  "start_here_page_marketplace.content.14.description": "Anuncie seus produtos no TikTok através da VTEX.",
+  "start_here_page_marketplace.content.14.link": "tracks/tiktok-for-business",
+  "start_here_page_marketplace.content.15.title": "Integração Livelo",
+  "start_here_page_marketplace.content.15.description": "Venda seus produtos na plataforma de marketplace com o maior programa de recompensas do Brasil.",
+  "start_here_page_marketplace.content.15.link": "tracks/livelo-integration-overview",
   "start_here_page_modules.title": "Módulos VTEX: Primeiros passos",
-  "start_here_page_modules.content": [
-    {
-      "title": "Catálogo",
-      "description": "Aprenda os fundamentos do módulo de Catálogo.",
-      "link": "tracks/catalog-concept-definition"
-    },
-    {
-      "title": "Logística",
-      "description": "Aprenda os fundamentos do módulo de Estoque e Entrega.",
-      "link": "tracks/getting-started-with-logistics"
-    },
-    {
-      "title": "Preços",
-      "description": "Aprenda os fundamentos do módulo de Preços.",
-      "link": "tracks/prices-module-overview"
-    },
-    {
-      "title": "Promoções",
-      "description": "Aprenda os fundamentos do módulo de promoções.",
-      "link": "tracks/how-promotions-work"
-    },
-    {
-      "title": "Pedidos",
-      "description": "Aprenda os fundamentos do módulo de Pedidos.",
-      "link": "tracks/o-que-e-um-pedido-na-vtex"
-    },
-    {
-      "title": "Pagamentos",
-      "description": "Aprenda os fundamentos do módulo de Pagamentos.",
-      "link": "tracks/how-the-payments-module-works"
-    },
-    {
-      "title": "E-mails Transacionais",
-      "description": "Aprenda os fundamentos do módulo de e-mails transacionais.",
-      "link": "tracks/how-message-center-works"
-    },
-    {
-      "title": "Storefront",
-      "description": "Aprenda os fundamentos do nosso Content Management System.",
-      "link": "tracks/what-is-the-cms"
-    },
-    {
-      "title": "Contas e permissões",
-      "description": "Aprenda os fundamentos do módulo de Contas e Permissões.",
-      "link": "tracks/understanding-your-account"
-    },
-    {
-      "title": "Go-live",
-      "description": "Disponibilize sua loja para que clientes a acessem e façam compras.",
-      "link": "tracks/go-live-process"
-    },
-    {
-      "title": "Desenvolvimento de loja",
-      "description": "Aprenda os fundamentos de desenvolvimento de loja na VTEX.",
-      "link": "tracks/frontend"
-    }
-  ],
+  "start_here_page_modules.content.0.title": "Catálogo",
+  "start_here_page_modules.content.0.description": "Aprenda os fundamentos do módulo de Catálogo.",
+  "start_here_page_modules.content.0.link": "tracks/catalog-concept-definition",
+  "start_here_page_modules.content.1.title": "Logística",
+  "start_here_page_modules.content.1.description": "Aprenda os fundamentos do módulo de Estoque e Entrega.",
+  "start_here_page_modules.content.1.link": "tracks/getting-started-with-logistics",
+  "start_here_page_modules.content.2.title": "Preços",
+  "start_here_page_modules.content.2.description": "Aprenda os fundamentos do módulo de Preços.",
+  "start_here_page_modules.content.2.link": "tracks/prices-module-overview",
+  "start_here_page_modules.content.3.title": "Promoções",
+  "start_here_page_modules.content.3.description": "Aprenda os fundamentos do módulo de promoções.",
+  "start_here_page_modules.content.3.link": "tracks/how-promotions-work",
+  "start_here_page_modules.content.4.title": "Pedidos",
+  "start_here_page_modules.content.4.description": "Aprenda os fundamentos do módulo de Pedidos.",
+  "start_here_page_modules.content.4.link": "tracks/o-que-e-um-pedido-na-vtex",
+  "start_here_page_modules.content.5.title": "Pagamentos",
+  "start_here_page_modules.content.5.description": "Aprenda os fundamentos do módulo de Pagamentos.",
+  "start_here_page_modules.content.5.link": "tracks/how-the-payments-module-works",
+  "start_here_page_modules.content.6.title": "E-mails Transacionais",
+  "start_here_page_modules.content.6.description": "Aprenda os fundamentos do módulo de e-mails transacionais.",
+  "start_here_page_modules.content.6.link": "tracks/how-message-center-works",
+  "start_here_page_modules.content.7.title": "Storefront",
+  "start_here_page_modules.content.7.description": "Aprenda os fundamentos do nosso Content Management System.",
+  "start_here_page_modules.content.7.link": "tracks/what-is-the-cms",
+  "start_here_page_modules.content.8.title": "Contas e Permissões",
+  "start_here_page_modules.content.8.description": "Aprenda os fundamentos do módulo de Contas e Permissões.",
+  "start_here_page_modules.content.8.link": "tracks/understanding-your-account",
+  "start_here_page_modules.content.9.title": "Go-live",
+  "start_here_page_modules.content.9.description": "Disponibilize sua loja para que clientes a acessem e façam compras.",
+  "start_here_page_modules.content.9.link": "tracks/go-live-process",
+  "start_here_page_modules.content.10.title": "Desenvolvimento de Loja",
+  "start_here_page_modules.content.10.description": "Aprenda os fundamentos de desenvolvimento de loja na VTEX.",
+  "start_here_page_modules.content.10.link": "tracks/frontend",
   "start_here_page_omnichannel.title": "Omnichannel",
-  "start_here_page_omnichannel.content": [
-    {
-      "title": "VTEX Sales App - Primeiros passos e configurações",
-      "description": "Conceitos, pré-requisitos e instruções para configurar o VTEX Sales App.",
-      "link": "tracks/what-is-instore"
-    },
-    {
-      "title": "VTEX Sales App - Pagamentos",
-      "description": "O passo a passo para configurar os métodos de pagamento por adquirente homologado.",
-      "link": "tracks/setting-up-payment-methods-for-instore"
-    },
-    {
-      "title": "VTEX Sales App - Usando o app",
-      "description": "As funcionalidades do aplicativo do VTEX Sales App e como usá-las.",
-      "link": "tracks/installation"
-    },
-    {
-      "title": "Estratégias de Comércio Unificado",
-      "description": "Guias com o passo a passo para implementar algumas das principais estratégias de Comércio Unificado na VTEX.",
-      "link": "tracks/unified-commerce-101"
-    }
-  ],
+  "start_here_page_omnichannel.content.0.title": "VTEX Sales App - Primeiros passos e configurações",
+  "start_here_page_omnichannel.content.0.description": "Conceitos, pré-requisitos e instruções para configurar o VTEX Sales App.",
+  "start_here_page_omnichannel.content.0.link": "tracks/what-is-instore",
+  "start_here_page_omnichannel.content.1.title": "VTEX Sales App - Pagamentos",
+  "start_here_page_omnichannel.content.1.description": "O passo a passo para configurar os métodos de pagamento por adquirente homologado.",
+  "start_here_page_omnichannel.content.1.link": "tracks/setting-up-payment-methods-for-instore",
+  "start_here_page_omnichannel.content.2.title": "VTEX Sales App - Usando o app",
+  "start_here_page_omnichannel.content.2.description": "As funcionalidades do aplicativo do VTEX Sales App e como usá-las.",
+  "start_here_page_omnichannel.content.2.link": "tracks/installation",
+  "start_here_page_omnichannel.content.3.title": "Estratégias de Comércio Unificado",
+  "start_here_page_omnichannel.content.3.description": "Guias com o passo a passo para implementar algumas das principais estratégias de Comércio Unificado na VTEX.",
+  "start_here_page_omnichannel.content.3.link": "tracks/unified-commerce-101",
   "start_here_page_vtex_io.title": "VTEX IO",
-  "start_here_page_vtex_io.content": [
-    {
-      "title": "VTEX Intelligent Search",
-      "description": "Aprenda os fundamentos do aplicativo VTEX Intelligent Search",
-      "link": "tracks/overview-intelligent-search"
-    },
-    {
-      "title": "Hub de Extensões",
-      "description": "Adquira e gerencie extensões para estender a funcionalidade da sua loja. Encontre parceiros para desenvolver soluções personalizadas.",
-      "link": "extensions-hub-1"
-    }
-  ],
+  "start_here_page_vtex_io.content.0.title": "VTEX Intelligent Search",
+  "start_here_page_vtex_io.content.0.description": "Aprenda os fundamentos do aplicativo VTEX Intelligent Search",
+  "start_here_page_vtex_io.content.0.link": "tracks/overview-intelligent-search",
+  "start_here_page_vtex_io.content.1.title": "Hub de Extensões",
+  "start_here_page_vtex_io.content.1.description": "Adquira e gerencie extensões para estender a funcionalidade da sua loja. Encontre parceiros para desenvolver soluções personalizadas.",
+  "start_here_page_vtex_io.content.1.link": "extensions-hub-1",
   "start_here_page_erp.title": "ERP",
-  "start_here_page_erp.content": [
-    {
-      "title": "Adaptador VTEX - CIASHOP",
-      "description": "Aprenda os fundamentos do Adaptador para migrar a integração entre seu ERP e a CIASHOP para a VTEX.",
-      "link": "tracks/como-funciona-o-adaptador-vtex"
-    }
-  ],
+  "start_here_page_erp.content.0.title": "Adaptador VTEX - CIASHOP",
+  "start_here_page_erp.content.0.description": "Aprenda os fundamentos do Adaptador para migrar a integração entre seu ERP e a CIASHOP para a VTEX.",
+  "start_here_page_erp.content.0.link": "tracks/como-funciona-o-adaptador-vtex",
   "start_here_page_payment.title": "Soluções de pagamento",
-  "start_here_page_payment.content": [
-    {
-      "title": "Customer Credit - Como Começar",
-      "description": "Habilite uma nova forma de pagamento para a sua loja ao aprender o passo a passo de como instalar e configurar o Customer Credit.",
-      "link": "tracks/installing-customer-credit"
-    },
-    {
-      "title": "Condições de Pagamento Clusterizadas",
-      "description": "Conheça e habilite a nova customização de pagamento para o Customer Credit.",
-      "link": "tracks/what-are-clustered-payment-conditions"
-    },
-    {
-      "title": "Carteira digital (ewallet)",
-      "description": "Uma carteira digital (também chamada de ewallet) é um ambiente seguro onde podem ser armazenados dados bancários e de cartão de crédito.",
-      "link": "tracks/google-pay"
-    }
-  ],
+  "start_here_page_payment.content.0.title": "Customer Credit - Como Começar",
+  "start_here_page_payment.content.0.description": "Habilite uma nova forma de pagamento para a sua loja ao aprender o passo a passo de como instalar e configurar o Customer Credit.",
+  "start_here_page_payment.content.0.link": "tracks/installing-customer-credit",
+  "start_here_page_payment.content.1.title": "Condições de Pagamento Clusterizadas",
+  "start_here_page_payment.content.1.description": "Conheça e habilite a nova customização de pagamento para o Customer Credit.",
+  "start_here_page_payment.content.1.link": "tracks/what-are-clustered-payment-conditions",
+  "start_here_page_payment.content.2.title": "Carteira digital (ewallet)",
+  "start_here_page_payment.content.2.description": "Uma carteira digital (também chamada de ewallet) é um ambiente seguro onde podem ser armazenados dados bancários e de cartão de crédito.",
+  "start_here_page_payment.content.2.link": "tracks/google-pay",
   "start_here_page_conversational.title": "Conversational Commerce",
-  "start_here_page_conversational.content": [
-    {
-      "title": "Conversational Commerce VTEX",
-      "description": "Aprenda a diversificar canais de venda, com compras mais rápidas e mais personalizadas por meio da automação.",
-      "link": "tracks/what-is-conversational-commerce-vtex"
-    },
-    {
-      "title": "VTEX Assisted Sales (SuiteShare)",
-      "description": "Aprenda soluções para atrair mais clientes, organizar os atendimentos do seu time, capturar dados dos clientes, fechar vendas e mensurar resultados.",
-      "link": "tracks/what-is-suiteshare"
-    }
-  ],
+  "start_here_page_conversational.content.0.title": "Conversational Commerce VTEX",
+  "start_here_page_conversational.content.0.description": "Aprenda a diversificar canais de venda, com compras mais rápidas e mais personalizadas por meio da automação.",
+  "start_here_page_conversational.content.0.link": "tracks/what-is-conversational-commerce-vtex",
+  "start_here_page_conversational.content.1.title": "VTEX Assisted Sales (SuiteShare)",
+  "start_here_page_conversational.content.1.description": "Aprenda soluções para atrair mais clientes, organizar os atendimentos do seu time, capturar dados dos clientes, fechar vendas e mensurar resultados.",
+  "start_here_page_conversational.content.1.link": "tracks/what-is-suiteshare",
   "storefront_development_page.title": "Storefront Development",
   "storefront_development_page.subtitle": "Express your brand identity creating unique storefronts.",
   "vtex_io_apps_page.title": "VTEX IO Apps",

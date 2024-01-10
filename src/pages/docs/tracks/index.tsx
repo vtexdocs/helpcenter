@@ -17,13 +17,7 @@ interface Props {
   branch: string
 }
 
-type Content = {
-  title: string
-  description: string
-  link: string
-}
-
-const ContentSection = ({ id }: { id: string }) => {
+const ContentSection = ({ id, length }: { id: string; length: number }) => {
   const intl = useIntl()
 
   return (
@@ -32,21 +26,28 @@ const ContentSection = ({ id }: { id: string }) => {
         {intl.formatMessage({ id: `${id}.title` })}
       </Text>
       <Flex sx={styles.cardsContainer}>
-        {((intl.messages[`${id}.content`] as unknown as Content[]) || []).map(
-          (item) => {
+        {Array(length)
+          .fill('')
+          .map((_, index) => {
+            if (!intl.messages[`${id}.content.${index}.title`]) return <></>
             return (
               <WhatsNextCard
-                title={item.title}
-                description={item.description}
+                title={intl.formatMessage({
+                  id: `${id}.content.${index}.title`,
+                })}
+                description={intl.formatMessage({
+                  id: `${id}.content.${index}.description`,
+                })}
                 linkTitle={intl.formatMessage({
                   id: 'start_here_page.link',
                 })}
-                linkTo={item.link}
-                key={item.title}
+                linkTo={intl.formatMessage({
+                  id: `${id}.content.${index}.link`,
+                })}
+                key={intl.formatMessage({ id: `${id}.content.${index}.title` })}
               />
             )
-          }
-        )}
+          })}
       </Flex>
     </>
   )
@@ -86,13 +87,13 @@ const TracksPage: NextPage<Props> = ({ branch }) => {
           })}
         />
         <Box sx={styles.contentContainer}>
-          <ContentSection id={'start_here_page_marketplace'} />
-          <ContentSection id={'start_here_page_modules'} />
-          <ContentSection id={'start_here_page_omnichannel'} />
-          <ContentSection id={'start_here_page_vtex_io'} />
-          <ContentSection id={'start_here_page_erp'} />
-          <ContentSection id={'start_here_page_payment'} />
-          <ContentSection id={'start_here_page_conversational'} />
+          <ContentSection id={'start_here_page_marketplace'} length={16} />
+          <ContentSection id={'start_here_page_modules'} length={11} />
+          <ContentSection id={'start_here_page_omnichannel'} length={4} />
+          <ContentSection id={'start_here_page_vtex_io'} length={2} />
+          <ContentSection id={'start_here_page_erp'} length={1} />
+          <ContentSection id={'start_here_page_payment'} length={3} />
+          <ContentSection id={'start_here_page_conversational'} length={2} />
         </Box>
       </Fragment>
     </>
