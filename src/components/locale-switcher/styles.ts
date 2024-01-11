@@ -2,12 +2,12 @@ import { SxStyleProp } from '@vtex/brand-ui'
 
 const localeLabel: SxStyleProp = {
   pl: 2,
-  display: ['block', 'none', 'none', 'none', 'block'],
+  display: ['block'],
 }
 
 const optionContainer: SxStyleProp = {
   position: 'absolute',
-  display: ['none', 'none', 'none', 'flex'],
+  display: ['flex'],
   flexDirection: 'column',
   width: '11rem',
   top: 0,
@@ -30,14 +30,14 @@ const baseLocaleSwitcher: SxStyleProp = {
 const localeSwitcher: SxStyleProp = {
   button: {
     ...baseLocaleSwitcher,
-    display: ['none', 'none', 'none', 'flex'],
+    display: ['flex'],
     ':hover': {
       color: '#142032',
     },
     height: '100%',
     justifyContent: 'flex-start',
-    borderLeft: '1px solid #e7e9ed',
-    ml: '40px',
+    borderLeft: ['none', 'none', 'none', '1px solid #e7e9ed'],
+    // ml: '40px',
   },
 }
 

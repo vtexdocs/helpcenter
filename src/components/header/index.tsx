@@ -151,7 +151,9 @@ const Header = () => {
               <FormattedMessage id="landing_page_header_feedback.message" />
             </Text>
           </VtexLink>
-          <LocaleSwitcher />
+          <Box sx={styles.localeSwitcherContainer}>
+            <LocaleSwitcher />
+          </Box>
         </HeaderBrand.RightLinks>
         <HamburgerMenu />
       </HeaderBrand>
