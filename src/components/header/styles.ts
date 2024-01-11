@@ -51,8 +51,8 @@ const logoSize: SxStyleProp = {
 }
 
 const rightLinks: SxStyleProp = {
-  display: ['none', 'none', 'none', 'flex !important'],
-  width: 'auto',
+  display: ['flex !important'],
+  width: '100%',
   height: '100%',
 }
 
@@ -70,6 +70,7 @@ const rightLinksItem: SxStyleProp = {
       stroke: '#C81E51',
     },
   },
+  visibility: ['collapse', 'collapse', 'collapse', 'collapse', 'visible'],
 }
 
 const dropdownContainer: SxStyleProp = {
@@ -77,6 +78,7 @@ const dropdownContainer: SxStyleProp = {
   justifyContent: 'flex-end',
   height: 'calc(100% + 1px)',
   cursor: 'pointer',
+  visibility: ['collapse', 'collapse', 'collapse', 'visible'],
 }
 
 const dropdownButton: (active: boolean) => SxStyleProp = (active: boolean) => ({
@@ -159,6 +161,14 @@ const arrowIconActive: SxStyleProp = {
   color: '#D71D55',
 }
 
+const localeSwitcherContainer: SxStyleProp = {
+  display: 'flex',
+  visibility: 'visible',
+  ml: [0, 0, 0, 0, '40px'],
+  pr: ['100px', 0],
+  zIndex: 1,
+}
+
 export default {
   menuContainer,
   cardContainer,
@@ -181,4 +191,5 @@ export default {
   innerCardContainer,
   arrowIcon,
   arrowIconActive,
+  localeSwitcherContainer,
 }
