@@ -4,11 +4,11 @@ interface Props {
   pagination: {
     previousDoc: {
       slug: string | null
-      name: { en: string; pt: string; es: string } | null
+      name: string | null
     }
     nextDoc: {
       slug: string | null
-      name: { en: string; pt: string; es: string } | null
+      name: string | null
     }
   }
   hidePaginationPrevious: boolean
@@ -16,7 +16,6 @@ interface Props {
 }
 
 import styles from './styles'
-import { useIntl } from 'react-intl'
 
 const ArticlePagination = ({
   pagination,
@@ -24,7 +23,6 @@ const ArticlePagination = ({
   hidePaginationPrevious,
 }: Props) => {
   const router = useRouter()
-  const locale = useIntl().locale as 'en' | 'pt' | 'es'
 
   const handleClick = (e: { preventDefault: () => void }, slug: string) => {
     e.preventDefault()
@@ -43,7 +41,7 @@ const ArticlePagination = ({
           >
             <Box sx={styles.paginationBox}>
               <Text sx={styles.paginationText}>
-                {pagination.previousDoc.name?.[locale]}
+                {pagination.previousDoc.name}
               </Text>
               <Text sx={styles.subTitle}>« Previous</Text>
             </Box>
@@ -58,9 +56,7 @@ const ArticlePagination = ({
             }}
           >
             <Box sx={styles.paginationBox}>
-              <Text sx={styles.paginationText}>
-                {pagination.nextDoc.name?.[locale]}
-              </Text>
+              <Text sx={styles.paginationText}>{pagination.nextDoc.name}</Text>
               <Text sx={styles.subTitle}>Next »</Text>
             </Box>
           </Link>

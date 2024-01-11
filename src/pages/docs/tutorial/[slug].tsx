@@ -66,11 +66,11 @@ interface Props {
   pagination: {
     previousDoc: {
       slug: string | null
-      name: { en: string; pt: string; es: string } | null | null
+      name: string | null
     }
     nextDoc: {
       slug: string | null
-      name: { en: string; pt: string; es: string } | null | null
+      name: string | null
     }
   }
   isListed: boolean
