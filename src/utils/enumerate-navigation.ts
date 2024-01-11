@@ -6,17 +6,21 @@ interface NavbarItem {
 
 interface Document {
   name: { en: string; es: string; pt: string }
+  type: string
   children: Document[]
 }
 
-export const enumerateNavigation = (navbar: NavbarItem[]) => {
-  const enumerableSectionsSlugs = ['docs/tracks']
-  const enumerationLevel = 2
+const ENUMERABLE_SECTIONS_SLUGS = ['docs/tracks']
+const ENUMERATION_TYPE = 'track'
 
+export const enumerateNavigation = (navbar: NavbarItem[]) => {
   return navbar.map((item) => {
-    if (!enumerableSectionsSlugs.includes(item.slugPrefix)) return item
+    if (!ENUMERABLE_SECTIONS_SLUGS.includes(item.slugPrefix)) return item
     item.categories = item.categories.map((category) => {
-      category.children = enumerateChildren(category, 1, enumerationLevel)
+      category.children = enumerateChildren(
+        category,
+        category.type === ENUMERATION_TYPE
+      )
       return category
     })
     return item
@@ -25,18 +29,14 @@ export const enumerateNavigation = (navbar: NavbarItem[]) => {
 
 const enumerateChildren = (
   document: Document,
-  currLevel: number,
-  enumerationLevel: number
+  enumerate: boolean
 ): Document[] => {
   const children = document.children.map((currDoc, index) => {
-    if (enumerationLevel !== currLevel)
-      currDoc.children = enumerateChildren(
-        currDoc,
-        currLevel + 1,
-        enumerationLevel
-      )
-    else currDoc.name = enumerateName(currDoc.name, index + 1)
-
+    if (enumerate) currDoc.name = enumerateName(currDoc.name, index + 1)
+    currDoc.children = enumerateChildren(
+      currDoc,
+      ENUMERATION_TYPE === currDoc.type
+    )
     return currDoc
   })
 
