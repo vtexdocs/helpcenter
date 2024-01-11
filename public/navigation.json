@@ -22,7 +22,7 @@
               },
               "slug": "amazon-integration-setup",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": { "en": "Amazon ", "es": "Amazon", "pt": "Amazon" },
@@ -118,7 +118,7 @@
               },
               "slug": "mercado-libre-integration-set-up",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -251,7 +251,7 @@
               },
               "slug": "magazine-luiza-integration-set-up",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -318,7 +318,7 @@
               },
               "slug": "carrefour-integration-set-up",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -407,7 +407,7 @@
               },
               "slug": "centauro-integration",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -474,7 +474,7 @@
               },
               "slug": "integration-with-facebook-business-extension",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -541,7 +541,7 @@
               },
               "slug": "b2w-integration-set-up",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -630,7 +630,7 @@
               },
               "slug": "via-varejo-integration-setup",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -730,7 +730,7 @@
               },
               "slug": "dafiti-integration-setup",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -808,7 +808,7 @@
               },
               "slug": "netshoes-integration-set-up",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -897,7 +897,7 @@
               },
               "slug": "wish-integration",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -975,7 +975,7 @@
               },
               "slug": "integrating-with-google-shopping",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -1064,7 +1064,7 @@
               },
               "slug": "how-to-campaign-through-google-ads",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -1120,7 +1120,7 @@
               },
               "slug": "lengow-integration",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -1209,7 +1209,7 @@
               },
               "slug": "facebook-integration",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -1276,7 +1276,7 @@
               },
               "slug": "tiktok-integration",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -1343,7 +1343,7 @@
               },
               "slug": "livelo-integration",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -1418,7 +1418,7 @@
               "name": { "en": "Catalog", "es": "Catálogo", "pt": "Catálogo" },
               "slug": "catalog-101",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -1573,7 +1573,7 @@
               },
               "slug": "logistics-101",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -1636,7 +1636,7 @@
               "name": { "en": "Prices", "es": "Precios", "pt": "Preços" },
               "slug": "prices-101",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -1813,7 +1813,7 @@
               },
               "slug": "promotions",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -1887,7 +1887,7 @@
               "name": { "en": "Orders", "es": "Pedidos", "pt": "Pedidos" },
               "slug": "orders",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -2016,7 +2016,7 @@
               "name": { "en": "Payments", "es": "Pagos", "pt": "Pagamentos" },
               "slug": "payments",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -2105,7 +2105,7 @@
               },
               "slug": "transactional-emails",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -2172,7 +2172,7 @@
               },
               "slug": "cms",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -2239,7 +2239,7 @@
               },
               "slug": "accounts-and-permissions",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -2357,7 +2357,7 @@
               "name": { "en": "Go-live", "es": "Go live", "pt": "Go-live" },
               "slug": "go-live-your-store",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -2420,7 +2420,7 @@
               },
               "slug": "store-development",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -2495,7 +2495,7 @@
               },
               "slug": "instore-getting-started-and-setting-up",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -2595,7 +2595,7 @@
               },
               "slug": "instore-payments",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -2673,7 +2673,7 @@
               },
               "slug": "instore-using-the-app",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -2879,7 +2879,7 @@
               },
               "slug": "unified-commerce-strategies",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -2954,7 +2954,7 @@
               },
               "slug": "vtex-intelligent-search",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -3189,7 +3189,7 @@
               },
               "slug": "extensions-hub",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -3242,7 +3242,7 @@
               },
               "slug": "adaptador-vtex",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -3321,7 +3321,7 @@
               },
               "slug": "customer-credit-getting-started",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -3377,7 +3377,7 @@
               },
               "slug": "clustered-payment-conditions",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -3444,7 +3444,7 @@
               },
               "slug": "digital-wallet-e-wallet",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -3501,7 +3501,7 @@
               },
               "slug": "conversational-commerce-vtex",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
@@ -3568,7 +3568,7 @@
               },
               "slug": "suiteshare",
               "origin": "",
-              "type": "category",
+              "type": "track",
               "children": [
                 {
                   "name": {
