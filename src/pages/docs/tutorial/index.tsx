@@ -170,13 +170,13 @@ const TutorialsPage: NextPage<Props> = ({ branch }) => {
       <Head>
         <title>
           {intl.formatMessage({
-            id: 'api_guides_page.title',
+            id: 'start_here_page.title',
           })}
         </title>
         <meta
           property="og:title"
           content={intl.formatMessage({
-            id: 'api_guides_page.subtitle',
+            id: 'start_here_page.subtitle',
           })}
           key="title"
         />
@@ -184,10 +184,10 @@ const TutorialsPage: NextPage<Props> = ({ branch }) => {
       <Fragment>
         <PageHeader
           title={intl.formatMessage({
-            id: 'api_guides_page.title',
+            id: 'start_here_page.title',
           })}
           description={intl.formatMessage({
-            id: 'api_guides_page.subtitle',
+            id: 'start_here_page.subtitle',
           })}
           imageUrl={image}
           imageAlt={intl.formatMessage({

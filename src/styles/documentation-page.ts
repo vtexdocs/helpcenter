@@ -12,7 +12,7 @@ const mainContainer: SxStyleProp = {
 
 const innerContainer: SxStyleProp = {
   justifyContent: 'center',
-  pt: '64px',
+  pt: ['28px', '64px'],
   mx: 'auto',
   px: ['auto', '5em', '7em', '7em', '7em', '7em', '20em'],
 }
@@ -113,6 +113,19 @@ const divider: SxStyleProp = {
   borderBottom: '1px solid #E7E9EE',
 }
 
+const readingTime: SxStyleProp = {
+  color: '#6b7785',
+  mb: '24px',
+  lineHeight: '18px',
+  ml: 'auto',
+}
+
+const flexContainer: SxStyleProp = {
+  justifyContent: ['center', 'space-between'],
+  flexWrap: 'wrap-reverse',
+  columnGap: '16px',
+}
+
 export default {
   container,
   mainContainer,
@@ -126,4 +139,6 @@ export default {
   documentationExcerpt,
   innerContainer,
   divider,
+  readingTime,
+  flexContainer,
 }
