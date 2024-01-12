@@ -26,17 +26,15 @@ import Breadcrumb from 'components/breadcrumb'
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
-import getGithubFile from 'utils/getGithubFile'
-import getDocsPaths from 'utils/getDocsPaths'
+// import getGithubFile from 'utils/getGithubFile'
+import { getDocsPaths as getTracksPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
 import styles from 'styles/documentation-page'
-import getFileContributors, {
-  ContributorsType,
-} from 'utils/getFileContributors'
+import { ContributorsType } from 'utils/getFileContributors'
 
 import { getLogger } from 'utils/logging/log-util'
 import {
@@ -46,8 +44,9 @@ import {
   localeType,
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
+// import { ParsedUrlQuery } from 'querystring'
 
-const docsPathsGLOBAL = await getDocsPaths()
+const docsPathsGLOBAL = await getTracksPaths('tracks')
 
 interface Props {
   sectionSelected: string
@@ -67,11 +66,11 @@ interface Props {
   pagination: {
     previousDoc: {
       slug: string | null
-      name: { en: string; pt: string; es: string } | null | null
+      name: string | null
     }
     nextDoc: {
       slug: string | null
-      name: { en: string; pt: string; es: string } | null | null
+      name: string | null
     }
   }
   isListed: boolean
@@ -167,17 +166,23 @@ const TrackPage: NextPage<Props> = ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  //const slugs = Object.keys(await getDocsPaths())
-  //const paths = slugs.map((slug) => ({
-  //    params: { slug },
-  //}))
-  const paths = [
-    {
-      params: { slug: 'about-the-community-support-plan' },
-    },
-  ]
+  // const slugs: { [slug: string]: { locale: string; path: string }[] } =
+  //   await getTracksPaths('tracks')
+
+  // const paths: (
+  //   | string
+  //   | {
+  //       params: ParsedUrlQuery
+  //       locale?: string | undefined
+  //     }
+  // )[] = []
+  // Object.entries(slugs).forEach(([slug, locales]) => {
+  //   locales.forEach(({ locale }) => {
+  //     paths.push({ params: { slug }, locale })
+  //   })
+  // })
   return {
-    paths,
+    paths: [],
     fallback: 'blocking',
   }
 }
@@ -200,30 +205,71 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
-      : await getDocsPaths(branch, currentLocale)
+      : await getTracksPaths('tracks', branch)
 
   const logger = getLogger('Start here')
 
-  const path = docsPaths[slug]
+  const path = docsPaths[slug].find((e) => e.locale === locale)?.path
+
   if (!path) {
     return {
       notFound: true,
     }
   }
 
-  let documentationContent = await getGithubFile(
-    'vtexdocs',
-    'help-center-content',
-    branch,
-    path
-  )
+  // let documentationContent = await getGithubFile(
+  //   'vtexdocs',
+  //   'help-center-content',
+  //   branch,
+  //   path
+  // )
+  let documentationContent =
+    (await fetch(
+      `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
+    )
+      .then((res) => res.text())
+      .catch((err) => console.log(err))) || ''
 
-  const contributors = await getFileContributors(
-    'vtexdocs',
-    'help-center-content',
-    branch,
-    path
-  )
+  const contributors =
+    (await fetch(
+      `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then(({ users }) => {
+        const result: ContributorsType[] = []
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        for (let i = 0; i < users.length; i++) {
+          const user = users[i]
+          if (user.id === '41898282') continue
+          result.push({
+            name: user.login,
+            login: user.login,
+            avatar: user.primaryAvatarUrl,
+            userPage: `https://github.com${user.profileLink}`,
+          })
+        }
+
+        return result
+      })
+      .catch((err) => console.log(err))) || []
+
+  // const contributors = []
+  // const contributors =
+  //   (await getFileContributors(
+  //     'vtexdocs',
+  //     'help-center-content',
+  //     branch,
+  //     path
+  //   ).catch((err) => {
+  //     console.log(err)
+  //   })) || []
 
   let format: 'md' | 'mdx' = 'mdx'
   try {
@@ -269,15 +315,25 @@ export const getStaticProps: GetStaticProps = async ({
       : []
     await Promise.all(
       seeAlsoUrls.map(async (seeAlsoUrl: string) => {
-        const seeAlsoPath = docsPaths[seeAlsoUrl.split('/')[3]]
+        const seeAlsoPath = docsPaths[seeAlsoUrl.split('/')[3]].find(
+          (e) => e.locale === locale
+        )?.path
         if (seeAlsoPath) {
           try {
-            const documentationContent = await getGithubFile(
-              'vtexdocs',
-              'help-center-content',
-              'main',
-              seeAlsoPath
-            )
+            const documentationContent =
+              (await fetch(
+                `https://raw.githubusercontent.com/vtexdocs/help-center-content/main/${seeAlsoPath}`
+              )
+                .then((res) => res.text())
+                .catch((err) => console.log(err))) || ''
+
+            // const documentationContent = await getGithubFile(
+            //   'vtexdocs',
+            //   'help-center-content',W
+            //   'main',
+            //   seeAlsoPath
+            // )
+
             const serialized = await serialize(documentationContent, {
               parseFrontmatter: true,
             })
@@ -316,7 +372,7 @@ export const getStaticProps: GetStaticProps = async ({
           ? docsListSlug[indexOfSlug - 1]
           : null,
         name: docsListName[indexOfSlug - 1]
-          ? docsListName[indexOfSlug - 1]
+          ? docsListName[indexOfSlug - 1][locale || 'en']
           : null,
       },
       nextDoc: {
@@ -324,7 +380,7 @@ export const getStaticProps: GetStaticProps = async ({
           ? docsListSlug[indexOfSlug + 1]
           : null,
         name: docsListName[indexOfSlug + 1]
-          ? docsListName[indexOfSlug + 1]
+          ? docsListName[indexOfSlug + 1][locale || 'en']
           : null,
       },
     }
@@ -367,8 +423,6 @@ export const getStaticProps: GetStaticProps = async ({
       })
     })
 
-    console.log(breadcrumbList)
-
     return {
       props: {
         sectionSelected,
@@ -385,6 +439,7 @@ export const getStaticProps: GetStaticProps = async ({
         breadcrumbList,
         branch,
       },
+      revalidate: 600,
     }
   } catch (error) {
     logger.error(`Error while processing ${path}\n${error}`)

@@ -30,8 +30,8 @@ import {
   localeType,
 } from 'utils/navigation-utils'
 import getNavigation from 'utils/getNavigation'
-import getGithubFile from 'utils/getGithubFile'
-import getReleasePaths from 'utils/getReleasePaths'
+// import getGithubFile from 'utils/getGithubFile'
+import { getDocsPaths as getNewsPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
@@ -40,8 +40,9 @@ import { ActionType, getAction } from 'components/announcement-card/functions'
 
 import styles from 'styles/documentation-page'
 import { PreviewContext } from 'utils/contexts/preview'
+// import { ParsedUrlQuery } from 'querystring'
 
-const docsPathsGLOBAL = await getReleasePaths()
+const docsPathsGLOBAL = await getNewsPaths('announcements')
 
 interface Props {
   content: string
@@ -125,13 +126,24 @@ const NewsPage: NextPage<Props> = ({ serialized, branch }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = [
-    {
-      params: { slug: 'access-googles-pagespeed-insights-in-your-vtex-admin' },
-    },
-  ]
+  // const slugs: { [slug: string]: { locale: string; path: string }[] } =
+  //   await getNewsPaths('announcements')
+
+  // const paths: (
+  //   | string
+  //   | {
+  //       params: ParsedUrlQuery
+  //       locale?: string | undefined
+  //     }
+  // )[] = []
+  // Object.entries(slugs).forEach(([slug, locales]) => {
+  //   locales.forEach(({ locale }) => {
+  //     paths.push({ params: { slug }, locale })
+  //   })
+  // })
+
   return {
-    paths,
+    paths: [],
     fallback: 'blocking',
   }
 }
@@ -154,22 +166,30 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
-      : await getReleasePaths(branch, currentLocale)
+      : await getNewsPaths('announcements', branch)
 
-  const path = docsPaths[slug]
+  const path = docsPaths[slug].find((e) => e.locale === locale)?.path
   if (!path) {
     return {
       notFound: true,
     }
   }
 
-  let documentationContent = await getGithubFile(
-    'vtexdocs',
-    'help-center-content',
-    branch,
-    path
-  )
-  const logger = getLogger('Release-Notes')
+  // let documentationContent = await getGithubFile(
+  //   'vtexdocs',
+  //   'help-center-content',
+  //   branch,
+  //   path
+  // )
+
+  let documentationContent =
+    (await fetch(
+      `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
+    )
+      .then((res) => res.text())
+      .catch((err) => console.log(err))) || ''
+
+  const logger = getLogger('News')
 
   try {
     if (path.endsWith('.md')) {
