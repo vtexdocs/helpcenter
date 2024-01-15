@@ -47,7 +47,7 @@ export async function getAllDocsPaths(branch = 'main') {
 }
 
 export async function getDocsPaths(
-  category: 'tracks' | 'tutorials' | 'announcements' | 'faq',
+  category: 'tracks' | 'tutorials' | 'announcements' | 'faq' | 'known-issues',
   branch = 'main'
 ) {
   const repoTree = await getGithubTree(
