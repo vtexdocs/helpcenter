@@ -57,6 +57,13 @@ const rightLinks: SxStyleProp = {
 }
 
 const rightLinksItem: SxStyleProp = {
+  display: [
+    'none !important',
+    'none !important',
+    'none !important',
+    'flex !important',
+  ],
+  visibility: 'visible',
   alignItems: 'center',
   padding: '0 !important',
   margin: '0 0 0 32px !important',
@@ -70,7 +77,6 @@ const rightLinksItem: SxStyleProp = {
       stroke: '#C81E51',
     },
   },
-  visibility: ['collapse', 'collapse', 'collapse', 'collapse', 'visible'],
 }
 
 const dropdownContainer: SxStyleProp = {
@@ -165,8 +171,9 @@ const localeSwitcherContainer: SxStyleProp = {
   display: 'flex',
   visibility: 'visible',
   ml: [0, 0, 0, 0, '40px'],
-  pr: ['100px', 0],
+  pr: ['0px', 0],
   zIndex: 1,
+  justifyContent: 'center',
 }
 
 export default {
