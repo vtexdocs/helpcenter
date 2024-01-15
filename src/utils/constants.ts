@@ -30,6 +30,7 @@ export const messages = getMessages()
 export const documentationData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
+      id: 'Start here',
       Icon: StartHereIcon,
       title: intl.formatMessage({
         id: 'documentation_start_here.title',
@@ -40,6 +41,7 @@ export const documentationData = (intl: IntlShape) => {
       link: '/docs/tracks',
     },
     {
+      id: 'Tutorials & Solutions',
       Icon: TutorialsIcon,
       title: intl.formatMessage({
         id: 'documentation_tutorials.title',
@@ -56,6 +58,7 @@ export const documentationData = (intl: IntlShape) => {
 export const menuDocumentationData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
+      id: 'Start here',
       Icon: StartHereIcon,
       title: intl.formatMessage({
         id: 'documentation_start_here.title',
@@ -66,6 +69,7 @@ export const menuDocumentationData = (intl: IntlShape) => {
       link: '/docs/tracks',
     },
     {
+      id: 'Tutorials & Solutions',
       Icon: TutorialsIcon,
       title: intl.formatMessage({
         id: 'documentation_tutorials.title',
@@ -76,6 +80,7 @@ export const menuDocumentationData = (intl: IntlShape) => {
       link: '/docs/tutorial',
     },
     {
+      id: 'Developers Portal',
       Icon: DeveloperPortalIcon,
       title: intl.formatMessage({
         id: 'documentation_developers_portal.title',
@@ -93,6 +98,7 @@ export const menuDocumentationData = (intl: IntlShape) => {
 export const updatesData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
+      id: 'FAQ',
       Icon: InfoIcon,
       title: 'FAQ',
       description: intl.formatMessage({
@@ -101,6 +107,7 @@ export const updatesData = (intl: IntlShape) => {
       link: '/updates/announcements', //TODO: mudar rota
     },
     {
+      id: 'Announcements',
       Icon: MegaphoneIcon,
       title: intl.formatMessage({
         id: 'updates_announcements_notes.title',
@@ -117,6 +124,7 @@ export const updatesData = (intl: IntlShape) => {
 export const knownIssuesData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
+      id: 'Known Issues',
       Icon: WarningIcon,
       title: intl.formatMessage({
         id: 'sidebar_known_issues.title',
@@ -127,6 +135,7 @@ export const knownIssuesData = (intl: IntlShape) => {
       link: '/updates/announcements', //TODO: Trocar rota
     },
     {
+      id: 'Support Rules',
       Icon: PaperIcon,
       title: intl.formatMessage({
         id: 'sidebar_support_rules.title',
@@ -144,6 +153,7 @@ export const knownIssuesData = (intl: IntlShape) => {
 export const menuSupportData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
+      id: 'Known Issues',
       Icon: WarningIcon,
       title: intl.formatMessage({
         id: 'sidebar_known_issues.title',
@@ -154,6 +164,7 @@ export const menuSupportData = (intl: IntlShape) => {
       link: '#', //TODO: Trocar rota
     },
     {
+      id: 'Status',
       Icon: GraphIcon,
       title: intl.formatMessage({
         id: 'menu_status.title',
@@ -164,6 +175,7 @@ export const menuSupportData = (intl: IntlShape) => {
       link: '#', // TODO: trocar rota
     },
     {
+      id: 'Health Check',
       Icon: SignalIcon,
       title: intl.formatMessage({
         id: 'menu_health_check.title',
@@ -174,6 +186,7 @@ export const menuSupportData = (intl: IntlShape) => {
       link: '#', // TODO: trocar rota
     },
     {
+      id: 'Support Rules',
       Icon: PaperIcon,
       title: intl.formatMessage({
         id: 'sidebar_support_rules.title',
@@ -249,6 +262,7 @@ export const faqData = (intl: IntlShape) => {
 export const supportData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
+      id: 'Known Issues',
       Icon: WarningIcon,
       title: intl.formatMessage({
         id: 'support_known_issues.title',
@@ -259,6 +273,7 @@ export const supportData = (intl: IntlShape) => {
       link: '/known-issues',
     },
     {
+      id: 'Support Plans',
       Icon: PaperIcon,
       title: intl.formatMessage({
         id: 'support_plans.title',
@@ -269,6 +284,7 @@ export const supportData = (intl: IntlShape) => {
       link: '/support-plans',
     },
     {
+      id: 'Health Check',
       Icon: SignalIcon,
       title: intl.formatMessage({
         id: 'support_health_check.title',
@@ -280,6 +296,7 @@ export const supportData = (intl: IntlShape) => {
       link: 'http://healthcheck.vtex.com/',
     },
     {
+      id: 'Status',
       Icon: GraphIcon,
       title: intl.formatMessage({
         id: 'support_status.title',
