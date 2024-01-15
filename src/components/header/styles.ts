@@ -54,6 +54,7 @@ const rightLinks: SxStyleProp = {
   display: ['flex !important'],
   width: '100%',
   height: '100%',
+  textTransform: 'none',
 }
 
 const rightLinksItem: SxStyleProp = {

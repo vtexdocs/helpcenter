@@ -19,6 +19,7 @@ export type DataElement = {
   description: string
 }
 export interface DocDataElement extends DataElement {
+  id: string
   title: string
   isExternalLink?: boolean
 }
@@ -30,6 +31,10 @@ export interface FaqDataElement extends DataElement {
 
 export interface UpdatesDataElement extends DataElement {
   title: UpdatesTitle
+}
+
+export interface ExternalLinkDataElement extends DataElement {
+  title: string
 }
 
 export type UpdateElement = {
