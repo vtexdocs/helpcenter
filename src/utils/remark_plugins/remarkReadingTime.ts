@@ -6,6 +6,6 @@ export function remarkReadingTime() {
   return function (tree: Node, file: any) {
     const textOnPage = toString(tree)
     const readingTime = getReadingTime(textOnPage)
-    file.data.matter['readingTime'] = Math.round(readingTime.minutes)
+    file.data.matter['readingTime'] = Math.ceil(readingTime.minutes)
   }
 }
