@@ -4,12 +4,18 @@ import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
 
 import styles from 'styles/release-notes'
-import { UpdateElement } from 'utils/typings/types'
+import {
+  KnownIssueDataElement,
+  KnownIssueStatus,
+  UpdateElement,
+} from 'utils/typings/types'
 import Head from 'next/head'
 // import { getMessages } from 'utils/get-messages'
 import { PreviewContext } from 'utils/contexts/preview'
 import { useContext } from 'react'
 import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
+import { serialize } from 'next-mdx-remote/serialize'
+import { getLogger } from 'utils/logging/log-util'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -32,6 +38,7 @@ const KnownIssuesPage: NextPage<Props> = ({
 }) => {
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
+  console.log(knownIssuesData)
   return (
     <>
       <Head>
@@ -44,7 +51,7 @@ const KnownIssuesPage: NextPage<Props> = ({
       </Head>
       <Box sx={styles.container}>
         {knownIssuesData.map((issue, id) => {
-          return <div key={id}>{issue}</div>
+          return <div key={id}>{issue.title}</div>
         })}
         <div>página atual {page}</div>
         <div>total páginas {totalPages}</div>
@@ -79,6 +86,7 @@ export const getStaticProps: GetStaticProps = async ({
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
+  const logger = getLogger('Known Issues')
   const pageSize = 5
   const totalPages = Math.ceil(Object.keys(docsPathsGLOBAL).length / pageSize)
   const page = parseInt(params?.page as string) ?? 0
@@ -97,13 +105,12 @@ export const getStaticProps: GetStaticProps = async ({
     })
   }
 
-  const fetchData = async (path: string) => {
+  const fetchFromGithub = async (path: string) => {
     try {
       const response = await fetch(
         `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
       )
       const data = await response.text()
-      console.log(data)
       return data || ''
     } catch (error) {
       console.error(`Error fetching data for path ${path}:`, error)
@@ -111,9 +118,34 @@ export const getStaticProps: GetStaticProps = async ({
     }
   }
 
-  const fetchPromises = paths.map((path) => fetchData(path))
+  const fetchPromises = paths.map((path) => fetchFromGithub(path))
 
-  const knownIssuesData = await Promise.all(fetchPromises)
+  const fetchData = await Promise.all(fetchPromises)
+
+  const knownIssuesData: KnownIssueDataElement[] = []
+
+  fetchData.forEach(async (data) => {
+    try {
+      const onlyFrontmatter = `---\n${data
+        .split('---')[1]
+        .replaceAll('"', '')}---\n`
+
+      const { frontmatter } = await serialize(onlyFrontmatter, {
+        parseFrontmatter: true,
+      })
+
+      if (frontmatter)
+        knownIssuesData.push({
+          id: frontmatter.id,
+          title: frontmatter.title,
+          module: frontmatter.tag,
+          slug: frontmatter.slug,
+          status: frontmatter.kiStatus as KnownIssueStatus,
+        })
+    } catch (error) {
+      logger.error(`${error}`)
+    }
+  })
 
   return {
     props: {

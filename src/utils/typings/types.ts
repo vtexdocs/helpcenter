@@ -58,3 +58,18 @@ export type ResourceDataElement = {
   description: string
   link: string
 }
+
+export type KnownIssueStatus =
+  | 'Fixed'
+  | 'Closed'
+  | 'Backlog'
+  | 'Scheduled'
+  | 'No fix'
+
+export type KnownIssueDataElement = {
+  title: string
+  id: string
+  status: KnownIssueStatus
+  module: string
+  slug: string
+}
