@@ -1,32 +1,29 @@
-import { Box, Link } from '@vtex/brand-ui'
+import { Box, Flex, Link } from '@vtex/brand-ui'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
 
-import styles from 'styles/release-notes'
-import {
-  KnownIssueDataElement,
-  KnownIssueStatus,
-  UpdateElement,
-} from 'utils/typings/types'
+import { KnownIssueDataElement, KnownIssueStatus } from 'utils/typings/types'
 import Head from 'next/head'
-// import { getMessages } from 'utils/get-messages'
+import styles from 'styles/known-issues-page'
 import { PreviewContext } from 'utils/contexts/preview'
-import { useContext } from 'react'
+import { Fragment, useContext } from 'react'
 import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { serialize } from 'next-mdx-remote/serialize'
 import { getLogger } from 'utils/logging/log-util'
+import PageHeader from 'components/page-header'
+import { useIntl } from 'react-intl'
+import startHereImage from '../../../public/images/start-here.png'
+import KnownIssueCard from 'components/known-issue-card'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
   sectionSelected?: DocumentationTitle | UpdatesTitle | ''
-  knownIssuesData: UpdateElement[]
+  knownIssuesData: KnownIssueDataElement[]
   branch: string
   page: number
   totalPages: number
 }
-
-// const messages = getMessages()
 
 const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
 
@@ -36,32 +33,54 @@ const KnownIssuesPage: NextPage<Props> = ({
   totalPages,
   branch,
 }) => {
+  const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
-  console.log(knownIssuesData)
   return (
     <>
       <Head>
-        <title>PROBLEMAS CONHECIDOS</title>
+        <title>
+          {intl.formatMessage({
+            id: 'known_issues_page.title',
+          })}
+        </title>
         <meta
           property="og:title"
-          content={'PROBLEMAS CONHECIDOS SUBTITLE'}
+          content={intl.formatMessage({
+            id: 'known_issues_page.subtitle',
+          })}
           key="title"
         />
       </Head>
-      <Box sx={styles.container}>
-        {knownIssuesData.map((issue, id) => {
-          return <div key={id}>{issue.title}</div>
-        })}
-        <div>página atual {page}</div>
-        <div>total páginas {totalPages}</div>
-        <Link href={`/known-issues/${page + 1}`}>
-          <a>próxima página</a>
-        </Link>
-        <Link href={`/known-issues/${page - 1}`}>
-          <a>página anterior</a>
-        </Link>
-      </Box>
+      <Fragment>
+        <PageHeader
+          title={intl.formatMessage({
+            id: 'known_issues_page.title',
+          })}
+          description={intl.formatMessage({
+            id: 'known_issues_page.subtitle',
+          })}
+          imageUrl={startHereImage}
+          imageAlt={intl.formatMessage({
+            id: 'known_issues_page.title',
+          })}
+        />
+        <Box sx={styles.container}>
+          <Flex sx={styles.cardContainer}>
+            {knownIssuesData.map((issue, id) => {
+              return <KnownIssueCard key={id} {...issue} />
+            })}
+          </Flex>
+          <div>página atual {page}</div>
+          <div>total páginas {totalPages}</div>
+          <Link href={`/known-issues/${page + 1}`}>
+            <a>próxima página</a>
+          </Link>
+          <Link href={`/known-issues/${page - 1}`}>
+            <a>página anterior</a>
+          </Link>
+        </Box>
+      </Fragment>
     </>
   )
 }
