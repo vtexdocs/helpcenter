@@ -229,5 +229,7 @@
   "sidebar_known_issues.title": "Known Issues",
   "menu_status.title": "Status",
   "menu_health_check.title": "Health Check",
-  "updates_announcements_notes.title": "Announcements"
+  "updates_announcements_notes.title": "Announcements",
+  "known_issues_page.title": "Known issues",
+  "known_issues_page.subtitle": "Find all the identified issues and their solutions."
 }

@@ -235,5 +235,7 @@
   "sidebar_known_issues.title": "Problemas Conocidos",
   "menu_status.title": "Status",
   "menu_health_check.title": "Verificación de Estado",
-  "updates_announcements_notes.title": "Comunicados"
+  "updates_announcements_notes.title": "Comunicados",
+  "known_issues_page.title": "Problemas conhecidos",
+  "known_issues_page.subtitle": "Encontre todos os problemas conhecidos e saiba seu status e soluções."
 }
