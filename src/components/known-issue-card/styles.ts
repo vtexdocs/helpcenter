@@ -5,7 +5,7 @@ const container: SxStyleProp = {
   py: ['16px', '24px'],
   display: 'flex',
   flexDirection: 'column',
-  gap: ['8px', '16px'],
+  gap: '8px',
   borderRadius: '4px',
   border: '1px solid #E7E9EE',
   width: ['320px', '544px', '720px'],
