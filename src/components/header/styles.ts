@@ -55,6 +55,7 @@ const rightLinks: SxStyleProp = {
   width: '100%',
   height: '100%',
   textTransform: 'none',
+  alignItems: 'center',
 }
 
 const rightLinksItem: SxStyleProp = {
@@ -81,6 +82,7 @@ const rightLinksItem: SxStyleProp = {
 }
 
 const dropdownContainer: SxStyleProp = {
+  display: ['none', 'none', 'none', 'flex'],
   textTransform: 'none',
   justifyContent: 'flex-end',
   height: 'calc(100% + 1px)',
@@ -171,14 +173,36 @@ const arrowIconActive: SxStyleProp = {
 const localeSwitcherContainer: SxStyleProp = {
   display: 'flex',
   visibility: 'visible',
-  ml: [0, 0, 0, 0, '40px'],
+  ml: [0, 0, 0, 0, 0],
   pr: ['0px', 0],
   zIndex: 1,
   justifyContent: 'center',
+  ' & button': {
+    borderLeft: ['none'],
+  },
+}
+
+const containerHamburguerLocale: SxStyleProp = {
+  display: 'flex',
+  padding: '8px',
+  alignItems: 'center',
+  height: '100%',
+  borderLeft: ['none', 'none', 'none', '1px solid #e7e9ed'],
+  marginLeft: ['0', '0', '0', '32px'],
+}
+
+const splitter: SxStyleProp = {
+  display: ['block', 'block', 'block', 'none'],
+  width: '1px',
+  height: '36px',
+  background: '#E7E9EE',
+  marginRight: '20px',
 }
 
 export default {
+  splitter,
   menuContainer,
+  containerHamburguerLocale,
   cardContainer,
   sideMenuContainer,
   logoSize,
