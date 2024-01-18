@@ -13,7 +13,7 @@ const KnownIssueCard = ({
   slug,
 }: KnownIssueDataElement) => {
   return (
-    <Link href={`/known-issues/${slug}`}>
+    <Link href={`known-issues/${slug}`}>
       <Box sx={styles.container}>
         <Flex sx={styles.topContainer}>
           <Text sx={styles.knownIssueModule} className="module">

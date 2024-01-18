@@ -16,6 +16,7 @@ import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/start-here.png'
 import KnownIssueCard from 'components/known-issue-card'
 import Pagination from 'components/pagination'
+import { localeType } from 'utils/navigation-utils'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -34,7 +35,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   setBranchPreview(branch)
   const itemsPerPage = 5
   const [page, setPage] = useState({ curr: 1, total: 1 })
-  const [statusFilter] = useState(['Fixed'])
+  const [statusFilter] = useState([])
   const [moduleFilter] = useState([])
   const [ordering] = useState('')
 
@@ -51,7 +52,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
     setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [statusFilter, moduleFilter, ordering])
+  }, [statusFilter, moduleFilter, ordering, intl.locale])
 
   const paginatedResult = useMemo(() => {
     return filteredResult.slice(
@@ -124,29 +125,34 @@ export const getStaticProps: GetStaticProps = async ({
       : 'main'
   const branch = preview ? previewBranch : 'main'
   const logger = getLogger('Known Issues')
+  const currentLocale: localeType = locale
+    ? (locale as localeType)
+    : ('en' as localeType)
 
-  const paths: string[] = []
   const slugs = Object.keys(docsPathsGLOBAL)
 
-  slugs.forEach((slug) => {
-    const path = docsPathsGLOBAL[slug].find((e) => e.locale === locale)?.path
-    if (path) paths.push(path)
-  })
-
-  const fetchFromGithub = async (path: string) => {
+  const fetchFromGithub = async (path: string, slug: string) => {
     try {
       const response = await fetch(
         `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
       )
       const data = await response.text()
-      return data || ''
+      return { content: data, slug } || { content: '', slug }
     } catch (error) {
       console.error(`Error fetching data for path ${path}:`, error)
-      return ''
+      return { content: '', slug }
     }
   }
 
-  const fetchPromises = paths.map((path) => fetchFromGithub(path))
+  const fetchPromises: Promise<{ content: string; slug: string }>[] = []
+
+  slugs.forEach((slug) => {
+    const path = docsPathsGLOBAL[slug].find(
+      (e) => e.locale === currentLocale
+    )?.path
+
+    if (path) fetchPromises.push(fetchFromGithub(path, slug))
+  })
 
   const fetchData = await Promise.all(fetchPromises)
 
@@ -154,7 +160,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   fetchData.forEach(async (data) => {
     try {
-      const onlyFrontmatter = `---\n${data
+      const onlyFrontmatter = `---\n${data.content
         .split('---')[1]
         .replaceAll('"', '')}---\n`
 
@@ -167,7 +173,7 @@ export const getStaticProps: GetStaticProps = async ({
           id: frontmatter.id,
           title: frontmatter.title,
           module: frontmatter.tag,
-          slug: frontmatter.slug,
+          slug: data.slug,
           status: frontmatter.kiStatus as KnownIssueStatus,
           createdAt: frontmatter.createdAt,
           updatedAt: frontmatter.updatedAt,
