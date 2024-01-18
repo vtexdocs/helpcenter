@@ -2,7 +2,11 @@ import { SxStyleProp } from '@vtex/brand-ui'
 
 const localeLabel: SxStyleProp = {
   pl: 2,
-  display: ['block'],
+  display: ['none', 'none', 'none', 'block'],
+}
+
+const localeCaret: SxStyleProp = {
+  display: ['none', 'none', 'none', 'block'],
 }
 
 const optionContainer: SxStyleProp = {
@@ -41,9 +45,15 @@ const localeSwitcher: SxStyleProp = {
   },
 }
 
+const iconGlobe: SxStyleProp = {
+  mb: ['0px', '0px', '0px', '3px'],
+}
+
 export default {
   localeLabel,
+  localeCaret,
   optionContainer,
   localeSwitcher,
   baseLocaleSwitcher,
+  iconGlobe,
 }

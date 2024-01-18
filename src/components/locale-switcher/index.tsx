@@ -52,10 +52,14 @@ export default function LocaleSwitcher() {
     <Box sx={styles.localeSwitcher}>
       <Disclosure {...disclosure}>
         <Flex sx={{ alignItems: 'center' }}>
-          <IconGlobe sx={{ ml: 0 }} size={22} />
+          <IconGlobe sx={styles.iconGlobe} size={22} />
           <Text sx={styles.localeLabel}>{router.locale?.toUpperCase()}</Text>
         </Flex>
-        <IconCaret direction={disclosure.visible ? 'up' : 'down'} size={30} />
+        <IconCaret
+          sx={styles.localeCaret}
+          direction={disclosure.visible ? 'up' : 'down'}
+          size={30}
+        />
       </Disclosure>
       <Box sx={styles.optionContainer}>
         <DisclosureContent {...disclosure}>
