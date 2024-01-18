@@ -178,7 +178,7 @@ const localeSwitcherContainer: SxStyleProp = {
   zIndex: 1,
   justifyContent: 'center',
   ' & button': {
-    borderLeft: ['none'],
+    borderLeft: 'none !important',
   },
 }
 
