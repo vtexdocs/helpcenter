@@ -72,4 +72,6 @@ export type KnownIssueDataElement = {
   status: KnownIssueStatus
   module: string
   slug: string
+  createdAt: string
+  updatedAt: string
 }
