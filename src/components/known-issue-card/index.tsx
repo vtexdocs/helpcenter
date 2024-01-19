@@ -3,7 +3,7 @@ import { Box, Flex, Text, Link } from '@vtex/brand-ui'
 import type { KnownIssueDataElement } from 'utils/typings/types'
 
 import styles from './styles'
-import StatusTag from 'components/status-tag'
+import Tag from 'components/tag'
 
 const KnownIssueCard = ({
   title,
@@ -19,7 +19,7 @@ const KnownIssueCard = ({
           <Text sx={styles.knownIssueModule} className="module">
             {module}
           </Text>
-          <StatusTag status={status} />
+          <Tag color={status}>{status}</Tag>
         </Flex>
         <Text sx={styles.title} className="title">
           {title}

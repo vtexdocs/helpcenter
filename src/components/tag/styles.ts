@@ -11,7 +11,9 @@ const tag: SxStyleProp = {
   textAlign: 'center',
 }
 
-const statusColors: { [status in KnownIssueStatus]: SxStyleProp } = {
+const statusColors: {
+  [status in KnownIssueStatus | 'Default' | 'Selected']: SxStyleProp
+} = {
   Backlog: {
     border: '1px solid #979797',
     color: '#979797',
@@ -36,6 +38,25 @@ const statusColors: { [status in KnownIssueStatus]: SxStyleProp } = {
     border: '1px solid #F83D24',
     color: '#F83D24',
     background: '#FFDFDB',
+  },
+  Default: {
+    border: '1px solid #A1AAB7',
+    color: '#A1AAB7',
+    background: '#ffff',
+
+    ':hover': {
+      color: '#4A596B',
+      border: '1px solid #4A596B',
+    },
+  },
+  Selected: {
+    border: '1px solid #A1AAB7',
+    color: '#ffff',
+    background: '#A1AAB7',
+
+    ':hover': {
+      color: '#142032',
+    },
   },
 }
 
