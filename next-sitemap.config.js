@@ -5,7 +5,7 @@ module.exports = {
   siteUrl,
   transform: async (config, path) => {
     return {
-      loc: path, // => this will be exported as http(s)://<config.siteUrl>/<path>
+      loc: path,
       changefreq: config.changefreq,
       priority: config.priority,
       lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
