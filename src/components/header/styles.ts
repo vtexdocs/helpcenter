@@ -82,12 +82,16 @@ const rightLinksItem: SxStyleProp = {
 }
 
 const dropdownContainer: SxStyleProp = {
-  display: ['none', 'none', 'none', 'flex'],
+  display: [
+    'none !important',
+    'none !important',
+    'none !important',
+    'flex !important',
+  ],
   textTransform: 'none',
   justifyContent: 'flex-end',
   height: 'calc(100% + 1px)',
   cursor: 'pointer',
-  visibility: ['collapse', 'collapse', 'collapse', 'visible'],
 }
 
 const dropdownButton: (active: boolean) => SxStyleProp = (active: boolean) => ({
@@ -179,6 +183,7 @@ const localeSwitcherContainer: SxStyleProp = {
   justifyContent: 'center',
   ' & button': {
     borderLeft: 'none !important',
+    padding: '0px',
   },
 }
 
@@ -189,6 +194,16 @@ const containerHamburguerLocale: SxStyleProp = {
   height: '100%',
   borderLeft: ['none', 'none', 'none', '1px solid #e7e9ed'],
   marginLeft: ['0', '0', '0', '32px'],
+  gap: '20px',
+
+  '& > :first-of-type': {
+    '& > button:first-of-type': {
+      borderLeft: 'none',
+      padding: '0px 0px 0px 0px',
+      width: '24px',
+      height: '24px',
+    },
+  },
 }
 
 const splitter: SxStyleProp = {
@@ -196,7 +211,6 @@ const splitter: SxStyleProp = {
   width: '1px',
   height: '36px',
   background: '#E7E9EE',
-  marginRight: '20px',
 }
 
 export default {
