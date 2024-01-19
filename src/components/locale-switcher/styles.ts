@@ -49,7 +49,18 @@ const iconGlobe: SxStyleProp = {
   mb: ['0px', '0px', '0px', '3px'],
 }
 
+const iconGlobeVisible: SxStyleProp = {
+  mb: ['0px', '0px', '0px', '3px'],
+  color: [
+    'var(--theme-ui-colors-primary-base, #E31C58)',
+    'var(--theme-ui-colors-primary-base, #E31C58)',
+    'var(--theme-ui-colors-primary-base, #E31C58)',
+    '#4A596B',
+  ],
+}
+
 export default {
+  iconGlobeVisible,
   localeLabel,
   localeCaret,
   optionContainer,
