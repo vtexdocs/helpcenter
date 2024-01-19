@@ -231,5 +231,16 @@
   "menu_health_check.title": "Health Check",
   "updates_announcements_notes.title": "Announcements",
   "known_issues_page.title": "Known issues",
-  "known_issues_page.subtitle": "Find all the identified issues and their solutions."
+  "known_issues_page.subtitle": "Find all the identified issues and their solutions.",
+  "filter_modal.title": "Filters",
+  "filter_modal.remove": "Remove filters",
+  "filter_modal.button": "Apply filters",
+  "known_issues_filter.all": "All",
+  "known_issues_filter_status.title": "Status",
+  "known_issues_filter_status.closed": "Closed",
+  "known_issues_filter_status.fixed": "Fixed",
+  "known_issues_filter_status.backlog": "Backlog",
+  "known_issues_filter_status.scheduled": "Scheduled",
+  "known_issues_filter_status.no_fix": "No fix",
+  "known_issues_filter_modules.title": "Modules"
 }

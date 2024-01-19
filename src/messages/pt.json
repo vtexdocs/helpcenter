@@ -252,5 +252,16 @@
   "menu_health_check.title": "Verificação de Integridade",
   "updates_announcements_notes.title": "Comunicados",
   "known_issues_page.title": "Problemas conhecidos",
-  "known_issues_page.subtitle": "Encontre todos os problemas conhecidos e saiba seu status e soluções."
+  "known_issues_page.subtitle": "Encontre todos os problemas conhecidos e saiba seu status e soluções.",
+  "filter_modal.title": "Filtros",
+  "filter_modal.remove": "Remover filtros",
+  "filter_modal.button": "Aplicar filtros",
+  "known_issues_filter_status.title": "Status",
+  "known_issues_filter_status.closed": "Fechado",
+  "known_issues_filter_status.fixed": "Corrigido",
+  "known_issues_filter_status.backlog": "Backlog",
+  "known_issues_filter_status.scheduled": "Agendado",
+  "known_issues_filter_status.no_fix": "Não resolvido",
+  "known_issues_filter_modules.title": "Módulos",
+  "known_issues_filter.all": "Todos"
 }
