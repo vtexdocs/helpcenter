@@ -18,6 +18,7 @@ import {
 } from '@vtexdocs/components'
 import {
   documentationData,
+  feedbackSectionData,
   knownIssuesData,
   menuSupportData,
   updatesData,
@@ -65,6 +66,7 @@ export default function Layout({
           documentationData(intl),
           menuSupportData(intl),
           updatesData(intl),
+          feedbackSectionData(intl),
         ]}
         sectionSelected={sectionSelected ?? ''}
         fallback={sidebarfallback}

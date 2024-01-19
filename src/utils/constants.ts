@@ -4,6 +4,7 @@ import {
   getLearningCenterURL,
   getDeveloperPortalURL,
   getSupportURL,
+  getFeedbackURL,
 } from 'utils/get-url'
 
 import {
@@ -23,6 +24,7 @@ import GraphIcon from 'components/icons/graph-icon'
 import SignalIcon from 'components/icons/signal-icon'
 import MegaphoneIcon from 'components/icons/megaphone-icon'
 import InfoIcon from 'components/icons/info-icon'
+import LongArrowIcon from 'components/icons/long-arrow-icon'
 
 libraryConfig
 export const messages = getMessages()
@@ -118,6 +120,22 @@ export const updatesData = (intl: IntlShape) => {
       link: '/updates/announcements', //TODO: verificar rota
     },
   ]
+  return data
+}
+
+export const feedbackSectionData = (intl: IntlShape) => {
+  const data: DocDataElement[] = [
+    {
+      id: 'Feedback',
+      Icon: LongArrowIcon,
+      title: intl.formatMessage({
+        id: 'landing_page_header_feedback.message',
+      }),
+      description: '',
+      link: getFeedbackURL(),
+    },
+  ]
+
   return data
 }
 
