@@ -153,22 +153,6 @@ export const knownIssuesData = (intl: IntlShape) => {
       link: '#', //TODO: Trocar rota
     },
     {
-      Icon: GraphIcon,
-      title: 'Status',
-      description: intl.formatMessage({
-        id: 'menu_status.description',
-      }),
-      link: '#',
-    },
-    {
-      Icon: SignalIcon,
-      title: 'Health Check',
-      description: intl.formatMessage({
-        id: 'menu_health_check.description',
-      }),
-      link: '#',
-    },
-    {
       id: 'Support Rules',
       Icon: PaperIcon,
       title: intl.formatMessage({
