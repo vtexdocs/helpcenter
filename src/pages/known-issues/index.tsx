@@ -3,7 +3,11 @@ import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
 
-import { KnownIssueDataElement, KnownIssueStatus } from 'utils/typings/types'
+import {
+  KnownIssueDataElement,
+  KnownIssueStatus,
+  KnownIssuesSortByType,
+} from 'utils/typings/types'
 import Head from 'next/head'
 import styles from 'styles/known-issues-page'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -17,6 +21,13 @@ import startHereImage from '../../../public/images/start-here.png'
 import KnownIssueCard from 'components/known-issue-card'
 import Pagination from 'components/pagination'
 import { localeType } from 'utils/navigation-utils'
+import Filter from 'components/filter'
+import {
+  knownIssuesStatusFilter,
+  knownIssuesModulesFilters,
+  knownIssueSortBy,
+} from 'utils/constants'
+import Select from 'components/select'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -35,24 +46,36 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   setBranchPreview(branch)
   const itemsPerPage = 5
   const [page, setPage] = useState({ curr: 1, total: 1 })
-  const [statusFilter] = useState([])
-  const [moduleFilter] = useState([])
-  const [ordering] = useState('')
+  const [filters, setFilters] = useState<{
+    status: string[]
+    modules: string[]
+  }>({ status: [], modules: [] })
+  const [sortByValue, setSortByValue] =
+    useState<KnownIssuesSortByType>('newest')
 
   const filteredResult = useMemo(() => {
     const data = knownIssuesData.filter((knownIssue) => {
       return (
-        (statusFilter.find((filter) => knownIssue.status === filter) ||
-          statusFilter.length === 0) &&
-        (moduleFilter.find((filter) => knownIssue.module === filter) ||
-          moduleFilter.length === 0)
+        (filters.status.length === 0 ||
+          filters.status.includes(knownIssue.status)) &&
+        (filters.modules.length === 0 ||
+          filters.modules.includes(knownIssue.module))
       )
+    })
+
+    data.sort((a, b) => {
+      const dateA =
+        sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
+      const dateB =
+        sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
+
+      return dateA.getTime() - dateB.getTime()
     })
 
     setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [statusFilter, moduleFilter, ordering, intl.locale])
+  }, [filters, sortByValue, intl.locale])
 
   const paginatedResult = useMemo(() => {
     return filteredResult.slice(
@@ -96,6 +119,26 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           })}
         />
         <Flex sx={styles.container}>
+          <Flex sx={styles.optionsContainer}>
+            <Filter
+              tagFilter={knownIssuesStatusFilter(intl)}
+              checkBoxFilter={knownIssuesModulesFilters(intl)}
+              onApply={(newFilters) =>
+                setFilters({
+                  status: newFilters.tag,
+                  modules: newFilters.checklist,
+                })
+              }
+            />
+            <Select
+              label={intl.formatMessage({ id: 'known_issues_sort.label' })}
+              value={sortByValue}
+              options={knownIssueSortBy(intl)}
+              onSelect={(ordering) =>
+                setSortByValue(ordering as KnownIssuesSortByType)
+              }
+            />
+          </Flex>
           <Flex sx={styles.cardContainer}>
             {paginatedResult.map((issue, id) => {
               return <KnownIssueCard key={id} {...issue} />
