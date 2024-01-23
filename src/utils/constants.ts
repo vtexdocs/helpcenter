@@ -425,3 +425,150 @@ export const resources = (intl: IntlShape) => {
 
   return data
 }
+
+export const knownIssuesStatusFilter = (intl: IntlShape) => {
+  const data = {
+    name: intl.formatMessage({
+      id: 'known_issues_filter_status.title',
+    }),
+    options: [
+      {
+        id: 'Closed',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.closed' }),
+      },
+      {
+        id: 'Fixed',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.fixed' }),
+      },
+    ],
+  }
+
+  return data
+}
+
+export const knownIssuesModulesFilters = (intl: IntlShape) => {
+  const data = {
+    name: intl.formatMessage({
+      id: 'known_issues_filter_modules.title',
+    }),
+    options: [
+      {
+        id: 'Pricing & Promotions',
+        name: 'Pricing & Promotions',
+      },
+      {
+        id: 'Catalog',
+        name: 'Catalog',
+      },
+      {
+        id: 'Connections',
+        name: 'Connections',
+      },
+      {
+        id: 'CMS',
+        name: 'CMS',
+      },
+      {
+        id: 'Checkout',
+        name: 'Checkout',
+      },
+      {
+        id: 'Identity',
+        name: 'Identity',
+      },
+      {
+        id: 'Storage',
+        name: 'Storage',
+      },
+      {
+        id: 'B2B',
+        name: 'B2B',
+      },
+      {
+        id: 'VTEX Shipping Network',
+        name: 'VTEX Shipping Network',
+      },
+      {
+        id: 'Message Center',
+        name: 'Message Center',
+      },
+      {
+        id: 'Store Framework',
+        name: 'Store Framework',
+      },
+      {
+        id: 'Payments',
+        name: 'Payments',
+      },
+      {
+        id: 'Portal',
+        name: 'Portal',
+      },
+      {
+        id: 'Suggestions',
+        name: 'Suggestions',
+      },
+      {
+        id: 'Order Management',
+        name: 'Order Management',
+      },
+      {
+        id: 'Physical Stores',
+        name: 'Physical Stores',
+      },
+      {
+        id: 'Marketplace',
+        name: 'Marketplace',
+      },
+      {
+        id: 'Analytics',
+        name: 'Analytics',
+      },
+      {
+        id: 'Intelligent Search',
+        name: 'Intelligent Search',
+      },
+      {
+        id: 'Logistics',
+        name: 'Logistics',
+      },
+      {
+        id: 'Gift Card',
+        name: 'Gift Card',
+      },
+      {
+        id: 'Master Data',
+        name: 'Master Data',
+      },
+      {
+        id: 'My Orders',
+        name: 'My Orders',
+      },
+      {
+        id: 'Webservice',
+        name: 'Webservice',
+      },
+      {
+        id: 'License Manager',
+        name: 'License Manager',
+      },
+    ],
+  }
+
+  return data
+}
+
+export const knownIssueSortBy = (intl: IntlShape) => {
+  const data = [
+    {
+      value: 'recently_updated',
+      content: intl.formatMessage({ id: 'known_issues_sort.recently_updated' }),
+    },
+    {
+      value: 'newest',
+      content: intl.formatMessage({ id: 'known_issues_sort.newest' }),
+    },
+  ]
+
+  return data
+}
