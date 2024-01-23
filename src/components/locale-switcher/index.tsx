@@ -48,14 +48,26 @@ export default function LocaleSwitcher() {
     )
   }
 
+  const renderGlobe = (isDiscolosureVisible: boolean) => {
+    if (isDiscolosureVisible) {
+      return <IconGlobe sx={styles.iconGlobeVisible} size={24} />
+    }
+
+    return <IconGlobe sx={styles.iconGlobe} size={24} />
+  }
+
   return (
     <Box sx={styles.localeSwitcher}>
       <Disclosure {...disclosure}>
         <Flex sx={{ alignItems: 'center' }}>
-          <IconGlobe sx={{ ml: 4 }} size={22} />
+          {renderGlobe(disclosure.visible)}
           <Text sx={styles.localeLabel}>{router.locale?.toUpperCase()}</Text>
         </Flex>
-        <IconCaret direction={disclosure.visible ? 'up' : 'down'} size={30} />
+        <IconCaret
+          sx={styles.localeCaret}
+          direction={disclosure.visible ? 'up' : 'down'}
+          size={30}
+        />
       </Disclosure>
       <Box sx={styles.optionContainer}>
         <DisclosureContent {...disclosure}>

@@ -26,7 +26,7 @@ const DocumentationCard = ({
       <a onClick={onClick} style={{ width: '100%' }}>
         <Box sx={cardContainer(containerType)}>
           <Flex sx={titleContainer(containerType)}>
-            <Icon size={24} />
+            <Icon size={24} sx={{ color: '#4A596B' }} />
             <Text className="title" sx={cardTitle(containerType)}>
               {title}
             </Text>

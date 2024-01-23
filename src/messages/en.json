@@ -57,7 +57,7 @@
   "landing_page_footer_community.message": "Community",
   "landing_page_footer_feedback.message": "Feedback",
   "landing_page_header_feedback.message": "Feedback",
-  "landing_page_header_docs.message": "Documentation",
+  "landing_page_header_docs.message": "Menu",
   "search_input.placeholder": "Search in Help Center",
   "search_input.empty": "No results found. Try different search terms.",
   "feedback_section.question": "Was this helpful?",
@@ -218,5 +218,16 @@
   "support_plans.description": "See details of support plans available for each commercial plan.",
   "announcement_bar.headline": "📢 We want to know more about you and how you use our docs. ",
   "announcement_bar.button": "Fill in our survey! It takes less than 5 minutes.",
-  "documentation_reading_time.text": "{minutes} min read"
+  "documentation_reading_time.text": "{minutes} min read",
+  "sidebar_known_issues.description": "Access content and find solutions to all your questions about the platform.",
+  "sidebar_support_rules.description": "See details of the support plans available for each business plan.",
+  "updates_announcements_notes.description": "Stay informed about the main news from VTEX.",
+  "updates_info_notes.description": "Find answers to your key questions quickly and conveniently.",
+  "menu_health_check.description": "Check the detailed real-time status.",
+  "menu_status.description": "Follow the plataform's historical record.",
+  "sidebar_support_rules.title": "Support Rules",
+  "sidebar_known_issues.title": "Known Issues",
+  "menu_status.title": "Status",
+  "menu_health_check.title": "Health Check",
+  "updates_announcements_notes.title": "Announcements"
 }

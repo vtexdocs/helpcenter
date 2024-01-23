@@ -1,16 +1,14 @@
-import AnnouncementIcon from 'components/icons/announcement-icon'
-
 import { getMessages } from 'utils/get-messages'
 import {
   getCommunityURL,
   getLearningCenterURL,
   getDeveloperPortalURL,
   getSupportURL,
+  getFeedbackURL,
 } from 'utils/get-url'
 
 import {
   DocDataElement,
-  UpdatesDataElement,
   WhatsNextDataElement,
   ResourceDataElement,
   FaqDataElement,
@@ -24,6 +22,9 @@ import PaperIcon from 'components/icons/paper-icon'
 import WarningIcon from 'components/icons/warning-icon'
 import GraphIcon from 'components/icons/graph-icon'
 import SignalIcon from 'components/icons/signal-icon'
+import MegaphoneIcon from 'components/icons/megaphone-icon'
+import InfoIcon from 'components/icons/info-icon'
+import LongArrowIcon from 'components/icons/long-arrow-icon'
 
 libraryConfig
 export const messages = getMessages()
@@ -31,6 +32,7 @@ export const messages = getMessages()
 export const documentationData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
+      id: 'Start here',
       Icon: StartHereIcon,
       title: intl.formatMessage({
         id: 'documentation_start_here.title',
@@ -41,6 +43,35 @@ export const documentationData = (intl: IntlShape) => {
       link: '/docs/tracks',
     },
     {
+      id: 'Tutorials & Solutions',
+      Icon: TutorialsIcon,
+      title: intl.formatMessage({
+        id: 'documentation_tutorials.title',
+      }),
+      description: intl.formatMessage({
+        id: 'documentation_tutorials.description',
+      }),
+      link: '/docs/tutorial',
+    },
+  ]
+  return data
+}
+
+export const menuDocumentationData = (intl: IntlShape) => {
+  const data: DocDataElement[] = [
+    {
+      id: 'Start here',
+      Icon: StartHereIcon,
+      title: intl.formatMessage({
+        id: 'documentation_start_here.title',
+      }),
+      description: intl.formatMessage({
+        id: 'documentation_start_here.description',
+      }),
+      link: '/docs/tracks',
+    },
+    {
+      id: 'Tutorials & Solutions',
       Icon: TutorialsIcon,
       title: intl.formatMessage({
         id: 'documentation_tutorials.title',
@@ -51,6 +82,7 @@ export const documentationData = (intl: IntlShape) => {
       link: '/docs/tutorial',
     },
     {
+      id: 'Developers Portal',
       Icon: DeveloperPortalIcon,
       title: intl.formatMessage({
         id: 'documentation_developers_portal.title',
@@ -66,16 +98,124 @@ export const documentationData = (intl: IntlShape) => {
 }
 
 export const updatesData = (intl: IntlShape) => {
-  const data: UpdatesDataElement[] = [
+  const data: DocDataElement[] = [
     {
-      Icon: AnnouncementIcon,
-      title: 'News',
+      id: 'FAQ',
+      Icon: InfoIcon,
+      title: 'FAQ',
       description: intl.formatMessage({
-        id: 'updates_release_notes.description',
+        id: 'updates_info_notes.description',
       }),
-      link: '/updates/announcements',
+      link: '/updates/announcements', //TODO: mudar rota
+    },
+    {
+      id: 'Announcements',
+      Icon: MegaphoneIcon,
+      title: intl.formatMessage({
+        id: 'updates_announcements_notes.title',
+      }),
+      description: intl.formatMessage({
+        id: 'updates_announcements_notes.description',
+      }),
+      link: '/updates/announcements', //TODO: verificar rota
     },
   ]
+  return data
+}
+
+export const feedbackSectionData = (intl: IntlShape) => {
+  const data: DocDataElement[] = [
+    {
+      id: 'Feedback',
+      Icon: LongArrowIcon,
+      title: intl.formatMessage({
+        id: 'landing_page_header_feedback.message',
+      }),
+      description: '',
+      link: getFeedbackURL(),
+    },
+  ]
+
+  return data
+}
+
+export const knownIssuesData = (intl: IntlShape) => {
+  const data: DocDataElement[] = [
+    {
+      id: 'Known Issues',
+      Icon: WarningIcon,
+      title: intl.formatMessage({
+        id: 'sidebar_known_issues.title',
+      }),
+      description: intl.formatMessage({
+        id: 'sidebar_known_issues.description',
+      }),
+      link: '#', //TODO: Trocar rota
+    },
+    {
+      id: 'Support Rules',
+      Icon: PaperIcon,
+      title: intl.formatMessage({
+        id: 'sidebar_support_rules.title',
+      }),
+      description: intl.formatMessage({
+        id: 'sidebar_support_rules.description',
+      }),
+      link: '#', //TODO: trocar rota
+    },
+  ]
+
+  return data
+}
+
+export const menuSupportData = (intl: IntlShape) => {
+  const data: DocDataElement[] = [
+    {
+      id: 'Known Issues',
+      Icon: WarningIcon,
+      title: intl.formatMessage({
+        id: 'sidebar_known_issues.title',
+      }),
+      description: intl.formatMessage({
+        id: 'sidebar_known_issues.description',
+      }),
+      link: '#', //TODO: Trocar rota
+    },
+    {
+      id: 'Status',
+      Icon: GraphIcon,
+      title: intl.formatMessage({
+        id: 'menu_status.title',
+      }),
+      description: intl.formatMessage({
+        id: 'menu_status.description',
+      }),
+      link: '#', // TODO: trocar rota
+    },
+    {
+      id: 'Health Check',
+      Icon: SignalIcon,
+      title: intl.formatMessage({
+        id: 'menu_health_check.title',
+      }),
+      description: intl.formatMessage({
+        id: 'menu_health_check.description',
+      }),
+      link: '#', // TODO: trocar rota
+    },
+    {
+      id: 'Support Rules',
+      Icon: PaperIcon,
+      title: intl.formatMessage({
+        id: 'sidebar_support_rules.title',
+      }),
+      description: intl.formatMessage({
+        id: 'sidebar_support_rules.description',
+      }),
+      link: '#', //TODO: trocar rota
+    },
+  ]
+
   return data
 }
 
@@ -140,6 +280,7 @@ export const faqData = (intl: IntlShape) => {
 export const supportData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
+      id: 'Known Issues',
       Icon: WarningIcon,
       title: intl.formatMessage({
         id: 'support_known_issues.title',
@@ -150,6 +291,7 @@ export const supportData = (intl: IntlShape) => {
       link: '/known-issues',
     },
     {
+      id: 'Support Plans',
       Icon: PaperIcon,
       title: intl.formatMessage({
         id: 'support_plans.title',
@@ -160,6 +302,7 @@ export const supportData = (intl: IntlShape) => {
       link: '/support-plans',
     },
     {
+      id: 'Health Check',
       Icon: SignalIcon,
       title: intl.formatMessage({
         id: 'support_health_check.title',
@@ -171,6 +314,7 @@ export const supportData = (intl: IntlShape) => {
       link: 'http://healthcheck.vtex.com/',
     },
     {
+      id: 'Status',
       Icon: GraphIcon,
       title: intl.formatMessage({
         id: 'support_status.title',

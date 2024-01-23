@@ -51,12 +51,21 @@ const logoSize: SxStyleProp = {
 }
 
 const rightLinks: SxStyleProp = {
-  display: ['none', 'none', 'none', 'flex !important'],
-  width: 'auto',
+  display: ['flex !important'],
+  width: '100%',
   height: '100%',
+  textTransform: 'none',
+  alignItems: 'center',
 }
 
 const rightLinksItem: SxStyleProp = {
+  display: [
+    'none !important',
+    'none !important',
+    'none !important',
+    'flex !important',
+  ],
+  visibility: 'visible',
   alignItems: 'center',
   padding: '0 !important',
   margin: '0 0 0 32px !important',
@@ -73,6 +82,12 @@ const rightLinksItem: SxStyleProp = {
 }
 
 const dropdownContainer: SxStyleProp = {
+  display: [
+    'none !important',
+    'none !important',
+    'none !important',
+    'flex !important',
+  ],
   textTransform: 'none',
   justifyContent: 'flex-end',
   height: 'calc(100% + 1px)',
@@ -159,8 +174,49 @@ const arrowIconActive: SxStyleProp = {
   color: '#D71D55',
 }
 
+const localeSwitcherContainer: SxStyleProp = {
+  display: 'flex',
+  visibility: 'visible',
+  ml: [0, 0, 0, 0, 0],
+  pr: ['0px', 0],
+  zIndex: 1,
+  justifyContent: 'center',
+  ' & button': {
+    borderLeft: 'none !important',
+    padding: '0px',
+  },
+}
+
+const containerHamburguerLocale: SxStyleProp = {
+  display: 'flex',
+  padding: '8px',
+  alignItems: 'center',
+  height: '100%',
+  borderLeft: ['none', 'none', 'none', '1px solid #e7e9ed'],
+  marginLeft: ['0', '0', '0', '32px'],
+  gap: '20px',
+
+  '& > :first-of-type': {
+    '& > button:first-of-type': {
+      borderLeft: 'none',
+      padding: '0px 0px 0px 0px',
+      width: '24px',
+      height: '24px',
+    },
+  },
+}
+
+const splitter: SxStyleProp = {
+  display: ['block', 'block', 'block', 'none'],
+  width: '1px',
+  height: '36px',
+  background: '#E7E9EE',
+}
+
 export default {
+  splitter,
   menuContainer,
+  containerHamburguerLocale,
   cardContainer,
   sideMenuContainer,
   logoSize,
@@ -181,4 +237,5 @@ export default {
   innerCardContainer,
   arrowIcon,
   arrowIconActive,
+  localeSwitcherContainer,
 }

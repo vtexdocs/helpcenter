@@ -5,7 +5,7 @@ export type DocumentationTitle =
   | 'Tutorials & Solutions'
   | 'Developers Portal'
 
-export type UpdatesTitle = 'News' | 'Documentation Updates'
+export type UpdatesTitle = 'Announcement' | 'FAQ'
 
 export type SlugPrefix = 'tutorial'
 

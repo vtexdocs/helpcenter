@@ -132,6 +132,8 @@ const Header = () => {
             <Flex sx={styles.dropdownButton(showDropdown)}>
               <GridIcon />
               <Text sx={styles.rightButtonsText} data-cy="docs-dropdown">
+                {' '}
+                {/*TODO: mudar data-cy no teste */}
                 <FormattedMessage id="landing_page_header_docs.message" />
               </Text>
             </Flex>
@@ -149,9 +151,14 @@ const Header = () => {
               <FormattedMessage id="landing_page_header_feedback.message" />
             </Text>
           </VtexLink>
-          <LocaleSwitcher />
+          <Flex sx={styles.containerHamburguerLocale}>
+            <HamburgerMenu />
+            <Box sx={styles.splitter}></Box>
+            <Box sx={styles.localeSwitcherContainer}>
+              <LocaleSwitcher />
+            </Box>
+          </Flex>
         </HeaderBrand.RightLinks>
-        <HamburgerMenu />
       </HeaderBrand>
     </Box>
   )
