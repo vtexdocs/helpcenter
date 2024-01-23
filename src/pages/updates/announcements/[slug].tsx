@@ -88,7 +88,7 @@ const NewsPage: NextPage<Props> = ({ serialized, branch }) => {
     <>
       <Head>
         <title>{serialized.frontmatter?.title as string}</title>
-        <meta name="docsearch:doctype" content="News" />
+        <meta name="docsearch:doctype" content="announcements" />
       </Head>
       <DocumentContextProvider headings={headings}>
         <Flex sx={styles.innerContainer}>
@@ -227,6 +227,7 @@ export const getStaticProps: GetStaticProps = async ({
         sidebarfallback,
         sectionSelected,
         branch,
+        locale,
       },
       revalidate: 600,
     }
