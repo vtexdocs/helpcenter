@@ -75,3 +75,5 @@ export type KnownIssueDataElement = {
   createdAt: string
   updatedAt: string
 }
+
+export type KnownIssuesSortByType = 'newest' | 'recently_updated'
