@@ -248,5 +248,8 @@
   "known_issues_filter_status.scheduled": "Programado",
   "known_issues_filter_status.no_fix": "Sin solución",
   "known_issues_filter_modules.title": "Módulos",
-  "known_issues_filter.all": "Todos"
+  "known_issues_filter.all": "Todos",
+  "known_issues_sort.label": "Ordenar por:",
+  "known_issues_sort.recently_updated": "Recientemente actualizados",
+  "known_issues_sort.newest": "Más nuevos"
 }
