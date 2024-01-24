@@ -9,6 +9,7 @@ const filterButton: SxStyleProp = {
   px: '8px',
   py: '4px',
   transition: '0.3s',
+  height: '36px',
 
   ':hover': {
     color: '#F71963',

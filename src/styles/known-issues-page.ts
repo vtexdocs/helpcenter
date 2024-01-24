@@ -8,6 +8,7 @@ const container: SxStyleProp = {
   flexDirection: 'column',
   gap: '16px',
   width: 'max-content',
+  maxWidth: '100vw',
 }
 
 const cardContainer: SxStyleProp = {
@@ -18,7 +19,10 @@ const cardContainer: SxStyleProp = {
 }
 
 const optionsContainer: SxStyleProp = {
-  justifyContent: 'space-between',
+  justifyContent: ['center', 'space-between'],
+  alignItems: 'center',
+  alignContent: 'center',
+  gap: '24px',
   width: '100%',
   flexWrap: 'wrap',
 }
