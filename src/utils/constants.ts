@@ -150,7 +150,7 @@ export const knownIssuesData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'sidebar_known_issues.description',
       }),
-      link: '#', //TODO: Trocar rota
+      link: '/known-issues',
     },
     {
       id: 'Support Rules',
@@ -179,7 +179,7 @@ export const menuSupportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'sidebar_known_issues.description',
       }),
-      link: '#', //TODO: Trocar rota
+      link: '/known-issues', //TODO: Trocar rota
     },
     {
       id: 'Status',
@@ -439,6 +439,20 @@ export const knownIssuesStatusFilter = (intl: IntlShape) => {
       {
         id: 'Fixed',
         name: intl.formatMessage({ id: 'known_issues_filter_status.fixed' }),
+      },
+      {
+        id: 'Backlog',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.backlog' }),
+      },
+      {
+        id: 'Scheduled',
+        name: intl.formatMessage({
+          id: 'known_issues_filter_status.scheduled',
+        }),
+      },
+      {
+        id: 'No fix',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.no_fix' }),
       },
     ],
   }
