@@ -24,6 +24,7 @@ import {
   updatesData,
 } from 'utils/constants'
 import { useIntl } from 'react-intl'
+import EducationSection from './education-section'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -120,6 +121,7 @@ export default function Layout({
           {!hideSidebar && <Sidebar parentsArray={parentsArray} />}
           <Box sx={styles.mainContainer}>{children}</Box>
         </Flex>
+        <EducationSection />
         <Footer />
       </LibraryContextProvider>
     </ThemeProvider>
