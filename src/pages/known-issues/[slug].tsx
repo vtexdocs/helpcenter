@@ -39,6 +39,7 @@ import { useIntl } from 'react-intl'
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
+import Tag from 'components/tag'
 
 const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
 
@@ -108,9 +109,20 @@ const KnownIssuePage: NextPage<Props> = ({
                   <Text sx={styles.documentationTitle} className="title">
                     {serialized.frontmatter?.title}
                   </Text>
-                  <Text sx={styles.documentationExcerpt}>
-                    {serialized.frontmatter?.excerpt}
-                  </Text>
+                  <Box sx={styles.divider}></Box>
+                  <Flex sx={styles.detailedInfo}>
+                    <Flex sx={styles.id}>
+                      <Text>ID: {serialized.frontmatter?.id}</Text>
+                      <Tag>{serialized.frontmatter?.kiStatus}</Tag>
+                    </Flex>
+                    <Text sx={styles.dates}>
+                      <em>Criado em </em>
+                      {serialized.frontmatter?.createdAt}
+                      {' • '}
+                      <em>Atualizado em </em>
+                      {serialized.frontmatter?.updatedAt}
+                    </Text>
+                  </Flex>
                 </header>
                 <MarkdownRenderer serialized={serialized} />
               </article>

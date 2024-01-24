@@ -126,6 +126,26 @@ const flexContainer: SxStyleProp = {
   columnGap: '16px',
 }
 
+const detailedInfo: SxStyleProp = {
+  justifyContent: 'space-between',
+  flexDirection: 'column',
+  py: '16px',
+  gap: '8px',
+}
+
+const dates: SxStyleProp = {
+  color: '#A1A8B3',
+
+  em: {
+    fontWeight: '600',
+    fontStyle: 'normal',
+  },
+}
+
+const id: SxStyleProp = {
+  justifyContent: 'space-between',
+}
+
 export default {
   container,
   mainContainer,
@@ -141,4 +161,7 @@ export default {
   divider,
   readingTime,
   flexContainer,
+  detailedInfo,
+  dates,
+  id,
 }
