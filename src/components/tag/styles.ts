@@ -4,11 +4,12 @@ import { KnownIssueStatus } from 'utils/typings/types'
 const tag: SxStyleProp = {
   borderRadius: '11.5px',
   height: '20px',
-  minWidth: '68px',
   fontSize: '12px',
   lineHeight: '20px',
   px: '7px',
   textAlign: 'center',
+  textWrap: 'nowrap',
+  minWidth: 'max-content',
 }
 
 const statusColors: {
