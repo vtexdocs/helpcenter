@@ -140,6 +140,11 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
             />
           </Flex>
           <Flex sx={styles.cardContainer}>
+            {paginatedResult.length === 0 && (
+              <Flex sx={styles.noResults}>
+                {intl.formatMessage({ id: 'known_issues_result.empty' })}
+              </Flex>
+            )}
             {paginatedResult.map((issue, id) => {
               return <KnownIssueCard key={id} {...issue} />
             })}

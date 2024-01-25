@@ -245,5 +245,6 @@
   "known_issues_filter_modules.title": "Modules",
   "known_issues_sort.label": "Sort by:",
   "known_issues_sort.recently_updated": "Recently updated",
-  "known_issues_sort.newest": "Newest"
+  "known_issues_sort.newest": "Newest",
+  "known_issues_result.empty": "No matching results. Try other filters."
 }

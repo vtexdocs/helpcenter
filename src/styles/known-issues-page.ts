@@ -27,8 +27,14 @@ const optionsContainer: SxStyleProp = {
   flexWrap: 'wrap',
 }
 
+const noResults: SxStyleProp = {
+  py: '32px',
+  textAlign: 'center',
+}
+
 export default {
   container,
   cardContainer,
   optionsContainer,
+  noResults,
 }

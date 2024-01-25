@@ -251,5 +251,6 @@
   "known_issues_filter.all": "Todos",
   "known_issues_sort.label": "Ordenar por:",
   "known_issues_sort.recently_updated": "Recientemente actualizados",
-  "known_issues_sort.newest": "Más nuevos"
+  "known_issues_sort.newest": "Más nuevos",
+  "known_issues_result.empty": "Ningún resultado coincidente. Pruebe con otros filtros."
 }
