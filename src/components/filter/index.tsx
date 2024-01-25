@@ -18,27 +18,33 @@ interface Props {
   onApply: (filters: { tag: string[]; checklist: string[] }) => void
 }
 
+interface SelectedFilters {
+  tag: string[]
+  checklist: string[]
+}
+
 const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
   const intl = useIntl()
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedFilters, setSelectedFilters] = useState<{
-    tag: string[]
-    checklist: string[]
-  }>({
+  const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({
     tag: [],
     checklist: [],
   })
-  const numerOfFilters =
+  const [tempFilters, setTempFilters] = useState<SelectedFilters>({
+    tag: [],
+    checklist: [],
+  })
+  const numberOfFilters =
     selectedFilters.tag.length + selectedFilters.checklist.length
 
   function handleFilterClick(option: string, type: 'tag' | 'checklist') {
-    if (selectedFilters[type].includes(option)) {
-      const updatedFilters = selectedFilters[type].filter(
+    if (tempFilters[type].includes(option)) {
+      const updatedFilters = tempFilters[type].filter(
         (filter) => filter !== option
       )
-      setSelectedFilters((prev) => ({ ...prev, [type]: updatedFilters }))
+      setTempFilters((prev) => ({ ...prev, [type]: updatedFilters }))
     } else {
-      setSelectedFilters((prev) => ({
+      setTempFilters((prev) => ({
         ...prev,
         [type]: [...prev[type], option],
       }))
@@ -46,18 +52,22 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
   }
 
   function isFilterSelected(option: string, type: 'tag' | 'checklist') {
-    return selectedFilters[type].find((filter) => filter === option)
-      ? true
-      : false
+    return tempFilters[type].find((filter) => filter === option) ? true : false
   }
 
   const FilterButton = () => {
     return (
-      <Flex sx={styles.filterButton} onClick={() => setIsModalOpen(true)}>
+      <Flex
+        sx={styles.filterButton}
+        onClick={() => {
+          setTempFilters(selectedFilters)
+          setIsModalOpen(true)
+        }}
+      >
         <FilterIcon />
         <Text>{intl.formatMessage({ id: 'filter_modal.title' })}</Text>
-        {numerOfFilters > 0 && (
-          <Text sx={styles.numberOfFilters}>{numerOfFilters}</Text>
+        {numberOfFilters > 0 && (
+          <Text sx={styles.numberOfFilters}>{numberOfFilters}</Text>
         )}
       </Flex>
     )
@@ -71,7 +81,10 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
             <Text sx={styles.modalTitle}>Filtros</Text>
             <Flex
               sx={styles.closeButtonContainer}
-              onClick={() => setIsModalOpen(false)}
+              onClick={() => {
+                setTempFilters(selectedFilters)
+                setIsModalOpen(false)
+              }}
             >
               <CloseIcon size={32} />
             </Flex>
@@ -117,14 +130,15 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
             <Button
               sx={styles.removeButton}
               icon={() => <TrashcanIcon sx={{ mr: '8px' }} size={18} />}
-              onClick={() => setSelectedFilters({ tag: [], checklist: [] })}
+              onClick={() => setTempFilters({ tag: [], checklist: [] })}
             >
               {intl.formatMessage({ id: 'filter_modal.remove' })}
             </Button>
             <Button
               onClick={() => {
                 setIsModalOpen(false)
-                onApply(selectedFilters)
+                setSelectedFilters(tempFilters)
+                onApply(tempFilters)
               }}
             >
               {intl.formatMessage({ id: 'filter_modal.button' })}
