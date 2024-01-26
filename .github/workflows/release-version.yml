@@ -16,20 +16,13 @@ jobs:
     if: github.event.pull_request.merged == true
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    env:
-      GITHUB_PRIVATEKEY: ${{ secrets.PRIVATEKEY }}
-      GITHUB_APPID: ${{ secrets.APPID }}
-      GITHUB_INSTALLATIONID: ${{ secrets.INSTALLATIONID }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: de-vri-es/setup-git-credentials@v2
-      with:
-        credentials: ${{secrets.GIT_CREDENTIALS}}
     - uses: actions/checkout@v3
       with:
         ref: main
         fetch-depth: 0
-        token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup
       # Git configs and environment preparation
       run: |
@@ -98,7 +91,7 @@ jobs:
       if: ${{ env.RELEASE != 'no' }}
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         release_name: Release ${{ steps.publish_tag.outputs.tag_name }}
         tag_name: ${{ steps.publish_tag.outputs.tag_name }}
