@@ -150,7 +150,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
             })}
           </Flex>
           <Pagination
-            initialPage={page.curr}
+            forcePage={page.curr}
             pageCount={page.total}
             onPageChange={handleClick}
           />

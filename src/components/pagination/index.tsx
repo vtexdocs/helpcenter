@@ -5,16 +5,16 @@ import ReactPaginate from 'react-paginate'
 import styles from './styles'
 
 interface Props {
-  initialPage: number
+  forcePage: number
   pageCount: number
   onPageChange: (selectedItem: { selected: number }) => void
 }
 
-const Pagination = ({ initialPage, pageCount, onPageChange }: Props) => {
+const Pagination = ({ forcePage, pageCount, onPageChange }: Props) => {
   return (
     <Box sx={styles.container}>
       <ReactPaginate
-        initialPage={initialPage - 1}
+        forcePage={forcePage - 1}
         pageCount={pageCount}
         onPageChange={(props) => {
           if (props.selected >= 0) props.selected = props.selected + 1
