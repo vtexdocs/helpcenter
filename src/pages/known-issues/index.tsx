@@ -202,15 +202,13 @@ export const getStaticProps: GetStaticProps = async ({
     if (path) fetchPromises.push(fetchFromGithub(path, slug))
   })
 
-  const fetchData = await Promise.all(fetchPromises)
+  const fetchData = (await Promise.all(fetchPromises)).filter((e) => e.content)
 
   const knownIssuesData: KnownIssueDataElement[] = []
 
   fetchData.forEach(async (data) => {
     try {
-      const onlyFrontmatter = `---\n${data.content
-        .split('---')[1]
-        .replaceAll('"', '')}---\n`
+      const onlyFrontmatter = `---\n${data.content.split('---')[1]}---\n`
 
       const { frontmatter } = await serialize(onlyFrontmatter, {
         parseFrontmatter: true,
