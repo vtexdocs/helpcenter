@@ -23,7 +23,6 @@ import Breadcrumb from 'components/breadcrumb'
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 // import getGithubFile from 'utils/getGithubFile'
-import { getDocsPaths as getTracksPaths } from 'utils/getDocsPaths'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -169,7 +168,7 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
-      : await getTracksPaths('tracks', branch)
+      : await getKnownIssuesPaths('known-issues', branch)
 
   const logger = getLogger('Start here')
 
