@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/ban-ts-comment */
-const docsPaths: { [slug: string]: { locale: string; path: string }[] } = {}
-
 import octokit from 'utils/octokitConfig'
 
 async function getGithubTree(org: string, repo: string, ref: string) {
@@ -19,6 +17,8 @@ async function getGithubTree(org: string, repo: string, ref: string) {
 //https://api.github.com/repos/vtexdocs/devportal/commits?path=README.md
 
 export async function getAllDocsPaths(branch = 'main') {
+  const docsPaths: { [slug: string]: { locale: string; path: string }[] } = {}
+
   const repoTree = await getGithubTree(
     'vtexdocs',
     'help-center-content',
@@ -50,6 +50,8 @@ export async function getDocsPaths(
   category: 'tracks' | 'tutorials' | 'announcements' | 'faq' | 'known-issues',
   branch = 'main'
 ) {
+  const docsPaths: { [slug: string]: { locale: string; path: string }[] } = {}
+
   const repoTree = await getGithubTree(
     'vtexdocs',
     'help-center-content',
