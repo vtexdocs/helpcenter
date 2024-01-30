@@ -185,49 +185,60 @@ export const getStaticProps: GetStaticProps = async ({
         `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
       )
       const data = await response.text()
-      return { content: data, slug } || { content: '', slug }
+      return { content: data, slug }
     } catch (error) {
-      console.error(`Error fetching data for path ${path}:`, error)
+      logger.error(`Error fetching data for path ${path}` + ' ' + error)
       return { content: '', slug }
     }
   }
 
-  const fetchPromises: Promise<{ content: string; slug: string }>[] = []
+  const batchSize = 100
 
-  slugs.forEach((slug) => {
-    const path = docsPathsGLOBAL[slug].find(
-      (e) => e.locale === currentLocale
-    )?.path
+  const fetchBatch = async (batch: string[]) => {
+    const promises = batch.map(async (slug) => {
+      const path = docsPathsGLOBAL[slug]?.find(
+        (e) => e.locale === currentLocale
+      )?.path
 
-    if (path) fetchPromises.push(fetchFromGithub(path, slug))
-  })
+      if (path) return fetchFromGithub(path, slug)
 
-  const fetchData = (await Promise.all(fetchPromises)).filter((e) => e.content)
+      return { content: '', slug }
+    })
+
+    return Promise.all(promises)
+  }
 
   const knownIssuesData: KnownIssueDataElement[] = []
 
-  fetchData.forEach(async (data) => {
-    try {
-      const onlyFrontmatter = `---\n${data.content.split('---')[1]}---\n`
+  for (let i = 0; i < slugs.length; i += batchSize) {
+    const batch = slugs.slice(i, i + batchSize)
+    const batchResults = await fetchBatch(batch)
 
-      const { frontmatter } = await serialize(onlyFrontmatter, {
-        parseFrontmatter: true,
-      })
+    for (const data of batchResults) {
+      if (data?.content) {
+        try {
+          const onlyFrontmatter = `---\n${data.content.split('---')[1]}---\n`
 
-      if (frontmatter)
-        knownIssuesData.push({
-          id: frontmatter.id,
-          title: frontmatter.title,
-          module: frontmatter.tag,
-          slug: data.slug,
-          status: frontmatter.kiStatus as KnownIssueStatus,
-          createdAt: frontmatter.createdAt,
-          updatedAt: frontmatter.updatedAt,
-        })
-    } catch (error) {
-      logger.error(`${error}`)
+          const { frontmatter } = await serialize(onlyFrontmatter, {
+            parseFrontmatter: true,
+          })
+
+          if (frontmatter && frontmatter.tag && frontmatter.kiStatus)
+            knownIssuesData.push({
+              id: frontmatter.id,
+              title: frontmatter.title,
+              module: frontmatter.tag,
+              slug: data.slug,
+              status: frontmatter.kiStatus as KnownIssueStatus,
+              createdAt: String(frontmatter.createdAt),
+              updatedAt: String(frontmatter.updatedAt),
+            })
+        } catch (error) {
+          logger.error(`${error}`)
+        }
+      }
     }
-  })
+  }
 
   return {
     props: {
