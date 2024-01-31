@@ -115,11 +115,27 @@ const KnownIssuePage: NextPage<Props> = ({
                       <Tag>{serialized.frontmatter?.kiStatus}</Tag>
                     </Flex>
                     <Text sx={styles.dates}>
-                      <em>Criado em </em>
-                      {serialized.frontmatter?.createdAt}
+                      <em>
+                        {intl.formatMessage({
+                          id: 'known_issues_date.created',
+                        })}{' '}
+                      </em>
+                      {serialized.frontmatter?.createdAt
+                        ? intl.formatDate(
+                            new Date(serialized.frontmatter?.createdAt)
+                          )
+                        : ''}
                       {' • '}
-                      <em>Atualizado em </em>
-                      {serialized.frontmatter?.updatedAt}
+                      <em>
+                        {intl.formatMessage({
+                          id: 'known_issues_date.updated',
+                        })}{' '}
+                      </em>
+                      {serialized.frontmatter?.updatedAt
+                        ? intl.formatDate(
+                            new Date(serialized.frontmatter?.updatedAt)
+                          )
+                        : ''}
                     </Text>
                   </Flex>
                 </header>

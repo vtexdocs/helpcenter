@@ -252,5 +252,7 @@
   "known_issues_sort.label": "Ordenar por:",
   "known_issues_sort.recently_updated": "Recientemente actualizados",
   "known_issues_sort.newest": "Más nuevos",
-  "known_issues_result.empty": "Ningún resultado coincidente. Pruebe con otros filtros."
+  "known_issues_result.empty": "Ningún resultado coincidente. Pruebe con otros filtros.",
+  "known_issues_date.created": "Creado en",
+  "known_issues_date.updated": "Actualizado en"
 }
