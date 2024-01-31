@@ -8,8 +8,11 @@ import {
   FacebookShareButton,
   LinkedinShareButton,
   TwitterShareButton,
+  EmailShareButton,
 } from 'react-share'
 import styles from './styles'
+import EmailIcon from 'components/icons/email-icon'
+import CopyIcon from 'components/icons/copy-icon'
 
 interface Props {
   url: string
@@ -27,7 +30,7 @@ const ShareButton = ({ url }: Props) => {
   }
 
   return (
-    <Flex sx={styles.container}>
+    <Flex sx={styles.container} onMouseLeave={() => setIsOpen(false)}>
       <Button
         sx={styles.button}
         variant="tertiary"
@@ -37,25 +40,31 @@ const ShareButton = ({ url }: Props) => {
       {isOpen && (
         <Flex sx={styles.innerContainer}>
           <Flex sx={styles.innerButton} onClick={handleCopyLink}>
-            <ShareIcon />
+            <CopyIcon size={16} />
             <Text>Copy link</Text>
           </Flex>
           <Box sx={styles.divider}></Box>
+          <EmailShareButton url={url}>
+            <Flex sx={styles.innerButton} onClick={handleCopyLink}>
+              <EmailIcon size={16} />
+              <Text>E-mail</Text>
+            </Flex>
+          </EmailShareButton>
           <TwitterShareButton url={url}>
             <Flex sx={styles.innerButton}>
-              <TwitterIcon size={24} />
+              <TwitterIcon size={16} />
               <Text>Twitter</Text>
             </Flex>
           </TwitterShareButton>
           <FacebookShareButton url={url}>
             <Flex sx={styles.innerButton}>
-              <FacebookIcon size={24} />
+              <FacebookIcon size={16} />
               <Text>Facebook</Text>
             </Flex>
           </FacebookShareButton>
           <LinkedinShareButton url={url}>
             <Flex sx={styles.innerButton}>
-              <LinkedinIcon size={24} />
+              <LinkedinIcon size={16} />
               <Text>LinkedIn</Text>
             </Flex>
           </LinkedinShareButton>
