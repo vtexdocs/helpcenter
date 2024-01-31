@@ -13,13 +13,13 @@ import {
   getTwitterURL,
 } from 'utils/get-url'
 import { useIntl } from 'react-intl'
-import FacebookIcon from 'components/icons/facebook-icon'
 import LocaleSwitcherFooter from 'components/locale-switcher-footer'
 import VtexLogoFooter from 'components/icons/vtexLogoFooter'
 import InstagramIcon from 'components/icons/instagram-icon'
-import LinkedinIcon from 'components/icons/linkedin-icon'
 import YoutubeIcon from 'components/icons/youtube-icon'
-import TwitterIcon from 'components/icons/twitter-icon'
+import FacebookCircleIcon from 'components/icons/facebook-circle-icon'
+import TwitterCircleIcon from 'components/icons/twitter-circle-icon'
+import LinkedinCircleIcon from 'components/icons/linkedin-circle-icon'
 
 const Footer = () => {
   const intl = useIntl()
@@ -60,7 +60,7 @@ const Footer = () => {
   const socialIcons = [
     {
       to: () => getFacebookURL(),
-      component: <FacebookIcon sx={styles.icon} />,
+      component: <FacebookCircleIcon sx={styles.icon} />,
     },
     {
       to: () => getInstagramURL(),
@@ -72,11 +72,11 @@ const Footer = () => {
     },
     {
       to: () => getLinkedinURL(),
-      component: <LinkedinIcon sx={styles.icon} />,
+      component: <LinkedinCircleIcon sx={styles.icon} />,
     },
     {
       to: () => getTwitterURL(),
-      component: <TwitterIcon sx={styles.icon} />,
+      component: <TwitterCircleIcon sx={styles.icon} />,
     },
   ]
   return (
