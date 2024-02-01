@@ -3,7 +3,7 @@ import FacebookIcon from 'components/icons/facebook-icon'
 import LinkedinIcon from 'components/icons/linkedin-icon'
 import ShareIcon from 'components/icons/share-icon'
 import TwitterIcon from 'components/icons/twitter-icon'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -12,7 +12,8 @@ import {
 } from 'react-share'
 import styles from './styles'
 import EmailIcon from 'components/icons/email-icon'
-import CopyIcon from 'components/icons/copy-icon'
+import LinkIcon from 'components/icons/link-icon'
+import useClickOutside from 'utils/hooks/useClickOutside'
 
 interface Props {
   url: string
@@ -20,17 +21,19 @@ interface Props {
 
 const ShareButton = ({ url }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
+  const containerRef = useRef()
+  useClickOutside(containerRef, () => setIsOpen(false))
 
   const handleCopyLink = async () => {
     try {
-      await navigator.clipboard.writeText(window.location.href)
+      if (window) await navigator.clipboard.writeText(window.location.href)
     } catch (error) {
       console.error('Error copying link to clipboard:', error)
     }
   }
 
   return (
-    <Flex sx={styles.container} onMouseLeave={() => setIsOpen(false)}>
+    <Flex sx={styles.container} ref={containerRef}>
       <Button
         sx={styles.button}
         variant="tertiary"
@@ -40,7 +43,7 @@ const ShareButton = ({ url }: Props) => {
       {isOpen && (
         <Flex sx={styles.innerContainer}>
           <Flex sx={styles.innerButton} onClick={handleCopyLink}>
-            <CopyIcon size={16} />
+            <LinkIcon size={16} />
             <Text>Copy link</Text>
           </Flex>
           <Box sx={styles.divider}></Box>
