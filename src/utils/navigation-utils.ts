@@ -39,6 +39,7 @@ export const getParents = (
   parentsArray: string[],
   parent?: string
 ) => {
+  console.log(path)
   const pathParts = path?.split('children')
   const desiredData = data === 'name' ? `${data}.${locale}` : data
   pathParts?.splice(-1)
@@ -55,26 +56,21 @@ export const getParents = (
   return parentsArray
 }
 
+interface childrenDataI {
+  slug: string
+  name: string
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getChildren = (
-  path: string,
-  data: string,
-  flattenedSidebar: { [x: string]: string },
-  locale: localeType = 'en',
-  childrenArray: string[]
-) => {
-  const childrenBasePath = path?.split('slug')[0].concat('children.')
-  const desiredData = data === 'name' ? `${data}.${locale}` : data
+export const getChildren = (category: any, currentLocale: string) => {
+  const children: childrenDataI[] = []
 
-  for (let i = 0; i < 100; i++) {
-    const completePath = childrenBasePath
-      .concat(String(i))
-      .concat(`.${desiredData}`)
-    if (!flattenedSidebar[completePath]) {
-      break
-    }
-    childrenArray.push(flattenedSidebar[completePath])
-  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  category.children.forEach((el: { slug: any; name: { [x: string]: any } }) => {
+    const child: childrenDataI = { slug: el.slug, name: el.name[currentLocale] }
 
-  return childrenArray
+    children.push(child)
+  })
+
+  return children
 }

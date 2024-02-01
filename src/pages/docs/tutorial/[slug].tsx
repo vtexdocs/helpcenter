@@ -66,6 +66,20 @@ interface MarkDownProps {
     title: string
     category: string
   }[]
+  pagination: {
+    previousDoc: {
+      slug: string | null
+      name: string | null
+    }
+    nextDoc: {
+      slug: string | null
+      name: string | null
+    }
+  }
+  isListed: boolean
+  branch: string
+  type: 'doc' | 'tutorial-category'
+  tutorialData: TutorialDataI | null
 }
 
 type Props =
@@ -121,6 +135,8 @@ const TutorialPage: NextPage<Props> = ({
   pagination,
   breadcrumbList,
   componentProps,
+  type,
+  tutorialData, // eslint-disable-line
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
@@ -333,8 +349,108 @@ export const getStaticProps: GetStaticProps = async ({
       : await getTutorialsPaths('tutorials', branch)
 
   const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
+  const logger = getLogger('Tutorials & Solutions')
+  const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
+  console.log('doc', path)
+  const sidebarfallback = await getNavigation()
+  let docType = 'doc'
 
   if (!path) {
+    docType = 'tutorialCategory'
+    let tutorialTitle = ''
+    let tutorialChildren
+    let cat
+    let tutorialType = ''
+
+    // substituir por flattened sidebar
+    sidebarfallback.forEach((elem) => {
+      const category = elem.categories.find(
+        (e) => e.type === 'tutorial-category'
+      )
+      if (category) {
+        cat = category
+        tutorialTitle = category.name[currentLocale]
+        tutorialChildren = getChildren(category, currentLocale)
+        tutorialType = category.type
+      }
+    })
+
+    if (cat) {
+      const flattenedSidebar = flattenJSON(sidebarfallback)
+      const parentsArray: string[] = []
+      const parentsArrayName: string[] = []
+      const parentsArrayType: string[] = []
+      const keyPath = getKeyByValue(flattenedSidebar, slug)
+      let sectionSelected = ''
+
+      const isListed: boolean = getKeyByValue(flattenedSidebar, slug)
+        ? true
+        : false
+
+      // console.log('CAT', cat.type, cat.slug, slug)
+      if (keyPath) {
+        console.log('keyPath', keyPath, keyPath[1])
+        console.log(
+          'KEYPATH',
+          flattenedSidebar['1.categories.0.children.0.name.en']
+        )
+        getParents(
+          keyPath,
+          'slug',
+          flattenedSidebar,
+          currentLocale,
+          parentsArray
+        )
+        parentsArray.push(slug)
+        getParents(
+          keyPath,
+          'name',
+          flattenedSidebar,
+          currentLocale,
+          parentsArrayName
+        )
+        parentsArrayName.push(tutorialTitle)
+        getParents(
+          keyPath,
+          'type',
+          flattenedSidebar,
+          currentLocale,
+          parentsArrayType
+        )
+        parentsArrayType.push(tutorialType)
+
+        sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
+      }
+
+      const breadcrumbList: { slug: string; name: string; type: string }[] = []
+      parentsArrayName.forEach((_el: string, idx: number) => {
+        breadcrumbList.push({
+          slug: `/docs/tutorial/${parentsArray[idx]}`,
+          name: parentsArrayName[idx],
+          type: parentsArrayType[idx],
+        })
+      })
+      return {
+        props: {
+          sectionSelected: sectionSelected,
+          parentsArray: parentsArray,
+          slug: slug,
+          serialized: '',
+          sidebarfallback: sidebarfallback,
+          headingList: [],
+          contributors: [],
+          path: '',
+          seeAlsoData: '',
+          pagination: [],
+          isListed: isListed,
+          breadcrumbList: breadcrumbList,
+          branch: branch,
+          type: docType,
+          tutorialData: { title: tutorialTitle, children: tutorialChildren },
+        },
+      }
+    }
+
     return {
       notFound: true,
     }
