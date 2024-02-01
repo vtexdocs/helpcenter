@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Head from 'next/head'
 import { useEffect, useState, useContext } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
-import jp from 'jsonpath'
+import jp, { value } from 'jsonpath'
 import ArticlePagination from 'components/article-pagination'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
@@ -13,7 +14,7 @@ import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
 
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 
-import { Box, Flex, Text } from '@vtex/brand-ui'
+import { Box, Flex, Link, Text } from '@vtex/brand-ui'
 
 import DocumentContextProvider from 'utils/contexts/documentContext'
 
@@ -40,6 +41,7 @@ import { ContributorsType } from 'utils/getFileContributors'
 import { getLogger } from 'utils/logging/log-util'
 import {
   flattenJSON,
+  getChildren,
   getKeyByValue,
   getParents,
   localeType,
@@ -47,6 +49,11 @@ import {
 // import { ParsedUrlQuery } from 'querystring'
 
 const docsPathsGLOBAL = await getTutorialsPaths('tutorials')
+
+interface TutorialDataI {
+  name: string
+  children: { name: string; slug: string }[]
+}
 
 interface Props {
   sectionSelected: string
@@ -75,6 +82,8 @@ interface Props {
   }
   isListed: boolean
   branch: string
+  type: 'doc' | 'tutorial-category'
+  tutorialData: TutorialDataI | null
 }
 
 const TutorialPage: NextPage<Props> = ({
@@ -90,79 +99,112 @@ const TutorialPage: NextPage<Props> = ({
   isListed,
   breadcrumbList,
   branch,
+  type,
+  tutorialData, // eslint-disable-line
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const { setActiveSidebarElement } = useContext(LibraryContext)
-  useEffect(() => {
-    setActiveSidebarElement(slug)
-    setHeadings(headingList)
-  }, [serialized.frontmatter])
-  return (
-    <>
-      <Head>
-        <title>{serialized.frontmatter?.title as string}</title>
-        <meta name="docsearch:doctype" content="Tutorials & Solutions" />
-        {serialized.frontmatter?.hidden && (
-          <meta name="robots" content="noindex" />
-        )}
-        {serialized.frontmatter?.excerpt && (
-          <meta
-            property="og:description"
-            content={serialized.frontmatter?.excerpt as string}
-          />
-        )}
-      </Head>
-      <DocumentContextProvider headings={headings}>
-        <Flex sx={styles.innerContainer}>
-          <Box sx={styles.articleBox}>
-            <Box sx={styles.contentContainer}>
-              <article>
-                <header>
-                  <Breadcrumb breadcrumbList={breadcrumbList} />
-                  <Text sx={styles.documentationTitle} className="title">
-                    {serialized.frontmatter?.title}
-                  </Text>
-                  <Text sx={styles.documentationExcerpt}>
-                    {serialized.frontmatter?.excerpt}
-                  </Text>
-                </header>
-                <MarkdownRenderer serialized={serialized} />
-              </article>
-            </Box>
+  if (type === 'doc') {
+    useEffect(() => {
+      setActiveSidebarElement(slug)
+      setHeadings(headingList)
+    }, [serialized.frontmatter])
+    // console.log('type', tutorialData)
+  }
+  if (type === 'doc') {
+    return (
+      <>
+        <Head>
+          <title>{serialized.frontmatter?.title as string}</title>
+          <meta name="docsearch:doctype" content="Tutorials & Solutions" />
+          {serialized.frontmatter?.hidden && (
+            <meta name="robots" content="noindex" />
+          )}
+          {serialized.frontmatter?.excerpt && (
+            <meta
+              property="og:description"
+              content={serialized.frontmatter?.excerpt as string}
+            />
+          )}
+        </Head>
+        <DocumentContextProvider headings={headings}>
+          <Flex sx={styles.innerContainer}>
+            <Box sx={styles.articleBox}>
+              <Box sx={styles.contentContainer}>
+                <article>
+                  <header>
+                    <Breadcrumb breadcrumbList={breadcrumbList} />
+                    <Text sx={styles.documentationTitle} className="title">
+                      {serialized.frontmatter?.title}
+                    </Text>
+                    <Text sx={styles.documentationExcerpt}>
+                      {serialized.frontmatter?.excerpt}
+                    </Text>
+                  </header>
+                  <MarkdownRenderer serialized={serialized} />
+                </article>
+              </Box>
 
-            <Box sx={styles.bottomContributorsContainer}>
-              <Box sx={styles.bottomContributorsDivider} />
+              <Box sx={styles.bottomContributorsContainer}>
+                <Box sx={styles.bottomContributorsDivider} />
+                <Contributors contributors={contributors} />
+              </Box>
+
+              <FeedbackSection docPath={path} slug={slug} />
+              {isListed && (
+                <ArticlePagination
+                  hidePaginationNext={
+                    Boolean(serialized.frontmatter?.hidePaginationNext) || false
+                  }
+                  hidePaginationPrevious={
+                    Boolean(serialized.frontmatter?.hidePaginationPrevious) ||
+                    false
+                  }
+                  pagination={pagination}
+                />
+              )}
+              {serialized.frontmatter?.seeAlso && (
+                <SeeAlsoSection docs={seeAlsoData} />
+              )}
+            </Box>
+            <Box sx={styles.rightContainer}>
               <Contributors contributors={contributors} />
+              <TableOfContents headingList={headings} />
             </Box>
-
-            <FeedbackSection docPath={path} slug={slug} />
-            {isListed && (
-              <ArticlePagination
-                hidePaginationNext={
-                  Boolean(serialized.frontmatter?.hidePaginationNext) || false
-                }
-                hidePaginationPrevious={
-                  Boolean(serialized.frontmatter?.hidePaginationPrevious) ||
-                  false
-                }
-                pagination={pagination}
-              />
-            )}
-            {serialized.frontmatter?.seeAlso && (
-              <SeeAlsoSection docs={seeAlsoData} />
-            )}
-          </Box>
-          <Box sx={styles.rightContainer}>
-            <Contributors contributors={contributors} />
-            <TableOfContents headingList={headings} />
-          </Box>
-          <OnThisPage />
-        </Flex>
-      </DocumentContextProvider>
-    </>
-  )
+            <OnThisPage />
+          </Flex>
+        </DocumentContextProvider>
+      </>
+    )
+  } else {
+    return (
+      <>
+        <DocumentContextProvider headings={headings}>
+          <Flex sx={styles.innerContainer}>
+            <Box sx={styles.articleBox}>
+              <Box sx={styles.contentContainer}>
+                <article>
+                  <header>
+                    <Breadcrumb breadcrumbList={breadcrumbList} />
+                    <Text sx={styles.documentationTitle} className="title">
+                      {serialized.frontmatter?.title}
+                    </Text>
+                    <Text sx={styles.documentationExcerpt}>
+                      {serialized.frontmatter?.excerpt}
+                    </Text>
+                  </header>
+                  Hello world!
+                </article>
+              </Box>
+            </Box>
+            <OnThisPage />
+          </Flex>
+        </DocumentContextProvider>
+      </>
+    )
+  }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -208,9 +250,107 @@ export const getStaticProps: GetStaticProps = async ({
       : await getTutorialsPaths('tutorials', branch)
 
   const logger = getLogger('Tutorials & Solutions')
-  const path = docsPaths[slug].find((e) => e.locale === locale)?.path
+  const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
+  console.log('doc', path)
+  const sidebarfallback = await getNavigation()
+  let docType = 'doc'
 
   if (!path) {
+    docType = 'tutorialCategory'
+    let tutorialTitle = ''
+    let tutorialChildren
+    let cat
+    let tutorialType = ''
+
+    // substituir por flattened sidebar
+    sidebarfallback.forEach((elem) => {
+      const category = elem.categories.find(
+        (e) => e.type === 'tutorial-category'
+      )
+      if (category) {
+        cat = category
+        tutorialTitle = category.name[currentLocale]
+        tutorialChildren = getChildren(category, currentLocale)
+        tutorialType = category.type
+      }
+    })
+
+    if (cat) {
+      const flattenedSidebar = flattenJSON(sidebarfallback)
+      const parentsArray: string[] = []
+      const parentsArrayName: string[] = []
+      const parentsArrayType: string[] = []
+      const keyPath = getKeyByValue(flattenedSidebar, slug)
+      let sectionSelected = ''
+
+      const isListed: boolean = getKeyByValue(flattenedSidebar, slug)
+        ? true
+        : false
+
+      // console.log('CAT', cat.type, cat.slug, slug)
+      if (keyPath) {
+        console.log('keyPath', keyPath, keyPath[1])
+        console.log(
+          'KEYPATH',
+          flattenedSidebar['1.categories.0.children.0.name.en']
+        )
+        getParents(
+          keyPath,
+          'slug',
+          flattenedSidebar,
+          currentLocale,
+          parentsArray
+        )
+        parentsArray.push(slug)
+        getParents(
+          keyPath,
+          'name',
+          flattenedSidebar,
+          currentLocale,
+          parentsArrayName
+        )
+        parentsArrayName.push(tutorialTitle)
+        getParents(
+          keyPath,
+          'type',
+          flattenedSidebar,
+          currentLocale,
+          parentsArrayType
+        )
+        parentsArrayType.push(tutorialType)
+
+        sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
+      }
+
+      const breadcrumbList: { slug: string; name: string; type: string }[] = []
+      parentsArrayName.forEach((_el: string, idx: number) => {
+        breadcrumbList.push({
+          slug: `/docs/tutorial/${parentsArray[idx]}`,
+          name: parentsArrayName[idx],
+          type: parentsArrayType[idx],
+        })
+      })
+      return {
+        props: {
+          sectionSelected: sectionSelected,
+          parentsArray: parentsArray,
+          slug: slug,
+          serialized: '',
+          sidebarfallback: sidebarfallback,
+          headingList: [],
+          contributors: [],
+          path: '',
+          seeAlsoData: '',
+          pagination: [],
+          isListed: isListed,
+          breadcrumbList: breadcrumbList,
+          branch: branch,
+          type: docType,
+          tutorialData: { title: tutorialTitle, children: tutorialChildren },
+        },
+      }
+    }
+
     return {
       notFound: true,
     }
@@ -300,7 +440,6 @@ export const getStaticProps: GetStaticProps = async ({
       },
     })
 
-    const sidebarfallback = await getNavigation()
     serialized = JSON.parse(JSON.stringify(serialized))
 
     logger.info(`Processing ${slug}`)
@@ -392,7 +531,9 @@ export const getStaticProps: GetStaticProps = async ({
     const parentsArrayType: string[] = []
     let sectionSelected = ''
     if (keyPath) {
+      console.log('doc', keyPath[0], keyPath)
       sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
+      console.log('doc', sectionSelected)
       getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
       parentsArray.push(slug)
       getParents(
@@ -435,6 +576,8 @@ export const getStaticProps: GetStaticProps = async ({
         isListed,
         breadcrumbList,
         branch,
+        type: docType,
+        tutorialData: {},
       },
       revalidate: 600,
     }

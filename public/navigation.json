@@ -3650,7 +3650,7 @@
           "name": { "en": "Beta", "es": "Beta", "pt": "Beta" },
           "slug": "beta-products",
           "origin": "",
-          "type": "category",
+          "type": "tutorial-category",
           "children": [
             {
               "name": {
@@ -3660,7 +3660,7 @@
               },
               "slug": "subscriptions-beta",
               "origin": "",
-              "type": "category",
+              "type": "tutorial-category",
               "children": [
                 {
                   "name": {
