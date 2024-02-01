@@ -957,7 +957,7 @@ const Platform = (props: IconProps) => (
       fill="none"
       stroke="#f71963"
       strokeLinejoin="miter"
-      stroke-miterlimit="10"
+      strokeMiterlimit="10"
     >
       <rect x="4" y="15" width="8" height="7"></rect>
       <rect x="12" y="15" width="8" height="7"></rect>
