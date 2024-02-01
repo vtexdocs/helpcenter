@@ -109,7 +109,7 @@ const TrackPage: NextPage<Props> = ({
     <>
       <Head>
         <title>{serialized.frontmatter?.title as string}</title>
-        <meta name="docsearch:doctype" content="Start here" />
+        <meta name="docsearch:doctype" content="tracks" />
         {serialized.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />
         )}
@@ -468,6 +468,7 @@ export const getStaticProps: GetStaticProps = async ({
         isListed,
         breadcrumbList,
         branch,
+        locale,
       },
       revalidate: 600,
     }

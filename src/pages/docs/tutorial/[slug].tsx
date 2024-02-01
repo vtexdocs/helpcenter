@@ -103,7 +103,7 @@ const TutorialPage: NextPage<Props> = ({
     <>
       <Head>
         <title>{serialized.frontmatter?.title as string}</title>
-        <meta name="docsearch:doctype" content="Tutorials & Solutions" />
+        <meta name="docsearch:doctype" content="tutorials" />
         {serialized.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />
         )}
@@ -435,6 +435,7 @@ export const getStaticProps: GetStaticProps = async ({
         isListed,
         breadcrumbList,
         branch,
+        locale,
       },
       revalidate: 600,
     }
