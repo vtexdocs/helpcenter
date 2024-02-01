@@ -77,6 +77,7 @@ const AnnouncementPage: NextPage<Props> = ({
 }) => {
   const intl = useIntl()
   const [headings, setHeadings] = useState<Item[]>([])
+  const [url, setUrl] = useState('')
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const { setActiveSidebarElement } = useContext(LibraryContext)
@@ -86,6 +87,10 @@ const AnnouncementPage: NextPage<Props> = ({
     setActiveSidebarElement(slug)
     setHeadings(headingList)
   }, [serialized.frontmatter])
+
+  useEffect(() => {
+    if (window) setUrl(window.location.href)
+  }, [])
 
   return (
     <>
@@ -117,7 +122,7 @@ const AnnouncementPage: NextPage<Props> = ({
                         </Text>
                       )}
                     </Box>
-                    <ShareButton url={window.location.href} />
+                    {url && <ShareButton url={url} />}
                   </Flex>
                 </header>
                 <MarkdownRenderer serialized={serialized} />
