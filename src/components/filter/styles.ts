@@ -34,7 +34,7 @@ const blanket: SxStyleProp = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  zIndex: '10000',
+  zIndex: '9999',
 }
 
 const container: SxStyleProp = {
@@ -47,7 +47,7 @@ const container: SxStyleProp = {
   borderRadius: '5px',
   backgroundColor: '#ffff',
   boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.1)',
-  zIndex: '9999',
+  zIndex: '10000',
   overflow: 'auto',
   height: ['100vh', 'auto'],
 }

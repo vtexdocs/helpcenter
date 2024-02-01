@@ -55,6 +55,11 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
     return tempFilters[type].find((filter) => filter === option) ? true : false
   }
 
+  function closeModal() {
+    setTempFilters(selectedFilters)
+    setIsModalOpen(false)
+  }
+
   const FilterButton = () => {
     return (
       <Flex
@@ -75,17 +80,12 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
 
   const FilterModal = () => {
     return (
-      <Box sx={styles.blanket}>
+      <>
+        <Box sx={styles.blanket} onClick={() => closeModal()} />
         <Box sx={styles.container}>
           <Box sx={styles.topContainer}>
             <Text sx={styles.modalTitle}>Filtros</Text>
-            <Flex
-              sx={styles.closeButtonContainer}
-              onClick={() => {
-                setTempFilters(selectedFilters)
-                setIsModalOpen(false)
-              }}
-            >
+            <Flex sx={styles.closeButtonContainer} onClick={() => closeModal()}>
               <CloseIcon size={32} />
             </Flex>
           </Box>
@@ -145,7 +145,7 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
             </Button>
           </Flex>
         </Box>
-      </Box>
+      </>
     )
   }
 
