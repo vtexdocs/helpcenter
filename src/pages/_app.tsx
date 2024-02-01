@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }: Props) {
             content="https://cdn.jsdelivr.net/gh/vtexdocs/devportal@main/public/images/meta-image.png"
           />
           <meta
-            property="docsearch:language"
+            name="docsearch:language"
             content={pageProps.locale || currentLocale}
           />
         </Head>
