@@ -150,7 +150,7 @@ export const knownIssuesData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'sidebar_known_issues.description',
       }),
-      link: '#', //TODO: Trocar rota
+      link: '/known-issues',
     },
     {
       id: 'Support Rules',
@@ -179,7 +179,7 @@ export const menuSupportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'sidebar_known_issues.description',
       }),
-      link: '#', //TODO: Trocar rota
+      link: '/known-issues', //TODO: Trocar rota
     },
     {
       id: 'Status',
@@ -420,6 +420,167 @@ export const resources = (intl: IntlShape) => {
         id: 'app_development_page_other_resources_support.description',
       }),
       link: getSupportURL(),
+    },
+  ]
+
+  return data
+}
+
+export const knownIssuesStatusFilter = (intl: IntlShape) => {
+  const data = {
+    name: intl.formatMessage({
+      id: 'known_issues_filter_status.title',
+    }),
+    options: [
+      {
+        id: 'Closed',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.closed' }),
+      },
+      {
+        id: 'Fixed',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.fixed' }),
+      },
+      {
+        id: 'Backlog',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.backlog' }),
+      },
+      {
+        id: 'Scheduled',
+        name: intl.formatMessage({
+          id: 'known_issues_filter_status.scheduled',
+        }),
+      },
+      {
+        id: 'No fix',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.no_fix' }),
+      },
+    ],
+  }
+
+  return data
+}
+
+export const knownIssuesModulesFilters = (intl: IntlShape) => {
+  const data = {
+    name: intl.formatMessage({
+      id: 'known_issues_filter_modules.title',
+    }),
+    options: [
+      {
+        id: 'Pricing & Promotions',
+        name: 'Pricing & Promotions',
+      },
+      {
+        id: 'Catalog',
+        name: 'Catalog',
+      },
+      {
+        id: 'Connections',
+        name: 'Connections',
+      },
+      {
+        id: 'CMS',
+        name: 'CMS',
+      },
+      {
+        id: 'Checkout',
+        name: 'Checkout',
+      },
+      {
+        id: 'Identity',
+        name: 'Identity',
+      },
+      {
+        id: 'Storage',
+        name: 'Storage',
+      },
+      {
+        id: 'B2B',
+        name: 'B2B',
+      },
+      {
+        id: 'VTEX Shipping Network',
+        name: 'VTEX Shipping Network',
+      },
+      {
+        id: 'Message Center',
+        name: 'Message Center',
+      },
+      {
+        id: 'Store Framework',
+        name: 'Store Framework',
+      },
+      {
+        id: 'Payments',
+        name: 'Payments',
+      },
+      {
+        id: 'Portal',
+        name: 'Portal',
+      },
+      {
+        id: 'Suggestions',
+        name: 'Suggestions',
+      },
+      {
+        id: 'Order Management',
+        name: 'Order Management',
+      },
+      {
+        id: 'Physical Stores',
+        name: 'Physical Stores',
+      },
+      {
+        id: 'Marketplace',
+        name: 'Marketplace',
+      },
+      {
+        id: 'Analytics',
+        name: 'Analytics',
+      },
+      {
+        id: 'Intelligent Search',
+        name: 'Intelligent Search',
+      },
+      {
+        id: 'Logistics',
+        name: 'Logistics',
+      },
+      {
+        id: 'Gift Card',
+        name: 'Gift Card',
+      },
+      {
+        id: 'Master Data',
+        name: 'Master Data',
+      },
+      {
+        id: 'My Orders',
+        name: 'My Orders',
+      },
+      {
+        id: 'Webservice',
+        name: 'Webservice',
+      },
+      {
+        id: 'License Manager',
+        name: 'License Manager',
+      },
+    ],
+  }
+
+  return data
+}
+
+export const knownIssueSortBy = (intl: IntlShape) => {
+  const data = [
+    {
+      value: 'recently_updated',
+      content: intl.formatMessage({ id: 'known_issues_sort.recently_updated' }),
+    },
+    {
+      value: 'newest',
+      content: intl.formatMessage({ id: 'known_issues_sort.newest' }),
     },
   ]
 

@@ -3,7 +3,6 @@ import type { Page } from 'utils/typings/types'
 
 import NewsletterSection from 'components/newsletter-section'
 import DocumentationSection from 'components/documentation-section'
-import EducationSection from 'components/education-section'
 import AnnouncementSection from 'components/announcement-section'
 
 import Head from 'next/head'
@@ -44,7 +43,6 @@ const Home: Page<Props> = ({ branch }) => {
         <FaqSection />
         <SupportSection />
         <AnnouncementSection />
-        <EducationSection />
       </Grid>
     </>
   )

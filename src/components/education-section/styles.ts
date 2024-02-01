@@ -2,8 +2,10 @@ import { SxStyleProp } from '@vtex/brand-ui'
 
 const container: SxStyleProp = {
   pt: ['32px', '64px'],
-  pb: ['64px', '64px', '64px', '128px'],
+  pb: ['64px', '64px', '64px', '96px', '96px', '128px'],
   px: ['18px', '32px', '96px'],
+  backgroundColor: '#FFFFFF',
+  borderTop: '1px solid #E7E9EE',
 }
 
 const title: SxStyleProp = {
