@@ -39,6 +39,7 @@ export const getParents = (
   parentsArray: string[],
   parent?: string
 ) => {
+  console.log(path)
   const pathParts = path?.split('children')
   const desiredData = data === 'name' ? `${data}.${locale}` : data
   pathParts?.splice(-1)
@@ -53,4 +54,23 @@ export const getParents = (
   })
 
   return parentsArray
+}
+
+interface childrenDataI {
+  slug: string
+  name: string
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getChildren = (category: any, currentLocale: string) => {
+  const children: childrenDataI[] = []
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  category.children.forEach((el: { slug: any; name: { [x: string]: any } }) => {
+    const child: childrenDataI = { slug: el.slug, name: el.name[currentLocale] }
+
+    children.push(child)
+  })
+
+  return children
 }
