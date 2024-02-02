@@ -370,7 +370,7 @@ export const getStaticProps: GetStaticProps = async ({
       if (category) {
         cat = category
         tutorialTitle = category.name[currentLocale]
-        tutorialChildren = getChildren(category, currentLocale)
+        // tutorialChildren = getChildren(category, currentLocale)
         tutorialType = category.type
       }
     })
@@ -380,19 +380,30 @@ export const getStaticProps: GetStaticProps = async ({
       const parentsArray: string[] = []
       const parentsArrayName: string[] = []
       const parentsArrayType: string[] = []
+      const childrenArrayName: string[] = []
+      const childrenArraySlug: string[] = []
       const keyPath = getKeyByValue(flattenedSidebar, slug)
+      let categoryTitle = ''
       let sectionSelected = ''
-
       const isListed: boolean = getKeyByValue(flattenedSidebar, slug)
         ? true
         : false
 
       // console.log('CAT', cat.type, cat.slug, slug)
       if (keyPath) {
-        console.log('keyPath', keyPath, keyPath[1])
-        console.log(
-          'KEYPATH',
-          flattenedSidebar['1.categories.0.children.0.name.en']
+        getChildren(
+          keyPath,
+          'name',
+          flattenedSidebar,
+          currentLocale,
+          childrenArrayName
+        )
+        getChildren(
+          keyPath,
+          'slug',
+          flattenedSidebar,
+          currentLocale,
+          childrenArraySlug
         )
         getParents(
           keyPath,
@@ -409,7 +420,10 @@ export const getStaticProps: GetStaticProps = async ({
           currentLocale,
           parentsArrayName
         )
-        parentsArrayName.push(tutorialTitle)
+        const mainKeyPath = keyPath.split('slug')[0]
+        const nameKeyPath = mainKeyPath.concat(`name.${locale}`)
+        categoryTitle = flattenedSidebar[nameKeyPath]
+        parentsArrayName.push(categoryTitle)
         getParents(
           keyPath,
           'type',
@@ -417,8 +431,8 @@ export const getStaticProps: GetStaticProps = async ({
           currentLocale,
           parentsArrayType
         )
-        parentsArrayType.push(tutorialType)
-
+        const typeKeyPath = mainKeyPath.concat('type')
+        parentsArrayType.push(flattenedSidebar[typeKeyPath])
         sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
       }
 
@@ -430,6 +444,53 @@ export const getStaticProps: GetStaticProps = async ({
           type: parentsArrayType[idx],
         })
       })
+
+      const childrenList: { slug: string; name: string }[] = []
+      childrenArrayName.forEach((_el: string, idx: number) => {
+        childrenList.push({
+          slug: `/docs/tutorial/${childrenArraySlug[idx]}`,
+          name: childrenArrayName[idx],
+        })
+      })
+
+      // let pagination: {
+      //   previousDoc: {
+      //     slug: string
+      //     name: string
+      //   }
+      //   nextDoc: {
+      //     slug: string
+      //     name: string
+      //   }
+      // } =
+
+      const previousDoc: { slug: string; name: string } =
+        breadcrumbList.length > 1
+          ? {
+              slug: breadcrumbList[breadcrumbList.length - 2].slug,
+              name: breadcrumbList[breadcrumbList.length - 2].name,
+            }
+          : {
+              slug: '',
+              name: '',
+            }
+      const nextDoc: { slug: string; name: string } = {
+        slug: childrenList[0].slug,
+        name: childrenList[0].name,
+      }
+
+      let hidePaginationPrevious = false
+      if (breadcrumbList.length < 2) {
+        hidePaginationPrevious = true
+      }
+
+      let hidePaginationNext = false
+      if (!childrenList) {
+        hidePaginationNext = true
+      }
+
+      const pagination = { previousDoc: previousDoc, nextDoc: nextDoc }
+
       return {
         props: {
           sectionSelected: sectionSelected,
@@ -441,12 +502,17 @@ export const getStaticProps: GetStaticProps = async ({
           contributors: [],
           path: '',
           seeAlsoData: '',
-          pagination: [],
+          pagination: pagination,
           isListed: isListed,
           breadcrumbList: breadcrumbList,
           branch: branch,
           type: docType,
-          tutorialData: { title: tutorialTitle, children: tutorialChildren },
+          tutorialData: {
+            title: categoryTitle,
+            children: childrenList,
+            hidePaginationPrevious: hidePaginationPrevious,
+            hidePaginationNext: hidePaginationNext,
+          },
         },
       }
     }
