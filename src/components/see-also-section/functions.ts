@@ -10,8 +10,8 @@ const getDoctype = (category: string) => {
       return 'Tutorials & Solutions'
     case 'Start here':
       return 'Start here'
-    case 'News':
-      return 'News'
+    case 'Announcements':
+      return 'Announcements'
     default:
       return 'Tutorials & Solutions'
   }
