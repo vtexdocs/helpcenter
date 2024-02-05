@@ -112,12 +112,12 @@ export const updatesData = (intl: IntlShape) => {
       id: 'Announcements',
       Icon: MegaphoneIcon,
       title: intl.formatMessage({
-        id: 'updates_announcements_notes.title',
+        id: 'announcements_page.title',
       }),
       description: intl.formatMessage({
-        id: 'updates_announcements_notes.description',
+        id: 'announcements_page.description',
       }),
-      link: '/updates/announcements', //TODO: verificar rota
+      link: '/updates/announcements',
     },
   ]
   return data

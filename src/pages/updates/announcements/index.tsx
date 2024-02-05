@@ -31,7 +31,7 @@ const ReleasePage: NextPage = () => {
         <meta
           property="og:title"
           content={intl.formatMessage({
-            id: 'announcements_page.subtitle',
+            id: 'announcements_page.description',
           })}
           key="title"
         />
@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const sidebarfallback = await getNavigation()
-  const sectionSelected = 'News'
+  const sectionSelected = 'Announcements'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
       ? JSON.parse(JSON.stringify(previewData)).branch

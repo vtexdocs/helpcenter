@@ -73,7 +73,7 @@ const updates = (intl: IntlShape) => {
         id: 'announcements_page.title',
       }),
       description: intl.formatMessage({
-        id: 'announcements_page.subtitle',
+        id: 'announcements_page.description',
       }),
       Icon: AnnouncementIcon,
     },
