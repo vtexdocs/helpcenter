@@ -14655,7 +14655,7 @@
       ]
     },
     {
-      "documentation": "News",
+      "documentation": "Announcements",
       "slugPrefix": "updates/announcements",
       "categories": [
         {
