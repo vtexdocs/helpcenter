@@ -4,7 +4,7 @@ import getGithubFile from './getGithubFile'
 import replaceHTMLBlocks from './replaceHTMLBlocks'
 import replaceMagicBlocks from './replaceMagicBlocks'
 import { UpdateElement } from './typings/types'
-import { ActionType } from 'components/announcement-card/functions'
+import { ActionType } from 'components/announcement-timeline-card/functions'
 import { getLogger } from 'utils/logging/log-util'
 
 type IReleasesFrontmatter = {
