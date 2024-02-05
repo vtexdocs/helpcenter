@@ -17,7 +17,6 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
-import SeeAlsoSection from 'components/see-also-section'
 import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 
 import getHeadings from 'utils/getHeadings'
@@ -42,13 +41,13 @@ import { MarkdownRenderer } from '@vtexdocs/components'
 import ShareButton from 'components/share-button'
 import Author from 'components/author'
 import { useIntl } from 'react-intl'
-
+import MoreArticlesSection from 'components/more-articles-section'
+import Breadcrumb from 'components/breadcrumb'
 const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
 
 interface Props {
   sectionSelected: string
   parentsArray: string[]
-  breadcrumbList: { slug: string; name: string; type: string }[]
   content: string
   serialized: MDXRemoteSerializeResult
   sidebarfallback: any //eslint-disable-line
@@ -58,9 +57,8 @@ interface Props {
   seeAlsoData: {
     url: string
     title: string
-    category: string
+    createdAt: string
   }[]
-  isListed: boolean
   branch: string
 }
 
@@ -92,6 +90,12 @@ const AnnouncementPage: NextPage<Props> = ({
     if (window) setUrl(window.location.href)
   }, [])
 
+  const breadcrumb = {
+    slug: '/announcements',
+    name: intl.formatMessage({ id: 'announcements_page.title' }),
+    type: 'category',
+  }
+
   return (
     <>
       <Head>
@@ -104,6 +108,7 @@ const AnnouncementPage: NextPage<Props> = ({
             <Box sx={styles.contentContainer}>
               <article ref={articleRef}>
                 <header>
+                  <Breadcrumb breadcrumbList={[breadcrumb]} />
                   <Text sx={styles.documentationTitle} className="title">
                     {serialized.frontmatter?.title}
                   </Text>
@@ -130,7 +135,7 @@ const AnnouncementPage: NextPage<Props> = ({
             </Box>
             <FeedbackSection docPath={path} slug={slug} />
             {serialized.frontmatter?.seeAlso && (
-              <SeeAlsoSection docs={seeAlsoData} />
+              <MoreArticlesSection docs={seeAlsoData} />
             )}
           </Box>
           <Box sx={styles.rightContainer}>
@@ -144,21 +149,6 @@ const AnnouncementPage: NextPage<Props> = ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // const slugs: { [slug: string]: { locale: string; path: string }[] } =
-  //   await getAnnouncementsPaths('announcements')
-
-  // const paths: (
-  //   | string
-  //   | {
-  //       params: ParsedUrlQuery
-  //       locale?: string | undefined
-  //     }
-  // )[] = []
-  // Object.entries(slugs).forEach(([slug, locales]) => {
-  //   locales.forEach(({ locale }) => {
-  //     paths.push({ params: { slug }, locale })
-  //   })
-  // })
   return {
     paths: [],
     fallback: 'blocking',
@@ -271,14 +261,14 @@ export const getStaticProps: GetStaticProps = async ({
     const seeAlsoData: {
       url: string
       title: string
-      category: string
+      createdAt: string
     }[] = []
     const seeAlsoUrls = serialized.frontmatter?.seeAlso
       ? JSON.parse(JSON.stringify(serialized.frontmatter.seeAlso as string))
       : []
     await Promise.all(
       seeAlsoUrls.map(async (seeAlsoUrl: string) => {
-        const seeAlsoPath = docsPaths[seeAlsoUrl.split('/')[3]].find(
+        const seeAlsoPath = docsPaths[seeAlsoUrl]?.find(
           (e) => e.locale === locale
         )?.path
         if (seeAlsoPath) {
@@ -295,20 +285,10 @@ export const getStaticProps: GetStaticProps = async ({
             })
             seeAlsoData.push({
               url: seeAlsoUrl,
-              title: serialized.frontmatter?.title
-                ? (serialized.frontmatter.title as string)
-                : seeAlsoUrl.split('/')[3],
-              category: serialized.frontmatter?.category
-                ? (serialized.frontmatter.category as string)
-                : seeAlsoUrl.split('/')[2],
+              title: serialized.frontmatter?.title ?? seeAlsoUrl,
+              createdAt: String(serialized.frontmatter?.createdAt) ?? '',
             })
           } catch (error) {}
-        } else if (seeAlsoUrl.startsWith('/docs')) {
-          seeAlsoData.push({
-            url: seeAlsoUrl,
-            title: seeAlsoUrl.split('/')[3],
-            category: seeAlsoUrl.split('/')[2],
-          })
         }
       })
     )
