@@ -19,7 +19,7 @@ const ReleaseSection = ({ releasesData }: IReleasesData) => {
           <FormattedMessage id="announcements_page.title" />
         </Text>
         <Text sx={styles.sectionSubtitle}>
-          <FormattedMessage id="announcements_page.subtitle" />
+          <FormattedMessage id="announcements_page.description" />
         </Text>
         <Box sx={styles.sectionDivider}>
           <hr />
