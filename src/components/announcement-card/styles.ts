@@ -1,123 +1,77 @@
-import { SxStyleProp } from '@vtex/brand-ui'
+import type { SxStyleProp } from '@vtex/brand-ui'
 
-const cardContainer: SxStyleProp = {
-  mt: ['16px', '24px', '24px', '32px'],
-  px: ['16px', '24px', '24px', '96px'],
-  py: ['16px', '64px', '64px'],
+const container: SxStyleProp = {
+  width: '240px',
+  height: '100%',
+  padding: '16px 28px',
+  gap: '8px',
+  alignContent: 'center',
   justifyContent: 'center',
-  backgroundColor: 'white',
-  borderRadius: '8px',
+  alignItems: 'flex-start',
+  display: 'flex',
+  flexDirection: 'column',
+
+  backgroundColor: '#FFFFFF',
+
+  borderRadius: '4px',
   border: '1px solid #E7E9EE',
+  wordBreak: 'break-word',
+
   transition: 'all 0.3s ease-out',
-  color: '#5E6E84',
-  columnGap: '50px',
-  rowGap: '64px',
-  flexWrap: 'wrap',
-
-  ':active, :hover': {
-    cursor: 'pointer',
-    borderColor: '#CCCED8',
-    transition: 'all 0.3s ease-out',
-  },
-
-  ':active': {
-    boxShadow: '0px 0px 0px 1px #FFFFFF, 0px 0px 0px 3px #96B2F2',
-  },
-
   ':hover': {
-    boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.1)',
+    cursor: 'pointer',
   },
+  ':active, :hover': {
+    boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.1)',
+    transition: 'all 0.3 ease-out',
+
+    '.title': {
+      transition: 'all 0.3s ease-out',
+      color: '#000711',
+    },
+  },
+}
+
+const bottomContainer: SxStyleProp = {
+  justifyContent: 'space-between',
+  alignItems: 'center',
 }
 
 const title: SxStyleProp = {
-  fontSize: '22px',
+  mb: '8px',
+  fontSize: '12px',
   fontWeight: '400',
-  lineHeight: '22px',
-  gap: '10px',
-  textAlign: 'top',
-}
-
-const description: SxStyleProp = {
-  color: 'muted.1',
-  fontSize: '16px',
-  lineHeight: '22px',
-  ml: '34px',
-  mt: '4px',
-}
-
-const icon: SxStyleProp = {
-  height: '18px',
-  width: '18px',
-  minWidth: '18px',
-  minHeight: '18px',
-}
-
-const releaseContainer: SxStyleProp = {
-  width: '100%',
-}
-
-const timelineContainer: SxStyleProp = {
-  display: ['none', 'block', 'block', 'block', 'block', 'block'],
-}
-
-const timeLineBar: SxStyleProp = {
-  '& > :first-of-type': {
-    '& > :first-of-type': {
-      '& > :first-of-type': {
-        height: '16px',
-        width: '16px',
-      },
-      mb: '4px',
-    },
-    '& > :nth-of-type(2)': {
-      width: '1px',
-      borderRadius: '0.5rem',
-    },
-    mr: '8px',
-  },
-
-  '& > :nth-of-type(2)': {
-    padding: '0',
-    '& > :nth-of-type(2)': {
-      mt: '10px',
-    },
-  },
-}
-
-const timelineTitle: SxStyleProp = {
-  fontSize: '18px',
+  lineHeight: '16px',
   color: 'muted.0',
 }
 
-const content: SxStyleProp = {
+const linkContainer: SxStyleProp = {
+  mt: '8px',
+  alignItems: 'center',
+}
+
+const date: SxStyleProp = {
+  fontSize: '12px',
   color: 'muted.1',
-  fontSize: '16px',
-  lineHeight: '22px',
-  flexDirection: 'column',
 }
 
-const newTitle: SxStyleProp = {
-  margin: '0',
-  color: '#F71963',
-  fontSize: '16px',
-  lineHeight: '18px',
+const tag: SxStyleProp = {
+  height: '30px',
+  width: '66px',
 }
 
-const placeholder: SxStyleProp = {
-  height: '18px',
-  width: '1px',
+const link: SxStyleProp = {
+  display: 'block',
+  minWidth: '240px',
+  width: '240px',
 }
 
 export default {
-  cardContainer,
+  container,
   title,
-  description,
-  icon,
-  releaseContainer,
-  timeLineBar,
-  timelineTitle,
-  newTitle,
-  content,
-  placeholder,
-  timelineContainer,
+  date,
+  bottomContainer,
+  linkContainer,
+  tag,
+  link,
 }

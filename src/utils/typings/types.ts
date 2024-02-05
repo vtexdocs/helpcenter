@@ -76,4 +76,10 @@ export type KnownIssueDataElement = {
   updatedAt: string
 }
 
+export type AnnouncementDataElement = {
+  title: string
+  url: string
+  createdAt: string
+}
+
 export type KnownIssuesSortByType = 'newest' | 'recently_updated'
