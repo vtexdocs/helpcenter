@@ -229,5 +229,7 @@
   "sidebar_known_issues.title": "Known Issues",
   "menu_status.title": "Status",
   "menu_health_check.title": "Health Check",
-  "updates_announcements_notes.title": "Announcements"
+  "updates_announcements_notes.title": "Announcements",
+  "tutorial_and_solutions_page.title": "Tutorials & Solutions",
+  "tutorial_and_solutions_page.description": "Access the documentation of all platform modules and clarify your doubts."
 }

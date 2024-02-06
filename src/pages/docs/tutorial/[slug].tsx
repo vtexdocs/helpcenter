@@ -46,6 +46,10 @@ import {
   getParents,
   localeType,
 } from 'utils/navigation-utils'
+import PageHeader from 'components/page-header'
+import { useIntl } from 'react-intl'
+import startHereImage from '../../../../public/images/start-here.png'
+
 // import { ParsedUrlQuery } from 'querystring'
 
 const docsPathsGLOBAL = await getTutorialsPaths('tutorials')
@@ -57,13 +61,14 @@ interface TutorialDataI {
   hidePaginationNext: boolean
 }
 
-interface Props {
-  sectionSelected: string
-  parentsArray: string[]
-  breadcrumbList: { slug: string; name: string; type: string }[]
+interface TutorialProps {
+  tutorialData: TutorialDataI
+}
+
+interface MarkDownProps {
+  // sectionSelected: string
   content: string
   serialized: MDXRemoteSerializeResult
-  sidebarfallback: any //eslint-disable-line
   contributors: ContributorsType[]
   path: string
   headingList: Item[]
@@ -72,62 +77,123 @@ interface Props {
     title: string
     category: string
   }[]
-  pagination: {
-    previousDoc: {
-      slug: string | null
-      name: string | null
-    }
-    nextDoc: {
-      slug: string | null
-      name: string | null
-    }
-  }
-  isListed: boolean
-  branch: string
-  type: 'doc' | 'tutorial-category'
-  tutorialData: TutorialDataI | null
 }
 
+type Props =
+  | {
+      sectionSelected: string
+      sidebarfallback: any //eslint-disable-line
+      slug: string
+      parentsArray: string[]
+      // path: string
+      isListed: boolean
+      branch: string
+      pagination: {
+        previousDoc: {
+          slug: string | null
+          name: string | null
+        }
+        nextDoc: {
+          slug: string | null
+          name: string | null
+        }
+      }
+      breadcrumbList: { slug: string; name: string; type: string }[]
+      type: 'markdown'
+      componentProps: MarkDownProps
+    }
+  | {
+      sectionSelected: string
+      sidebarfallback: any //eslint-disable-line
+      slug: string
+      parentsArray: string[]
+      isListed: boolean
+      branch: string
+      pagination: {
+        previousDoc: {
+          slug: string | null
+          name: string | null
+        }
+        nextDoc: {
+          slug: string | null
+          name: string | null
+        }
+      }
+      breadcrumbList: { slug: string; name: string; type: string }[]
+      type: 'tutorial'
+      componentProps: TutorialProps
+    }
+
+// interface Props {
+//   sectionSelected: string
+//   parentsArray: string[]
+//   breadcrumbList: { slug: string; name: string; type: string }[]
+//   content: string
+//   serialized: MDXRemoteSerializeResult
+//   sidebarfallback: any //eslint-disable-line
+//   contributors: ContributorsType[]
+//   path: string
+//   headingList: Item[]
+//   seeAlsoData: {
+//     url: string
+//     title: string
+//     category: string
+//   }[]
+//   pagination: {
+//     previousDoc: {
+//       slug: string | null
+//       name: string | null
+//     }
+//     nextDoc: {
+//       slug: string | null
+//       name: string | null
+//     }
+//   }
+//   isListed: boolean
+//   branch: string
+// }
+
 const TutorialPage: NextPage<Props> = ({
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
-  slug,
-  serialized,
-  path,
-  headingList,
-  contributors,
-  seeAlsoData,
-  pagination,
-  isListed,
-  breadcrumbList,
-  branch,
   type,
-  tutorialData, // eslint-disable-line
+  sectionSelected,
+  slug,
+  isListed,
+  branch,
+  pagination,
+  sidebarfallback,
+  parentsArray,
+  breadcrumbList,
+  componentProps,
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const { setActiveSidebarElement } = useContext(LibraryContext)
-  if (type === 'doc') {
+  const intl = useIntl()
+
+  if (type === 'markdown') {
+    console.log('RENDER', 'ENTREI')
     useEffect(() => {
       setActiveSidebarElement(slug)
-      setHeadings(headingList)
-    }, [serialized.frontmatter])
+      setHeadings(componentProps.headingList)
+    }, [componentProps.serialized.frontmatter])
   }
-  console.log('RENDER', type)
-  if (type === 'doc') {
+
+  if (type === 'markdown') {
     return (
       <>
         <Head>
-          <title>{serialized.frontmatter?.title as string}</title>
+          <title>
+            {componentProps.serialized.frontmatter?.title as string}
+          </title>
           <meta name="docsearch:doctype" content="Tutorials & Solutions" />
-          {serialized.frontmatter?.hidden && (
+          {componentProps.serialized.frontmatter?.hidden && (
             <meta name="robots" content="noindex" />
           )}
-          {serialized.frontmatter?.excerpt && (
+          {componentProps.serialized.frontmatter?.excerpt && (
             <meta
               property="og:description"
-              content={serialized.frontmatter?.excerpt as string}
+              content={componentProps.serialized.frontmatter?.excerpt as string}
             />
           )}
         </Head>
@@ -139,40 +205,44 @@ const TutorialPage: NextPage<Props> = ({
                   <header>
                     <Breadcrumb breadcrumbList={breadcrumbList} />
                     <Text sx={styles.documentationTitle} className="title">
-                      {serialized.frontmatter?.title}
+                      {componentProps.serialized.frontmatter?.title}
                     </Text>
                     <Text sx={styles.documentationExcerpt}>
-                      {serialized.frontmatter?.excerpt}
+                      {componentProps.serialized.frontmatter?.excerpt}
                     </Text>
                   </header>
-                  <MarkdownRenderer serialized={serialized} />
+                  <MarkdownRenderer serialized={componentProps.serialized} />
                 </article>
               </Box>
 
               <Box sx={styles.bottomContributorsContainer}>
                 <Box sx={styles.bottomContributorsDivider} />
-                <Contributors contributors={contributors} />
+                <Contributors contributors={componentProps.contributors} />
               </Box>
 
-              <FeedbackSection docPath={path} slug={slug} />
+              <FeedbackSection docPath={componentProps.path} slug={slug} />
               {isListed && (
                 <ArticlePagination
                   hidePaginationNext={
-                    Boolean(serialized.frontmatter?.hidePaginationNext) || false
+                    Boolean(
+                      componentProps.serialized.frontmatter?.hidePaginationNext
+                    ) || false
                   }
                   hidePaginationPrevious={
-                    Boolean(serialized.frontmatter?.hidePaginationPrevious) ||
-                    false
+                    Boolean(
+                      componentProps.serialized.frontmatter
+                        ?.hidePaginationPrevious
+                    ) || false
                   }
                   pagination={pagination}
                 />
               )}
-              {serialized.frontmatter?.seeAlso && (
-                <SeeAlsoSection docs={seeAlsoData} />
+              {componentProps.serialized.frontmatter?.seeAlso && (
+                <SeeAlsoSection docs={componentProps.seeAlsoData} />
               )}
             </Box>
             <Box sx={styles.rightContainer}>
-              <Contributors contributors={contributors} />
+              <Contributors contributors={componentProps.contributors} />
               <TableOfContents headingList={headings} />
             </Box>
             <OnThisPage />
@@ -183,36 +253,68 @@ const TutorialPage: NextPage<Props> = ({
   } else {
     return (
       <>
-        <DocumentContextProvider headings={headings}>
-          <Flex sx={styles.innerContainer}>
-            <Box sx={styles.articleBox}>
-              <Box sx={styles.contentContainer}>
-                <article>
-                  <header>
+        <PageHeader
+          title={intl.formatMessage({
+            id: 'tutorial_and_solutions_page.title',
+          })}
+          description={intl.formatMessage({
+            id: 'tutorial_and_solutions_page.description',
+          })}
+          imageUrl={startHereImage}
+          imageAlt={intl.formatMessage({
+            id: 'tutorial_and_solutions_page.title',
+          })}
+        />
+        <Flex sx={styles.innerContainer}>
+          <Box sx={styles.articleBox}>
+            <Box sx={styles.contentContainer}>
+              <article>
+                <header>
+                  {breadcrumbList.length > 1 ? (
                     <Breadcrumb breadcrumbList={breadcrumbList} />
-                    <Text sx={styles.documentationTitle} className="title">
-                      {serialized.frontmatter?.title}
+                  ) : (
+                    <></>
+                  )}
+                </header>
+                <Box sx={styles.textContainer}>
+                  <Box sx={styles.titleContainer}>
+                    <Text>{componentProps.tutorialData?.name}</Text>
+                  </Box>
+                  <Box sx={styles.IndexContainer}>
+                    <Text sx={{ fontSize: '22px', pt: '32px' }}>
+                      In this section
                     </Text>
-                    <Text sx={styles.documentationExcerpt}>
-                      {serialized.frontmatter?.excerpt}
-                    </Text>
-                  </header>
-                  Hello world!
-                </article>
-              </Box>
-              {isListed && (
-                <ArticlePagination
-                  hidePaginationNext={tutorialData?.hidePaginationNext || false}
-                  hidePaginationPrevious={
-                    tutorialData?.hidePaginationPrevious || false
-                  }
-                  pagination={pagination}
-                />
-              )}
+                    <Flex
+                      sx={{
+                        flexDirection: 'column',
+                        pl: '16px',
+                        gap: '16px',
+                        mt: '32px',
+                        borderLeft: '3px solid #E7E9EE',
+                      }}
+                    >
+                      {componentProps.tutorialData?.children.map((el) => (
+                        <Link href={el.slug}>{el.name}</Link>
+                      ))}
+                    </Flex>
+                  </Box>
+                </Box>
+              </article>
             </Box>
-            <OnThisPage />
-          </Flex>
-        </DocumentContextProvider>
+            {isListed && (
+              <ArticlePagination
+                hidePaginationNext={
+                  componentProps.tutorialData?.hidePaginationNext || false
+                }
+                hidePaginationPrevious={
+                  componentProps.tutorialData?.hidePaginationPrevious || false
+                }
+                pagination={pagination}
+              />
+            )}
+          </Box>
+          <OnThisPage />
+        </Flex>
       </>
     )
   }
@@ -263,11 +365,10 @@ export const getStaticProps: GetStaticProps = async ({
   const logger = getLogger('Tutorials & Solutions')
   const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
   console.log('doc', path)
+
   const sidebarfallback = await getNavigation()
-  let docType = 'doc'
 
   if (!path) {
-    docType = 'tutorialCategory'
     let tutorialTitle = ''
     let tutorialChildren
     let cat
@@ -302,6 +403,8 @@ export const getStaticProps: GetStaticProps = async ({
 
       // console.log('CAT', cat.type, cat.slug, slug)
       if (keyPath) {
+        console.log('CAT', keyPath, flattenedSidebar[keyPath])
+
         getChildren(
           keyPath,
           'name',
@@ -404,27 +507,31 @@ export const getStaticProps: GetStaticProps = async ({
 
       return {
         props: {
+          type: 'tutorial',
           sectionSelected: sectionSelected,
+          sidebarfallback: sidebarfallback,
           parentsArray: parentsArray,
           slug: slug,
-          serialized: '',
-          sidebarfallback: sidebarfallback,
-          headingList: [],
-          contributors: [],
-          path: '',
-          seeAlsoData: '',
           pagination: pagination,
           isListed: isListed,
           breadcrumbList: breadcrumbList,
           branch: branch,
-          type: docType,
-          tutorialData: {
-            title: categoryTitle,
-            children: childrenList,
-            hidePaginationPrevious: hidePaginationPrevious,
-            hidePaginationNext: hidePaginationNext,
+          componentProps: {
+            // serialized: '',
+            // headingList: [],
+            // contributors: [],
+            // path: '',
+            // seeAlsoData: '',
+            // type: docType,
+            tutorialData: {
+              name: categoryTitle,
+              children: childrenList,
+              hidePaginationPrevious: hidePaginationPrevious,
+              hidePaginationNext: hidePaginationNext,
+            },
           },
         },
+        revalidate: 600,
       }
     }
 
@@ -640,21 +747,22 @@ export const getStaticProps: GetStaticProps = async ({
 
     return {
       props: {
-        sectionSelected,
-        parentsArray,
-        slug,
-        serialized,
-        sidebarfallback,
-        headingList,
-        contributors,
-        path,
-        seeAlsoData,
-        pagination,
-        isListed,
-        breadcrumbList,
-        branch,
-        type: docType,
-        tutorialData: {},
+        type: 'markdown',
+        sectionSelected: sectionSelected,
+        sidebarfallback: sidebarfallback,
+        parentsArray: parentsArray,
+        slug: slug,
+        pagination: pagination,
+        isListed: isListed,
+        breadcrumbList: breadcrumbList,
+        branch: branch,
+        componentProps: {
+          serialized: serialized,
+          headingList: headingList,
+          contributors: contributors,
+          path: path,
+          seeAlsoData: seeAlsoData,
+        },
       },
       revalidate: 600,
     }
