@@ -250,5 +250,7 @@
   "sidebar_known_issues.title": "Problemas Conhecidos",
   "menu_status.title": "Status",
   "menu_health_check.title": "Verificação de Integridade",
-  "updates_announcements_notes.title": "Comunicados"
+  "updates_announcements_notes.title": "Comunicados",
+  "tutorial_and_solutions_page.title": "Tutoriais & Soluções",
+  "tutorial_and_solutions_page.description": "Acesse a documentação de todas os módulos da plataforma e tire suas dúvidas."
 }
