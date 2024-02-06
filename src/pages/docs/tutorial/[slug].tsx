@@ -113,35 +113,6 @@ type Props =
       componentProps: TutorialIndexingProps
     }
 
-// interface Props {
-//   sectionSelected: string
-//   parentsArray: string[]
-//   breadcrumbList: { slug: string; name: string; type: string }[]
-//   content: string
-//   serialized: MDXRemoteSerializeResult
-//   sidebarfallback: any //eslint-disable-line
-//   contributors: ContributorsType[]
-//   path: string
-//   headingList: Item[]
-//   seeAlsoData: {
-//     url: string
-//     title: string
-//     category: string
-//   }[]
-//   pagination: {
-//     previousDoc: {
-//       slug: string | null
-//       name: string | null
-//     }
-//     nextDoc: {
-//       slug: string | null
-//       name: string | null
-//     }
-//   }
-//   isListed: boolean
-//   branch: string
-// }
-
 const TutorialPage: NextPage<Props> = ({
   type,
   sectionSelected,
@@ -159,12 +130,12 @@ const TutorialPage: NextPage<Props> = ({
   setBranchPreview(branch)
   const { setActiveSidebarElement } = useContext(LibraryContext)
 
-  useEffect(() => {
-    if (type === 'markdown') {
-      setActiveSidebarElement(slug)
-      setHeadings(componentProps.headingList)
-    }
-  }, [])
+  // if (type === 'markdown') {
+  //   useEffect(() => {
+  //     setActiveSidebarElement(slug)
+  //     setHeadings(componentProps.headingList)
+  //   }, [componentProps.serialized.frontmatter])
+  // }
 
   return type === 'markdown' ? (
     <TutorialMarkdownRender
@@ -365,179 +336,8 @@ export const getStaticProps: GetStaticProps = async ({
       : await getTutorialsPaths('tutorials', branch)
 
   const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
-  const logger = getLogger('Tutorials & Solutions')
-  const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
-  console.log('doc', path)
-
-  const sidebarfallback = await getNavigation()
 
   if (!path) {
-    let tutorialTitle = ''
-    let tutorialChildren
-    let cat
-    let tutorialType = ''
-
-    // substituir por flattened sidebar
-    sidebarfallback.forEach((elem) => {
-      const category = elem.categories.find(
-        (e) => e.type === 'tutorial-category'
-      )
-      if (category) {
-        cat = category
-        tutorialTitle = category.name[currentLocale]
-        // tutorialChildren = getChildren(category, currentLocale)
-        tutorialType = category.type
-      }
-    })
-
-    if (cat) {
-      const flattenedSidebar = flattenJSON(sidebarfallback)
-      const parentsArray: string[] = []
-      const parentsArrayName: string[] = []
-      const parentsArrayType: string[] = []
-      const childrenArrayName: string[] = []
-      const childrenArraySlug: string[] = []
-      const keyPath = getKeyByValue(flattenedSidebar, slug)
-      let categoryTitle = ''
-      let sectionSelected = ''
-      const isListed: boolean = getKeyByValue(flattenedSidebar, slug)
-        ? true
-        : false
-
-      // console.log('CAT', cat.type, cat.slug, slug)
-      if (keyPath) {
-        console.log('CAT', keyPath, flattenedSidebar[keyPath])
-
-        getChildren(
-          keyPath,
-          'name',
-          flattenedSidebar,
-          currentLocale,
-          childrenArrayName
-        )
-        getChildren(
-          keyPath,
-          'slug',
-          flattenedSidebar,
-          currentLocale,
-          childrenArraySlug
-        )
-        getParents(
-          keyPath,
-          'slug',
-          flattenedSidebar,
-          currentLocale,
-          parentsArray
-        )
-        parentsArray.push(slug)
-        getParents(
-          keyPath,
-          'name',
-          flattenedSidebar,
-          currentLocale,
-          parentsArrayName
-        )
-        const mainKeyPath = keyPath.split('slug')[0]
-        const nameKeyPath = mainKeyPath.concat(`name.${locale}`)
-        categoryTitle = flattenedSidebar[nameKeyPath]
-        parentsArrayName.push(categoryTitle)
-        getParents(
-          keyPath,
-          'type',
-          flattenedSidebar,
-          currentLocale,
-          parentsArrayType
-        )
-        const typeKeyPath = mainKeyPath.concat('type')
-        parentsArrayType.push(flattenedSidebar[typeKeyPath])
-        sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
-      }
-
-      const breadcrumbList: { slug: string; name: string; type: string }[] = []
-      parentsArrayName.forEach((_el: string, idx: number) => {
-        breadcrumbList.push({
-          slug: `/docs/tutorial/${parentsArray[idx]}`,
-          name: parentsArrayName[idx],
-          type: parentsArrayType[idx],
-        })
-      })
-
-      const childrenList: { slug: string; name: string }[] = []
-      childrenArrayName.forEach((_el: string, idx: number) => {
-        childrenList.push({
-          slug: `/docs/tutorial/${childrenArraySlug[idx]}`,
-          name: childrenArrayName[idx],
-        })
-      })
-
-      // let pagination: {
-      //   previousDoc: {
-      //     slug: string
-      //     name: string
-      //   }
-      //   nextDoc: {
-      //     slug: string
-      //     name: string
-      //   }
-      // } =
-
-      const previousDoc: { slug: string; name: string } =
-        breadcrumbList.length > 1
-          ? {
-              slug: breadcrumbList[breadcrumbList.length - 2].slug,
-              name: breadcrumbList[breadcrumbList.length - 2].name,
-            }
-          : {
-              slug: '',
-              name: '',
-            }
-      const nextDoc: { slug: string; name: string } = {
-        slug: childrenList[0].slug,
-        name: childrenList[0].name,
-      }
-
-      let hidePaginationPrevious = false
-      if (breadcrumbList.length < 2) {
-        hidePaginationPrevious = true
-      }
-
-      let hidePaginationNext = false
-      if (!childrenList) {
-        hidePaginationNext = true
-      }
-
-      const pagination = { previousDoc: previousDoc, nextDoc: nextDoc }
-
-      return {
-        props: {
-          type: 'tutorial',
-          sectionSelected: sectionSelected,
-          sidebarfallback: sidebarfallback,
-          parentsArray: parentsArray,
-          slug: slug,
-          pagination: pagination,
-          isListed: isListed,
-          breadcrumbList: breadcrumbList,
-          branch: branch,
-          componentProps: {
-            // serialized: '',
-            // headingList: [],
-            // contributors: [],
-            // path: '',
-            // seeAlsoData: '',
-            // type: docType,
-            tutorialData: {
-              name: categoryTitle,
-              children: childrenList,
-              hidePaginationPrevious: hidePaginationPrevious,
-              hidePaginationNext: hidePaginationNext,
-            },
-          },
-        },
-        revalidate: 600,
-      }
-    }
-
     return {
       notFound: true,
     }
