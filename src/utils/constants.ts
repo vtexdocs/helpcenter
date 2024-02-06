@@ -572,15 +572,15 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
-export const knownIssueSortBy = (intl: IntlShape) => {
+export const sortBy = (intl: IntlShape) => {
   const data = [
     {
       value: 'recently_updated',
-      content: intl.formatMessage({ id: 'known_issues_sort.recently_updated' }),
+      content: intl.formatMessage({ id: 'sort.recently_updated' }),
     },
     {
       value: 'newest',
-      content: intl.formatMessage({ id: 'known_issues_sort.newest' }),
+      content: intl.formatMessage({ id: 'sort.newest' }),
     },
   ]
 
