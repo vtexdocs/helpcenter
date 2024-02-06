@@ -19,7 +19,7 @@ const AnnouncementCard = ({
   const isNew = date >= sevenDaysAgo && date <= currentDate
 
   return (
-    <Link sx={styles.link} href={`updates/announcements/${url}`}>
+    <Link sx={styles.link} href={`${url}`}>
       <Box sx={styles.container}>
         <Text sx={styles.date}>{intl.formatDate(date)}</Text>
         <Text sx={styles.title} className="title">
