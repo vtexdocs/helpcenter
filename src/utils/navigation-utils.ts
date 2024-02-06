@@ -73,7 +73,6 @@ export const getChildren = (
     if (!flattenedSidebar[completePath]) {
       break
     }
-    console.log('GETCHILDREN2', completePath, flattenedSidebar[completePath])
     childrenArray.push(flattenedSidebar[completePath])
   }
 

@@ -148,8 +148,9 @@ const id: SxStyleProp = {
 }
 
 const textContainer: SxStyleProp = {
-  width: '544px',
-  height: '434px',
+  width: ['100%', '544px'],
+  height: ['100%', '434px'],
+  marginBottom: '94px',
   gap: '8px',
 }
 
