@@ -43,6 +43,7 @@ import Author from 'components/author'
 import { useIntl } from 'react-intl'
 import MoreArticlesSection from 'components/more-articles-section'
 import Breadcrumb from 'components/breadcrumb'
+import { AnnouncementDataElement } from 'utils/typings/types'
 const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
 
 interface Props {
@@ -54,11 +55,7 @@ interface Props {
   contributor: ContributorsType
   path: string
   headingList: Item[]
-  seeAlsoData: {
-    url: string
-    title: string
-    createdAt: string
-  }[]
+  seeAlsoData: AnnouncementDataElement[]
   branch: string
 }
 
@@ -258,11 +255,7 @@ export const getStaticProps: GetStaticProps = async ({
     serialized = JSON.parse(JSON.stringify(serialized))
 
     logger.info(`Processing ${slug}`)
-    const seeAlsoData: {
-      url: string
-      title: string
-      createdAt: string
-    }[] = []
+    const seeAlsoData: AnnouncementDataElement[] = []
     const seeAlsoUrls = serialized.frontmatter?.seeAlso
       ? JSON.parse(JSON.stringify(serialized.frontmatter.seeAlso as string))
       : []
@@ -287,6 +280,7 @@ export const getStaticProps: GetStaticProps = async ({
               url: seeAlsoUrl,
               title: serialized.frontmatter?.title ?? seeAlsoUrl,
               createdAt: String(serialized.frontmatter?.createdAt) ?? '',
+              updatedAt: String(serialized.frontmatter?.updatedAt) ?? '',
             })
           } catch (error) {}
         }
