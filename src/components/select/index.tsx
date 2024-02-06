@@ -26,7 +26,6 @@ const Select = ({ value, label, options, onSelect }: Props) => {
       <select
         id={label}
         style={styles.select}
-        placeholder="teste"
         onChange={(e) => {
           setSelectedValue(e.currentTarget.value)
           onSelect(e.currentTarget.value)
