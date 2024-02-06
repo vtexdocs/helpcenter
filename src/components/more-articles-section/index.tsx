@@ -2,9 +2,10 @@ import { Button, Flex, Text } from '@vtex/brand-ui'
 import AnnouncementCard from 'components/announcement-card'
 import styles from './styles'
 import { useIntl } from 'react-intl'
+import { AnnouncementDataElement } from 'utils/typings/types'
 
 interface Props {
-  docs: { url: string; title: string; createdAt: string }[]
+  docs: AnnouncementDataElement[]
 }
 
 const MoreArticlesSection = ({ docs }: Props) => {
@@ -17,7 +18,7 @@ const MoreArticlesSection = ({ docs }: Props) => {
       </Text>
       <Flex sx={styles.innerContainer}>
         {docs.map((doc) => (
-          <AnnouncementCard key={doc.title} {...doc} />
+          <AnnouncementCard key={doc.title} announcement={doc} />
         ))}
       </Flex>
       <Button sx={styles.button}>
