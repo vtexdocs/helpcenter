@@ -262,12 +262,14 @@
   "known_issues_filter_status.no_fix": "Não resolvido",
   "known_issues_filter_modules.title": "Módulos",
   "known_issues_filter.all": "Todos",
-  "known_issues_sort.label": "Ordenar por:",
-  "known_issues_sort.recently_updated": "Recentemente atualizado",
-  "known_issues_sort.newest": "Mais novos",
+  "sort.label": "Ordenar por:",
+  "sort.recently_updated": "Recentemente atualizado",
+  "sort.newest": "Mais novos",
   "known_issues_result.empty": "Nenhum resultado correspondente. Tente outros filtros.",
   "known_issues_date.created": "Criado em",
   "known_issues_date.updated": "Atualizado em",
   "tutorial_and_solutions_page.title": "Tutoriais & Soluções",
-  "tutorial_and_solutions_page.description": "Acesse a documentação de todas os módulos da plataforma e tire suas dúvidas."
+  "tutorial_and_solutions_page.description": "Acesse a documentação de todas os módulos da plataforma e tire suas dúvidas.",
+  "announcements_page_result.empty": "Nenhum resultado correspondente.",
+  "announcements_page_search.placeholder": "Pesquise em Comunicados..."
 }

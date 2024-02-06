@@ -6,7 +6,7 @@ import getNavigation from 'utils/getNavigation'
 import {
   KnownIssueDataElement,
   KnownIssueStatus,
-  KnownIssuesSortByType,
+  SortByType,
 } from 'utils/typings/types'
 import Head from 'next/head'
 import styles from 'styles/known-issues-page'
@@ -25,7 +25,7 @@ import Filter from 'components/filter'
 import {
   knownIssuesStatusFilter,
   knownIssuesModulesFilters,
-  knownIssueSortBy,
+  sortBy,
 } from 'utils/constants'
 import Select from 'components/select'
 
@@ -50,8 +50,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
     status: string[]
     modules: string[]
   }>({ status: [], modules: [] })
-  const [sortByValue, setSortByValue] =
-    useState<KnownIssuesSortByType>('newest')
+  const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
     const data = knownIssuesData.filter((knownIssue) => {
@@ -131,12 +130,10 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
               }
             />
             <Select
-              label={intl.formatMessage({ id: 'known_issues_sort.label' })}
+              label={intl.formatMessage({ id: 'sort.label' })}
               value={sortByValue}
-              options={knownIssueSortBy(intl)}
-              onSelect={(ordering) =>
-                setSortByValue(ordering as KnownIssuesSortByType)
-              }
+              options={sortBy(intl)}
+              onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
           <Flex sx={styles.cardContainer}>

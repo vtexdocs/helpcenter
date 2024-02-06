@@ -80,6 +80,7 @@ export type AnnouncementDataElement = {
   title: string
   url: string
   createdAt: string
+  updatedAt: string
 }
 
-export type KnownIssuesSortByType = 'newest' | 'recently_updated'
+export type SortByType = 'newest' | 'recently_updated'

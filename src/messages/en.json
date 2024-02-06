@@ -241,12 +241,14 @@
   "known_issues_filter_status.scheduled": "Scheduled",
   "known_issues_filter_status.no_fix": "No fix",
   "known_issues_filter_modules.title": "Modules",
-  "known_issues_sort.label": "Sort by:",
-  "known_issues_sort.recently_updated": "Recently updated",
-  "known_issues_sort.newest": "Newest",
+  "sort.label": "Sort by:",
+  "sort.recently_updated": "Recently updated",
+  "sort.newest": "Newest",
   "known_issues_result.empty": "No matching results. Try other filters.",
   "known_issues_date.created": "Created at",
   "known_issues_date.updated": "Updated at",
   "tutorial_and_solutions_page.title": "Tutorials & Solutions",
-  "tutorial_and_solutions_page.description": "Access the documentation of all platform modules and clarify your doubts."
+  "tutorial_and_solutions_page.description": "Access the documentation of all platform modules and clarify your doubts.",
+  "announcements_page_result.empty": "No matching results.",
+  "announcements_page_search.placeholder": "Search in Announcements..."
 }
