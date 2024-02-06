@@ -141,19 +141,6 @@ const id: SxStyleProp = {
   wordBreak: 'break-all',
 }
 
-const textContainer: SxStyleProp = {
-  width: ['100%', '544px'],
-  gap: '8px',
-  pb: '43px',
-  mb: '64px',
-}
-
-const titleContainer: SxStyleProp = {
-  fontSize: '24px',
-  color: '#4A4A4A',
-  marginBottom: '8px',
-}
-
 const indexContainer: SxStyleProp = {
   borderTop: '1px solid #E7E9EE',
   gap: '32px',
@@ -166,6 +153,20 @@ const linksContainer: SxStyleProp = {
   mt: '32px',
   borderLeft: '3px solid #E7E9EE',
 }
+
+const textContainer: SxStyleProp = {
+  width: '544px',
+  height: '434px',
+  gap: '8px',
+}
+
+const titleContainer: SxStyleProp = {
+  fontSize: '24px',
+  color: '#4A4A4A',
+  marginBottom: '8px',
+  // weight: '400',
+}
+
 
 export default {
   linksContainer,

@@ -66,20 +66,6 @@ interface MarkDownProps {
     title: string
     category: string
   }[]
-  pagination: {
-    previousDoc: {
-      slug: string | null
-      name: string | null
-    }
-    nextDoc: {
-      slug: string | null
-      name: string | null
-    }
-  }
-  isListed: boolean
-  branch: string
-  type: 'doc' | 'tutorial-category'
-  tutorialData: TutorialDataI | null
 }
 
 type Props =
@@ -127,16 +113,46 @@ type Props =
       componentProps: TutorialIndexingProps
     }
 
+// interface Props {
+//   sectionSelected: string
+//   parentsArray: string[]
+//   breadcrumbList: { slug: string; name: string; type: string }[]
+//   content: string
+//   serialized: MDXRemoteSerializeResult
+//   sidebarfallback: any //eslint-disable-line
+//   contributors: ContributorsType[]
+//   path: string
+//   headingList: Item[]
+//   seeAlsoData: {
+//     url: string
+//     title: string
+//     category: string
+//   }[]
+//   pagination: {
+//     previousDoc: {
+//       slug: string | null
+//       name: string | null
+//     }
+//     nextDoc: {
+//       slug: string | null
+//       name: string | null
+//     }
+//   }
+//   isListed: boolean
+//   branch: string
+// }
+
 const TutorialPage: NextPage<Props> = ({
   type,
+  sectionSelected,
   slug,
   isListed,
   branch,
   pagination,
+  sidebarfallback,
+  parentsArray,
   breadcrumbList,
   componentProps,
-  type,
-  tutorialData, // eslint-disable-line
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
@@ -352,11 +368,10 @@ export const getStaticProps: GetStaticProps = async ({
   const logger = getLogger('Tutorials & Solutions')
   const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
   console.log('doc', path)
+
   const sidebarfallback = await getNavigation()
-  let docType = 'doc'
 
   if (!path) {
-    docType = 'tutorialCategory'
     let tutorialTitle = ''
     let tutorialChildren
     let cat
@@ -391,6 +406,8 @@ export const getStaticProps: GetStaticProps = async ({
 
       // console.log('CAT', cat.type, cat.slug, slug)
       if (keyPath) {
+        console.log('CAT', keyPath, flattenedSidebar[keyPath])
+
         getChildren(
           keyPath,
           'name',
@@ -493,27 +510,31 @@ export const getStaticProps: GetStaticProps = async ({
 
       return {
         props: {
+          type: 'tutorial',
           sectionSelected: sectionSelected,
+          sidebarfallback: sidebarfallback,
           parentsArray: parentsArray,
           slug: slug,
-          serialized: '',
-          sidebarfallback: sidebarfallback,
-          headingList: [],
-          contributors: [],
-          path: '',
-          seeAlsoData: '',
           pagination: pagination,
           isListed: isListed,
           breadcrumbList: breadcrumbList,
           branch: branch,
-          type: docType,
-          tutorialData: {
-            title: categoryTitle,
-            children: childrenList,
-            hidePaginationPrevious: hidePaginationPrevious,
-            hidePaginationNext: hidePaginationNext,
+          componentProps: {
+            // serialized: '',
+            // headingList: [],
+            // contributors: [],
+            // path: '',
+            // seeAlsoData: '',
+            // type: docType,
+            tutorialData: {
+              name: categoryTitle,
+              children: childrenList,
+              hidePaginationPrevious: hidePaginationPrevious,
+              hidePaginationNext: hidePaginationNext,
+            },
           },
         },
+        revalidate: 600,
       }
     }
 
