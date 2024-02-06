@@ -1,10 +1,9 @@
-import type { SxStyleProp } from '@vtex/brand-ui'
+import { SxStyleProp } from '@vtex/brand-ui'
+import { AnnouncementCardSize } from '.'
 
 const container: SxStyleProp = {
-  width: '240px',
+  width: '100%',
   height: '100%',
-  padding: '16px 28px',
-  gap: '8px',
   alignContent: 'center',
   justifyContent: 'center',
   alignItems: 'flex-start',
@@ -32,46 +31,73 @@ const container: SxStyleProp = {
   },
 }
 
+const containerSpacing: { [size in AnnouncementCardSize]: SxStyleProp } = {
+  small: {
+    padding: '16px 28px',
+    gap: '8px',
+  },
+  large: {
+    padding: '28px 64px',
+    gap: '16px',
+  },
+}
+
 const bottomContainer: SxStyleProp = {
-  justifyContent: 'space-between',
+  width: '100%',
+  justifyContent: 'flex-end',
   alignItems: 'center',
 }
 
-const title: SxStyleProp = {
-  mb: '8px',
-  fontSize: '12px',
-  fontWeight: '400',
-  lineHeight: '16px',
-  color: 'muted.0',
+const title: { [size in AnnouncementCardSize]: SxStyleProp } = {
+  small: {
+    mb: '8px',
+    fontSize: '12px',
+    lineHeight: '16px',
+    color: 'muted.0',
+  },
+  large: {
+    mb: '8px',
+    fontSize: '20px',
+    lineHeight: '30px',
+    color: 'muted.0',
+  },
 }
 
-const linkContainer: SxStyleProp = {
-  mt: '8px',
-  alignItems: 'center',
-}
-
-const date: SxStyleProp = {
-  fontSize: '12px',
-  color: 'muted.1',
+const date: { [size in AnnouncementCardSize]: SxStyleProp } = {
+  small: {
+    fontSize: '12px',
+    color: 'muted.1',
+  },
+  large: {
+    fontSize: '18px',
+    color: 'muted.0',
+  },
 }
 
 const tag: SxStyleProp = {
-  height: '30px',
+  height: '20px',
   width: '66px',
 }
 
-const link: SxStyleProp = {
-  display: 'block',
-  minWidth: '240px',
-  width: '240px',
+const link: { [size in AnnouncementCardSize]: SxStyleProp } = {
+  small: {
+    display: 'block',
+    minWidth: '240px',
+    width: '240px',
+  },
+  large: {
+    display: 'block',
+    minWidth: '320px',
+    width: ['320px', '545px', '545px', '720px'],
+  },
 }
 
 export default {
   container,
+  containerSpacing,
   title,
   date,
   bottomContainer,
-  linkContainer,
   tag,
   link,
 }
