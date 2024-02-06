@@ -106,7 +106,7 @@ export const updatesData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'updates_info_notes.description',
       }),
-      link: '/updates/announcements', //TODO: mudar rota
+      link: '/announcements', //TODO: mudar rota
     },
     {
       id: 'Announcements',
@@ -117,7 +117,7 @@ export const updatesData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'announcements_page.description',
       }),
-      link: '/updates/announcements',
+      link: '/announcements',
     },
   ]
   return data
