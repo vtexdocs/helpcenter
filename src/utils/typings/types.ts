@@ -90,4 +90,5 @@ export type FaqCardDataElement = {
   slug: string
   createdAt: string
   updatedAt: string
+  productTeam: string
 }
