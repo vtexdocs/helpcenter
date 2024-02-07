@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useEffect, useState, useContext } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
-import jp, { value } from 'jsonpath'
+import jp from 'jsonpath'
 import ArticlePagination from 'components/article-pagination'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
@@ -126,13 +126,10 @@ type Props =
 
 const TutorialPage: NextPage<Props> = ({
   type,
-  sectionSelected,
   slug,
   isListed,
   branch,
   pagination,
-  sidebarfallback,
-  parentsArray,
   breadcrumbList,
   componentProps,
 }) => {
