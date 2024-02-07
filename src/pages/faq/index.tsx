@@ -17,8 +17,9 @@ import startHereImage from '../../../public/images/faq.png'
 import Pagination from 'components/pagination'
 import { localeType } from 'utils/navigation-utils'
 import Select from 'components/select'
-import { sortBy } from 'utils/constants'
+import { faqFilter, sortBy } from 'utils/constants'
 import FaqCard from 'components/faq-card'
+import Filter from 'components/filter'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -37,10 +38,13 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   setBranchPreview(branch)
   const itemsPerPage = 10
   const [page, setPage] = useState({ curr: 1, total: 1 })
+  const [filters, setFilters] = useState<string[]>([])
   const [sortByValue, setSortByValue] = useState<sortByType>('newest')
 
   const filteredResult = useMemo(() => {
-    const data = faqData
+    const data = faqData.filter((question) => {
+      return filters.length === 0 || filters.includes(question.productTeam)
+    })
 
     data.sort((a, b) => {
       const dateA =
@@ -54,7 +58,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
     setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [sortByValue, intl.locale])
+  }, [filters, sortByValue, intl.locale])
 
   const paginatedResult = useMemo(() => {
     return filteredResult.slice(
@@ -98,7 +102,11 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
           })}
         />
         <Flex sx={styles.container}>
-          <Flex sx={styles.optionContainer}>
+          <Flex sx={styles.optionsContainer}>
+            <Filter
+              checkBoxFilter={faqFilter(intl)}
+              onApply={(newFilters) => setFilters(newFilters.checklist)}
+            />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
               value={sortByValue}
