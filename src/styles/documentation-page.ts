@@ -146,19 +146,11 @@ const indexContainer: SxStyleProp = {
   gap: '32px',
 }
 
-const linksContainer: SxStyleProp = {
-  flexDirection: 'column',
-  pl: '16px',
-  gap: '16px',
-  mt: '32px',
-  borderLeft: '3px solid #E7E9EE',
-}
-
 const textContainer: SxStyleProp = {
   width: ['100%', '544px'],
-  height: ['100%', '434px'],
-  marginBottom: '94px',
   gap: '8px',
+  pb: '43px',
+  mb: '64px',
 }
 
 const titleContainer: SxStyleProp = {
@@ -168,6 +160,14 @@ const titleContainer: SxStyleProp = {
   // weight: '400',
 }
 
+
+const linksContainer: SxStyleProp = {
+  flexDirection: 'column',
+  pl: '16px',
+  gap: '16px',
+  mt: '32px',
+  borderLeft: '3px solid #E7E9EE',
+}
 
 export default {
   linksContainer,
