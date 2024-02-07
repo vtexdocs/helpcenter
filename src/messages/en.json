@@ -244,9 +244,9 @@
   "sort.label": "Sort by:",
   "sort.recently_updated": "Recently updated",
   "sort.newest": "Newest",
-  "known_issues_result.empty": "No matching results. Try other filters.",
   "date_text.created": "Published on",
   "date_text.updated": "Last update on",
   "announcements_page_result.empty": "No matching results.",
-  "announcements_page_search.placeholder": "Search in Announcements..."
+  "announcements_page_search.placeholder": "Search in Announcements...",
+  "search_result.empty": "No matching results."
 }

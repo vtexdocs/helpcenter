@@ -84,3 +84,10 @@ export type AnnouncementDataElement = {
 }
 
 export type SortByType = 'newest' | 'recently_updated'
+
+export type FaqCardDataElement = {
+  title: string
+  slug: string
+  createdAt: string
+  updatedAt: string
+}

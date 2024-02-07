@@ -250,9 +250,9 @@
   "sort.label": "Ordenar por:",
   "sort.recently_updated": "Recientemente actualizados",
   "sort.newest": "Más nuevos",
-  "known_issues_result.empty": "Ningún resultado coincidente. Pruebe con otros filtros.",
   "date_text.created": "Publicado en",
   "date_text.updated": "Última actualización",
   "announcements_page_result.empty": "Ningún resultado coincidente.",
-  "announcements_page_search.placeholder": "Buscar en Anuncios..."
+  "announcements_page_search.placeholder": "Buscar en Anuncios...",
+  "search_result.empty": "Ningún resultado coincidente. Pruebe con otros filtros.",
 }
