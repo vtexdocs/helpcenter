@@ -5,7 +5,7 @@ const container: SxStyleProp = {
   py: ['16px', '24px'],
   display: 'flex',
   flexDirection: 'column',
-  gap: '8px',
+  gap: '16px',
   borderRadius: '4px',
   border: '1px solid #E7E9EE',
   width: ['320px', '544px', '720px'],
@@ -31,14 +31,13 @@ const title: SxStyleProp = {
   color: 'muted.0',
 }
 
-const date: SxStyleProp = {
-  fontSize: ['12px', '14px'],
-  lineHeight: ['18px', '22px'],
-  color: 'muted.1',
+const tag: SxStyleProp = {
+  width: 'max-content',
+  px: '8px',
 }
 
 export default {
   container,
   title,
-  date,
+  tag,
 }

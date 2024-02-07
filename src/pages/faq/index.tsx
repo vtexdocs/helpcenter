@@ -196,6 +196,7 @@ export const getStaticProps: GetStaticProps = async ({
               slug: data.slug,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
+              productTeam: frontmatter.productTeam,
             })
         } catch (error) {
           logger.error(`${error}`)

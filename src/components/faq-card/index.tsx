@@ -3,15 +3,15 @@ import { Box, Text, Link } from '@vtex/brand-ui'
 import type { FaqCardDataElement } from 'utils/typings/types'
 
 import styles from './styles'
-import { useIntl } from 'react-intl'
+import Tag from 'components/tag'
 
-const FaqCard = ({ title, createdAt, slug }: FaqCardDataElement) => {
-  const intl = useIntl()
-
+const FaqCard = ({ title, productTeam, slug }: FaqCardDataElement) => {
   return (
     <Link href={`faq/${slug}`}>
       <Box sx={styles.container}>
-        <Text sx={styles.date}>{intl.formatDate(new Date(createdAt))}</Text>
+        <Tag color={'Gray'} sx={styles.tag}>
+          {productTeam}
+        </Tag>
         <Text sx={styles.title} className="title">
           {title}
         </Text>
