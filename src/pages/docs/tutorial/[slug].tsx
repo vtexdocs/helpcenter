@@ -142,12 +142,12 @@ const TutorialPage: NextPage<Props> = ({
   const { setActiveSidebarElement } = useContext(LibraryContext)
   const intl = useIntl()
 
-  // if (type === 'markdown') {
-  //   useEffect(() => {
-  //     setActiveSidebarElement(slug)
-  //     setHeadings(componentProps.headingList)
-  //   }, [componentProps.serialized.frontmatter])
-  // }
+  useEffect(() => {
+    if (type === 'markdown') {
+      setActiveSidebarElement(slug)
+      setHeadings(componentProps.headingList)
+    }
+  }, [])
 
   if (type === 'markdown') {
     return (
@@ -260,19 +260,11 @@ const TutorialPage: NextPage<Props> = ({
                   <Box sx={styles.titleContainer}>
                     <Text>{componentProps.tutorialData?.name}</Text>
                   </Box>
-                  <Box sx={styles.IndexContainer}>
+                  <Box sx={styles.indexContainer}>
                     <Text sx={{ fontSize: '22px', pt: '32px' }}>
                       In this section
                     </Text>
-                    <Flex
-                      sx={{
-                        flexDirection: 'column',
-                        pl: '16px',
-                        gap: '16px',
-                        mt: '32px',
-                        borderLeft: '3px solid #E7E9EE',
-                      }}
-                    >
+                    <Flex sx={styles.linksContainer}>
                       {componentProps.tutorialData?.children.map((el) => (
                         <Link href={el.slug}>{el.name}</Link>
                       ))}
