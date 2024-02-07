@@ -11,7 +11,7 @@ const Tag = ({
 }: {
   sx?: SxStyleProp
   children: React.ReactNode
-  color?: KnownIssueStatus | 'Default' | 'Selected' | 'New'
+  color?: KnownIssueStatus | 'Default' | 'Selected' | 'New' | 'Gray'
   onClick?: () => void
 }) => {
   return (

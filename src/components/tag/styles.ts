@@ -13,7 +13,12 @@ const tag: SxStyleProp = {
 }
 
 const statusColors: {
-  [status in KnownIssueStatus | 'Default' | 'Selected' | 'New']: SxStyleProp
+  [status in
+    | KnownIssueStatus
+    | 'Default'
+    | 'Selected'
+    | 'New'
+    | 'Gray']: SxStyleProp
 } = {
   Backlog: {
     border: '1px solid #979797',
@@ -63,6 +68,11 @@ const statusColors: {
     border: '1px solid #F71963',
     color: '#F71963',
     background: '#FFE0EF',
+  },
+  Gray: {
+    border: '1px solid #4A596B',
+    color: '#4A596B',
+    background: '#E7E9EE',
   },
 }
 
