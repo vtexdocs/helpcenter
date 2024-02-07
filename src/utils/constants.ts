@@ -106,7 +106,7 @@ export const updatesData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'updates_info_notes.description',
       }),
-      link: '/announcements', //TODO: mudar rota
+      link: '/faq',
     },
     {
       id: 'Announcements',
