@@ -13,8 +13,8 @@ interface Filter {
 }
 
 interface Props {
-  tagFilter: Filter
-  checkBoxFilter: Filter
+  tagFilter?: Filter
+  checkBoxFilter?: Filter
   onApply: (filters: { tag: string[]; checklist: string[] }) => void
 }
 
@@ -78,6 +78,56 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
     )
   }
 
+  const TagFilter = () => {
+    if (!tagFilter) return <></>
+    return (
+      <Box sx={styles.filterContainer}>
+        <Text sx={styles.filterTitle}>{tagFilter.name}</Text>
+        <Flex sx={styles.tagContainer}>
+          {tagFilter.options.map((option, index) => (
+            <Tag
+              sx={styles.tag}
+              key={index}
+              color={
+                isFilterSelected(option.id, 'tag') ? 'Selected' : 'Default'
+              }
+              onClick={() => handleFilterClick(option.id, 'tag')}
+            >
+              {option.name}
+            </Tag>
+          ))}
+        </Flex>
+      </Box>
+    )
+  }
+
+  const CheckboxFilter = () => {
+    if (!checkBoxFilter) return <></>
+    return (
+      <Box sx={styles.filterContainer}>
+        <Text sx={styles.filterTitle}>{checkBoxFilter.name}</Text>
+        <Box sx={styles.checkBoxContainer}>
+          {checkBoxFilter.options.map((option, index) => (
+            <Checkbox
+              key={index}
+              label={option.name}
+              checked={isFilterSelected(option.id, 'checklist')}
+              onClick={() => handleFilterClick(option.id, 'checklist')}
+            />
+          ))}
+        </Box>
+      </Box>
+    )
+  }
+
+  const Divider = () => {
+    return (
+      <Box sx={styles.sectionDivider}>
+        <hr />
+      </Box>
+    )
+  }
+
   const FilterModal = () => {
     return (
       <>
@@ -90,41 +140,9 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
             </Flex>
           </Box>
           <Box sx={styles.innerContainer}>
-            <Box sx={styles.filterContainer}>
-              <Text sx={styles.filterTitle}>{tagFilter.name}</Text>
-              <Flex sx={styles.tagContainer}>
-                {tagFilter.options.map((option, index) => (
-                  <Tag
-                    sx={styles.tag}
-                    key={index}
-                    color={
-                      isFilterSelected(option.id, 'tag')
-                        ? 'Selected'
-                        : 'Default'
-                    }
-                    onClick={() => handleFilterClick(option.id, 'tag')}
-                  >
-                    {option.name}
-                  </Tag>
-                ))}
-              </Flex>
-            </Box>
-            <Box sx={styles.sectionDivider}>
-              <hr />
-            </Box>
-            <Box sx={styles.filterContainer}>
-              <Text sx={styles.filterTitle}>{checkBoxFilter.name}</Text>
-              <Box sx={styles.checkBoxContainer}>
-                {checkBoxFilter.options.map((option, index) => (
-                  <Checkbox
-                    key={index}
-                    label={option.name}
-                    checked={isFilterSelected(option.id, 'checklist')}
-                    onClick={() => handleFilterClick(option.id, 'checklist')}
-                  />
-                ))}
-              </Box>
-            </Box>
+            <TagFilter />
+            {checkBoxFilter && tagFilter && <Divider />}
+            <CheckboxFilter />
           </Box>
           <Flex sx={styles.buttonsContainer}>
             <Button
