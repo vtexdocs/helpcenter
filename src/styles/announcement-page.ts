@@ -96,18 +96,13 @@ const divider: SxStyleProp = {
 
 const flexContainer: SxStyleProp = {
   justifyContent: 'space-between',
-  flexWrap: 'wrap-reverse',
-  columnGap: '16px',
+  flexWrap: 'nowrap',
+  columnGap: ['8px', '16px'],
   alignItems: 'center',
   my: '20px',
 }
 
 const date: SxStyleProp = {
-  color: '#A1AAB7',
-  em: {
-    fontStyle: 'normal',
-    fontWeight: '600',
-  },
   ml: '48px',
 }
 

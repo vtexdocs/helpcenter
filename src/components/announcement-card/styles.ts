@@ -37,14 +37,14 @@ const containerSpacing: { [size in AnnouncementCardSize]: SxStyleProp } = {
     gap: '8px',
   },
   large: {
-    padding: '28px 64px',
+    padding: ['24px 36px', '24px 64px'],
     gap: '16px',
   },
 }
 
 const bottomContainer: SxStyleProp = {
   width: '100%',
-  justifyContent: 'flex-end',
+  justifyContent: 'flex-start',
   alignItems: 'center',
 }
 
@@ -57,8 +57,8 @@ const title: { [size in AnnouncementCardSize]: SxStyleProp } = {
   },
   large: {
     mb: '8px',
-    fontSize: '20px',
-    lineHeight: '30px',
+    fontSize: ['14px', '20px'],
+    lineHeight: ['21px', '30px'],
     color: 'muted.0',
   },
 }
@@ -69,8 +69,8 @@ const date: { [size in AnnouncementCardSize]: SxStyleProp } = {
     color: 'muted.1',
   },
   large: {
-    fontSize: '18px',
-    color: 'muted.0',
+    fontSize: '16px',
+    color: 'muted.1',
   },
 }
 
@@ -92,6 +92,13 @@ const link: { [size in AnnouncementCardSize]: SxStyleProp } = {
   },
 }
 
+const datesContainer: SxStyleProp = {
+  width: '100%',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+}
+
 export default {
   container,
   containerSpacing,
@@ -100,4 +107,5 @@ export default {
   bottomContainer,
   tag,
   link,
+  datesContainer,
 }
