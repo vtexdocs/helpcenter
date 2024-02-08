@@ -270,6 +270,8 @@
   "known_issues_date.updated": "Atualizado em",
   "tutorial_and_solutions_page.title": "Tutoriais & Soluções",
   "tutorial_and_solutions_page.description": "Acesse a documentação de todas os módulos da plataforma e tire suas dúvidas.",
+  "date_text.created": "Publicado em",
+  "date_text.updated": "Última atualização em",
   "announcements_page_result.empty": "Nenhum resultado correspondente.",
   "announcements_page_search.placeholder": "Pesquise em Comunicados..."
 }

@@ -255,6 +255,8 @@
   "known_issues_date.updated": "Actualizado en",
   "tutorial_and_solutions_page.title": "Tutoriales y Soluciones",
   "tutorial_and_solutions_page.description": "Accede a la documentación de todos los módulos de la plataforma y resuelve tus dudas.",
+  "date_text.created": "Publicado en",
+  "date_text.updated": "Última actualización",
   "announcements_page_result.empty": "Ningún resultado coincidente.",
   "announcements_page_search.placeholder": "Buscar en Anuncios..."
 }
