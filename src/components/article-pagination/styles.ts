@@ -33,12 +33,10 @@ const justNext: SxStyleProp = {
     boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.1)',
     color: '#000711',
   },
-  width: '50%',
   justifySelf: 'right',
   padding: '16px',
   borderRadius: '4px',
   textAlign: 'right',
-  // border: '1px solid #E7E9EE',
   color: '#4A596B',
 }
 
