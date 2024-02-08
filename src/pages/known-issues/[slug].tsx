@@ -39,6 +39,7 @@ import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
 import Tag from 'components/tag'
+import DateText from 'components/date-text'
 
 const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
 
@@ -71,6 +72,14 @@ const KnownIssuePage: NextPage<Props> = ({
   useEffect(() => {
     setHeadings(headingList)
   }, [serialized.frontmatter])
+
+  const createdAtDate = serialized.frontmatter?.createdAt
+    ? new Date(serialized.frontmatter?.createdAt)
+    : undefined
+
+  const updatedAtDate = serialized.frontmatter?.updatedAt
+    ? new Date(serialized.frontmatter?.updatedAt)
+    : undefined
 
   return (
     <>
@@ -114,35 +123,17 @@ const KnownIssuePage: NextPage<Props> = ({
                       <Text>ID: {serialized.frontmatter?.id}</Text>
                       <Tag>{serialized.frontmatter?.kiStatus}</Tag>
                     </Flex>
-                    <Text sx={styles.dates}>
-                      <em>
-                        {intl.formatMessage({
-                          id: 'known_issues_date.created',
-                        })}{' '}
-                      </em>
-                      {serialized.frontmatter?.createdAt
-                        ? intl.formatDate(
-                            new Date(serialized.frontmatter?.createdAt)
-                          )
-                        : ''}
-                      {' • '}
-                      <em>
-                        {intl.formatMessage({
-                          id: 'known_issues_date.updated',
-                        })}{' '}
-                      </em>
-                      {serialized.frontmatter?.updatedAt
-                        ? intl.formatDate(
-                            new Date(serialized.frontmatter?.updatedAt)
-                          )
-                        : ''}
-                    </Text>
+                    {createdAtDate && updatedAtDate && (
+                      <DateText
+                        createdAt={createdAtDate}
+                        updatedAt={updatedAtDate}
+                      />
+                    )}
                   </Flex>
                 </header>
                 <MarkdownRenderer serialized={serialized} />
               </article>
             </Box>
-
             <Box sx={styles.bottomContributorsContainer}>
               <Box sx={styles.bottomContributorsDivider} />
               <Contributors contributors={contributors} />

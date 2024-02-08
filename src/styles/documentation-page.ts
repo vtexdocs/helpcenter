@@ -133,17 +133,10 @@ const detailedInfo: SxStyleProp = {
   gap: '8px',
 }
 
-const dates: SxStyleProp = {
-  color: '#A1A8B3',
-
-  em: {
-    fontWeight: '600',
-    fontStyle: 'normal',
-  },
-}
-
 const id: SxStyleProp = {
   justifyContent: 'space-between',
+  fontSize: '20px',
+  wordBreak: 'break-all',
 }
 
 export default {
@@ -162,6 +155,5 @@ export default {
   readingTime,
   flexContainer,
   detailedInfo,
-  dates,
   id,
 }
