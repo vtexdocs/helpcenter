@@ -44,6 +44,7 @@ import { useIntl } from 'react-intl'
 import MoreArticlesSection from 'components/more-articles-section'
 import Breadcrumb from 'components/breadcrumb'
 import { AnnouncementDataElement } from 'utils/typings/types'
+import DateText from 'components/date-text'
 const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
 
 interface Props {
@@ -93,6 +94,14 @@ const AnnouncementPage: NextPage<Props> = ({
     type: 'category',
   }
 
+  const createdAtDate = serialized.frontmatter?.createdAt
+    ? new Date(serialized.frontmatter?.createdAt)
+    : undefined
+
+  const updatedAtDate = serialized.frontmatter?.updatedAt
+    ? new Date(serialized.frontmatter?.updatedAt)
+    : undefined
+
   return (
     <>
       <Head>
@@ -113,15 +122,13 @@ const AnnouncementPage: NextPage<Props> = ({
                   <Flex sx={styles.flexContainer}>
                     <Box>
                       <Author contributor={contributor} />
-                      {serialized.frontmatter?.createdAt && (
-                        <Text sx={styles.date}>
-                          Criado em:{' '}
-                          <em>
-                            {intl.formatDate(
-                              new Date(serialized.frontmatter?.createdAt)
-                            )}
-                          </em>
-                        </Text>
+                      {createdAtDate && updatedAtDate && (
+                        <Flex sx={styles.date}>
+                          <DateText
+                            createdAt={createdAtDate}
+                            updatedAt={updatedAtDate}
+                          />
+                        </Flex>
                       )}
                     </Box>
                     {url && <ShareButton url={url} />}
