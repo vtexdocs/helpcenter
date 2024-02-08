@@ -37,7 +37,7 @@ const containerSpacing: { [size in AnnouncementCardSize]: SxStyleProp } = {
     gap: '8px',
   },
   large: {
-    padding: ['24px 36px', '24px 64px'],
+    padding: ['24px 32px', '24px 32px', '24px 36px', '24px 64px'],
     gap: '16px',
   },
 }
