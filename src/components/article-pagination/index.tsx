@@ -49,11 +49,7 @@ const ArticlePagination = ({
         )}
         {!hidePaginationNext && pagination.nextDoc.slug && (
           <Link
-            sx={
-              !hidePaginationPrevious
-                ? styles.paginationLinkNext
-                : styles.justNext
-            }
+            sx={styles.paginationLinkNext}
             href={pagination.nextDoc.slug}
             onClick={(e: { preventDefault: () => void }) => {
               handleClick(e, pagination.nextDoc.slug as string)
