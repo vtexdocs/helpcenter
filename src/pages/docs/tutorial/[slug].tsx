@@ -48,6 +48,9 @@ import {
 } from 'utils/navigation-utils'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
+
+import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
+
 import startHereImage from '../../../../public/images/start-here.png'
 
 // import { ParsedUrlQuery } from 'querystring'
@@ -190,6 +193,18 @@ const TutorialPage: NextPage<Props> = ({
                       {componentProps.serialized.frontmatter?.excerpt}
                     </Text>
                   </header>
+                  <Text sx={styles.readingTime}>
+                    {intl.formatMessage(
+                      {
+                        id: 'documentation_reading_time.text',
+                        defaultMessage: '',
+                      },
+                      {
+                        minutes:
+                          componentProps.serialized.frontmatter?.readingTime,
+                      }
+                    )}
+                  </Text>
                   <MarkdownRenderer serialized={componentProps.serialized} />
                 </article>
               </Box>
@@ -521,6 +536,7 @@ export const getStaticProps: GetStaticProps = async ({
           remarkImages,
           [getHeadings, { headingList }],
           remarkBlockquote,
+          remarkReadingTime,
         ],
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
