@@ -115,16 +115,16 @@ const divider: SxStyleProp = {
 }
 
 const readingTime: SxStyleProp = {
-  color: '#6b7785',
-  mb: '24px',
+  color: '#A1AAB7',
+  fontSize: '16px',
   lineHeight: '18px',
-  ml: 'auto',
 }
 
 const flexContainer: SxStyleProp = {
-  justifyContent: ['center', 'space-between'],
-  flexWrap: 'wrap-reverse',
-  columnGap: '16px',
+  flexWrap: 'wrap',
+  flexDirection: 'column',
+  gap: '16px',
+  mb: '16px',
 }
 
 const detailedInfo: SxStyleProp = {
