@@ -13,7 +13,7 @@ const tag: SxStyleProp = {
 }
 
 const statusColors: {
-  [status in KnownIssueStatus | 'Default' | 'Selected']: SxStyleProp
+  [status in KnownIssueStatus | 'Default' | 'Selected' | 'New']: SxStyleProp
 } = {
   Backlog: {
     border: '1px solid #979797',
@@ -58,6 +58,11 @@ const statusColors: {
     ':hover': {
       color: '#142032',
     },
+  },
+  New: {
+    border: '1px solid #F71963',
+    color: '#F71963',
+    background: '#FFE0EF',
   },
 }
 

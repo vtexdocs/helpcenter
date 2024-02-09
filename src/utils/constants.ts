@@ -106,18 +106,18 @@ export const updatesData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'updates_info_notes.description',
       }),
-      link: '/updates/announcements', //TODO: mudar rota
+      link: '/announcements', //TODO: mudar rota
     },
     {
       id: 'Announcements',
       Icon: MegaphoneIcon,
       title: intl.formatMessage({
-        id: 'updates_announcements_notes.title',
+        id: 'announcements_page.title',
       }),
       description: intl.formatMessage({
-        id: 'updates_announcements_notes.description',
+        id: 'announcements_page.description',
       }),
-      link: '/updates/announcements', //TODO: verificar rota
+      link: '/announcements',
     },
   ]
   return data
@@ -572,15 +572,15 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
-export const knownIssueSortBy = (intl: IntlShape) => {
+export const sortBy = (intl: IntlShape) => {
   const data = [
     {
       value: 'recently_updated',
-      content: intl.formatMessage({ id: 'known_issues_sort.recently_updated' }),
+      content: intl.formatMessage({ id: 'sort.recently_updated' }),
     },
     {
       value: 'newest',
-      content: intl.formatMessage({ id: 'known_issues_sort.newest' }),
+      content: intl.formatMessage({ id: 'sort.newest' }),
     },
   ]
 

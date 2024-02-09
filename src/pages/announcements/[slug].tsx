@@ -15,63 +15,84 @@ import { Box, Flex, Text } from '@vtex/brand-ui'
 
 import DocumentContextProvider from 'utils/contexts/documentContext'
 
-import Contributors from 'components/contributors'
+import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
-import { Item, TableOfContents } from '@vtexdocs/components'
-import Breadcrumb from 'components/breadcrumb'
+import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
-// import getGithubFile from 'utils/getGithubFile'
+import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
+import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
-import styles from 'styles/documentation-page'
+import styles from 'styles/announcement-page'
 import { ContributorsType } from 'utils/getFileContributors'
 
 import { getLogger } from 'utils/logging/log-util'
-import { localeType } from 'utils/navigation-utils'
+import {
+  flattenJSON,
+  getKeyByValue,
+  getParents,
+  localeType,
+} from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
-// import { ParsedUrlQuery } from 'querystring'
+import ShareButton from 'components/share-button'
+import Author from 'components/author'
 import { useIntl } from 'react-intl'
-import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
-import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
-import { getMessages } from 'utils/get-messages'
-import Tag from 'components/tag'
+import MoreArticlesSection from 'components/more-articles-section'
+import Breadcrumb from 'components/breadcrumb'
+import { AnnouncementDataElement } from 'utils/typings/types'
 import DateText from 'components/date-text'
-
-const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
+const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
 
 interface Props {
   sectionSelected: string
-  breadcrumbList: { slug: string; name: string; type: string }[]
+  parentsArray: string[]
   content: string
   serialized: MDXRemoteSerializeResult
-  contributors: ContributorsType[]
+  sidebarfallback: any //eslint-disable-line
+  contributor: ContributorsType
   path: string
   headingList: Item[]
+  seeAlsoData: AnnouncementDataElement[]
   branch: string
 }
 
-const KnownIssuePage: NextPage<Props> = ({
+const AnnouncementPage: NextPage<Props> = ({
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
+  slug,
   serialized,
+  path,
   headingList,
-  contributors,
-  breadcrumbList,
+  contributor,
+  seeAlsoData,
   branch,
 }) => {
-  const [headings, setHeadings] = useState<Item[]>([])
-  const { setBranchPreview } = useContext(PreviewContext)
   const intl = useIntl()
+  const [headings, setHeadings] = useState<Item[]>([])
+  const [url, setUrl] = useState('')
+  const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
+  const { setActiveSidebarElement } = useContext(LibraryContext)
   const articleRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    setActiveSidebarElement(slug)
     setHeadings(headingList)
   }, [serialized.frontmatter])
+
+  useEffect(() => {
+    if (window) setUrl(window.location.href)
+  }, [])
+
+  const breadcrumb = {
+    slug: '/announcements',
+    name: intl.formatMessage({ id: 'announcements_page.title' }),
+    type: 'category',
+  }
 
   const createdAtDate = serialized.frontmatter?.createdAt
     ? new Date(serialized.frontmatter?.createdAt)
@@ -85,16 +106,7 @@ const KnownIssuePage: NextPage<Props> = ({
     <>
       <Head>
         <title>{serialized.frontmatter?.title as string}</title>
-        <meta name="docsearch:doctype" content="Start here" />
-        {serialized.frontmatter?.hidden && (
-          <meta name="robots" content="noindex" />
-        )}
-        {serialized.frontmatter?.excerpt && (
-          <meta
-            property="og:description"
-            content={serialized.frontmatter?.excerpt as string}
-          />
-        )}
+        <meta name="docsearch:doctype" content="announcements" />
       </Head>
       <DocumentContextProvider headings={headings}>
         <Flex sx={styles.innerContainer}>
@@ -102,45 +114,35 @@ const KnownIssuePage: NextPage<Props> = ({
             <Box sx={styles.contentContainer}>
               <article ref={articleRef}>
                 <header>
-                  <Flex sx={styles.flexContainer}>
-                    <Breadcrumb breadcrumbList={breadcrumbList} />
-                    <Text sx={styles.readingTime}>
-                      {intl.formatMessage(
-                        {
-                          id: 'documentation_reading_time.text',
-                          defaultMessage: '',
-                        },
-                        { minutes: serialized.frontmatter?.readingTime }
-                      )}
-                    </Text>
-                  </Flex>
+                  <Breadcrumb breadcrumbList={[breadcrumb]} />
                   <Text sx={styles.documentationTitle} className="title">
                     {serialized.frontmatter?.title}
                   </Text>
                   <Box sx={styles.divider}></Box>
-                  <Flex sx={styles.detailedInfo}>
-                    <Flex sx={styles.id}>
-                      <Text>ID: {serialized.frontmatter?.id}</Text>
-                      <Tag>{serialized.frontmatter?.kiStatus}</Tag>
-                    </Flex>
-                    {createdAtDate && updatedAtDate && (
-                      <DateText
-                        createdAt={createdAtDate}
-                        updatedAt={updatedAtDate}
-                      />
-                    )}
+                  <Flex sx={styles.flexContainer}>
+                    <Box>
+                      <Author contributor={contributor} />
+                      {createdAtDate && updatedAtDate && (
+                        <Flex sx={styles.date}>
+                          <DateText
+                            createdAt={createdAtDate}
+                            updatedAt={updatedAtDate}
+                          />
+                        </Flex>
+                      )}
+                    </Box>
+                    {url && <ShareButton url={url} />}
                   </Flex>
                 </header>
                 <MarkdownRenderer serialized={serialized} />
               </article>
             </Box>
-            <Box sx={styles.bottomContributorsContainer}>
-              <Box sx={styles.bottomContributorsDivider} />
-              <Contributors contributors={contributors} />
-            </Box>
+            <FeedbackSection docPath={path} slug={slug} />
+            {serialized.frontmatter?.seeAlso && (
+              <MoreArticlesSection docs={seeAlsoData} />
+            )}
           </Box>
           <Box sx={styles.rightContainer}>
-            <Contributors contributors={contributors} />
             <TableOfContents headingList={headings} />
           </Box>
           <OnThisPage />
@@ -175,11 +177,11 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
-      : await getKnownIssuesPaths('known-issues', branch)
+      : await getAnnouncementsPaths('announcements', branch)
 
-  const logger = getLogger('Start here')
+  const logger = getLogger('Announcements')
 
-  const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
+  const path = docsPaths[slug].find((e) => e.locale === locale)?.path
 
   if (!path) {
     return {
@@ -224,11 +226,14 @@ export const getStaticProps: GetStaticProps = async ({
       })
       .catch((err) => console.log(err))) || []
 
+  const contributor = contributors[0]
+
   let format: 'md' | 'mdx' = 'mdx'
   try {
     if (path.endsWith('.md')) {
       documentationContent = escapeCurlyBraces(documentationContent)
       documentationContent = replaceHTMLBlocks(documentationContent)
+      documentationContent = await replaceMagicBlocks(documentationContent)
     }
   } catch (error) {
     logger.error(`${error}`)
@@ -245,7 +250,6 @@ export const getStaticProps: GetStaticProps = async ({
           remarkImages,
           [getHeadings, { headingList }],
           remarkBlockquote,
-          remarkReadingTime,
         ],
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
@@ -258,36 +262,61 @@ export const getStaticProps: GetStaticProps = async ({
     serialized = JSON.parse(JSON.stringify(serialized))
 
     logger.info(`Processing ${slug}`)
-    const seeAlsoData: {
-      url: string
-      title: string
-      category: string
-    }[] = []
+    const seeAlsoData: AnnouncementDataElement[] = []
+    const seeAlsoUrls = serialized.frontmatter?.seeAlso
+      ? JSON.parse(JSON.stringify(serialized.frontmatter.seeAlso as string))
+      : []
+    await Promise.all(
+      seeAlsoUrls.map(async (seeAlsoUrl: string) => {
+        const seeAlsoPath = docsPaths[seeAlsoUrl]?.find(
+          (e) => e.locale === locale
+        )?.path
+        if (seeAlsoPath) {
+          try {
+            const documentationContent =
+              (await fetch(
+                `https://raw.githubusercontent.com/vtexdocs/help-center-content/main/${seeAlsoPath}`
+              )
+                .then((res) => res.text())
+                .catch((err) => console.log(err))) || ''
 
-    const breadcrumbList: { slug: string; name: string; type: string }[] = [
-      {
-        slug: '/docs/known-issues/',
-        name: getMessages()[currentLocale]['known_issues_page.title'],
-        type: 'category',
-      },
-      {
-        slug,
-        name: serialized?.frontmatter?.title ?? '',
-        type: '',
-      },
-    ]
+            const serialized = await serialize(documentationContent, {
+              parseFrontmatter: true,
+            })
+            seeAlsoData.push({
+              url: seeAlsoUrl,
+              title: serialized.frontmatter?.title ?? seeAlsoUrl,
+              createdAt: String(serialized.frontmatter?.createdAt) ?? '',
+              updatedAt: String(serialized.frontmatter?.updatedAt) ?? '',
+            })
+          } catch (error) {}
+        }
+      })
+    )
+
+    const flattenedSidebar = flattenJSON(sidebarfallback)
+    const keyPath = getKeyByValue(flattenedSidebar, slug)
+    const parentsArray: string[] = []
+    let sectionSelected = ''
+    if (keyPath) {
+      sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
+      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+      parentsArray.push(slug)
+    }
 
     return {
       props: {
+        sectionSelected,
+        parentsArray,
         slug,
         serialized,
         sidebarfallback,
         headingList,
-        contributors,
+        contributor,
         path,
         seeAlsoData,
-        breadcrumbList,
         branch,
+        locale,
       },
       revalidate: 600,
     }
@@ -299,4 +328,4 @@ export const getStaticProps: GetStaticProps = async ({
   }
 }
 
-export default KnownIssuePage
+export default AnnouncementPage

@@ -1,123 +1,111 @@
 import { SxStyleProp } from '@vtex/brand-ui'
+import { AnnouncementCardSize } from '.'
 
-const cardContainer: SxStyleProp = {
-  mt: ['16px', '24px', '24px', '32px'],
-  px: ['16px', '24px', '24px', '96px'],
-  py: ['16px', '64px', '64px'],
-  justifyContent: 'center',
-  backgroundColor: 'white',
-  borderRadius: '8px',
-  border: '1px solid #E7E9EE',
-  transition: 'all 0.3s ease-out',
-  color: '#5E6E84',
-  columnGap: '50px',
-  rowGap: '64px',
-  flexWrap: 'wrap',
-
-  ':active, :hover': {
-    cursor: 'pointer',
-    borderColor: '#CCCED8',
-    transition: 'all 0.3s ease-out',
-  },
-
-  ':active': {
-    boxShadow: '0px 0px 0px 1px #FFFFFF, 0px 0px 0px 3px #96B2F2',
-  },
-
-  ':hover': {
-    boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.1)',
-  },
-}
-
-const title: SxStyleProp = {
-  fontSize: '22px',
-  fontWeight: '400',
-  lineHeight: '22px',
-  gap: '10px',
-  textAlign: 'top',
-}
-
-const description: SxStyleProp = {
-  color: 'muted.1',
-  fontSize: '16px',
-  lineHeight: '22px',
-  ml: '34px',
-  mt: '4px',
-}
-
-const icon: SxStyleProp = {
-  height: '18px',
-  width: '18px',
-  minWidth: '18px',
-  minHeight: '18px',
-}
-
-const releaseContainer: SxStyleProp = {
+const container: SxStyleProp = {
   width: '100%',
-}
-
-const timelineContainer: SxStyleProp = {
-  display: ['none', 'block', 'block', 'block', 'block', 'block'],
-}
-
-const timeLineBar: SxStyleProp = {
-  '& > :first-of-type': {
-    '& > :first-of-type': {
-      '& > :first-of-type': {
-        height: '16px',
-        width: '16px',
-      },
-      mb: '4px',
-    },
-    '& > :nth-of-type(2)': {
-      width: '1px',
-      borderRadius: '0.5rem',
-    },
-    mr: '8px',
-  },
-
-  '& > :nth-of-type(2)': {
-    padding: '0',
-    '& > :nth-of-type(2)': {
-      mt: '10px',
-    },
-  },
-}
-
-const timelineTitle: SxStyleProp = {
-  fontSize: '18px',
-  color: 'muted.0',
-}
-
-const content: SxStyleProp = {
-  color: 'muted.1',
-  fontSize: '16px',
-  lineHeight: '22px',
+  height: '100%',
+  alignContent: 'center',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
+  display: 'flex',
   flexDirection: 'column',
+
+  backgroundColor: '#FFFFFF',
+
+  borderRadius: '4px',
+  border: '1px solid #E7E9EE',
+  wordBreak: 'break-word',
+
+  transition: 'all 0.3s ease-out',
+  ':hover': {
+    cursor: 'pointer',
+  },
+  ':active, :hover': {
+    boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.1)',
+    transition: 'all 0.3 ease-out',
+
+    '.title': {
+      transition: 'all 0.3s ease-out',
+      color: '#000711',
+    },
+  },
 }
 
-const newTitle: SxStyleProp = {
-  margin: '0',
-  color: '#F71963',
-  fontSize: '16px',
-  lineHeight: '18px',
+const containerSpacing: { [size in AnnouncementCardSize]: SxStyleProp } = {
+  small: {
+    padding: '16px 28px',
+    gap: '8px',
+  },
+  large: {
+    padding: ['24px 32px', '24px 32px', '24px 36px', '24px 64px'],
+    gap: '16px',
+  },
 }
 
-const placeholder: SxStyleProp = {
-  height: '18px',
-  width: '1px',
+const bottomContainer: SxStyleProp = {
+  width: '100%',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+}
+
+const title: { [size in AnnouncementCardSize]: SxStyleProp } = {
+  small: {
+    mb: '8px',
+    fontSize: '12px',
+    lineHeight: '16px',
+    color: 'muted.0',
+  },
+  large: {
+    mb: '8px',
+    fontSize: ['14px', '20px'],
+    lineHeight: ['21px', '30px'],
+    color: 'muted.0',
+  },
+}
+
+const date: { [size in AnnouncementCardSize]: SxStyleProp } = {
+  small: {
+    fontSize: '12px',
+    color: 'muted.1',
+  },
+  large: {
+    fontSize: '16px',
+    color: 'muted.1',
+  },
+}
+
+const tag: SxStyleProp = {
+  height: '20px',
+  width: '66px',
+}
+
+const link: { [size in AnnouncementCardSize]: SxStyleProp } = {
+  small: {
+    display: 'block',
+    minWidth: '240px',
+    width: '240px',
+  },
+  large: {
+    display: 'block',
+    minWidth: '320px',
+    width: ['320px', '545px', '545px', '720px'],
+  },
+}
+
+const datesContainer: SxStyleProp = {
+  width: '100%',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  flexWrap: 'wrap',
 }
 
 export default {
-  cardContainer,
+  container,
+  containerSpacing,
   title,
-  description,
-  icon,
-  releaseContainer,
-  timeLineBar,
-  timelineTitle,
-  newTitle,
-  content,
-  placeholder,
-  timelineContainer,
+  date,
+  bottomContainer,
+  tag,
+  link,
+  datesContainer,
 }

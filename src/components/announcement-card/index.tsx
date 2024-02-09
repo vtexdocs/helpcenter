@@ -1,88 +1,59 @@
-import Link from 'next/link'
-import { Box, Flex, Text, Timeline } from '@vtex/brand-ui'
+import { Box, Text, Link, Flex } from '@vtex/brand-ui'
 
-import { getDaysElapsed } from '../../utils/get-days-elapsed'
-import { useIntl } from 'react-intl'
+import type { AnnouncementDataElement } from 'utils/typings/types'
 
 import styles from './styles'
-import MegaphoneIcon from 'components/icons/megaphone-icon'
-import NewIcon from 'components/icons/new-icon'
+import Tag from 'components/tag'
+import { useIntl } from 'react-intl'
+import DateText from 'components/date-text'
 
-export interface CardProps {
-  title: string
-  description: string
-  date: Date
-  first?: boolean
+export type AnnouncementCardSize = 'small' | 'large'
+
+interface AnnouncementCardProps {
+  announcement: AnnouncementDataElement
+  appearance?: AnnouncementCardSize
 }
 
-const AnnouncementTimelineItem = ({
-  title,
-  date,
-  first = false,
-}: CardProps) => {
+const AnnouncementCard = ({
+  announcement,
+  appearance = 'small',
+}: AnnouncementCardProps) => {
+  const { createdAt, updatedAt, url, title } = announcement
   const intl = useIntl()
 
-  return (
-    <Flex sx={styles.releaseContainer}>
-      <Timeline.Event
-        sx={styles.timeLineBar}
-        title={
-          first ? (
-            <Text sx={styles.newTitle}>New</Text>
-          ) : (
-            <Box sx={styles.placeholder}></Box>
-          )
-        }
-        icon={first ? <NewIcon sx={styles.icon} /> : null}
-      >
-        <Text sx={styles.timelineTitle}>{title}</Text>
-        <Text sx={styles.content}>
-          {`${getDaysElapsed(date)} ${intl.formatMessage({
-            id: 'relese-note-days-elapsed',
-          })}`}
-        </Text>
-      </Timeline.Event>
-    </Flex>
-  )
-}
+  const createdAtDate = new Date(createdAt)
+  const updatedAtDate = new Date(updatedAt)
+  const currentDate = new Date()
+  const sevenDaysAgo = new Date(currentDate)
+  sevenDaysAgo.setDate(currentDate.getDate() - 7)
+  const isNew = createdAtDate >= sevenDaysAgo && createdAtDate <= currentDate
 
-interface Props {
-  announcements: CardProps[]
-}
+  const createdAtText = `${intl.formatMessage({
+    id: 'date_text.created',
+  })}: ${intl.formatDate(createdAtDate)}`
 
-const AnnouncementCard = ({ announcements }: Props) => {
-  const intl = useIntl()
   return (
-    <Link href={'/announcements'} legacyBehavior>
-      <Flex sx={styles.cardContainer}>
-        <Box>
-          <Flex sx={styles.title}>
-            <MegaphoneIcon />
-            <Text>
-              {intl.formatMessage({
-                id: 'landing_page_announcements.title',
-              })}
-            </Text>
+    <Link sx={{ ...styles.link[appearance] }} href={`${url}`}>
+      <Box sx={{ ...styles.container, ...styles.containerSpacing[appearance] }}>
+        {isNew && (
+          <Flex sx={styles.bottomContainer}>
+            <Tag sx={styles.tag} color={'New'}>
+              New
+            </Tag>
           </Flex>
-          <Text sx={styles.description}>
-            {intl.formatMessage({
-              id: 'landing_page_announcements.description',
-            })}
-          </Text>
-        </Box>
-        <Box sx={styles.timelineContainer}>
-          {announcements.map((announcement, index) => {
-            return index === 0 ? (
-              <AnnouncementTimelineItem
-                key={index}
-                {...{ ...announcement, first: true }}
-              />
-            ) : (
-              <AnnouncementTimelineItem key={index} {...announcement} />
-            )
-          })}
-        </Box>
-      </Flex>
+        )}
+        <Text sx={{ ...styles.title[appearance] }} className="title">
+          {title}
+        </Text>
+        {appearance === 'large' && (
+          <DateText createdAt={createdAtDate} updatedAt={updatedAtDate} />
+        )}
+        {appearance === 'small' && (
+          <Flex sx={styles.datesContainer}>
+            <Text sx={{ ...styles.date[appearance] }}>{createdAtText}</Text>
+          </Flex>
+        )}
+      </Box>
     </Link>
   )
 }

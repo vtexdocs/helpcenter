@@ -70,25 +70,6 @@ const documentationTitle: SxStyleProp = {
   fontWeight: '400',
 }
 
-const documentationExcerpt: SxStyleProp = {
-  color: '#A1A8B3',
-  padding: '8px 0 24px',
-  lineHeight: '18px',
-  fontWeight: '400',
-}
-
-const bottomContributorsContainer: SxStyleProp = {
-  display: ['none', 'initial', 'initial', 'initial', 'none'],
-}
-
-const bottomContributorsDivider: SxStyleProp = {
-  mx: 'auto',
-  my: '32px',
-  height: '1px',
-  width: '162px',
-  backgroundColor: '#E7E9EE',
-}
-
 const rightContainer: SxStyleProp = {
   ml: ['38px', '38px', '48px', '48px', '58px', '68px', '200px'],
   display: [
@@ -113,30 +94,16 @@ const divider: SxStyleProp = {
   borderBottom: '1px solid #E7E9EE',
 }
 
-const readingTime: SxStyleProp = {
-  color: '#6b7785',
-  mb: '24px',
-  lineHeight: '18px',
-  ml: 'auto',
-}
-
 const flexContainer: SxStyleProp = {
-  justifyContent: ['center', 'space-between'],
-  flexWrap: 'wrap-reverse',
-  columnGap: '16px',
+  justifyContent: 'space-between',
+  flexWrap: 'nowrap',
+  columnGap: ['8px', '16px'],
+  alignItems: 'center',
+  my: '20px',
 }
 
-const detailedInfo: SxStyleProp = {
-  justifyContent: 'space-between',
-  flexDirection: 'column',
-  py: '16px',
-  gap: '8px',
-}
-
-const id: SxStyleProp = {
-  justifyContent: 'space-between',
-  fontSize: '20px',
-  wordBreak: 'break-all',
+const date: SxStyleProp = {
+  ml: '48px',
 }
 
 export default {
@@ -145,15 +112,10 @@ export default {
   articleBox,
   contentContainer,
   documentationTitle,
-  bottomContributorsContainer,
-  bottomContributorsDivider,
   rightContainer,
   releaseAction,
-  documentationExcerpt,
   innerContainer,
   divider,
-  readingTime,
   flexContainer,
-  detailedInfo,
-  id,
+  date,
 }

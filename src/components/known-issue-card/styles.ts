@@ -1,11 +1,9 @@
 import type { SxStyleProp } from '@vtex/brand-ui'
 
 const container: SxStyleProp = {
-  px: ['32px', '64px'],
-  py: ['16px', '24px'],
-  display: 'flex',
+  padding: ['24px 32px', '24px 32px', '24px 36px', '24px 64px'],
   flexDirection: 'column',
-  gap: '8px',
+  gap: '16px',
   borderRadius: '4px',
   border: '1px solid #E7E9EE',
   width: ['320px', '544px', '720px'],
@@ -31,7 +29,6 @@ const topContainer: SxStyleProp = {
 }
 
 const title: SxStyleProp = {
-  mb: '8px',
   fontSize: ['14px', '20px'],
   fontWeight: '400',
   lineHeight: ['22px', '30px'],
@@ -55,6 +52,12 @@ const id: SxStyleProp = {
   color: 'muted.1',
 }
 
+const datesContainer: SxStyleProp = {
+  color: 'muted.1',
+  width: '100%',
+  justifyContent: 'space-between',
+}
+
 export default {
   container,
   title,
@@ -62,4 +65,5 @@ export default {
   topContainer,
   knownIssueModule,
   linkContainer,
+  datesContainer,
 }

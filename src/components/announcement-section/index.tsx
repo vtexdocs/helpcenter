@@ -1,10 +1,10 @@
 import { Box, Button, Flex, Text } from '@vtex/brand-ui'
 
-import { CardProps } from '../announcement-card'
+import { CardProps } from '../announcement-timeline-card'
 import { useIntl } from 'react-intl'
 
 import styles from './styles'
-import AnnouncementCard from '../announcement-card'
+import AnnouncementTimelineCard from '../announcement-timeline-card'
 
 const lastAnnouncements: CardProps[] = [
   {
@@ -47,7 +47,7 @@ const AnnouncementSection = () => {
         </Text>
       </Flex>
       <Box sx={styles.cardsContainer}>
-        <AnnouncementCard announcements={lastAnnouncements} />
+        <AnnouncementTimelineCard announcements={lastAnnouncements} />
       </Box>
       <Button sx={styles.button}>
         {intl.formatMessage({ id: 'landing_page_announcements.button' })}

@@ -14655,8 +14655,8 @@
       ]
     },
     {
-      "documentation": "News",
-      "slugPrefix": "updates/announcements",
+      "documentation": "Announcements",
+      "slugPrefix": "announcements",
       "categories": [
         {
           "name": { "en": "2023", "es": "2023", "pt": "2023" },

@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import { IconProps } from '@vtex/brand-ui'
 
-import { ActionType } from 'components/announcement-card/functions'
+import { ActionType } from 'components/announcement-timeline-card/functions'
 import { UpdatesTitle, ResourceTitle } from './unionTypes'
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -76,4 +76,11 @@ export type KnownIssueDataElement = {
   updatedAt: string
 }
 
-export type KnownIssuesSortByType = 'newest' | 'recently_updated'
+export type AnnouncementDataElement = {
+  title: string
+  url: string
+  createdAt: string
+  updatedAt: string
+}
+
+export type SortByType = 'newest' | 'recently_updated'

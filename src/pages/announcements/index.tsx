@@ -3,64 +3,49 @@ import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
 
-import {
-  KnownIssueDataElement,
-  KnownIssueStatus,
-  SortByType,
-} from 'utils/typings/types'
+import { AnnouncementDataElement, SortByType } from 'utils/typings/types'
 import Head from 'next/head'
-import styles from 'styles/known-issues-page'
+import styles from 'styles/announcements-page'
 import { PreviewContext } from 'utils/contexts/preview'
 import { Fragment, useContext, useMemo, useState } from 'react'
-import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
+import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
 import { serialize } from 'next-mdx-remote/serialize'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
-import startHereImage from '../../../public/images/start-here.png'
-import KnownIssueCard from 'components/known-issue-card'
+import startHereImage from '../../../public/images/announcements.png'
 import Pagination from 'components/pagination'
 import { localeType } from 'utils/navigation-utils'
-import Filter from 'components/filter'
-import {
-  knownIssuesStatusFilter,
-  knownIssuesModulesFilters,
-  sortBy,
-} from 'utils/constants'
 import Select from 'components/select'
+import AnnouncementCard from 'components/announcement-card'
+import { sortBy } from 'utils/constants'
+import SearchIcon from 'components/icons/search-icon'
+import Input from 'components/input'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
   sectionSelected?: DocumentationTitle | UpdatesTitle | ''
-  knownIssuesData: KnownIssueDataElement[]
+  announcementsData: AnnouncementDataElement[]
   branch: string
   page: number
   totalPages: number
 }
 
-const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
+const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
 
-const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
+const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
-  const itemsPerPage = 5
+  const itemsPerPage = 6
+  const [searchTerm, setSearchTerm] = useState('')
   const [page, setPage] = useState({ curr: 1, total: 1 })
-  const [filters, setFilters] = useState<{
-    status: string[]
-    modules: string[]
-  }>({ status: [], modules: [] })
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
-    const data = knownIssuesData.filter((knownIssue) => {
-      return (
-        (filters.status.length === 0 ||
-          filters.status.includes(knownIssue.status)) &&
-        (filters.modules.length === 0 ||
-          filters.modules.includes(knownIssue.module))
-      )
-    })
+    const data = announcementsData.filter((announcement) =>
+      announcement.title.toLowerCase().includes(searchTerm.toLowerCase())
+    )
 
     data.sort((a, b) => {
       const dateA =
@@ -74,7 +59,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
     setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale])
+  }, [searchTerm, sortByValue, intl.locale])
 
   const paginatedResult = useMemo(() => {
     return filteredResult.slice(
@@ -93,13 +78,13 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
       <Head>
         <title>
           {intl.formatMessage({
-            id: 'known_issues_page.title',
+            id: 'announcements_page.title',
           })}
         </title>
         <meta
           property="og:title"
           content={intl.formatMessage({
-            id: 'known_issues_page.subtitle',
+            id: 'announcements_page.description',
           })}
           key="title"
         />
@@ -107,28 +92,18 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
       <Fragment>
         <PageHeader
           title={intl.formatMessage({
-            id: 'known_issues_page.title',
+            id: 'announcements_page.title',
           })}
           description={intl.formatMessage({
-            id: 'known_issues_page.subtitle',
+            id: 'announcements_page.description',
           })}
           imageUrl={startHereImage}
           imageAlt={intl.formatMessage({
-            id: 'known_issues_page.title',
+            id: 'announcements_page.title',
           })}
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
-            <Filter
-              tagFilter={knownIssuesStatusFilter(intl)}
-              checkBoxFilter={knownIssuesModulesFilters(intl)}
-              onApply={(newFilters) =>
-                setFilters({
-                  status: newFilters.tag,
-                  modules: newFilters.checklist,
-                })
-              }
-            />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
               value={sortByValue}
@@ -136,14 +111,28 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
+          <Input
+            placeholder={intl.formatMessage({
+              id: 'announcements_page_search.placeholder',
+            })}
+            Icon={SearchIcon}
+            value={searchTerm}
+            onChange={(value) => setSearchTerm(value)}
+          />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
-                {intl.formatMessage({ id: 'known_issues_result.empty' })}
+                {intl.formatMessage({ id: 'announcements_page_result.empty' })}
               </Flex>
             )}
-            {paginatedResult.map((issue, id) => {
-              return <KnownIssueCard key={id} {...issue} />
+            {paginatedResult.map((announcement, id) => {
+              return (
+                <AnnouncementCard
+                  key={id}
+                  announcement={announcement}
+                  appearance="large"
+                />
+              )
             })}
           </Flex>
           <Pagination
@@ -163,13 +152,13 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const sidebarfallback = await getNavigation()
-  const sectionSelected = 'Known issues'
+  const sectionSelected = 'Announcements'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
-  const logger = getLogger('Known Issues')
+  const logger = getLogger('Announcements')
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
@@ -205,7 +194,7 @@ export const getStaticProps: GetStaticProps = async ({
     return Promise.all(promises)
   }
 
-  const knownIssuesData: KnownIssueDataElement[] = []
+  const announcementsData: AnnouncementDataElement[] = []
 
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
@@ -220,13 +209,10 @@ export const getStaticProps: GetStaticProps = async ({
             parseFrontmatter: true,
           })
 
-          if (frontmatter && frontmatter.tag && frontmatter.kiStatus)
-            knownIssuesData.push({
-              id: frontmatter.id,
+          if (frontmatter)
+            announcementsData.push({
               title: frontmatter.title,
-              module: frontmatter.tag,
-              slug: data.slug,
-              status: frontmatter.kiStatus as KnownIssueStatus,
+              url: `announcements/${data.slug}`,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
             })
@@ -241,10 +227,10 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       sidebarfallback,
       sectionSelected,
-      knownIssuesData,
+      announcementsData,
       branch,
     },
   }
 }
 
-export default KnownIssuesPage
+export default AnnouncementsPage
