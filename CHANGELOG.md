@@ -2,6 +2,61 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/vtexdocs/helpcenter/compare/v0.2.0...v0.3.0) (2024-02-09)
+
+
+### Features
+
+* add new announcement card ([15403c9](https://github.com/vtexdocs/helpcenter/commit/15403c9b829850bd17b79cf827e55f0a5b9cf64a))
+* **announcements:** add breadcrumb and more articles section ([6e1f134](https://github.com/vtexdocs/helpcenter/commit/6e1f13434bc7cbc575b16ab4dc918d9ea7a5a9be))
+* **announcement:** show dates ([135e503](https://github.com/vtexdocs/helpcenter/commit/135e503c224c4dd8a6fbf733a5c8c91b4fc2e235))
+* create announcement listing page ([aeb8806](https://github.com/vtexdocs/helpcenter/commit/aeb88061efb630ee235ab68da40d025f2ba44cdd))
+* create component to show dates ([2054ac5](https://github.com/vtexdocs/helpcenter/commit/2054ac538ece2b24f23d394ff050995f49105e2a))
+* create input component ([846cc79](https://github.com/vtexdocs/helpcenter/commit/846cc791d9681145324c5f26e0313b7a95e1ac43))
+* create more articles section ([58d4628](https://github.com/vtexdocs/helpcenter/commit/58d4628a6aa8aa6345379739dccd26460310118b))
+* create share button ([e204c27](https://github.com/vtexdocs/helpcenter/commit/e204c275bab6b5fd0955669672bf98eb6966d7e4))
+* create single author component ([63abbf7](https://github.com/vtexdocs/helpcenter/commit/63abbf77c699c12c93b3fe54bceddb55cc563884))
+* **icons:** add copy, email and linkedin icon ([f7a77ed](https://github.com/vtexdocs/helpcenter/commit/f7a77edc6ffd41be244d74f16fd7478e60cc4e0e))
+* improve announcement page messages ([2bf4e87](https://github.com/vtexdocs/helpcenter/commit/2bf4e87111f6ed99d5b75712fb05e4d6effb1db2))
+* **tag:** add new color variant ([a3dd1a8](https://github.com/vtexdocs/helpcenter/commit/a3dd1a8bceec246ce23ad49300de0463cae2c1fd))
+* update announcements image ([58d2c24](https://github.com/vtexdocs/helpcenter/commit/58d2c24c3e6a0860c308891430fa70be7d31db90))
+* update known issues and announcements messages ([c46d0ff](https://github.com/vtexdocs/helpcenter/commit/c46d0ff348992426640449c52209c7ba9dbd6d34))
+* wip announcement page ([3a1e976](https://github.com/vtexdocs/helpcenter/commit/3a1e9766d8890f885b02500cce5f8ef90e911a5d))
+
+
+### Bug Fixes
+
+* add link to redirect on see more button ([82ff9e8](https://github.com/vtexdocs/helpcenter/commit/82ff9e8867da976fd25dedc966e4b8f671f38b0e))
+* **announcement:** rename timeline card ([c9728cc](https://github.com/vtexdocs/helpcenter/commit/c9728ccfdbb5d90684d5598ba47aa28a81419e42))
+* **announcements:** check if window is defined ([2d456e6](https://github.com/vtexdocs/helpcenter/commit/2d456e65e8fe4f41848ad0c0b4df03775d4d629a))
+* change announcements route ([38a1d7e](https://github.com/vtexdocs/helpcenter/commit/38a1d7eb4755d6b3c6a389d58aa3106e60921433))
+* create social media icons without circles ([c68ea60](https://github.com/vtexdocs/helpcenter/commit/c68ea608bd7234c01c5ba8d274d0651a6ef8cae8))
+* fix docsearch meta value ([34b6a49](https://github.com/vtexdocs/helpcenter/commit/34b6a4927abfcc3d8c09ac5da9288029a9c84b24))
+* **icons:** update icons and fix warnings ([ea02da1](https://github.com/vtexdocs/helpcenter/commit/ea02da1dfece9048e4c6172412b1e92ca85480bd))
+* **known-issues:** fix dates ([8b32b2b](https://github.com/vtexdocs/helpcenter/commit/8b32b2bee0bb5419ba081c8a5fa2fe2a7bdb969e))
+* **messages:** replace news with announcements ([569a154](https://github.com/vtexdocs/helpcenter/commit/569a15427baa4368adae59a3d29fc6c09ea6e568))
+* **messages:** update date messages ([ba5bffd](https://github.com/vtexdocs/helpcenter/commit/ba5bffde697ef31e0783feb7275365328ffc74a3))
+* news section should be called announcements ([8209589](https://github.com/vtexdocs/helpcenter/commit/8209589f9e6a9d08f4d6e6699cd713de0cbb7de4))
+* **overview:** fix invalid name warning ([7fff77c](https://github.com/vtexdocs/helpcenter/commit/7fff77c98d54cc951ce60bcfdd4c62ad6389362f))
+* remove emphasis from date ([fa3df9f](https://github.com/vtexdocs/helpcenter/commit/fa3df9fd6193a683c3d220ceb7b5646482df65ae))
+* rename news documentation ([58e8e6f](https://github.com/vtexdocs/helpcenter/commit/58e8e6fa5ef75c1e8fee773954ec84ae56ab0707))
+* **select:** remove test placeholder ([e33328e](https://github.com/vtexdocs/helpcenter/commit/e33328e508a598cd342fcd2fde1746e96ea3b18e))
+* **share:** use click outside to close dropdown ([956ec29](https://github.com/vtexdocs/helpcenter/commit/956ec29656a241223c2e9b2546adb04d971efefc))
+* use AnnouncementDataElement ([020d138](https://github.com/vtexdocs/helpcenter/commit/020d138e5621c0ac218e5d4de5e4000c9c931e02))
+
+
+### Chore
+
+* **deps:** add react-share ([09654d2](https://github.com/vtexdocs/helpcenter/commit/09654d2cc72227f3b5c974e012ecd59a8d18866a))
+* update lock file ([7b770a5](https://github.com/vtexdocs/helpcenter/commit/7b770a54f5978d71ba229d73327ee73f6159e475))
+
+
+### Style
+
+* add small and large announcement card ([c573f77](https://github.com/vtexdocs/helpcenter/commit/c573f7761f2ffe977167bbe56b6dd3313fb84559))
+* fix padding in cards ([1bdc52e](https://github.com/vtexdocs/helpcenter/commit/1bdc52e75ea24adc3c38d91ca3ef17be8355ed1a))
+* improve share button styling ([8b567da](https://github.com/vtexdocs/helpcenter/commit/8b567dab2a9c016f62a9a0d00f3de7928e7489e9))
+
 ## 0.2.0 (2024-02-01)
 
 
