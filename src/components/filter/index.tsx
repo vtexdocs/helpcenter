@@ -69,7 +69,7 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
           setIsModalOpen(true)
         }}
       >
-        <FilterIcon />
+        <FilterIcon size={16} />
         <Text>{intl.formatMessage({ id: 'filter_modal.title' })}</Text>
         {numberOfFilters > 0 && (
           <Text sx={styles.numberOfFilters}>{numberOfFilters}</Text>
