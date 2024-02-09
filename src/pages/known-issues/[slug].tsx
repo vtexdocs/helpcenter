@@ -102,8 +102,11 @@ const KnownIssuePage: NextPage<Props> = ({
             <Box sx={styles.contentContainer}>
               <article ref={articleRef}>
                 <header>
+                  <Breadcrumb breadcrumbList={breadcrumbList} />
                   <Flex sx={styles.flexContainer}>
-                    <Breadcrumb breadcrumbList={breadcrumbList} />
+                    <Text sx={styles.documentationTitle} className="title">
+                      {serialized.frontmatter?.title}
+                    </Text>
                     <Text sx={styles.readingTime}>
                       {intl.formatMessage(
                         {
@@ -114,9 +117,6 @@ const KnownIssuePage: NextPage<Props> = ({
                       )}
                     </Text>
                   </Flex>
-                  <Text sx={styles.documentationTitle} className="title">
-                    {serialized.frontmatter?.title}
-                  </Text>
                   <Box sx={styles.divider}></Box>
                   <Flex sx={styles.detailedInfo}>
                     <Flex sx={styles.id}>
