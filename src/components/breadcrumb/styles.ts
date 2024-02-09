@@ -5,6 +5,7 @@ const breadcrumb: SxStyleProp = {
   color: '#6b7785',
   mb: '24px',
   lineHeight: '18px',
+  flexWrap: 'wrap',
 }
 
 const breadcrumbItem: SxStyleProp = {
