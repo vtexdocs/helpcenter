@@ -38,6 +38,7 @@ import { useIntl } from 'react-intl'
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import { getDocsPaths as getFaqPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
+import DateText from 'components/date-text'
 
 const docsPathsGLOBAL = await getFaqPaths('faq')
 
@@ -71,6 +72,14 @@ const FaqPage: NextPage<Props> = ({
     setHeadings(headingList)
   }, [serialized.frontmatter])
 
+  const createdAtDate = serialized.frontmatter?.createdAt
+    ? new Date(serialized.frontmatter?.createdAt)
+    : undefined
+
+  const updatedAtDate = serialized.frontmatter?.updatedAt
+    ? new Date(serialized.frontmatter?.updatedAt)
+    : undefined
+
   return (
     <>
       <Head>
@@ -92,8 +101,11 @@ const FaqPage: NextPage<Props> = ({
             <Box sx={styles.contentContainer}>
               <article ref={articleRef}>
                 <header>
+                  <Breadcrumb breadcrumbList={breadcrumbList} />
                   <Flex sx={styles.flexContainer}>
-                    <Breadcrumb breadcrumbList={breadcrumbList} />
+                    <Text sx={styles.documentationTitle} className="title">
+                      {serialized.frontmatter?.title}
+                    </Text>
                     <Text sx={styles.readingTime}>
                       {intl.formatMessage(
                         {
@@ -103,11 +115,13 @@ const FaqPage: NextPage<Props> = ({
                         { minutes: serialized.frontmatter?.readingTime }
                       )}
                     </Text>
+                    {createdAtDate && updatedAtDate && (
+                      <DateText
+                        createdAt={createdAtDate}
+                        updatedAt={updatedAtDate}
+                      />
+                    )}
                   </Flex>
-                  <Text sx={styles.documentationTitle} className="title">
-                    {serialized.frontmatter?.title}
-                  </Text>
-                  <Box sx={styles.divider}></Box>
                 </header>
                 <MarkdownRenderer serialized={serialized} />
               </article>
