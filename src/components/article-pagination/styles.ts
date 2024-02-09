@@ -34,6 +34,7 @@ const justNext: SxStyleProp = {
     color: '#000711',
   },
   justifySelf: 'right',
+  border: '1px solid #E7E9EE',
   padding: '16px',
   borderRadius: '4px',
   textAlign: 'right',
@@ -61,6 +62,7 @@ const paginationLinkNext: SxStyleProp = {
   ...paginationLink,
   justifySelf: 'flex-end',
   textAlign: 'right',
+  justifyContent: 'right',
 }
 
 const paginationLinkPrevious: SxStyleProp = {
