@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
 
-import { FaqCardDataElement, sortByType } from 'utils/typings/types'
+import { FaqCardDataElement, SortByType } from 'utils/typings/types'
 import Head from 'next/head'
 import styles from 'styles/known-issues-page'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -39,7 +39,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const itemsPerPage = 10
   const [page, setPage] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<string[]>([])
-  const [sortByValue, setSortByValue] = useState<sortByType>('newest')
+  const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
     const data = faqData.filter((question) => {
@@ -111,7 +111,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
               label={intl.formatMessage({ id: 'sort.label' })}
               value={sortByValue}
               options={sortBy(intl)}
-              onSelect={(ordering) => setSortByValue(ordering as sortByType)}
+              onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
           <Flex sx={styles.cardContainer}>
