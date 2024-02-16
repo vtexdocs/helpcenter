@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/vtexdocs/helpcenter/compare/v0.3.0...v0.4.0) (2024-02-16)
+
+
+### Features
+
+* add dates to faq card ([8f46090](https://github.com/vtexdocs/helpcenter/commit/8f46090d377359c5b20cc48ff5673f1b6169325d))
+* add dates to faq page ([0cb240e](https://github.com/vtexdocs/helpcenter/commit/0cb240e544b8e7909e50749dcec85d280026b5ad))
+* add faq filter title ([e1f163f](https://github.com/vtexdocs/helpcenter/commit/e1f163ff5702e9de8ee632b5e6a9c64967b7bb9a))
+* create faq card ([66d3080](https://github.com/vtexdocs/helpcenter/commit/66d308060facd238383baf5d6005a5427a10e44d))
+* create faq pages ([d127c21](https://github.com/vtexdocs/helpcenter/commit/d127c21c955b0175f33a70fd8789a0a7703e85f4))
+* **faq:** add filter ([0f8c0d3](https://github.com/vtexdocs/helpcenter/commit/0f8c0d32d658875c5fe91f63789e2f5f4aa3b623))
+* **faq:** add product team ([b0be4d5](https://github.com/vtexdocs/helpcenter/commit/b0be4d540583858b5bdd9bfa1cf1831473549b73))
+* **tag:** add Gray color ([a09c98c](https://github.com/vtexdocs/helpcenter/commit/a09c98c1bfe536a645337417777e3f5e5dd67d96))
+
+
+### Bug Fixes
+
+* change faq header image ([c857384](https://github.com/vtexdocs/helpcenter/commit/c8573845480809e1bdb04267fb8fd0eb28c6870b))
+* **faq:** import the correct sortBy type ([dc81a37](https://github.com/vtexdocs/helpcenter/commit/dc81a374d8469566f3c1cbdd5e1c441e05fdc8c3))
+* **faq:** show 5 items per page ([1b3cc74](https://github.com/vtexdocs/helpcenter/commit/1b3cc74f17c3b53ec3387c40208f4005d5838b69))
+* filter doesn't require two filter types ([a9caeb2](https://github.com/vtexdocs/helpcenter/commit/a9caeb2be39d1f1ba27a2781ba854c57aa7b21b7))
+* fix faq route and rename sort options ([7ddeaf6](https://github.com/vtexdocs/helpcenter/commit/7ddeaf674190969d1500e5aa2f48c9113a803450))
+* fix filter sizing ([fc27f14](https://github.com/vtexdocs/helpcenter/commit/fc27f143dec7178f5163c9f112e615ff5c5d34e9))
+* rename messages and types ([329d85b](https://github.com/vtexdocs/helpcenter/commit/329d85b63419a32f49a41a3939d25e447788d398))
+
+
+### Style
+
+* **breadcrumb:** add flex wrap ([f33b8a0](https://github.com/vtexdocs/helpcenter/commit/f33b8a00959c70706cd80796d3a798a02a364815))
+* fix position of reading time text ([62f115a](https://github.com/vtexdocs/helpcenter/commit/62f115afd613c0fab233e48134eba30554fa9301))
+* fix select height and remove outline ([e2a5298](https://github.com/vtexdocs/helpcenter/commit/e2a52988241434c97c276221e071847d1e9e16a5))
+
 ## [0.3.0](https://github.com/vtexdocs/helpcenter/compare/v0.2.0...v0.3.0) (2024-02-09)
 
 
