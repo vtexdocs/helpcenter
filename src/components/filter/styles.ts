@@ -4,12 +4,12 @@ const filterButton: SxStyleProp = {
   cursor: 'pointer',
   alignItems: 'center',
   borderRadius: '4px',
-  border: '1px solid #4A596B',
+  border: '1px solid #E7E9EE',
+  fontSize: '14px',
   gap: '8px',
   px: '8px',
-  py: '4px',
   transition: '0.3s',
-  height: '36px',
+  height: '24px',
 
   ':hover': {
     color: '#F71963',

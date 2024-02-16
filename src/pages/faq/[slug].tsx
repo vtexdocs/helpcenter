@@ -36,12 +36,11 @@ import { MarkdownRenderer } from '@vtexdocs/components'
 // import { ParsedUrlQuery } from 'querystring'
 import { useIntl } from 'react-intl'
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
-import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
+import { getDocsPaths as getFaqPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
-import Tag from 'components/tag'
 import DateText from 'components/date-text'
 
-const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
+const docsPathsGLOBAL = await getFaqPaths('faq')
 
 interface Props {
   sectionSelected: string
@@ -54,7 +53,7 @@ interface Props {
   branch: string
 }
 
-const KnownIssuePage: NextPage<Props> = ({
+const FaqPage: NextPage<Props> = ({
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
   serialized,
@@ -116,13 +115,6 @@ const KnownIssuePage: NextPage<Props> = ({
                         { minutes: serialized.frontmatter?.readingTime }
                       )}
                     </Text>
-                  </Flex>
-                  <Box sx={styles.divider}></Box>
-                  <Flex sx={styles.detailedInfo}>
-                    <Flex sx={styles.id}>
-                      <Text>ID: {serialized.frontmatter?.id}</Text>
-                      <Tag>{serialized.frontmatter?.kiStatus}</Tag>
-                    </Flex>
                     {createdAtDate && updatedAtDate && (
                       <DateText
                         createdAt={createdAtDate}
@@ -134,6 +126,7 @@ const KnownIssuePage: NextPage<Props> = ({
                 <MarkdownRenderer serialized={serialized} />
               </article>
             </Box>
+
             <Box sx={styles.bottomContributorsContainer}>
               <Box sx={styles.bottomContributorsDivider} />
               <Contributors contributors={contributors} />
@@ -175,9 +168,9 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
-      : await getKnownIssuesPaths('known-issues', branch)
+      : await getFaqPaths('faq', branch)
 
-  const logger = getLogger('Start here')
+  const logger = getLogger('FAQ')
 
   const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
 
@@ -266,8 +259,8 @@ export const getStaticProps: GetStaticProps = async ({
 
     const breadcrumbList: { slug: string; name: string; type: string }[] = [
       {
-        slug: '/docs/known-issues/',
-        name: getMessages()[currentLocale]['known_issues_page.title'],
+        slug: '/faq/',
+        name: getMessages()[currentLocale]['landing_page_faq.title'],
         type: 'category',
       },
       {
@@ -299,4 +292,4 @@ export const getStaticProps: GetStaticProps = async ({
   }
 }
 
-export default KnownIssuePage
+export default FaqPage

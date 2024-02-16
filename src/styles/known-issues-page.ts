@@ -27,6 +27,14 @@ const optionsContainer: SxStyleProp = {
   flexWrap: 'wrap',
 }
 
+const optionContainer: SxStyleProp = {
+  justifyContent: ['center', 'flex-end'],
+  alignItems: 'center',
+  alignContent: 'center',
+  width: '100%',
+  flexWrap: 'wrap',
+}
+
 const noResults: SxStyleProp = {
   py: '32px',
   textAlign: 'center',
@@ -35,6 +43,7 @@ const noResults: SxStyleProp = {
 export default {
   container,
   cardContainer,
+  optionContainer,
   optionsContainer,
   noResults,
 }

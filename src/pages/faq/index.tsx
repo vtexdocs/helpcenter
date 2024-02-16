@@ -3,63 +3,47 @@ import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
 
-import {
-  KnownIssueDataElement,
-  KnownIssueStatus,
-  SortByType,
-} from 'utils/typings/types'
+import { FaqCardDataElement, SortByType } from 'utils/typings/types'
 import Head from 'next/head'
 import styles from 'styles/known-issues-page'
 import { PreviewContext } from 'utils/contexts/preview'
 import { Fragment, useContext, useMemo, useState } from 'react'
-import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
+import { getDocsPaths as getFaqPaths } from 'utils/getDocsPaths'
 import { serialize } from 'next-mdx-remote/serialize'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
-import startHereImage from '../../../public/images/start-here.png'
-import KnownIssueCard from 'components/known-issue-card'
+import startHereImage from '../../../public/images/faq.png'
 import Pagination from 'components/pagination'
 import { localeType } from 'utils/navigation-utils'
-import Filter from 'components/filter'
-import {
-  knownIssuesStatusFilter,
-  knownIssuesModulesFilters,
-  sortBy,
-} from 'utils/constants'
 import Select from 'components/select'
+import { faqFilter, sortBy } from 'utils/constants'
+import FaqCard from 'components/faq-card'
+import Filter from 'components/filter'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
   sectionSelected?: DocumentationTitle | UpdatesTitle | ''
-  knownIssuesData: KnownIssueDataElement[]
+  faqData: FaqCardDataElement[]
   branch: string
   page: number
   totalPages: number
 }
 
-const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
+const docsPathsGLOBAL = await getFaqPaths('faq')
 
-const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
+const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const itemsPerPage = 5
   const [page, setPage] = useState({ curr: 1, total: 1 })
-  const [filters, setFilters] = useState<{
-    status: string[]
-    modules: string[]
-  }>({ status: [], modules: [] })
+  const [filters, setFilters] = useState<string[]>([])
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
-    const data = knownIssuesData.filter((knownIssue) => {
-      return (
-        (filters.status.length === 0 ||
-          filters.status.includes(knownIssue.status)) &&
-        (filters.modules.length === 0 ||
-          filters.modules.includes(knownIssue.module))
-      )
+    const data = faqData.filter((question) => {
+      return filters.length === 0 || filters.includes(question.productTeam)
     })
 
     data.sort((a, b) => {
@@ -93,13 +77,13 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
       <Head>
         <title>
           {intl.formatMessage({
-            id: 'known_issues_page.title',
+            id: 'landing_page_faq.title',
           })}
         </title>
         <meta
           property="og:title"
           content={intl.formatMessage({
-            id: 'known_issues_page.subtitle',
+            id: 'landing_page_faq.description',
           })}
           key="title"
         />
@@ -107,27 +91,21 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
       <Fragment>
         <PageHeader
           title={intl.formatMessage({
-            id: 'known_issues_page.title',
+            id: 'landing_page_faq.title',
           })}
           description={intl.formatMessage({
-            id: 'known_issues_page.subtitle',
+            id: 'landing_page_faq.description',
           })}
           imageUrl={startHereImage}
           imageAlt={intl.formatMessage({
-            id: 'known_issues_page.title',
+            id: 'landing_page_faq.title',
           })}
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
-              tagFilter={knownIssuesStatusFilter(intl)}
-              checkBoxFilter={knownIssuesModulesFilters(intl)}
-              onApply={(newFilters) =>
-                setFilters({
-                  status: newFilters.tag,
-                  modules: newFilters.checklist,
-                })
-              }
+              checkBoxFilter={faqFilter(intl)}
+              onApply={(newFilters) => setFilters(newFilters.checklist)}
             />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
@@ -142,8 +120,8 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
                 {intl.formatMessage({ id: 'search_result.empty' })}
               </Flex>
             )}
-            {paginatedResult.map((issue, id) => {
-              return <KnownIssueCard key={id} {...issue} />
+            {paginatedResult.map((question, id) => {
+              return <FaqCard key={id} {...question} />
             })}
           </Flex>
           <Pagination
@@ -163,13 +141,13 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const sidebarfallback = await getNavigation()
-  const sectionSelected = 'Known issues'
+  const sectionSelected = 'FAQ'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
-  const logger = getLogger('Known Issues')
+  const logger = getLogger('FAQ')
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
@@ -205,7 +183,7 @@ export const getStaticProps: GetStaticProps = async ({
     return Promise.all(promises)
   }
 
-  const knownIssuesData: KnownIssueDataElement[] = []
+  const faqData: FaqCardDataElement[] = []
 
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
@@ -220,15 +198,13 @@ export const getStaticProps: GetStaticProps = async ({
             parseFrontmatter: true,
           })
 
-          if (frontmatter && frontmatter.tag && frontmatter.kiStatus)
-            knownIssuesData.push({
-              id: frontmatter.id,
+          if (frontmatter)
+            faqData.push({
               title: frontmatter.title,
-              module: frontmatter.tag,
               slug: data.slug,
-              status: frontmatter.kiStatus as KnownIssueStatus,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
+              productTeam: frontmatter.productTeam,
             })
         } catch (error) {
           logger.error(`${error}`)
@@ -241,10 +217,10 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       sidebarfallback,
       sectionSelected,
-      knownIssuesData,
+      faqData,
       branch,
     },
   }
 }
 
-export default KnownIssuesPage
+export default FaqPage

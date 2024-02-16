@@ -11,9 +11,10 @@ const selectContainer: SxStyleProp = {
 const select: SxStyleProp = {
   borderRadius: '4px',
   padding: '0px 4px',
-  height: '36px',
+  height: '24px',
   fontSize: '14px',
   border: '1px solid #E7E9EE',
+  outline: 'none',
 }
 
 export default { selectContainer, select }
