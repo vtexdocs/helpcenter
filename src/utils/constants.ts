@@ -229,9 +229,7 @@ export const faqData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'faq_order_error.description',
       }),
-      type: intl.formatMessage({
-        id: 'faq_order_error.type',
-      }),
+      productTeam: 'Channels',
       link: '/',
     },
     {
@@ -242,9 +240,7 @@ export const faqData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'faq_handling.description',
       }),
-      type: intl.formatMessage({
-        id: 'faq_handling.type',
-      }),
+      productTeam: 'Post-purchase',
       link: '/',
     },
     {
@@ -255,9 +251,7 @@ export const faqData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'faq_product_visible.description',
       }),
-      type: intl.formatMessage({
-        id: 'faq_product_visible.type',
-      }),
+      productTeam: 'Marketing & Merchandising',
       link: '/',
     },
     {
@@ -268,9 +262,7 @@ export const faqData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'faq_carrier.description',
       }),
-      type: intl.formatMessage({
-        id: 'faq_carrier.type',
-      }),
+      productTeam: 'Post-purchase',
       link: '/',
     },
   ]

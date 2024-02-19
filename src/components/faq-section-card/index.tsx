@@ -5,12 +5,12 @@ import type { FaqDataElement } from 'utils/typings/types'
 import Tooltip from 'components/tooltip'
 import styles from './styles'
 import { useEffect, useRef, useState } from 'react'
+import Tag from 'components/tag'
 
 const FaqSectionCard = ({
-  Icon,
   title,
   description,
-  type,
+  productTeam,
   link,
 }: FaqDataElement) => {
   const [tooltipState, setTooltipState] = useState(false)
@@ -38,11 +38,8 @@ const FaqSectionCard = ({
     <Tooltip placement="top" label={tooltipDescription} isCard={tooltipState}>
       <Link href={link} legacyBehavior>
         <Flex sx={styles.cardContainer}>
-          <Flex className="typeContainer" sx={styles.typeContainer}>
-            <Icon className="icon" sx={styles.icon} />
-            <Text className="type" sx={styles.type}>
-              {type}
-            </Text>
+          <Flex sx={styles.typeContainer}>
+            <Tag color={'Gray'}>{productTeam}</Tag>
           </Flex>
           <Flex sx={styles.infoContainer}>
             <Text className="title" sx={styles.title}>
