@@ -5,6 +5,7 @@ import { faqData } from 'utils/constants'
 import styles from './styles'
 import { useIntl } from 'react-intl'
 import FaqSectionCard from 'components/faq-section-card'
+import Link from 'next/link'
 
 const FaqSection = () => {
   const intl = useIntl()
@@ -32,9 +33,11 @@ const FaqSection = () => {
           <FaqSectionCard key={card.title} {...card} />
         ))}
       </Flex>
-      <Button sx={styles.bottomButton}>
-        {intl.formatMessage({ id: 'landing_page_faq.button' })}
-      </Button>
+      <Link href={'/faq'}>
+        <Button sx={styles.bottomButton}>
+          {intl.formatMessage({ id: 'landing_page_faq.button' })}
+        </Button>
+      </Link>
     </Box>
   )
 }

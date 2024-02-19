@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl'
 
 import styles from './styles'
 import AnnouncementTimelineCard from '../announcement-timeline-card'
+import Link from 'next/link'
 
 const lastAnnouncements: CardProps[] = [
   {
@@ -49,9 +50,11 @@ const AnnouncementSection = () => {
       <Box sx={styles.cardsContainer}>
         <AnnouncementTimelineCard announcements={lastAnnouncements} />
       </Box>
-      <Button sx={styles.button}>
-        {intl.formatMessage({ id: 'landing_page_announcements.button' })}
-      </Button>
+      <Link href={'/announcements'}>
+        <Button sx={styles.button}>
+          {intl.formatMessage({ id: 'landing_page_announcements.button' })}
+        </Button>
+      </Link>
     </Flex>
   )
 }
