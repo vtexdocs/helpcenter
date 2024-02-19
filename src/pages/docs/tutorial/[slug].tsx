@@ -237,6 +237,7 @@ export const getStaticProps: GetStaticProps = async ({
   parentsArrayType.push(flattenedSidebar[typeKeyPath])
 
   const sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
+  console.log('TUTORIAL', sectionSelected)
 
   const breadcrumbList: { slug: string; name: string; type: string }[] = []
   parentsArrayName.forEach((_el: string, idx: number) => {
@@ -300,26 +301,27 @@ export const getStaticProps: GetStaticProps = async ({
     }
 
     const pagination = { previousDoc: previousDoc, nextDoc: nextDoc }
+    const componentProps = {
+      tutorialData: {
+        name: categoryTitle,
+        children: childrenList,
+        hidePaginationPrevious: hidePaginationPrevious,
+        hidePaginationNext: hidePaginationNext,
+      },
+    }
 
     return {
       props: {
-        type: type,
-        sectionSelected: sectionSelected,
-        sidebarfallback: sidebarfallback,
-        parentsArray: parentsArray,
-        slug: slug,
-        pagination: pagination,
-        isListed: isListed,
-        breadcrumbList: breadcrumbList,
-        branch: branch,
-        componentProps: {
-          tutorialData: {
-            name: categoryTitle,
-            children: childrenList,
-            hidePaginationPrevious: hidePaginationPrevious,
-            hidePaginationNext: hidePaginationNext,
-          },
-        },
+        type,
+        sectionSelected,
+        sidebarfallback,
+        parentsArray,
+        slug,
+        pagination,
+        isListed,
+        breadcrumbList,
+        branch,
+        componentProps,
       },
       revalidate: 600,
     }
@@ -487,24 +489,26 @@ export const getStaticProps: GetStaticProps = async ({
       },
     }
 
+    const componentProps = {
+      serialized: serialized,
+      headingList: headingList,
+      contributors: contributors,
+      path: path,
+      seeAlsoData: seeAlsoData,
+    }
+
     return {
       props: {
-        type: type,
-        sectionSelected: sectionSelected,
-        sidebarfallback: sidebarfallback,
-        parentsArray: parentsArray,
-        slug: slug,
-        pagination: pagination,
-        isListed: isListed,
-        breadcrumbList: breadcrumbList,
-        branch: branch,
-        componentProps: {
-          serialized: serialized,
-          headingList: headingList,
-          contributors: contributors,
-          path: path,
-          seeAlsoData: seeAlsoData,
-        },
+        type,
+        sectionSelected,
+        sidebarfallback,
+        parentsArray,
+        slug,
+        pagination,
+        isListed,
+        breadcrumbList,
+        branch,
+        componentProps,
       },
       revalidate: 600,
     }
