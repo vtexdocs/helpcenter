@@ -12,7 +12,6 @@ const mainContainer: SxStyleProp = {
 
 const innerContainer: SxStyleProp = {
   justifyContent: 'center',
-  // width: '100%',
   pt: ['28px', '64px'],
   mx: 'auto',
   px: ['auto', '5em', '7em', '7em', '7em', '7em', '20em'],
@@ -159,7 +158,6 @@ const titleContainer: SxStyleProp = {
   fontSize: '24px',
   color: '#4A4A4A',
   marginBottom: '8px',
-  // weight: '400',
 }
 
 const indexContainer: SxStyleProp = {
