@@ -69,7 +69,7 @@ const timeLineBar: SxStyleProp = {
       },
       mb: '4px',
     },
-    '& > :nth-of-type(2)': {
+    '& > :nth-child(2)': {
       width: '1px',
       borderRadius: '0.5rem',
     },
@@ -80,6 +80,7 @@ const timeLineBar: SxStyleProp = {
     padding: '0',
     '& > :nth-of-type(2)': {
       mt: '10px',
+      mb: '32px',
     },
   },
 }
