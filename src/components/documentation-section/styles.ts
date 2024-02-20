@@ -20,6 +20,7 @@ const cardsContainer: SxStyleProp = {
   width: ['100%', '100%', '100%', '100%', '1000px', '100%'],
   justifyContent: 'center',
   flexWrap: 'wrap',
+  gap: '32px',
 }
 
 export default {
