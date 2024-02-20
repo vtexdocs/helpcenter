@@ -112,10 +112,10 @@ export const updatesData = (intl: IntlShape) => {
       id: 'Announcements',
       Icon: MegaphoneIcon,
       title: intl.formatMessage({
-        id: 'announcements_page.title',
+        id: 'updates_announcements_notes.title',
       }),
       description: intl.formatMessage({
-        id: 'announcements_page.description',
+        id: 'updates_announcements_notes.description',
       }),
       link: '/announcements',
     },
@@ -179,7 +179,7 @@ export const menuSupportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'sidebar_known_issues.description',
       }),
-      link: '/known-issues', //TODO: Trocar rota
+      link: '/known-issues',
     },
     {
       id: 'Status',
@@ -190,7 +190,7 @@ export const menuSupportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'menu_status.description',
       }),
-      link: '#', // TODO: trocar rota
+      link: 'https://status.vtex.com/',
     },
     {
       id: 'Health Check',
@@ -201,7 +201,7 @@ export const menuSupportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'menu_health_check.description',
       }),
-      link: '#', // TODO: trocar rota
+      link: 'https://healthcheck.vtex.com/',
     },
     {
       id: 'Support Rules',
@@ -572,79 +572,17 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
-export const sortBy = (intl: IntlShape) => {
+export const knownIssueSortBy = (intl: IntlShape) => {
   const data = [
     {
       value: 'recently_updated',
-      content: intl.formatMessage({ id: 'sort.recently_updated' }),
+      content: intl.formatMessage({ id: 'known_issues_sort.recently_updated' }),
     },
     {
       value: 'newest',
-      content: intl.formatMessage({ id: 'sort.newest' }),
+      content: intl.formatMessage({ id: 'known_issues_sort.newest' }),
     },
   ]
-
-  return data
-}
-
-export const faqFilter = (intl: IntlShape) => {
-  const data = {
-    name: intl.formatMessage({ id: 'faq_filter.title' }),
-    options: [
-      {
-        id: 'Shopping',
-        name: 'Shopping',
-      },
-      {
-        id: 'Post-purchase',
-        name: 'Post-purchase',
-      },
-      {
-        id: 'Marketing & Merchandising',
-        name: 'Marketing & Merchandising',
-      },
-      {
-        id: 'Financial',
-        name: 'Financial',
-      },
-      {
-        id: 'Channels',
-        name: 'Channels',
-      },
-      {
-        id: 'VTEX IO',
-        name: 'VTEX IO',
-      },
-      {
-        id: 'Master Data',
-        name: 'Master Data',
-      },
-      {
-        id: 'Identity',
-        name: 'Identity',
-      },
-      {
-        id: 'Reliability',
-        name: 'Reliability',
-      },
-      {
-        id: 'Others',
-        name: 'Others',
-      },
-      {
-        id: 'Apps',
-        name: 'Apps',
-      },
-      {
-        id: 'Billing',
-        name: 'Billing',
-      },
-      {
-        id: 'Management',
-        name: 'Management',
-      },
-    ],
-  }
 
   return data
 }
