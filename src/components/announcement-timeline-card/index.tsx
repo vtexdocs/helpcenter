@@ -30,12 +30,13 @@ const AnnouncementTimelineItem = ({
           first ? (
             <Text sx={styles.newTitle}>New</Text>
           ) : (
-            <Box sx={styles.placeholder}></Box>
+            <Text sx={styles.timelineTitle}>{title}</Text>
           )
         }
         icon={first ? <NewIcon sx={styles.icon} /> : null}
       >
-        <Text sx={styles.timelineTitle}>{title}</Text>
+        {first && <Text sx={styles.timelineTitle}>{title}</Text>}
+        {first && <Box sx={styles.placeholder}></Box>}
         <Text sx={styles.content}>
           {`${getDaysElapsed(date)} ${intl.formatMessage({
             id: 'relese-note-days-elapsed',

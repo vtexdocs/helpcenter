@@ -2,7 +2,7 @@ import { SxStyleProp } from '@vtex/brand-ui'
 
 const cardContainer: SxStyleProp = {
   mt: ['16px', '24px', '24px', '32px'],
-  px: ['16px', '24px', '24px', '96px'],
+  px: ['16px', '24px', '24px', '48px'],
   py: ['16px', '64px', '64px'],
   justifyContent: 'center',
   backgroundColor: 'white',
@@ -10,7 +10,7 @@ const cardContainer: SxStyleProp = {
   border: '1px solid #E7E9EE',
   transition: 'all 0.3s ease-out',
   color: '#5E6E84',
-  columnGap: '50px',
+  columnGap: '96px',
   rowGap: '64px',
   flexWrap: 'wrap',
 
@@ -104,7 +104,7 @@ const newTitle: SxStyleProp = {
 }
 
 const placeholder: SxStyleProp = {
-  height: '18px',
+  height: '10px',
   width: '1px',
 }
 
