@@ -158,7 +158,6 @@ const titleContainer: SxStyleProp = {
   marginBottom: '8px',
 }
 
-
 const linksContainer: SxStyleProp = {
   flexDirection: 'column',
   pl: '16px',
