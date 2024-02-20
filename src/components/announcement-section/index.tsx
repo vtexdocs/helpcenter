@@ -50,11 +50,13 @@ const AnnouncementSection = () => {
       <Box sx={styles.cardsContainer}>
         <AnnouncementTimelineCard announcements={lastAnnouncements} />
       </Box>
-      <Link href={'/announcements'}>
-        <Button sx={styles.button}>
-          {intl.formatMessage({ id: 'landing_page_announcements.button' })}
-        </Button>
-      </Link>
+      <Flex sx={styles.buttonContainer}>
+        <Link href={'/announcements'}>
+          <Button sx={styles.button}>
+            {intl.formatMessage({ id: 'landing_page_announcements.button' })}
+          </Button>
+        </Link>
+      </Flex>
     </Flex>
   )
 }

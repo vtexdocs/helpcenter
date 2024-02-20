@@ -25,9 +25,12 @@ const cardsContainer: SxStyleProp = {
 }
 
 const button: SxStyleProp = {
+  transition: 'all 0.3s ease-out',
+}
+
+const buttonContainer: SxStyleProp = {
   mt: ['31px', '60px', '60px', '54px', '69px', '58px'],
   display: ['block', 'block', 'block', 'block', 'block', 'none'],
-  transition: 'all 0.3s ease-out',
 }
 
 export default {
@@ -35,4 +38,5 @@ export default {
   sectionContainer,
   title,
   button,
+  buttonContainer,
 }
