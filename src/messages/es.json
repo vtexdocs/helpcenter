@@ -260,14 +260,5 @@
   "announcements_page_result.empty": "Ningún resultado coincidente.",
   "announcements_page_search.placeholder": "Buscar en Anuncios...",
   "search_result.empty": "Ningún resultado coincidente. Pruebe con otros filtros.",
-  "faq_filter.title": "Produtos",
-  "known_issues_sort.label": "Ordenar por:",
-  "known_issues_sort.recently_updated": "Recientemente actualizados",
-  "known_issues_sort.newest": "Más nuevos",
-  "known_issues_result.empty": "Ningún resultado coincidente. Pruebe con otros filtros.",
-  "known_issues_date.created": "Creado en",
-  "known_issues_date.updated": "Actualizado en",
-  "updates_announcements_notes.title": "Comunicados",
-  "tutorial_and_solutions_page.title": "Tutoriales y Soluciones",
-  "tutorial_and_solutions_page.description": "Accede a la documentación de todos los módulos de la plataforma y resuelve tus dudas."
+  "faq_filter.title": "Produtos"
 }

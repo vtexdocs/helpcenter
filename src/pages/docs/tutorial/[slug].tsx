@@ -115,13 +115,10 @@ type Props =
 
 const TutorialPage: NextPage<Props> = ({
   type,
-  sectionSelected,
   slug,
   isListed,
   branch,
   pagination,
-  sidebarfallback,
-  parentsArray,
   breadcrumbList,
   componentProps,
 }) => {
