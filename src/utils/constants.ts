@@ -586,3 +586,65 @@ export const knownIssueSortBy = (intl: IntlShape) => {
 
   return data
 }
+
+export const faqFilter = (intl: IntlShape) => {
+  const data = {
+    name: intl.formatMessage({ id: 'faq_filter.title' }),
+    options: [
+      {
+        id: 'Shopping',
+        name: 'Shopping',
+      },
+      {
+        id: 'Post-purchase',
+        name: 'Post-purchase',
+      },
+      {
+        id: 'Marketing & Merchandising',
+        name: 'Marketing & Merchandising',
+      },
+      {
+        id: 'Financial',
+        name: 'Financial',
+      },
+      {
+        id: 'Channels',
+        name: 'Channels',
+      },
+      {
+        id: 'VTEX IO',
+        name: 'VTEX IO',
+      },
+      {
+        id: 'Master Data',
+        name: 'Master Data',
+      },
+      {
+        id: 'Identity',
+        name: 'Identity',
+      },
+      {
+        id: 'Reliability',
+        name: 'Reliability',
+      },
+      {
+        id: 'Others',
+        name: 'Others',
+      },
+      {
+        id: 'Apps',
+        name: 'Apps',
+      },
+      {
+        id: 'Billing',
+        name: 'Billing',
+      },
+      {
+        id: 'Management',
+        name: 'Management',
+      },
+    ],
+  }
+
+  return data
+}
