@@ -53,6 +53,18 @@ export const documentationData = (intl: IntlShape) => {
       }),
       link: '/docs/tutorial',
     },
+    {
+      id: 'Developers Portal',
+      Icon: DeveloperPortalIcon,
+      title: intl.formatMessage({
+        id: 'documentation_developers_portal.title',
+      }),
+      description: intl.formatMessage({
+        id: 'documentation_developers_portal.description',
+      }),
+      link: 'https://developers.vtex.com/',
+      isExternalLink: true,
+    },
   ]
   return data
 }
@@ -291,7 +303,7 @@ export const supportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'support_plans.description',
       }),
-      link: '/support-plans',
+      link: '/',
     },
     {
       id: 'Health Check',
