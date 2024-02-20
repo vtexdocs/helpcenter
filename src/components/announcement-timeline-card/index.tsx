@@ -8,9 +8,8 @@ import styles from './styles'
 import MegaphoneIcon from 'components/icons/megaphone-icon'
 import NewIcon from 'components/icons/new-icon'
 
-export interface CardProps {
+export interface AnnouncementTimelineCardProps {
   title: string
-  description: string
   date: Date
   first?: boolean
 }
@@ -19,7 +18,7 @@ const AnnouncementTimelineItem = ({
   title,
   date,
   first = false,
-}: CardProps) => {
+}: AnnouncementTimelineCardProps) => {
   const intl = useIntl()
 
   return (
@@ -48,11 +47,15 @@ const AnnouncementTimelineItem = ({
 }
 
 interface Props {
-  announcements: CardProps[]
+  announcements: AnnouncementTimelineCardProps[]
 }
 
 const AnnouncementTimelineCard = ({ announcements }: Props) => {
   const intl = useIntl()
+  const currentDate = new Date()
+  const sevenDaysAgo = new Date(currentDate)
+  sevenDaysAgo.setDate(currentDate.getDate() - 7)
+
   return (
     <Link href={'/announcements'}>
       <Flex sx={styles.cardContainer}>
@@ -73,13 +76,13 @@ const AnnouncementTimelineCard = ({ announcements }: Props) => {
         </Box>
         <Box sx={styles.timelineContainer}>
           {announcements.map((announcement, index) => {
-            return index === 0 ? (
+            const isNew = announcement.date >= sevenDaysAgo
+
+            return (
               <AnnouncementTimelineItem
                 key={index}
-                {...{ ...announcement, first: true }}
+                {...{ ...announcement, first: isNew || index === 0 }}
               />
-            ) : (
-              <AnnouncementTimelineItem key={index} {...announcement} />
             )
           })}
         </Box>

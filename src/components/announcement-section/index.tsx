@@ -1,42 +1,21 @@
 import { Box, Button, Flex, Text } from '@vtex/brand-ui'
-
-import { CardProps } from '../announcement-timeline-card'
 import { useIntl } from 'react-intl'
 
 import styles from './styles'
 import AnnouncementTimelineCard from '../announcement-timeline-card'
 import Link from 'next/link'
 
-const lastAnnouncements: CardProps[] = [
-  {
-    title: 'Black Week: VTEX Dashboards Analysis Strategies',
-    description: 'Deprecation of apps-graphql@2.x',
-    date: new Date('03/02/2023'),
-  },
-  {
-    title: 'Black Week: VTEX Dashboards Analysis Strategies',
-    description: 'Deprecation of apps-graphql@2.x',
-    date: new Date('03/02/2023'),
-  },
-  {
-    title: 'Black Week: VTEX Dashboards Analysis Strategies',
-    description: 'Deprecation of apps-graphql@2.x',
-    date: new Date('03/02/2023'),
-  },
-  {
-    title: 'Black Week: VTEX Dashboards Analysis Strategies',
-    description: 'Deprecation of apps-graphql@2.x',
-    date: new Date('03/02/2023'),
-  },
-  {
-    title: 'Black Week: VTEX Dashboards Analysis Strategies',
-    description: 'Deprecation of apps-graphql@2.x',
-    date: new Date('03/02/2023'),
-  },
-]
+interface AnnouncementSectionProps {
+  announcements: { title: string; date: string }[]
+}
 
-const AnnouncementSection = () => {
+const AnnouncementSection = ({ announcements }: AnnouncementSectionProps) => {
   const intl = useIntl()
+  const newAnnouncements = announcements
+    .map((announcement) => {
+      return { title: announcement.title, date: new Date(announcement.date) }
+    })
+    .sort((a, b) => b.date.getTime() - a.date.getTime())
 
   return (
     <Flex sx={styles.sectionContainer}>
@@ -48,7 +27,7 @@ const AnnouncementSection = () => {
         </Text>
       </Flex>
       <Box sx={styles.cardsContainer}>
-        <AnnouncementTimelineCard announcements={lastAnnouncements} />
+        <AnnouncementTimelineCard announcements={newAnnouncements} />
       </Box>
       <Flex sx={styles.buttonContainer}>
         <Link href={'/announcements'}>
