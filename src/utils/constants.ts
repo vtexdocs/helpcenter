@@ -191,7 +191,7 @@ export const menuSupportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'sidebar_known_issues.description',
       }),
-      link: '/known-issues', //TODO: Trocar rota
+      link: '/known-issues',
     },
     {
       id: 'Status',
@@ -202,7 +202,7 @@ export const menuSupportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'menu_status.description',
       }),
-      link: '#', // TODO: trocar rota
+      link: 'https://status.vtex.com',
     },
     {
       id: 'Health Check',
@@ -213,7 +213,7 @@ export const menuSupportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'menu_health_check.description',
       }),
-      link: '#', // TODO: trocar rota
+      link: 'https://healthcheck.vtex.com/',
     },
     {
       id: 'Support Rules',
