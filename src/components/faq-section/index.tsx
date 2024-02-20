@@ -24,20 +24,26 @@ const FaqSection = () => {
             })}
           </Text>
         </Box>
-        <Button sx={styles.leftButton}>
-          {intl.formatMessage({ id: 'landing_page_faq.button' })}
-        </Button>
+        <Box sx={styles.leftButtonContainer}>
+          <Link href={'/faq'}>
+            <Button sx={styles.button}>
+              {intl.formatMessage({ id: 'landing_page_faq.button' })}
+            </Button>
+          </Link>
+        </Box>
       </Box>
       <Flex sx={styles.cardsContainer} data-cy="faq-section-card-list">
         {faqData(intl).map((card) => (
           <FaqSectionCard key={card.title} {...card} />
         ))}
       </Flex>
-      <Link href={'/faq'}>
-        <Button sx={styles.bottomButton}>
-          {intl.formatMessage({ id: 'landing_page_faq.button' })}
-        </Button>
-      </Link>
+      <Box sx={styles.bottomButtonContainer}>
+        <Link href={'/faq'}>
+          <Button sx={styles.button}>
+            {intl.formatMessage({ id: 'landing_page_faq.button' })}
+          </Button>
+        </Link>
+      </Box>
     </Box>
   )
 }
