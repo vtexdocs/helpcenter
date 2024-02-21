@@ -23,7 +23,7 @@ export const getSupportURL = () => {
 }
 
 export const getSiteMapURL = () => {
-  return 'https://help.vtex.com/sitemap'
+  return '/sitemap'
 }
 
 export const getLinkedinURL = () => {
