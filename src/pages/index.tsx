@@ -13,12 +13,15 @@ import { useContext } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 import SupportSection from 'components/support-section'
 import FaqSection from 'components/faq-section'
+import { localeType } from 'utils/navigation-utils'
+import getAnnouncementsJson from 'utils/getAnnouncementsJson'
 
 interface Props {
   branch: string
+  announcementTimelineData: { title: string; date: string }[]
 }
 
-const Home: Page<Props> = ({ branch }) => {
+const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
 
@@ -42,7 +45,7 @@ const Home: Page<Props> = ({ branch }) => {
         <DocumentationSection />
         <FaqSection />
         <SupportSection />
-        <AnnouncementSection />
+        <AnnouncementSection announcements={announcementTimelineData} />
       </Grid>
     </>
   )
@@ -51,6 +54,7 @@ const Home: Page<Props> = ({ branch }) => {
 Home.hideSidebar = true
 
 export const getStaticProps: GetStaticProps = async ({
+  locale,
   preview,
   previewData,
 }) => {
@@ -60,10 +64,32 @@ export const getStaticProps: GetStaticProps = async ({
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
+  const currentLocale: localeType = locale
+    ? (locale as localeType)
+    : ('en' as localeType)
+
+  const announcementTimelineData: {
+    title: string
+    date: string
+  }[] = []
+
+  const announcementJson = await getAnnouncementsJson()
+
+  for (let i = 0; i < announcementJson.length; i++) {
+    const announcement = announcementJson[i]
+    announcementTimelineData.push({
+      title: announcement.title[currentLocale],
+      date: String(announcement.date),
+    })
+
+    announcementTimelineData.push()
+  }
+
   return {
     props: {
       sidebarfallback,
       branch,
+      announcementTimelineData,
     },
   }
 }

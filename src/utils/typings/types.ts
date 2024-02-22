@@ -26,7 +26,7 @@ export interface DocDataElement extends DataElement {
 
 export interface FaqDataElement extends DataElement {
   title: string
-  type: string
+  productTeam: string
 }
 
 export interface UpdatesDataElement extends DataElement {

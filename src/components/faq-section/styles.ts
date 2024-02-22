@@ -38,13 +38,16 @@ const cardsContainer: SxStyleProp = {
   flexWrap: 'wrap',
 }
 
-const leftButton: SxStyleProp = {
-  mt: '106px',
-  display: ['none', 'none', 'none', 'none', 'none', 'block'],
+const button: SxStyleProp = {
   transition: 'all 0.3s ease-out',
 }
 
-const bottomButton: SxStyleProp = {
+const leftButtonContainer: SxStyleProp = {
+  mt: '106px',
+  display: ['none', 'none', 'none', 'none', 'none', 'block'],
+}
+
+const bottomButtonContainer: SxStyleProp = {
   mt: ['16px', '16px', '96px', '96px', '106px', '106px'],
   display: ['block', 'block', 'block', 'block', 'block', 'none'],
   transition: 'all 0.3s ease-out',
@@ -56,6 +59,7 @@ export default {
   titleContainer,
   title,
   description,
-  leftButton,
-  bottomButton,
+  leftButtonContainer,
+  bottomButtonContainer,
+  button,
 }

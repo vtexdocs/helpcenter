@@ -25,6 +25,7 @@ const contentCards: SxStyleProp = {
   alignItems: 'center',
   justifyContent: 'center',
   flex: '0 0 50%',
+  gap: '32px',
 }
 
 export default {

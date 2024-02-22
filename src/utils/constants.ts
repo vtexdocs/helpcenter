@@ -53,6 +53,18 @@ export const documentationData = (intl: IntlShape) => {
       }),
       link: '/docs/tutorial',
     },
+    {
+      id: 'Developers Portal',
+      Icon: DeveloperPortalIcon,
+      title: intl.formatMessage({
+        id: 'documentation_developers_portal.title',
+      }),
+      description: intl.formatMessage({
+        id: 'documentation_developers_portal.description',
+      }),
+      link: 'https://developers.vtex.com/',
+      isExternalLink: true,
+    },
   ]
   return data
 }
@@ -229,10 +241,8 @@ export const faqData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'faq_order_error.description',
       }),
-      type: intl.formatMessage({
-        id: 'faq_order_error.type',
-      }),
-      link: '/',
+      productTeam: 'Channels',
+      link: '/faq/order-errors-in-marketplace-integrations',
     },
     {
       Icon: WarningIcon,
@@ -242,10 +252,8 @@ export const faqData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'faq_handling.description',
       }),
-      type: intl.formatMessage({
-        id: 'faq_handling.type',
-      }),
-      link: '/',
+      productTeam: 'Post-purchase',
+      link: '/faq/why-has-my-order-stopped-on-ready-for-handling',
     },
     {
       Icon: GraphIcon,
@@ -255,10 +263,8 @@ export const faqData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'faq_product_visible.description',
       }),
-      type: intl.formatMessage({
-        id: 'faq_product_visible.type',
-      }),
-      link: '/',
+      productTeam: 'Marketing & Merchandising',
+      link: '/faq/why-is-the-product-not-visible-on-the-website',
     },
     {
       Icon: PaperIcon,
@@ -268,10 +274,8 @@ export const faqData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'faq_carrier.description',
       }),
-      type: intl.formatMessage({
-        id: 'faq_carrier.type',
-      }),
-      link: '/',
+      productTeam: 'Post-purchase',
+      link: '/faq/why-cant-i-see-my-carrier-on-checkout',
     },
   ]
   return data
@@ -299,7 +303,7 @@ export const supportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'support_plans.description',
       }),
-      link: '/support-plans',
+      link: '/',
     },
     {
       id: 'Health Check',
