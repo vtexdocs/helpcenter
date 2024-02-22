@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/vtexdocs/helpcenter/compare/v0.4.0...v0.4.1) (2024-02-22)
+
+
+### Features
+
+* add announcement data from json ([5196e38](https://github.com/vtexdocs/helpcenter/commit/5196e383287eb340d433c8abca89e2ee6dd4b772))
+* add developers portal link do landing page ([6d606d8](https://github.com/vtexdocs/helpcenter/commit/6d606d8b136e7d4a87528bf23624a34d3b77ceba))
+* add landing page announcements json ([a8cf200](https://github.com/vtexdocs/helpcenter/commit/a8cf200eb7147f8ce635111025d806d1f13edd8b))
+* fix support section spacing and card links ([520d930](https://github.com/vtexdocs/helpcenter/commit/520d930bcb7929aa59152748666d807ec1867292))
+* **landing:** add faq section links ([144ec37](https://github.com/vtexdocs/helpcenter/commit/144ec370f819701b9954ba318d1f835e5e066f60))
+
+
+### Bug Fixes
+
+* add link to faq and announcements ([b8ad6bc](https://github.com/vtexdocs/helpcenter/commit/b8ad6bc8a8036f7cb3c4b1d25a043085a2d58e1f))
+* fix announcement section button link ([4f6ec43](https://github.com/vtexdocs/helpcenter/commit/4f6ec43e831994cfb0d8ee05100dee7d79f31172))
+* fix documentation section spacing and links ([91758dd](https://github.com/vtexdocs/helpcenter/commit/91758ddb0fc6630b6f2914f9ef9419e40c0a4db4))
+* fix faq section links ([c2110dd](https://github.com/vtexdocs/helpcenter/commit/c2110dd0d63ede7888976e74b55dfd502fa93914))
+* improve announcement timeline spacing ([be6ca6d](https://github.com/vtexdocs/helpcenter/commit/be6ca6dd82bc01a65320a7496caf442c111d8f9f))
+* **messages:** fix faq card title message in pt ([8235319](https://github.com/vtexdocs/helpcenter/commit/823531944cd8756eba8ba35b3d72d53bbcff9a1e))
+* **messages:** fix support section message ([b06df65](https://github.com/vtexdocs/helpcenter/commit/b06df6500205d7d9999d4359b616db88087acde4))
+* remove type from faq section card ([38054a4](https://github.com/vtexdocs/helpcenter/commit/38054a46ba6e37d4d99907026736963f50c71f83))
+
+
+### Style
+
+* fix timeline line width and margin ([d4365d2](https://github.com/vtexdocs/helpcenter/commit/d4365d25b40b3376b788897b6ad8bd0156899080))
+
 ## [0.4.0](https://github.com/vtexdocs/helpcenter/compare/v0.3.0...v0.4.0) (2024-02-16)
 
 
