@@ -2,6 +2,120 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/vtexdocs/helpcenter/compare/v0.4.1...v0.5.0) (2024-02-23)
+
+
+### Features
+
+* add dates to faq card ([f5fafd3](https://github.com/vtexdocs/helpcenter/commit/f5fafd311d9d49d45c41881e8a06f834ab641c7d))
+* add dates to faq page ([cca170c](https://github.com/vtexdocs/helpcenter/commit/cca170c4d6ae8cd2e5659aea4f42870354b065fd))
+* add faq filter title ([78cf040](https://github.com/vtexdocs/helpcenter/commit/78cf04086329b50dba98d46aaa2a4a67846f5810))
+* add new announcement card ([ab58353](https://github.com/vtexdocs/helpcenter/commit/ab58353b9f50c7bc7c44d12a4c6c3e1e21fc4f4b))
+* adds get children and pagination ([fd671a6](https://github.com/vtexdocs/helpcenter/commit/fd671a654ee978310aa455b5f514829d8ca75881))
+* adds get children and pagination ([f5a8184](https://github.com/vtexdocs/helpcenter/commit/f5a81842819e3f4ce293f22c59e9dd0c8c3bb77d))
+* adds get children and pagination ([a839fd2](https://github.com/vtexdocs/helpcenter/commit/a839fd2f1c79bf4f68ba44c8432b47d9e232e2f8))
+* adds reading time ([dcbca1c](https://github.com/vtexdocs/helpcenter/commit/dcbca1cce709c91b8d33509395897f9353a57111))
+* adds style for just next ([e4df3f6](https://github.com/vtexdocs/helpcenter/commit/e4df3f663eafe6e9d45f33079606e3b8869784b1))
+* adds style for just next ([9246f09](https://github.com/vtexdocs/helpcenter/commit/9246f095fbd9d760967e6d57846f2ad895638da5))
+* adds title and description messages ([de0ae29](https://github.com/vtexdocs/helpcenter/commit/de0ae292de0e2d5e0cd8d630453a36e37761a6f2))
+* adds title and description messages ([0f2563e](https://github.com/vtexdocs/helpcenter/commit/0f2563eabb2f874bbaa30d009c3d918f7627c2df))
+* adds title and description messages ([8179502](https://github.com/vtexdocs/helpcenter/commit/817950270fff1954f8e8c5bbce16093529889cda))
+* adds title and description messages ([c04efcd](https://github.com/vtexdocs/helpcenter/commit/c04efcd043aebde634e165a0bf661b956aac71c5))
+* adds tutorial-category ([49b47c5](https://github.com/vtexdocs/helpcenter/commit/49b47c546a13b9dd4d9bcf2f5e9ff878de1f6cf0))
+* adds tutorial-category ([3894329](https://github.com/vtexdocs/helpcenter/commit/389432933bf70645e571724112c92eeb88151421))
+* adds tutorial-category ([aab96de](https://github.com/vtexdocs/helpcenter/commit/aab96de565121d4d92bb679dfad778f06758061f))
+* adds tutorial-category ([67d54e5](https://github.com/vtexdocs/helpcenter/commit/67d54e59a0ab8b5bb67eeced1b81d165b7ddc8bb))
+* adds type to docs tutorial ([c712401](https://github.com/vtexdocs/helpcenter/commit/c712401a6ad7d842f62582a618708f8de95486ba))
+* adds type to docs tutorial ([277b7cc](https://github.com/vtexdocs/helpcenter/commit/277b7ccdeb01c9fa8fa611495eae9d8325a95f3c))
+* adds type to docs tutorial ([efb09e8](https://github.com/vtexdocs/helpcenter/commit/efb09e84735547b42ea71663006aa99c21c8767c))
+* **announcements:** add breadcrumb and more articles section ([90c6fdf](https://github.com/vtexdocs/helpcenter/commit/90c6fdfaaab1e67e156f933313d00abaa501cf38))
+* **announcement:** show dates ([4109fc7](https://github.com/vtexdocs/helpcenter/commit/4109fc78c25483a479862892d850df23b88f6977))
+* changes props return from getstaticprops ([b5de94e](https://github.com/vtexdocs/helpcenter/commit/b5de94eb54133c388577c09ade6cdaaeba1e3abd))
+* create announcement listing page ([d32a38d](https://github.com/vtexdocs/helpcenter/commit/d32a38d05a3c649e2c4bc7fb8eb74d6e74c23aca))
+* create component to show dates ([e9f1d17](https://github.com/vtexdocs/helpcenter/commit/e9f1d17a08ad3f16fa2271dbc5f85b316dc28a02))
+* create faq card ([1b261d0](https://github.com/vtexdocs/helpcenter/commit/1b261d0bb00e25a4e1cb05718ff6952b6c8828c2))
+* create faq pages ([a7b9b3d](https://github.com/vtexdocs/helpcenter/commit/a7b9b3d38f7d3cbeadff457ab0eee7c13c2856e0))
+* create input component ([a034283](https://github.com/vtexdocs/helpcenter/commit/a0342831ca48bc97674b41a6a051256c1da8140a))
+* create more articles section ([d3f30b7](https://github.com/vtexdocs/helpcenter/commit/d3f30b72a64839021b761f1ab9e0535dc3303b00))
+* create share button ([c429415](https://github.com/vtexdocs/helpcenter/commit/c429415b83ab5e3db48f59e52d3477369fb9f478))
+* create single author component ([3928c57](https://github.com/vtexdocs/helpcenter/commit/3928c57f2f5c3883d8320d8b40b1bd18b6fa11de))
+* creates index page for tutorials ([7694b29](https://github.com/vtexdocs/helpcenter/commit/7694b29150139dee5f469621a95a2343396938f8))
+* creates index page for tutorials ([9989bc8](https://github.com/vtexdocs/helpcenter/commit/9989bc882f189498c8803903e053a3e7fa8d1fda))
+* creates index page for tutorials ([7d1e07d](https://github.com/vtexdocs/helpcenter/commit/7d1e07db2c7e1bcb4ccd57735596c19e179cf166))
+* **faq:** add filter ([7343308](https://github.com/vtexdocs/helpcenter/commit/7343308f16a21f14d30f685f29c114c24f40ad6a))
+* **faq:** add product team ([ba6c8a3](https://github.com/vtexdocs/helpcenter/commit/ba6c8a39d9bd3d735fb2b7b2afa1a2045f0cdcbe))
+* fix pagination when is only next item ([ce2ba98](https://github.com/vtexdocs/helpcenter/commit/ce2ba980393b89ce732c0702b625e5803e7c00f9))
+* fix pagination when is only next item ([a4b1296](https://github.com/vtexdocs/helpcenter/commit/a4b1296d28e1b9f2a6783622aebbd0e24126161f))
+* **icons:** add copy, email and linkedin icon ([cf66871](https://github.com/vtexdocs/helpcenter/commit/cf66871da363518a522b9f4aed529e44a057f721))
+* improve announcement page messages ([abdefd7](https://github.com/vtexdocs/helpcenter/commit/abdefd7dcec61de99b495755605cd1493fb37db4))
+* removes commented code ([1c2ed04](https://github.com/vtexdocs/helpcenter/commit/1c2ed04a9d206f1895188a92d6e7fc2c4b0fd037))
+* removes commented code ([6676b97](https://github.com/vtexdocs/helpcenter/commit/6676b9714ad7b98c849a4efda48bf10f9062177d))
+* **tag:** add Gray color ([1fc5057](https://github.com/vtexdocs/helpcenter/commit/1fc5057aad0207ae69c8565ef1c5bbd0f46e69e3))
+* **tag:** add new color variant ([63c9520](https://github.com/vtexdocs/helpcenter/commit/63c9520a8c6a9a54e08ba3063170dd2880d54ba5))
+* update announcements image ([53a9b44](https://github.com/vtexdocs/helpcenter/commit/53a9b44925ba2615e6c655e4346312002dbe9136))
+* update known issues and announcements messages ([01dcef2](https://github.com/vtexdocs/helpcenter/commit/01dcef28cbb3f9bdff805bf4a7f3ff21a184537b))
+* wip announcement page ([92d8e14](https://github.com/vtexdocs/helpcenter/commit/92d8e14db4a15ff9be42a065a5c38a6b7d25c894))
+
+
+### Bug Fixes
+
+* add link to redirect on see more button ([deae908](https://github.com/vtexdocs/helpcenter/commit/deae908d70307866e3c0e36caeb80f04c5fff329))
+* **announcement:** rename timeline card ([203fbd5](https://github.com/vtexdocs/helpcenter/commit/203fbd52dab66e052017ca6bcf5ec04756a3eec6))
+* **announcements:** check if window is defined ([0f3eb63](https://github.com/vtexdocs/helpcenter/commit/0f3eb639ed3514b52d86f4c2e4967e78d95c0f00))
+* change announcements route ([636f989](https://github.com/vtexdocs/helpcenter/commit/636f989a79b64bde46b0b4b560d9e685792864ca))
+* change faq header image ([cf8d3e2](https://github.com/vtexdocs/helpcenter/commit/cf8d3e2a781937c48819d127bc1465626c0e5400))
+* create social media icons without circles ([13bb0e9](https://github.com/vtexdocs/helpcenter/commit/13bb0e93d5af15f9dfec46569545d552472bd1c7))
+* **faq:** import the correct sortBy type ([b6ed897](https://github.com/vtexdocs/helpcenter/commit/b6ed897038303845ba0f6d31f82e330a31752858))
+* **faq:** show 5 items per page ([7af8e0c](https://github.com/vtexdocs/helpcenter/commit/7af8e0c7e774f19c052cf939d669a98a78df72b8))
+* filter doesn't require two filter types ([d002ea4](https://github.com/vtexdocs/helpcenter/commit/d002ea49fe6a3f4484ad124623821d800fd38f6a))
+* fix after rebase ([d74c013](https://github.com/vtexdocs/helpcenter/commit/d74c0132a83276af90ac420f413bf24b6a334d28))
+* fix faq route and rename sort options ([36ab07a](https://github.com/vtexdocs/helpcenter/commit/36ab07a458e51f1cef002ee92422c8f1bb887460))
+* fix filter sizing ([cabc801](https://github.com/vtexdocs/helpcenter/commit/cabc80106d7fa105dc3aeffd7479bf5624e3a0dd))
+* fix react hooking ([c4fa9c5](https://github.com/vtexdocs/helpcenter/commit/c4fa9c5e073b480a2c1ef7fd92f1b289b0e07dbe))
+* fix react hooking ([7ea078c](https://github.com/vtexdocs/helpcenter/commit/7ea078ceb51b6b7373665266d6a7efff92d7dc93))
+* fix react hooking ([19ae9d9](https://github.com/vtexdocs/helpcenter/commit/19ae9d92d6233ef52f2562ced7dc41ca6d1cca16))
+* fixing hover when just next pagination is active ([8a3b0ae](https://github.com/vtexdocs/helpcenter/commit/8a3b0aed053c8f05ab5c367053a207238d9dd0d8))
+* **icons:** update icons and fix warnings ([6b1164c](https://github.com/vtexdocs/helpcenter/commit/6b1164ca37603d0b3d7385eafd4cd6f37760d269))
+* **known-issues:** fix dates ([94f4d0b](https://github.com/vtexdocs/helpcenter/commit/94f4d0b757712f23337abab558c94f13d9ffbf1a))
+* **messages:** replace news with announcements ([275ff9c](https://github.com/vtexdocs/helpcenter/commit/275ff9ceff34b1242af48abc47456be9573f3af9))
+* **messages:** update date messages ([bb593bb](https://github.com/vtexdocs/helpcenter/commit/bb593bbbb1cd5274d81396e5a1bf83b8eaa87d18))
+* news section should be called announcements ([0c8e02b](https://github.com/vtexdocs/helpcenter/commit/0c8e02b433d72cd1251eabb3cfb35f4648301c69))
+* **overview:** fix invalid name warning ([d3fc168](https://github.com/vtexdocs/helpcenter/commit/d3fc168fbb59c4f595a836f842824e30936443ce))
+* pagination button error with small widths ([2ab4150](https://github.com/vtexdocs/helpcenter/commit/2ab4150ab6fcbf128221393ffec1ed7005f1c00b))
+* pagination when just one item is been displayed ([c424c3e](https://github.com/vtexdocs/helpcenter/commit/c424c3e3023d4df0e84118b180e8112c27742fe6))
+* remove emphasis from date ([c55ab5e](https://github.com/vtexdocs/helpcenter/commit/c55ab5ea1a99a4b8a119eeaa010c77b40bef4c17))
+* remove enter ([4a72eb4](https://github.com/vtexdocs/helpcenter/commit/4a72eb4107c39e2b2dba264e6dc0f340cf8bb1e6))
+* removing unused vars ([49b132a](https://github.com/vtexdocs/helpcenter/commit/49b132a69fbdb13ecdbb747c5986bc23cf4d500c))
+* removing unused vars ([d0fd092](https://github.com/vtexdocs/helpcenter/commit/d0fd092ae1013e0441e7097daaa8ef67b0617545))
+* rename messages and types ([1fab335](https://github.com/vtexdocs/helpcenter/commit/1fab335b3621da06e05aa7c5d8a07eb5a04dc6ae))
+* rename news documentation ([4ea3fb6](https://github.com/vtexdocs/helpcenter/commit/4ea3fb6de1ed2a2375f50ae9ef571556636d7b57))
+* **select:** remove test placeholder ([5f5fb21](https://github.com/vtexdocs/helpcenter/commit/5f5fb21e860ae307d164a2e806955441654991b2))
+* **share:** use click outside to close dropdown ([8ea2b2c](https://github.com/vtexdocs/helpcenter/commit/8ea2b2c37deef81554eb20cfc2aae2ddbef70245))
+* use AnnouncementDataElement ([f20b35e](https://github.com/vtexdocs/helpcenter/commit/f20b35e2e862e0e98c693852add27c30f8f73e22))
+
+
+### Refactoring
+
+* changes type name for tutorial indexing and creates components for markdown and indexing ([c85efa9](https://github.com/vtexdocs/helpcenter/commit/c85efa92751c8092c58312a3018558093ea08246))
+
+
+### Style
+
+* add small and large announcement card ([b4d7044](https://github.com/vtexdocs/helpcenter/commit/b4d7044ffe3059581801b5d14b711bb18773ca8b))
+* **breadcrumb:** add flex wrap ([a7b72c9](https://github.com/vtexdocs/helpcenter/commit/a7b72c93cfc40f9789e9843c03a4e79192d0a498))
+* fix padding in cards ([b844329](https://github.com/vtexdocs/helpcenter/commit/b844329ed9f7022e8b2ce59ceaaa408d28edea64))
+* fix position of reading time text ([839675b](https://github.com/vtexdocs/helpcenter/commit/839675b1cac49187b193c3385644b626bf8faf56))
+* fix select height and remove outline ([139c93f](https://github.com/vtexdocs/helpcenter/commit/139c93f711bef03e271c62fbde976a6266097ee0))
+* improve share button styling ([541ce20](https://github.com/vtexdocs/helpcenter/commit/541ce20ee4b0d06a36fb7c571d54a9607238ceb2))
+
+
+### Chore
+
+* **deps:** add react-share ([cdcc427](https://github.com/vtexdocs/helpcenter/commit/cdcc427250a65f260e36e1c9afbf695d56334e9a))
+* **release:** 0.3.0 ([8966e42](https://github.com/vtexdocs/helpcenter/commit/8966e428155285dada7c77b24ec2d1e2d5a5c8ed))
+* **release:** 0.4.0 ([031bf3b](https://github.com/vtexdocs/helpcenter/commit/031bf3b427da2f4e35807c53998d4894f37cbca5))
+* update lock file ([f8e91a7](https://github.com/vtexdocs/helpcenter/commit/f8e91a70387558c8bc286ecec8d47d5ed9fb2a1e))
+
 ### [0.4.1](https://github.com/vtexdocs/helpcenter/compare/v0.4.0...v0.4.1) (2024-02-22)
 
 
