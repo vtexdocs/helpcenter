@@ -54,3 +54,27 @@ export const getParents = (
 
   return parentsArray
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getChildren = (
+  path: string,
+  data: string,
+  flattenedSidebar: { [x: string]: string },
+  locale: localeType = 'en',
+  childrenArray: string[]
+) => {
+  const childrenBasePath = path?.split('slug')[0].concat('children.')
+  const desiredData = data === 'name' ? `${data}.${locale}` : data
+
+  for (let i = 0; i < 100; i++) {
+    const completePath = childrenBasePath
+      .concat(String(i))
+      .concat(`.${desiredData}`)
+    if (!flattenedSidebar[completePath]) {
+      break
+    }
+    childrenArray.push(flattenedSidebar[completePath])
+  }
+
+  return childrenArray
+}

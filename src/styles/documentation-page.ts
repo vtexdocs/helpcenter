@@ -20,6 +20,7 @@ const innerContainer: SxStyleProp = {
 const articleBox: SxStyleProp = {
   fontSize: '1em',
   lineHeight: '1.375em',
+  width: ['100%', 'auto'],
   a: {
     color: '#E31C58',
   },
@@ -139,7 +140,37 @@ const id: SxStyleProp = {
   wordBreak: 'break-all',
 }
 
+const indexContainer: SxStyleProp = {
+  borderTop: '1px solid #E7E9EE',
+  gap: '32px',
+}
+
+const textContainer: SxStyleProp = {
+  width: ['100%', '544px'],
+  gap: '8px',
+  pb: '43px',
+  mb: '64px',
+}
+
+const titleContainer: SxStyleProp = {
+  fontSize: '24px',
+  color: '#4A4A4A',
+  marginBottom: '8px',
+}
+
+const linksContainer: SxStyleProp = {
+  flexDirection: 'column',
+  pl: '16px',
+  gap: '16px',
+  mt: '32px',
+  borderLeft: '3px solid #E7E9EE',
+}
+
 export default {
+  linksContainer,
+  titleContainer,
+  textContainer,
+  indexContainer,
   container,
   mainContainer,
   articleBox,

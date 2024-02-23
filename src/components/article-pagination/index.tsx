@@ -55,7 +55,11 @@ const ArticlePagination = ({
               handleClick(e, pagination.nextDoc.slug as string)
             }}
           >
-            <Box sx={styles.paginationBox}>
+            <Box
+              sx={
+                !hidePaginationPrevious ? styles.paginationBox : styles.justNext
+              }
+            >
               <Text sx={styles.paginationText}>{pagination.nextDoc.name}</Text>
               <Text sx={styles.subTitle}>Next »</Text>
             </Box>

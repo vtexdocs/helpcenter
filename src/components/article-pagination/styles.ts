@@ -27,6 +27,20 @@ const paginationBox: SxStyleProp = {
   color: '#4A596B',
 }
 
+const justNext: SxStyleProp = {
+  ':hover': {
+    border: '1px solid #CCCED8',
+    boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.1)',
+    color: '#000711',
+  },
+  justifySelf: 'right',
+  border: '1px solid #E7E9EE',
+  padding: '16px',
+  borderRadius: '4px',
+  textAlign: 'right',
+  color: '#4A596B',
+}
+
 const paginationText: SxStyleProp = {
   whiteSpace: 'nowrap',
   overflow: 'hidden',
@@ -48,6 +62,7 @@ const paginationLinkNext: SxStyleProp = {
   ...paginationLink,
   justifySelf: 'flex-end',
   textAlign: 'right',
+  justifyContent: 'right',
 }
 
 const paginationLinkPrevious: SxStyleProp = {
@@ -56,6 +71,7 @@ const paginationLinkPrevious: SxStyleProp = {
 }
 
 export default {
+  justNext,
   mainContainer,
   flexContainer,
   paginationLinkNext,
