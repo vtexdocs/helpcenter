@@ -1,7 +1,7 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
 const outerContainer: SxStyleProp = {
-  border: '1px solid red',
+  // border: '1px solid red',
   gap: '64px',
   justifyContent: 'center',
   flexDirection: 'column',

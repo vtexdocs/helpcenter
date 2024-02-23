@@ -1,10 +1,11 @@
 interface NavbarItem {
-  documentantion: string
+  documentation: string
   slugPrefix: string
   categories: Document[]
 }
 
 interface Document {
+  slug: string
   name: { en: string; es: string; pt: string }
   type: string
   children: Document[]
