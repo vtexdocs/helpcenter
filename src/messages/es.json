@@ -255,5 +255,7 @@
   "announcements_page_result.empty": "Ningún resultado coincidente.",
   "announcements_page_search.placeholder": "Buscar en Anuncios...",
   "search_result.empty": "Ningún resultado coincidente. Pruebe con otros filtros.",
-  "faq_filter.title": "Produtos"
+  "faq_filter.title": "Produtos",
+  "sitemap_page.title": "Mapa del sitio",
+  "sitemap_page_section_adsitional_resources.title": "Recursos adicionales"
 }

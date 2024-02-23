@@ -1,76 +1,51 @@
-import { Flex, Box, Text, Link } from '@vtex/brand-ui' //eslint-disable-line
+import { Flex, Box, Text } from '@vtex/brand-ui' //eslint-disable-line
 import { Page } from 'utils/typings/types'
 import styles from 'styles/sitemap-page'
 import LongArrowIcon from 'components/icons/long-arrow-icon'
 import { GetStaticProps } from 'next'
 import getNavigation from 'utils/getNavigation'
-import { flattenJSON, getKeyByValue, localeType } from 'utils/navigation-utils' //eslint-disable-line
+import { localeType } from 'utils/navigation-utils' //eslint-disable-line
+import SiteMapSection from 'components/sitemap-section'
+import { useIntl } from 'react-intl'
 
 interface Props {
-  startHereItems: [{ name: string; slug: string }]
-  tutorialItems: [{ name: string; slug: string }]
+  sections: [
+    { documentation: string; children: [{ name: string; slug: string }] }
+  ]
 } //eslint-disable-line
 
-const SiteMapPage: Page<Props> = ({ startHereItems, tutorialItems }) => {
-  const resize = (arr: any[], batchSize: number) => {
-    //eslint-disable-line
-    //eslint-disable-line
-    const retArr = []
-    while (arr.length > 0) {
-      retArr.push(arr.splice(0, batchSize))
-    }
+const SiteMapPage: Page<Props> = ({ sections }) => {
+  const intl = useIntl()
 
-    return retArr
+  const documentationTitleTranslated: { [key: string]: string } = {
+    'Start here': intl.formatMessage({ id: 'documentation_start_here.title' }),
+    'Tutorials & Solutions': intl.formatMessage({
+      id: 'documentation_tutorials.title',
+    }),
   }
-
-  const render = (arr: any[][]) => {
-    //eslint-disable-line
-    console.log(arr)
-    return (
-      <Flex sx={styles.outerItemsContainer}>
-        {arr.map((el, idx) => {
-          return (
-            <Flex sx={styles.innerItemsContainer} key={idx}>
-              {el.map((e, id) => {
-                return <Text key={id}>{e.name}</Text>
-              })}
-            </Flex>
-          )
-        })}
-      </Flex>
-    )
-  }
-
-  const startHereBatched = resize(startHereItems.slice(), 4)
-  const tutorialItemsBatched = resize(tutorialItems.slice(), 4)
-  console.log('HERE', startHereItems)
 
   return (
     <>
       <Flex sx={styles.outerContainer}>
         <Box sx={styles.titleContainer}>
-          <Text sx={styles.pageTitle}>Mapa do Site</Text>
+          <Text sx={styles.pageTitle}>
+            {intl.formatMessage({ id: 'sitemap_page.title' })}
+          </Text>
         </Box>
+        {sections.map((el) => (
+          <SiteMapSection
+            documentation={documentationTitleTranslated[el.documentation]}
+            children={el.children}
+          />
+        ))}
         <Box>
           <Flex sx={styles.section}>
             <Box>
-              <Text sx={styles.sectionTitle}>Comece aqui</Text>
-            </Box>
-            {render(startHereBatched)}
-          </Flex>
-        </Box>
-        <Box>
-          <Flex sx={styles.section}>
-            <Box>
-              <Text sx={styles.sectionTitle}>Tutorial & Solutions</Text>
-            </Box>
-            {render(tutorialItemsBatched)}
-          </Flex>
-        </Box>
-        <Box>
-          <Flex sx={styles.section}>
-            <Box>
-              <Text sx={styles.sectionTitle}>Recursos Adicionais</Text>
+              <Text sx={styles.sectionTitle}>
+                {intl.formatMessage({
+                  id: 'sitemap_page_section_additional_resources.title',
+                })}
+              </Text>
             </Box>
             <Flex sx={styles.outerItemsContainer}>
               <Flex sx={styles.innerItemsContainer}>
@@ -112,32 +87,29 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     ? (locale as localeType)
     : ('en' as localeType)
 
-  // console.log('SITEMAP', currentLocale)
-
-  const sections = ['Start here', 'Tutorials & Solutions']
+  const sectionDocumentation = ['Start here', 'Tutorials & Solutions']
 
   const sidebarfallback = await getNavigation()
 
-  // console.log('SITEMAP', sidebarfallback)
-  const arr = sidebarfallback.filter((elem) =>
-    sections.includes(elem.documentation)
+  const filteredSections = sidebarfallback.filter((elem) =>
+    sectionDocumentation.includes(elem.documentation)
   )
-  const startHerearr = arr[0]
-  const tutorialsArr = arr[1]
 
-  const startHereItems = startHerearr.categories.map((elem) => {
-    return { name: elem.name[currentLocale], slug: elem.slug }
+  const sections = filteredSections.map((el) => {
+    return {
+      documentation: el.documentation,
+      children: el.categories.map((e) => {
+        return {
+          name: e.name[currentLocale],
+          slug: `${el.slugPrefix}/${e.slug}`,
+        }
+      }),
+    }
   })
 
-  const tutorialItems = tutorialsArr.categories.map((elem) => {
-    return { name: elem.name[currentLocale], slug: elem.slug }
-  })
-
-  // console.log('SITEMAP', startHereItems)
   return {
     props: {
-      tutorialItems,
-      startHereItems,
+      sections,
     },
   }
 }
