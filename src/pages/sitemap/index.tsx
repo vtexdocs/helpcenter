@@ -1,16 +1,19 @@
 import { Flex, Box, Text } from '@vtex/brand-ui' //eslint-disable-line
 import { Page } from 'utils/typings/types'
 import styles from 'styles/sitemap-page'
-import LongArrowIcon from 'components/icons/long-arrow-icon'
 import { GetStaticProps } from 'next'
 import getNavigation from 'utils/getNavigation'
 import { localeType } from 'utils/navigation-utils' //eslint-disable-line
 import SiteMapSection from 'components/sitemap-section'
 import { useIntl } from 'react-intl'
+import { additionalResourcesSitemap } from 'utils/constants'
 
 interface Props {
   sections: [
-    { documentation: string; children: [{ name: string; slug: string }] }
+    {
+      documentation: string
+      children: { name: string; link: string; icon: boolean }[]
+    }
   ]
 } //eslint-disable-line
 
@@ -24,58 +27,29 @@ const SiteMapPage: Page<Props> = ({ sections }) => {
     }),
   }
 
+  const arr = additionalResourcesSitemap(intl)
+
   return (
     <>
-      <Flex sx={styles.outerContainer}>
+      <Box sx={styles.outerContainer}>
         <Box sx={styles.titleContainer}>
           <Text sx={styles.pageTitle}>
             {intl.formatMessage({ id: 'sitemap_page.title' })}
           </Text>
         </Box>
-        {sections.map((el) => (
+        <Flex sx={styles.contentContainer}>
+          {sections.map((el) => (
+            <SiteMapSection
+              documentation={documentationTitleTranslated[el.documentation]}
+              children={el.children}
+            />
+          ))}
           <SiteMapSection
-            documentation={documentationTitleTranslated[el.documentation]}
-            children={el.children}
+            documentation={arr.documentation}
+            children={arr.children}
           />
-        ))}
-        <Box>
-          <Flex sx={styles.section}>
-            <Box>
-              <Text sx={styles.sectionTitle}>
-                {intl.formatMessage({
-                  id: 'sitemap_page_section_additional_resources.title',
-                })}
-              </Text>
-            </Box>
-            <Flex sx={styles.outerItemsContainer}>
-              <Flex sx={styles.innerItemsContainer}>
-                <Text>MarketPlace</Text>
-                <Text>Módulos VTEX: Primeiros Passos</Text>
-                <Text>Omnichannel</Text>
-                <Text>VTEX IO</Text>
-              </Flex>
-              <Flex sx={styles.innerItemsContainer}>
-                <Flex sx={{ gap: '8px' }}>
-                  <Text>Developers Portal</Text>
-                  <LongArrowIcon size={16} />
-                </Flex>
-                <Flex sx={{ gap: '8px' }}>
-                  <Text>suporte</Text>
-                  <LongArrowIcon size={16} />
-                </Flex>
-                <Flex sx={{ gap: '8px' }}>
-                  <Text>Comunidade</Text>
-                  <LongArrowIcon size={16} />
-                </Flex>
-                <Flex sx={{ gap: '8px' }}>
-                  <Text>Feedback</Text>
-                  <LongArrowIcon size={16} />
-                </Flex>
-              </Flex>
-            </Flex>
-          </Flex>
-        </Box>
-      </Flex>
+        </Flex>
+      </Box>
     </>
   )
 }
@@ -101,7 +75,8 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       children: el.categories.map((e) => {
         return {
           name: e.name[currentLocale],
-          slug: `${el.slugPrefix}/${e.slug}`,
+          link: `${el.slugPrefix}/${e.slug}`,
+          icon: false,
         }
       }),
     }

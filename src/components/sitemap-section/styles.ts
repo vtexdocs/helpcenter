@@ -2,9 +2,10 @@ import { SxStyleProp } from '@vtex/brand-ui'
 
 const section: SxStyleProp = {
   borderTop: '1px solid #E7E9EE',
-  gap: '132px',
+  gap: ['24px', '24px', '64px'],
   pt: '24px',
   color: 'black',
+  flexDirection: ['column', 'column', 'row'],
 }
 
 const sectionTitle: SxStyleProp = {
@@ -13,16 +14,23 @@ const sectionTitle: SxStyleProp = {
 }
 
 const outerItemsContainer: SxStyleProp = {
-  // justifyContent: 'space-between',
-  gap: '64px',
+  gap: ['none', 'none', '64px'],
   flexWrap: 'wrap',
+  flexDirection: ['column', 'column', 'row'],
+  display: ['flex', 'flex', 'grid', 'grid', 'grid'],
+  width: '100%',
+  gridTemplateColumns: 'repeat(auto-fill, 96px)',
 }
 
 const innerItemsContainer: SxStyleProp = {
   width: '96px',
-  flexDirection: 'column',
+  flexDirection: ['column'],
   gap: '24px',
   fontSize: '12px',
+  color: '#4A596B',
+}
+
+const link: SxStyleProp = {
   color: '#4A596B',
 }
 
@@ -31,4 +39,5 @@ export default {
   sectionTitle,
   outerItemsContainer,
   innerItemsContainer,
+  link,
 }
