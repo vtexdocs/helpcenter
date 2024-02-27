@@ -648,3 +648,74 @@ export const faqFilter = (intl: IntlShape) => {
 
   return data
 }
+
+export const additionalResourcesSitemap = (intl: IntlShape) => {
+  const data: {
+    documentation: string
+    children: { name: string; link: string; icon: boolean }[]
+  } = {
+    documentation: intl.formatMessage({
+      id: 'sitemap_page_section_additional_resources.title',
+    }),
+    children: [
+      {
+        name: intl.formatMessage({
+          id: 'sitemap_page_section_additional_resources.faq',
+        }),
+        link: '/faq',
+        icon: false,
+      },
+      {
+        name: intl.formatMessage({
+          id: 'sitemap_page_section_additional_resources.known_issues',
+        }),
+        link: '/known-issues',
+        icon: false,
+      },
+      {
+        name: intl.formatMessage({
+          id: 'sitemap_page_section_additional_resources.support_rules',
+        }),
+        link: '#', // TODO: trocar rota
+        icon: false,
+      },
+      {
+        name: intl.formatMessage({
+          id: 'sitemap_page_section_additional_resources.announcements',
+        }),
+        link: '/announcements',
+        icon: false,
+      },
+      {
+        name: intl.formatMessage({
+          id: 'sitemap_page_section_additional_resources.dev_portal',
+        }),
+        link: getDeveloperPortalURL(),
+        icon: true,
+      },
+      {
+        name: intl.formatMessage({
+          id: 'sitemap_page_section_additional_resources.support',
+        }),
+        link: getSupportURL(),
+        icon: true,
+      },
+      {
+        name: intl.formatMessage({
+          id: 'sitemap_page_section_additional_resources.community',
+        }),
+        link: getCommunityURL(),
+        icon: true,
+      },
+      {
+        name: intl.formatMessage({
+          id: 'sitemap_page_section_additional_resources.feedback',
+        }),
+        link: getFeedbackURL(),
+        icon: true,
+      },
+    ],
+  }
+
+  return data
+}
