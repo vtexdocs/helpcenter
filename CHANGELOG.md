@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.1](https://github.com/vtexdocs/helpcenter/compare/v0.5.0...v0.5.1) (2024-02-28)
+
+
+### Features
+
+* **known-issues:** add status translation ([4f7d2d6](https://github.com/vtexdocs/helpcenter/commit/4f7d2d661c605980df9e7f8bd4f123d0d67f9ae8))
+
+
+### Bug Fixes
+
+* changes links in constants file ([6a3738a](https://github.com/vtexdocs/helpcenter/commit/6a3738ac6ec763d866ef1516a34e4e8ddc1022df))
+
 ## [0.5.0](https://github.com/vtexdocs/helpcenter/compare/v0.4.1...v0.5.0) (2024-02-23)
 
 
