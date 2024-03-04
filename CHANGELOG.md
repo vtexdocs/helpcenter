@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.2](https://github.com/vtexdocs/helpcenter/compare/v0.5.1...v0.5.2) (2024-03-04)
+
+
+### Features
+
+* adds sitemap section component ([c122489](https://github.com/vtexdocs/helpcenter/commit/c122489df2c08a590826b94e5bb91c2ec94393f8))
+* base code for sitemap page ([61e0cb6](https://github.com/vtexdocs/helpcenter/commit/61e0cb625a9701b88a66464fbdf33f669975b66f))
+* creates sitemap page ([b0d2850](https://github.com/vtexdocs/helpcenter/commit/b0d28503c63f3fd6f3689ed25f14f3ff45f97fa9))
+* gets sitemap items from navigation ([e43ebf8](https://github.com/vtexdocs/helpcenter/commit/e43ebf87e7af2c500676ba809cedee0178f91993))
+
+
+### Bug Fixes
+
+* changes sitemap url ([249621f](https://github.com/vtexdocs/helpcenter/commit/249621f9da1d0c1fba6333c1678949c03cdbc5ee))
+
 ### [0.5.1](https://github.com/vtexdocs/helpcenter/compare/v0.5.0...v0.5.1) (2024-02-28)
 
 
