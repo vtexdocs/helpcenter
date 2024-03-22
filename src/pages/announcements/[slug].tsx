@@ -107,6 +107,7 @@ const AnnouncementPage: NextPage<Props> = ({
       <Head>
         <title>{serialized.frontmatter?.title as string}</title>
         <meta name="docsearch:doctype" content="announcements" />
+        <meta name="docsearch:slug" content={slug} />
       </Head>
       <DocumentContextProvider headings={headings}>
         <Flex sx={styles.innerContainer}>
