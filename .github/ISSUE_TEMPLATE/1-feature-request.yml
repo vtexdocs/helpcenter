@@ -1,0 +1,63 @@
+name: Feature request
+description: Suggest a new feature for the project
+title: '[Feature]: '
+labels: ['feature', 'enhancement']
+body:
+  - type: input
+    attributes:
+      label: Title
+      description: A concise and simples title for the requested feature.
+      placeholder: 'Example: Dark mode'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Description
+      description: A clear and concise description with all the details needed for the feature to come to life!
+      placeholder: 'Example: All white backgrounds should turn dark and dark texts turn white. There should be a button to change between both themes, dark and light.'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Is your feature request related to a problem
+      description: A clear and concise description of what problem this feature would solve.
+      placeholder: 'Example: A dark mode would enhance user experience by reducing eye strain'
+    validations:
+      required: false
+  - type: dropdown
+    attributes:
+      label: Priority level
+      description: The level of priority the feature development should have
+      multiple: false
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Attachments or Prototypes
+      description: Any attachment that can help us better understand the request feature, like an image, a figma prototype, etc...
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Alternatives
+      description: A clear and concise description of any alternative solutions or features you've considered.
+    validations:
+      required: false
+  - type: input
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: checkboxes
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/vtexdocs/helpcenter/blob/main/CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
