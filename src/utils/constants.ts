@@ -114,7 +114,7 @@ export const updatesData = (intl: IntlShape) => {
     {
       id: 'FAQ',
       Icon: InfoIcon,
-      title: 'FAQ',
+      title: intl.formatMessage({ id: 'updates_info_notes.title' }),
       description: intl.formatMessage({
         id: 'updates_info_notes.description',
       }),
