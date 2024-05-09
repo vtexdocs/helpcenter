@@ -5,6 +5,7 @@ body,
     BlinkMacSystemFont, sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 
+    text-rendering: optimizeLegibility;
 }
 
 body.modal-open {
