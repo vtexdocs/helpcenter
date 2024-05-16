@@ -97,7 +97,7 @@ const learnMoreText: SxStyleProp = {
   lineHeight: '22px',
   fontWeight: '400',
   color: '#e31c58',
-  textDecoration: 'underline solid 1.5px',
+  textDecoration: 'underline solid 1px',
 }
 
 const accessPortal: SxStyleProp = {
