@@ -21,8 +21,8 @@ const statusColors: {
     | 'Gray']: SxStyleProp
 } = {
   Backlog: {
-    border: '1px solid #979797',
-    color: '#979797',
+    border: '1px solid #D3D3D3',
+    color: '#4A596B',
     background: '#E9E9E9',
   },
   Fixed: {
@@ -31,18 +31,18 @@ const statusColors: {
     background: '#DFF5DB',
   },
   Closed: {
-    border: '1px solid #2953B2',
+    border: '1px solid #A5C0FF',
     color: '#2953B2',
     background: '#DEE8FE',
   },
   Scheduled: {
-    border: '1px solid #FAB42B',
-    color: '#FAB42B',
+    border: '1px solid #FFD581',
+    color: '#D77809',
     background: '#FFF3DA',
   },
   'No fix': {
-    border: '1px solid #F83D24',
-    color: '#F83D24',
+    border: '1px solid #FAA397',
+    color: '#CB2610',
     background: '#FFDFDB',
   },
   Default: {
