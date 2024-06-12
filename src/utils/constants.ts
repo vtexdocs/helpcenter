@@ -226,6 +226,15 @@ export const menuSupportData = (intl: IntlShape) => {
       }),
       link: '#', //TODO: trocar rota
     },
+    {
+      id: 'Troubleshooting',
+      Icon: PaperIcon, //TODO: placeholder icon
+      title: intl.formatMessage({ id: 'troubleshooting_menu.title' }),
+      description: intl.formatMessage({
+        id: 'troubleshooting_menu.description',
+      }),
+      link: '/troubleshooting',
+    },
   ]
 
   return data
