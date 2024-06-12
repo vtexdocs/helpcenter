@@ -282,5 +282,7 @@
   "sitemap_page_section_additional_resources.community": "Comunidade",
   "sitemap_page_section_additional_resources.feedback": "Feedback",
   "troubleshooting_page.title": "Troubleshooting",
-  "troubleshooting_page.description": "Acesse a documentação para identificações, diagnósticos e correções de falhas nos sistemas e produtos da plataforma VTEX"
+  "troubleshooting_page.description": "Acesse a documentação para identificações, diagnósticos e correções de falhas nos sistemas e produtos da plataforma VTEX",
+  "troubleshooting_menu.title": "Troubleshooting",
+  "troubleshooting_menu.description": "Acesse a documentação para identificações, diagnósticos e correções de falhas nos sistemas e produtos da plataforma VTEX"
 }
