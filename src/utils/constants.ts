@@ -24,6 +24,7 @@ import GraphIcon from 'components/icons/graph-icon'
 import MegaphoneIcon from 'components/icons/megaphone-icon'
 import InfoIcon from 'components/icons/info-icon'
 import LongArrowIcon from 'components/icons/long-arrow-icon'
+import TroubleshootingIcon from 'components/icons/troubleshooting-icon'
 
 libraryConfig
 export const messages = getMessages()
@@ -176,7 +177,7 @@ export const knownIssuesData = (intl: IntlShape) => {
     },
     {
       id: 'Troubleshooting',
-      Icon: DeveloperPortalIcon, //TODO: placeholder icon
+      Icon: TroubleshootingIcon,
       title: intl.formatMessage({
         id: 'sidebar_troubleshooting.title',
       }),
@@ -225,7 +226,7 @@ export const menuSupportData = (intl: IntlShape) => {
     },
     {
       id: 'Troubleshooting',
-      Icon: PaperIcon, //TODO: placeholder icon
+      Icon: TroubleshootingIcon,
       title: intl.formatMessage({ id: 'menu_troubleshooting.title' }),
       description: intl.formatMessage({
         id: 'menu_troubleshooting.description',
