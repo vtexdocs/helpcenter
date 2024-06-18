@@ -229,9 +229,9 @@ export const menuSupportData = (intl: IntlShape) => {
     {
       id: 'Troubleshooting',
       Icon: PaperIcon, //TODO: placeholder icon
-      title: intl.formatMessage({ id: 'troubleshooting_menu.title' }),
+      title: intl.formatMessage({ id: 'menu_troubleshooting.title' }),
       description: intl.formatMessage({
-        id: 'troubleshooting_menu.description',
+        id: 'menu_troubleshooting.description',
       }),
       link: '/troubleshooting',
     },
