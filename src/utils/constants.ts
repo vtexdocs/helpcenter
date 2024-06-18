@@ -174,6 +174,15 @@ export const knownIssuesData = (intl: IntlShape) => {
       }),
       link: '#', //TODO: trocar rota
     },
+    {
+      id: 'Troubleshooting',
+      Icon: DeveloperPortalIcon, //TODO: placeholder icon
+      title: intl.formatMessage({
+        id: 'sidebar_troubleshooting.title',
+      }),
+      description: 'sidebar_troubleshooting.description',
+      link: '/troubleshooting',
+    },
   ]
 
   return data
