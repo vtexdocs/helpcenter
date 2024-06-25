@@ -16,6 +16,7 @@ import ArticlePagination from 'components/article-pagination'
 import Contributors from 'components/contributors'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { ContributorsType } from 'utils/getFileContributors'
+import CopyLinkButton from 'components/copy-link-button'
 
 interface Props {
   content: string
@@ -92,17 +93,20 @@ const TutorialMarkdownRender = (props: Props) => {
                     {props.serialized.frontmatter?.excerpt}
                   </Text>
                 </header>
-                <Text sx={styles.readingTime}>
-                  {intl.formatMessage(
-                    {
-                      id: 'documentation_reading_time.text',
-                      defaultMessage: '',
-                    },
-                    {
-                      minutes: props.serialized.frontmatter?.readingTime,
-                    }
-                  )}
-                </Text>
+                <Flex sx={styles.infoContainer}>
+                  <Text sx={styles.readingTime}>
+                    {intl.formatMessage(
+                      {
+                        id: 'documentation_reading_time.text',
+                        defaultMessage: '',
+                      },
+                      {
+                        minutes: props.serialized.frontmatter?.readingTime,
+                      }
+                    )}
+                  </Text>
+                  <CopyLinkButton />
+                </Flex>
                 <MarkdownRenderer serialized={props.serialized} />
               </article>
             </Box>
