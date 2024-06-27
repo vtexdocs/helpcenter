@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Box, Flex, Text, Timeline } from '@vtex/brand-ui'
 
 import { getDaysElapsed } from '../../utils/get-days-elapsed'
@@ -57,37 +56,35 @@ const AnnouncementTimelineCard = ({ announcements }: Props) => {
   sevenDaysAgo.setDate(currentDate.getDate() - 7)
 
   return (
-    <Link href={'/announcements'}>
-      <Flex sx={styles.cardContainer}>
-        <Box>
-          <Flex sx={styles.title}>
-            <MegaphoneIcon />
-            <Text>
-              {intl.formatMessage({
-                id: 'landing_page_announcements.title',
-              })}
-            </Text>
-          </Flex>
-          <Text sx={styles.description}>
+    <Flex sx={styles.cardContainer}>
+      <Box>
+        <Flex sx={styles.title}>
+          <MegaphoneIcon />
+          <Text>
             {intl.formatMessage({
-              id: 'landing_page_announcements.description',
+              id: 'landing_page_announcements.title',
             })}
           </Text>
-        </Box>
-        <Box sx={styles.timelineContainer}>
-          {announcements.map((announcement, index) => {
-            const isNew = announcement.date >= sevenDaysAgo
-
-            return (
-              <AnnouncementTimelineItem
-                key={index}
-                {...{ ...announcement, first: isNew || index === 0 }}
-              />
-            )
+        </Flex>
+        <Text sx={styles.description}>
+          {intl.formatMessage({
+            id: 'landing_page_announcements.description',
           })}
-        </Box>
-      </Flex>
-    </Link>
+        </Text>
+      </Box>
+      <Box sx={styles.timelineContainer}>
+        {announcements.map((announcement, index) => {
+          const isNew = announcement.date >= sevenDaysAgo
+
+          return (
+            <AnnouncementTimelineItem
+              key={index}
+              {...{ ...announcement, first: isNew || index === 0 }}
+            />
+          )
+        })}
+      </Box>
+    </Flex>
   )
 }
 
