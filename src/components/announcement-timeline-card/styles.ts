@@ -74,6 +74,7 @@ const timeLineBar: SxStyleProp = {
 const timelineTitle: SxStyleProp = {
   fontSize: '18px',
   color: 'muted.0',
+  transition: 'all .35s',
 }
 
 const content: SxStyleProp = {
