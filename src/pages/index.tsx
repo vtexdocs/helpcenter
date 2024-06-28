@@ -18,7 +18,13 @@ import getAnnouncementsJson from 'utils/getAnnouncementsJson'
 
 interface Props {
   branch: string
-  announcementTimelineData: { title: string; date: string }[]
+  announcementTimelineData: announcementData[]
+}
+
+type announcementData = {
+  title: string
+  date: string
+  articleLink: string
 }
 
 const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
@@ -68,10 +74,7 @@ export const getStaticProps: GetStaticProps = async ({
     ? (locale as localeType)
     : ('en' as localeType)
 
-  const announcementTimelineData: {
-    title: string
-    date: string
-  }[] = []
+  const announcementTimelineData: announcementData[] = []
 
   const announcementJson = await getAnnouncementsJson()
 
@@ -80,6 +83,7 @@ export const getStaticProps: GetStaticProps = async ({
     announcementTimelineData.push({
       title: announcement.title[currentLocale],
       date: String(announcement.date),
+      articleLink: '#',
     })
 
     announcementTimelineData.push()

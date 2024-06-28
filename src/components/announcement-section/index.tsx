@@ -6,14 +6,18 @@ import AnnouncementTimelineCard from '../announcement-timeline-card'
 import Link from 'next/link'
 
 interface AnnouncementSectionProps {
-  announcements: { title: string; date: string }[]
+  announcements: { title: string; date: string; articleLink: string }[]
 }
 
 const AnnouncementSection = ({ announcements }: AnnouncementSectionProps) => {
   const intl = useIntl()
   const newAnnouncements = announcements
     .map((announcement) => {
-      return { title: announcement.title, date: new Date(announcement.date) }
+      return {
+        title: announcement.title,
+        date: new Date(announcement.date),
+        articleLink: announcement.articleLink,
+      }
     })
     .sort((a, b) => b.date.getTime() - a.date.getTime())
 

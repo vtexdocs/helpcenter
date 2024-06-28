@@ -6,16 +6,19 @@ import { useIntl } from 'react-intl'
 import styles from './styles'
 import MegaphoneIcon from 'components/icons/megaphone-icon'
 import NewIcon from 'components/icons/new-icon'
+import Link from 'next/link'
 
 export interface AnnouncementTimelineCardProps {
   title: string
   date: Date
+  articleLink: string
   first?: boolean
 }
 
 const AnnouncementTimelineItem = ({
   title,
   date,
+  // articleLink, //TODO: use article link in anchors
   first = false,
 }: AnnouncementTimelineCardProps) => {
   const intl = useIntl()
@@ -28,12 +31,18 @@ const AnnouncementTimelineItem = ({
           first ? (
             <Text sx={styles.newTitle}>New</Text>
           ) : (
-            <Text sx={styles.timelineTitle}>{title}</Text>
+            <Link href={'#'} sx={styles.timelineTitle}>
+              {title}
+            </Link>
           )
         }
         icon={first ? <NewIcon sx={styles.icon} /> : null}
       >
-        {first && <Text sx={styles.timelineTitle}>{title}</Text>}
+        {first && (
+          <Link href={'#'} sx={styles.timelineTitle}>
+            {title}
+          </Link>
+        )}
         {first && <Box sx={styles.placeholder}></Box>}
         <Text sx={styles.content}>
           {`${getDaysElapsed(date)} ${intl.formatMessage({
