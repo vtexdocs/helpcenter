@@ -82,8 +82,6 @@ const KnownIssuePage: NextPage<Props> = ({
     ? new Date(serialized.frontmatter?.updatedAt)
     : undefined
 
-  console.log(serialized.frontmatter?.readingTime)
-
   return (
     <>
       <Head>
