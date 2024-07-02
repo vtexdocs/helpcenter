@@ -31,16 +31,16 @@ const AnnouncementTimelineItem = ({
           first ? (
             <Text sx={styles.newTitle}>New</Text>
           ) : (
-            <Link href={'#'} sx={styles.timelineTitle}>
-              {title}
+            <Link href={'#'}>
+              <Text sx={styles.timelineTitle}>{title}</Text>
             </Link>
           )
         }
         icon={first ? <NewIcon sx={styles.icon} /> : null}
       >
         {first && (
-          <Link href={'#'} sx={styles.timelineTitle}>
-            {title}
+          <Link href={'#'}>
+            <Text sx={styles.timelineTitle}>{title}</Text>
           </Link>
         )}
         {first && <Box sx={styles.placeholder}></Box>}
