@@ -45,8 +45,9 @@ import {
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 // import { ParsedUrlQuery } from 'querystring'
-import { useIntl } from 'react-intl'
+
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
+import TimeToRead from 'components/TimeToRead'
 
 const docsPathsGLOBAL = await getTracksPaths('tracks')
 
@@ -95,7 +96,6 @@ const TrackPage: NextPage<Props> = ({
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-  const intl = useIntl()
   setBranchPreview(branch)
   const { setActiveSidebarElement } = useContext(LibraryContext)
   const articleRef = useRef<HTMLElement>(null)
@@ -131,15 +131,11 @@ const TrackPage: NextPage<Props> = ({
                     <Text sx={styles.documentationTitle} className="title">
                       {serialized.frontmatter?.title}
                     </Text>
-                    <Text sx={styles.readingTime}>
-                      {intl.formatMessage(
-                        {
-                          id: 'documentation_reading_time.text',
-                          defaultMessage: '',
-                        },
-                        { minutes: serialized.frontmatter?.readingTime }
-                      )}
-                    </Text>
+                    {serialized.frontmatter?.readingTime && (
+                      <TimeToRead
+                        minutes={serialized.frontmatter.readingTime}
+                      />
+                    )}
                   </Flex>
                 </header>
                 <MarkdownRenderer serialized={serialized} />
