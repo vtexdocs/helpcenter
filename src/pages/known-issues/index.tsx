@@ -3,13 +3,14 @@ import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
 
+import usePagination from '../../utils/hooks/usePagination'
 import {
   KnownIssueDataElement,
   KnownIssueStatus,
   SortByType,
 } from 'utils/typings/types'
 import Head from 'next/head'
-import styles from 'styles/known-issues-page'
+import styles from 'styles/filterable-cards-page'
 import { PreviewContext } from 'utils/contexts/preview'
 import { Fragment, useContext, useMemo, useState } from 'react'
 import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
@@ -45,7 +46,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const itemsPerPage = 5
-  const [page, setPage] = useState({ curr: 1, total: 1 })
+  const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<{
     status: string[]
     modules: string[]
@@ -76,21 +77,20 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
       return dateA.getTime() - dateB.getTime()
     })
 
-    setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
+    setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
   }, [filters, sortByValue, intl.locale, search])
 
-  const paginatedResult = useMemo(() => {
-    return filteredResult.slice(
-      (page.curr - 1) * itemsPerPage,
-      page.curr * itemsPerPage
-    )
-  }, [page])
+  const paginatedResult = usePagination<KnownIssueDataElement>(
+    itemsPerPage,
+    pageIndex,
+    filteredResult
+  )
 
   function handleClick(props: { selected: number }) {
-    if (props.selected !== undefined && props.selected !== page.curr)
-      setPage({ ...page, curr: props.selected })
+    if (props.selected !== undefined && props.selected !== pageIndex.curr)
+      setPageIndex({ ...pageIndex, curr: props.selected })
   }
 
   return (
@@ -160,8 +160,8 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
             })}
           </Flex>
           <Pagination
-            forcePage={page.curr}
-            pageCount={page.total}
+            forcePage={pageIndex.curr}
+            pageCount={pageIndex.total}
             onPageChange={handleClick}
           />
         </Flex>
