@@ -47,6 +47,7 @@ import { MarkdownRenderer } from '@vtexdocs/components'
 // import { ParsedUrlQuery } from 'querystring'
 import { useIntl } from 'react-intl'
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
+import CopyLinkButton from 'components/copy-link-button'
 
 const docsPathsGLOBAL = await getTracksPaths('tracks')
 
@@ -131,15 +132,19 @@ const TrackPage: NextPage<Props> = ({
                     <Text sx={styles.documentationTitle} className="title">
                       {serialized.frontmatter?.title}
                     </Text>
-                    <Text sx={styles.readingTime}>
-                      {intl.formatMessage(
-                        {
-                          id: 'documentation_reading_time.text',
-                          defaultMessage: '',
-                        },
-                        { minutes: serialized.frontmatter?.readingTime }
-                      )}
-                    </Text>
+
+                    <Flex sx={styles.infoContainer}>
+                      <Text sx={styles.readingTime}>
+                        {intl.formatMessage(
+                          {
+                            id: 'documentation_reading_time.text',
+                            defaultMessage: '',
+                          },
+                          { minutes: serialized.frontmatter?.readingTime }
+                        )}
+                      </Text>
+                      <CopyLinkButton />
+                    </Flex>
                   </Flex>
                 </header>
                 <MarkdownRenderer serialized={serialized} />

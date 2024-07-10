@@ -40,6 +40,7 @@ import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
 import Tag from 'components/tag'
 import DateText from 'components/date-text'
+import CopyLinkButton from 'components/copy-link-button'
 
 const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
 
@@ -107,15 +108,18 @@ const KnownIssuePage: NextPage<Props> = ({
                     <Text sx={styles.documentationTitle} className="title">
                       {serialized.frontmatter?.title}
                     </Text>
-                    <Text sx={styles.readingTime}>
-                      {intl.formatMessage(
-                        {
-                          id: 'documentation_reading_time.text',
-                          defaultMessage: '',
-                        },
-                        { minutes: serialized.frontmatter?.readingTime }
-                      )}
-                    </Text>
+                    <Flex sx={styles.infoContainer}>
+                      <Text sx={styles.readingTime}>
+                        {intl.formatMessage(
+                          {
+                            id: 'documentation_reading_time.text',
+                            defaultMessage: '',
+                          },
+                          { minutes: serialized.frontmatter?.readingTime }
+                        )}
+                      </Text>
+                      <CopyLinkButton />
+                    </Flex>
                   </Flex>
                   <Box sx={styles.divider}></Box>
                   <Flex sx={styles.detailedInfo}>
