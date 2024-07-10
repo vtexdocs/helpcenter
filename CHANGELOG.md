@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/vtexdocs/helpcenter/compare/v0.5.2...v0.6.0) (2024-07-10)
+
+
+### Features
+
+* faq menu title internationalization ([b9ace13](https://github.com/vtexdocs/helpcenter/commit/b9ace1332a1ac36e3cc8f0cd1047f520ec41b684))
+* known issues tag changed position ([2dc5eb8](https://github.com/vtexdocs/helpcenter/commit/2dc5eb80848efda7fbe5e29348140c0b5913d359))
+* removed border for tags in knows issues cards ([2453093](https://github.com/vtexdocs/helpcenter/commit/245309339f3e2b1b732a2db11d35cc98624635e2))
+
+
+### Bug Fixes
+
+* faq page title matching the standard ([7c8c173](https://github.com/vtexdocs/helpcenter/commit/7c8c173d6066022c60b3dc221a95703e057c19d4))
+
 ### [0.5.2](https://github.com/vtexdocs/helpcenter/compare/v0.5.1...v0.5.2) (2024-03-04)
 
 
