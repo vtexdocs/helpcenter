@@ -70,7 +70,6 @@ const statusColors: {
     background: '#FFE0EF',
   },
   Gray: {
-    border: '1px solid #4A596B',
     color: '#4A596B',
     background: '#E7E9EE',
   },
