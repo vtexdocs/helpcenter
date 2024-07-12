@@ -37,8 +37,7 @@ import {
   getParents,
   localeType,
 } from 'utils/navigation-utils'
-import { MarkdownRenderer } from '@vtexdocs/components'
-import ShareButton from 'components/share-button'
+import { MarkdownRenderer, ShareButton } from '@vtexdocs/components'
 import Author from 'components/author'
 import { useIntl } from 'react-intl'
 import MoreArticlesSection from 'components/more-articles-section'
@@ -137,7 +136,7 @@ const AnnouncementPage: NextPage<Props> = ({
                 <MarkdownRenderer serialized={serialized} />
               </article>
             </Box>
-            <FeedbackSection docPath={path} slug={slug} />
+            <FeedbackSection docPath={path} slug={slug} shareButton={true} />
             {serialized.frontmatter?.seeAlso && (
               <MoreArticlesSection docs={seeAlsoData} />
             )}
