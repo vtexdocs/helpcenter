@@ -1,9 +1,10 @@
 import PageHeader from 'components/page-header'
+import styles from 'styles/filterable-cards-page'
 import troubleshooting from '../../../public/images/troubleshooting.png'
 import Head from 'next/head'
 import { useIntl } from 'react-intl'
 import type { GetStaticPropsContext, NextPage } from 'next'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
@@ -11,18 +12,21 @@ import getNavigation from 'utils/getNavigation'
 import { getLogger } from 'utils/logging/log-util'
 import { localeType } from 'utils/navigation-utils'
 import { serialize } from 'next-mdx-remote/serialize'
+import { Flex } from '@vtex/brand-ui'
+import Select from 'components/select'
+import { SortByType, TroubleshootingDataElement } from 'utils/typings/types'
+import usePagination from 'utils/hooks/usePagination'
+import { sortBy } from 'utils/constants'
+import TroubleshootingCard from 'components/troubleshooting-card'
+import Pagination from 'components/pagination'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
   sectionSelected?: DocumentationTitle | UpdatesTitle | ''
   branch: string
-  troubleshootingData: troubleshootingCardData[]
+  troubleshootingData: TroubleshootingDataElement[]
   page: number
   totalPages: number
-}
-
-interface troubleshootingCardData {
-  title: string
 }
 
 const docsPathsGLOBAL = await getTroubleshootingPaths('troubleshooting')
@@ -34,6 +38,44 @@ const TroubleshootingPage: NextPage<Props> = ({
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const intl = useIntl()
+
+  const itemsPerPage = 5
+  const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
+  // const [filters, setFilters] = useState<string[]>([])
+  const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+
+  // const filteredResult = useMemo(() => {
+  //   const data = troubleshootingData.filter((troubleshoot) => {
+  //     return (
+  //       filters.length === 0 ||
+  //       troubleshoot.tags.some((tag) => filters.includes(tag))
+  //     )
+  //   })
+
+  //   data.sort((a, b) => {
+  //     const dateA =
+  //       sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
+  //     const dateB =
+  //       sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
+
+  //     return dateA.getTime() - dateB.getTime()
+  //   })
+
+  //   setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
+
+  //   return data
+  // }, [filters, sortByValue, intl.locale])
+
+  const paginatedResult = usePagination<TroubleshootingDataElement>(
+    itemsPerPage,
+    pageIndex,
+    troubleshootingData
+  )
+
+  function handleClick(props: { selected: number }) {
+    if (props.selected !== undefined && props.selected !== pageIndex.curr)
+      setPageIndex({ ...pageIndex, curr: props.selected })
+  }
 
   return (
     <>
@@ -60,9 +102,31 @@ const TroubleshootingPage: NextPage<Props> = ({
           imageUrl={troubleshooting}
           imageAlt={intl.formatMessage({ id: 'troubleshooting_page.title' })}
         />
-        {troubleshootingData.map((troubleshooting) => (
-          <p>{troubleshooting}</p>
-        ))}
+        <Flex sx={styles.container}>
+          <Flex sx={styles.optionsContainer}>
+            <Select
+              label={intl.formatMessage({ id: 'sort.label' })}
+              value={sortByValue}
+              options={sortBy(intl)}
+              onSelect={(ordering) => setSortByValue(ordering as SortByType)}
+            />
+          </Flex>
+          <Flex sx={styles.cardContainer}>
+            {paginatedResult.length === 0 && (
+              <Flex sx={styles.noResults}>
+                {intl.formatMessage({ id: 'search_result.empty' })}
+              </Flex>
+            )}
+            {paginatedResult.map((troubleshoot, id) => {
+              return <TroubleshootingCard key={id} {...troubleshoot} />
+            })}
+          </Flex>
+          <Pagination
+            forcePage={pageIndex.curr}
+            pageCount={pageIndex.total}
+            onPageChange={handleClick}
+          />
+        </Flex>
       </>
     </>
   )
@@ -114,7 +178,7 @@ export async function getStaticProps({
     return Promise.all(promises)
   }
 
-  const troubleshootingData: troubleshootingCardData[] = []
+  const troubleshootingData: TroubleshootingDataElement[] = []
 
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
@@ -132,6 +196,10 @@ export async function getStaticProps({
           if (frontmatter)
             troubleshootingData.push({
               title: frontmatter.title,
+              slug: data.slug,
+              createdAt: String(frontmatter.createdAt),
+              updatedAt: String(frontmatter.updatedAt),
+              tags: frontmatter.tags,
             })
         } catch (error) {
           logger.error(`${error}`)
