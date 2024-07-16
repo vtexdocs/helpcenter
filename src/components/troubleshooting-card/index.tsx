@@ -9,7 +9,7 @@ import type { TroubleshootingDataElement } from 'utils/typings/types'
 export default function TroubleshootingCard({
   title,
   slug,
-  moduleTags,
+  tags,
 }: TroubleshootingDataElement) {
   return (
     <Link href={`troubleshooting/${slug}`}>
@@ -18,7 +18,7 @@ export default function TroubleshootingCard({
           {title}
         </Text>
         <Box sx={styles.tagsContainer}>
-          {moduleTags.map((moduleTag: string) => (
+          {tags.map((moduleTag: string) => (
             <Tag sx={styles.tag} color={'Gray'}>
               {moduleTag}
             </Tag>
