@@ -23,7 +23,7 @@ import WarningIcon from 'components/icons/warning-icon'
 import GraphIcon from 'components/icons/graph-icon'
 import SignalIcon from 'components/icons/signal-icon'
 import MegaphoneIcon from 'components/icons/megaphone-icon'
-import InfoIcon from 'components/icons/info-icon'
+import FAQIcon from 'components/icons/faq-icon'
 import LongArrowIcon from 'components/icons/long-arrow-icon'
 
 libraryConfig
@@ -113,7 +113,7 @@ export const updatesData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
       id: 'FAQ',
-      Icon: InfoIcon,
+      Icon: FAQIcon,
       title: intl.formatMessage({ id: 'updates_info_notes.title' }),
       description: intl.formatMessage({
         id: 'updates_info_notes.description',
