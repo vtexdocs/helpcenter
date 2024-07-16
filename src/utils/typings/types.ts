@@ -96,7 +96,7 @@ export type FaqCardDataElement = {
 export type TroubleshootingDataElement = {
   title: string
   slug: string
-  moduleTags: string[]
+  tags: string[]
   createdAt: string
   updatedAt: string
 }
