@@ -5,21 +5,35 @@ import styles from './styles'
 import AnnouncementTimelineCard from '../announcement-timeline-card'
 import Link from 'next/link'
 
+import { AnnouncementDataElement } from 'utils/typings/types'
 interface AnnouncementSectionProps {
-  announcements: { title: string; date: string; articleLink: string }[]
+  announcements: AnnouncementDataElement[]
+  annoucementsAmout: number
 }
 
-const AnnouncementSection = ({ announcements }: AnnouncementSectionProps) => {
+const AnnouncementSection = ({
+  announcements,
+  annoucementsAmout,
+}: AnnouncementSectionProps) => {
+  function getNewestDate(createdAt: string, updatedAt: string) {
+    const createdAtTimestamp = Date.parse(createdAt)
+    const updatedAtTimestamp = Date.parse(updatedAt)
+
+    return createdAtTimestamp > updatedAtTimestamp ? createdAt : updatedAt
+  }
   const intl = useIntl()
   const newAnnouncements = announcements
     .map((announcement) => {
       return {
         title: announcement.title,
-        date: new Date(announcement.date),
-        articleLink: announcement.articleLink,
+        date: new Date(
+          getNewestDate(announcement.createdAt, announcement.updatedAt)
+        ),
+        articleLink: announcement.url,
       }
     })
     .sort((a, b) => b.date.getTime() - a.date.getTime())
+    .slice(0, annoucementsAmout)
 
   return (
     <Flex sx={styles.sectionContainer}>
