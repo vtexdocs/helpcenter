@@ -18,7 +18,7 @@ export interface AnnouncementTimelineCardProps {
 const AnnouncementTimelineItem = ({
   title,
   date,
-  // articleLink, //TODO: use article link in anchors
+  articleLink,
   first = false,
 }: AnnouncementTimelineCardProps) => {
   const intl = useIntl()
@@ -31,7 +31,7 @@ const AnnouncementTimelineItem = ({
           first ? (
             <Text sx={styles.newTitle}>New</Text>
           ) : (
-            <Link href={'#'}>
+            <Link href={articleLink}>
               <Text sx={styles.timelineTitle}>{title}</Text>
             </Link>
           )
@@ -39,7 +39,7 @@ const AnnouncementTimelineItem = ({
         icon={first ? <NewIcon sx={styles.icon} /> : null}
       >
         {first && (
-          <Link href={'#'}>
+          <Link href={articleLink}>
             <Text sx={styles.timelineTitle}>{title}</Text>
           </Link>
         )}
