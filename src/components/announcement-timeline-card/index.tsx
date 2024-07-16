@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Box, Flex, Text, Timeline } from '@vtex/brand-ui'
 
 import { getDaysElapsed } from '../../utils/get-days-elapsed'
@@ -7,16 +6,19 @@ import { useIntl } from 'react-intl'
 import styles from './styles'
 import MegaphoneIcon from 'components/icons/megaphone-icon'
 import NewIcon from 'components/icons/new-icon'
+import Link from 'next/link'
 
 export interface AnnouncementTimelineCardProps {
   title: string
   date: Date
+  articleLink: string
   first?: boolean
 }
 
 const AnnouncementTimelineItem = ({
   title,
   date,
+  articleLink,
   first = false,
 }: AnnouncementTimelineCardProps) => {
   const intl = useIntl()
@@ -29,12 +31,18 @@ const AnnouncementTimelineItem = ({
           first ? (
             <Text sx={styles.newTitle}>New</Text>
           ) : (
-            <Text sx={styles.timelineTitle}>{title}</Text>
+            <Link href={articleLink}>
+              <Text sx={styles.timelineTitle}>{title}</Text>
+            </Link>
           )
         }
         icon={first ? <NewIcon sx={styles.icon} /> : null}
       >
-        {first && <Text sx={styles.timelineTitle}>{title}</Text>}
+        {first && (
+          <Link href={articleLink}>
+            <Text sx={styles.timelineTitle}>{title}</Text>
+          </Link>
+        )}
         {first && <Box sx={styles.placeholder}></Box>}
         <Text sx={styles.content}>
           {`${getDaysElapsed(date)} ${intl.formatMessage({
@@ -57,37 +65,35 @@ const AnnouncementTimelineCard = ({ announcements }: Props) => {
   sevenDaysAgo.setDate(currentDate.getDate() - 7)
 
   return (
-    <Link href={'/announcements'}>
-      <Flex sx={styles.cardContainer}>
-        <Box>
-          <Flex sx={styles.title}>
-            <MegaphoneIcon />
-            <Text>
-              {intl.formatMessage({
-                id: 'landing_page_announcements.title',
-              })}
-            </Text>
-          </Flex>
-          <Text sx={styles.description}>
+    <Flex sx={styles.cardContainer}>
+      <Box>
+        <Flex sx={styles.title}>
+          <MegaphoneIcon />
+          <Text>
             {intl.formatMessage({
-              id: 'landing_page_announcements.description',
+              id: 'landing_page_announcements.title',
             })}
           </Text>
-        </Box>
-        <Box sx={styles.timelineContainer}>
-          {announcements.map((announcement, index) => {
-            const isNew = announcement.date >= sevenDaysAgo
-
-            return (
-              <AnnouncementTimelineItem
-                key={index}
-                {...{ ...announcement, first: isNew || index === 0 }}
-              />
-            )
+        </Flex>
+        <Text sx={styles.description}>
+          {intl.formatMessage({
+            id: 'landing_page_announcements.description',
           })}
-        </Box>
-      </Flex>
-    </Link>
+        </Text>
+      </Box>
+      <Box sx={styles.timelineContainer}>
+        {announcements.map((announcement, index) => {
+          const isNew = announcement.date >= sevenDaysAgo
+
+          return (
+            <AnnouncementTimelineItem
+              key={index}
+              {...{ ...announcement, first: isNew || index === 0 }}
+            />
+          )
+        })}
+      </Box>
+    </Flex>
   )
 }
 

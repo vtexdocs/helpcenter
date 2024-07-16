@@ -13,20 +13,6 @@ const cardContainer: SxStyleProp = {
   columnGap: '96px',
   rowGap: '64px',
   flexWrap: 'wrap',
-
-  ':active, :hover': {
-    cursor: 'pointer',
-    borderColor: '#CCCED8',
-    transition: 'all 0.3s ease-out',
-  },
-
-  ':active': {
-    boxShadow: '0px 0px 0px 1px #FFFFFF, 0px 0px 0px 3px #96B2F2',
-  },
-
-  ':hover': {
-    boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.1)',
-  },
 }
 
 const title: SxStyleProp = {
@@ -87,7 +73,11 @@ const timeLineBar: SxStyleProp = {
 
 const timelineTitle: SxStyleProp = {
   fontSize: '18px',
-  color: 'muted.0',
+  transition: 'all .35s',
+  color: '#5B6E84',
+  ':hover': {
+    color: '#142032',
+  },
 }
 
 const content: SxStyleProp = {
