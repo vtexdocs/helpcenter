@@ -37,7 +37,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
-  const itemsPerPage = 6
+  const itemsPerPage = 8
   const [searchTerm, setSearchTerm] = useState('')
   const [page, setPage] = useState({ curr: 1, total: 1 })
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
