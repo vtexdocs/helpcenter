@@ -44,7 +44,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
-  const itemsPerPage = 5
+  const itemsPerPage = 8
   const [page, setPage] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<{
     status: string[]
