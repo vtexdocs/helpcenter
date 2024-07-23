@@ -13,7 +13,7 @@ body.modal-open {
 
 a {
   color: #e31c58;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 a:hover {
