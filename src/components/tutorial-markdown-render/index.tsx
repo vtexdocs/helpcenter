@@ -16,6 +16,7 @@ import ArticlePagination from 'components/article-pagination'
 import Contributors from 'components/contributors'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { ContributorsType } from 'utils/getFileContributors'
+import TimeToRead from 'components/TimeToRead'
 
 interface Props {
   content: string
@@ -92,17 +93,11 @@ const TutorialMarkdownRender = (props: Props) => {
                     {props.serialized.frontmatter?.excerpt}
                   </Text>
                 </header>
-                <Text sx={styles.readingTime}>
-                  {intl.formatMessage(
-                    {
-                      id: 'documentation_reading_time.text',
-                      defaultMessage: '',
-                    },
-                    {
-                      minutes: props.serialized.frontmatter?.readingTime,
-                    }
-                  )}
-                </Text>
+                {props.serialized.frontmatter?.readingTime && (
+                  <TimeToRead
+                    minutes={props.serialized.frontmatter.readingTime}
+                  />
+                )}
                 <MarkdownRenderer serialized={props.serialized} />
               </article>
             </Box>
