@@ -112,7 +112,11 @@ const TutorialMarkdownRender = (props: Props) => {
               <Contributors contributors={props.contributors} />
             </Box>
 
-            <FeedbackSection docPath={props.path} slug={props.slug} />
+            <FeedbackSection
+              docPath={props.path}
+              slug={props.slug}
+              shareButton={true}
+            />
             {props.isListed && (
               <ArticlePagination
                 hidePaginationNext={
