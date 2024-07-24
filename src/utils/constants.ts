@@ -595,6 +595,22 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
+export const TroubleshootingFilters = (intl: IntlShape) => {
+  const data = {
+    name: intl.formatMessage({ id: 'troubleshooting_filter_module.title' }),
+    options: [
+      { id: 'Catalog', name: 'Catalog' },
+      { id: 'Order', name: 'Order' },
+      { id: 'Shipping', name: 'Shipping' },
+      { id: 'VTEX Admin', name: 'VTEX Admin' },
+      { id: 'Prices', name: 'Prices' },
+      { id: 'Message Center', name: 'Message Center' },
+      { id: 'Trade Policy', name: 'Trade Policy' },
+    ],
+  }
+  return data
+}
+
 export const sortBy = (intl: IntlShape) => {
   const data = [
     {

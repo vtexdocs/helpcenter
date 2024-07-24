@@ -288,5 +288,6 @@
   "menu_troubleshooting.title": "Troubleshooting",
   "menu_troubleshooting.description": "Acesse a documentação para identificações, diagnósticos e correções de falhas nos sistemas e produtos da plataforma VTEX",
   "sidebar_troubleshooting.title": "Troubleshooting",
-  "sidebar_troubleshooting.description": "Acesse a documentação para identificações, diagnósticos e correções de falhas nos sistemas e produtos da plataforma VTEX"
+  "sidebar_troubleshooting.description": "Acesse a documentação para identificações, diagnósticos e correções de falhas nos sistemas e produtos da plataforma VTEX",
+  "troubleshooting_filter_module.title": "Módulo"
 }
