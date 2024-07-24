@@ -4,7 +4,7 @@ import troubleshooting from '../../../public/images/troubleshooting.png'
 import Head from 'next/head'
 import { useIntl } from 'react-intl'
 import type { GetStaticPropsContext, NextPage } from 'next'
-import { useContext, useState } from 'react'
+import { useContext, useMemo, useState } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
@@ -19,6 +19,8 @@ import usePagination from 'utils/hooks/usePagination'
 import { sortBy } from 'utils/constants'
 import TroubleshootingCard from 'components/troubleshooting-card'
 import Pagination from 'components/pagination'
+import { TroubleshootingFilters } from 'utils/constants'
+import Filter from 'components/filter'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -41,35 +43,35 @@ const TroubleshootingPage: NextPage<Props> = ({
 
   const itemsPerPage = 5
   const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
-  // const [filters, setFilters] = useState<string[]>([])
+  const [filters, setFilters] = useState<string[]>([])
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
-  // const filteredResult = useMemo(() => {
-  //   const data = troubleshootingData.filter((troubleshoot) => {
-  //     return (
-  //       filters.length === 0 ||
-  //       troubleshoot.tags.some((tag) => filters.includes(tag))
-  //     )
-  //   })
+  const filteredResult = useMemo(() => {
+    const data = troubleshootingData.filter((troubleshoot) => {
+      return (
+        filters.length === 0 ||
+        troubleshoot.tags.some((tag) => filters.includes(tag))
+      )
+    })
 
-  //   data.sort((a, b) => {
-  //     const dateA =
-  //       sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
-  //     const dateB =
-  //       sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
+    data.sort((a, b) => {
+      const dateA =
+        sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
+      const dateB =
+        sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
 
-  //     return dateA.getTime() - dateB.getTime()
-  //   })
+      return dateA.getTime() - dateB.getTime()
+    })
 
-  //   setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
+    setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
-  //   return data
-  // }, [filters, sortByValue, intl.locale])
+    return data
+  }, [filters, sortByValue, intl.locale])
 
   const paginatedResult = usePagination<TroubleshootingDataElement>(
     itemsPerPage,
     pageIndex,
-    troubleshootingData
+    filteredResult
   )
 
   function handleClick(props: { selected: number }) {
@@ -104,6 +106,10 @@ const TroubleshootingPage: NextPage<Props> = ({
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
+            <Filter
+              checkBoxFilter={TroubleshootingFilters(intl)}
+              onApply={(newFilters) => setFilters(newFilters.checklist)}
+            />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
               value={sortByValue}
@@ -199,7 +205,7 @@ export async function getStaticProps({
               slug: data.slug,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
-              tags: frontmatter.tags,
+              tags: frontmatter.tags.split(','), //TODO: check how tags are separated
             })
         } catch (error) {
           logger.error(`${error}`)
