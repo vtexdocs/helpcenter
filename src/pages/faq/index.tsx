@@ -20,6 +20,7 @@ import Select from 'components/select'
 import { faqFilter, sortBy } from 'utils/constants'
 import FaqCard from 'components/faq-card'
 import Filter from 'components/filter'
+import ChipFilter from 'components/chip-filter'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -40,6 +41,9 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const [page, setPage] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<string[]>([])
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+  const chipCategories: string[] = faqFilter(intl).options.map(
+    (option) => option.name
+  )
 
   const filteredResult = useMemo(() => {
     const data = faqData.filter((question) => {
@@ -114,6 +118,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
+          <ChipFilter filters={chipCategories} />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
