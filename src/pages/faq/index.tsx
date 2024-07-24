@@ -23,6 +23,7 @@ import Filter from 'components/filter'
 import usePagination from '../../utils/hooks/usePagination'
 import Input from 'components/input'
 import SearchIcon from 'components/icons/search-icon'
+import ChipFilter from 'components/chip-filter'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -42,6 +43,9 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const [filters, setFilters] = useState<string[]>([])
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+  const chipCategories: string[] = faqFilter(intl).options.map(
+    (option) => option.name
+  )
 
   const filteredResult = useMemo(() => {
     const data = faqData.filter((question) => {
@@ -129,6 +133,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             value={search}
             onChange={(value: string) => setSearch(value)}
           />
+          <ChipFilter filters={chipCategories} />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
