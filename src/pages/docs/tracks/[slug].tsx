@@ -151,7 +151,7 @@ const TrackPage: NextPage<Props> = ({
               <Contributors contributors={contributors} />
             </Box>
 
-            <FeedbackSection docPath={path} slug={slug} />
+            <FeedbackSection docPath={path} slug={slug} shareButton={true} />
             {isListed && (
               <ArticlePagination
                 hidePaginationNext={
