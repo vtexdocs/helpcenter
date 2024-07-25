@@ -16,6 +16,10 @@ const filterButton: SxStyleProp = {
   },
 }
 
+const filterButtonText: SxStyleProp = {
+  display: ['none', 'block', 'block'],
+}
+
 const numberOfFilters: SxStyleProp = {
   backgroundColor: '#FFE0EF',
   color: '#F71963',
@@ -151,6 +155,7 @@ const removeButton: SxStyleProp = {
 
 export default {
   filterButton,
+  filterButtonText,
   numberOfFilters,
   blanket,
   container,
