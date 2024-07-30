@@ -14,17 +14,6 @@ const EducationSection = () => {
 
   const educationChannels = [
     {
-      title: intl.formatMessage({ id: 'landing_page_education_support.title' }),
-      description: intl.formatMessage({
-        id: 'landing_page_education_support.description',
-      }),
-      textLink: intl.formatMessage({
-        id: 'landing_page_education_support.textLink',
-      }),
-      link: getSupportURL(),
-      icon: HelpCenterIcon,
-    },
-    {
       title: intl.formatMessage({
         id: 'landing_page_education_community.title',
       }),
@@ -36,6 +25,17 @@ const EducationSection = () => {
       }),
       link: getCommunityURL(),
       icon: CommunityIcon,
+    },
+    {
+      title: intl.formatMessage({ id: 'landing_page_education_support.title' }),
+      description: intl.formatMessage({
+        id: 'landing_page_education_support.description',
+      }),
+      textLink: intl.formatMessage({
+        id: 'landing_page_education_support.textLink',
+      }),
+      link: getSupportURL(),
+      icon: HelpCenterIcon,
     },
   ]
   return (
