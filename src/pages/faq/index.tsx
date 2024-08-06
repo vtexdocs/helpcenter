@@ -43,6 +43,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const [filters, setFilters] = useState<string[]>([])
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+  const [selectedCategory, setSelectedCategory] = useState<string>('')
   const chipCategories: string[] = faqFilter(intl).options.map(
     (option) => option.name
   )
@@ -83,6 +84,20 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
       setPageIndex({ ...pageIndex, curr: props.selected })
   }
 
+  function handleCategorySelection(category: string) {
+    if (filters.length !== 0) {
+      setFilters([])
+    }
+    setSelectedCategory(category)
+  }
+
+  function handleFilterApply(filters: string[]) {
+    if (selectedCategory !== '') {
+      setSelectedCategory('')
+    }
+    setFilters(filters)
+  }
+
   return (
     <>
       <Head>
@@ -116,7 +131,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
           <Flex sx={styles.optionsContainer}>
             <Filter
               checkBoxFilter={faqFilter(intl)}
-              onApply={(newFilters) => setFilters(newFilters.checklist)}
+              onApply={(newFilters) => handleFilterApply(newFilters.checklist)}
             />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
@@ -133,7 +148,10 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             value={search}
             onChange={(value: string) => setSearch(value)}
           />
-          <ChipFilter filters={chipCategories} />
+          <ChipFilter
+            filters={chipCategories}
+            handleChipClick={handleCategorySelection}
+          />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
