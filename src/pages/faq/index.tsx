@@ -41,13 +41,20 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const [page, setPage] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<string[]>([])
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+  const [selectedCategory, setSelectedCategory] = useState<string>('')
   const chipCategories: string[] = faqFilter(intl).options.map(
     (option) => option.name
   )
 
   const filteredResult = useMemo(() => {
     const data = faqData.filter((question) => {
-      return filters.length === 0 || filters.includes(question.productTeam)
+      const hasFilter: boolean =
+        filters.length === 0 || filters.includes(question.productTeam)
+
+      const hasCategory: boolean =
+        selectedCategory === '' || selectedCategory === question.productTeam
+
+      return hasFilter && hasCategory
     })
 
     data.sort((a, b) => {
@@ -62,7 +69,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
     setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale])
+  }, [filters, selectedCategory, sortByValue, intl.locale])
 
   const paginatedResult = useMemo(() => {
     return filteredResult.slice(
@@ -74,6 +81,20 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   function handleClick(props: { selected: number }) {
     if (props.selected !== undefined && props.selected !== page.curr)
       setPage({ ...page, curr: props.selected })
+  }
+
+  function handleCategorySelection(category: string) {
+    if (filters.length !== 0) {
+      setFilters([])
+    }
+    setSelectedCategory(category)
+  }
+
+  function handleFilterApply(filters: string[]) {
+    if (selectedCategory !== '') {
+      setSelectedCategory('')
+    }
+    setFilters(filters)
   }
 
   return (
@@ -109,7 +130,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
           <Flex sx={styles.optionsContainer}>
             <Filter
               checkBoxFilter={faqFilter(intl)}
-              onApply={(newFilters) => setFilters(newFilters.checklist)}
+              onApply={(newFilters) => handleFilterApply(newFilters.checklist)}
             />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
@@ -118,7 +139,10 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
-          <ChipFilter filters={chipCategories} />
+          <ChipFilter
+            filters={chipCategories}
+            handleChipClick={handleCategorySelection}
+          />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
