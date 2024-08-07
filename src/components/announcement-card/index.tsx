@@ -7,7 +7,7 @@ import Tag from 'components/tag'
 import { useIntl } from 'react-intl'
 import DateText from 'components/date-text'
 
-export type AnnouncementCardSize = 'small' | 'large'
+export type AnnouncementCardSize = 'small' | 'large' | 'medium'
 
 interface AnnouncementCardProps {
   announcement: AnnouncementDataElement
@@ -48,7 +48,7 @@ const AnnouncementCard = ({
         {appearance === 'large' && (
           <DateText createdAt={createdAtDate} updatedAt={updatedAtDate} />
         )}
-        {appearance === 'small' && (
+        {(appearance === 'small' || appearance === 'medium') && (
           <Flex sx={styles.datesContainer}>
             <Text sx={{ ...styles.date[appearance] }}>{createdAtText}</Text>
           </Flex>

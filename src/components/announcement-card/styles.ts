@@ -40,6 +40,10 @@ const containerSpacing: { [size in AnnouncementCardSize]: SxStyleProp } = {
     padding: ['24px 32px', '24px 32px', '24px 36px', '24px 64px'],
     gap: '16px',
   },
+  medium: {
+    padding: ['24px 32px', '24px 32px', '24px 36px', '24px 64px'],
+    gap: '16px',
+  },
 }
 
 const bottomContainer: SxStyleProp = {
@@ -61,6 +65,12 @@ const title: { [size in AnnouncementCardSize]: SxStyleProp } = {
     lineHeight: ['21px', '30px'],
     color: 'muted.0',
   },
+  medium: {
+    mb: '8px',
+    fontSize: ['14px', '20px'],
+    lineHeight: ['21px', '30px'],
+    color: 'muted.0',
+  },
 }
 
 const date: { [size in AnnouncementCardSize]: SxStyleProp } = {
@@ -69,6 +79,10 @@ const date: { [size in AnnouncementCardSize]: SxStyleProp } = {
     color: 'muted.1',
   },
   large: {
+    fontSize: '16px',
+    color: 'muted.1',
+  },
+  medium: {
     fontSize: '16px',
     color: 'muted.1',
   },
@@ -89,6 +103,11 @@ const link: { [size in AnnouncementCardSize]: SxStyleProp } = {
     display: 'block',
     minWidth: '320px',
     width: ['320px', '545px', '545px', '720px'],
+  },
+  medium: {
+    display: 'block',
+    minWidth: '320px',
+    width: ['240px', '240px', '240px', '320px'],
   },
 }
 

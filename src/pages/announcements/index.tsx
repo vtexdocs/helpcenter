@@ -21,6 +21,7 @@ import AnnouncementCard from 'components/announcement-card'
 import { sortBy } from 'utils/constants'
 import SearchIcon from 'components/icons/search-icon'
 import Input from 'components/input'
+import GridLineSelect from 'components/grid-list-select'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -41,6 +42,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const [searchTerm, setSearchTerm] = useState('')
   const [page, setPage] = useState({ curr: 1, total: 1 })
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+  const [isGrid, setIsGrid] = useState(false)
 
   const filteredResult = useMemo(() => {
     const data = announcementsData.filter((announcement) =>
@@ -110,6 +112,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
               options={sortBy(intl)}
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
+            <GridLineSelect isGrid={isGrid} setIsGrid={setIsGrid} />
           </Flex>
           <Input
             placeholder={intl.formatMessage({
@@ -119,7 +122,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
             value={searchTerm}
             onChange={(value) => setSearchTerm(value)}
           />
-          <Flex sx={styles.cardContainer}>
+          <Flex sx={isGrid ? styles.gridCardContainer : styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
                 {intl.formatMessage({ id: 'announcements_page_result.empty' })}
@@ -130,7 +133,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
                 <AnnouncementCard
                   key={id}
                   announcement={announcement}
-                  appearance="large"
+                  appearance={isGrid ? 'medium' : 'large'}
                 />
               )
             })}

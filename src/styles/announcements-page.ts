@@ -18,6 +18,14 @@ const cardContainer: SxStyleProp = {
   mb: '56px',
 }
 
+const gridCardContainer: SxStyleProp = {
+  gap: '16px',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
+  mb: '56px',
+}
+
 const optionsContainer: SxStyleProp = {
   justifyContent: ['center', 'flex-end'],
   alignItems: 'center',
@@ -47,6 +55,7 @@ const searchInput: SxStyleProp = {
 export default {
   container,
   cardContainer,
+  gridCardContainer,
   optionsContainer,
   noResults,
   searchInput,
