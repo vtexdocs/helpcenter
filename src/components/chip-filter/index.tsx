@@ -2,7 +2,7 @@ import styles from './styles'
 
 import { useIntl } from 'react-intl'
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 interface ChipFilterProps {
   filters: string[]
@@ -17,42 +17,65 @@ export default function ChipFilter({
 
   const containerRef = useRef<HTMLDivElement | null>(null)
 
+  const [displayLeftArrow, setDisplayLeftArrow] = useState<boolean>(false)
+
   function handleLeftArrowClick() {
     if (containerRef.current) {
-      containerRef.current.scrollLeft += 50
+      containerRef.current.scrollLeft -= 125
     }
   }
 
   function handleRightArrowClick() {
     if (containerRef.current) {
-      containerRef.current.scrollLeft -= 50
+      containerRef.current.scrollLeft += 125
     }
   }
 
+  function handleContainerScroll() {
+    if (containerRef.current?.scrollLeft === 0) {
+      return setDisplayLeftArrow(false)
+    }
+    setDisplayLeftArrow(true)
+  }
+
   return (
-    <div style={styles.chipsContainer} ref={containerRef}>
-      <button onClick={handleLeftArrowClick}>{`<`}</button>
-      <div style={styles.optionsContainer}>
+    <div style={styles.chipButtonWrapper}>
+      {displayLeftArrow && (
         <button
-          type="button"
-          value="all"
-          style={styles.chip}
-          onClick={() => handleChipClick('')}
-        >
-          {intl.formatMessage({ id: 'chip.all_results' })}
-        </button>
-        {filters.map((filter: string) => (
+          style={styles.arrowButton}
+          onClick={handleLeftArrowClick}
+        >{`<`}</button>
+      )}
+      <div
+        style={styles.chipsContainer}
+        ref={containerRef}
+        onScroll={handleContainerScroll}
+      >
+        <div style={styles.optionsContainer}>
           <button
             type="button"
-            value={filter}
+            value="all"
             style={styles.chip}
-            onClick={() => handleChipClick(filter)}
+            onClick={() => handleChipClick('')}
           >
-            {filter}
+            {intl.formatMessage({ id: 'chip.all_results' })}
           </button>
-        ))}
+          {filters.map((filter: string) => (
+            <button
+              type="button"
+              value={filter}
+              style={styles.chip}
+              onClick={() => handleChipClick(filter)}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
       </div>
-      <button onClick={handleRightArrowClick}>{`>`}</button>
+      <button
+        style={styles.arrowButton}
+        onClick={handleRightArrowClick}
+      >{`>`}</button>
     </div>
   )
 }
