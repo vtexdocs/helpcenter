@@ -70,13 +70,6 @@ export default function ChipFilter({
     }
   }
 
-  function handleContainerScroll() {
-    if (containerRef.current?.scrollLeft === 0) {
-      return setDisplayLeftArrow(false)
-    }
-    setDisplayLeftArrow(true)
-  }
-
   return (
     <Flex style={styles.chipButtonWrapper}>
       <Box style={styles.leftArrowContainer}>
