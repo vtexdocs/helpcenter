@@ -1,5 +1,10 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+const chipButtonWrapper: SxStyleProp = {
+  display: 'flex',
+  userSelect: 'none',
+}
+
 const chipsContainer: SxStyleProp = {
   scrollbarWidth: 'none',
   '-ms-overflow-style': 'none',
@@ -15,18 +20,26 @@ const chipsContainer: SxStyleProp = {
 
 const optionsContainer: SxStyleProp = {
   display: 'flex',
-  width: '100dvw',
   wrap: 'no-wrap',
 }
 
 const chip: SxStyleProp = {
-  background: 'none',
+  backgroundColor: '#fff',
   textWrap: 'nowrap',
   border: '2px solid #5E6E84',
   padding: '8px',
   borderRadius: '16px',
   margin: '0 4px',
-  width: '580px',
+  '& :hover': {
+    cursor: 'pointer',
+  },
+}
+
+const arrowButton: SxStyleProp = {
+  background: 'none',
+  border: 'none',
+  fontWeight: '600',
+  fontSize: '18px',
   ':hover': {
     cursor: 'pointer',
   },
@@ -36,4 +49,6 @@ export default {
   chip,
   chipsContainer,
   optionsContainer,
+  arrowButton,
+  chipButtonWrapper,
 }
