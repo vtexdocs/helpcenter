@@ -21,13 +21,13 @@ export default function ChipFilter({
 
   function handleLeftArrowClick() {
     if (containerRef.current) {
-      containerRef.current.scrollLeft -= 125
+      containerRef.current.scrollLeft -= 200
     }
   }
 
   function handleRightArrowClick() {
     if (containerRef.current) {
-      containerRef.current.scrollLeft += 125
+      containerRef.current.scrollLeft += 200
     }
   }
 
@@ -41,11 +41,11 @@ export default function ChipFilter({
   return (
     <div style={styles.chipButtonWrapper}>
       {displayLeftArrow && (
-        <button
-          style={styles.arrowButton}
-          onClick={handleLeftArrowClick}
-        >{`<`}</button>
+        <button style={styles.leftArrowButton} onClick={handleLeftArrowClick}>
+          {`<`}
+        </button>
       )}
+
       <div
         style={styles.chipsContainer}
         ref={containerRef}
@@ -73,7 +73,7 @@ export default function ChipFilter({
         </div>
       </div>
       <button
-        style={styles.arrowButton}
+        style={styles.rightArrowButton}
         onClick={handleRightArrowClick}
       >{`>`}</button>
     </div>
