@@ -44,6 +44,8 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const [selectedCategory, setSelectedCategory] = useState<string>('')
+  const [version, setVersion] = useState<number>(0)
+
   const chipCategories: string[] = faqFilter(intl).options.map(
     (option) => option.name
   )
@@ -85,16 +87,13 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   }
 
   function handleCategorySelection(category: string) {
-    if (filters.length !== 0) {
-      setFilters([])
-    }
+    setVersion((version) => version + 1)
+    setFilters([])
     setSelectedCategory(category)
   }
 
   function handleFilterApply(filters: string[]) {
-    if (selectedCategory !== '') {
-      setSelectedCategory('')
-    }
+    setSelectedCategory('')
     setFilters(filters)
   }
 
@@ -132,6 +131,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             <Filter
               checkBoxFilter={faqFilter(intl)}
               onApply={(newFilters) => handleFilterApply(newFilters.checklist)}
+              key={version}
             />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
