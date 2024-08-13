@@ -143,6 +143,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
               selectedCheckboxes={filters}
               checkBoxFilter={faqFilter(intl)}
               onApply={(newFilters) => handleFilterApply(newFilters.checklist)}
+              key={version}
             />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
