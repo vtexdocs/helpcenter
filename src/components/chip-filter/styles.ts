@@ -3,6 +3,9 @@ import { SxStyleProp } from '@vtex/brand-ui'
 const chipButtonWrapper: SxStyleProp = {
   display: 'flex',
   userSelect: 'none',
+  maxWidth: '800px',
+  width: '50dvw',
+  minWidth: '300px',
   ':hover': {
     cursor: 'pointer',
     border: '1px red',
@@ -13,9 +16,6 @@ const chipsContainer: SxStyleProp = {
   margin: '0 4px',
   scrollbarWidth: 'none',
   '-ms-overflow-style': 'none',
-  maxWidth: '800px',
-  width: '50dvw',
-  minWidth: '300px',
   overflow: 'scroll',
   scrollBehavior: 'smooth',
   '& ::-webkit-scrollbar': {
@@ -49,7 +49,7 @@ const arrowButton: SxStyleProp = {
   borderRadius: '50%',
   fontWeight: '600',
   fontSize: '16px',
-  padding: '0 4px',
+  padding: '0 8px',
 }
 
 const rightArrowButton: SxStyleProp = {
