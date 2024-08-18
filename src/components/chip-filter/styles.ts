@@ -5,6 +5,7 @@ const chipButtonWrapper: SxStyleProp = {
   userSelect: 'none',
   maxWidth: '800px',
   width: '70dvw',
+  minWidth: '300px',
   ':hover': {
     cursor: 'pointer',
     border: '1px red',
