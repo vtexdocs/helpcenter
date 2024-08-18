@@ -17,30 +17,44 @@ export default function ChipFilter({
 
   const containerRef = useRef<HTMLDivElement | null>(null)
 
-  const [displayLeftArrow, setDisplayLeftArrow] = useState<boolean>(false)
+  const [shouldDisplayArrows, setShouldDisplayArrows] = useState<{
+    left: boolean
+    right: boolean
+  }>({ left: false, right: true })
 
   function handleLeftArrowClick() {
     if (containerRef.current) {
-      containerRef.current.scrollLeft -= 200
+      containerRef.current.scrollLeft -= 180
     }
   }
 
   function handleRightArrowClick() {
     if (containerRef.current) {
-      containerRef.current.scrollLeft += 200
+      containerRef.current.scrollLeft += 180
     }
   }
 
   function handleContainerScroll() {
-    if (containerRef.current?.scrollLeft === 0) {
-      return setDisplayLeftArrow(false)
+    if (containerRef.current) {
+      const isLeftmostScroll: boolean = containerRef.current.scrollLeft === 0
+      const isRightmostScroll: boolean =
+        containerRef.current.scrollLeft + containerRef.current.clientWidth >=
+        containerRef.current.scrollWidth
+
+      if (isLeftmostScroll) {
+        return setShouldDisplayArrows({ ...shouldDisplayArrows, left: false })
+      }
+      if (isRightmostScroll) {
+        return setShouldDisplayArrows({ ...shouldDisplayArrows, right: false })
+      }
+
+      return setShouldDisplayArrows({ right: true, left: true })
     }
-    setDisplayLeftArrow(true)
   }
 
   return (
     <div style={styles.chipButtonWrapper}>
-      {displayLeftArrow && (
+      {shouldDisplayArrows.left && (
         <button style={styles.leftArrowButton} onClick={handleLeftArrowClick}>
           {`<`}
         </button>
@@ -72,10 +86,12 @@ export default function ChipFilter({
           ))}
         </div>
       </div>
-      <button
-        style={styles.rightArrowButton}
-        onClick={handleRightArrowClick}
-      >{`>`}</button>
+      {shouldDisplayArrows.right && (
+        <button
+          style={styles.rightArrowButton}
+          onClick={handleRightArrowClick}
+        >{`>`}</button>
+      )}
     </div>
   )
 }
