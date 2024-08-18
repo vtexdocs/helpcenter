@@ -4,8 +4,7 @@ const chipButtonWrapper: SxStyleProp = {
   display: 'flex',
   userSelect: 'none',
   maxWidth: '800px',
-  width: '50dvw',
-  minWidth: '300px',
+  width: '70dvw',
   ':hover': {
     cursor: 'pointer',
     border: '1px red',
@@ -31,7 +30,7 @@ const optionsContainer: SxStyleProp = {
 
 const chip: SxStyleProp = {
   backgroundColor: '#fff',
-  fontSize: '1rem',
+  fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
   color: '#5E6E84',
   textWrap: 'nowrap',
   border: '2px solid #5E6E84',
