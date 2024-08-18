@@ -36,9 +36,13 @@ export default function ChipFilter({
 
   function handleContainerScroll() {
     if (containerRef.current) {
+      const offsetWidth = 50
+
       const isLeftmostScroll: boolean = containerRef.current.scrollLeft === 0
       const isRightmostScroll: boolean =
-        containerRef.current.scrollLeft + containerRef.current.clientWidth >=
+        containerRef.current.scrollLeft +
+          containerRef.current.clientWidth +
+          offsetWidth >=
         containerRef.current.scrollWidth
 
       if (isLeftmostScroll) {
