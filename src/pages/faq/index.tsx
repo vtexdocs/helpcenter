@@ -140,6 +140,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             />
           </Flex>
           <ChipFilter
+            selectedCategory={selectedCategory}
             filters={chipCategories}
             handleChipClick={handleCategorySelection}
           />
