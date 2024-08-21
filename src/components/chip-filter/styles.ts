@@ -6,10 +6,6 @@ const chipButtonWrapper: SxStyleProp = {
   maxWidth: '800px',
   width: '70dvw',
   minWidth: '300px',
-  ':hover': {
-    cursor: 'pointer',
-    border: '1px red',
-  },
 }
 
 const chipsContainer: SxStyleProp = {
@@ -30,7 +26,7 @@ const optionsContainer: SxStyleProp = {
 }
 
 const chip: SxStyleProp = {
-  backgroundColor: '#fff',
+  backgroundColor: 'transparent',
   fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
   color: '#5E6E84',
   textWrap: 'nowrap',
@@ -38,18 +34,26 @@ const chip: SxStyleProp = {
   padding: '4px 8px',
   borderRadius: '16px',
   margin: '0 4px',
-  '& :hover': {
-    cursor: 'pointer',
+  textTransform: 'none',
+  textDecoration: 'none',
+  ':hover': {
+    backgroundColor: 'transparent',
+    textDecoration: 'none',
   },
 }
 
 const arrowButton: SxStyleProp = {
-  backgroundColor: '#fff',
+  backgroundColor: 'transparent',
   border: 'none',
   borderRadius: '50%',
   fontWeight: '600',
   fontSize: '16px',
   padding: '0 8px',
+  textDecoration: 'none',
+  ':hover': {
+    textDecoration: 'none',
+    backgroundColor: 'transparent',
+  },
 }
 
 const rightArrowButton: SxStyleProp = {
