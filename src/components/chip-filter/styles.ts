@@ -60,6 +60,17 @@ const inactiveChip: SxStyleProp = {
   },
 }
 
+const activeChip: SxStyleProp = {
+  ...chip,
+  backgroundColor: '#e31c58',
+  color: '#fff',
+}
+
+const inactiveChip: SxStyleProp = {
+  ...chip,
+  backgroundColor: 'transparent',
+}
+
 const arrowButton: SxStyleProp = {
   backgroundColor: 'transparent',
   border: 'none',
