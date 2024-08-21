@@ -9,11 +9,13 @@ import { useRef, useState } from 'react'
 interface ChipFilterProps {
   filters: string[]
   handleChipClick: (option: string) => void
+  selectedCategory: string
 }
 
 export default function ChipFilter({
   filters,
   handleChipClick,
+  selectedCategory,
 }: ChipFilterProps) {
   const intl = useIntl()
 
@@ -81,7 +83,9 @@ export default function ChipFilter({
             variant="tertiary"
             size="small"
             value="all"
-            sx={styles.chip}
+            sx={
+              selectedCategory === '' ? styles.activeChip : styles.inactiveChip
+            }
             onClick={() => handleChipClick('')}
           >
             {intl.formatMessage({ id: 'chip.all_results' })}
@@ -92,7 +96,11 @@ export default function ChipFilter({
               size="small"
               type="button"
               value={filter}
-              sx={styles.chip}
+              sx={
+                selectedCategory === filter
+                  ? styles.activeChip
+                  : styles.inactiveChip
+              }
               onClick={() => handleChipClick(filter)}
             >
               {filter}

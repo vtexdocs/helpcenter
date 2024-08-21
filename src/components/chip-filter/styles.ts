@@ -26,7 +26,6 @@ const optionsContainer: SxStyleProp = {
 }
 
 const chip: SxStyleProp = {
-  backgroundColor: 'transparent',
   fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
   color: '#5E6E84',
   textWrap: 'nowrap',
@@ -36,10 +35,22 @@ const chip: SxStyleProp = {
   margin: '0 4px',
   textTransform: 'none',
   textDecoration: 'none',
+  transition: 'all 0.3s',
   ':hover': {
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(0,0,0,0.05)',
     textDecoration: 'none',
   },
+}
+
+const activeChip: SxStyleProp = {
+  ...chip,
+  backgroundColor: '#e31c58',
+  color: '#fff',
+}
+
+const inactiveChip: SxStyleProp = {
+  ...chip,
+  backgroundColor: 'transparent',
 }
 
 const arrowButton: SxStyleProp = {
@@ -71,7 +82,8 @@ const leftArrowButton: SxStyleProp = {
 }
 
 export default {
-  chip,
+  inactiveChip,
+  activeChip,
   chipsContainer,
   optionsContainer,
   leftArrowButton,
