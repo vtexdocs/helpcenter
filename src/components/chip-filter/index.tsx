@@ -1,5 +1,7 @@
 import styles from './styles'
 
+import { Box, Flex, Button } from '@vtex/brand-ui'
+
 import { useIntl } from 'react-intl'
 
 import { useRef, useState } from 'react'
@@ -57,45 +59,55 @@ export default function ChipFilter({
   }
 
   return (
-    <div style={styles.chipButtonWrapper}>
+    <Flex style={styles.chipButtonWrapper}>
       {shouldDisplayArrows.left && (
-        <button style={styles.leftArrowButton} onClick={handleLeftArrowClick}>
+        <Button
+          variant="tertiary"
+          size="small"
+          sx={styles.leftArrowButton}
+          onClick={handleLeftArrowClick}
+        >
           {`<`}
-        </button>
+        </Button>
       )}
 
-      <div
+      <Box
         style={styles.chipsContainer}
         ref={containerRef}
         onScroll={handleContainerScroll}
       >
-        <div style={styles.optionsContainer}>
-          <button
-            type="button"
+        <Box style={styles.optionsContainer}>
+          <Button
+            variant="tertiary"
+            size="small"
             value="all"
-            style={styles.chip}
+            sx={styles.chip}
             onClick={() => handleChipClick('')}
           >
             {intl.formatMessage({ id: 'chip.all_results' })}
-          </button>
+          </Button>
           {filters.map((filter: string) => (
-            <button
+            <Button
+              variant="tertiary"
+              size="small"
               type="button"
               value={filter}
-              style={styles.chip}
+              sx={styles.chip}
               onClick={() => handleChipClick(filter)}
             >
               {filter}
-            </button>
+            </Button>
           ))}
-        </div>
-      </div>
+        </Box>
+      </Box>
       {shouldDisplayArrows.right && (
-        <button
-          style={styles.rightArrowButton}
+        <Button
+          variant="tertiary"
+          size="small"
+          sx={styles.rightArrowButton}
           onClick={handleRightArrowClick}
-        >{`>`}</button>
+        >{`>`}</Button>
       )}
-    </div>
+    </Flex>
   )
 }
