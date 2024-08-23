@@ -67,26 +67,42 @@ const arrowButton: SxStyleProp = {
   },
 }
 
-const rightArrowButton: SxStyleProp = {
-  ...arrowButton,
-  '::before': {
-    background: 'linear-gradient(to left,black 20%,rgba(255,255,255,0) 80%)',
-  },
+const rightArrowBlur: SxStyleProp = {
+  width: '45px',
+  background: 'linear-gradient(to left, white 20%,rgba(255,255,255,0) 100%)',
 }
 
-const leftArrowButton: SxStyleProp = {
-  ...arrowButton,
-  '::after': {
-    background: 'linear-gradient(to right,black 20%,rgba(255,255,255,0) 80%)',
-  },
+const leftArrowBlur: SxStyleProp = {
+  width: '45px',
+  background: 'linear-gradient(to right, white 20%,rgba(255,255,255,0) 100%)',
+}
+
+const leftArrowContainer: SxStyleProp = {
+  position: 'relative',
+  display: 'flex',
+  flexShrink: '0',
+  left: '20px',
+  zIndex: '2000',
+}
+
+const rightArrowContainer: SxStyleProp = {
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'row-reverse',
+  flexShrink: '0',
+  right: '20px',
+  zIndex: '2000',
 }
 
 export default {
+  leftArrowBlur,
+  rightArrowBlur,
   inactiveChip,
   activeChip,
+  arrowButton,
   chipsContainer,
   optionsContainer,
-  leftArrowButton,
-  rightArrowButton,
   chipButtonWrapper,
+  leftArrowContainer,
+  rightArrowContainer,
 }
