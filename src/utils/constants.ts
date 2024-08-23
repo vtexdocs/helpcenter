@@ -21,7 +21,6 @@ import TutorialsIcon from 'components/icons/tutorials-icon'
 import PaperIcon from 'components/icons/paper-icon'
 import WarningIcon from 'components/icons/warning-icon'
 import GraphIcon from 'components/icons/graph-icon'
-import SignalIcon from 'components/icons/signal-icon'
 import MegaphoneIcon from 'components/icons/megaphone-icon'
 import InfoIcon from 'components/icons/info-icon'
 import LongArrowIcon from 'components/icons/long-arrow-icon'
@@ -205,17 +204,6 @@ export const menuSupportData = (intl: IntlShape) => {
       link: 'https://status.vtex.com',
     },
     {
-      id: 'Health Check',
-      Icon: SignalIcon,
-      title: intl.formatMessage({
-        id: 'menu_health_check.title',
-      }),
-      description: intl.formatMessage({
-        id: 'menu_health_check.description',
-      }),
-      link: 'https://healthcheck.vtex.com/',
-    },
-    {
       id: 'Support Rules',
       Icon: PaperIcon,
       title: intl.formatMessage({
@@ -304,18 +292,6 @@ export const supportData = (intl: IntlShape) => {
         id: 'support_plans.description',
       }),
       link: '/',
-    },
-    {
-      id: 'Health Check',
-      Icon: SignalIcon,
-      title: intl.formatMessage({
-        id: 'support_health_check.title',
-      }),
-      description: intl.formatMessage({
-        id: 'support_health_check.description',
-      }),
-      isExternalLink: true,
-      link: 'http://healthcheck.vtex.com/',
     },
     {
       id: 'Status',
