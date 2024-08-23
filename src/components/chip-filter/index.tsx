@@ -62,17 +62,19 @@ export default function ChipFilter({
 
   return (
     <Flex style={styles.chipButtonWrapper}>
-      {shouldDisplayArrows.left && (
-        <Button
-          variant="tertiary"
-          size="small"
-          sx={styles.leftArrowButton}
-          onClick={handleLeftArrowClick}
-        >
-          {`<`}
-        </Button>
-      )}
-
+      <Box style={styles.leftArrowContainer}>
+        {shouldDisplayArrows.left && (
+          <Button
+            variant="tertiary"
+            size="small"
+            sx={styles.arrowButton}
+            onClick={handleLeftArrowClick}
+          >
+            {`<`}
+          </Button>
+        )}
+        <Box style={styles.leftArrowBlur}></Box>
+      </Box>
       <Box
         style={styles.chipsContainer}
         ref={containerRef}
@@ -108,14 +110,17 @@ export default function ChipFilter({
           ))}
         </Box>
       </Box>
-      {shouldDisplayArrows.right && (
-        <Button
-          variant="tertiary"
-          size="small"
-          sx={styles.rightArrowButton}
-          onClick={handleRightArrowClick}
-        >{`>`}</Button>
-      )}
+      <Box style={styles.rightArrowContainer}>
+        {shouldDisplayArrows.right && (
+          <Button
+            variant="tertiary"
+            size="small"
+            sx={styles.arrowButton}
+            onClick={handleRightArrowClick}
+          >{`>`}</Button>
+        )}
+        <Box style={styles.rightArrowBlur}></Box>
+      </Box>
     </Flex>
   )
 }
