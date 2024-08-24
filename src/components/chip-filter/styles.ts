@@ -10,6 +10,7 @@ const chipButtonWrapper: SxStyleProp = {
 
 const chipsContainer: SxStyleProp = {
   margin: '0 4px',
+  padding: '0 16px',
   scrollbarWidth: 'none',
   '-ms-overflow-style': 'none',
   overflow: 'scroll',
@@ -68,20 +69,22 @@ const arrowButton: SxStyleProp = {
 }
 
 const rightArrowBlur: SxStyleProp = {
-  width: '45px',
-  background: 'linear-gradient(to left, white 20%,rgba(255,255,255,0) 100%)',
+  width: '40px',
+  background:
+    'linear-gradient(to left, rgba(255,255,255,80%) 30%, rgba(255, 255, 255, 1%))',
 }
 
 const leftArrowBlur: SxStyleProp = {
-  width: '45px',
-  background: 'linear-gradient(to right, white 20%,rgba(255,255,255,0) 100%)',
+  width: '40px',
+  background:
+    'linear-gradient(to right, rgba(255,255,255,80%) 30%, rgba(255, 255, 255, 1%))',
 }
 
 const leftArrowContainer: SxStyleProp = {
   position: 'relative',
   display: 'flex',
   flexShrink: '0',
-  left: '20px',
+  left: '30px',
   zIndex: '2000',
 }
 
@@ -90,7 +93,7 @@ const rightArrowContainer: SxStyleProp = {
   display: 'flex',
   flexDirection: 'row-reverse',
   flexShrink: '0',
-  right: '20px',
+  right: '30px',
   zIndex: '2000',
 }
 
