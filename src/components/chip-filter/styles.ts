@@ -28,29 +28,36 @@ const optionsContainer: SxStyleProp = {
 
 const chip: SxStyleProp = {
   fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
-  color: '#5E6E84',
   textWrap: 'nowrap',
-  border: '2px solid #5E6E84',
   padding: '4px 8px',
   borderRadius: '16px',
   textTransform: 'none',
   textDecoration: 'none',
-  transition: 'all 0.3s',
-  ':hover': {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    textDecoration: 'none',
-  },
+  transition: 'all .3s ease-out',
 }
 
 const activeChip: SxStyleProp = {
   ...chip,
-  backgroundColor: '#e31c58',
-  color: '#fff',
+  backgroundColor: '#E7E9EE',
+  border: '2px solid #E7E9EE',
+  color: '#4A596B',
+  ':hover': {
+    backgroundColor: '#CCCED8',
+    border: '2px solid #CCCED8',
+    textDecoration: 'none',
+  },
 }
 
 const inactiveChip: SxStyleProp = {
   ...chip,
   backgroundColor: 'transparent',
+  border: '2px solid #5E6E84',
+  color: '#5E6E84',
+  ':hover': {
+    border: '2px solid #A1A8B3',
+    color: '#A1A8B3',
+    textDecoration: 'none',
+  },
 }
 
 const arrowButton: SxStyleProp = {
