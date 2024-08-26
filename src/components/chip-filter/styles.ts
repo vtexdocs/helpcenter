@@ -96,6 +96,14 @@ const rightArrowContainer: SxStyleProp = {
   zIndex: '2000',
 }
 
+const articlesAmount: SxStyleProp = {
+  backgroundColor: '#fff',
+  padding: '2px 8px',
+  margin: '0 2px 0 8px',
+  borderRadius: '8px',
+  fontSize: '0.8rem',
+}
+
 export default {
   leftArrowBlur,
   rightArrowBlur,
@@ -107,4 +115,5 @@ export default {
   chipButtonWrapper,
   leftArrowContainer,
   rightArrowContainer,
+  articlesAmount,
 }

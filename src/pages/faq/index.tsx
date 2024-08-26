@@ -149,6 +149,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             onChange={(value: string) => setSearch(value)}
           />
           <ChipFilter
+            selectedCategoryAmount={filteredResult.length}
             selectedCategory={selectedCategory}
             filters={chipCategories}
             handleChipClick={handleCategorySelection}

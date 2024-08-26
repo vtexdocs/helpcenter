@@ -1,6 +1,6 @@
 import styles from './styles'
 
-import { Box, Flex, Button } from '@vtex/brand-ui'
+import { Box, Flex, Button, Text } from '@vtex/brand-ui'
 
 import { useIntl } from 'react-intl'
 
@@ -10,12 +10,14 @@ interface ChipFilterProps {
   filters: string[]
   handleChipClick: (option: string) => void
   selectedCategory: string
+  selectedCategoryAmount: number
 }
 
 export default function ChipFilter({
   filters,
   handleChipClick,
   selectedCategory,
+  selectedCategoryAmount,
 }: ChipFilterProps) {
   const intl = useIntl()
 
@@ -106,6 +108,11 @@ export default function ChipFilter({
               onClick={() => handleChipClick(filter)}
             >
               {filter}
+              {selectedCategory === filter && (
+                <Text style={styles.articlesAmount}>
+                  {selectedCategoryAmount}
+                </Text>
+              )}
             </Button>
           ))}
         </Box>
