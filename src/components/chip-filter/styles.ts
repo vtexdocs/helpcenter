@@ -23,7 +23,7 @@ const chipsContainer: SxStyleProp = {
 
 const optionsContainer: SxStyleProp = {
   display: 'flex',
-  wrap: 'no-wrap',
+  gap: '8px',
 }
 
 const chip: SxStyleProp = {
@@ -33,7 +33,6 @@ const chip: SxStyleProp = {
   border: '2px solid #5E6E84',
   padding: '4px 8px',
   borderRadius: '16px',
-  margin: '0 4px',
   textTransform: 'none',
   textDecoration: 'none',
   transition: 'all 0.3s',
