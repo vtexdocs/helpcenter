@@ -101,14 +101,16 @@ export default function ChipFilter({
       </Box>
       <Box style={styles.rightArrowContainer}>
         {shouldDisplayArrows.right && (
-          <Button
-            variant="tertiary"
-            size="small"
-            sx={styles.arrowButton}
-            onClick={handleRightArrowClick}
-          >{`>`}</Button>
+          <>
+            <Button
+              variant="tertiary"
+              size="small"
+              sx={styles.arrowButton}
+              onClick={handleRightArrowClick}
+            >{`>`}</Button>{' '}
+            <Box style={styles.rightArrowBlur}></Box>
+          </>
         )}
-        <Box style={styles.rightArrowBlur}></Box>
       </Box>
     </Flex>
   )
@@ -131,7 +133,7 @@ function Chip({ value, isActive, handleChipClick, categoryAmount }: ChipProps) {
       onClick={() => handleChipClick()}
     >
       {value}
-      {isActive && categoryAmount && (
+      {isActive && categoryAmount !== undefined && (
         <Text style={styles.articlesAmount}>{categoryAmount}</Text>
       )}
     </Button>
