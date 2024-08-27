@@ -83,37 +83,19 @@ export default function ChipFilter({
         onScroll={handleContainerScroll}
       >
         <Box style={styles.optionsContainer}>
-          <Button
-            variant="tertiary"
-            size="small"
-            value="all"
-            sx={
-              selectedCategory === '' ? styles.activeChip : styles.inactiveChip
-            }
-            onClick={() => handleChipClick('')}
-          >
-            {intl.formatMessage({ id: 'chip.all_results' })}
-          </Button>
+          <Chip
+            value={intl.formatMessage({ id: 'chip.all_results' })}
+            isActive={selectedCategory === ''}
+            handleChipClick={() => handleChipClick('')}
+            categoryAmount={selectedCategoryAmount}
+          />
           {filters.map((filter: string) => (
-            <Button
-              variant="tertiary"
-              size="small"
-              type="button"
+            <Chip
               value={filter}
-              sx={
-                selectedCategory === filter
-                  ? styles.activeChip
-                  : styles.inactiveChip
-              }
-              onClick={() => handleChipClick(filter)}
-            >
-              {filter}
-              {selectedCategory === filter && (
-                <Text style={styles.articlesAmount}>
-                  {selectedCategoryAmount}
-                </Text>
-              )}
-            </Button>
+              categoryAmount={selectedCategoryAmount}
+              handleChipClick={() => handleChipClick(filter)}
+              isActive={selectedCategory === filter}
+            />
           ))}
         </Box>
       </Box>
@@ -129,5 +111,29 @@ export default function ChipFilter({
         <Box style={styles.rightArrowBlur}></Box>
       </Box>
     </Flex>
+  )
+}
+
+interface ChipProps {
+  value: string
+  isActive: boolean
+  handleChipClick: () => void
+  categoryAmount?: number
+}
+
+function Chip({ value, isActive, handleChipClick, categoryAmount }: ChipProps) {
+  return (
+    <Button
+      variant="tertiary"
+      size="small"
+      type="button"
+      sx={isActive ? styles.activeChip : styles.inactiveChip}
+      onClick={() => handleChipClick()}
+    >
+      {value}
+      {isActive && categoryAmount && (
+        <Text style={styles.articlesAmount}>{categoryAmount}</Text>
+      )}
+    </Button>
   )
 }
