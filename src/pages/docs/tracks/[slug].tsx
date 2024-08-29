@@ -433,12 +433,6 @@ export const getStaticProps: GetStaticProps = async ({
         parentsArrayType
       )
       parentsArrayType.push(docsListType[indexOfSlug])
-
-      if (serialized.frontmatter) {
-        serialized.frontmatter.title = `${
-          docsListName[indexOfSlug][currentLocale].split(' ')[0]
-        } ${serialized.frontmatter.title}`
-      }
     }
 
     const breadcrumbList: { slug: string; name: string; type: string }[] = []
