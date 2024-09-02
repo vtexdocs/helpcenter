@@ -43,8 +43,6 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const [filters, setFilters] = useState<string[]>([])
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
-  const [selectedCategory, setSelectedCategory] = useState<string>('')
-  const [version, setVersion] = useState<number>(0)
 
   const chipCategories: string[] = faqFilter(intl).options.map(
     (option) => option.name
@@ -86,15 +84,16 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
       setPageIndex({ ...pageIndex, curr: props.selected })
   }
 
-  function handleCategorySelection(category: string) {
-    setVersion((version) => version + 1)
-    setFilters([])
-    setSelectedCategory(category)
+  function handleFilterApply(filters: string[]) {
+    setFilters(filters)
   }
 
-  function handleFilterApply(filters: string[]) {
-    setSelectedCategory('')
-    setFilters(filters)
+  function handleCategoriesSelection(category: string) {
+    setFilters([...filters, category])
+  }
+
+  function handleFilterReset() {
+    setFilters([])
   }
 
   return (
@@ -131,7 +130,6 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             <Filter
               checkBoxFilter={faqFilter(intl)}
               onApply={(newFilters) => handleFilterApply(newFilters.checklist)}
-              key={version}
             />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
@@ -149,10 +147,11 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             onChange={(value: string) => setSearch(value)}
           />
           <ChipFilter
+            resetFilters={handleFilterReset}
+            filters={filters}
             selectedCategoryAmount={filteredResult.length}
-            selectedCategory={selectedCategory}
-            filters={chipCategories}
-            handleChipClick={handleCategorySelection}
+            categories={chipCategories}
+            handleChipClick={handleCategoriesSelection}
           />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (

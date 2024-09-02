@@ -5,7 +5,7 @@ const chipButtonWrapper: SxStyleProp = {
   userSelect: 'none',
   maxWidth: '800px',
   width: '70dvw',
-  minWidth: '300px',
+  minWidth: '350px',
 }
 
 const chipsContainer: SxStyleProp = {
@@ -75,13 +75,17 @@ const arrowButton: SxStyleProp = {
 }
 
 const rightArrowBlur: SxStyleProp = {
-  width: '40px',
+  maxWidth: '40px',
+  minWidth: '20px',
+  width: '5vw',
   background:
     'linear-gradient(to left, rgba(255,255,255,80%) 30%, rgba(255, 255, 255, 1%))',
 }
 
 const leftArrowBlur: SxStyleProp = {
-  width: '40px',
+  maxWidth: '40px',
+  minWidth: '20px',
+  width: '5vw',
   background:
     'linear-gradient(to right, rgba(255,255,255,80%) 30%, rgba(255, 255, 255, 1%))',
 }
@@ -90,7 +94,7 @@ const leftArrowContainer: SxStyleProp = {
   position: 'relative',
   display: 'flex',
   flexShrink: '0',
-  left: '30px',
+  left: 'clamp(20px, 2.5vw, 30px)',
   zIndex: '2000',
 }
 
@@ -99,7 +103,7 @@ const rightArrowContainer: SxStyleProp = {
   display: 'flex',
   flexDirection: 'row-reverse',
   flexShrink: '0',
-  right: '30px',
+  right: 'clamp(20px, 2.5vw, 30px)',
   zIndex: '2000',
 }
 
