@@ -8,16 +8,18 @@ import { useRef, useState } from 'react'
 
 interface ChipFilterProps {
   filters: string[]
+  categories: string[]
   handleChipClick: (option: string) => void
-  selectedCategory: string
   selectedCategoryAmount: number
+  resetFilters: () => void
 }
 
 export default function ChipFilter({
   filters,
+  categories,
   handleChipClick,
-  selectedCategory,
   selectedCategoryAmount,
+  resetFilters,
 }: ChipFilterProps) {
   const intl = useIntl()
 
@@ -38,6 +40,10 @@ export default function ChipFilter({
     if (containerRef.current) {
       containerRef.current.scrollLeft += 180
     }
+  }
+
+  function isCategoryActive(category: string) {
+    return filters.includes(category)
   }
 
   function handleContainerScroll() {
@@ -85,16 +91,16 @@ export default function ChipFilter({
         <Box style={styles.optionsContainer}>
           <Chip
             value={intl.formatMessage({ id: 'chip.all_results' })}
-            isActive={selectedCategory === ''}
-            handleChipClick={() => handleChipClick('')}
+            isActive={!filters.length}
+            handleChipClick={() => resetFilters()}
             categoryAmount={selectedCategoryAmount}
           />
-          {filters.map((filter: string) => (
+          {categories.map((filter: string) => (
             <Chip
               value={filter}
               categoryAmount={selectedCategoryAmount}
               handleChipClick={() => handleChipClick(filter)}
-              isActive={selectedCategory === filter}
+              isActive={isCategoryActive(filter)}
             />
           ))}
         </Box>
