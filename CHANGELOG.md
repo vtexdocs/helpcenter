@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.3](https://github.com/vtexdocs/helpcenter/compare/v0.5.2...v0.5.3) (2024-09-02)
+
+
+### Features
+
+* faq menu title internationalization ([b9ace13](https://github.com/vtexdocs/helpcenter/commit/b9ace1332a1ac36e3cc8f0cd1047f520ec41b684))
+* known issues tag changed position ([2dc5eb8](https://github.com/vtexdocs/helpcenter/commit/2dc5eb80848efda7fbe5e29348140c0b5913d359))
+* removed border for tags in knows issues cards ([2453093](https://github.com/vtexdocs/helpcenter/commit/245309339f3e2b1b732a2db11d35cc98624635e2))
+
+
+### Bug Fixes
+
+* faq page title matching the standard ([7c8c173](https://github.com/vtexdocs/helpcenter/commit/7c8c173d6066022c60b3dc221a95703e057c19d4))
+* messages-pt ([801bbf7](https://github.com/vtexdocs/helpcenter/commit/801bbf7a64226a0714ea8dc411354ecc845607be))
+* remove-health-check from constants.ts ([946666a](https://github.com/vtexdocs/helpcenter/commit/946666ab2041bc01e04950298ec37663d4b4f836))
+* remove-health-check from messages ([0952da5](https://github.com/vtexdocs/helpcenter/commit/0952da598fd15177c99557c94b4e7564ba829ca7))
+* **src/pages/docs/tracks/[slug].tsx:** fix doubled first words in track articles' titles ([2a7c803](https://github.com/vtexdocs/helpcenter/commit/2a7c803891305d6b549fff0c5c1035f97c4fd1fa)), closes [#86](https://github.com/vtexdocs/helpcenter/issues/86)
+
 ### [0.5.2](https://github.com/vtexdocs/helpcenter/compare/v0.5.1...v0.5.2) (2024-03-04)
 
 
