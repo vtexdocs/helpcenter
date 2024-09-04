@@ -48,10 +48,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
 
   const filteredResult = useMemo(() => {
     const data = faqData.filter((question) => {
-      const hasFilter: boolean =
-        filters.length === 0 || filters.includes(question.productTeam)
-
-      return hasFilter
+      return filters.length === 0 || filters.includes(question.productTeam)
     })
 
     data.sort((a, b) => {
@@ -90,6 +87,12 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
 
   function handleFilterReset() {
     setFilters([])
+  }
+
+  function handleFilterRemoval(category: string) {
+    const copyFilters = [...filters]
+    copyFilters.splice(copyFilters.indexOf(category), 1)
+    setFilters(copyFilters)
   }
 
   return (
@@ -135,11 +138,12 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             />
           </Flex>
           <ChipFilter
+            removeCategory={handleFilterRemoval}
             resetFilters={handleFilterReset}
             filters={filters}
             selectedCategoryAmount={filteredResult.length}
             categories={chipCategories}
-            handleChipClick={handleCategoriesSelection}
+            applyCategory={handleCategoriesSelection}
           />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
