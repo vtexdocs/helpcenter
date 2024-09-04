@@ -10,18 +10,18 @@ interface ChipFilterProps {
   filters: string[]
   categories: string[]
   applyCategory: (option: string) => void
-  selectedCategoryAmount: number
   resetFilters: () => void
   removeCategory: (option: string) => void
+  getCategoryAmount: (category: string) => number
 }
 
 export default function ChipFilter({
   filters,
   categories,
   applyCategory,
-  selectedCategoryAmount,
   resetFilters,
   removeCategory,
+  getCategoryAmount,
 }: ChipFilterProps) {
   const intl = useIntl()
 
@@ -95,13 +95,12 @@ export default function ChipFilter({
             value={intl.formatMessage({ id: 'chip.all_results' })}
             isActive={!filters.length}
             applyCategory={() => resetFilters()}
-            categoryAmount={selectedCategoryAmount}
           />
           {categories.map((filter: string) => (
             <Chip
               removeCategory={() => removeCategory(filter)}
               value={filter}
-              categoryAmount={selectedCategoryAmount}
+              categoryAmount={getCategoryAmount(filter)}
               applyCategory={() => applyCategory(filter)}
               isActive={isCategoryActive(filter)}
             />
@@ -167,16 +166,9 @@ interface MainChipProps {
   value: string
   isActive: boolean
   applyCategory: () => void
-  categoryAmount?: number
-  filled?: boolean
 }
 
-function MainChip({
-  value,
-  isActive,
-  applyCategory,
-  categoryAmount,
-}: MainChipProps) {
+function MainChip({ value, isActive, applyCategory }: MainChipProps) {
   return (
     <Button
       variant="tertiary"
@@ -186,9 +178,6 @@ function MainChip({
       onClick={() => applyCategory()}
     >
       {value}
-      {isActive && categoryAmount !== undefined && (
-        <Text style={styles.articlesAmount}>{categoryAmount}</Text>
-      )}
     </Button>
   )
 }

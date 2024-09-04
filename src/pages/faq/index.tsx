@@ -102,6 +102,12 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
     setFilters(copyFilters)
   }
 
+  function getCategoryAmount(category: string): number {
+    return faqData.filter((data) => {
+      return data.productTeam === category
+    }).length
+  }
+
   return (
     <>
       <Head>
@@ -156,7 +162,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             removeCategory={handleFilterRemoval}
             resetFilters={handleFilterReset}
             filters={filters}
-            selectedCategoryAmount={filteredResult.length}
+            getCategoryAmount={getCategoryAmount}
             categories={chipCategories}
             applyCategory={handleCategoriesSelection}
           />
