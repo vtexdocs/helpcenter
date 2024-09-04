@@ -1,4 +1,4 @@
-import { Flex } from '@vtex/brand-ui'
+import { Box, Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
@@ -167,6 +167,13 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             applyCategory={handleCategoriesSelection}
           />
           <Flex sx={styles.cardContainer}>
+            {!!filteredResult.length && (
+              <Box sx={styles.resultsNumberContainer}>
+                {filteredResult.length}{' '}
+                {intl.formatMessage({ id: 'faq_page.results_found' })}
+              </Box>
+            )}
+
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
                 {intl.formatMessage({ id: 'search_result.empty' })}

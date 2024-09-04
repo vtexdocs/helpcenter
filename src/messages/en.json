@@ -260,6 +260,7 @@
   "announcements_page_search.placeholder": "Search in Announcements...",
   "search_result.empty": "No matching results.",
   "faq_filter.title": "Products",
+  "faq_page.results_found": "results found",
   "sitemap_page.title": "Sitemap",
   "sitemap_page_section_additional_resources.title": "Additional resources",
   "sitemap_page_section_additional_resources.support_rules": "Support Rules",
