@@ -96,6 +96,12 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
     setFilters([])
   }
 
+  function handleFilterRemoval(category: string) {
+    const copyFilters = [...filters]
+    copyFilters.splice(copyFilters.indexOf(category), 1)
+    setFilters(copyFilters)
+  }
+
   return (
     <>
       <Head>
@@ -147,11 +153,12 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             onChange={(value: string) => setSearch(value)}
           />
           <ChipFilter
+            removeCategory={handleFilterRemoval}
             resetFilters={handleFilterReset}
             filters={filters}
             selectedCategoryAmount={filteredResult.length}
             categories={chipCategories}
-            handleChipClick={handleCategoriesSelection}
+            applyCategory={handleCategoriesSelection}
           />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (

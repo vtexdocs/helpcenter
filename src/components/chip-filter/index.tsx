@@ -9,17 +9,19 @@ import { useRef, useState } from 'react'
 interface ChipFilterProps {
   filters: string[]
   categories: string[]
-  handleChipClick: (option: string) => void
+  applyCategory: (option: string) => void
   selectedCategoryAmount: number
   resetFilters: () => void
+  removeCategory: (option: string) => void
 }
 
 export default function ChipFilter({
   filters,
   categories,
-  handleChipClick,
+  applyCategory,
   selectedCategoryAmount,
   resetFilters,
+  removeCategory,
 }: ChipFilterProps) {
   const intl = useIntl()
 
@@ -89,17 +91,18 @@ export default function ChipFilter({
         onScroll={handleContainerScroll}
       >
         <Box style={styles.optionsContainer}>
-          <Chip
+          <MainChip
             value={intl.formatMessage({ id: 'chip.all_results' })}
             isActive={!filters.length}
-            handleChipClick={() => resetFilters()}
+            applyCategory={() => resetFilters()}
             categoryAmount={selectedCategoryAmount}
           />
           {categories.map((filter: string) => (
             <Chip
+              removeCategory={() => removeCategory(filter)}
               value={filter}
               categoryAmount={selectedCategoryAmount}
-              handleChipClick={() => handleChipClick(filter)}
+              applyCategory={() => applyCategory(filter)}
               isActive={isCategoryActive(filter)}
             />
           ))}
@@ -125,18 +128,62 @@ export default function ChipFilter({
 interface ChipProps {
   value: string
   isActive: boolean
-  handleChipClick: () => void
-  categoryAmount?: number
+  applyCategory: () => void
+  categoryAmount: number
+  removeCategory: () => void
 }
 
-function Chip({ value, isActive, handleChipClick, categoryAmount }: ChipProps) {
+function Chip({
+  value,
+  isActive,
+  applyCategory,
+  categoryAmount,
+  removeCategory,
+}: ChipProps) {
+  function handleChipClick(active: boolean) {
+    if (active) {
+      return removeCategory()
+    }
+    applyCategory()
+  }
+
   return (
     <Button
       variant="tertiary"
       size="small"
       type="button"
       sx={isActive ? styles.activeChip : styles.inactiveChip}
-      onClick={() => handleChipClick()}
+      onClick={() => handleChipClick(isActive)}
+    >
+      {value}
+      {isActive && categoryAmount !== undefined && (
+        <Text style={styles.articlesAmount}>{categoryAmount}</Text>
+      )}
+    </Button>
+  )
+}
+
+interface MainChipProps {
+  value: string
+  isActive: boolean
+  applyCategory: () => void
+  categoryAmount?: number
+  filled?: boolean
+}
+
+function MainChip({
+  value,
+  isActive,
+  applyCategory,
+  categoryAmount,
+}: MainChipProps) {
+  return (
+    <Button
+      variant="tertiary"
+      size="small"
+      type="button"
+      sx={isActive ? styles.activeChip : styles.inactiveChip}
+      onClick={() => applyCategory()}
     >
       {value}
       {isActive && categoryAmount !== undefined && (
