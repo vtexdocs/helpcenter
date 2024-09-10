@@ -62,6 +62,13 @@ code,
 pre *,
 code * {
   font-family: Consolas,monaco,monospace !important;
+  color: #37e1ff;
+  background-color: #1B1E28;
+}
+
+pre{
+  padding: 16px;
+  border-radius: 6px;
 }
 
 table td,
