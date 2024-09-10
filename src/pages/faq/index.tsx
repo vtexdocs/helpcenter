@@ -140,6 +140,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
+              selectedCheckboxes={filters}
               checkBoxFilter={faqFilter(intl)}
               onApply={(newFilters) => handleFilterApply(newFilters.checklist)}
             />

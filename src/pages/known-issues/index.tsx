@@ -127,6 +127,8 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
             <Filter
               tagFilter={knownIssuesStatusFilter(intl)}
               checkBoxFilter={knownIssuesModulesFilters(intl)}
+              selectedCheckboxes={filters.modules}
+              selectedTags={filters.status}
               onApply={(newFilters) =>
                 setFilters({
                   status: newFilters.tag,
