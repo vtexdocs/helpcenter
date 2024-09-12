@@ -65,13 +65,7 @@ export async function getDocsPaths(
     if (path.startsWith(`docs/`)) {
       const match = path.match(re)
       const localeDir = match?.groups?.localeDir ? match?.groups?.localeDir : ''
-      // console.log('LOCALEDIR ------------ '+localeDir)
-      // console.log('PATH -------- '+path)
-      // console.log('BRANCH -------- '+branch)
-      if (
-        localeDir.startsWith(category) ||
-        localeDir.startsWith(`test/${category}`)
-      ) {
+      if (localeDir.startsWith(category)) {
         const filename = match?.groups?.filename ? match?.groups?.filename : ''
         const filetype = match?.groups?.filetype ? match?.groups?.filetype : ''
         const fileLocale = match?.groups?.locale ? match?.groups?.locale : ''
