@@ -44,6 +44,7 @@ import DateText from 'components/date-text'
 const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
 
 interface Props {
+  slug: string
   sectionSelected: string
   breadcrumbList: { slug: string; name: string; type: string }[]
   content: string
@@ -57,6 +58,7 @@ interface Props {
 const KnownIssuePage: NextPage<Props> = ({
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
+  slug,
   serialized,
   headingList,
   contributors,
@@ -86,6 +88,7 @@ const KnownIssuePage: NextPage<Props> = ({
       <Head>
         <title>{serialized.frontmatter?.title as string}</title>
         <meta name="docsearch:doctype" content="Start here" />
+        <meta name="docsearch:slug" content={slug} />
         {serialized.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />
         )}
