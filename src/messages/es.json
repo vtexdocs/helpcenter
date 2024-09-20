@@ -230,6 +230,7 @@
   "menu_status.title": "Status",
   "known_issues_page.title": "Problemas conhecidos",
   "known_issues_page.subtitle": "Encontre todos os problemas conhecidos e saiba seu status e soluções.",
+  "known_issues_page_search.placeholder": "Búsqueda de Problemas Conocidos...",
   "filter_modal.title": "Filtros",
   "filter_modal.remove": "Eliminar filtros",
   "filter_modal.button": "Aplicar filtros",
