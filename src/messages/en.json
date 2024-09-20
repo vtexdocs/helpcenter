@@ -224,6 +224,7 @@
   "menu_status.title": "Status",
   "known_issues_page.title": "Known issues",
   "known_issues_page.subtitle": "Find all the identified issues and their solutions.",
+  "known_issues_page_search.placeholder": "Search for Known Issues",
   "filter_modal.title": "Filters",
   "filter_modal.remove": "Remove filters",
   "filter_modal.button": "Apply filters",
