@@ -14,6 +14,7 @@
   "landing_page_faq.title": "Preguntas Frecuentes",
   "landing_page_faq.description": "Encuentre respuestas a preguntas frecuentes de manera rápida y práctica",
   "landing_page_faq.button": "Ver todas las preguntas",
+  "faq_page_search.placeholder": "Buscar por Preguntas Frecuentes...",
   "faq_order_error.title": "Errores de integración de pedidos en marketplaces",
   "faq_order_error.description": "Entenda como identificar errores en pedidos externos.",
   "faq_handling.title": "¿Por qué está mi pedido parado en “Listo para preparar“?",

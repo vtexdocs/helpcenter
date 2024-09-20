@@ -14,6 +14,7 @@
   "landing_page_faq.title": "Frequently Asked Questions",
   "landing_page_faq.description": "Find the answers to the frequently asked questions in a quick and practical way.",
   "landing_page_faq.button": "See all questions",
+  "faq_page_search.placeholder": "Search for Frequently Asked Questions...",
   "faq_order_error.title": "Order errors in marketplace integrations",
   "faq_order_error.description": "These errors are commonly related to one of the following situations.",
   "faq_handling.title": "Why has my order stopped on “Ready for Handling”?",
