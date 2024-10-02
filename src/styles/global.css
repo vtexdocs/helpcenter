@@ -72,6 +72,7 @@ table th {
   font-size: 0.875em;
   border: 1px solid #e7e9ef;
   padding: 0.5em;
+  min-width: 60px;
 }
 
 table tbody tr:nth-of-type(even) {

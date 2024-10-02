@@ -52,7 +52,7 @@ const articleBox: SxStyleProp = {
   },
   strong: {
     fontWeight: '600',
-    overflowWrap: 'anywhere',
+    overflowWrap: 'break-word',
   },
   hr: {
     border: '0.5px solid #E7E9EE',
