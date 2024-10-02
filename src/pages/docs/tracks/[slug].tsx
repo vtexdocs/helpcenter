@@ -44,7 +44,6 @@ import {
   localeType,
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
-// import { ParsedUrlQuery } from 'querystring'
 
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import TimeToRead from 'components/TimeToRead'
@@ -176,23 +175,18 @@ const TrackPage: NextPage<Props> = ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // const slugs: { [slug: string]: { locale: string; path: string }[] } =
-  //   await getTracksPaths('tracks')
+  const slugs: { [slug: string]: { locale: string; path: string }[] } =
+    await getTracksPaths('tracks')
 
-  // const paths: (
-  //   | string
-  //   | {
-  //       params: ParsedUrlQuery
-  //       locale?: string | undefined
-  //     }
-  // )[] = []
-  // Object.entries(slugs).forEach(([slug, locales]) => {
-  //   locales.forEach(({ locale }) => {
-  //     paths.push({ params: { slug }, locale })
-  //   })
-  // })
+  const paths = Object.entries(slugs).flatMap(([slug, locales]) =>
+    locales.map(({ locale }) => ({
+      params: { slug },
+      locale,
+    }))
+  )
+
   return {
-    paths: [],
+    paths,
     fallback: 'blocking',
   }
 }
@@ -376,10 +370,6 @@ export const getStaticProps: GetStaticProps = async ({
       sidebarfallback,
       `$..[?(@.type=='markdown')]..name`
     )
-    const docsListType = jp.query(
-      sidebarfallback,
-      `$..[?(@.type=='markdown')]..type`
-    )
     const indexOfSlug = docsListSlug.indexOf(slug)
     const pagination = {
       previousDoc: {
@@ -408,11 +398,8 @@ export const getStaticProps: GetStaticProps = async ({
     const parentsArray: string[] = []
     const parentsArrayName: string[] = []
     const parentsArrayType: string[] = []
-    let sectionSelected = ''
+    const sectionSelected = ''
     if (keyPath) {
-      sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
-      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-      parentsArray.push(slug)
       getParents(
         keyPath,
         'name',
@@ -420,30 +407,33 @@ export const getStaticProps: GetStaticProps = async ({
         currentLocale,
         parentsArrayName
       )
-      parentsArrayName.push(docsListName[indexOfSlug][currentLocale])
-      getParents(
-        keyPath,
-        'type',
-        flattenedSidebar,
-        currentLocale,
-        parentsArrayType
-      )
-      parentsArrayType.push(docsListType[indexOfSlug])
+      if (
+        docsListName[indexOfSlug] &&
+        docsListName[indexOfSlug][currentLocale]
+      ) {
+        parentsArrayName.push(docsListName[indexOfSlug][currentLocale])
+      } else {
+        console.error(
+          `Error: docsListName or currentLocale not found for slug: ${slug}`
+        )
+      }
     }
 
     const breadcrumbList: { slug: string; name: string; type: string }[] = []
     parentsArrayName.forEach((_el: string, idx: number) => {
       breadcrumbList.push({
-        slug: `/docs/tracks/${parentsArray[idx]}`,
+        slug: `/${locale}/docs/tracks/${parentsArray[idx]}`,
         name: parentsArrayName[idx],
-        type: parentsArrayType[idx],
+        type: parentsArrayType[idx] || 'defaultType',
       })
     })
 
     return {
       props: {
         sectionSelected,
-        parentsArray,
+        parentsArray: parentsArray.map((item) =>
+          item === undefined ? null : item
+        ),
         slug,
         serialized,
         sidebarfallback,
