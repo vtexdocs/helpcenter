@@ -307,7 +307,9 @@ export const getStaticProps: GetStaticProps = async ({
     return {
       props: {
         sectionSelected,
-        parentsArray,
+        parentsArray: parentsArray.map((item) =>
+          item === undefined ? null : item
+        ),
         slug,
         serialized,
         sidebarfallback,
