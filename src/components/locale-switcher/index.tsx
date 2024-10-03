@@ -25,6 +25,9 @@ interface NavigationData {
       slug: string | Slug
       children: {
         slug: string | Slug
+        children: {
+          slug: string | Slug
+        }[]
       }[]
     }[]
   }[]
@@ -32,22 +35,53 @@ interface NavigationData {
 
 const findLocalizedSlug = (slug: string, locale: keyof Slug): string => {
   const data: NavigationData = navigationData
+
   for (const item of data.navbar) {
     for (const category of item.categories) {
-      if (typeof category.slug === 'object' && category.slug[locale]) {
-        return category.slug[locale] || slug
-      } else if (category.slug === slug) {
-        return (category.slug as unknown as Slug)[locale] || slug
-      }
       for (const child of category.children) {
-        if (typeof child.slug === 'object' && child.slug[locale]) {
-          return child.slug[locale] || slug
+        // Iterate through the children of the child categories first
+        for (const grandchild of child.children) {
+          if (typeof grandchild.slug === 'object') {
+            // Check if the current locale slug matches
+            const currentLocaleSlug = Object.values(grandchild.slug).find(
+              (s) => s === slug
+            )
+
+            if (currentLocaleSlug) {
+              console.log(
+                `Found matching grandchild slug: ${
+                  grandchild.slug[locale] || slug
+                }`
+              )
+              return grandchild.slug[locale] || slug
+            }
+          } else if (grandchild.slug === slug) {
+            console.log(`Found matching grandchild slug: ${grandchild.slug}`)
+            return (grandchild.slug as unknown as Slug)[locale] || slug
+          }
+        }
+
+        // Now check the child categories
+        if (typeof child.slug === 'object') {
+          // Check if the current locale slug matches
+          const currentLocaleSlug = Object.values(child.slug).find(
+            (s) => s === slug
+          )
+          if (currentLocaleSlug) {
+            console.log(
+              `Found matching child slug: ${child.slug[locale] || slug}`
+            )
+            return child.slug[locale] || slug
+          }
         } else if (child.slug === slug) {
+          console.log(`Found matching child slug: ${child.slug}`)
           return (child.slug as unknown as Slug)[locale] || slug
         }
       }
     }
   }
+
+  console.log(`No matching slug found, returning original slug: ${slug}`)
   return slug
 }
 
@@ -78,7 +112,7 @@ export default function LocaleSwitcher() {
     const newPathParts = pathParts.filter((part) => part !== currentLocale)
 
     const contentType = newPathParts[2]
-    const currentSlug = newPathParts.slice(2).join('/')
+    const currentSlug = newPathParts[3]
     const localizedSlug = findLocalizedSlug(currentSlug, locale)
 
     const newPath = `/${locale}/docs/${contentType}/${localizedSlug}`
