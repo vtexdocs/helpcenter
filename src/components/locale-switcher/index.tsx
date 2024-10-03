@@ -33,7 +33,10 @@ interface NavigationData {
   }[]
 }
 
-const findLocalizedSlug = (slug: string, locale: keyof Slug): string => {
+const findLocalizedSlug = async (
+  slug: string,
+  locale: keyof Slug
+): Promise<string> => {
   const data: NavigationData = navigationData
 
   for (const item of data.navbar) {
@@ -81,7 +84,10 @@ const findLocalizedSlug = (slug: string, locale: keyof Slug): string => {
     }
   }
 
-  console.log(`No matching slug found, returning original slug: ${slug}`)
+  console.log(
+    `No matching slug found in navbar, returning the original slug: ${slug}`
+  )
+
   return slug
 }
 
@@ -102,7 +108,7 @@ export default function LocaleSwitcher() {
     },
   ]
 
-  const handleOptionClick = (option: string) => {
+  const handleOptionClick = async (option: string) => {
     const locale = option as keyof Slug
     const currentPath = window.location.pathname
     const pathParts = currentPath.split('/')
@@ -111,12 +117,25 @@ export default function LocaleSwitcher() {
     const currentLocale = pathParts[1]
     const newPathParts = pathParts.filter((part) => part !== currentLocale)
 
-    const contentType = newPathParts[2]
-    const currentSlug = newPathParts[3]
-    const localizedSlug = findLocalizedSlug(currentSlug, locale)
-
-    const newPath = `/${locale}/docs/${contentType}/${localizedSlug}`
-    window.location.href = newPath
+    if (currentPath.includes('/docs/')) {
+      const contentType = newPathParts[2]
+      const currentSlug = newPathParts[3]
+      const localizedSlug = await findLocalizedSlug(currentSlug, locale)
+      const newPath = `/${locale}/docs/${contentType}/${localizedSlug}`
+      console.log(newPath)
+      window.location.href = newPath
+    } else if (
+      currentPath.includes('/announcements/') ||
+      currentPath.includes('/faq/') ||
+      currentPath.includes('/known-issues/')
+    ) {
+      const contentType = newPathParts[1]
+      const currentSlug = newPathParts[2]
+      const localizedSlug = await findLocalizedSlug(currentSlug, locale)
+      const newPath = `/${locale}/${contentType}/${localizedSlug}`
+      console.log(newPath)
+      window.location.href = newPath
+    }
   }
 
   const disclosure = useDisclosureState({ visible: false })
