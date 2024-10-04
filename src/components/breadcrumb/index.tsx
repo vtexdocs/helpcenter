@@ -9,29 +9,20 @@ interface Props {
 const Breadcrumb = ({ breadcrumbList }: Props) => {
   return (
     <Flex sx={styles.breadcrumb}>
-      {breadcrumbList.map((item, idx) =>
-        item.type === 'category' ? (
-          <>
-            <Text>{item.name}</Text>
-            {idx < breadcrumbList.length - 1 ? (
-              <IconCaret direction="right" size={16} />
-            ) : (
-              ''
-            )}
-          </>
-        ) : (
-          <>
+      {breadcrumbList.map((item, idx) => (
+        <>
+          {item.type === 'markdown' ? (
             <Link sx={styles.breadcrumbItem} href={item.slug}>
               {item.name}
             </Link>
-            {idx < breadcrumbList.length - 1 ? (
-              <IconCaret direction="right" size={16} />
-            ) : (
-              ''
-            )}
-          </>
-        )
-      )}
+          ) : (
+            <Text>{item.name}</Text>
+          )}
+          {idx < breadcrumbList.length - 1 ? (
+            <IconCaret direction="right" size={16} />
+          ) : null}
+        </>
+      ))}
     </Flex>
   )
 }
