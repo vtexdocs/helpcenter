@@ -48,6 +48,7 @@ import { MarkdownRenderer } from '@vtexdocs/components'
 
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import TimeToRead from 'components/TimeToRead'
+import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 
 const docsPathsGLOBAL = await getTracksPaths('tracks')
 
@@ -431,14 +432,8 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArrayType.push(docsListType[indexOfSlug])
     }
 
-    const breadcrumbList: { slug: string; name: string; type: string }[] = []
-    parentsArrayName.forEach((_el: string, idx: number) => {
-      breadcrumbList.push({
-        slug: `/docs/tracks/${parentsArray[idx]}`,
-        name: parentsArrayName[idx],
-        type: parentsArrayType[idx],
-      })
-    })
+    const breadcrumbList: { slug: string; name: string; type: string }[] =
+      getBreadcrumbsList(parentsArray, parentsArrayName, parentsArrayType)
 
     return {
       props: {

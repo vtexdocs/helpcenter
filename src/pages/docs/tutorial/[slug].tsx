@@ -38,6 +38,7 @@ import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 
 import TutorialIndexing from 'components/tutorial-index'
 import TutorialMarkdownRender from 'components/tutorial-markdown-render'
+import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 
 // import { ParsedUrlQuery } from 'querystring'
 
@@ -239,14 +240,8 @@ export const getStaticProps: GetStaticProps = async ({
   const sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
   console.log('TUTORIAL', sectionSelected)
 
-  const breadcrumbList: { slug: string; name: string; type: string }[] = []
-  parentsArrayName.forEach((_el: string, idx: number) => {
-    breadcrumbList.push({
-      slug: `/docs/tutorial/${parentsArray[idx]}`,
-      name: parentsArrayName[idx],
-      type: parentsArrayType[idx],
-    })
-  })
+  const breadcrumbList: { slug: string; name: string; type: string }[] =
+    getBreadcrumbsList(parentsArray, parentsArrayName, parentsArrayType)
 
   if (type === 'tutorial-category') {
     const childrenArrayName: string[] = []
