@@ -261,7 +261,7 @@ export const getStaticProps: GetStaticProps = async ({
       {
         slug,
         name: serialized?.frontmatter?.title ?? '',
-        type: '',
+        type: 'markdown',
       },
     ]
 
