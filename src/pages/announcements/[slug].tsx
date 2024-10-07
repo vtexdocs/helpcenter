@@ -91,7 +91,7 @@ const AnnouncementPage: NextPage<Props> = ({
   }, [])
 
   const breadcrumb = {
-    slug: '/announcements',
+    slug: `/announcements`,
     name: intl.formatMessage({ id: 'announcements_page.title' }),
     type: 'category',
   }
