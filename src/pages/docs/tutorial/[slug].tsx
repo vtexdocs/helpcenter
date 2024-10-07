@@ -35,9 +35,10 @@ import {
 } from 'utils/navigation-utils'
 
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
-
+import { remarkCodeHike } from '@code-hike/mdx'
 import TutorialIndexing from 'components/tutorial-index'
 import TutorialMarkdownRender from 'components/tutorial-markdown-render'
+import theme from 'styles/code-hike-theme'
 
 // import { ParsedUrlQuery } from 'querystring'
 
@@ -395,12 +396,14 @@ export const getStaticProps: GetStaticProps = async ({
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [
+          [remarkCodeHike, theme],
           remarkGFM,
           remarkImages,
           [getHeadings, { headingList }],
           remarkBlockquote,
           remarkReadingTime,
         ],
+        useDynamicImport: true,
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],

@@ -10,7 +10,7 @@ import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
-
+import { remarkCodeHike } from '@code-hike/mdx'
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
@@ -47,6 +47,8 @@ import { MarkdownRenderer } from '@vtexdocs/components'
 // import { ParsedUrlQuery } from 'querystring'
 
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
+
+import theme from 'styles/code-hike-theme'
 import TimeToRead from 'components/TimeToRead'
 
 const docsPathsGLOBAL = await getTracksPaths('tracks')
@@ -299,12 +301,14 @@ export const getStaticProps: GetStaticProps = async ({
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [
+          [remarkCodeHike, theme],
           remarkGFM,
           remarkImages,
           [getHeadings, { headingList }],
           remarkBlockquote,
           remarkReadingTime,
         ],
+        useDynamicImport: true,
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],

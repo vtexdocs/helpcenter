@@ -8,6 +8,8 @@ import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
+import { remarkCodeHike } from '@code-hike/mdx'
+import theme from 'styles/code-hike-theme'
 
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 
@@ -231,10 +233,12 @@ export const getStaticProps: GetStaticProps = async ({
         remarkPlugins: [
           remarkGFM,
           remarkImages,
+          [remarkCodeHike, theme],
           [getHeadings, { headingList }],
           remarkBlockquote,
           remarkReadingTime,
         ],
+        useDynamicImport: true,
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],
