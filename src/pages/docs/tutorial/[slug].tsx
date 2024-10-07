@@ -242,7 +242,12 @@ export const getStaticProps: GetStaticProps = async ({
   console.log('TUTORIAL', sectionSelected)
 
   const breadcrumbList: { slug: string; name: string; type: string }[] =
-    getBreadcrumbsList(parentsArray, parentsArrayName, parentsArrayType)
+    getBreadcrumbsList(
+      parentsArray,
+      parentsArrayName,
+      parentsArrayType,
+      'tutorial'
+    )
 
   if (type === 'tutorial-category') {
     const childrenArrayName: string[] = []
