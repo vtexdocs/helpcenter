@@ -408,7 +408,12 @@ export const getServerSideProps: GetServerSideProps = async ({
     }
 
     const breadcrumbList: { slug: string; name: string; type: string }[] =
-      getBreadcrumbsList(parentsArray, parentsArrayName, parentsArrayType)
+      getBreadcrumbsList(
+        parentsArray,
+        parentsArrayName,
+        parentsArrayType,
+        'tracks'
+      )
 
     return {
       props: {
