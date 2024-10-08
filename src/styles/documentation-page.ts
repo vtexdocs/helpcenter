@@ -52,7 +52,7 @@ const articleBox: SxStyleProp = {
   },
   strong: {
     fontWeight: '600',
-    overflowWrap: 'anywhere',
+    overflowWrap: 'break-word',
   },
   hr: {
     border: '0.5px solid #E7E9EE',
@@ -112,12 +112,6 @@ const releaseAction: SxStyleProp = {
 const divider: SxStyleProp = {
   marginTop: '20px',
   borderBottom: '1px solid #E7E9EE',
-}
-
-const readingTime: SxStyleProp = {
-  color: '#A1AAB7',
-  fontSize: '16px',
-  lineHeight: '18px',
 }
 
 const flexContainer: SxStyleProp = {
@@ -183,7 +177,6 @@ export default {
   documentationExcerpt,
   innerContainer,
   divider,
-  readingTime,
   flexContainer,
   detailedInfo,
   id,

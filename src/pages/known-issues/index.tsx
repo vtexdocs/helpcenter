@@ -38,8 +38,6 @@ interface Props {
   totalPages: number
 }
 
-const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
-
 const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
@@ -169,6 +167,7 @@ export const getStaticProps: GetStaticProps = async ({
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
+  const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
   const logger = getLogger('Known Issues')
   const currentLocale: localeType = locale
     ? (locale as localeType)

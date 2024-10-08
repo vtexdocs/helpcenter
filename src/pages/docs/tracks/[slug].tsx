@@ -10,7 +10,7 @@ import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
-
+import { remarkCodeHike } from '@code-hike/mdx'
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
@@ -45,8 +45,11 @@ import {
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 // import { ParsedUrlQuery } from 'querystring'
-import { useIntl } from 'react-intl'
+
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
+
+import theme from 'styles/code-hike-theme'
+import TimeToRead from 'components/TimeToRead'
 
 const docsPathsGLOBAL = await getTracksPaths('tracks')
 
@@ -95,7 +98,6 @@ const TrackPage: NextPage<Props> = ({
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-  const intl = useIntl()
   setBranchPreview(branch)
   const { setActiveSidebarElement } = useContext(LibraryContext)
   const articleRef = useRef<HTMLElement>(null)
@@ -131,15 +133,11 @@ const TrackPage: NextPage<Props> = ({
                     <Text sx={styles.documentationTitle} className="title">
                       {serialized.frontmatter?.title}
                     </Text>
-                    <Text sx={styles.readingTime}>
-                      {intl.formatMessage(
-                        {
-                          id: 'documentation_reading_time.text',
-                          defaultMessage: '',
-                        },
-                        { minutes: serialized.frontmatter?.readingTime }
-                      )}
-                    </Text>
+                    {serialized.frontmatter?.readingTime && (
+                      <TimeToRead
+                        minutes={serialized.frontmatter.readingTime}
+                      />
+                    )}
                   </Flex>
                 </header>
                 <MarkdownRenderer serialized={serialized} />
@@ -303,12 +301,14 @@ export const getStaticProps: GetStaticProps = async ({
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [
+          [remarkCodeHike, theme],
           remarkGFM,
           remarkImages,
           [getHeadings, { headingList }],
           remarkBlockquote,
           remarkReadingTime,
         ],
+        useDynamicImport: true,
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],
@@ -433,12 +433,6 @@ export const getStaticProps: GetStaticProps = async ({
         parentsArrayType
       )
       parentsArrayType.push(docsListType[indexOfSlug])
-
-      if (serialized.frontmatter) {
-        serialized.frontmatter.title = `${
-          docsListName[indexOfSlug][currentLocale].split(' ')[0]
-        } ${serialized.frontmatter.title}`
-      }
     }
 
     const breadcrumbList: { slug: string; name: string; type: string }[] = []
