@@ -4,7 +4,6 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import Head from 'next/head'
 import { useContext, useEffect, useRef, useState } from 'react'
-import { useIntl } from 'react-intl'
 import DocumentContextProvider from 'utils/contexts/documentContext'
 import { ContributorsType } from 'utils/getFileContributors'
 import styles from 'styles/documentation-page'
@@ -29,6 +28,7 @@ import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 import { getMessages } from 'utils/get-messages'
+import TimeToRead from 'components/TimeToRead'
 
 interface Props {
   sectionSelected: string
@@ -52,7 +52,7 @@ const TroubleshootingPage: NextPage<Props> = ({
 }: Props) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-  const intl = useIntl()
+
   setBranchPreview(branch)
   const articleRef = useRef<HTMLElement>(null)
 
@@ -94,15 +94,11 @@ const TroubleshootingPage: NextPage<Props> = ({
                     <Text sx={styles.documentationTitle} className="title">
                       {serialized.frontmatter?.title}
                     </Text>
-                    <Text sx={styles.readingTime}>
-                      {intl.formatMessage(
-                        {
-                          id: 'documentation_reading_time.text',
-                          defaultMessage: '',
-                        },
-                        { minutes: serialized.frontmatter?.readingTime }
-                      )}
-                    </Text>
+                    <TimeToRead
+                      minutes={
+                        (serialized.frontmatter?.readingTime as string) ?? 0
+                      }
+                    />
                     {createdAtDate && updatedAtDate && (
                       <DateText
                         createdAt={createdAtDate}
