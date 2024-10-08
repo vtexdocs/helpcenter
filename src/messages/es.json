@@ -254,6 +254,7 @@
   "announcements_page_search.placeholder": "Buscar en Anuncios...",
   "search_result.empty": "Ningún resultado coincidente. Pruebe con otros filtros.",
   "faq_filter.title": "Produtos",
+  "faq_page.results_found": "resultados encontrados",
   "sitemap_page.title": "Mapa del sitio",
   "sitemap_page_section_additional_resources.title": "Recursos adicionales",
   "sitemap_page_section_additional_resources.support_rules": "Directrices de Soporte",
@@ -263,5 +264,6 @@
   "sitemap_page_section_additional_resources.dev_portal": "Portal de Desarrolladores",
   "sitemap_page_section_additional_resources.support": "Ayuda",
   "sitemap_page_section_additional_resources.community": "Comunidad",
-  "sitemap_page_section_additional_resources.feedback": "Comentarios"
+  "sitemap_page_section_additional_resources.feedback": "Comentarios",
+  "chip.all_results": "Todos resultados"
 }
