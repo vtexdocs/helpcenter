@@ -46,7 +46,9 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
     const data = faqData.filter((question) => {
       const hasFilter: boolean =
         filters.length === 0 || filters.includes(question.productTeam)
-      const hasSearch: boolean = question.title.includes(search)
+      const hasSearch: boolean = question.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
 
       return hasFilter && hasSearch
     })
