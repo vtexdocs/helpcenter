@@ -19,13 +19,13 @@ const FaqCard = ({
   return (
     <Link href={`faq/${slug}`}>
       <Box sx={styles.container}>
-        <Tag color={'Gray'} sx={styles.tag}>
-          {productTeam}
-        </Tag>
         <Text sx={styles.title} className="title">
           {title}
         </Text>
         <DateText createdAt={createdAtDate} updatedAt={updatedAtDate} />
+        <Tag color={'Gray'} sx={styles.tag}>
+          {productTeam}
+        </Tag>
       </Box>
     </Link>
   )
