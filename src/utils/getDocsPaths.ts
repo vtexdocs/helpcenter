@@ -62,17 +62,20 @@ export async function getDocsPaths(
     const path = node.path
     const re =
       /^(?<path>.+\/)*(?<locale>pt|es|en+)\/(?<localeDir>.+\/)*(?<filename>.+)\.(?<filetype>.+)$/
-    if (path.startsWith(`docs/${category}`)) {
+    if (path.startsWith(`docs/`)) {
       const match = path.match(re)
-      const filename = match?.groups?.filename ? match?.groups?.filename : ''
-      const filetype = match?.groups?.filetype ? match?.groups?.filetype : ''
-      const fileLocale = match?.groups?.locale ? match?.groups?.locale : ''
-      if (filetype === 'md' || filetype === 'mdx') {
-        if (!docsPaths[filename]) docsPaths[filename] = []
-        docsPaths[filename].push({
-          locale: fileLocale,
-          path,
-        })
+      const localeDir = match?.groups?.localeDir ? match?.groups?.localeDir : ''
+      if (localeDir.startsWith(category)) {
+        const filename = match?.groups?.filename ? match?.groups?.filename : ''
+        const filetype = match?.groups?.filetype ? match?.groups?.filetype : ''
+        const fileLocale = match?.groups?.locale ? match?.groups?.locale : ''
+        if (filetype === 'md' || filetype === 'mdx') {
+          if (!docsPaths[filename]) docsPaths[filename] = []
+          docsPaths[filename].push({
+            locale: fileLocale,
+            path,
+          })
+        }
       }
     }
   })

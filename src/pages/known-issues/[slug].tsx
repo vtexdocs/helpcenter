@@ -8,6 +8,8 @@ import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
+import { remarkCodeHike } from '@code-hike/mdx'
+import theme from 'styles/code-hike-theme'
 
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 
@@ -19,6 +21,7 @@ import Contributors from 'components/contributors'
 import OnThisPage from 'components/on-this-page'
 import { Item, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
+import TimeToRead from 'components/TimeToRead'
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
@@ -34,7 +37,7 @@ import { getLogger } from 'utils/logging/log-util'
 import { localeType } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 // import { ParsedUrlQuery } from 'querystring'
-import { useIntl } from 'react-intl'
+
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
@@ -65,7 +68,7 @@ const KnownIssuePage: NextPage<Props> = ({
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-  const intl = useIntl()
+
   setBranchPreview(branch)
   const articleRef = useRef<HTMLElement>(null)
 
@@ -107,15 +110,11 @@ const KnownIssuePage: NextPage<Props> = ({
                     <Text sx={styles.documentationTitle} className="title">
                       {serialized.frontmatter?.title}
                     </Text>
-                    <Text sx={styles.readingTime}>
-                      {intl.formatMessage(
-                        {
-                          id: 'documentation_reading_time.text',
-                          defaultMessage: '',
-                        },
-                        { minutes: serialized.frontmatter?.readingTime }
-                      )}
-                    </Text>
+                    {serialized.frontmatter?.readingTime && (
+                      <TimeToRead
+                        minutes={serialized.frontmatter.readingTime}
+                      />
+                    )}
                   </Flex>
                   <Box sx={styles.divider}></Box>
                   <Flex sx={styles.detailedInfo}>
@@ -241,12 +240,14 @@ export const getStaticProps: GetStaticProps = async ({
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [
+          [remarkCodeHike, theme],
           remarkGFM,
           remarkImages,
           [getHeadings, { headingList }],
           remarkBlockquote,
           remarkReadingTime,
         ],
+        useDynamicImport: true,
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],
