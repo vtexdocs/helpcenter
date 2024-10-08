@@ -61,7 +61,9 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
         (filters.modules.length === 0 ||
           filters.modules.includes(knownIssue.module))
 
-      const hasSearch: boolean = knownIssue.title.includes(search)
+      const hasSearch: boolean = knownIssue.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
       return hasFilter && hasSearch
     })
 
