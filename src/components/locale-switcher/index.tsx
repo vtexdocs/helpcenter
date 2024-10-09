@@ -113,8 +113,11 @@ export default function LocaleSwitcher() {
     const currentPath = window.location.pathname
     const pathParts = currentPath.split('/')
 
-    // Remove the current locale from the path
-    const currentLocale = pathParts[1]
+    // Obtain the current locale
+    const allowedLocales = ['en', 'es', 'pt']
+    const currentLocale = allowedLocales.includes(pathParts[1])
+      ? pathParts[1]
+      : 'en'
     const newPathParts = pathParts.filter((part) => part !== currentLocale)
 
     if (currentPath.includes('/docs/')) {
