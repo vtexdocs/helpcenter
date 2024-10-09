@@ -132,7 +132,7 @@ export default function LocaleSwitcher() {
     } else if (
       currentPath.includes('/announcements') ||
       currentPath.includes('/faq') ||
-      currentPath.includes('/known-issues/')
+      currentPath.includes('/known-issues')
     ) {
       const contentType = newPathParts[1]
       const currentSlug = newPathParts[2]
