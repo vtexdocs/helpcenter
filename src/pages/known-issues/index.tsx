@@ -28,6 +28,8 @@ import {
   sortBy,
 } from 'utils/constants'
 import Select from 'components/select'
+import Input from 'components/input'
+import SearchIcon from 'components/icons/search-icon'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -48,16 +50,21 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
     status: string[]
     modules: string[]
   }>({ status: [], modules: [] })
+  const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
     const data = knownIssuesData.filter((knownIssue) => {
-      return (
+      const hasFilter: boolean =
         (filters.status.length === 0 ||
           filters.status.includes(knownIssue.status)) &&
         (filters.modules.length === 0 ||
           filters.modules.includes(knownIssue.module))
-      )
+
+      const hasSearch: boolean = knownIssue.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+      return hasFilter && hasSearch
     })
 
     data.sort((a, b) => {
@@ -72,7 +79,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
     setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale])
+  }, [filters, sortByValue, intl.locale, search])
 
   const paginatedResult = useMemo(() => {
     return filteredResult.slice(
@@ -134,6 +141,14 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
+          <Input
+            placeholder={intl.formatMessage({
+              id: 'known_issues_page_search.placeholder',
+            })}
+            value={search}
+            Icon={SearchIcon}
+            onChange={(value) => setSearch(value)}
+          />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>

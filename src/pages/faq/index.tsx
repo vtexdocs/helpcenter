@@ -20,6 +20,8 @@ import Select from 'components/select'
 import { faqFilter, sortBy } from 'utils/constants'
 import FaqCard from 'components/faq-card'
 import Filter from 'components/filter'
+import Input from 'components/input'
+import SearchIcon from 'components/icons/search-icon'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -37,11 +39,18 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const itemsPerPage = 5
   const [page, setPage] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<string[]>([])
+  const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
     const data = faqData.filter((question) => {
-      return filters.length === 0 || filters.includes(question.productTeam)
+      const hasFilter: boolean =
+        filters.length === 0 || filters.includes(question.productTeam)
+      const hasSearch: boolean = question.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+
+      return hasFilter && hasSearch
     })
 
     data.sort((a, b) => {
@@ -56,7 +65,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
     setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale])
+  }, [filters, sortByValue, intl.locale, search])
 
   const paginatedResult = useMemo(() => {
     return filteredResult.slice(
@@ -112,6 +121,14 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
+          <Input
+            Icon={SearchIcon}
+            placeholder={intl.formatMessage({
+              id: 'faq_page_search.placeholder',
+            })}
+            value={search}
+            onChange={(value: string) => setSearch(value)}
+          />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>

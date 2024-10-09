@@ -7,7 +7,7 @@ const container: SxStyleProp = {
   alignItems: 'center',
   flexDirection: 'column',
   gap: '16px',
-  width: 'max-content',
+  width: ['320px', '545px', '545px', '720px'],
   maxWidth: '100vw',
 }
 
