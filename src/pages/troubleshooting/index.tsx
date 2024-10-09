@@ -31,8 +31,6 @@ interface Props {
   totalPages: number
 }
 
-const docsPathsGLOBAL = await getTroubleshootingPaths('troubleshooting')
-
 const TroubleshootingPage: NextPage<Props> = ({
   troubleshootingData,
   branch,
@@ -143,8 +141,9 @@ export async function getStaticProps({
   preview,
   previewData,
 }: GetStaticPropsContext) {
-  const batchSize = 100
   const sidebarFallback = await getNavigation()
+
+  const docsPathsGLOBAL = await getTroubleshootingPaths('troubleshooting')
   const sectionSelected = 'troubleshooting'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
@@ -170,13 +169,15 @@ export async function getStaticProps({
     }
   }
 
+  const batchSize = 100
+
   const fetchBatch = async (batch: string[]) => {
     const promises = batch.map(async (slug) => {
       const path = docsPathsGLOBAL[slug]?.find(
         (e) => e.locale === currentLocale
       )?.path
 
-      if (path) return fetchFromGithub(path, slug)
+      if (path) return await fetchFromGithub(path, slug)
 
       return { content: '', slug }
     })
@@ -185,7 +186,6 @@ export async function getStaticProps({
   }
 
   const troubleshootingData: TroubleshootingDataElement[] = []
-
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
     const batchResults = await fetchBatch(batch)
@@ -199,14 +199,15 @@ export async function getStaticProps({
             parseFrontmatter: true,
           })
 
-          if (frontmatter)
+          if (frontmatter) {
             troubleshootingData.push({
-              title: frontmatter.title,
+              title: String(frontmatter.title ?? ''),
               slug: data.slug,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
-              tags: frontmatter.tags.split(','), //TODO: check how tags are separated
+              tags: String(frontmatter.tags ?? '').split(','),
             })
+          }
         } catch (error) {
           logger.error(`${error}`)
         }

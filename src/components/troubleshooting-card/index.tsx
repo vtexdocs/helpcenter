@@ -18,11 +18,13 @@ export default function TroubleshootingCard({
           {title}
         </Text>
         <Box sx={styles.tagsContainer}>
-          {tags.map((moduleTag: string) => (
-            <Tag sx={styles.tag} color={'Gray'}>
-              {moduleTag}
-            </Tag>
-          ))}
+          {tags
+            .filter((moduleTag: string) => moduleTag !== '')
+            .map((moduleTag: string) => (
+              <Tag sx={styles.tag} color={'Gray'}>
+                {moduleTag}
+              </Tag>
+            ))}
         </Box>
       </Box>
     </Link>
