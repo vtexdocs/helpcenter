@@ -47,7 +47,13 @@ export async function getAllDocsPaths(branch = 'main') {
 }
 
 export async function getDocsPaths(
-  category: 'tracks' | 'tutorials' | 'announcements' | 'faq' | 'known-issues',
+  category:
+    | 'tracks'
+    | 'tutorials'
+    | 'announcements'
+    | 'faq'
+    | 'known-issues'
+    | 'troubleshooting',
   branch = 'main'
 ) {
   const docsPaths: { [slug: string]: { locale: string; path: string }[] } = {}

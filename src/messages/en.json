@@ -259,5 +259,12 @@
   "sitemap_page_section_additional_resources.dev_portal": "Developers Portal",
   "sitemap_page_section_additional_resources.support": "Support",
   "sitemap_page_section_additional_resources.community": "Comunity",
-  "sitemap_page_section_additional_resources.feedback": "Feedback"
+  "sitemap_page_section_additional_resources.feedback": "Feedback",
+  "troubleshooting_page.title": "Troubleshooting",
+  "troubleshooting_page.description": "Access the documentation for identifications, diagnostics and corrections for fails in the VTEX platform systems and products",
+  "menu_troubleshooting.title": "Troubleshooting",
+  "menu_troubleshooting.description": "Access the documentation for identifications, diagnostics and corrections for fails in the VTEX platform systems and products",
+  "sidebar_troubleshooting.title": "Troubleshooting",
+  "sidebar_troubleshooting.description": "Access the documentation for identifications, diagnostics and corrections for fails in the VTEX platform systems and products",
+  "troubleshooting_filter_module.title": "Module"
 }
