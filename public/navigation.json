@@ -3643,7 +3643,7 @@
       ]
     },
     {
-      "documentation": "Tutorials & Solutions",
+      "documentation": "Tutorials",
       "slugPrefix": "docs/tutorial",
       "categories": [
         {
@@ -7816,9 +7816,9 @@
         },
         {
           "name": {
-            "en": "Frequently Asked Questions",
+            "en": "Frequently asked questions",
             "es": "Preguntas frecuentes",
-            "pt": "Perguntas Frequentes"
+            "pt": "Perguntas frequentes"
           },
           "slug": "frequently-asked-questions",
           "origin": "",
