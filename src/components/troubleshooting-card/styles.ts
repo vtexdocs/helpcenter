@@ -34,11 +34,12 @@ const title: SxStyleProp = {
 const tag: SxStyleProp = {
   width: 'max-content',
   px: '8px',
-  margin: '0 4px',
+  margin: '4px',
 }
 
 const tagsContainer: SxStyleProp = {
   display: 'flex',
+  flexWrap: 'wrap',
 }
 
 export default {
