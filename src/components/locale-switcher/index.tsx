@@ -120,22 +120,26 @@ export default function LocaleSwitcher() {
       : 'en'
     const newPathParts = pathParts.filter((part) => part !== currentLocale)
 
-    if (currentPath.includes('/docs/')) {
+    if (currentPath.includes('/docs')) {
       const contentType = newPathParts[2]
       const currentSlug = newPathParts[3]
       const localizedSlug = await findLocalizedSlug(currentSlug, locale)
-      const newPath = `/${locale}/docs/${contentType}/${localizedSlug}`
+      const newPath = currentSlug
+        ? `/${locale}/docs/${contentType}/${localizedSlug}`
+        : `/${locale}/docs/${contentType}`
       console.log(newPath)
       window.location.href = newPath
     } else if (
-      currentPath.includes('/announcements/') ||
-      currentPath.includes('/faq/') ||
+      currentPath.includes('/announcements') ||
+      currentPath.includes('/faq') ||
       currentPath.includes('/known-issues/')
     ) {
       const contentType = newPathParts[1]
       const currentSlug = newPathParts[2]
       const localizedSlug = await findLocalizedSlug(currentSlug, locale)
-      const newPath = `/${locale}/${contentType}/${localizedSlug}`
+      const newPath = currentSlug
+        ? `/${locale}/${contentType}/${localizedSlug}`
+        : `/${locale}/${contentType}`
       console.log(newPath)
       window.location.href = newPath
     }
