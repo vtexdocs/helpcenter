@@ -142,6 +142,10 @@ export default function LocaleSwitcher() {
         : `/${locale}/${contentType}`
       console.log(newPath)
       window.location.href = newPath
+    } else {
+      console.log(currentPath)
+      const newPath = `/${locale}`
+      window.location.href = newPath
     }
   }
 
