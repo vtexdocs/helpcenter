@@ -44,7 +44,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
 
   const filteredResult = useMemo(() => {
     const data = announcementsData.filter((announcement) =>
-      announcement.title.toLowerCase().includes(searchTerm.toLowerCase())
+      announcement.title?.toLowerCase().includes(searchTerm.toLowerCase())
     )
 
     data.sort((a, b) => {
@@ -211,7 +211,7 @@ export const getStaticProps: GetStaticProps = async ({
 
           if (frontmatter)
             announcementsData.push({
-              title: frontmatter.title,
+              title: frontmatter.title ?? null,
               url: `announcements/${data.slug}`,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
