@@ -142,15 +142,16 @@ export async function getStaticProps({
   previewData,
 }: GetStaticPropsContext) {
   const sidebarFallback = await getNavigation()
-
-  const docsPathsGLOBAL = await getTroubleshootingPaths('troubleshooting')
   const sectionSelected = 'troubleshooting'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
-
   const branch: string = preview ? previewBranch : 'main'
+  const docsPathsGLOBAL = await getTroubleshootingPaths(
+    'troubleshooting',
+    branch
+  )
   const logger = getLogger('troubleshooting')
   const currentLocale: localeType = (locale ?? 'en') as localeType
 
