@@ -4,8 +4,7 @@
   "private": true,
   "engines": {
     "npm": "please-use-yarn",
-    "yarn": ">= 1.22.18",
-    "node": ">=18.17.0"
+    "yarn": ">= 1.22.18"
   },
   "scripts": {
     "predev": "./getPEM.sh && node src/utils/get-rapidoc.mjs",
