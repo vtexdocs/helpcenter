@@ -2,5 +2,8 @@
 external_node_modules = ["sharp"]
 included_files = ["node_modules/sharp/**/*", "./github.pem"]
 
+[build]
+  node_version = "18.17.0"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
