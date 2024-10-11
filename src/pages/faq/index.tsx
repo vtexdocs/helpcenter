@@ -23,7 +23,6 @@ import Filter from 'components/filter'
 import usePagination from '../../utils/hooks/usePagination'
 import Input from 'components/input'
 import SearchIcon from 'components/icons/search-icon'
-import usePagination from '../../utils/hooks/usePagination'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
