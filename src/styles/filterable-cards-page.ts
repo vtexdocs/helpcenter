@@ -7,7 +7,7 @@ const container: SxStyleProp = {
   alignItems: 'center',
   flexDirection: 'column',
   gap: '16px',
-  width: 'max-content',
+  width: ['320px', '545px', '545px', '720px'],
   maxWidth: '100vw',
 }
 
@@ -25,6 +25,7 @@ const optionsContainer: SxStyleProp = {
   gap: '24px',
   width: '100%',
   flexWrap: 'wrap',
+  minWidth: '720px',
 }
 
 const optionContainer: SxStyleProp = {
