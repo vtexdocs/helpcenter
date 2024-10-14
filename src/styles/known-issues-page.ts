@@ -40,16 +40,10 @@ const noResults: SxStyleProp = {
   textAlign: 'center',
 }
 
-const resultsNumberContainer: SxStyleProp = {
-  fontSize: '1rem',
-  color: 'muted.0',
-}
-
 export default {
   container,
   cardContainer,
   optionContainer,
   optionsContainer,
   noResults,
-  resultsNumberContainer,
 }
