@@ -412,7 +412,8 @@ export const getServerSideProps: GetServerSideProps = async ({
         parentsArray,
         parentsArrayName,
         parentsArrayType,
-        'tracks'
+        'tracks',
+        locale
       )
 
     return {
