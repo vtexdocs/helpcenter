@@ -222,6 +222,11 @@ export const getStaticProps: GetStaticProps = async ({
   getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
   parentsArray.push(slug)
 
+  // Ensure parentsArray does not contain undefined values
+  const sanitizedParentsArray = parentsArray.map((item) =>
+    item === undefined ? null : item
+  )
+
   getParents(keyPath, 'name', flattenedSidebar, currentLocale, parentsArrayName)
   const mainKeyPath = keyPath.split('slug')[0]
   const nameKeyPath = mainKeyPath.concat(`name.${locale}`)
@@ -301,9 +306,7 @@ export const getStaticProps: GetStaticProps = async ({
         type,
         sectionSelected,
         sidebarfallback,
-        parentsArray: parentsArray.map((item) =>
-          item === undefined ? null : item
-        ),
+        parentsArray: sanitizedParentsArray,
         slug,
         pagination,
         isListed,
@@ -496,7 +499,7 @@ export const getStaticProps: GetStaticProps = async ({
         type,
         sectionSelected,
         sidebarfallback,
-        parentsArray,
+        parentsArray: sanitizedParentsArray,
         slug,
         pagination,
         isListed,
