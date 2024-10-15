@@ -74,7 +74,7 @@ type Props =
       sectionSelected: string
       sidebarfallback: any //eslint-disable-line
       slug: string
-      parentsArray: string[]
+      parentsArray: string[] | null[]
       // path: string
       isListed: boolean
       branch: string
@@ -96,7 +96,7 @@ type Props =
       sectionSelected: string
       sidebarfallback: any //eslint-disable-line
       slug: string
-      parentsArray: string[]
+      parentsArray: string[] | null[]
       isListed: boolean
       branch: string
       pagination: {
