@@ -39,6 +39,7 @@ import { remarkCodeHike } from '@code-hike/mdx'
 import TutorialIndexing from 'components/tutorial-index'
 import TutorialMarkdownRender from 'components/tutorial-markdown-render'
 import theme from 'styles/code-hike-theme'
+import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 
 // import { ParsedUrlQuery } from 'querystring'
 
@@ -223,14 +224,13 @@ export const getServerSideProps: GetServerSideProps = async ({
   const sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
   console.log('TUTORIAL', sectionSelected)
 
-  const breadcrumbList: { slug: string; name: string; type: string }[] = []
-  parentsArrayName.forEach((_el: string, idx: number) => {
-    breadcrumbList.push({
-      slug: `/${locale}/docs/tutorial/${parentsArray[idx]}`,
-      name: parentsArrayName[idx],
-      type: parentsArrayType[idx],
-    })
-  })
+  const breadcrumbList: { slug: string; name: string; type: string }[] =
+    getBreadcrumbsList(
+      parentsArray,
+      parentsArrayName,
+      parentsArrayType,
+      'tutorial'
+    )
 
   if (type === 'tutorial-category') {
     const childrenArrayName: string[] = []
