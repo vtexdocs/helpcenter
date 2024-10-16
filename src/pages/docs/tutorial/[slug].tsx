@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import jp from 'jsonpath'
 
@@ -166,24 +166,7 @@ const TutorialPage: NextPage<Props> = ({
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs: { [slug: string]: { locale: string; path: string }[] } =
-    await getTutorialsPaths('tutorials')
-
-  const paths = Object.entries(slugs).flatMap(([slug, locales]) =>
-    locales.map(({ locale }) => ({
-      params: { slug },
-      locale,
-    }))
-  )
-
-  return {
-    paths,
-    fallback: 'blocking',
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({
+export const getServerSideProps: GetServerSideProps = async ({
   params,
   locale,
   preview,
@@ -314,7 +297,6 @@ export const getStaticProps: GetStaticProps = async ({
         branch,
         componentProps,
       },
-      revalidate: 600,
     }
   }
 
@@ -507,7 +489,6 @@ export const getStaticProps: GetStaticProps = async ({
         branch,
         componentProps,
       },
-      revalidate: 600,
     }
   } catch (error) {
     logger.error(`Error while processing ${path}\n${error}`)
