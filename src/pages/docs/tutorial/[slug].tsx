@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import jp from 'jsonpath'
 
@@ -74,7 +74,7 @@ type Props =
       sectionSelected: string
       sidebarfallback: any //eslint-disable-line
       slug: string
-      parentsArray: string[]
+      parentsArray: string[] | null[]
       // path: string
       isListed: boolean
       branch: string
@@ -96,7 +96,7 @@ type Props =
       sectionSelected: string
       sidebarfallback: any //eslint-disable-line
       slug: string
-      parentsArray: string[]
+      parentsArray: string[] | null[]
       isListed: boolean
       branch: string
       pagination: {
@@ -166,24 +166,7 @@ const TutorialPage: NextPage<Props> = ({
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs: { [slug: string]: { locale: string; path: string }[] } =
-    await getTutorialsPaths('tutorials')
-
-  const paths = Object.entries(slugs).flatMap(([slug, locales]) =>
-    locales.map(({ locale }) => ({
-      params: { slug },
-      locale,
-    }))
-  )
-
-  return {
-    paths,
-    fallback: 'blocking',
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({
+export const getServerSideProps: GetServerSideProps = async ({
   params,
   locale,
   preview,
@@ -221,6 +204,11 @@ export const getStaticProps: GetStaticProps = async ({
 
   getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
   parentsArray.push(slug)
+
+  // Ensure parentsArray does not contain undefined values
+  const sanitizedParentsArray = parentsArray.map((item) =>
+    item === undefined ? null : item
+  )
 
   getParents(keyPath, 'name', flattenedSidebar, currentLocale, parentsArrayName)
   const mainKeyPath = keyPath.split('slug')[0]
@@ -301,9 +289,7 @@ export const getStaticProps: GetStaticProps = async ({
         type,
         sectionSelected,
         sidebarfallback,
-        parentsArray: parentsArray.map((item) =>
-          item === undefined ? null : item
-        ),
+        parentsArray: sanitizedParentsArray,
         slug,
         pagination,
         isListed,
@@ -311,7 +297,6 @@ export const getStaticProps: GetStaticProps = async ({
         branch,
         componentProps,
       },
-      revalidate: 600,
     }
   }
 
@@ -496,7 +481,7 @@ export const getStaticProps: GetStaticProps = async ({
         type,
         sectionSelected,
         sidebarfallback,
-        parentsArray,
+        parentsArray: sanitizedParentsArray,
         slug,
         pagination,
         isListed,
@@ -504,7 +489,6 @@ export const getStaticProps: GetStaticProps = async ({
         branch,
         componentProps,
       },
-      revalidate: 600,
     }
   } catch (error) {
     logger.error(`Error while processing ${path}\n${error}`)
