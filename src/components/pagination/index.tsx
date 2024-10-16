@@ -19,6 +19,11 @@ const Pagination = ({ forcePage, pageCount, onPageChange }: Props) => {
         onPageChange={(props) => {
           if (props.selected >= 0) props.selected = props.selected + 1
           onPageChange(props)
+          window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+          })
         }}
         previousLabel={<ArrowLeftIcon />}
         nextLabel={<ArrowRightIcon />}
