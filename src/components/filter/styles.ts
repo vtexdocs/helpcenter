@@ -9,7 +9,7 @@ const filterButton: SxStyleProp = {
   gap: '8px',
   px: '8px',
   transition: '0.3s',
-  height: '24px',
+  height: '30px',
 
   ':hover': {
     color: '#F71963',
