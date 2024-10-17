@@ -1,4 +1,4 @@
-import { Flex } from '@vtex/brand-ui'
+import { Box, Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
@@ -23,6 +23,7 @@ import Filter from 'components/filter'
 import usePagination from '../../utils/hooks/usePagination'
 import Input from 'components/input'
 import SearchIcon from 'components/icons/search-icon'
+import ChipFilter from 'components/chip-filter'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -42,6 +43,10 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const [filters, setFilters] = useState<string[]>([])
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+
+  const chipCategories: string[] = faqFilter(intl).options.map(
+    (option) => option.name
+  )
 
   const filteredResult = useMemo(() => {
     const data = faqData.filter((question) => {
@@ -79,6 +84,30 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
       setPageIndex({ ...pageIndex, curr: props.selected })
   }
 
+  function handleFilterApply(filters: string[]) {
+    setFilters(filters)
+  }
+
+  function handleCategoriesSelection(category: string) {
+    setFilters([...filters, category])
+  }
+
+  function handleFilterReset() {
+    setFilters([])
+  }
+
+  function handleFilterRemoval(category: string) {
+    const copyFilters = [...filters]
+    copyFilters.splice(copyFilters.indexOf(category), 1)
+    setFilters(copyFilters)
+  }
+
+  function getCategoryAmount(category: string): number {
+    return faqData.filter((data) => {
+      return data.productTeam === category
+    }).length
+  }
+
   return (
     <>
       <Head>
@@ -111,8 +140,9 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
+              selectedCheckboxes={filters}
               checkBoxFilter={faqFilter(intl)}
-              onApply={(newFilters) => setFilters(newFilters.checklist)}
+              onApply={(newFilters) => handleFilterApply(newFilters.checklist)}
             />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
@@ -129,7 +159,22 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             value={search}
             onChange={(value: string) => setSearch(value)}
           />
+          <ChipFilter
+            removeCategory={handleFilterRemoval}
+            resetFilters={handleFilterReset}
+            filters={filters}
+            getCategoryAmount={getCategoryAmount}
+            categories={chipCategories}
+            applyCategory={handleCategoriesSelection}
+          />
           <Flex sx={styles.cardContainer}>
+            {!!filteredResult.length && (
+              <Box sx={styles.resultsNumberContainer}>
+                {filteredResult.length}{' '}
+                {intl.formatMessage({ id: 'faq_page.results_found' })}
+              </Box>
+            )}
+
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
                 {intl.formatMessage({ id: 'search_result.empty' })}
