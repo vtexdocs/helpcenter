@@ -38,7 +38,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
-  const itemsPerPage = 5
+  const itemsPerPage = 8
   const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<string[]>([])
   const [search, setSearch] = useState<string>('')
