@@ -80,7 +80,9 @@ const Filter = ({
         }}
       >
         <FilterIcon size={16} />
-        <Text>{intl.formatMessage({ id: 'filter_modal.title' })}</Text>
+        <Text sx={styles.filterButtonText}>
+          {intl.formatMessage({ id: 'filter_modal.title' })}
+        </Text>
         {numberOfFilters > 0 && (
           <Text sx={styles.numberOfFilters}>{numberOfFilters}</Text>
         )}
