@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import jp from 'jsonpath'
 
@@ -39,6 +39,7 @@ import { remarkCodeHike } from '@code-hike/mdx'
 import TutorialIndexing from 'components/tutorial-index'
 import TutorialMarkdownRender from 'components/tutorial-markdown-render'
 import theme from 'styles/code-hike-theme'
+import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 
 // import { ParsedUrlQuery } from 'querystring'
 
@@ -74,7 +75,7 @@ type Props =
       sectionSelected: string
       sidebarfallback: any //eslint-disable-line
       slug: string
-      parentsArray: string[]
+      parentsArray: string[] | null[]
       // path: string
       isListed: boolean
       branch: string
@@ -96,7 +97,7 @@ type Props =
       sectionSelected: string
       sidebarfallback: any //eslint-disable-line
       slug: string
-      parentsArray: string[]
+      parentsArray: string[] | null[]
       isListed: boolean
       branch: string
       pagination: {
@@ -166,29 +167,7 @@ const TutorialPage: NextPage<Props> = ({
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  // const slugs: { [slug: string]: { locale: string; path: string }[] } =
-  //   await getTutorialsPaths('tutorials')
-
-  // const paths: (
-  //   | string
-  //   | {
-  //       params: ParsedUrlQuery
-  //       locale?: string | undefined
-  //     }
-  // )[] = []
-  // Object.entries(slugs).forEach(([slug, locales]) => {
-  //   locales.forEach(({ locale }) => {
-  //     paths.push({ params: { slug }, locale })
-  //   })
-  // })
-  return {
-    paths: [],
-    fallback: 'blocking',
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({
+export const getServerSideProps: GetServerSideProps = async ({
   params,
   locale,
   preview,
@@ -227,6 +206,11 @@ export const getStaticProps: GetStaticProps = async ({
   getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
   parentsArray.push(slug)
 
+  // Ensure parentsArray does not contain undefined values
+  const sanitizedParentsArray = parentsArray.map((item) =>
+    item === undefined ? null : item
+  )
+
   getParents(keyPath, 'name', flattenedSidebar, currentLocale, parentsArrayName)
   const mainKeyPath = keyPath.split('slug')[0]
   const nameKeyPath = mainKeyPath.concat(`name.${locale}`)
@@ -240,14 +224,13 @@ export const getStaticProps: GetStaticProps = async ({
   const sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
   console.log('TUTORIAL', sectionSelected)
 
-  const breadcrumbList: { slug: string; name: string; type: string }[] = []
-  parentsArrayName.forEach((_el: string, idx: number) => {
-    breadcrumbList.push({
-      slug: `/docs/tutorial/${parentsArray[idx]}`,
-      name: parentsArrayName[idx],
-      type: parentsArrayType[idx],
-    })
-  })
+  const breadcrumbList: { slug: string; name: string; type: string }[] =
+    getBreadcrumbsList(
+      parentsArray,
+      parentsArrayName,
+      parentsArrayType,
+      'tutorial'
+    )
 
   if (type === 'tutorial-category') {
     const childrenArrayName: string[] = []
@@ -271,7 +254,7 @@ export const getStaticProps: GetStaticProps = async ({
     const childrenList: { slug: string; name: string }[] = []
     childrenArrayName.forEach((_el: string, idx: number) => {
       childrenList.push({
-        slug: `/docs/tutorial/${childrenArraySlug[idx]}`,
+        slug: `/${locale}/docs/tutorial/${childrenArraySlug[idx]}`,
         name: childrenArrayName[idx],
       })
     })
@@ -291,23 +274,13 @@ export const getStaticProps: GetStaticProps = async ({
       name: childrenList[0].name,
     }
 
-    let hidePaginationPrevious = false
-    if (breadcrumbList.length < 2) {
-      hidePaginationPrevious = true
-    }
-
-    let hidePaginationNext = false
-    if (!childrenList) {
-      hidePaginationNext = true
-    }
-
-    const pagination = { previousDoc: previousDoc, nextDoc: nextDoc }
+    const pagination = { previousDoc, nextDoc }
     const componentProps = {
       tutorialData: {
         name: categoryTitle,
         children: childrenList,
-        hidePaginationPrevious: hidePaginationPrevious,
-        hidePaginationNext: hidePaginationNext,
+        hidePaginationPrevious: breadcrumbList.length < 2,
+        hidePaginationNext: !childrenList.length,
       },
     }
 
@@ -316,7 +289,7 @@ export const getStaticProps: GetStaticProps = async ({
         type,
         sectionSelected,
         sidebarfallback,
-        parentsArray,
+        parentsArray: sanitizedParentsArray,
         slug,
         pagination,
         isListed,
@@ -324,7 +297,6 @@ export const getStaticProps: GetStaticProps = async ({
         branch,
         componentProps,
       },
-      revalidate: 600,
     }
   }
 
@@ -341,12 +313,14 @@ export const getStaticProps: GetStaticProps = async ({
     }
   }
 
-  let documentationContent =
-    (await fetch(
-      `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
-    )
-      .then((res) => res.text())
-      .catch((err) => console.log(err))) || ''
+  let documentationContent = await fetch(
+    `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
+  )
+    .then((res) => res.text())
+    .catch((err) => {
+      logger.error(err)
+      return ''
+    })
 
   const contributors =
     (await fetch(
@@ -429,12 +403,14 @@ export const getStaticProps: GetStaticProps = async ({
         )?.path
         if (seeAlsoPath) {
           try {
-            const documentationContent =
-              (await fetch(
-                `https://raw.githubusercontent.com/vtexdocs/help-center-content/main/${seeAlsoPath}`
-              )
-                .then((res) => res.text())
-                .catch((err) => console.log(err))) || ''
+            const documentationContent = await fetch(
+              `https://raw.githubusercontent.com/vtexdocs/help-center-content/main/${seeAlsoPath}`
+            )
+              .then((res) => res.text())
+              .catch((err) => {
+                logger.error(err)
+                return ''
+              })
             // const documentationContent = await getGithubFile(
             //   'vtexdocs',
             //   'help-center-content',
@@ -493,11 +469,11 @@ export const getStaticProps: GetStaticProps = async ({
     }
 
     const componentProps = {
-      serialized: serialized,
-      headingList: headingList,
-      contributors: contributors,
-      path: path,
-      seeAlsoData: seeAlsoData,
+      serialized,
+      headingList,
+      contributors,
+      path,
+      seeAlsoData,
     }
 
     return {
@@ -505,7 +481,7 @@ export const getStaticProps: GetStaticProps = async ({
         type,
         sectionSelected,
         sidebarfallback,
-        parentsArray,
+        parentsArray: sanitizedParentsArray,
         slug,
         pagination,
         isListed,
@@ -513,7 +489,6 @@ export const getStaticProps: GetStaticProps = async ({
         branch,
         componentProps,
       },
-      revalidate: 600,
     }
   } catch (error) {
     logger.error(`Error while processing ${path}\n${error}`)

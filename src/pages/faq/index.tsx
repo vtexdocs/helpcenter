@@ -1,11 +1,11 @@
-import { Flex } from '@vtex/brand-ui'
+import { Box, Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
 
 import { FaqCardDataElement, SortByType } from 'utils/typings/types'
 import Head from 'next/head'
-import styles from 'styles/known-issues-page'
+import styles from 'styles/filterable-cards-page'
 import { PreviewContext } from 'utils/contexts/preview'
 import { Fragment, useContext, useMemo, useState } from 'react'
 import { getDocsPaths as getFaqPaths } from 'utils/getDocsPaths'
@@ -20,6 +20,10 @@ import Select from 'components/select'
 import { faqFilter, sortBy } from 'utils/constants'
 import FaqCard from 'components/faq-card'
 import Filter from 'components/filter'
+import usePagination from '../../utils/hooks/usePagination'
+import Input from 'components/input'
+import SearchIcon from 'components/icons/search-icon'
+import ChipFilter from 'components/chip-filter'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -34,14 +38,25 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
-  const itemsPerPage = 5
-  const [page, setPage] = useState({ curr: 1, total: 1 })
+  const itemsPerPage = 8
+  const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<string[]>([])
+  const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+
+  const chipCategories: string[] = faqFilter(intl).options.map(
+    (option) => option.name
+  )
 
   const filteredResult = useMemo(() => {
     const data = faqData.filter((question) => {
-      return filters.length === 0 || filters.includes(question.productTeam)
+      const hasFilter: boolean =
+        filters.length === 0 || filters.includes(question.productTeam)
+      const hasSearch: boolean = question.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+
+      return hasFilter && hasSearch
     })
 
     data.sort((a, b) => {
@@ -53,21 +68,44 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
       return dateA.getTime() - dateB.getTime()
     })
 
-    setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
+    setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale])
+  }, [filters, sortByValue, intl.locale, search])
 
-  const paginatedResult = useMemo(() => {
-    return filteredResult.slice(
-      (page.curr - 1) * itemsPerPage,
-      page.curr * itemsPerPage
-    )
-  }, [page])
+  const paginatedResult = usePagination<FaqCardDataElement>(
+    itemsPerPage,
+    pageIndex,
+    filteredResult
+  )
 
   function handleClick(props: { selected: number }) {
-    if (props.selected !== undefined && props.selected !== page.curr)
-      setPage({ ...page, curr: props.selected })
+    if (props.selected !== undefined && props.selected !== pageIndex.curr)
+      setPageIndex({ ...pageIndex, curr: props.selected })
+  }
+
+  function handleFilterApply(filters: string[]) {
+    setFilters(filters)
+  }
+
+  function handleCategoriesSelection(category: string) {
+    setFilters([...filters, category])
+  }
+
+  function handleFilterReset() {
+    setFilters([])
+  }
+
+  function handleFilterRemoval(category: string) {
+    const copyFilters = [...filters]
+    copyFilters.splice(copyFilters.indexOf(category), 1)
+    setFilters(copyFilters)
+  }
+
+  function getCategoryAmount(category: string): number {
+    return faqData.filter((data) => {
+      return data.productTeam === category
+    }).length
   }
 
   return (
@@ -102,8 +140,9 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
+              selectedCheckboxes={filters}
               checkBoxFilter={faqFilter(intl)}
-              onApply={(newFilters) => setFilters(newFilters.checklist)}
+              onApply={(newFilters) => handleFilterApply(newFilters.checklist)}
             />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
@@ -112,7 +151,30 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
+          <Input
+            Icon={SearchIcon}
+            placeholder={intl.formatMessage({
+              id: 'faq_page_search.placeholder',
+            })}
+            value={search}
+            onChange={(value: string) => setSearch(value)}
+          />
+          <ChipFilter
+            removeCategory={handleFilterRemoval}
+            resetFilters={handleFilterReset}
+            filters={filters}
+            getCategoryAmount={getCategoryAmount}
+            categories={chipCategories}
+            applyCategory={handleCategoriesSelection}
+          />
           <Flex sx={styles.cardContainer}>
+            {!!filteredResult.length && (
+              <Box sx={styles.resultsNumberContainer}>
+                {filteredResult.length}{' '}
+                {intl.formatMessage({ id: 'faq_page.results_found' })}
+              </Box>
+            )}
+
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
                 {intl.formatMessage({ id: 'search_result.empty' })}
@@ -123,8 +185,8 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
             })}
           </Flex>
           <Pagination
-            forcePage={page.curr}
-            pageCount={page.total}
+            forcePage={pageIndex.curr}
+            pageCount={pageIndex.total}
             onPageChange={handleClick}
           />
         </Flex>

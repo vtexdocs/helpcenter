@@ -1,4 +1,5 @@
-import { Link, Flex, IconCaret, Text } from '@vtex/brand-ui'
+import { Flex, IconCaret, Text } from '@vtex/brand-ui'
+import Link from 'next/link'
 
 import styles from './styles'
 
@@ -12,8 +13,8 @@ const Breadcrumb = ({ breadcrumbList }: Props) => {
       {breadcrumbList.map((item, idx) => (
         <>
           {item.type === 'markdown' ? (
-            <Link sx={styles.breadcrumbItem} href={item.slug}>
-              {item.name}
+            <Link href={item.slug}>
+              <Text sx={styles.breadcrumbItem}>{item.name}</Text>
             </Link>
           ) : (
             <Text>{item.name}</Text>
