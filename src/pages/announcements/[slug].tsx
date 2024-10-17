@@ -91,7 +91,7 @@ const AnnouncementPage: NextPage<Props> = ({
   }, [])
 
   const breadcrumb = {
-    slug: '/announcements',
+    slug: `/announcements`,
     name: intl.formatMessage({ id: 'announcements_page.title' }),
     type: 'category',
   }
@@ -311,7 +311,9 @@ export const getStaticProps: GetStaticProps = async ({
     return {
       props: {
         sectionSelected,
-        parentsArray,
+        parentsArray: parentsArray.map((item) =>
+          item === undefined ? null : item
+        ),
         slug,
         serialized,
         sidebarfallback,

@@ -1,7 +1,7 @@
 const theme = {
   lineNumbers: false,
   showCopyButton: true,
-  theme: 'github-dark',
+  theme: 'poimandres',
   skipLanguages: ['mermaid'],
   staticMediaQuery: 'not screen, (max-width: 768px)',
   autoImport: false,
