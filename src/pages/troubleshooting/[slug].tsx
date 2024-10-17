@@ -1,50 +1,34 @@
-import Head from 'next/head'
-import { useEffect, useState, useContext, useRef } from 'react'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { PHASE_PRODUCTION_BUILD } from 'next/constants'
-import { serialize } from 'next-mdx-remote/serialize'
+import { Box, Flex, Text } from '@vtex/brand-ui'
+import { Item, MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+import Head from 'next/head'
+import { useContext, useEffect, useRef, useState } from 'react'
+import DocumentContextProvider from 'utils/contexts/documentContext'
+import { ContributorsType } from 'utils/getFileContributors'
+import styles from 'styles/documentation-page'
+import Breadcrumb from 'components/breadcrumb'
+import { PreviewContext } from 'utils/contexts/preview'
+import DateText from 'components/date-text'
+import Contributors from 'components/contributors'
+import OnThisPage from 'components/on-this-page'
+import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
+import { PHASE_PRODUCTION_BUILD } from 'next/constants'
+import { localeType } from 'utils/navigation-utils'
+import { getLogger } from 'utils/logging/log-util'
+import escapeCurlyBraces from 'utils/escapeCurlyBraces'
+import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
+import { serialize } from 'next-mdx-remote/serialize'
 import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
-import { remarkCodeHike } from '@code-hike/mdx'
-import theme from 'styles/code-hike-theme'
-
 import remarkImages from 'utils/remark_plugins/plaiceholder'
-
-import { Box, Flex, Text } from '@vtex/brand-ui'
-
-import DocumentContextProvider from 'utils/contexts/documentContext'
-
-import Contributors from 'components/contributors'
-import OnThisPage from 'components/on-this-page'
-import { Item, TableOfContents } from '@vtexdocs/components'
-import Breadcrumb from 'components/breadcrumb'
-import TimeToRead from 'components/TimeToRead'
-
+import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
-// import getGithubFile from 'utils/getGithubFile'
-import escapeCurlyBraces from 'utils/escapeCurlyBraces'
-import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
-import { PreviewContext } from 'utils/contexts/preview'
-
-import styles from 'styles/documentation-page'
-import { ContributorsType } from 'utils/getFileContributors'
-
-import { getLogger } from 'utils/logging/log-util'
-import { localeType } from 'utils/navigation-utils'
-import { MarkdownRenderer } from '@vtexdocs/components'
-// import { ParsedUrlQuery } from 'querystring'
-
-import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
-import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
-import Tag from 'components/tag'
-import DateText from 'components/date-text'
-
-const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
+import TimeToRead from 'components/TimeToRead'
 
 interface Props {
   sectionSelected: string
@@ -57,15 +41,15 @@ interface Props {
   branch: string
 }
 
-const KnownIssuePage: NextPage<Props> = ({
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
+const docsPathsGLOBAL = await getTroubleshootingPaths('troubleshooting')
+
+const TroubleshootingPage: NextPage<Props> = ({
   serialized,
   headingList,
   contributors,
   breadcrumbList,
   branch,
-}) => {
+}: Props) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
 
@@ -110,18 +94,11 @@ const KnownIssuePage: NextPage<Props> = ({
                     <Text sx={styles.documentationTitle} className="title">
                       {serialized.frontmatter?.title}
                     </Text>
-                    {serialized.frontmatter?.readingTime && (
-                      <TimeToRead
-                        minutes={serialized.frontmatter.readingTime}
-                      />
-                    )}
-                  </Flex>
-                  <Box sx={styles.divider}></Box>
-                  <Flex sx={styles.detailedInfo}>
-                    <Flex sx={styles.id}>
-                      <Text>ID: {serialized.frontmatter?.id}</Text>
-                      <Tag>{serialized.frontmatter?.kiStatus}</Tag>
-                    </Flex>
+                    <TimeToRead
+                      minutes={
+                        (serialized.frontmatter?.readingTime as string) ?? 0
+                      }
+                    />
                     {createdAtDate && updatedAtDate && (
                       <DateText
                         createdAt={createdAtDate}
@@ -133,6 +110,7 @@ const KnownIssuePage: NextPage<Props> = ({
                 <MarkdownRenderer serialized={serialized} />
               </article>
             </Box>
+
             <Box sx={styles.bottomContributorsContainer}>
               <Box sx={styles.bottomContributorsDivider} />
               <Contributors contributors={contributors} />
@@ -168,13 +146,11 @@ export const getStaticProps: GetStaticProps = async ({
       : 'main'
   const branch = preview ? previewBranch : 'main'
   const slug = params?.slug as string
-  const currentLocale: localeType = locale
-    ? (locale as localeType)
-    : ('en' as localeType)
+  const currentLocale: localeType = (locale ?? 'en') as localeType
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
-      : await getKnownIssuesPaths('known-issues', branch)
+      : await getTroubleshootingPaths('troubleshooting', branch)
 
   const logger = getLogger('Start here')
 
@@ -240,14 +216,12 @@ export const getStaticProps: GetStaticProps = async ({
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [
-          [remarkCodeHike, theme],
           remarkGFM,
           remarkImages,
           [getHeadings, { headingList }],
           remarkBlockquote,
           remarkReadingTime,
         ],
-        useDynamicImport: true,
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],
@@ -267,14 +241,14 @@ export const getStaticProps: GetStaticProps = async ({
 
     const breadcrumbList: { slug: string; name: string; type: string }[] = [
       {
-        slug: '/docs/known-issues/',
-        name: getMessages()[currentLocale]['known_issues_page.title'],
+        slug: '/docs/troubleshooting/',
+        name: getMessages()[currentLocale]['troubleshooting_page.title'],
         type: 'category',
       },
       {
         slug,
         name: serialized?.frontmatter?.title ?? '',
-        type: 'markdown',
+        type: '',
       },
     ]
 
@@ -300,4 +274,4 @@ export const getStaticProps: GetStaticProps = async ({
   }
 }
 
-export default KnownIssuePage
+export default TroubleshootingPage

@@ -21,10 +21,10 @@ import TutorialsIcon from 'components/icons/tutorials-icon'
 import PaperIcon from 'components/icons/paper-icon'
 import WarningIcon from 'components/icons/warning-icon'
 import GraphIcon from 'components/icons/graph-icon'
-import SignalIcon from 'components/icons/signal-icon'
 import MegaphoneIcon from 'components/icons/megaphone-icon'
 import InfoIcon from 'components/icons/info-icon'
 import LongArrowIcon from 'components/icons/long-arrow-icon'
+import TroubleshootingIcon from 'components/icons/troubleshooting-icon'
 
 libraryConfig
 export const messages = getMessages()
@@ -175,6 +175,15 @@ export const knownIssuesData = (intl: IntlShape) => {
       }),
       link: '#', //TODO: trocar rota
     },
+    {
+      id: 'Troubleshooting',
+      Icon: TroubleshootingIcon,
+      title: intl.formatMessage({
+        id: 'sidebar_troubleshooting.title',
+      }),
+      description: 'sidebar_troubleshooting.description',
+      link: '/troubleshooting',
+    },
   ]
 
   return data
@@ -205,17 +214,6 @@ export const menuSupportData = (intl: IntlShape) => {
       link: 'https://status.vtex.com',
     },
     {
-      id: 'Health Check',
-      Icon: SignalIcon,
-      title: intl.formatMessage({
-        id: 'menu_health_check.title',
-      }),
-      description: intl.formatMessage({
-        id: 'menu_health_check.description',
-      }),
-      link: 'https://healthcheck.vtex.com/',
-    },
-    {
       id: 'Support Rules',
       Icon: PaperIcon,
       title: intl.formatMessage({
@@ -225,6 +223,15 @@ export const menuSupportData = (intl: IntlShape) => {
         id: 'sidebar_support_rules.description',
       }),
       link: '#', //TODO: trocar rota
+    },
+    {
+      id: 'Troubleshooting',
+      Icon: TroubleshootingIcon,
+      title: intl.formatMessage({ id: 'menu_troubleshooting.title' }),
+      description: intl.formatMessage({
+        id: 'menu_troubleshooting.description',
+      }),
+      link: '/troubleshooting',
     },
   ]
 
@@ -304,18 +311,6 @@ export const supportData = (intl: IntlShape) => {
         id: 'support_plans.description',
       }),
       link: '/',
-    },
-    {
-      id: 'Health Check',
-      Icon: SignalIcon,
-      title: intl.formatMessage({
-        id: 'support_health_check.title',
-      }),
-      description: intl.formatMessage({
-        id: 'support_health_check.description',
-      }),
-      isExternalLink: true,
-      link: 'http://healthcheck.vtex.com/',
     },
     {
       id: 'Status',
@@ -573,6 +568,22 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
     ],
   }
 
+  return data
+}
+
+export const TroubleshootingFilters = (intl: IntlShape) => {
+  const data = {
+    name: intl.formatMessage({ id: 'troubleshooting_filter_module.title' }),
+    options: [
+      { id: 'Catalog', name: 'Catalog' },
+      { id: 'Order', name: 'Order' },
+      { id: 'Shipping', name: 'Shipping' },
+      { id: 'VTEX Admin', name: 'VTEX Admin' },
+      { id: 'Prices', name: 'Prices' },
+      { id: 'Message Center', name: 'Message Center' },
+      { id: 'Trade Policy', name: 'Trade Policy' },
+    ],
+  }
   return data
 }
 

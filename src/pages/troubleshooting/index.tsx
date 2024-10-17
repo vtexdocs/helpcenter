@@ -1,71 +1,55 @@
-import { Flex } from '@vtex/brand-ui'
-import { GetStaticProps, NextPage } from 'next'
+import PageHeader from 'components/page-header'
+import styles from 'styles/filterable-cards-page'
+import troubleshooting from '../../../public/images/troubleshooting.png'
+import Head from 'next/head'
+import { useIntl } from 'react-intl'
+import type { GetStaticPropsContext, NextPage } from 'next'
+import { useContext, useMemo, useState } from 'react'
+import { PreviewContext } from 'utils/contexts/preview'
+import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
-
-import usePagination from '../../utils/hooks/usePagination'
-import {
-  KnownIssueDataElement,
-  KnownIssueStatus,
-  SortByType,
-} from 'utils/typings/types'
-import Head from 'next/head'
-import styles from 'styles/filterable-cards-page'
-import { PreviewContext } from 'utils/contexts/preview'
-import { Fragment, useContext, useMemo, useState } from 'react'
-import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
-import { serialize } from 'next-mdx-remote/serialize'
 import { getLogger } from 'utils/logging/log-util'
-import PageHeader from 'components/page-header'
-import { useIntl } from 'react-intl'
-import startHereImage from '../../../public/images/start-here.png'
-import KnownIssueCard from 'components/known-issue-card'
-import Pagination from 'components/pagination'
 import { localeType } from 'utils/navigation-utils'
-import Filter from 'components/filter'
-import {
-  knownIssuesStatusFilter,
-  knownIssuesModulesFilters,
-  sortBy,
-} from 'utils/constants'
+import { serialize } from 'next-mdx-remote/serialize'
+import { Flex } from '@vtex/brand-ui'
 import Select from 'components/select'
-import Input from 'components/input'
-import SearchIcon from 'components/icons/search-icon'
+import { SortByType, TroubleshootingDataElement } from 'utils/typings/types'
+import usePagination from 'utils/hooks/usePagination'
+import { sortBy } from 'utils/constants'
+import TroubleshootingCard from 'components/troubleshooting-card'
+import Pagination from 'components/pagination'
+import { TroubleshootingFilters } from 'utils/constants'
+import Filter from 'components/filter'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
   sectionSelected?: DocumentationTitle | UpdatesTitle | ''
-  knownIssuesData: KnownIssueDataElement[]
   branch: string
+  troubleshootingData: TroubleshootingDataElement[]
   page: number
   totalPages: number
 }
 
-const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
-  const intl = useIntl()
+const TroubleshootingPage: NextPage<Props> = ({
+  troubleshootingData,
+  branch,
+}) => {
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
-  const itemsPerPage = 8
+  const intl = useIntl()
+
+  const itemsPerPage = 5
   const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
-  const [filters, setFilters] = useState<{
-    status: string[]
-    modules: string[]
-  }>({ status: [], modules: [] })
-  const [search, setSearch] = useState<string>('')
+  const [filters, setFilters] = useState<string[]>([])
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
-    const data = knownIssuesData.filter((knownIssue) => {
-      const hasFilter: boolean =
-        (filters.status.length === 0 ||
-          filters.status.includes(knownIssue.status)) &&
-        (filters.modules.length === 0 ||
-          filters.modules.includes(knownIssue.module))
-
-      const hasSearch: boolean = knownIssue.title
-        .toLowerCase()
-        .includes(search.toLowerCase())
-      return hasFilter && hasSearch
+    const data = troubleshootingData.filter((troubleshoot) => {
+      return (
+        filters.length === 0 ||
+        troubleshoot.tags.some((tag) => filters.includes(tag))
+      )
     })
 
     data.sort((a, b) => {
@@ -80,9 +64,9 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
     setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale, search])
+  }, [filters, sortByValue, intl.locale])
 
-  const paginatedResult = usePagination<KnownIssueDataElement>(
+  const paginatedResult = usePagination<TroubleshootingDataElement>(
     itemsPerPage,
     pageIndex,
     filteredResult
@@ -97,44 +81,32 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
     <>
       <Head>
         <title>
-          {intl.formatMessage({
-            id: 'known_issues_page.title',
-          })}
+          {intl.formatMessage({ id: 'troubleshooting_page.title' })}
         </title>
         <meta
           property="og:title"
           content={intl.formatMessage({
-            id: 'known_issues_page.subtitle',
+            id: 'troubleshooting_page.description',
           })}
           key="title"
         />
       </Head>
-      <Fragment>
+      <>
         <PageHeader
           title={intl.formatMessage({
-            id: 'known_issues_page.title',
+            id: 'troubleshooting_page.title',
           })}
           description={intl.formatMessage({
-            id: 'known_issues_page.subtitle',
+            id: 'troubleshooting_page.description',
           })}
-          imageUrl={startHereImage}
-          imageAlt={intl.formatMessage({
-            id: 'known_issues_page.title',
-          })}
+          imageUrl={troubleshooting}
+          imageAlt={intl.formatMessage({ id: 'troubleshooting_page.title' })}
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
-              tagFilter={knownIssuesStatusFilter(intl)}
-              checkBoxFilter={knownIssuesModulesFilters(intl)}
-              selectedCheckboxes={filters.modules}
-              selectedTags={filters.status}
-              onApply={(newFilters) =>
-                setFilters({
-                  status: newFilters.tag,
-                  modules: newFilters.checklist,
-                })
-              }
+              checkBoxFilter={TroubleshootingFilters(intl)}
+              onApply={(newFilters) => setFilters(newFilters.checklist)}
             />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
@@ -143,22 +115,14 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
-          <Input
-            placeholder={intl.formatMessage({
-              id: 'known_issues_page_search.placeholder',
-            })}
-            value={search}
-            Icon={SearchIcon}
-            onChange={(value) => setSearch(value)}
-          />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
                 {intl.formatMessage({ id: 'search_result.empty' })}
               </Flex>
             )}
-            {paginatedResult.map((issue, id) => {
-              return <KnownIssueCard key={id} {...issue} />
+            {paginatedResult.map((troubleshoot, id) => {
+              return <TroubleshootingCard key={id} {...troubleshoot} />
             })}
           </Flex>
           <Pagination
@@ -167,32 +131,33 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
             onPageChange={handleClick}
           />
         </Flex>
-      </Fragment>
+      </>
     </>
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({
+export async function getStaticProps({
   locale,
   preview,
   previewData,
-}) => {
-  const sidebarfallback = await getNavigation()
-  const sectionSelected = 'Known issues'
+}: GetStaticPropsContext) {
+  const sidebarFallback = await getNavigation()
+  const sectionSelected = 'troubleshooting'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
-  const branch = preview ? previewBranch : 'main'
-  const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
-  const logger = getLogger('Known Issues')
-  const currentLocale: localeType = locale
-    ? (locale as localeType)
-    : ('en' as localeType)
+  const branch: string = preview ? previewBranch : 'main'
+  const docsPathsGLOBAL = await getTroubleshootingPaths(
+    'troubleshooting',
+    branch
+  )
+  const logger = getLogger('troubleshooting')
+  const currentLocale: localeType = (locale ?? 'en') as localeType
 
   const slugs = Object.keys(docsPathsGLOBAL)
 
-  const fetchFromGithub = async (path: string, slug: string) => {
+  async function fetchFromGithub(path: string, slug: string) {
     try {
       const response = await fetch(
         `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
@@ -213,7 +178,7 @@ export const getStaticProps: GetStaticProps = async ({
         (e) => e.locale === currentLocale
       )?.path
 
-      if (path) return fetchFromGithub(path, slug)
+      if (path) return await fetchFromGithub(path, slug)
 
       return { content: '', slug }
     })
@@ -221,8 +186,7 @@ export const getStaticProps: GetStaticProps = async ({
     return Promise.all(promises)
   }
 
-  const knownIssuesData: KnownIssueDataElement[] = []
-
+  const troubleshootingData: TroubleshootingDataElement[] = []
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
     const batchResults = await fetchBatch(batch)
@@ -236,16 +200,15 @@ export const getStaticProps: GetStaticProps = async ({
             parseFrontmatter: true,
           })
 
-          if (frontmatter && frontmatter.tag && frontmatter.kiStatus)
-            knownIssuesData.push({
-              id: frontmatter.id,
-              title: frontmatter.title,
-              module: frontmatter.tag,
+          if (frontmatter) {
+            troubleshootingData.push({
+              title: String(frontmatter.title ?? ''),
               slug: data.slug,
-              status: frontmatter.kiStatus as KnownIssueStatus,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
+              tags: String(frontmatter.tags ?? '').split(','),
             })
+          }
         } catch (error) {
           logger.error(`${error}`)
         }
@@ -255,12 +218,12 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: {
-      sidebarfallback,
+      sidebarFallback,
       sectionSelected,
-      knownIssuesData,
+      troubleshootingData,
       branch,
     },
   }
 }
 
-export default KnownIssuesPage
+export default TroubleshootingPage
