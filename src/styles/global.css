@@ -3,6 +3,9 @@ body,
 * {
   font-family: 'VTEX Trust Regular', -apple-system, system-ui,
     BlinkMacSystemFont, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    text-rendering: optimizeLegibility;
 }
 
 body.modal-open {
@@ -13,7 +16,7 @@ body.modal-open {
 
 a {
   color: #e31c58;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 a:hover {
@@ -69,6 +72,7 @@ table th {
   font-size: 0.875em;
   border: 1px solid #e7e9ef;
   padding: 0.5em;
+  min-width: 60px;
 }
 
 table tbody tr:nth-of-type(even) {

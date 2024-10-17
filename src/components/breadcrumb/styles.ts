@@ -9,9 +9,9 @@ const breadcrumb: SxStyleProp = {
 }
 
 const breadcrumbItem: SxStyleProp = {
-  color: '#6b7785 !important',
+  color: '#6b7785',
   ':hover': {
-    color: '#5E6E84 !important',
+    color: '#5E6E84',
   },
 }
 
