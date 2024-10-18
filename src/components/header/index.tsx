@@ -20,14 +20,13 @@ import LocaleSwitcher from 'components/locale-switcher'
 
 import styles from './styles'
 import { PreviewContext } from 'utils/contexts/preview'
-import { FormattedMessage, useIntl } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import { HamburgerMenu, SearchInput } from '@vtexdocs/components'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Header = () => {
   const router = useRouter()
   const isBranchPreview = router.isPreview
-  const intl = useIntl()
 
   const { branchPreview } = useContext(PreviewContext)
 
@@ -89,17 +88,7 @@ const Header = () => {
 
   return (
     <Box ref={headerElement} sx={styles.headerContainer}>
-      {!isBranchPreview ? (
-        <AnnouncementBar
-          closable={true}
-          type="new"
-          label={intl.formatMessage({ id: 'announcement_bar.headline' })}
-          action={{
-            button: intl.formatMessage({ id: 'announcement_bar.button' }),
-            href: 'https://forms.gle/5EvnahjuwQqwumDd9',
-          }}
-        ></AnnouncementBar>
-      ) : (
+      {!isBranchPreview ? null : (
         <AnnouncementBar
           closable={false}
           type="warning"
