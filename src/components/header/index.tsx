@@ -90,15 +90,7 @@ const Header = () => {
   return (
     <Box ref={headerElement} sx={styles.headerContainer}>
       {!isBranchPreview ? (
-        <AnnouncementBar
-          closable={true}
-          type="new"
-          label={intl.formatMessage({ id: 'announcement_bar.headline' })}
-          action={{
-            button: intl.formatMessage({ id: 'announcement_bar.button' }),
-            href: 'https://forms.gle/5EvnahjuwQqwumDd9',
-          }}
-        ></AnnouncementBar>
+        null
       ) : (
         <AnnouncementBar
           closable={false}
