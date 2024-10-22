@@ -119,7 +119,9 @@ const KnownIssuePage: NextPage<Props> = ({
                   <Box sx={styles.divider}></Box>
                   <Flex sx={styles.detailedInfo}>
                     <Flex sx={styles.id}>
-                      <Text>ID: {serialized.frontmatter?.id}</Text>
+                      <Text>
+                        ID: {serialized.frontmatter?.internalReference}
+                      </Text>
                       <Tag>{serialized.frontmatter?.kiStatus}</Tag>
                     </Flex>
                     {createdAtDate && updatedAtDate && (
