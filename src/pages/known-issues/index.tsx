@@ -238,7 +238,7 @@ export const getStaticProps: GetStaticProps = async ({
 
           if (frontmatter && frontmatter.tag && frontmatter.kiStatus)
             knownIssuesData.push({
-              id: frontmatter.id,
+              id: frontmatter.internalReference,
               title: frontmatter.title,
               module: frontmatter.tag,
               slug: data.slug,
