@@ -9,4 +9,4 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
 force = true
 from = "/pt/tutorial/pedidos-para-entrega--4K7Z6FNIJgEt55B5vqVeCen"
 status = 308
-to = "/docs/tutorial/pedidos-para-entrega"
+to = "/pt/docs/tutorial/pedidos-para-entrega"
