@@ -173,7 +173,9 @@ export const knownIssuesData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'sidebar_support_rules.description',
       }),
-      link: '#', //TODO: trocar rota
+      link: intl.formatMessage({
+        id: 'sidebar_support_rules.link',
+      }),
     },
     {
       id: 'Troubleshooting',
@@ -222,7 +224,9 @@ export const menuSupportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'sidebar_support_rules.description',
       }),
-      link: '#', //TODO: trocar rota
+      link: intl.formatMessage({
+        id: 'sidebar_support_rules.link',
+      }),
     },
     {
       id: 'Troubleshooting',
@@ -310,7 +314,9 @@ export const supportData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'support_plans.description',
       }),
-      link: '/',
+      link: intl.formatMessage({
+        id: 'support_plans.link',
+      }),
     },
     {
       id: 'Status',
