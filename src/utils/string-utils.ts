@@ -12,9 +12,10 @@ export const toCamelCase = (str: string) => {
 export const slugify = (str: string) => {
   return str
     .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
     .replace(/\s+/g, '-')
     .replace(/\-+/g, '-')
-    .replace(/[^a-z0-9\-]/g, '')
 }
 
 type Child = string | { props: { children: Child[] } }
