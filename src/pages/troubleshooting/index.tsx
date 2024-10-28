@@ -21,6 +21,8 @@ import TroubleshootingCard from 'components/troubleshooting-card'
 import Pagination from 'components/pagination'
 import { TroubleshootingFilters } from 'utils/constants'
 import Filter from 'components/filter'
+import searchIcon from '../../components/icons/search-icon'
+import Input from 'components/input'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -43,13 +45,17 @@ const TroubleshootingPage: NextPage<Props> = ({
   const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<string[]>([])
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+  const [search, setSearch] = useState<string>('')
 
   const filteredResult = useMemo(() => {
     const data = troubleshootingData.filter((troubleshoot) => {
-      return (
+      const hasFilters: boolean =
         filters.length === 0 ||
         troubleshoot.tags.some((tag) => filters.includes(tag))
-      )
+      const hasSearch: boolean = troubleshoot.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+      return hasSearch && hasFilters
     })
 
     data.sort((a, b) => {
@@ -64,7 +70,7 @@ const TroubleshootingPage: NextPage<Props> = ({
     setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale])
+  }, [filters, sortByValue, intl.locale, search])
 
   const paginatedResult = usePagination<TroubleshootingDataElement>(
     itemsPerPage,
@@ -115,6 +121,14 @@ const TroubleshootingPage: NextPage<Props> = ({
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
+          <Input
+            placeholder={intl.formatMessage({
+              id: 'troubleshooting_page_search.placeholder',
+            })}
+            Icon={searchIcon}
+            value={search}
+            onChange={(value: string) => setSearch(value)}
+          />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
