@@ -53,6 +53,12 @@ export type WhatsNextDataElement = {
   linkTo: string
 }
 
+export type WhatsNextDataElementTutorial = {
+  title: string
+  linkTitle: string
+  linkTo: string
+}
+
 export type ResourceDataElement = {
   title: ResourceTitle
   description: string
