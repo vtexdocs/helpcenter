@@ -4,6 +4,8 @@ import styles from './styles'
 import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'
 import { LocaleOption } from '@vtex/brand-ui/dist/components/Header/LocaleSwitcher'
 import navigationData from '../../../public/navigation.json'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 
 interface OptionProps {
   screen: 'mobile' | 'large'
@@ -91,6 +93,8 @@ const findLocalizedSlug = async (
   return slug
 }
 
+const { setLocale } = useContext(LibraryContext)
+
 export default function LocaleSwitcher() {
   const router = useRouter()
   const options: LocaleOption[] = [
@@ -119,6 +123,9 @@ export default function LocaleSwitcher() {
       ? pathParts[1]
       : 'en'
     const newPathParts = pathParts.filter((part) => part !== currentLocale)
+
+    // Set locale in context
+    setLocale(currentLocale)
 
     if (currentPath.includes('/docs')) {
       const contentType = newPathParts[2]
