@@ -18,7 +18,7 @@
   "faq_order_error.title": "Erros de integração de pedidos de marketplaces",
   "faq_order_error.description": "Entenda como identificar erros em pedidos externos.",
   "faq_handling.title": "Por que meu pedido está parado em “Preparando entrega”?",
-  "faq_handling.description": "Preparando Entrega é um status do fluxo de pedidos em que se espera o cadastro da nota fiscal para a fatura.",
+  "faq_handling.description": "'Preparando entrega' é um status do fluxo de pedidos em que se espera o cadastro da nota fiscal para a fatura.",
   "faq_product_visible.title": "Por que o produto não aparece no site?",
   "faq_product_visible.description": "Para um produto aparecer disponível na loja ele precisa ser atendido pela logística configurada na loja.",
   "faq_carrier.title": "Por que minha transportadora não aparece no checkout?",
