@@ -20,7 +20,7 @@
   "faq_handling.title": "Por que meu pedido está parado em “Preparando entrega”?",
   "faq_handling.description": "'Preparando entrega' é um status do fluxo de pedidos em que se espera o cadastro da nota fiscal para a fatura.",
   "faq_product_visible.title": "Por que o produto não aparece no site?",
-  "faq_product_visible.description": "Para um produto aparecer disponível na loja ele precisa ser atendido pela logística configurada na loja.",
+  "faq_product_visible.description": "Para um produto aparecer disponível na loja, ele precisa ser atendido pela logística configurada na loja.",
   "faq_carrier.title": "Por que minha transportadora não aparece no checkout?",
   "faq_carrier.description": "Separamos cinco cenários em que esse comportamento ocorre e suas respectivas soluções.",
   "updates_documentation_updates.title": "Documentation Updates",
