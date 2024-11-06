@@ -84,7 +84,7 @@ const TutorialsPage: NextPage<Props> = ({ branch }) => {
           })}
         />
         <Box sx={styles.contentContainer}>
-          <ContentSection id={'start_here_page_tutorials_page'} length={40} />
+          <ContentSection id={'tutorials_main_page'} length={40} />
         </Box>
       </Fragment>
     </>
