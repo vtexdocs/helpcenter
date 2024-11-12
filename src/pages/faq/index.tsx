@@ -49,15 +49,17 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   )
 
   const filteredResult = useMemo(() => {
-    const data = faqData.filter((question) => {
-      const hasFilter: boolean =
-        filters.length === 0 || filters.includes(question.productTeam)
-      const hasSearch: boolean = question.title
-        .toLowerCase()
-        .includes(search.toLowerCase())
+    const data = faqData
+      .filter((question) => question.status === 'PUBLISHED')
+      .filter((question) => {
+        const hasFilter: boolean =
+          filters.length === 0 || filters.includes(question.productTeam)
+        const hasSearch: boolean = question.title
+          .toLowerCase()
+          .includes(search.toLowerCase())
 
-      return hasFilter && hasSearch
-    })
+        return hasFilter && hasSearch
+      })
 
     data.sort((a, b) => {
       const dateA =
@@ -266,6 +268,7 @@ export const getStaticProps: GetStaticProps = async ({
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
               productTeam: frontmatter.productTeam,
+              status: frontmatter.status,
             })
         } catch (error) {
           logger.error(`${error}`)
