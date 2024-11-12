@@ -195,6 +195,19 @@ export const getStaticProps: GetStaticProps = async ({
       .then((res) => res.text())
       .catch((err) => console.log(err))) || ''
 
+  // Serialize content and parse frontmatter
+  const serialized = await serialize(documentationContent, {
+    parseFrontmatter: true,
+  })
+
+  // Check if status is "PUBLISHED"
+  const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
+  if (!isPublished) {
+    return {
+      notFound: true,
+    }
+  }
+
   const contributors =
     (await fetch(
       `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
