@@ -385,6 +385,13 @@ export const getServerSideProps: GetServerSideProps = async ({
       },
     })
 
+    // Check the frontmatter status
+    if (serialized.frontmatter?.status !== 'PUBLISHED') {
+      return {
+        notFound: true,
+      }
+    }
+
     serialized = JSON.parse(JSON.stringify(serialized))
 
     logger.info(`Processing ${slug}`)
