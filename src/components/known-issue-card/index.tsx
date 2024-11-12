@@ -26,7 +26,9 @@ const KnownIssueCard = ({
         <Flex sx={styles.topContainer}>
           <Tag color={kiStatus}>
             {intl.formatMessage({
-              id: `known_issues_filter_status.${kiStatus.toLowerCase()}`,
+              id: `known_issues_filter_status.${kiStatus
+                .toLowerCase()
+                .replace(' ', '_')}`,
             })}
           </Tag>
           <Text sx={styles.knownIssueModule} className="module">

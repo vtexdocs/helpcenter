@@ -456,7 +456,7 @@ export const knownIssuesStatusFilter = (intl: IntlShape) => {
         }),
       },
       {
-        id: 'No fix',
+        id: 'No_Fix',
         name: intl.formatMessage({ id: 'known_issues_filter_status.no_fix' }),
       },
     ],

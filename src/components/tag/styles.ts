@@ -40,7 +40,7 @@ const statusColors: {
     color: '#D77809',
     background: '#FFF3DA',
   },
-  'No fix': {
+  No_Fix: {
     border: '1px solid #FAA397',
     color: '#CB2610',
     background: '#FFDFDB',

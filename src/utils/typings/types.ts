@@ -18,6 +18,7 @@ export type DataElement = {
   Icon: IconComponent
   description: string
 }
+
 export interface DocDataElement extends DataElement {
   id: string
   title: string
@@ -64,7 +65,7 @@ export type KnownIssueStatus =
   | 'Closed'
   | 'Backlog'
   | 'Scheduled'
-  | 'No fix'
+  | 'No_Fix'
 
 export type KnownIssueDataElement = {
   title: string
