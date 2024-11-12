@@ -127,6 +127,7 @@ export const getStaticProps: GetStaticProps = async ({
               url: `announcements/${data.slug}`,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
+              status: frontmatter.status,
             })
           }
         } catch (error) {
