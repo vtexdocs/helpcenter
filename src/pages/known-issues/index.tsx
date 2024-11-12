@@ -43,6 +43,7 @@ interface Props {
 
 const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const intl = useIntl()
+
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const itemsPerPage = 8
@@ -51,9 +52,9 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
     status: string[]
     modules: string[]
   }>({ status: [], modules: [] })
+
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
-
   const filteredResult = useMemo(() => {
     const data = knownIssuesData.filter((knownIssue) => {
       const hasFilter: boolean =
@@ -242,7 +243,10 @@ export const getStaticProps: GetStaticProps = async ({
               title: frontmatter.title,
               module: frontmatter.tag,
               slug: data.slug,
-              status: frontmatter.kiStatus as KnownIssueStatus,
+              status: frontmatter.kiStatus.replace(
+                ' ',
+                '_'
+              ) as KnownIssueStatus,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
             })
