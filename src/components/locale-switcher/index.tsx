@@ -93,8 +93,6 @@ const findLocalizedSlug = async (
   return slug
 }
 
-const { setLocale } = useContext(LibraryContext)
-
 export default function LocaleSwitcher() {
   const router = useRouter()
   const options: LocaleOption[] = [
@@ -112,28 +110,28 @@ export default function LocaleSwitcher() {
     },
   ]
 
+  // Getting locale and setlocale function from the context
+  const { locale: currentLocale, setLocale } = useContext(LibraryContext)
+  type LocaleType = typeof currentLocale
+
   const handleOptionClick = async (option: string) => {
-    const locale = option as keyof Slug
+    const chosenLocale = option as LocaleType
     const currentPath = window.location.pathname
     const pathParts = currentPath.split('/')
 
     // Obtain the current locale
-    const allowedLocales = ['en', 'es', 'pt']
-    const currentLocale = allowedLocales.includes(pathParts[1])
-      ? pathParts[1]
-      : 'en'
     const newPathParts = pathParts.filter((part) => part !== currentLocale)
 
     // Set locale in context
-    setLocale(currentLocale)
+    setLocale(chosenLocale)
 
     if (currentPath.includes('/docs')) {
       const contentType = newPathParts[2]
       const currentSlug = newPathParts[3]
-      const localizedSlug = await findLocalizedSlug(currentSlug, locale)
+      const localizedSlug = await findLocalizedSlug(currentSlug, chosenLocale)
       const newPath = currentSlug
-        ? `/${locale}/docs/${contentType}/${localizedSlug}`
-        : `/${locale}/docs/${contentType}`
+        ? `/${chosenLocale}/docs/${contentType}/${localizedSlug}`
+        : `/${chosenLocale}/docs/${contentType}`
       console.log(newPath)
       window.location.href = newPath
     } else if (
@@ -143,15 +141,15 @@ export default function LocaleSwitcher() {
     ) {
       const contentType = newPathParts[1]
       const currentSlug = newPathParts[2]
-      const localizedSlug = await findLocalizedSlug(currentSlug, locale)
+      const localizedSlug = await findLocalizedSlug(currentSlug, chosenLocale)
       const newPath = currentSlug
-        ? `/${locale}/${contentType}/${localizedSlug}`
-        : `/${locale}/${contentType}`
+        ? `/${chosenLocale}/${contentType}/${localizedSlug}`
+        : `/${chosenLocale}/${contentType}`
       console.log(newPath)
       window.location.href = newPath
     } else {
       console.log(currentPath)
-      const newPath = `/${locale}`
+      const newPath = `/${chosenLocale}`
       window.location.href = newPath
     }
   }
