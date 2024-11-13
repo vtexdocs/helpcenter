@@ -24,6 +24,18 @@ const articleBox: SxStyleProp = {
   a: {
     color: '#E31C58',
   },
+  ul: {
+    li: {
+      mt: '0.5em',
+      mb: '0.5em',
+    },
+  },
+  ol: {
+    li: {
+      mt: '0.5em',
+      mb: '0.5em',
+    },
+  },
   header: {
     borderBottom: '1px solid #E7E9EE',
     marginBottom: '24px',
