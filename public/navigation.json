@@ -5151,9 +5151,9 @@
                    "pt": "Beta"
                 },
                 "slug": {
-                   "en": "cat-beta-products",
-                   "es": "cat-beta-producto",
-                   "pt": "cat-produtos-beta"
+                   "en": "category-beta-products",
+                   "es": "category-beta-producto",
+                   "pt": "category-produtos-beta"
                 },
                 "origin": "",
                 "type": "category",
@@ -6020,9 +6020,9 @@
                    "pt": "Apps"
                 },
                 "slug": {
-                   "en": "cat-apps",
-                   "es": "cat-apps",
-                   "pt": "cat-apps"
+                   "en": "category-apps",
+                   "es": "category-apps",
+                   "pt": "category-apps"
                 },
                 "origin": "",
                 "type": "category",
@@ -6267,9 +6267,9 @@
                    "pt": "Troubleshooting"
                 },
                 "slug": {
-                   "en": "cat-troubleshooting",
-                   "es": "cat-troubleshooting",
-                   "pt": "cat-troubleshooting"
+                   "en": "category-troubleshooting",
+                   "es": "category-troubleshooting",
+                   "pt": "category-troubleshooting"
                 },
                 "origin": "",
                 "type": "category",
@@ -6675,9 +6675,9 @@
                    "pt": "B2B"
                 },
                 "slug": {
-                   "en": "cat-b2b",
-                   "es": "cat-b2b",
-                   "pt": "cat-b2b"
+                   "en": "category-b2b",
+                   "es": "category-b2b",
+                   "pt": "category-b2b"
                 },
                 "origin": "",
                 "type": "category",
@@ -7134,9 +7134,9 @@
                    "pt": "Intelligent Search"
                 },
                 "slug": {
-                   "en": "cat-intelligent-search",
-                   "es": "cat-intelligent-search",
-                   "pt": "cat-intelligent-search"
+                   "en": "category-intelligent-search",
+                   "es": "category-intelligent-search",
+                   "pt": "category-intelligent-search"
                 },
                 "origin": "",
                 "type": "category",
@@ -7637,9 +7637,9 @@
                    "pt": "Conversational Commerce"
                 },
                 "slug": {
-                   "en": "cat-conversational-commerce",
-                   "es": "cat-conversational-commerce",
-                   "pt": "cat-conversational-commerce"
+                   "en": "category-conversational-commerce",
+                   "es": "category-conversational-commerce",
+                   "pt": "category-conversational-commerce"
                 },
                 "origin": "",
                 "type": "category",
@@ -8285,9 +8285,9 @@
                    "pt": "Master Data"
                 },
                 "slug": {
-                   "en": "cat-master-data",
-                   "es": "cat-master-data",
-                   "pt": "cat-master-data"
+                   "en": "category-master-data",
+                   "es": "category-master-data",
+                   "pt": "category-master-data"
                 },
                 "origin": "",
                 "type": "category",
@@ -8801,9 +8801,9 @@
                    "pt": "Configurações da Loja"
                 },
                 "slug": {
-                   "en": "cat-store-settings",
-                   "es": "cat-configuraciones-de-la-tienda",
-                   "pt": "cat-configuracoes-da-loja"
+                   "en": "category-store-settings",
+                   "es": "category-configuraciones-de-la-tienda",
+                   "pt": "category-configuracoes-da-loja"
                 },
                 "origin": "",
                 "type": "category",
@@ -8879,9 +8879,9 @@
                    "pt": "Segurança"
                 },
                 "slug": {
-                   "en": "cat-security",
-                   "es": "cat-seguridad",
-                   "pt": "cat-seguranca"
+                   "en": "category-security",
+                   "es": "category-seguridad",
+                   "pt": "category-seguranca"
                 },
                 "origin": "",
                 "type": "category",
@@ -9229,9 +9229,9 @@
                    "pt": "Dashboards"
                 },
                 "slug": {
-                   "en": "cat-insights",
-                   "es": "cat-insights",
-                   "pt": "cat-insights"
+                   "en": "category-insights",
+                   "es": "category-insights",
+                   "pt": "category-insights"
                 },
                 "origin": "",
                 "type": "category",
@@ -9306,9 +9306,9 @@
                    "pt": "Storefront"
                 },
                 "slug": {
-                   "en": "cat-cms",
-                   "es": "cat-cms",
-                   "pt": "cat-cms"
+                   "en": "category-cms",
+                   "es": "category-cms",
+                   "pt": "category-cms"
                 },
                 "origin": "",
                 "type": "category",
@@ -10844,9 +10844,9 @@
                    "pt": "Envio"
                 },
                 "slug": {
-                   "en": "cat-shipping",
-                   "es": "cat-envio",
-                   "pt": "cat-envio"
+                   "en": "category-shipping",
+                   "es": "category-envio",
+                   "pt": "category-envio"
                 },
                 "origin": "",
                 "type": "category",
@@ -11996,9 +11996,9 @@
                    "pt": "Gerenciamento da conta"
                 },
                 "slug": {
-                   "en": "cat-account-management",
-                   "es": "cat-gestion-de-la-cuenta",
-                   "pt": "cat-gerenciamento-de-conta"
+                   "en": "category-account-management",
+                   "es": "category-gestion-de-la-cuenta",
+                   "pt": "category-gerenciamento-de-conta"
                 },
                 "origin": "",
                 "type": "category",
@@ -12467,9 +12467,9 @@
                    "pt": "Comércio Unificado"
                 },
                 "slug": {
-                   "en": "cat-unified-commerce",
-                   "es": "cat-comercio-unificado",
-                   "pt": "cat-comercio-unificado"
+                   "en": "category-unified-commerce",
+                   "es": "category-comercio-unificado",
+                   "pt": "category-comercio-unificado"
                 },
                 "origin": "",
                 "type": "category",
@@ -12559,9 +12559,9 @@
                    "pt": "Faturas"
                 },
                 "slug": {
-                   "en": "cat-billing",
-                   "es": "cat-facturas",
-                   "pt": "cat-faturas"
+                   "en": "category-billing",
+                   "es": "category-facturas",
+                   "pt": "category-faturas"
                 },
                 "origin": "",
                 "type": "category",
@@ -12863,9 +12863,9 @@
                    "pt": "Pedidos"
                 },
                 "slug": {
-                   "en": "cat-orders",
-                   "es": "cat-pedidos",
-                   "pt": "cat-pedidos"
+                   "en": "category-orders",
+                   "es": "category-pedidos",
+                   "pt": "category-pedidos"
                 },
                 "origin": "",
                 "type": "category",
@@ -13875,9 +13875,9 @@
                    "pt": "Autenticação"
                 },
                 "slug": {
-                   "en": "cat-authentications",
-                   "es": "cat-autenticaciones",
-                   "pt": "cat-autenticacoes"
+                   "en": "category-authentications",
+                   "es": "category-autenticaciones",
+                   "pt": "category-autenticacoes"
                 },
                 "origin": "",
                 "type": "category",
@@ -14013,9 +14013,9 @@
                    "pt": "Integrações"
                 },
                 "slug": {
-                   "en": "cat-integrations",
-                   "es": "cat-integraciones",
-                   "pt": "cat-integracoes"
+                   "en": "category-integrations",
+                   "es": "category-integraciones",
+                   "pt": "category-integracoes"
                 },
                 "origin": "",
                 "type": "category",
@@ -14950,9 +14950,9 @@
                    "pt": "Sellers"
                 },
                 "slug": {
-                   "en": "cat-sellers",
-                   "es": "cat-sellers",
-                   "pt": "cat-sellers"
+                   "en": "category-sellers",
+                   "es": "category-sellers",
+                   "pt": "category-sellers"
                 },
                 "origin": "",
                 "type": "category",
@@ -15512,9 +15512,9 @@
                    "pt": "Promoções e taxas"
                 },
                 "slug": {
-                   "en": "cat-promotions-and-taxes",
-                   "es": "cat-tasas-y-promociones",
-                   "pt": "cat-promocoes-e-taxas"
+                   "en": "category-promotions-and-taxes",
+                   "es": "category-tasas-y-promociones",
+                   "pt": "category-promocoes-e-taxas"
                 },
                 "origin": "",
                 "type": "category",
@@ -16132,9 +16132,9 @@
                    "pt": "Políticas comerciais"
                 },
                 "slug": {
-                   "en": "cat-trade-policies",
-                   "es": "cat-politicas-comerciales",
-                   "pt": "cat-politicas-comerciais"
+                   "en": "category-trade-policies",
+                   "es": "category-politicas-comerciales",
+                   "pt": "category-politicas-comerciais"
                 },
                 "origin": "",
                 "type": "category",
@@ -16255,9 +16255,9 @@
                    "pt": "Catálogo"
                 },
                 "slug": {
-                   "en": "cat-catalog",
-                   "es": "cat-catalogo",
-                   "pt": "cat-catalogo"
+                   "en": "category-catalog",
+                   "es": "category-catalogo",
+                   "pt": "category-catalogo"
                 },
                 "origin": "",
                 "type": "category",
@@ -17527,9 +17527,9 @@
                    "pt": "Central de mensagens "
                 },
                 "slug": {
-                   "en": "cat-message-center",
-                   "es": "cat-centro-de-mensajes",
-                   "pt": "cat-central-de-mensagens"
+                   "en": "category-message-center",
+                   "es": "category-centro-de-mensajes",
+                   "pt": "category-central-de-mensagens"
                 },
                 "origin": "",
                 "type": "category",
@@ -17695,9 +17695,9 @@
                    "pt": "Outros"
                 },
                 "slug": {
-                   "en": "cat-other",
-                   "es": "cat-otros",
-                   "pt": "cat-outros"
+                   "en": "category-other",
+                   "es": "category-otros",
+                   "pt": "category-outros"
                 },
                 "origin": "",
                 "type": "category",
@@ -17742,9 +17742,9 @@
                    "pt": "Infraestrutura"
                 },
                 "slug": {
-                   "en": "cat-infrastructure",
-                   "es": "cat-infraestructura",
-                   "pt": "cat-infraestrutura"
+                   "en": "category-infrastructure",
+                   "es": "category-infraestructura",
+                   "pt": "category-infraestrutura"
                 },
                 "origin": "",
                 "type": "category",
@@ -17925,9 +17925,9 @@
                    "pt": "Omnichannel"
                 },
                 "slug": {
-                   "en": "cat-omnichannel",
-                   "es": "cat-omnichannel",
-                   "pt": "cat-omnichannel"
+                   "en": "category-omnichannel",
+                   "es": "category-omnichannel",
+                   "pt": "category-omnichannel"
                 },
                 "origin": "",
                 "type": "category",
@@ -18033,9 +18033,9 @@
                    "pt": "Checkout"
                 },
                 "slug": {
-                   "en": "cat-checkout",
-                   "es": "cat-checkout",
-                   "pt": "cat-checkout"
+                   "en": "category-checkout",
+                   "es": "category-checkout",
+                   "pt": "category-checkout"
                 },
                 "origin": "",
                 "type": "category",
@@ -18426,9 +18426,9 @@
                    "pt": "Assinaturas"
                 },
                 "slug": {
-                   "en": "cat-subscriptions",
-                   "es": "cat-suscripciones",
-                   "pt": "cat-assinaturas"
+                   "en": "category-subscriptions",
+                   "es": "category-suscripciones",
+                   "pt": "category-assinaturas"
                 },
                 "origin": "",
                 "type": "category",
@@ -18563,9 +18563,9 @@
                    "pt": "VTEX Tracking"
                 },
                 "slug": {
-                   "en": "cat-vtex-tracking",
-                   "es": "cat-vtex-tracking",
-                   "pt": "cat-vtex-tracking"
+                   "en": "category-vtex-tracking",
+                   "es": "category-vtex-tracking",
+                   "pt": "category-vtex-tracking"
                 },
                 "origin": "",
                 "type": "category",
@@ -19306,9 +19306,9 @@
                    "pt": "Pagamentos"
                 },
                 "slug": {
-                   "en": "cat-payments",
-                   "es": "cat-pagos",
-                   "pt": "cat-pagamentos"
+                   "en": "category-payments",
+                   "es": "category-pagos",
+                   "pt": "category-pagamentos"
                 },
                 "origin": "",
                 "type": "category",
@@ -21652,9 +21652,9 @@
                    "pt": "Preços"
                 },
                 "slug": {
-                   "en": "cat-prices",
-                   "es": "cat-precios",
-                   "pt": "cat-precos"
+                   "en": "category-prices",
+                   "es": "category-precios",
+                   "pt": "category-precos"
                 },
                 "origin": "",
                 "type": "category",
