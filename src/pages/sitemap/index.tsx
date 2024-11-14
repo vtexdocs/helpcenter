@@ -22,7 +22,7 @@ const SiteMapPage: Page<Props> = ({ sections }) => {
 
   const documentationTitleTranslated: { [key: string]: string } = {
     'Start here': intl.formatMessage({ id: 'documentation_start_here.title' }),
-    'Tutorials': intl.formatMessage({
+    Tutorials: intl.formatMessage({
       id: 'documentation_tutorials.title',
     }),
   }
