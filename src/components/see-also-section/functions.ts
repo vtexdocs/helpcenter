@@ -6,14 +6,14 @@ import { useIntl } from 'react-intl'
 
 const getDoctype = (category: string) => {
   switch (category) {
-    case 'Tutorials & Solutions':
-      return 'Tutorials & Solutions'
+    case 'Tutorials':
+      return 'Tutorials'
     case 'Start here':
       return 'Start here'
     case 'Announcements':
       return 'Announcements'
     default:
-      return 'Tutorials & Solutions'
+      return 'Tutorials'
   }
 }
 

@@ -2,7 +2,7 @@ export type Locale = 'en' | 'pt' | 'es'
 
 export type DocumentationTitle =
   | 'Start here'
-  | 'Tutorials & Solutions'
+  | 'Tutorials'
   | 'Developers Portal'
 
 export type UpdatesTitle = 'Announcement' | 'FAQ'
