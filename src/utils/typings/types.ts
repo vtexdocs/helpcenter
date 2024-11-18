@@ -76,11 +76,12 @@ export type KnownIssueStatus =
 export type KnownIssueDataElement = {
   title: string
   id: string
-  status: KnownIssueStatus
+  kiStatus: KnownIssueStatus
   module: string
   slug: string
   createdAt: string
   updatedAt: string
+  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }
 
 export type AnnouncementDataElement = {
@@ -88,6 +89,7 @@ export type AnnouncementDataElement = {
   url: string
   createdAt: string
   updatedAt: string
+  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }
 
 export type SortByType = 'newest' | 'recently_updated'
@@ -98,6 +100,7 @@ export type FaqCardDataElement = {
   createdAt: string
   updatedAt: string
   productTeam: string
+  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }
 
 export type TroubleshootingDataElement = {
@@ -106,4 +109,5 @@ export type TroubleshootingDataElement = {
   tags: string[]
   createdAt: string
   updatedAt: string
+  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }
