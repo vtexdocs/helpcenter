@@ -43,9 +43,11 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
-    const data = announcementsData.filter((announcement) =>
-      announcement.title?.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    const data = announcementsData
+      .filter((announcement) => announcement.status === 'PUBLISHED')
+      .filter((announcement) =>
+        announcement.title?.toLowerCase().includes(searchTerm.toLowerCase())
+      )
 
     data.sort((a, b) => {
       const dateA =
@@ -215,6 +217,7 @@ export const getStaticProps: GetStaticProps = async ({
               url: `announcements/${data.slug}`,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
+              status: frontmatter.status ?? null,
             })
         } catch (error) {
           logger.error(`${error}`)

@@ -294,6 +294,13 @@ export const getServerSideProps: GetServerSideProps = async ({
       },
     })
 
+    // Check the frontmatter status
+    if (serialized.frontmatter?.status !== 'PUBLISHED') {
+      return {
+        notFound: true,
+      }
+    }
+
     const sidebarfallback = await getNavigation()
     serialized = JSON.parse(JSON.stringify(serialized))
 

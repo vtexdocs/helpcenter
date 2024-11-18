@@ -45,12 +45,14 @@ const TroubleshootingPage: NextPage<Props> = ({
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
-    const data = troubleshootingData.filter((troubleshoot) => {
-      return (
-        filters.length === 0 ||
-        troubleshoot.tags.some((tag) => filters.includes(tag))
-      )
-    })
+    const data = troubleshootingData
+      .filter((troubleshoot) => troubleshoot.status === 'PUBLISHED')
+      .filter((troubleshoot) => {
+        return (
+          filters.length === 0 ||
+          troubleshoot.tags.some((tag) => filters.includes(tag))
+        )
+      })
 
     data.sort((a, b) => {
       const dateA =
@@ -207,6 +209,7 @@ export async function getStaticProps({
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
               tags: String(frontmatter.tags ?? '').split(','),
+              status: frontmatter.status,
             })
           }
         } catch (error) {

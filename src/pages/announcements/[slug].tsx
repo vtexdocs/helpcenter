@@ -183,7 +183,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   const logger = getLogger('Announcements')
 
-  const path = docsPaths[slug].find((e) => e.locale === locale)?.path
+  const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
 
   if (!path) {
     return {
@@ -198,6 +198,20 @@ export const getStaticProps: GetStaticProps = async ({
       .then((res) => res.text())
       .catch((err) => console.log(err))) || ''
 
+  // Serialize content and parse frontmatter
+  let serialized = await serialize(documentationContent, {
+    parseFrontmatter: true,
+  })
+
+  // Check if status is "PUBLISHED"
+  const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
+  if (!isPublished) {
+    return {
+      notFound: true,
+    }
+  }
+
+  // Process the rest of the data
   const contributors =
     (await fetch(
       `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
@@ -244,7 +258,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   try {
     const headingList: Item[] = []
-    let serialized = await serialize(documentationContent, {
+    serialized = await serialize(documentationContent, {
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [
@@ -292,6 +306,7 @@ export const getStaticProps: GetStaticProps = async ({
               title: serialized.frontmatter?.title ?? seeAlsoUrl,
               createdAt: String(serialized.frontmatter?.createdAt) ?? '',
               updatedAt: String(serialized.frontmatter?.updatedAt) ?? '',
+              status: serialized.frontmatter?.status ?? '',
             })
           } catch (error) {}
         }

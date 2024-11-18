@@ -65,7 +65,7 @@ const AdminPage: NextPage<Props> = ({ file, fileContent, isPRPreview }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { file } = context.query
   const isPreview = true
-  const sectionSelected = 'Tutorials & Solutions'
+  const sectionSelected = 'Tutorials'
   if (file) {
     const fileContent = await fetch(file as string)
       .then((res) => res.json())
