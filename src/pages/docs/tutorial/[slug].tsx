@@ -182,7 +182,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
-  const logger = getLogger('Tutorials & Solutions')
+  const logger = getLogger('Tutorials')
 
   const sidebarfallback = await getNavigation()
   const flattenedSidebar = flattenJSON(sidebarfallback)

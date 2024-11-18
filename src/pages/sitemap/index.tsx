@@ -22,7 +22,7 @@ const SiteMapPage: Page<Props> = ({ sections }) => {
 
   const documentationTitleTranslated: { [key: string]: string } = {
     'Start here': intl.formatMessage({ id: 'documentation_start_here.title' }),
-    'Tutorials & Solutions': intl.formatMessage({
+    Tutorials: intl.formatMessage({
       id: 'documentation_tutorials.title',
     }),
   }
@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     ? (locale as localeType)
     : ('en' as localeType)
 
-  const sectionDocumentation = ['Start here', 'Tutorials & Solutions']
+  const sectionDocumentation = ['Start here', 'Tutorials']
 
   const sidebarfallback = await getNavigation()
 

@@ -56,7 +56,7 @@ const TutorialMarkdownRender = (props: Props) => {
     <>
       <Head>
         <title>{props.serialized.frontmatter?.title as string}</title>
-        <meta name="docsearch:doctype" content="Tutorials & Solutions" />
+        <meta name="docsearch:doctype" content="Tutorials" />
         {props.serialized.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />
         )}
@@ -69,14 +69,14 @@ const TutorialMarkdownRender = (props: Props) => {
       </Head>
       <PageHeader
         title={intl.formatMessage({
-          id: 'tutorial_and_solutions_page.title',
+          id: 'tutorials_page.title',
         })}
         description={intl.formatMessage({
-          id: 'tutorial_and_solutions_page.description',
+          id: 'tutorials_page.description',
         })}
         imageUrl={startHereImage}
         imageAlt={intl.formatMessage({
-          id: 'tutorial_and_solutions_page.title',
+          id: 'tutorials_page.title',
         })}
       />
       <DocumentContextProvider headings={props.headings}>
