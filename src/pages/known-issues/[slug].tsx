@@ -103,37 +103,39 @@ const KnownIssuePage: NextPage<Props> = ({
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <article ref={articleRef}>
-                <header>
-                  <Breadcrumb breadcrumbList={breadcrumbList} />
-                  <Flex sx={styles.flexContainer}>
-                    <Text sx={styles.documentationTitle} className="title">
-                      {serialized.frontmatter?.title}
-                    </Text>
-                    {serialized.frontmatter?.readingTime && (
-                      <TimeToRead
-                        minutes={serialized.frontmatter.readingTime}
-                      />
-                    )}
-                  </Flex>
-                  <Box sx={styles.divider}></Box>
-                  <Flex sx={styles.detailedInfo}>
-                    <Flex sx={styles.id}>
-                      <Text>
-                        ID: {serialized.frontmatter?.internalReference}
+              <Box sx={styles.textContainer}>
+                <article ref={articleRef}>
+                  <header>
+                    <Breadcrumb breadcrumbList={breadcrumbList} />
+                    <Flex sx={styles.flexContainer}>
+                      <Text sx={styles.documentationTitle} className="title">
+                        {serialized.frontmatter?.title}
                       </Text>
-                      <Tag>{serialized.frontmatter?.kiStatus}</Tag>
+                      {serialized.frontmatter?.readingTime && (
+                        <TimeToRead
+                          minutes={serialized.frontmatter.readingTime}
+                        />
+                      )}
                     </Flex>
-                    {createdAtDate && updatedAtDate && (
-                      <DateText
-                        createdAt={createdAtDate}
-                        updatedAt={updatedAtDate}
-                      />
-                    )}
-                  </Flex>
-                </header>
-                <MarkdownRenderer serialized={serialized} />
-              </article>
+                    <Box sx={styles.divider}></Box>
+                    <Flex sx={styles.detailedInfo}>
+                      <Flex sx={styles.id}>
+                        <Text>
+                          ID: {serialized.frontmatter?.internalReference}
+                        </Text>
+                        <Tag>{serialized.frontmatter?.kiStatus}</Tag>
+                      </Flex>
+                      {createdAtDate && updatedAtDate && (
+                        <DateText
+                          createdAt={createdAtDate}
+                          updatedAt={updatedAtDate}
+                        />
+                      )}
+                    </Flex>
+                  </header>
+                  <MarkdownRenderer serialized={serialized} />
+                </article>
+              </Box>
             </Box>
             <Box sx={styles.bottomContributorsContainer}>
               <Box sx={styles.bottomContributorsDivider} />

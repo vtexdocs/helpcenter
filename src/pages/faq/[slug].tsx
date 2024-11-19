@@ -100,28 +100,30 @@ const FaqPage: NextPage<Props> = ({
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <article ref={articleRef}>
-                <header>
-                  <Breadcrumb breadcrumbList={breadcrumbList} />
-                  <Flex sx={styles.flexContainer}>
-                    <Text sx={styles.documentationTitle} className="title">
-                      {serialized.frontmatter?.title}
-                    </Text>
-                    {serialized.frontmatter?.readingTime && (
-                      <TimeToRead
-                        minutes={serialized.frontmatter.readingTime}
-                      />
-                    )}
-                    {createdAtDate && updatedAtDate && (
-                      <DateText
-                        createdAt={createdAtDate}
-                        updatedAt={updatedAtDate}
-                      />
-                    )}
-                  </Flex>
-                </header>
-                <MarkdownRenderer serialized={serialized} />
-              </article>
+              <Box sx={styles.textContainer}>
+                <article ref={articleRef}>
+                  <header>
+                    <Breadcrumb breadcrumbList={breadcrumbList} />
+                    <Flex sx={styles.flexContainer}>
+                      <Text sx={styles.documentationTitle} className="title">
+                        {serialized.frontmatter?.title}
+                      </Text>
+                      {serialized.frontmatter?.readingTime && (
+                        <TimeToRead
+                          minutes={serialized.frontmatter.readingTime}
+                        />
+                      )}
+                      {createdAtDate && updatedAtDate && (
+                        <DateText
+                          createdAt={createdAtDate}
+                          updatedAt={updatedAtDate}
+                        />
+                      )}
+                    </Flex>
+                  </header>
+                  <MarkdownRenderer serialized={serialized} />
+                </article>
+              </Box>
             </Box>
 
             <Box sx={styles.bottomContributorsContainer}>
