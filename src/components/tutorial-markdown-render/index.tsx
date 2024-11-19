@@ -83,23 +83,25 @@ const TutorialMarkdownRender = (props: Props) => {
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <article>
-                <header>
-                  <Breadcrumb breadcrumbList={props.breadcrumbList} />
-                  <Text sx={styles.documentationTitle} className="title">
-                    {props.serialized.frontmatter?.title}
-                  </Text>
-                  <Text sx={styles.documentationExcerpt}>
-                    {props.serialized.frontmatter?.excerpt}
-                  </Text>
-                </header>
-                {props.serialized.frontmatter?.readingTime && (
-                  <TimeToRead
-                    minutes={props.serialized.frontmatter.readingTime}
-                  />
-                )}
-                <MarkdownRenderer serialized={props.serialized} />
-              </article>
+              <Box sx={styles.textContainer}>
+                <article>
+                  <header>
+                    <Breadcrumb breadcrumbList={props.breadcrumbList} />
+                    <Text sx={styles.documentationTitle} className="title">
+                      {props.serialized.frontmatter?.title}
+                    </Text>
+                    <Text sx={styles.documentationExcerpt}>
+                      {props.serialized.frontmatter?.excerpt}
+                    </Text>
+                  </header>
+                  {props.serialized.frontmatter?.readingTime && (
+                    <TimeToRead
+                      minutes={props.serialized.frontmatter.readingTime}
+                    />
+                  )}
+                  <MarkdownRenderer serialized={props.serialized} />
+                </article>
+              </Box>
             </Box>
 
             <Box sx={styles.bottomContributorsContainer}>
