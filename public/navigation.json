@@ -1437,9 +1437,9 @@
                                 },
                                 {
                                     "name": {
-                                        "en": "CMS - Site Editor",
-                                        "es": "CMS - Site Editor",
-                                        "pt": "CMS - Site Editor"
+                                        "en": "Store Framework CMS",
+                                        "es": "Store Framework CMS",
+                                        "pt": "Store Framework CMS"
                                     },
                                     "slug": {
                                         "en": "cms-vtex-io",
@@ -5156,6 +5156,284 @@
             "categories": [
                 {
                     "name": {
+                        "en": "Apps",
+                        "es": "Apps",
+                        "pt": "Apps"
+                    },
+                    "slug": {
+                        "en": "category-apps",
+                        "es": "categoria-apps",
+                        "pt": "categoria-apps"
+                    },
+                    "origin": "",
+                    "type": "markdown",
+                    "children": [
+                        {
+                            "name": {
+                                "en": "Apps Overview",
+                                "es": "Visión de conjunto de Apps",
+                                "pt": "Visão geral de Apps"
+                            },
+                            "slug": {
+                                "en": "apps-overview",
+                                "es": "vision-general-de-apps",
+                                "pt": "visao-geral-de-apps"
+                            },
+                            "origin": "",
+                            "type": "category",
+                            "children": [
+                                {
+                                    "name": {
+                                        "en": "Canceling payment for the service of an app installed in my store",
+                                        "es": "Cancelar el pago por el servicio de una app instalada en mi tienda",
+                                        "pt": "Cancelar o pagamento pelo serviço de uma app instalada na minha loja"
+                                    },
+                                    "slug": {
+                                        "en": "canceling-payment-for-the-service-of-an-app-installed-in-my-store",
+                                        "es": "cancelar-el-pago-por-el-servicio-de-una-app-instalada-en-mi-tienda",
+                                        "pt": "cancelar-o-pagamento-pelo-servico-de-uma-app-instalada-na-minha-loja"
+                                    },
+                                    "origin": "",
+                                    "type": "markdown",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": {
+                                "en": "My Account",
+                                "es": "My Account",
+                                "pt": "My Account"
+                            },
+                            "slug": {
+                                "en": "my-account",
+                                "es": "my-account",
+                                "pt": "my-account"
+                            },
+                            "origin": "",
+                            "type": "category",
+                            "children": [
+                                {
+                                    "name": {
+                                        "en": "How My Account works",
+                                        "es": "Cómo funciona Mi Cuenta",
+                                        "pt": "Como funciona a Minha Conta"
+                                    },
+                                    "slug": {
+                                        "en": "how-my-account-works",
+                                        "es": "como-funciona-mi-cuenta",
+                                        "pt": "como-funciona-a-minha-conta"
+                                    },
+                                    "origin": "",
+                                    "type": "markdown",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": {
+                                "en": "VTEX Session",
+                                "es": "VTEX Session",
+                                "pt": "VTEX Session"
+                            },
+                            "slug": {
+                                "en": "vtex-session",
+                                "es": "vtex-session",
+                                "pt": "vtex-session"
+                            },
+                            "origin": "",
+                            "type": "category",
+                            "children": [
+                                {
+                                    "name": {
+                                        "en": " Setting up price and availability of SKUs by Region",
+                                        "es": " Configurar el precio y la disponibilidad de SKUs por Region",
+                                        "pt": "Configurar preço e disponibilidade de SKUs regionalmente"
+                                    },
+                                    "slug": {
+                                        "en": "setting-up-price-and-availability-of-skus-by-region",
+                                        "es": "configurar-el-precio-y-la-disponibilidad-de-skus-por-region",
+                                        "pt": "configurar-preco-e-disponibilidade-de-skus-por-region"
+                                    },
+                                    "origin": "",
+                                    "type": "markdown",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": {
+                                "en": "Customer Credit",
+                                "es": "Customer Credit",
+                                "pt": "Customer Credit"
+                            },
+                            "slug": {
+                                "en": "customer-credit",
+                                "es": "customer-credit",
+                                "pt": "customer-credit"
+                            },
+                            "origin": "",
+                            "type": "category",
+                            "children": [
+                                {
+                                    "name": {
+                                        "en": "Customer Credit - Overview",
+                                        "es": "Customer Credit - Visión General",
+                                        "pt": "Customer Credit - Visão Geral"
+                                    },
+                                    "slug": {
+                                        "en": "customer-credit-overview",
+                                        "es": "customer-credit-vision-general",
+                                        "pt": "customer-credit-visao-geral"
+                                    },
+                                    "origin": "",
+                                    "type": "markdown",
+                                    "children": []
+                                },
+                                {
+                                    "name": {
+                                        "en": "Credit management through Customer Credit",
+                                        "es": "Gestión de crédito a través de Customer Credit",
+                                        "pt": "Gestão de crédito por meio do Customer Credit"
+                                    },
+                                    "slug": {
+                                        "en": "managing-credit-with-customer-credit",
+                                        "es": "gestion-crediticia-a-traves-del-customer-credit",
+                                        "pt": "gestao-de-credito-por-meio-do-customer-credit"
+                                    },
+                                    "origin": "",
+                                    "type": "markdown",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": {
+                                "en": "Affiliates Program App",
+                                "es": "Aplicación Affiliates Program",
+                                "pt": "Aplicativo Affiliates Program"
+                            },
+                            "slug": {
+                                "en": "affiliates-program-app",
+                                "es": "aplicacion-affiliates-program",
+                                "pt": "aplicativo-affiliates-program"
+                            },
+                            "origin": "",
+                            "type": "category",
+                            "children": [
+                                {
+                                    "name": {
+                                        "en": "Affiliates Program app",
+                                        "es": "Aplicación Affiliates Program",
+                                        "pt": "Aplicativo Affiliates Program"
+                                    },
+                                    "slug": {
+                                        "en": "affiliates-program-app",
+                                        "es": "aplicacion-affiliates-program",
+                                        "pt": "aplicativo-affiliates-program"
+                                    },
+                                    "origin": "",
+                                    "type": "markdown",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": {
+                                "en": "Live Shopping",
+                                "es": "Live Shopping",
+                                "pt": "Live Shopping"
+                            },
+                            "slug": {
+                                "en": "live-shopping",
+                                "es": "live-shopping",
+                                "pt": "live-shopping"
+                            },
+                            "origin": "",
+                            "type": "category",
+                            "children": [
+                                {
+                                    "name": {
+                                        "en": "Live Shopping",
+                                        "es": "Live Shopping",
+                                        "pt": "Live Shopping"
+                                    },
+                                    "slug": {
+                                        "en": "live-shopping",
+                                        "es": "live-shopping",
+                                        "pt": "live-shopping"
+                                    },
+                                    "origin": "",
+                                    "type": "markdown",
+                                    "children": []
+                                },
+                                {
+                                    "name": {
+                                        "en": "Live Shopping: Events",
+                                        "es": "Live Shopping: Eventos",
+                                        "pt": "Live Shopping: Eventos"
+                                    },
+                                    "slug": {
+                                        "en": "live-shopping-events",
+                                        "es": "live-shopping-eventos",
+                                        "pt": "live-shopping-eventos"
+                                    },
+                                    "origin": "",
+                                    "type": "markdown",
+                                    "children": []
+                                },
+                                {
+                                    "name": {
+                                        "en": "Live Shopping: Configuring a landing page for live shopping events",
+                                        "es": "Live Shopping: Configurar landing page para transmisiones en vivo",
+                                        "pt": "Live Shopping: Configurar landing page para transmissões ao vivo"
+                                    },
+                                    "slug": {
+                                        "en": "live-shopping-configuring-a-landing-page-for-live-shopping-events",
+                                        "es": "live-shopping-configurar-landing-page-para-transmisiones-en-vivo",
+                                        "pt": "live-shopping-configurar-landing-page-para-transmissoes-ao-vivo"
+                                    },
+                                    "origin": "",
+                                    "type": "markdown",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": {
+                                "en": "Personal Shopper",
+                                "es": "Personal Shopper",
+                                "pt": "Personal Shopper"
+                            },
+                            "slug": {
+                                "en": "personal-shopper",
+                                "es": "personal-shopper",
+                                "pt": "personal-shopper"
+                            },
+                            "origin": "",
+                            "type": "category",
+                            "children": [
+                                {
+                                    "name": {
+                                        "en": "Personal Shopper Overview",
+                                        "es": "Personal Shopper: visión general",
+                                        "pt": "Visão geral do Personal Shopper"
+                                    },
+                                    "slug": {
+                                        "en": "personal-shopper-overview",
+                                        "es": "personal-shopper-vision-general",
+                                        "pt": "visao-geral-do-personal-shopper"
+                                    },
+                                    "origin": "",
+                                    "type": "markdown",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": {
                         "en": "Beta",
                         "es": "Beta",
                         "pt": "Beta"
@@ -6018,657 +6296,17 @@
                                     "origin": "",
                                     "type": "markdown",
                                     "children": []
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": {
-                        "en": "Apps",
-                        "es": "Apps",
-                        "pt": "Apps"
-                    },
-                    "slug": {
-                        "en": "category-apps",
-                        "es": "categoria-apps",
-                        "pt": "categoria-apps"
-                    },
-                    "origin": "",
-                    "type": "markdown",
-                    "children": [
-                        {
-                            "name": {
-                                "en": "Apps Overview",
-                                "es": "Visión de conjunto de Apps",
-                                "pt": "Visão geral de Apps"
-                            },
-                            "slug": {
-                                "en": "apps-overview",
-                                "es": "vision-general-de-apps",
-                                "pt": "visao-geral-de-apps"
-                            },
-                            "origin": "",
-                            "type": "category",
-                            "children": [
-                                {
-                                    "name": {
-                                        "en": "Canceling payment for the service of an app installed in my store",
-                                        "es": "Cancelar el pago por el servicio de una app instalada en mi tienda",
-                                        "pt": "Cancelar o pagamento pelo serviço de uma app instalada na minha loja"
-                                    },
-                                    "slug": {
-                                        "en": "canceling-payment-for-the-service-of-an-app-installed-in-my-store",
-                                        "es": "cancelar-el-pago-por-el-servicio-de-una-app-instalada-en-mi-tienda",
-                                        "pt": "cancelar-o-pagamento-pelo-servico-de-uma-app-instalada-na-minha-loja"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "name": {
-                                "en": "My Account",
-                                "es": "My Account",
-                                "pt": "My Account"
-                            },
-                            "slug": {
-                                "en": "my-account",
-                                "es": "my-account",
-                                "pt": "my-account"
-                            },
-                            "origin": "",
-                            "type": "category",
-                            "children": [
-                                {
-                                    "name": {
-                                        "en": "How My Account works",
-                                        "es": "Cómo funciona Mi Cuenta",
-                                        "pt": "Como funciona a Minha Conta"
-                                    },
-                                    "slug": {
-                                        "en": "how-my-account-works",
-                                        "es": "como-funciona-mi-cuenta",
-                                        "pt": "como-funciona-a-minha-conta"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "name": {
-                                "en": "VTEX Session",
-                                "es": "VTEX Session",
-                                "pt": "VTEX Session"
-                            },
-                            "slug": {
-                                "en": "vtex-session",
-                                "es": "vtex-session",
-                                "pt": "vtex-session"
-                            },
-                            "origin": "",
-                            "type": "category",
-                            "children": [
-                                {
-                                    "name": {
-                                        "en": " Setting up price and availability of SKUs by Region",
-                                        "es": " Configurar el precio y la disponibilidad de SKUs por Region",
-                                        "pt": "Configurar preço e disponibilidade de SKUs regionalmente"
-                                    },
-                                    "slug": {
-                                        "en": "setting-up-price-and-availability-of-skus-by-region",
-                                        "es": "configurar-el-precio-y-la-disponibilidad-de-skus-por-region",
-                                        "pt": "configurar-preco-e-disponibilidade-de-skus-por-region"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "name": {
-                                "en": "Customer Credit",
-                                "es": "Customer Credit",
-                                "pt": "Customer Credit"
-                            },
-                            "slug": {
-                                "en": "customer-credit",
-                                "es": "customer-credit",
-                                "pt": "customer-credit"
-                            },
-                            "origin": "",
-                            "type": "category",
-                            "children": [
-                                {
-                                    "name": {
-                                        "en": "Customer Credit - Overview",
-                                        "es": "Customer Credit - Visión General",
-                                        "pt": "Customer Credit - Visão Geral"
-                                    },
-                                    "slug": {
-                                        "en": "customer-credit-overview",
-                                        "es": "customer-credit-vision-general",
-                                        "pt": "customer-credit-visao-geral"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
                                 },
                                 {
                                     "name": {
-                                        "en": "Credit management through Customer Credit",
-                                        "es": "Gestión de crédito a través de Customer Credit",
-                                        "pt": "Gestão de crédito por meio do Customer Credit"
+                                        "en": "Marketplace in Data Pipeline",
+                                        "es": "Marketplace in Data Pipeline",
+                                        "pt": "Marketplace in Data Pipeline"
                                     },
                                     "slug": {
-                                        "en": "managing-credit-with-customer-credit",
-                                        "es": "gestion-crediticia-a-traves-del-customer-credit",
-                                        "pt": "gestao-de-credito-por-meio-do-customer-credit"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "name": {
-                                "en": "Affiliates Program App",
-                                "es": "Aplicación Affiliates Program",
-                                "pt": "Aplicativo Affiliates Program"
-                            },
-                            "slug": {
-                                "en": "affiliates-program-app",
-                                "es": "aplicacion-affiliates-program",
-                                "pt": "aplicativo-affiliates-program"
-                            },
-                            "origin": "",
-                            "type": "category",
-                            "children": [
-                                {
-                                    "name": {
-                                        "en": "Affiliates Program app",
-                                        "es": "Aplicación Affiliates Program",
-                                        "pt": "Aplicativo Affiliates Program"
-                                    },
-                                    "slug": {
-                                        "en": "affiliates-program-app",
-                                        "es": "aplicacion-affiliates-program",
-                                        "pt": "aplicativo-affiliates-program"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "name": {
-                                "en": "Live Shopping",
-                                "es": "Live Shopping",
-                                "pt": "Live Shopping"
-                            },
-                            "slug": {
-                                "en": "live-shopping",
-                                "es": "live-shopping",
-                                "pt": "live-shopping"
-                            },
-                            "origin": "",
-                            "type": "category",
-                            "children": [
-                                {
-                                    "name": {
-                                        "en": "Live Shopping",
-                                        "es": "Live Shopping",
-                                        "pt": "Live Shopping"
-                                    },
-                                    "slug": {
-                                        "en": "live-shopping",
-                                        "es": "live-shopping",
-                                        "pt": "live-shopping"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "Live Shopping: Events",
-                                        "es": "Live Shopping: Eventos",
-                                        "pt": "Live Shopping: Eventos"
-                                    },
-                                    "slug": {
-                                        "en": "live-shopping-events",
-                                        "es": "live-shopping-eventos",
-                                        "pt": "live-shopping-eventos"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "Live Shopping: Configuring a landing page for live shopping events",
-                                        "es": "Live Shopping: Configurar landing page para transmisiones en vivo",
-                                        "pt": "Live Shopping: Configurar landing page para transmissões ao vivo"
-                                    },
-                                    "slug": {
-                                        "en": "live-shopping-configuring-a-landing-page-for-live-shopping-events",
-                                        "es": "live-shopping-configurar-landing-page-para-transmisiones-en-vivo",
-                                        "pt": "live-shopping-configurar-landing-page-para-transmissoes-ao-vivo"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": {
-                        "en": "Troubleshooting",
-                        "es": "Troubleshooting",
-                        "pt": "Troubleshooting"
-                    },
-                    "slug": {
-                        "en": "category-troubleshooting",
-                        "es": "categoria-troubleshooting",
-                        "pt": "categoria-troubleshooting"
-                    },
-                    "origin": "",
-                    "type": "markdown",
-                    "children": [
-                        {
-                            "name": {
-                                "en": "Integrations",
-                                "es": "Integraciones",
-                                "pt": "Integrações"
-                            },
-                            "slug": {
-                                "en": "integrations",
-                                "es": "integraciones",
-                                "pt": "integracoes"
-                            },
-                            "origin": "",
-                            "type": "category",
-                            "children": [
-                                {
-                                    "name": {
-                                        "en": "My ad is not displayed on Mercado Livre",
-                                        "es": "Mi anuncio no aparece en Mercado Libre",
-                                        "pt": "Meu anúncio não é exibido no Mercado Livre"
-                                    },
-                                    "slug": {
-                                        "en": "my-ad-is-not-displayed-on-mercado-livre",
-                                        "es": "mi-anuncio-no-aparece-en-mercado-libre",
-                                        "pt": "meu-anuncio-nao-e-exibido-no-mercado-livre"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "My orders in Mercado Libre have errors",
-                                        "es": "Errores en mis pedidos de Mercado Libre",
-                                        "pt": "Meus pedidos do Mercado Livre apresentam erros"
-                                    },
-                                    "slug": {
-                                        "en": "my-orders-in-mercado-libre-have-errors",
-                                        "es": "errores-en-mis-pedidos-de-mercado-libre",
-                                        "pt": "meus-pedidos-do-mercado-livre-apresentam-erros"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "Integration errors in Amazon orders",
-                                        "es": "Pedidos de Amazon muestran errores de integración",
-                                        "pt": "Pedidos com a Amazon apresentam erros de integração"
-                                    },
-                                    "slug": {
-                                        "en": "integration-errors-in-amazon-orders",
-                                        "es": "pedidos-de-amazon-muestran-errores-de-integracion",
-                                        "pt": "pedidos-com-a-amazon-apresentam-erros-de-integracao"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "Why don't marketplace orders integrate with my store?",
-                                        "es": "¿Por qué los pedidos del marketplace no se integran con mi tienda?",
-                                        "pt": "Porque os pedidos do marketplace não integram com minha loja?"
-                                    },
-                                    "slug": {
-                                        "en": "why-dont-marketplace-orders-integrate-with-my-store",
-                                        "es": "por-que-los-pedidos-del-marketplace-no-se-integran-con-mi-tienda",
-                                        "pt": "porque-os-pedidos-do-marketplace-nao-integram-com-minha-loja"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "Why haven't my product prices been sent to the marketplace?",
-                                        "es": "¿Por qué no se enviaron los precios de los productos de mi tienda al marketplace?",
-                                        "pt": "Por que os preços dos produtos da minha loja não foram enviados ao marketplace?"
-                                    },
-                                    "slug": {
-                                        "en": "why-havent-my-product-prices-been-sent-to-the-marketplace",
-                                        "es": "por-que-no-se-enviaron-los-precios-de-los-productos-de-mi-tienda-al",
-                                        "pt": "precos-dos-produtos-nao-foram-enviados-ao-marketplace"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "name": {
-                                "en": "Store operations",
-                                "es": "Operaciones de la tienda",
-                                "pt": "Operações da loja"
-                            },
-                            "slug": {
-                                "en": "store-operations",
-                                "es": "operaciones-de-la-tienda",
-                                "pt": "operacoes-da-loja"
-                            },
-                            "origin": "",
-                            "type": "category",
-                            "children": [
-                                {
-                                    "name": {
-                                        "en": "Error when trying to import SKUs via spreadsheet in the VTEX Admin",
-                                        "es": "Error al intentar importar SKUs vía plantilla en el Admin VTEX",
-                                        "pt": "Erro ao tentar importar SKUs por planilha no Admin VTEX"
-                                    },
-                                    "slug": {
-                                        "en": "error-when-trying-to-import-skus-via-spreadsheet-in-the-vtex-admin",
-                                        "es": "error-al-intentar-importar-skus-via-plantilla-en-el-admin-vtex",
-                                        "pt": "erro-ao-tentar-importar-skus-por-planilha-no-admin-vtex"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "My inventory is negative",
-                                        "es": "Mi stock está negativo",
-                                        "pt": "Meu estoque está negativo"
-                                    },
-                                    "slug": {
-                                        "en": "my-inventory-is-negative",
-                                        "es": "mi-stock-esta-negativo",
-                                        "pt": "meu-estoque-esta-negativo"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "Metrics are not displayed in the order dashboard",
-                                        "es": "No puedo ver las métricas en el dashboard de pedidos",
-                                        "pt": "Não consigo visualizar métricas no dashboard de pedidos"
-                                    },
-                                    "slug": {
-                                        "en": "metrics-are-not-displayed-in-the-order-dashboard",
-                                        "es": "no-puedo-ver-las-metricas-en-el-dashboard-de-pedidos",
-                                        "pt": "nao-consigo-visualizar-metricas-no-dashboard-de-pedidos"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "I can't receive emails from VTEX",
-                                        "es": "¿Por qué no recibo emails de VTEX?",
-                                        "pt": "Não consigo receber emails da VTEX"
-                                    },
-                                    "slug": {
-                                        "en": "i-cant-receive-emails-from-vtex",
-                                        "es": "por-que-no-recibo-emails-de-vtex",
-                                        "pt": "nao-consigo-receber-emails-da-vtex"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "I can't import the price table",
-                                        "es": "No puedo importar la plantilla de precios",
-                                        "pt": "Não consigo importar a planilha de preços"
-                                    },
-                                    "slug": {
-                                        "en": "i-cant-import-the-price-table",
-                                        "es": "no-puedo-importar-la-plantilla-de-precios",
-                                        "pt": "nao-consigo-importar-a-planilha-de-precos"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "I can't update the EAN of my SKUs via API",
-                                        "es": "No logro actualizar el EAN de mis SKU vía API",
-                                        "pt": "Não consigo atualizar o EAN dos meus SKUs por API"
-                                    },
-                                    "slug": {
-                                        "en": "i-cant-update-the-ean-of-my-skus-via-api",
-                                        "es": "no-logro-actualizar-el-ean-de-mis-sku-via-api",
-                                        "pt": "nao-consigo-atualizar-o-ean-dos-meus-skus-por-api"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "The order was split into packages with separate deliveries",
-                                        "es": "El pedido se dividió en paquetes con envíos separados",
-                                        "pt": "O pedido foi dividido em pacotes com entregas distintas"
-                                    },
-                                    "slug": {
-                                        "en": "the-order-was-split-into-packages-with-separate-deliveries",
-                                        "es": "el-pedido-se-dividio-en-paquetes-con-envios-separados",
-                                        "pt": "o-pedido-foi-dividido-em-pacotes-com-entregas-distintas"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "My store order was not created",
-                                        "es": "No se ha creado el pedido de mi tienda",
-                                        "pt": "O pedido da minha loja não foi criado"
-                                    },
-                                    "slug": {
-                                        "en": "my-store-order-was-not-created",
-                                        "es": "no-se-ha-creado-el-pedido-de-mi-tienda",
-                                        "pt": "o-pedido-da-minha-loja-nao-foi-criado"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "Admin redirect search returns no results",
-                                        "es": "La búsqueda de redirecciones en el Admin no devuelve resultados",
-                                        "pt": "Busca de redirects no Admin não retorna resultados"
-                                    },
-                                    "slug": {
-                                        "en": "admin-redirect-search-returns-no-results",
-                                        "es": "la-busqueda-de-redirecciones-en-el-admin-no-devuelve-resultados",
-                                        "pt": "busca-de-redirects-no-admin-nao-retorna-resultados"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "I can't view the product in the search results",
-                                        "es": "El producto no se muestra en la búsqueda del sitio web",
-                                        "pt": "Não consigo visualizar o produto na busca do site"
-                                    },
-                                    "slug": {
-                                        "en": "i-cant-view-the-product-in-the-search-results",
-                                        "es": "el-producto-no-se-muestra-en-la-busqueda-del-sitio-web",
-                                        "pt": "nao-consigo-visualizar-o-produto-na-busca-do-site"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "How to remove the error message \"Request headers must only contain ASCII characters\"",
-                                        "es": "Cómo remover el mensaje de error \"Request headers must contain only ASCII characters\"",
-                                        "pt": "Como remover a mensagem de erro \"Request headers must contain only ASCII characters\""
-                                    },
-                                    "slug": {
-                                        "en": "removing-error-message-request-headers-must-only-contain-ascii",
-                                        "es": "eliminando-mensaje-de-error-request-headers-must-contain-only-ascii",
-                                        "pt": "removendo-mensagem-de-erro-request-headers-must-contain-only-ascii"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "I haven't received the email with the report exported from Master Data v1",
-                                        "es": "No recibí el email con el informe exportado de Master Data v1",
-                                        "pt": "Não recebi o email com o relatório exportado do Master Data v1"
-                                    },
-                                    "slug": {
-                                        "en": "i-havent-received-the-email-with-the-report-exported-from-master-data-v1",
-                                        "es": "no-recibi-el-email-con-el-informe-exportado-de-master-data-v1",
-                                        "pt": "nao-recebi-o-email-com-o-relatorio-exportado-do-master-data-v1"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "Promotion not applied to the marketplace",
-                                        "es": "Promoción no aplicada en Marketplace",
-                                        "pt": "Promoção não aplicada ao Marketplace"
-                                    },
-                                    "slug": {
-                                        "en": "promotion-not-applied-to-the-marketplace",
-                                        "es": "promocion-no-aplicada-en-marketplace",
-                                        "pt": "promocao-nao-aplicada-ao-marketplace"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "​​My store's order still has the status \"Verifying invoice\"",
-                                        "es": "El pedido de mi tienda presenta el status \"Verificando factura\"",
-                                        "pt": "O pedido da minha loja está parado no status \"Verificando nota fiscal\""
-                                    },
-                                    "slug": {
-                                        "en": "my-stores-order-still-has-the-status-verifying-invoice",
-                                        "es": "el-pedido-de-mi-tienda-presenta-el-status-verificando-factura",
-                                        "pt": "o-pedido-da-minha-loja-esta-parado-no-status-verificando-nota-fiscal"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "My store’s Site Editor is not working",
-                                        "es": "Problemas con Site Editor en mi tienda",
-                                        "pt": "O Site Editor da minha loja não está funcionando"
-                                    },
-                                    "slug": {
-                                        "en": "my-stores-site-editor-is-not-working",
-                                        "es": "problemas-con-site-editor-en-mi-tienda",
-                                        "pt": "o-site-editor-da-minha-loja-nao-esta-funcionando"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "I can't fix the schema error in B2B apps",
-                                        "es": "Cómo corregir el error de esquema en aplicaciones B2B",
-                                        "pt": "Não consigo corrigir o erro de schema em aplicativos B2B"
-                                    },
-                                    "slug": {
-                                        "en": "i-cant-fix-the-schema-error-in-b2b-apps",
-                                        "es": "como-corregir-el-error-de-esquema-en-aplicaciones-b2b",
-                                        "pt": "nao-consigo-corrigir-o-erro-de-schema-em-aplicativos-b2b"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "Formularios Cliente y Dirección no existen en multitienda",
-                                        "es": "Customer and Address forms do not exist in multistores",
-                                        "pt": "Formulários de Cliente e Endereço não existem em multiloja"
-                                    },
-                                    "slug": {
-                                        "en": "customer-and-address-forms-do-not-exist-in-multistores",
-                                        "es": "formularios-cliente-y-direccion-no-existen-en-multitienda",
-                                        "pt": "formularios-de-cliente-e-endereco-nao-existem-em-multiloja"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "Product remains available in stock after the order has been invoiced",
-                                        "es": "El producto continúa reservado tras la facturación del pedido",
-                                        "pt": "Produto continua reservado em estoque após faturamento do pedido"
-                                    },
-                                    "slug": {
-                                        "en": "product-remains-available-in-stock-after-the-order-has-been-invoiced",
-                                        "es": "el-producto-continua-reservado-tras-la-facturacion-del-pedido",
-                                        "pt": "produto-continua-reservado-em-estoque-apos-faturamento-do-pedido"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "I can't index a product in the catalog",
-                                        "es": "No logro indexar un producto del catálogo",
-                                        "pt": "Não consigo indexar um produto do catálogo"
-                                    },
-                                    "slug": {
-                                        "en": "i-cant-index-a-product-in-the-catalog",
-                                        "es": "no-logro-indexar-un-producto-del-catalogo",
-                                        "pt": "nao-consigo-indexar-um-produto-do-catalogo"
+                                        "en": "marketplace-in-data-pipeline",
+                                        "es": "marketplace-in-data-pipeline",
+                                        "pt": "marketplace-in-data-pipeline"
                                     },
                                     "origin": "",
                                     "type": "markdown",
@@ -8757,8 +8395,8 @@
                                 },
                                 {
                                     "name": {
-                                        "en": "Formularios Cliente y Dirección no existen en multitienda",
-                                        "es": "Customer and Address forms do not exist in multistores",
+                                        "en": "Customer and Address forms do not exist in multistores",
+                                        "es": "Formularios Cliente y Dirección no existen en multitienda",
                                         "pt": "Formulários de Cliente e Endereço não existem em multiloja"
                                     },
                                     "slug": {
@@ -12044,29 +11682,14 @@
                                 },
                                 {
                                     "name": {
-                                        "en": "Telesales toolbar",
-                                        "es": "Barra de herramientas de televentas",
-                                        "pt": "Toolbar de televendas"
+                                        "en": "Creating roles",
+                                        "es": "Crear nuevo rol",
+                                        "pt": "Criar perfil de acesso"
                                     },
                                     "slug": {
-                                        "en": "telesales-toolbar",
-                                        "es": "barra-de-herramientas-de-televentas",
-                                        "pt": "toolbar-de-televendas"
-                                    },
-                                    "origin": "",
-                                    "type": "markdown",
-                                    "children": []
-                                },
-                                {
-                                    "name": {
-                                        "en": "How to create a financial role?",
-                                        "es": "¿Cómo crear un rol financiero?",
-                                        "pt": "Como criar um perfil de acesso financeiro?"
-                                    },
-                                    "slug": {
-                                        "en": "how-to-create-a-financial-access-profile",
-                                        "es": "como-crear-un-rol-financiero",
-                                        "pt": "como-criar-um-perfil-de-acesso-financeiro"
+                                        "en": "creating-roles",
+                                        "es": "crear-nuevo-rol",
+                                        "pt": "criar-perfil-de-acesso"
                                     },
                                     "origin": "",
                                     "type": "markdown",
@@ -12104,14 +11727,14 @@
                                 },
                                 {
                                     "name": {
-                                        "en": "Access control",
-                                        "es": "Control de acceso",
-                                        "pt": "Controle de acesso"
+                                        "en": "Creating a financial role",
+                                        "es": "Crear un rol financiero",
+                                        "pt": "Criar um perfil de acesso financeiro"
                                     },
                                     "slug": {
-                                        "en": "access-control",
-                                        "es": "control-de-acceso",
-                                        "pt": "controle-de-acesso"
+                                        "en": "creating-a-financial-access-profile",
+                                        "es": "crear-un-rol-financiero",
+                                        "pt": "criar-um-perfil-de-acesso-financeiro"
                                     },
                                     "origin": "",
                                     "type": "markdown",
@@ -12119,14 +11742,14 @@
                                 },
                                 {
                                     "name": {
-                                        "en": "Creating roles",
-                                        "es": "Crear nuevo rol",
-                                        "pt": "Criar perfil de acesso"
+                                        "en": "Telesales toolbar",
+                                        "es": "Barra de herramientas de televentas",
+                                        "pt": "Toolbar de televendas"
                                     },
                                     "slug": {
-                                        "en": "creating-roles",
-                                        "es": "crear-nuevo-rol",
-                                        "pt": "criar-perfil-de-acesso"
+                                        "en": "telesales-toolbar",
+                                        "es": "barra-de-herramientas-de-televentas",
+                                        "pt": "toolbar-de-televendas"
                                     },
                                     "origin": "",
                                     "type": "markdown",
@@ -61052,6 +60675,409 @@
                                 "en": "order-not-notified-carrier-leaves-label-barcode-incomplete",
                                 "pt": "pedido-nao-notificado-transportadora-deixa-etiqueta-com-codigo-de-barras-incompleto",
                                 "es": "el-pedido-no-notificado-al-transportista-deja-incompleto-el-codigo-de-barras-de-la-etiqueta"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "documentation": "Troubleshooting",
+            "name": {
+                "en": "Troubleshooting",
+                "es": "Troubleshooting",
+                "pt": "Troubleshooting"
+            },
+            "slugPrefix": "troubleshooting",
+            "categories": [
+                {
+                    "name": {
+                        "en": "Integrations",
+                        "es": "Integraciones",
+                        "pt": "Integrações"
+                    },
+                    "slug": {
+                        "en": "integrations",
+                        "es": "integraciones",
+                        "pt": "integracoes"
+                    },
+                    "origin": "",
+                    "type": "category",
+                    "children": [
+                        {
+                            "name": {
+                                "en": "My ad is not displayed on Mercado Livre",
+                                "es": "Mi anuncio no aparece en Mercado Libre",
+                                "pt": "Meu anúncio não é exibido no Mercado Livre"
+                            },
+                            "slug": {
+                                "en": "my-ad-is-not-displayed-on-mercado-livre",
+                                "es": "mi-anuncio-no-aparece-en-mercado-libre",
+                                "pt": "meu-anuncio-nao-e-exibido-no-mercado-livre"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "My orders in Mercado Libre have errors",
+                                "es": "Errores en mis pedidos de Mercado Libre",
+                                "pt": "Meus pedidos do Mercado Livre apresentam erros"
+                            },
+                            "slug": {
+                                "en": "my-orders-in-mercado-libre-have-errors",
+                                "es": "errores-en-mis-pedidos-de-mercado-libre",
+                                "pt": "meus-pedidos-do-mercado-livre-apresentam-erros"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "Integration errors in Amazon orders",
+                                "es": "Pedidos de Amazon muestran errores de integración",
+                                "pt": "Pedidos com a Amazon apresentam erros de integração"
+                            },
+                            "slug": {
+                                "en": "integration-errors-in-amazon-orders",
+                                "es": "pedidos-de-amazon-muestran-errores-de-integracion",
+                                "pt": "pedidos-com-a-amazon-apresentam-erros-de-integracao"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "Why don't marketplace orders integrate with my store?",
+                                "es": "¿Por qué los pedidos del marketplace no se integran con mi tienda?",
+                                "pt": "Porque os pedidos do marketplace não integram com minha loja?"
+                            },
+                            "slug": {
+                                "en": "why-dont-marketplace-orders-integrate-with-my-store",
+                                "es": "por-que-los-pedidos-del-marketplace-no-se-integran-con-mi-tienda",
+                                "pt": "porque-os-pedidos-do-marketplace-nao-integram-com-minha-loja"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "Why haven't my product prices been sent to the marketplace?",
+                                "es": "¿Por qué no se enviaron los precios de los productos de mi tienda al marketplace?",
+                                "pt": "Por que os preços dos produtos da minha loja não foram enviados ao marketplace?"
+                            },
+                            "slug": {
+                                "en": "why-havent-my-product-prices-been-sent-to-the-marketplace",
+                                "es": "por-que-no-se-enviaron-los-precios-de-los-productos-de-mi-tienda-al",
+                                "pt": "precos-dos-produtos-nao-foram-enviados-ao-marketplace"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": {
+                        "en": "Store operations",
+                        "es": "Operaciones de la tienda",
+                        "pt": "Operações da loja"
+                    },
+                    "slug": {
+                        "en": "store-operations",
+                        "es": "operaciones-de-la-tienda",
+                        "pt": "operacoes-da-loja"
+                    },
+                    "origin": "",
+                    "type": "category",
+                    "children": [
+                        {
+                            "name": {
+                                "en": "Error when trying to import SKUs via spreadsheet in the VTEX Admin",
+                                "es": "Error al intentar importar SKUs vía plantilla en el Admin VTEX",
+                                "pt": "Erro ao tentar importar SKUs por planilha no Admin VTEX"
+                            },
+                            "slug": {
+                                "en": "error-when-trying-to-import-skus-via-spreadsheet-in-the-vtex-admin",
+                                "es": "error-al-intentar-importar-skus-via-plantilla-en-el-admin-vtex",
+                                "pt": "erro-ao-tentar-importar-skus-por-planilha-no-admin-vtex"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "My inventory is negative",
+                                "es": "Mi stock está negativo",
+                                "pt": "Meu estoque está negativo"
+                            },
+                            "slug": {
+                                "en": "my-inventory-is-negative",
+                                "es": "mi-stock-esta-negativo",
+                                "pt": "meu-estoque-esta-negativo"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "Metrics are not displayed in the order dashboard",
+                                "es": "No puedo ver las métricas en el dashboard de pedidos",
+                                "pt": "Não consigo visualizar métricas no dashboard de pedidos"
+                            },
+                            "slug": {
+                                "en": "metrics-are-not-displayed-in-the-order-dashboard",
+                                "es": "no-puedo-ver-las-metricas-en-el-dashboard-de-pedidos",
+                                "pt": "nao-consigo-visualizar-metricas-no-dashboard-de-pedidos"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "I can't receive emails from VTEX",
+                                "es": "¿Por qué no recibo emails de VTEX?",
+                                "pt": "Não consigo receber emails da VTEX"
+                            },
+                            "slug": {
+                                "en": "i-cant-receive-emails-from-vtex",
+                                "es": "por-que-no-recibo-emails-de-vtex",
+                                "pt": "nao-consigo-receber-emails-da-vtex"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "I can't import the price table",
+                                "es": "No puedo importar la plantilla de precios",
+                                "pt": "Não consigo importar a planilha de preços"
+                            },
+                            "slug": {
+                                "en": "i-cant-import-the-price-table",
+                                "es": "no-puedo-importar-la-plantilla-de-precios",
+                                "pt": "nao-consigo-importar-a-planilha-de-precos"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "I can't update the EAN of my SKUs via API",
+                                "es": "No logro actualizar el EAN de mis SKU vía API",
+                                "pt": "Não consigo atualizar o EAN dos meus SKUs por API"
+                            },
+                            "slug": {
+                                "en": "i-cant-update-the-ean-of-my-skus-via-api",
+                                "es": "no-logro-actualizar-el-ean-de-mis-sku-via-api",
+                                "pt": "nao-consigo-atualizar-o-ean-dos-meus-skus-por-api"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "The order was split into packages with separate deliveries",
+                                "es": "El pedido se dividió en paquetes con envíos separados",
+                                "pt": "O pedido foi dividido em pacotes com entregas distintas"
+                            },
+                            "slug": {
+                                "en": "the-order-was-split-into-packages-with-separate-deliveries",
+                                "es": "el-pedido-se-dividio-en-paquetes-con-envios-separados",
+                                "pt": "o-pedido-foi-dividido-em-pacotes-com-entregas-distintas"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "My store order was not created",
+                                "es": "No se ha creado el pedido de mi tienda",
+                                "pt": "O pedido da minha loja não foi criado"
+                            },
+                            "slug": {
+                                "en": "my-store-order-was-not-created",
+                                "es": "no-se-ha-creado-el-pedido-de-mi-tienda",
+                                "pt": "o-pedido-da-minha-loja-nao-foi-criado"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "Admin redirect search returns no results",
+                                "es": "La búsqueda de redirecciones en el Admin no devuelve resultados",
+                                "pt": "Busca de redirects no Admin não retorna resultados"
+                            },
+                            "slug": {
+                                "en": "admin-redirect-search-returns-no-results",
+                                "es": "la-busqueda-de-redirecciones-en-el-admin-no-devuelve-resultados",
+                                "pt": "busca-de-redirects-no-admin-nao-retorna-resultados"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "I can't view the product in the search results",
+                                "es": "El producto no se muestra en la búsqueda del sitio web",
+                                "pt": "Não consigo visualizar o produto na busca do site"
+                            },
+                            "slug": {
+                                "en": "i-cant-view-the-product-in-the-search-results",
+                                "es": "el-producto-no-se-muestra-en-la-busqueda-del-sitio-web",
+                                "pt": "nao-consigo-visualizar-o-produto-na-busca-do-site"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "How to remove the error message \"Request headers must only contain ASCII characters\"",
+                                "es": "Cómo remover el mensaje de error \"Request headers must contain only ASCII characters\"",
+                                "pt": "Como remover a mensagem de erro \"Request headers must contain only ASCII characters\""
+                            },
+                            "slug": {
+                                "en": "removing-error-message-request-headers-must-only-contain-ascii",
+                                "es": "eliminando-mensaje-de-error-request-headers-must-contain-only-ascii",
+                                "pt": "removendo-mensagem-de-erro-request-headers-must-contain-only-ascii"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "I haven't received the email with the report exported from Master Data v1",
+                                "es": "No recibí el email con el informe exportado de Master Data v1",
+                                "pt": "Não recebi o email com o relatório exportado do Master Data v1"
+                            },
+                            "slug": {
+                                "en": "i-havent-received-the-email-with-the-report-exported-from-master-data-v1",
+                                "es": "no-recibi-el-email-con-el-informe-exportado-de-master-data-v1",
+                                "pt": "nao-recebi-o-email-com-o-relatorio-exportado-do-master-data-v1"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "Promotion not applied to the marketplace",
+                                "es": "Promoción no aplicada en Marketplace",
+                                "pt": "Promoção não aplicada ao Marketplace"
+                            },
+                            "slug": {
+                                "en": "promotion-not-applied-to-the-marketplace",
+                                "es": "promocion-no-aplicada-en-marketplace",
+                                "pt": "promocao-nao-aplicada-ao-marketplace"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "​​My store's order still has the status \"Verifying invoice\"",
+                                "es": "El pedido de mi tienda presenta el status \"Verificando factura\"",
+                                "pt": "O pedido da minha loja está parado no status \"Verificando nota fiscal\""
+                            },
+                            "slug": {
+                                "en": "my-stores-order-still-has-the-status-verifying-invoice",
+                                "es": "el-pedido-de-mi-tienda-presenta-el-status-verificando-factura",
+                                "pt": "o-pedido-da-minha-loja-esta-parado-no-status-verificando-nota-fiscal"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "My store’s Site Editor is not working",
+                                "es": "Problemas con Site Editor en mi tienda",
+                                "pt": "O Site Editor da minha loja não está funcionando"
+                            },
+                            "slug": {
+                                "en": "my-stores-site-editor-is-not-working",
+                                "es": "problemas-con-site-editor-en-mi-tienda",
+                                "pt": "o-site-editor-da-minha-loja-nao-esta-funcionando"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "I can't fix the schema error in B2B apps",
+                                "es": "Cómo corregir el error de esquema en aplicaciones B2B",
+                                "pt": "Não consigo corrigir o erro de schema em aplicativos B2B"
+                            },
+                            "slug": {
+                                "en": "i-cant-fix-the-schema-error-in-b2b-apps",
+                                "es": "como-corregir-el-error-de-esquema-en-aplicaciones-b2b",
+                                "pt": "nao-consigo-corrigir-o-erro-de-schema-em-aplicativos-b2b"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "Customer and Address forms do not exist in multistores",
+                                "es": "Formularios Cliente y Dirección no existen en multitienda",
+                                "pt": "Formulários de Cliente e Endereço não existem em multiloja"
+                            },
+                            "slug": {
+                                "en": "customer-and-address-forms-do-not-exist-in-multistores",
+                                "es": "formularios-cliente-y-direccion-no-existen-en-multitienda",
+                                "pt": "formularios-de-cliente-e-endereco-nao-existem-em-multiloja"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "Product remains available in stock after the order has been invoiced",
+                                "es": "El producto continúa reservado tras la facturación del pedido",
+                                "pt": "Produto continua reservado em estoque após faturamento do pedido"
+                            },
+                            "slug": {
+                                "en": "product-remains-available-in-stock-after-the-order-has-been-invoiced",
+                                "es": "el-producto-continua-reservado-tras-la-facturacion-del-pedido",
+                                "pt": "produto-continua-reservado-em-estoque-apos-faturamento-do-pedido"
+                            },
+                            "origin": "",
+                            "type": "markdown",
+                            "children": []
+                        },
+                        {
+                            "name": {
+                                "en": "I can't index a product in the catalog",
+                                "es": "No logro indexar un producto del catálogo",
+                                "pt": "Não consigo indexar um produto do catálogo"
+                            },
+                            "slug": {
+                                "en": "i-cant-index-a-product-in-the-catalog",
+                                "es": "no-logro-indexar-un-producto-del-catalogo",
+                                "pt": "nao-consigo-indexar-um-produto-do-catalogo"
                             },
                             "origin": "",
                             "type": "markdown",
