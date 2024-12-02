@@ -1,4 +1,4 @@
-# Help Center Portal
+# Help Center
 
 ## Summary 
 
