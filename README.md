@@ -1,4 +1,4 @@
-# Developers Portal
+# Help Center Portal
 
 ## Summary 
 
@@ -24,16 +24,18 @@
 ## About
 
 ### Objective
-This repository implements the new VTEX Developers Portal with better navigability, content centralization and search facility to improve developers experience as they consult our applications documentation, guides and API references.
+This repository implements the new VTEX Help Center Portal with better navigability, content centralization and search facility to improve merchants experience as they consult our new feature announcements, tutorial articles, troubleshooting guides and other types of documentation.
 
 ### Concepts and Features
-As the Developer Portal provides VTEX documentation to users, some of its main features are:
-- OpenAPI documentations rendering
+As the Help Center Portal provides VTEX documentation to users, some of its main features are:
+- Multilingual content
 
-  The [OpenAPI](https://www.openapis.org/) specification was chosen by VTEX to generate its API references guides since it defines a standard interface to describe RESTful APIs, as well as it can be easily understood, consumed and rendered by tools like [ReadMe](https://readme.com/) (used in the initial Developers Portal).
+  All information present in the Help Center Portal is displayed in three languages ​​(English, Portuguese and Spanish), allowing easy access to the content available on the platform.
+
+
 - Markdown files rendering
 
-  [Markdown](https://www.markdownguide.org/) is a very popular markup language that helps making plaintext documents more semantic by adding formatting elements defined in its syntax. VTEX developers and many tech writers reccur to Markdown to write documentation, including those served by the Developers Portal.
+  [Markdown](https://www.markdownguide.org/) is a very popular markup language that helps making plaintext documents more semantic by adding formatting elements defined in its syntax. All documentation available on the Help Center Portal is written in markdown language.
 
 ## Versioning
 
@@ -48,7 +50,7 @@ The versioning process of this repository was built to automate version releases
 
 - Automate new version releases when Pull Requests (PR) are merged into the `main` branch
  
-  A GitHub action named **Release Version Workflow** is triggered whenever a PR is merged into the `main` branch. The action's workflow is represented by the diagram below, its steps identify whether the PR should release a new version - and of what type - to run the release script, push its results and generate a new GitHub Release corresponding to the new version tag. The type of the new version may be automatically deducted from the semantic commits or determined by the user as a PATCH, MINOR or MAJOR.
+  A GitHub action named **Release Version Workflow** is triggered whenever a PR is merged into the `main` branch. The action workflow contains steps that identify whether the PR should release a new version (and what type) to run the release script, submit its results, and generate a new GitHub Release corresponding to the new version's tag. The type of the new version may be automatically deducted from the semantic commits or determined by the user as a PATCH, MINOR or MAJOR.
 
 ```mermaid
 flowchart TB
@@ -64,33 +66,33 @@ flowchart TB
 
 ## Tests
 
-- Performance tests on desktop and mobile devices
+### Performance tests on desktop and mobile devices
   
-  [Lighthouse](https://github.com/GoogleChrome/lighthouse) is a tool that analyzes web apps and web pages to collect performance metrics and insights on developer best practices. To avoid significant performance drops introduced by Pull Requests, a pair of GitHub actions using [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci) are running against PRs to collect the performance metrics of the code with the proposed changes at desktop and mobile devices (a report containing the results is hosted on a URL that is availaible at the end of the actions log).
+[Lighthouse](https://github.com/GoogleChrome/lighthouse) is a tool that analyzes web apps and web pages to collect performance metrics and insights on developer best practices. To avoid significant performance drops introduced by Pull Requests, a pair of GitHub actions using [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci) are running against PRs to collect the performance metrics of the code with the proposed changes at desktop and mobile devices (a report containing the results is hosted on a URL that is availaible at the end of the actions log).
 
-- Automated tests
+### Automated tests
 
-  [Cypress](https://www.cypress.io/) is an automated testing tool that was added to the repository so pre-defined E2E or unitary tests (inside cypress directory) will be executed whenever a PR is opened.
+[Cypress](https://www.cypress.io/) is an automated testing tool that was added to the repository so pre-defined E2E or unitary tests (inside cypress directory) will be executed whenever a PR is opened.
 
 ## Development
 
-Clone this repo, access the command line at its root directory and install all dependencies:
+1. Clone this repo, access the command line at its root directory and install all dependencies:
 
 ```bash
 yarn install
 ```
 
-To start the application development server, run:
+2. To start the application development server, run:
 
 ```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ### Project Pattern
 
-The Developers Portal is a [Next.js](https://nextjs.org/) app based on [React](https://reactjs.org/) and [Typescript](https://www.typescriptlang.org/).
+The Help Center Portal is a [Next.js](https://nextjs.org/) app based on [React](https://reactjs.org/) and [Typescript](https://www.typescriptlang.org/).
 
 #### Directory tree
 
@@ -98,19 +100,22 @@ The diagram below represents the base structure defined to organize the files an
 
 ```mermaid
 flowchart TB
-    devportal --> src & public
-    src --> messages & components & pages & styles & posts & utils & tests
-    messages --> msgJson{{messages.json}}
+    helpcenter --> src & public
+    src --> messages & components & pages & styles & utils & tests
+    messages --> ptJson{{pt.json}} & enJson{{en.json}} & esJson{{es.json}}
     components --> some-component --> stylesCompCss{{styles.component.css}} & compOther{{functions/other.ts}} & compIndex{{indext.tsx}} & compStyle{{styles.ts}}
-    pages --> search & pagesLanding{{landing-page}} & docs
+    pages --> search & pagesLanding{{landing-page}} & announcements & docs & faq & know-issues & troubleshooting
     search --> searchSearchPage{{search-page}}
-    docs --> VTEX-IO & API & etc...
-    API --> apiIndex{{index}}
-    VTEX-IO --> vtexIoIndex{{index}}
+    announcements --> announcementsIndex{{index}}
+    faq --> faqsIndex{{index}}
+    know-issues --> knowissuesIndex{{index}}
+    troubleshooting --> troubleshootingIndex{{index}}
+    docs --> tracks & tutorial
+    tracks --> tracksIndex{{index}}
+    tutorial --> tutorialIndex{{index}}
     styles --> stylesGlobal{{global.css}}
-    posts --> postsPost{{post.md/mdx}}
-    utils --> utilsChildren{{Global functions, types and constants}}
     tests --> testsChildren{{tests files}}
+    utils --> utilsChildren{{Global functions, types and constants}}
 ```
 
 #### React preferences
@@ -133,10 +138,10 @@ You might want to configure ESLint and Prettier in your code editor to see error
 
 ### Commits
 
-By simplicity, we have three types of commits:
-- __*commits*__: commits made by the user 
-- __*merge commits*__: commits through the command `git merge <branch> --no-ff` (it is also generated when merging a Pull Request without squashing)
-- __*release commits*__: commits using [Standard Version](https://github.com/conventional-changelog/standard-version) tool
+Within the repository we can consider three types of commit:
+- __commits__: default action performed by the user on GitHub
+- __merge commits__: commit made action through the command `git merge <branch> --no-ff` (it is also generated when merging a Pull Request without squashing)
+- __release commits__: commits made using [Standard Version](https://github.com/conventional-changelog/standard-version) tool
 
   [Standard Version](https://github.com/conventional-changelog/standard-version) is a tool that simplifies the versioning process of a project. It has a release script that generates a new version tag and creates a __*release commit*__ containing: a new version in `package.json` and updates in `CHANGELOG.md` based on changes introduced by the latest __*commits*__.
 
@@ -196,7 +201,7 @@ By simplicity, we have three types of commits:
     `revert` | changes that revert previous commits | PATCH
 
 
-    __* [SemVer specification says the MAJOR version zero (0.y.z) is for initial development](https://semver.org/#spec-item-4). Because of this, until this repository reaches a first stable version of the Developers Portal (with a specified major release), the automatic release won't lead to any MAJOR version, but only PATCH and MINOR (breaking changes commits will result in MINOR bumps).__
+    __* [SemVer specification says the MAJOR version zero (0.y.z) is for initial development](https://semver.org/#spec-item-4). Because of this, until this repository reaches a first stable version of the Help Center Portal (with a specified major release), the automatic release won't lead to any MAJOR version, but only PATCH and MINOR (breaking changes commits will result in MINOR bumps).__
 
 
     **Examples:**
@@ -216,10 +221,10 @@ By simplicity, we have three types of commits:
     BREAKING CHANGE: use JavaScript features not available in Node 6.
     ```
 
-  **What *not* to do:**
+  **What *NOT* to do:**
   - Add dot in the end of text. E.g.: `chore: add favicon.`
-  - Start with uppercase
-  - Write in Portuguese
+  - Start with uppercase. E.g.: `feat(api)!: Send an email to user when a request is submitted`
+  - Write in Portuguese. E.g.: `chore: Atualizar a navigation bar`
 
 ### Branches
 
@@ -302,7 +307,7 @@ E.g.: `git checkout -b feature/landing-page`.
 
 - **Step 8.** The merged PR, if set to release a new version in **Step 4**, will trigger a GitHub action that results in a new commit `chore(release): v*.*.*`, a new version tag and its corresponding GitHub Release (see [Versioning](#versioning) section for more details) - you can verify those changes in the repository initial page after the workflow has finished. Wait for the build in Netlify to end and your released version will be deployed.
 
-- **Step 9.** Celebrate! You have just finished your contribution to the VTEX Developers Portal repository.
+- **Step 9.** Celebrate! You have just finished your contribution to the VTEX Help Center Portal repository.
 
 ### What to do when someone updated the `main` branch and I'm developing something on my *feature branch*
 
