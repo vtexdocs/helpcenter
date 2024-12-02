@@ -307,7 +307,7 @@ E.g.: `git checkout -b feature/landing-page`.
 
 - **Step 8.** The merged PR, if set to release a new version in **Step 4**, will trigger a GitHub action that results in a new commit `chore(release): v*.*.*`, a new version tag and its corresponding GitHub Release (see [Versioning](#versioning) section for more details) - you can verify those changes in the repository initial page after the workflow has finished. Wait for the build in Netlify to end and your released version will be deployed.
 
-- **Step 9.** Celebrate! You have just finished your contribution to the VTEX Help Center Portal repository.
+- **Step 9.** Celebrate! You have just finished your contribution to the VTEX Help Center repository.
 
 ### What to do when someone updated the `main` branch and I'm developing something on my *feature branch*
 
