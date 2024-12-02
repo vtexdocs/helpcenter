@@ -223,7 +223,7 @@ Within the repository we can consider three types of commit:
 
   **What *NOT* to do:**
   - Add dot in the end of text. E.g.: `chore: add favicon.`
-  - Start with uppercase. E.g.: `feat(api)!: Send an email to user when a request is submitted`
+  - Start with uppercase. E.g.: `feat(api): Send an email to user when a request is submitted`
   - Write in Portuguese. E.g.: `chore: Atualizar a navigation bar`
 
 ### Branches
