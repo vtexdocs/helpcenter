@@ -104,7 +104,7 @@ flowchart TB
     src --> messages & components & pages & styles & utils & tests
     messages --> ptJson{{pt.json}} & enJson{{en.json}} & esJson{{es.json}}
     components --> some-component --> stylesCompCss{{styles.component.css}} & compOther{{functions/other.ts}} & compIndex{{indext.tsx}} & compStyle{{styles.ts}}
-    pages --> search & pagesLanding{{landing-page}} & announcements & docs & faq & know-issues & troubleshooting
+    pages --> search & pagesLanding{{landing-page}} & announcements & docs & faq & known-issues & troubleshooting
     search --> searchSearchPage{{search-page}}
     announcements --> announcementsIndex{{index}}
     faq --> faqsIndex{{index}}
