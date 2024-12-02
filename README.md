@@ -92,7 +92,7 @@ yarn dev
 
 ### Project Pattern
 
-The Help Center Portal is a [Next.js](https://nextjs.org/) app based on [React](https://reactjs.org/) and [Typescript](https://www.typescriptlang.org/).
+Help Center is a [Next.js](https://nextjs.org/) app based on [React](https://reactjs.org/) and [Typescript](https://www.typescriptlang.org/).
 
 #### Directory tree
 
