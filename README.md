@@ -139,9 +139,9 @@ You might want to configure ESLint and Prettier in your code editor to see error
 ### Commits
 
 Within the repository we can consider three types of commit:
-- __commits__: default action performed by the user on GitHub
-- __merge commits__: commit made action through the command `git merge <branch> --no-ff` (it is also generated when merging a Pull Request without squashing)
-- __release commits__: commits made using [Standard Version](https://github.com/conventional-changelog/standard-version) tool
+- __commits__: Default commits performed by the user on GitHub.
+- __merge commits__: Commits through the command `git merge <branch> --no-ff` (it is also generated when merging a Pull Request without squashing).
+- __release commits__: Commits made using [Standard Version](https://github.com/conventional-changelog/standard-version) tool.
 
   [Standard Version](https://github.com/conventional-changelog/standard-version) is a tool that simplifies the versioning process of a project. It has a release script that generates a new version tag and creates a __*release commit*__ containing: a new version in `package.json` and updates in `CHANGELOG.md` based on changes introduced by the latest __*commits*__.
 
