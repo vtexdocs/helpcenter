@@ -35,7 +35,7 @@ As the Help Center Portal provides VTEX documentation to users, some of its main
 
 - Markdown files rendering
 
-  [Markdown](https://www.markdownguide.org/) is a very popular markup language that helps making plaintext documents more semantic by adding formatting elements defined in its syntax. All documentation available on the Help Center Portal is written in markdown language.
+  [Markdown](https://www.markdownguide.org/) is a very popular markup language that helps making plaintext documents more semantic by adding formatting elements defined in its syntax. All documentation available on Help Center is written in markdown language.
 
 ## Versioning
 
