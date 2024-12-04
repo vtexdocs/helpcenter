@@ -27,6 +27,13 @@ function MyApp({ Component, pageProps }: Props) {
   const currentLocale = locale ?? 'en'
   const messages = getMessages()
 
+  console.log('***********(_app) locale')
+  console.log(locale)
+  console.log('***********(_app) currentLocale')
+  console.log(currentLocale)
+  // console.log('***********(_app) messages[currentLocale]')
+  // console.log(messages[currentLocale])
+
   return (
     <TrackerProvider>
       <IntlProvider locale={currentLocale} messages={messages[currentLocale]}>
