@@ -322,6 +322,8 @@ export const getStaticProps: GetStaticProps = async ({
       getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
       parentsArray.push(slug)
     }
+    console.log('------- (announcements/[slug]sectionSelected')
+    console.log(sectionSelected)
 
     return {
       props: {

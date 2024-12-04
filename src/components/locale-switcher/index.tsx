@@ -114,6 +114,9 @@ export default function LocaleSwitcher() {
   const { locale: currentLocale, setLocale } = useContext(LibraryContext)
   type LocaleType = typeof currentLocale
 
+  console.log('****************** (locale-switcher) currentLocale')
+  console.log(currentLocale)
+
   const handleOptionClick = async (option: string) => {
     const chosenLocale = option as LocaleType
     const currentPath = window.location.pathname
