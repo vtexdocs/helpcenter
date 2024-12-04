@@ -52,8 +52,7 @@ const TroubleshootingPage: NextPage<Props> = ({
       .filter((troubleshoot) => troubleshoot.status === 'PUBLISHED')
       .filter((troubleshoot) => {
         const hasFilters: boolean =
-          filters.length === 0 ||
-          troubleshoot.tags.some((tag) => filters.includes(tag))
+          filters.length === 0 || filters.includes(troubleshoot.productTeam)
         const hasSearch: boolean = troubleshoot.title
           .toLowerCase()
           .includes(search.toLowerCase())
@@ -222,7 +221,7 @@ export async function getStaticProps({
               slug: data.slug,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
-              tags: String(frontmatter.tags ?? '').split(','),
+              productTeam: String(frontmatter.productTeam),
               status: frontmatter.status,
             })
           }
