@@ -48,15 +48,17 @@ const TroubleshootingPage: NextPage<Props> = ({
   const [search, setSearch] = useState<string>('')
 
   const filteredResult = useMemo(() => {
-    const data = troubleshootingData.filter((troubleshoot) => {
-      const hasFilters: boolean =
-        filters.length === 0 ||
-        troubleshoot.tags.some((tag) => filters.includes(tag))
-      const hasSearch: boolean = troubleshoot.title
-        .toLowerCase()
-        .includes(search.toLowerCase())
-      return hasSearch && hasFilters
-    })
+    const data = troubleshootingData
+      .filter((troubleshoot) => troubleshoot.status === 'PUBLISHED')
+      .filter((troubleshoot) => {
+        const hasFilters: boolean =
+          filters.length === 0 ||
+          troubleshoot.tags.some((tag) => filters.includes(tag))
+        const hasSearch: boolean = troubleshoot.title
+          .toLowerCase()
+          .includes(search.toLowerCase())
+        return hasSearch && hasFilters
+      })
 
     data.sort((a, b) => {
       const dateA =
@@ -221,6 +223,7 @@ export async function getStaticProps({
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
               tags: String(frontmatter.tags ?? '').split(','),
+              status: frontmatter.status,
             })
           }
         } catch (error) {

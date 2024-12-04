@@ -87,28 +87,30 @@ const TroubleshootingPage: NextPage<Props> = ({
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <article ref={articleRef}>
-                <header>
-                  <Breadcrumb breadcrumbList={breadcrumbList} />
-                  <Flex sx={styles.flexContainer}>
-                    <Text sx={styles.documentationTitle} className="title">
-                      {serialized.frontmatter?.title}
-                    </Text>
-                    <TimeToRead
-                      minutes={
-                        (serialized.frontmatter?.readingTime as string) ?? 0
-                      }
-                    />
-                    {createdAtDate && updatedAtDate && (
-                      <DateText
-                        createdAt={createdAtDate}
-                        updatedAt={updatedAtDate}
+              <Box sx={styles.textContainer}>
+                <article ref={articleRef}>
+                  <header>
+                    <Breadcrumb breadcrumbList={breadcrumbList} />
+                    <Flex sx={styles.flexContainer}>
+                      <Text sx={styles.documentationTitle} className="title">
+                        {serialized.frontmatter?.title}
+                      </Text>
+                      <TimeToRead
+                        minutes={
+                          (serialized.frontmatter?.readingTime as string) ?? 0
+                        }
                       />
-                    )}
-                  </Flex>
-                </header>
-                <MarkdownRenderer serialized={serialized} />
-              </article>
+                      {createdAtDate && updatedAtDate && (
+                        <DateText
+                          createdAt={createdAtDate}
+                          updatedAt={updatedAtDate}
+                        />
+                      )}
+                    </Flex>
+                  </header>
+                  <MarkdownRenderer serialized={serialized} />
+                </article>
+              </Box>
             </Box>
 
             <Box sx={styles.bottomContributorsContainer}>
@@ -168,6 +170,19 @@ export const getStaticProps: GetStaticProps = async ({
     )
       .then((res) => res.text())
       .catch((err) => console.log(err))) || ''
+
+  // Serialize content and parse frontmatter
+  const serialized = await serialize(documentationContent, {
+    parseFrontmatter: true,
+  })
+
+  // Check if status is "PUBLISHED"
+  const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
+  if (!isPublished) {
+    return {
+      notFound: true,
+    }
+  }
 
   const contributors =
     (await fetch(

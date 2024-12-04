@@ -126,22 +126,24 @@ const TrackPage: NextPage<Props> = ({
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <article ref={articleRef}>
-                <header>
-                  <Breadcrumb breadcrumbList={breadcrumbList} />
-                  <Flex sx={styles.flexContainer}>
-                    <Text sx={styles.documentationTitle} className="title">
-                      {serialized.frontmatter?.title}
-                    </Text>
-                    {serialized.frontmatter?.readingTime && (
-                      <TimeToRead
-                        minutes={serialized.frontmatter.readingTime}
-                      />
-                    )}
-                  </Flex>
-                </header>
-                <MarkdownRenderer serialized={serialized} />
-              </article>
+              <Box sx={styles.textContainer}>
+                <article ref={articleRef}>
+                  <header>
+                    <Breadcrumb breadcrumbList={breadcrumbList} />
+                    <Flex sx={styles.flexContainer}>
+                      <Text sx={styles.documentationTitle} className="title">
+                        {serialized.frontmatter?.title}
+                      </Text>
+                      {serialized.frontmatter?.readingTime && (
+                        <TimeToRead
+                          minutes={serialized.frontmatter.readingTime}
+                        />
+                      )}
+                    </Flex>
+                  </header>
+                  <MarkdownRenderer serialized={serialized} />
+                </article>
+              </Box>
             </Box>
 
             <Box sx={styles.bottomContributorsContainer}>
@@ -293,6 +295,13 @@ export const getServerSideProps: GetServerSideProps = async ({
         format,
       },
     })
+
+    // Check the frontmatter status
+    if (serialized.frontmatter?.status !== 'PUBLISHED') {
+      return {
+        notFound: true,
+      }
+    }
 
     const sidebarfallback = await getNavigation()
     serialized = JSON.parse(JSON.stringify(serialized))

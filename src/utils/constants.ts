@@ -43,7 +43,7 @@ export const documentationData = (intl: IntlShape) => {
       link: '/docs/tracks',
     },
     {
-      id: 'Tutorials & Solutions',
+      id: 'Tutorials',
       Icon: TutorialsIcon,
       title: intl.formatMessage({
         id: 'documentation_tutorials.title',
@@ -83,7 +83,7 @@ export const menuDocumentationData = (intl: IntlShape) => {
       link: '/docs/tracks',
     },
     {
-      id: 'Tutorials & Solutions',
+      id: 'Tutorials',
       Icon: TutorialsIcon,
       title: intl.formatMessage({
         id: 'documentation_tutorials.title',
@@ -456,7 +456,7 @@ export const knownIssuesStatusFilter = (intl: IntlShape) => {
         }),
       },
       {
-        id: 'No fix',
+        id: 'No_Fix',
         name: intl.formatMessage({ id: 'known_issues_filter_status.no_fix' }),
       },
     ],

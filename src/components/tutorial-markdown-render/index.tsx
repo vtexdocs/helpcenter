@@ -56,7 +56,7 @@ const TutorialMarkdownRender = (props: Props) => {
     <>
       <Head>
         <title>{props.serialized.frontmatter?.title as string}</title>
-        <meta name="docsearch:doctype" content="Tutorials & Solutions" />
+        <meta name="docsearch:doctype" content="Tutorials" />
         {props.serialized.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />
         )}
@@ -69,37 +69,39 @@ const TutorialMarkdownRender = (props: Props) => {
       </Head>
       <PageHeader
         title={intl.formatMessage({
-          id: 'tutorial_and_solutions_page.title',
+          id: 'tutorials_page.title',
         })}
         description={intl.formatMessage({
-          id: 'tutorial_and_solutions_page.description',
+          id: 'tutorials_page.description',
         })}
         imageUrl={startHereImage}
         imageAlt={intl.formatMessage({
-          id: 'tutorial_and_solutions_page.title',
+          id: 'tutorials_page.title',
         })}
       />
       <DocumentContextProvider headings={props.headings}>
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <article>
-                <header>
-                  <Breadcrumb breadcrumbList={props.breadcrumbList} />
-                  <Text sx={styles.documentationTitle} className="title">
-                    {props.serialized.frontmatter?.title}
-                  </Text>
-                  <Text sx={styles.documentationExcerpt}>
-                    {props.serialized.frontmatter?.excerpt}
-                  </Text>
-                </header>
-                {props.serialized.frontmatter?.readingTime && (
-                  <TimeToRead
-                    minutes={props.serialized.frontmatter.readingTime}
-                  />
-                )}
-                <MarkdownRenderer serialized={props.serialized} />
-              </article>
+              <Box sx={styles.textContainer}>
+                <article>
+                  <header>
+                    <Breadcrumb breadcrumbList={props.breadcrumbList} />
+                    <Text sx={styles.documentationTitle} className="title">
+                      {props.serialized.frontmatter?.title}
+                    </Text>
+                    <Text sx={styles.documentationExcerpt}>
+                      {props.serialized.frontmatter?.excerpt}
+                    </Text>
+                  </header>
+                  {props.serialized.frontmatter?.readingTime && (
+                    <TimeToRead
+                      minutes={props.serialized.frontmatter.readingTime}
+                    />
+                  )}
+                  <MarkdownRenderer serialized={props.serialized} />
+                </article>
+              </Box>
             </Box>
 
             <Box sx={styles.bottomContributorsContainer}>

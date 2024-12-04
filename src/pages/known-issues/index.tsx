@@ -43,30 +43,32 @@ interface Props {
 
 const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const intl = useIntl()
+
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const itemsPerPage = 8
   const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<{
-    status: string[]
+    kiStatus: string[]
     modules: string[]
-  }>({ status: [], modules: [] })
+  }>({ kiStatus: [], modules: [] })
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
-
   const filteredResult = useMemo(() => {
-    const data = knownIssuesData.filter((knownIssue) => {
-      const hasFilter: boolean =
-        (filters.status.length === 0 ||
-          filters.status.includes(knownIssue.status)) &&
-        (filters.modules.length === 0 ||
-          filters.modules.includes(knownIssue.module))
+    const data = knownIssuesData
+      .filter((knownIssue) => knownIssue.status === 'PUBLISHED')
+      .filter((knownIssue) => {
+        const hasFilter: boolean =
+          (filters.kiStatus.length === 0 ||
+            filters.kiStatus.includes(knownIssue.kiStatus)) &&
+          (filters.modules.length === 0 ||
+            filters.modules.includes(knownIssue.module))
 
-      const hasSearch: boolean = knownIssue.title
-        .toLowerCase()
-        .includes(search.toLowerCase())
-      return hasFilter && hasSearch
-    })
+        const hasSearch: boolean = knownIssue.title
+          .toLowerCase()
+          .includes(search.toLowerCase())
+        return hasFilter && hasSearch
+      })
 
     data.sort((a, b) => {
       const dateA =
@@ -128,10 +130,10 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
               tagFilter={knownIssuesStatusFilter(intl)}
               checkBoxFilter={knownIssuesModulesFilters(intl)}
               selectedCheckboxes={filters.modules}
-              selectedTags={filters.status}
+              selectedTags={filters.kiStatus}
               onApply={(newFilters) =>
                 setFilters({
-                  status: newFilters.tag,
+                  kiStatus: newFilters.tag,
                   modules: newFilters.checklist,
                 })
               }
@@ -242,9 +244,13 @@ export const getStaticProps: GetStaticProps = async ({
               title: frontmatter.title,
               module: frontmatter.tag,
               slug: data.slug,
-              status: frontmatter.kiStatus as KnownIssueStatus,
+              kiStatus: frontmatter.kiStatus.replace(
+                ' ',
+                '_'
+              ) as KnownIssueStatus,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
+              status: frontmatter.status,
             })
         } catch (error) {
           logger.error(`${error}`)
