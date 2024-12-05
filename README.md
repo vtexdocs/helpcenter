@@ -24,7 +24,7 @@
 ## About
 
 ### Objective
-This repository implements the new VTEX Help Center with better navigability, content centralization and search facility to improve merchants experience as they consult our new feature announcements, tutorial articles, troubleshooting guides and other types of documentation.
+This repository implements the new VTEX Help Center, improving merchants' experience as they consult our new feature announcements, tutorial articles, troubleshooting guides, and other documentation.
 
 ### Concepts and Features
 As the Help Center Portal provides VTEX documentation to users, some of its main features are:
