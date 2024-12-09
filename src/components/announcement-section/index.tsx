@@ -1,5 +1,7 @@
 import { Box, Button, Flex, Text } from '@vtex/brand-ui'
-import { useIntl } from 'react-intl'
+import { LibraryContext } from '@vtexdocs/components'
+import { getMessages } from 'utils/get-messages'
+import { useContext } from 'react'
 
 import styles from './styles'
 import AnnouncementTimelineCard from '../announcement-timeline-card'
@@ -15,13 +17,15 @@ const AnnouncementSection = ({
   announcements,
   annoucementsAmout,
 }: AnnouncementSectionProps) => {
+  const { locale } = useContext(LibraryContext)
+  const messages = getMessages()[locale]
+
   function getNewestDate(createdAt: string, updatedAt: string) {
     const createdAtTimestamp = Date.parse(createdAt)
     const updatedAtTimestamp = Date.parse(updatedAt)
 
     return createdAtTimestamp > updatedAtTimestamp ? createdAt : updatedAt
   }
-  const intl = useIntl()
   const newAnnouncements = announcements
     .map((announcement) => {
       return {
@@ -39,9 +43,7 @@ const AnnouncementSection = ({
     <Flex sx={styles.sectionContainer}>
       <Flex>
         <Text sx={styles.title}>
-          {intl.formatMessage({
-            id: 'landing_page_announcements.title',
-          })}
+          {messages['landing_page_announcements.title']}
         </Text>
       </Flex>
       <Box sx={styles.cardsContainer}>
@@ -50,7 +52,7 @@ const AnnouncementSection = ({
       <Flex sx={styles.buttonContainer}>
         <Link href={'/announcements'}>
           <Button sx={styles.button}>
-            {intl.formatMessage({ id: 'landing_page_announcements.button' })}
+            {messages['landing_page_announcements.button']}
           </Button>
         </Link>
       </Flex>

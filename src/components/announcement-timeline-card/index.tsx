@@ -1,7 +1,9 @@
 import { Box, Flex, Text, Timeline } from '@vtex/brand-ui'
+import { useContext } from 'react'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
 
 import { getDaysElapsed } from '../../utils/get-days-elapsed'
-import { useIntl } from 'react-intl'
 
 import styles from './styles'
 import MegaphoneIcon from 'components/icons/megaphone-icon'
@@ -21,7 +23,8 @@ const AnnouncementTimelineItem = ({
   articleLink,
   first = false,
 }: AnnouncementTimelineCardProps) => {
-  const intl = useIntl()
+  const { locale } = useContext(LibraryContext)
+  const messages = getMessages()[locale]
 
   return (
     <Flex sx={styles.releaseContainer}>
@@ -45,9 +48,7 @@ const AnnouncementTimelineItem = ({
         )}
         {first && <Box sx={styles.placeholder}></Box>}
         <Text sx={styles.content}>
-          {`${getDaysElapsed(date)} ${intl.formatMessage({
-            id: 'relese-note-days-elapsed',
-          })}`}
+          {`${getDaysElapsed(date)} ${messages['relese-note-days-elapsed']}`}
         </Text>
       </Timeline.Event>
     </Flex>
@@ -59,26 +60,22 @@ interface Props {
 }
 
 const AnnouncementTimelineCard = ({ announcements }: Props) => {
-  const intl = useIntl()
   const currentDate = new Date()
   const sevenDaysAgo = new Date(currentDate)
   sevenDaysAgo.setDate(currentDate.getDate() - 7)
+
+  const { locale } = useContext(LibraryContext)
+  const messages = getMessages()[locale]
 
   return (
     <Flex sx={styles.cardContainer}>
       <Box>
         <Flex sx={styles.title}>
           <MegaphoneIcon />
-          <Text>
-            {intl.formatMessage({
-              id: 'landing_page_announcements.title',
-            })}
-          </Text>
+          <Text>{messages['landing_page_announcements.title']}</Text>
         </Flex>
         <Text sx={styles.description}>
-          {intl.formatMessage({
-            id: 'landing_page_announcements.description',
-          })}
+          {messages['landing_page_announcements.description']}
         </Text>
       </Box>
       <Box sx={styles.timelineContainer}>

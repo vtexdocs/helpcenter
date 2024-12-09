@@ -1,10 +1,12 @@
 import { Box, Text, Link, Flex } from '@vtex/brand-ui'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 
 import type { AnnouncementDataElement } from 'utils/typings/types'
 
 import styles from './styles'
 import Tag from 'components/tag'
-import { useIntl } from 'react-intl'
 import DateText from 'components/date-text'
 
 export type AnnouncementCardSize = 'small' | 'large'
@@ -19,7 +21,6 @@ const AnnouncementCard = ({
   appearance = 'small',
 }: AnnouncementCardProps) => {
   const { createdAt, updatedAt, url, title } = announcement
-  const intl = useIntl()
 
   const createdAtDate = new Date(createdAt)
   const updatedAtDate = new Date(updatedAt)
@@ -28,9 +29,10 @@ const AnnouncementCard = ({
   sevenDaysAgo.setDate(currentDate.getDate() - 7)
   const isNew = createdAtDate >= sevenDaysAgo && createdAtDate <= currentDate
 
-  const createdAtText = `${intl.formatMessage({
-    id: 'date_text.created',
-  })}: ${intl.formatDate(createdAtDate)}`
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
+
+  const createdAtText = `${messages['date_text.created']}: formatDate(createdAtDate)`
 
   return (
     <Link sx={{ ...styles.link[appearance] }} href={`${url}`}>

@@ -13,7 +13,6 @@ import {
   ResourceDataElement,
   FaqDataElement,
 } from './typings/types'
-import { IntlShape } from 'react-intl'
 import libraryConfig from './libraryConfig'
 import DeveloperPortalIcon from 'components/icons/developer-portal-icon'
 import StartHereIcon from 'components/icons/start-here-icon'
@@ -29,39 +28,28 @@ import TroubleshootingIcon from 'components/icons/troubleshooting-icon'
 libraryConfig
 export const messages = getMessages()
 
-export const documentationData = (intl: IntlShape) => {
+export const documentationData = (locale: 'en' | 'pt' | 'es') => {
   const data: DocDataElement[] = [
     {
       id: 'Start here',
       Icon: StartHereIcon,
-      title: intl.formatMessage({
-        id: 'documentation_start_here.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_start_here.description',
-      }),
+      title: messages[locale]['documentation_start_here.title'],
+      description: messages[locale]['documentation_start_here.description'],
       link: '/docs/tracks',
     },
     {
       id: 'Tutorials',
       Icon: TutorialsIcon,
-      title: intl.formatMessage({
-        id: 'documentation_tutorials.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_tutorials.description',
-      }),
+      title: messages[locale]['documentation_tutorials.title'],
+      description: messages[locale]['documentation_tutorials.description'],
       link: '/docs/tutorial',
     },
     {
       id: 'Developers Portal',
       Icon: DeveloperPortalIcon,
-      title: intl.formatMessage({
-        id: 'documentation_developers_portal.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_developers_portal.description',
-      }),
+      title: messages[locale]['documentation_developers_portal.title'],
+      description:
+        messages[locale]['documentation_developers_portal.description'],
       link: 'https://developers.vtex.com/',
       isExternalLink: true,
     },
@@ -69,39 +57,28 @@ export const documentationData = (intl: IntlShape) => {
   return data
 }
 
-export const menuDocumentationData = (intl: IntlShape) => {
+export const menuDocumentationData = (locale: 'en' | 'pt' | 'es') => {
   const data: DocDataElement[] = [
     {
       id: 'Start here',
       Icon: StartHereIcon,
-      title: intl.formatMessage({
-        id: 'documentation_start_here.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_start_here.description',
-      }),
+      title: messages[locale]['documentation_start_here.title'],
+      description: messages[locale]['documentation_start_here.description'],
       link: '/docs/tracks',
     },
     {
       id: 'Tutorials',
       Icon: TutorialsIcon,
-      title: intl.formatMessage({
-        id: 'documentation_tutorials.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_tutorials.description',
-      }),
+      title: messages[locale]['documentation_tutorials.title'],
+      description: messages[locale]['documentation_tutorials.description'],
       link: '/docs/tutorial',
     },
     {
       id: 'Developers Portal',
       Icon: DeveloperPortalIcon,
-      title: intl.formatMessage({
-        id: 'documentation_developers_portal.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_developers_portal.description',
-      }),
+      title: messages[locale]['documentation_developers_portal.title'],
+      description:
+        messages[locale]['documentation_developers_portal.description'],
       link: 'https://developers.vtex.com/',
       isExternalLink: true,
     },
@@ -109,40 +86,32 @@ export const menuDocumentationData = (intl: IntlShape) => {
   return data
 }
 
-export const updatesData = (intl: IntlShape) => {
+export const updatesData = (locale: 'en' | 'pt' | 'es') => {
   const data: DocDataElement[] = [
     {
       id: 'FAQ',
       Icon: FAQIcon,
-      title: intl.formatMessage({ id: 'updates_info_notes.title' }),
-      description: intl.formatMessage({
-        id: 'updates_info_notes.description',
-      }),
+      title: messages[locale]['updates_info_notes.title'],
+      description: messages[locale]['updates_info_notes.description'],
       link: '/faq',
     },
     {
       id: 'Announcements',
       Icon: MegaphoneIcon,
-      title: intl.formatMessage({
-        id: 'announcements_page.title',
-      }),
-      description: intl.formatMessage({
-        id: 'announcements_page.description',
-      }),
+      title: messages[locale]['announcements_page.title'],
+      description: messages[locale]['announcements_page.description'],
       link: '/announcements',
     },
   ]
   return data
 }
 
-export const feedbackSectionData = (intl: IntlShape) => {
+export const feedbackSectionData = (locale: 'en' | 'pt' | 'es') => {
   const data: DocDataElement[] = [
     {
       id: 'Feedback',
       Icon: LongArrowIcon,
-      title: intl.formatMessage({
-        id: 'landing_page_header_feedback.message',
-      }),
+      title: messages[locale]['landing_page_header_feedback.message'],
       description: '',
       link: getFeedbackURL(),
     },
@@ -151,39 +120,27 @@ export const feedbackSectionData = (intl: IntlShape) => {
   return data
 }
 
-export const knownIssuesData = (intl: IntlShape) => {
+export const knownIssuesData = (locale: 'en' | 'pt' | 'es') => {
   const data: DocDataElement[] = [
     {
       id: 'Known Issues',
       Icon: WarningIcon,
-      title: intl.formatMessage({
-        id: 'sidebar_known_issues.title',
-      }),
-      description: intl.formatMessage({
-        id: 'sidebar_known_issues.description',
-      }),
+      title: messages[locale]['sidebar_known_issues.title'],
+      description: messages[locale]['sidebar_known_issues.description'],
       link: '/known-issues',
     },
     {
       id: 'Support Rules',
       Icon: PaperIcon,
-      title: intl.formatMessage({
-        id: 'sidebar_support_rules.title',
-      }),
-      description: intl.formatMessage({
-        id: 'sidebar_support_rules.description',
-      }),
-      link: intl.formatMessage({
-        id: 'sidebar_support_rules.link',
-      }),
+      title: messages[locale]['sidebar_support_rules.title'],
+      description: messages[locale]['sidebar_support_rules.description'],
+      link: messages[locale]['sidebar_support_rules.link'],
     },
     {
       id: 'Troubleshooting',
       Icon: TroubleshootingIcon,
-      title: intl.formatMessage({
-        id: 'sidebar_troubleshooting.title',
-      }),
-      description: 'sidebar_troubleshooting.description',
+      title: messages[locale]['sidebar_troubleshooting.title'],
+      description: messages[locale]['sidebar_troubleshooting.description'],
       link: '/troubleshooting',
     },
   ]
@@ -191,50 +148,34 @@ export const knownIssuesData = (intl: IntlShape) => {
   return data
 }
 
-export const menuSupportData = (intl: IntlShape) => {
+export const menuSupportData = (locale: 'en' | 'pt' | 'es') => {
   const data: DocDataElement[] = [
     {
       id: 'Known Issues',
       Icon: WarningIcon,
-      title: intl.formatMessage({
-        id: 'sidebar_known_issues.title',
-      }),
-      description: intl.formatMessage({
-        id: 'sidebar_known_issues.description',
-      }),
+      title: messages[locale]['sidebar_known_issues.title'],
+      description: messages[locale]['sidebar_known_issues.description'],
       link: '/known-issues',
     },
     {
       id: 'Status',
       Icon: GraphIcon,
-      title: intl.formatMessage({
-        id: 'menu_status.title',
-      }),
-      description: intl.formatMessage({
-        id: 'menu_status.description',
-      }),
+      title: messages[locale]['menu_status.title'],
+      description: messages[locale]['menu_status.description'],
       link: 'https://status.vtex.com',
     },
     {
       id: 'Support Rules',
       Icon: PaperIcon,
-      title: intl.formatMessage({
-        id: 'sidebar_support_rules.title',
-      }),
-      description: intl.formatMessage({
-        id: 'sidebar_support_rules.description',
-      }),
-      link: intl.formatMessage({
-        id: 'sidebar_support_rules.link',
-      }),
+      title: messages[locale]['sidebar_support_rules.title'],
+      description: messages[locale]['sidebar_support_rules.description'],
+      link: messages[locale]['sidebar_support_rules.link'],
     },
     {
       id: 'Troubleshooting',
       Icon: TroubleshootingIcon,
-      title: intl.formatMessage({ id: 'menu_troubleshooting.title' }),
-      description: intl.formatMessage({
-        id: 'menu_troubleshooting.description',
-      }),
+      title: messages[locale]['menu_troubleshooting.title'],
+      description: messages[locale]['menu_troubleshooting.description'],
       link: '/troubleshooting',
     },
   ]
@@ -242,49 +183,33 @@ export const menuSupportData = (intl: IntlShape) => {
   return data
 }
 
-export const faqData = (intl: IntlShape) => {
+export const faqData = (locale: 'en' | 'pt' | 'es') => {
   const data: FaqDataElement[] = [
     {
       Icon: PaperIcon,
-      title: intl.formatMessage({
-        id: 'faq_order_error.title',
-      }),
-      description: intl.formatMessage({
-        id: 'faq_order_error.description',
-      }),
+      title: messages[locale]['faq_order_error.title'],
+      description: messages[locale]['faq_order_error.description'],
       productTeam: 'Channels',
       link: '/faq/order-errors-in-marketplace-integrations',
     },
     {
       Icon: WarningIcon,
-      title: intl.formatMessage({
-        id: 'faq_handling.title',
-      }),
-      description: intl.formatMessage({
-        id: 'faq_handling.description',
-      }),
+      title: messages[locale]['faq_handling.title'],
+      description: messages[locale]['faq_handling.description'],
       productTeam: 'Post-purchase',
       link: '/faq/why-has-my-order-stopped-on-ready-for-handling',
     },
     {
       Icon: GraphIcon,
-      title: intl.formatMessage({
-        id: 'faq_product_visible.title',
-      }),
-      description: intl.formatMessage({
-        id: 'faq_product_visible.description',
-      }),
+      title: messages[locale]['faq_product_visible.title'],
+      description: messages[locale]['faq_product_visible.description'],
       productTeam: 'Marketing & Merchandising',
       link: '/faq/why-is-the-product-not-visible-on-the-website',
     },
     {
       Icon: PaperIcon,
-      title: intl.formatMessage({
-        id: 'faq_carrier.title',
-      }),
-      description: intl.formatMessage({
-        id: 'faq_carrier.description',
-      }),
+      title: messages[locale]['faq_carrier.title'],
+      description: messages[locale]['faq_carrier.description'],
       productTeam: 'Post-purchase',
       link: '/faq/why-cant-i-see-my-carrier-on-checkout',
     },
@@ -292,41 +217,27 @@ export const faqData = (intl: IntlShape) => {
   return data
 }
 
-export const supportData = (intl: IntlShape) => {
+export const supportData = (locale: 'en' | 'pt' | 'es') => {
   const data: DocDataElement[] = [
     {
       id: 'Known Issues',
       Icon: WarningIcon,
-      title: intl.formatMessage({
-        id: 'support_known_issues.title',
-      }),
-      description: intl.formatMessage({
-        id: 'support_known_issues.description',
-      }),
+      title: messages[locale]['support_known_issues.title'],
+      description: messages[locale]['support_known_issues.description'],
       link: '/known-issues',
     },
     {
       id: 'Support Plans',
       Icon: PaperIcon,
-      title: intl.formatMessage({
-        id: 'support_plans.title',
-      }),
-      description: intl.formatMessage({
-        id: 'support_plans.description',
-      }),
-      link: intl.formatMessage({
-        id: 'support_plans.link',
-      }),
+      title: messages[locale]['support_plans.title'],
+      description: messages[locale]['support_plans.description'],
+      link: messages[locale]['support_plans.link'],
     },
     {
       id: 'Status',
       Icon: GraphIcon,
-      title: intl.formatMessage({
-        id: 'support_status.title',
-      }),
-      description: intl.formatMessage({
-        id: 'support_status.description',
-      }),
+      title: messages[locale]['support_status.title'],
+      description: messages[locale]['support_status.description'],
       isExternalLink: true,
       link: 'https://status.vtex.com/',
     },
@@ -334,61 +245,50 @@ export const supportData = (intl: IntlShape) => {
   return data
 }
 
-export const getIcon = (doc: string, intl: IntlShape) => {
+export const getIcon = (doc: string, locale: 'en' | 'pt' | 'es') => {
   return (
-    documentationData(intl).find((icon) => icon.title === doc)?.Icon ||
-    updatesData(intl).find((icon) => icon.title === doc)?.Icon
+    documentationData(locale).find((icon) => icon.title === doc)?.Icon ||
+    updatesData(locale).find((icon) => icon.title === doc)?.Icon
   )
 }
 
-export const whatsNextData = (intl: IntlShape) => {
+export const whatsNextData = (locale: 'en' | 'pt' | 'es') => {
   const data: WhatsNextDataElement[] = [
     {
-      title: intl.formatMessage({
-        id: 'app_development_page_new_to_app_development.title',
-      }),
-      description: intl.formatMessage({
-        id: 'app_development_page_new_to_app_development.description',
-      }),
-      linkTitle: intl.formatMessage({
-        id: 'app_development_page_new_to_app_development.link',
-      }),
+      title:
+        messages[locale]['app_development_page_new_to_app_development.title'],
+      description:
+        messages[locale][
+          'app_development_page_new_to_app_development.description'
+        ],
+      linkTitle:
+        messages[locale]['app_development_page_new_to_app_development.link'],
       linkTo: '/docs/guides/vtex-io-getting-started',
     },
     {
-      title: intl.formatMessage({
-        id: 'app_development_page_solve_real_world_issues.title',
-      }),
-      description: intl.formatMessage({
-        id: 'app_development_page_solve_real_world_issues.description',
-      }),
-      linkTitle: intl.formatMessage({
-        id: 'app_development_page_solve_real_world_issues.link',
-      }),
+      title:
+        messages[locale]['app_development_page_solve_real_world_issues.title'],
+      description:
+        messages[locale][
+          'app_development_page_solve_real_world_issues.description'
+        ],
+      linkTitle:
+        messages[locale]['app_development_page_solve_real_world_issues.link'],
       linkTo: '/docs/guides/app-development-guides',
     },
     {
-      title: intl.formatMessage({
-        id: 'app_development_page_build_foundations.title',
-      }),
-      description: intl.formatMessage({
-        id: 'app_development_page_build_foundations.description',
-      }),
-      linkTitle: intl.formatMessage({
-        id: 'app_development_page_build_foundations.link',
-      }),
+      title: messages[locale]['app_development_page_build_foundations.title'],
+      description:
+        messages[locale]['app_development_page_build_foundations.description'],
+      linkTitle:
+        messages[locale]['app_development_page_build_foundations.link'],
       linkTo: '/docs/guides/concepts',
     },
     {
-      title: intl.formatMessage({
-        id: 'app_development_page_go_further.title',
-      }),
-      description: intl.formatMessage({
-        id: 'app_development_page_go_further.description',
-      }),
-      linkTitle: intl.formatMessage({
-        id: 'app_development_page_go_further.link',
-      }),
+      title: messages[locale]['app_development_page_go_further.title'],
+      description:
+        messages[locale]['app_development_page_go_further.description'],
+      linkTitle: messages[locale]['app_development_page_go_further.link'],
       linkTo:
         '/docs/guides/vtex-io-documentation-homologation-requirements-for-vtex-app-store',
     },
@@ -396,34 +296,38 @@ export const whatsNextData = (intl: IntlShape) => {
   return data
 }
 
-export const resources = (intl: IntlShape) => {
+export const resources = (locale: 'en' | 'pt' | 'es') => {
   const data: ResourceDataElement[] = [
     {
       title: 'Community',
-      description: intl.formatMessage({
-        id: 'app_development_page_other_resources_community.description',
-      }),
+      description:
+        messages[locale][
+          'app_development_page_other_resources_community.description'
+        ],
       link: getCommunityURL(),
     },
     {
       title: 'Learning Center',
-      description: intl.formatMessage({
-        id: 'app_development_page_other_resources_learning_center.description',
-      }),
+      description:
+        messages[locale][
+          'app_development_page_other_resources_learning_center.description'
+        ],
       link: getLearningCenterURL(),
     },
     {
       title: 'Developer Portal',
-      description: intl.formatMessage({
-        id: 'app_development_page_other_resources_github.description',
-      }),
+      description:
+        messages[locale][
+          'app_development_page_other_resources_github.description'
+        ],
       link: getDeveloperPortalURL(),
     },
     {
       title: 'Support',
-      description: intl.formatMessage({
-        id: 'app_development_page_other_resources_support.description',
-      }),
+      description:
+        messages[locale][
+          'app_development_page_other_resources_support.description'
+        ],
       link: getSupportURL(),
     },
   ]
@@ -431,33 +335,29 @@ export const resources = (intl: IntlShape) => {
   return data
 }
 
-export const knownIssuesStatusFilter = (intl: IntlShape) => {
+export const knownIssuesStatusFilter = (locale: 'en' | 'pt' | 'es') => {
   const data = {
-    name: intl.formatMessage({
-      id: 'known_issues_filter_status.title',
-    }),
+    name: messages[locale]['known_issues_filter_status.title'],
     options: [
       {
         id: 'Closed',
-        name: intl.formatMessage({ id: 'known_issues_filter_status.closed' }),
+        name: messages[locale]['known_issues_filter_status.closed'],
       },
       {
         id: 'Fixed',
-        name: intl.formatMessage({ id: 'known_issues_filter_status.fixed' }),
+        name: messages[locale]['known_issues_filter_status.fixed'],
       },
       {
         id: 'Backlog',
-        name: intl.formatMessage({ id: 'known_issues_filter_status.backlog' }),
+        name: messages[locale]['known_issues_filter_status.backlog'],
       },
       {
         id: 'Scheduled',
-        name: intl.formatMessage({
-          id: 'known_issues_filter_status.scheduled',
-        }),
+        name: messages[locale]['known_issues_filter_status.scheduled'],
       },
       {
         id: 'No_Fix',
-        name: intl.formatMessage({ id: 'known_issues_filter_status.no_fix' }),
+        name: messages[locale]['known_issues_filter_status.no_fix'],
       },
     ],
   }
@@ -465,11 +365,9 @@ export const knownIssuesStatusFilter = (intl: IntlShape) => {
   return data
 }
 
-export const knownIssuesModulesFilters = (intl: IntlShape) => {
+export const knownIssuesModulesFilters = (locale: 'en' | 'pt' | 'es') => {
   const data = {
-    name: intl.formatMessage({
-      id: 'known_issues_filter_modules.title',
-    }),
+    name: messages[locale]['known_issues_filter_modules.title'],
     options: [
       {
         id: 'Pricing & Promotions',
@@ -577,9 +475,9 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
-export const TroubleshootingFilters = (intl: IntlShape) => {
+export const TroubleshootingFilters = (locale: 'en' | 'pt' | 'es') => {
   const data = {
-    name: intl.formatMessage({ id: 'troubleshooting_filter_module.title' }),
+    name: messages[locale]['troubleshooting_filter_module.title'],
     options: [
       { id: 'Catalog', name: 'Catalog' },
       { id: 'Order', name: 'Order' },
@@ -593,24 +491,24 @@ export const TroubleshootingFilters = (intl: IntlShape) => {
   return data
 }
 
-export const sortBy = (intl: IntlShape) => {
+export const sortBy = (locale: 'en' | 'pt' | 'es') => {
   const data = [
     {
       value: 'recently_updated',
-      content: intl.formatMessage({ id: 'sort.recently_updated' }),
+      content: messages[locale]['sort.recently_updated'],
     },
     {
       value: 'newest',
-      content: intl.formatMessage({ id: 'sort.newest' }),
+      content: messages[locale]['sort.newest'],
     },
   ]
 
   return data
 }
 
-export const faqFilter = (intl: IntlShape) => {
+export const faqFilter = (locale: 'en' | 'pt' | 'es') => {
   const data = {
-    name: intl.formatMessage({ id: 'faq_filter.title' }),
+    name: messages[locale]['faq_filter.title'],
     options: [
       {
         id: 'Shopping',
@@ -670,68 +568,65 @@ export const faqFilter = (intl: IntlShape) => {
   return data
 }
 
-export const additionalResourcesSitemap = (intl: IntlShape) => {
+export const additionalResourcesSitemap = (locale: 'en' | 'pt' | 'es') => {
   const data: {
     documentation: string
     children: { name: string; link: string; icon: boolean }[]
   } = {
-    documentation: intl.formatMessage({
-      id: 'sitemap_page_section_additional_resources.title',
-    }),
+    documentation:
+      messages[locale]['sitemap_page_section_additional_resources.title'],
     children: [
       {
-        name: intl.formatMessage({
-          id: 'sitemap_page_section_additional_resources.faq',
-        }),
+        name: messages[locale]['sitemap_page_section_additional_resources.faq'],
         link: '/faq',
         icon: false,
       },
       {
-        name: intl.formatMessage({
-          id: 'sitemap_page_section_additional_resources.known_issues',
-        }),
+        name: messages[locale][
+          'sitemap_page_section_additional_resources.known_issues'
+        ],
         link: '/known-issues',
         icon: false,
       },
       {
-        name: intl.formatMessage({
-          id: 'sitemap_page_section_additional_resources.support_rules',
-        }),
+        name: messages[locale][
+          'sitemap_page_section_additional_resources.support_rules'
+        ],
         link: '#', // TODO: trocar rota
         icon: false,
       },
       {
-        name: intl.formatMessage({
-          id: 'sitemap_page_section_additional_resources.announcements',
-        }),
+        name: messages[locale][
+          'sitemap_page_section_additional_resources.announcements'
+        ],
         link: '/announcements',
         icon: false,
       },
       {
-        name: intl.formatMessage({
-          id: 'sitemap_page_section_additional_resources.dev_portal',
-        }),
+        name: messages[locale][
+          'sitemap_page_section_additional_resources.dev_portal'
+        ],
         link: getDeveloperPortalURL(),
         icon: true,
       },
       {
-        name: intl.formatMessage({
-          id: 'sitemap_page_section_additional_resources.support',
-        }),
+        name: messages[locale][
+          'sitemap_page_section_additional_resources.support'
+        ],
         link: getSupportURL(),
         icon: true,
       },
       {
-        name: intl.formatMessage({
-          id: 'sitemap_page_section_additional_resources.community',
-        }),
+        name: messages[locale][
+          'sitemap_page_section_additional_resources.community'
+        ],
         link: getCommunityURL(),
         icon: true,
       },
       {
-        name: intl.formatMessage({
-          id: 'sitemap_page_section_additional_resources.feedback',
-        }),
+        name: messages[locale][
+          'sitemap_page_section_additional_resources.feedback'
+        ],
         link: getFeedbackURL(),
         icon: true,
       },

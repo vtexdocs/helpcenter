@@ -12,7 +12,6 @@ import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
 import { serialize } from 'next-mdx-remote/serialize'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
-import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/announcements.png'
 import Pagination from 'components/pagination'
 import { localeType } from 'utils/navigation-utils'
@@ -22,6 +21,7 @@ import { sortBy } from 'utils/constants'
 import SearchIcon from 'components/icons/search-icon'
 import Input from 'components/input'
 import { LibraryContext } from '@vtexdocs/components'
+import { getMessages } from 'utils/get-messages'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -35,7 +35,6 @@ interface Props {
 const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
 
 const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
-  const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const itemsPerPage = 8
@@ -43,11 +42,8 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const [page, setPage] = useState({ curr: 1, total: 1 })
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
-  const localeLib = useContext(LibraryContext).locale
-  console.log('-------------- (anouncements index) localeLib')
-  console.log(localeLib)
-  console.log('-------------- (anouncements index) intl.locale')
-  console.log(intl.locale)
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
 
   const filteredResult = useMemo(() => {
     const data = announcementsData
@@ -68,7 +64,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
     setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [searchTerm, sortByValue, intl.locale])
+  }, [searchTerm, sortByValue, locale])
 
   const paginatedResult = useMemo(() => {
     return filteredResult.slice(
@@ -85,45 +81,31 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   return (
     <>
       <Head>
-        <title>
-          {intl.formatMessage({
-            id: 'announcements_page.title',
-          })}
-        </title>
+        <title>{messages['announcements_page.title']}</title>
         <meta
           property="og:title"
-          content={intl.formatMessage({
-            id: 'announcements_page.description',
-          })}
+          content={messages['announcements_page.description']}
           key="title"
         />
       </Head>
       <Fragment>
         <PageHeader
-          title={intl.formatMessage({
-            id: 'announcements_page.title',
-          })}
-          description={intl.formatMessage({
-            id: 'announcements_page.description',
-          })}
+          title={messages['announcements_page.title']}
+          description={messages['announcements_page.description']}
           imageUrl={startHereImage}
-          imageAlt={intl.formatMessage({
-            id: 'announcements_page.title',
-          })}
+          imageAlt={messages['announcements_page.title']}
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Select
-              label={intl.formatMessage({ id: 'sort.label' })}
+              label={messages['sort.label']}
               value={sortByValue}
-              options={sortBy(intl)}
+              options={sortBy(locale)}
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
           <Input
-            placeholder={intl.formatMessage({
-              id: 'announcements_page_search.placeholder',
-            })}
+            placeholder={messages['announcements_page_search.placeholder']}
             Icon={SearchIcon}
             value={searchTerm}
             onChange={(value) => setSearchTerm(value)}
@@ -131,7 +113,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
-                {intl.formatMessage({ id: 'announcements_page_result.empty' })}
+                {messages['announcements_page_result.empty']}
               </Flex>
             )}
             {paginatedResult.map((announcement, id) => {

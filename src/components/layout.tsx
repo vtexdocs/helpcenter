@@ -2,8 +2,10 @@ import { Flex, Box } from '@vtex/brand-ui'
 import type { ReactElement } from 'react'
 import { useContext, useEffect } from 'react'
 import { TrackerContext } from 'utils/contexts/trackerContext'
+import { LibraryContext } from '@vtexdocs/components'
 
 import { ThemeProvider } from '@vtex/brand-ui'
+import { useRouter } from 'next/router'
 
 import styles from 'styles/documentation-page'
 import Header from 'components/header'
@@ -23,7 +25,6 @@ import {
   menuSupportData,
   updatesData,
 } from 'utils/constants'
-import { useIntl } from 'react-intl'
 import EducationSection from './education-section'
 
 interface Props {
@@ -49,30 +50,39 @@ export default function Layout({
   parentsArray,
 }: Props) {
   const { initTracker, startTracking } = useContext(TrackerContext)
-  const intl = useIntl()
   useEffect(() => {
     initTracker()
     startTracking()
   }, [])
 
+  // Get locale from browser address bar
+  const { locale } = useRouter()
+  // Get locale tools from LibraryContext. The locale will be used only to define the type
+  const { locale: contextLocale, setLocale } = useContext(LibraryContext)
+  type LocaleType = typeof contextLocale
+  // Set current locale to en if browser returns undefined
+  const currentLocale: LocaleType = (locale as LocaleType) ?? 'en'
+  // Set locale in the context
+  setLocale(currentLocale)
+
   return (
     <ThemeProvider>
       <LibraryContextProvider
         sections={[
-          documentationData(intl),
-          knownIssuesData(intl),
-          updatesData(intl),
+          documentationData(currentLocale),
+          knownIssuesData(currentLocale),
+          updatesData(currentLocale),
         ]}
         hamburguerMenuSections={[
-          documentationData(intl),
-          menuSupportData(intl),
-          updatesData(intl),
-          feedbackSectionData(intl),
+          documentationData(currentLocale),
+          menuSupportData(currentLocale),
+          updatesData(currentLocale),
+          feedbackSectionData(currentLocale),
         ]}
         sectionSelected={sectionSelected ?? ''}
         fallback={sidebarfallback}
         isPreview={isPreview}
-        locale={intl.locale as 'en' | 'pt' | 'es'}
+        locale={currentLocale as LocaleType}
       >
         <iframe
           src="https://www.googletagmanager.com/ns.html?id=GTM-WGQQ964"

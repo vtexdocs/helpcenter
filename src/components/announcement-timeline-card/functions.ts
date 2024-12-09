@@ -1,4 +1,5 @@
 import type { IconComponent } from 'utils/typings/types'
+import { getMessages } from 'utils/get-messages'
 
 import AddedIcon from 'components/icons/added-icon'
 import DeprecatedIcon from 'components/icons/deprecated-icon'
@@ -7,7 +8,8 @@ import FixedIcon from 'components/icons/fixed-icon'
 import ImprovedIcon from 'components/icons/improved-icon'
 import AnnouncementIcon from 'components/icons/announcement-icon'
 import RemovedIcon from 'components/icons/removed-icon'
-import { IntlShape } from 'react-intl'
+
+export const messages = getMessages()
 
 export type ActionType =
   | 'added'
@@ -59,7 +61,7 @@ const actions: Action[] = [
   },
 ]
 
-const updates = (intl: IntlShape) => {
+const updates = (locale: 'en' | 'pt' | 'es') => {
   const data: Update[] = [
     {
       type: 'documentation-updates',
@@ -69,12 +71,8 @@ const updates = (intl: IntlShape) => {
     },
     {
       type: 'announcements',
-      title: intl.formatMessage({
-        id: 'announcements_page.title',
-      }),
-      description: intl.formatMessage({
-        id: 'announcements_page.description',
-      }),
+      title: messages[locale]['announcements_page.title'],
+      description: messages[locale]['announcements_page.description'],
       Icon: AnnouncementIcon,
     },
   ]
@@ -85,6 +83,9 @@ export const getAction = (actionType: ActionType): Action => {
   return actions.find((action) => action.type === actionType) as Action
 }
 
-export const getUpdate = (updateType: UpdateType, intl: IntlShape): Update => {
-  return updates(intl).find((update) => update.type === updateType) as Update
+export const getUpdate = (
+  updateType: UpdateType,
+  locale: 'en' | 'pt' | 'es'
+): Update => {
+  return updates(locale).find((update) => update.type === updateType) as Update
 }

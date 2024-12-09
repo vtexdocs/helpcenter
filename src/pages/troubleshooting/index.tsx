@@ -44,6 +44,9 @@ const TroubleshootingPage: NextPage<Props> = ({
   const [filters, setFilters] = useState<string[]>([])
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
+  console.log('-------- intl')
+  console.log(intl)
+
   const filteredResult = useMemo(() => {
     const data = troubleshootingData
       .filter((troubleshoot) => troubleshoot.status === 'PUBLISHED')
