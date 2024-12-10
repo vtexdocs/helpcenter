@@ -518,7 +518,6 @@ Follow the steps below to create a new redirect:
 5. Open a PR on GitHub.
 
    > **Important note:** You should select the `release-no` option in the `Labels` field of the PR.
-   >
 6. Send the PR link in the `#dev-portal-pr` Slack channel to be approved.
 7. Once PR is approved, apply the merge to update the navigation sidebar.
 
