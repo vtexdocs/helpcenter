@@ -439,7 +439,7 @@ Follow the steps below to create a new redirect:
 1. Open a [feature branch](#feature-branches) in the repository.
 2. In the [netlify.toml](https://github.com/vtexdocs/helpcenter/blob/main/netlify.toml) file, you will find an array of redirects. Add the one you want to create following the format below, replacing `from` and `to` with the desired slugs:
 
-   ```
+   ```toml
        [[redirects]]
        force = true
        from = "/es/topic/master-data"
