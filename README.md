@@ -556,7 +556,6 @@ Follow the steps below to create a new redirect:
 - **Step 5.** Verify if your Pull Request passed all checks that run against opened Pull Requests. In case any of them fails, look for a solution and update your *feature branch*.
 
   > **Important note:** If your branch has been updated with new commits, you should request new reviews to your PR.
-  >
 - **Step 6.** When your PR has been approved by reviewers, make sure your feature branch is still rebased on the `main` branch. If it needs to be rebased, run:
 
   ```bash
