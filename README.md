@@ -426,7 +426,6 @@ Follow the steps below to add new content to the navigation sidebar:
 9. Once PR is approved, apply the merge to update the navigation sidebar.
 
    > ℹ️ For new information to appear in the Help Center, Education & Documentation team leaders must run the portal's build.
-   >
 
 ### Redirects
 
