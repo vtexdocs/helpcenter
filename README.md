@@ -318,7 +318,7 @@ The excerpt below shows an example of how the first articles in the Tutorials se
 }
 ```
 
-#### How to update navigation sidebar
+#### Updating the navigation sidebar
 
 Follow the steps below to add new content in the navigation sidebar:
 
