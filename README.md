@@ -248,7 +248,7 @@ To display an article in the Help Center navigation sidebar, you need to update 
 
 The excerpt below shows an example of how the first articles in the Tutorials section are listed within this file:
 
-```jsx
+```json
 {
         {
          "documentation": "Tutorials",
