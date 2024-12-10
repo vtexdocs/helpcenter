@@ -244,7 +244,7 @@ E.g.: `git checkout -b feature/landing-page`.
 
 ### Navigation sidebar
 
-To display an article in the Help Center Portal navigation sidebar, you need to update the [navigation.json](https://github.com/vtexdocs/helpcenter/blob/main/public/navigation.json) file located inside the [helpcenter](https://github.com/vtexdocs/helpcenter) repository.
+To display an article in the Help Center navigation sidebar, you need to update the [navigation.json](https://github.com/vtexdocs/helpcenter/blob/main/public/navigation.json) file located inside the [helpcenter](https://github.com/vtexdocs/helpcenter) repository.
 
 The excerpt below shows an example of how the first articles in the Tutorials section are listed within this file:
 
