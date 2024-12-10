@@ -432,7 +432,7 @@ Follow the steps below to add new content to the navigation sidebar:
 
 Redirect is the functionality that allows the browser to open a page with an address different from the one entered by the user in the URL field. This type of action is necessary when an old page address has been archived and a new one is created to replace it.
 
-#### How to create a redirect
+#### Creating a redirect
 
 Follow the steps below to create a new redirect:
 
