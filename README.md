@@ -225,7 +225,7 @@ Within the repository we can consider three types of commit:
 
 ### Branches
 
-Currently, we have one fixed branch: `main` .
+Currently, we have one fixed branch: `main`.
 
 The `main` branch must reflect exactly what is deployed in production, it should be treated as __*the single source of truth*__. It is from `main` where every development branch is created.
 
