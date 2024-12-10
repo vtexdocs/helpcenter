@@ -31,7 +31,7 @@ This repository implements the new VTEX Help Center, improving merchants' experi
 
 ### Concepts and Features
 
-As the Help Center Portal provides VTEX documentation to users, some of its main features are:
+As the Help Center provides VTEX documentation to users, some of its main features are:
 
 - Multilingual content
 
