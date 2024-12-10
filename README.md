@@ -418,6 +418,9 @@ Follow the steps below to add new content in the navigation sidebar:
     git commit -m "navigation sidebar update"
    ```
 6. Open a PR on GitHub.
+
+   > **Important note:** You should select the `release-no` option in the `Labels` field of the PR.
+   >
 7. Test your navigation through the preview.
 8. Send the PR link in the `#dev-portal-pr` Slack channel to be approved.
 9. Once PR is approved, apply the merge to update the navigation sidebar.
@@ -514,7 +517,10 @@ Follow the steps below to create a new redirect:
    ```bash
     git commit -m "redirect created"
    ```
-5. Open a PR.
+5. Open a PR on GitHub.
+
+   > **Important note:** You should select the `release-no` option in the `Labels` field of the PR.
+   >
 6. Send the PR link in the `#dev-portal-pr` Slack channel to be approved.
 7. Once PR is approved, apply the merge to update the navigation sidebar.
 
@@ -549,9 +555,7 @@ Follow the steps below to create a new redirect:
   | `release-minor` | When the new version should be released as a minor                                                                      | MINOR                 |
   | `release-major` | When the new version should be released as a major                                                                      | MAJOR                 |
 
-
-  > **Important note:** If none of the labels are added, a version release corresponding to `release-auto` will be triggered.
-  >
+  
 - **Step 5.** Verify if your Pull Request passed all checks that run against opened Pull Requests. In case any of them fails, look for a solution and update your *feature branch*.
 
   > **Important note:** If your branch has been updated with new commits, you should request new reviews to your PR.
