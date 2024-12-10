@@ -21,6 +21,7 @@ import AnnouncementCard from 'components/announcement-card'
 import { sortBy } from 'utils/constants'
 import SearchIcon from 'components/icons/search-icon'
 import Input from 'components/input'
+import { LibraryContext } from '@vtexdocs/components'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -41,6 +42,12 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const [searchTerm, setSearchTerm] = useState('')
   const [page, setPage] = useState({ curr: 1, total: 1 })
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+
+  const localeLib = useContext(LibraryContext).locale
+  console.log('-------------- (anouncements index) localeLib')
+  console.log(localeLib)
+  console.log('-------------- (anouncements index) intl.locale')
+  console.log(intl.locale)
 
   const filteredResult = useMemo(() => {
     const data = announcementsData
@@ -154,7 +161,7 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const sidebarfallback = await getNavigation()
-  const sectionSelected = 'Announcements'
+  const sectionSelected = 'News'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
       ? JSON.parse(JSON.stringify(previewData)).branch

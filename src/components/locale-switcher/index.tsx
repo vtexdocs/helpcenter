@@ -4,6 +4,8 @@ import styles from './styles'
 import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'
 import { LocaleOption } from '@vtex/brand-ui/dist/components/Header/LocaleSwitcher'
 import navigationData from '../../../public/navigation.json'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 
 interface OptionProps {
   screen: 'mobile' | 'large'
@@ -81,6 +83,23 @@ const findLocalizedSlug = async (
           return (child.slug as unknown as Slug)[locale] || slug
         }
       }
+
+      // Now check parent categories
+      if (typeof category.slug === 'object') {
+        // Check if the current locale slug matches
+        const currentLocaleSlug = Object.values(category.slug).find(
+          (s) => s === slug
+        )
+        if (currentLocaleSlug) {
+          console.log(
+            `Found matching parent slug: ${category.slug[locale] || slug}`
+          )
+          return category.slug[locale] || slug
+        } else if (category.slug[locale] === slug) {
+          console.log(`Found matching parent slug: ${category.slug}`)
+          return (category.slug as unknown as Slug)[locale] || slug
+        }
+      }
     }
   }
 
@@ -108,25 +127,37 @@ export default function LocaleSwitcher() {
     },
   ]
 
+  // Getting locale and setlocale function from the context
+  const { locale: currentLocale, setLocale } = useContext(LibraryContext)
+  type LocaleType = typeof currentLocale
+
+  console.log('****************** (locale-switcher) currentLocale')
+  console.log(currentLocale)
+
   const handleOptionClick = async (option: string) => {
-    const locale = option as keyof Slug
+    console.log('//////////////// locale-switcher')
+    console.log(`//////////////// Changing locale from ${currentLocale}`)
+    const chosenLocale = option as LocaleType
     const currentPath = window.location.pathname
     const pathParts = currentPath.split('/')
 
+    console.log(`//////////////// to ${chosenLocale}`)
+
     // Obtain the current locale
-    const allowedLocales = ['en', 'es', 'pt']
-    const currentLocale = allowedLocales.includes(pathParts[1])
-      ? pathParts[1]
-      : 'en'
     const newPathParts = pathParts.filter((part) => part !== currentLocale)
+
+    // Set locale in context
+    setLocale(chosenLocale)
 
     if (currentPath.includes('/docs')) {
       const contentType = newPathParts[2]
       const currentSlug = newPathParts[3]
-      const localizedSlug = await findLocalizedSlug(currentSlug, locale)
+      const localizedSlug = await findLocalizedSlug(currentSlug, chosenLocale)
+      console.log('///////////////////// localizedSlug')
+      console.log('////////////////', localizedSlug)
       const newPath = currentSlug
-        ? `/${locale}/docs/${contentType}/${localizedSlug}`
-        : `/${locale}/docs/${contentType}`
+        ? `/${chosenLocale}/docs/${contentType}/${localizedSlug}`
+        : `/${chosenLocale}/docs/${contentType}`
       console.log(newPath)
       window.location.href = newPath
     } else if (
@@ -136,15 +167,15 @@ export default function LocaleSwitcher() {
     ) {
       const contentType = newPathParts[1]
       const currentSlug = newPathParts[2]
-      const localizedSlug = await findLocalizedSlug(currentSlug, locale)
+      const localizedSlug = await findLocalizedSlug(currentSlug, chosenLocale)
       const newPath = currentSlug
-        ? `/${locale}/${contentType}/${localizedSlug}`
-        : `/${locale}/${contentType}`
+        ? `/${chosenLocale}/${contentType}/${localizedSlug}`
+        : `/${chosenLocale}/${contentType}`
       console.log(newPath)
       window.location.href = newPath
     } else {
       console.log(currentPath)
-      const newPath = `/${locale}`
+      const newPath = `/${chosenLocale}`
       window.location.href = newPath
     }
   }
