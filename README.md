@@ -326,7 +326,7 @@ Follow the steps below to add new content to the navigation sidebar:
 2. In the [navigation.json](https://github.com/vtexdocs/helpcenter/blob/main/public/navigation.json) file, locate where you want the new article reference to appear in the side bar navigation menu.
 3. Copy and paste the structure below into the JSON file, replacing the names of the articles (one version per locale) within the `name` object, and the respective slugs in the `slug` object.
 
-   ```jsx
+   ```json
       {
          "name": {
             "en": "Creating a subscription plan",
