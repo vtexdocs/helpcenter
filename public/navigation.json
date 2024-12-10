@@ -5296,12 +5296,12 @@
                         },
                         {
                            "name": {
-                              "en": "Regionalization (Beta)",
+                              "en": "Regionalization (Omega)",
                               "es": "Regionalización (Beta)",
                               "pt": "Regionalização (Beta)"
                            },
                            "slug": {
-                              "en": "regionalization-beta",
+                              "en": "regionalization-omega",
                               "es": "regionalizacion-beta",
                               "pt": "regionalizacao-beta"
                            },
