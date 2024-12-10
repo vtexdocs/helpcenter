@@ -447,7 +447,6 @@ Follow the steps below to create a new redirect:
    ```
 
    > ℹ️ Make sure you add specific redirects before more global redirects, otherwise they will have no effect. For now, hashlinks (`#`) are not supported in the source slug.
-   >
 3. Save the file.
 4. Commit the modifications as follows:
 
