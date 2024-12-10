@@ -4,7 +4,9 @@ import FilterIcon from 'components/icons/filter-icon'
 import TrashcanIcon from 'components/icons/trashcan-icon'
 import Tag from 'components/tag'
 import { useState } from 'react'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 import styles from './styles'
 
 interface Filter {
@@ -32,7 +34,8 @@ const Filter = ({
   selectedCheckboxes,
   selectedTags,
 }: Props) => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [tempFilters, setTempFilters] = useState<SelectedFilters>({
     tag: [],
@@ -81,7 +84,7 @@ const Filter = ({
       >
         <FilterIcon size={16} />
         <Text sx={styles.filterButtonText}>
-          {intl.formatMessage({ id: 'filter_modal.title' })}
+          {messages['filter_modal.title']}
         </Text>
         {numberOfFilters > 0 && (
           <Text sx={styles.numberOfFilters}>{numberOfFilters}</Text>
@@ -165,7 +168,7 @@ const Filter = ({
               icon={() => <TrashcanIcon sx={{ mr: '8px' }} size={18} />}
               onClick={() => setTempFilters({ tag: [], checklist: [] })}
             >
-              {intl.formatMessage({ id: 'filter_modal.remove' })}
+              {messages['filter_modal.remove']}
             </Button>
             <Button
               onClick={() => {
@@ -173,7 +176,7 @@ const Filter = ({
                 onApply(tempFilters)
               }}
             >
-              {intl.formatMessage({ id: 'filter_modal.button' })}
+              {messages['filter_modal.button']}
             </Button>
           </Flex>
         </Box>

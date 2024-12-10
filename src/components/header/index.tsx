@@ -7,6 +7,8 @@ import {
 } from '@vtex/brand-ui'
 import { useContext, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
+import { LibraryContext } from '@vtexdocs/components'
+import { getMessages } from 'utils/get-messages'
 
 import DropdownMenu from 'components/dropdown-menu'
 import VTEXHelpCenterIcon from 'components/icons/vtex-helpcenter-icon'
@@ -20,7 +22,6 @@ import LocaleSwitcher from 'components/locale-switcher'
 
 import styles from './styles'
 import { PreviewContext } from 'utils/contexts/preview'
-import { FormattedMessage } from 'react-intl'
 import { HamburgerMenu, SearchInput } from '@vtexdocs/components'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,6 +30,8 @@ const Header = () => {
   const isBranchPreview = router.isPreview
 
   const { branchPreview } = useContext(PreviewContext)
+  const { locale } = useContext(LibraryContext)
+  const messages = getMessages()[locale]
 
   const lastScroll = useRef(0)
   const modalOpen = useRef(false)
@@ -123,7 +126,7 @@ const Header = () => {
               <Text sx={styles.rightButtonsText} data-cy="docs-dropdown">
                 {' '}
                 {/*TODO: mudar data-cy no teste */}
-                <FormattedMessage id="landing_page_header_docs.message" />
+                {messages['landing_page_header_docs.message']}
               </Text>
             </Flex>
 
@@ -137,7 +140,7 @@ const Header = () => {
           >
             <LongArrowIcon />
             <Text sx={styles.rightButtonsText}>
-              <FormattedMessage id="landing_page_header_feedback.message" />
+              {messages['landing_page_header_feedback.message']}
             </Text>
           </VtexLink>
           <Flex sx={styles.containerHamburguerLocale}>

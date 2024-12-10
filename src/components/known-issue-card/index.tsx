@@ -5,7 +5,9 @@ import type { KnownIssueDataElement } from 'utils/typings/types'
 import styles from './styles'
 import Tag from 'components/tag'
 import DateText from 'components/date-text'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 
 const KnownIssueCard = ({
   title,
@@ -16,7 +18,8 @@ const KnownIssueCard = ({
   createdAt,
   updatedAt,
 }: KnownIssueDataElement) => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
   const createdAtDate = new Date(createdAt)
   const updatedAtDate = new Date(updatedAt)
 
@@ -25,11 +28,13 @@ const KnownIssueCard = ({
       <Flex sx={styles.container}>
         <Flex sx={styles.topContainer}>
           <Tag color={kiStatus}>
-            {intl.formatMessage({
-              id: `known_issues_filter_status.${kiStatus
-                .toLowerCase()
-                .replace(' ', '_')}`,
-            })}
+            {
+              messages[
+                `known_issues_filter_status.${kiStatus
+                  .toLowerCase()
+                  .replace(' ', '_')}`
+              ]
+            }
           </Tag>
           <Text sx={styles.knownIssueModule} className="module">
             {module}

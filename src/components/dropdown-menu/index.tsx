@@ -6,12 +6,13 @@ import {
   menuSupportData,
   updatesData,
 } from 'utils/constants'
-import { useIntl } from 'react-intl'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 
 import styles from './styles'
 
 const DropdownMenu = () => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
   return (
     <Box sx={styles.outerContainer}>
       <Box sx={styles.innerContainer} data-cy="dropdown-menu">
@@ -19,7 +20,7 @@ const DropdownMenu = () => {
           sx={styles.documentationContainer}
           data-cy="dropdown-menu-first-section"
         >
-          {menuDocumentationData(intl).map((card) => (
+          {menuDocumentationData(locale).map((card) => (
             <DocumentationCard
               containerType="dropdown"
               key={card.title}
@@ -31,7 +32,7 @@ const DropdownMenu = () => {
           sx={styles.updatesContainer}
           data-cy="dropdown-menu-second-section"
         >
-          {menuSupportData(intl).map((card) => (
+          {menuSupportData(locale).map((card) => (
             <DocumentationCard
               containerType="dropdown"
               key={card.title}
@@ -43,7 +44,7 @@ const DropdownMenu = () => {
           sx={styles.updatesContainer}
           data-cy="dropdown-menu-second-section"
         >
-          {updatesData(intl).map((card) => (
+          {updatesData(locale).map((card) => (
             <DocumentationCard
               containerType="dropdown"
               key={card.title}

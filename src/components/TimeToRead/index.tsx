@@ -1,5 +1,7 @@
 import { Text } from '@vtex/brand-ui'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 
 import readingTime from 'styles/documentation-page'
 
@@ -12,18 +14,13 @@ const TimeToRead = ({ minutes }: props) => {
     return parseInt(minutes) >= 5
   }
 
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
 
   if (shouldTimeDisplay(minutes)) {
     return (
       <Text sx={readingTime}>
-        {intl.formatMessage(
-          {
-            id: 'documentation_reading_time.text',
-            defaultMessage: '',
-          },
-          { minutes: minutes }
-        )}
+        {`${minutes} ${messages['documentation_reading_time.text']}`}
       </Text>
     )
   }

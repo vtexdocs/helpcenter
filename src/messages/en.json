@@ -289,7 +289,7 @@
   "support_plans.title": "Support plans",
   "support_plans.link": "/faq/how-does-vtex-support-work",
   "support_plans.description": "See details of support plans available for each commercial plan.",
-  "documentation_reading_time.text": "{minutes} min read",
+  "documentation_reading_time.text": "min read",
   "sidebar_known_issues.description": "Access content and find solutions to all your questions about the platform.",
   "sidebar_support_rules.description": "See details of the support plans available for each business plan.",
   "updates_info_notes.title": "Frequently Asked Questions",

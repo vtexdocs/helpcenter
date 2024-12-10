@@ -3,7 +3,6 @@ import { Box, Flex, Text } from '@vtex/brand-ui'
 import Image from 'next/image'
 import styles from 'components/newsletter-section/styles'
 
-import { FormattedMessage } from 'react-intl'
 import { SearchInput } from '@vtexdocs/components'
 
 const NewsletterSection = () => {

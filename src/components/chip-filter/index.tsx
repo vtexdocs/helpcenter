@@ -2,7 +2,9 @@ import styles from './styles'
 
 import { Box, Flex, Button, Text } from '@vtex/brand-ui'
 
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 
 import { useRef, useState } from 'react'
 
@@ -23,7 +25,8 @@ export default function ChipFilter({
   removeCategory,
   getCategoryAmount,
 }: ChipFilterProps) {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
 
   const containerRef = useRef<HTMLDivElement | null>(null)
 
@@ -92,7 +95,7 @@ export default function ChipFilter({
       >
         <Box style={styles.optionsContainer}>
           <MainChip
-            value={intl.formatMessage({ id: 'chip.all_results' })}
+            value={messages['chip.all_results']}
             isActive={!filters.length}
             applyCategory={() => resetFilters()}
           />

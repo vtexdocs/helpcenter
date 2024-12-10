@@ -7,42 +7,33 @@ import CommunityIcon from 'components/icons/community-icon'
 import { getCommunityURL, getSupportURL } from 'utils/get-url'
 
 import styles from './styles'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 
 const EducationSection = () => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
 
   const educationChannels = [
     {
-      title: intl.formatMessage({
-        id: 'landing_page_education_community.title',
-      }),
-      description: intl.formatMessage({
-        id: 'landing_page_education_community.description',
-      }),
-      textLink: intl.formatMessage({
-        id: 'landing_page_education_community.textLink',
-      }),
+      title: messages['landing_page_education_community.title'],
+      description: messages['landing_page_education_community.description'],
+      textLink: messages['landing_page_education_community.textLink'],
       link: getCommunityURL(),
       icon: CommunityIcon,
     },
     {
-      title: intl.formatMessage({ id: 'landing_page_education_support.title' }),
-      description: intl.formatMessage({
-        id: 'landing_page_education_support.description',
-      }),
-      textLink: intl.formatMessage({
-        id: 'landing_page_education_support.textLink',
-      }),
+      title: messages['landing_page_education_support.title'],
+      description: messages['landing_page_education_support.description'],
+      textLink: messages['landing_page_education_support.textLink'],
       link: getSupportURL(),
       icon: HelpCenterIcon,
     },
   ]
   return (
     <Box sx={styles.container}>
-      <Text sx={styles.title}>
-        {intl.formatMessage({ id: 'landing_page_education.title' })}
-      </Text>
+      <Text sx={styles.title}>{messages['landing_page_education.title']}</Text>
       <Flex sx={styles.channelsContainer}>
         {educationChannels.map((channel) => (
           <EducationChannel

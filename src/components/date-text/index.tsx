@@ -1,6 +1,8 @@
 import { Flex, Text } from '@vtex/brand-ui'
 
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 import styles from './styles'
 
 interface DateTextProps {
@@ -8,26 +10,19 @@ interface DateTextProps {
   updatedAt: Date
 }
 
-const DateText = ({ createdAt, updatedAt }: DateTextProps) => {
-  const intl = useIntl()
+const DateText = ({}: /*createdAt, updatedAt*/ DateTextProps) => {
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
 
   const CreatedAtText = () => {
     return (
-      <Text>
-        {`${intl.formatMessage({
-          id: 'date_text.created',
-        })} ${intl.formatDate(createdAt)}`}
-      </Text>
+      <Text>{`${messages['date_text.created']} formatDate(createdAt)`}</Text>
     )
   }
 
   const UpdatedAtText = () => {
     return (
-      <Text>
-        {`${intl.formatMessage({
-          id: 'date_text.updated',
-        })} ${intl.formatDate(updatedAt)}`}
-      </Text>
+      <Text>{`${messages['date_text.updated']} formatDate(updatedAt)`}</Text>
     )
   }
 

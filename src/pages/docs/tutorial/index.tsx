@@ -8,7 +8,8 @@ import startHereImage from '../../../../public/images/start-here.png'
 import styles from 'styles/documentation-landing-page'
 import Head from 'next/head'
 import { PreviewContext } from 'utils/contexts/preview'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
 import WhatsNextCardTutorial from 'components/whats-next-card/tutorials'
 
 interface Props {
@@ -18,30 +19,26 @@ interface Props {
 }
 
 const ContentSection = ({ id, length }: { id: string; length: number }) => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
+  const tutorialTitleIndex = `${id}.title`
 
   return (
     <>
-      <Text sx={styles.contentTitle}>
-        {intl.formatMessage({ id: `${id}.title` })}
-      </Text>
+      <Text sx={styles.contentTitle}>{messages[tutorialTitleIndex]}</Text>
       <Flex sx={styles.cardsContainer}>
         {Array(length)
           .fill('')
           .map((_, index) => {
-            if (!intl.messages[`${id}.content.${index}.title`]) return <></>
+            const tutorialContentIndex = `${id}.content.${index}.title`
+            const tutorialContentLinkIndex = `${id}.content.${index}.link`
+            if (!messages[tutorialContentIndex]) return <></>
             return (
               <WhatsNextCardTutorial
-                title={intl.formatMessage({
-                  id: `${id}.content.${index}.title`,
-                })}
-                linkTitle={intl.formatMessage({
-                  id: 'start_here_page.link',
-                })}
-                linkTo={intl.formatMessage({
-                  id: `${id}.content.${index}.link`,
-                })}
-                key={intl.formatMessage({ id: `${id}.content.${index}.title` })}
+                title={messages[tutorialContentIndex]}
+                linkTitle={messages['start_here_page.link']}
+                linkTo={messages[tutorialContentLinkIndex]}
+                key={messages[tutorialContentIndex]}
               />
             )
           })}
@@ -52,36 +49,25 @@ const ContentSection = ({ id, length }: { id: string; length: number }) => {
 
 const TutorialsPage: NextPage<Props> = ({ branch }) => {
   const { setBranchPreview } = useContext(PreviewContext)
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
   setBranchPreview(branch)
   return (
     <>
       <Head>
-        <title>
-          {intl.formatMessage({
-            id: 'start_here_page.title',
-          })}
-        </title>
+        <title>{messages['start_here_page.title']}</title>
         <meta
           property="og:title"
-          content={intl.formatMessage({
-            id: 'start_here_page.subtitle',
-          })}
+          content={messages['start_here_page.subtitle']}
           key="title"
         />
       </Head>
       <Fragment>
         <PageHeader
-          title={intl.formatMessage({
-            id: 'start_here_tutorials_page.title',
-          })}
-          description={intl.formatMessage({
-            id: 'start_here_tutorials_page.subtitle',
-          })}
+          title={messages['start_here_tutorials_page.title']}
+          description={messages['start_here_tutorials_page.subtitle']}
           imageUrl={startHereImage}
-          imageAlt={intl.formatMessage({
-            id: 'app_development_page.title',
-          })}
+          imageAlt={messages['app_development_page.title']}
         />
         <Box sx={styles.contentContainer}>
           <ContentSection id={'tutorials_main_page'} length={40} />

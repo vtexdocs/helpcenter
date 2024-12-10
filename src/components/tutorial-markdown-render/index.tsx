@@ -7,7 +7,9 @@ import OnThisPage from 'components/on-this-page'
 import SeeAlsoSection from 'components/see-also-section'
 import startHereImage from '../../../public/images/start-here.png'
 import PageHeader from 'components/page-header'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 import DocumentContextProvider from 'utils/contexts/documentContext'
 import { Item, MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
 
@@ -50,7 +52,8 @@ interface Props {
   headings: Item[]
 }
 const TutorialMarkdownRender = (props: Props) => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
 
   return (
     <>
@@ -68,16 +71,10 @@ const TutorialMarkdownRender = (props: Props) => {
         )}
       </Head>
       <PageHeader
-        title={intl.formatMessage({
-          id: 'tutorials_page.title',
-        })}
-        description={intl.formatMessage({
-          id: 'tutorials_page.description',
-        })}
+        title={messages['tutorials_page.title']}
+        description={messages['tutorials_page.description']}
         imageUrl={startHereImage}
-        imageAlt={intl.formatMessage({
-          id: 'tutorials_page.title',
-        })}
+        imageAlt={messages['tutorials_page.title']}
       />
       <DocumentContextProvider headings={props.headings}>
         <Flex sx={styles.innerContainer}>

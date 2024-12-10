@@ -42,7 +42,7 @@ import {
 import { MarkdownRenderer } from '@vtexdocs/components'
 import ShareButton from 'components/share-button'
 import Author from 'components/author'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
 import MoreArticlesSection from 'components/more-articles-section'
 import Breadcrumb from 'components/breadcrumb'
 import { AnnouncementDataElement } from 'utils/typings/types'
@@ -73,7 +73,8 @@ const AnnouncementPage: NextPage<Props> = ({
   seeAlsoData,
   branch,
 }) => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
   const [headings, setHeadings] = useState<Item[]>([])
   const [url, setUrl] = useState('')
   const { setBranchPreview } = useContext(PreviewContext)
@@ -92,7 +93,7 @@ const AnnouncementPage: NextPage<Props> = ({
 
   const breadcrumb = {
     slug: `/announcements`,
-    name: intl.formatMessage({ id: 'announcements_page.title' }),
+    name: messages['announcements_page.title'],
     type: 'category',
   }
 

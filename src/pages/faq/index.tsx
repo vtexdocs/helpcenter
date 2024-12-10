@@ -12,7 +12,8 @@ import { getDocsPaths as getFaqPaths } from 'utils/getDocsPaths'
 import { serialize } from 'next-mdx-remote/serialize'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
 import startHereImage from '../../../public/images/faq.png'
 import Pagination from 'components/pagination'
 import { localeType } from 'utils/navigation-utils'
@@ -35,7 +36,8 @@ interface Props {
 }
 
 const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const itemsPerPage = 8
@@ -44,7 +46,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
-  const chipCategories: string[] = faqFilter(intl).options.map(
+  const chipCategories: string[] = faqFilter(locale).options.map(
     (option) => option.name
   )
 
@@ -73,7 +75,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
     setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale, search])
+  }, [filters, sortByValue, locale, search])
 
   const paginatedResult = usePagination<FaqCardDataElement>(
     itemsPerPage,
@@ -113,51 +115,37 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   return (
     <>
       <Head>
-        <title>
-          {intl.formatMessage({
-            id: 'landing_page_faq.title',
-          })}
-        </title>
+        <title>{messages['landing_page_faq.title']}</title>
         <meta
           property="og:title"
-          content={intl.formatMessage({
-            id: 'landing_page_faq.description',
-          })}
+          content={messages['landing_page_faq.description']}
           key="title"
         />
       </Head>
       <Fragment>
         <PageHeader
-          title={intl.formatMessage({
-            id: 'landing_page_faq.title',
-          })}
-          description={intl.formatMessage({
-            id: 'landing_page_faq.description',
-          })}
+          title={messages['landing_page_faq.title']}
+          description={messages['landing_page_faq.description']}
           imageUrl={startHereImage}
-          imageAlt={intl.formatMessage({
-            id: 'landing_page_faq.title',
-          })}
+          imageAlt={messages['landing_page_faq.title']}
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
               selectedCheckboxes={filters}
-              checkBoxFilter={faqFilter(intl)}
+              checkBoxFilter={faqFilter(locale)}
               onApply={(newFilters) => handleFilterApply(newFilters.checklist)}
             />
             <Select
-              label={intl.formatMessage({ id: 'sort.label' })}
+              label={messages['sort.label']}
               value={sortByValue}
-              options={sortBy(intl)}
+              options={sortBy(locale)}
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
           <Input
             Icon={SearchIcon}
-            placeholder={intl.formatMessage({
-              id: 'faq_page_search.placeholder',
-            })}
+            placeholder={messages['faq_page_search.placeholder']}
             value={search}
             onChange={(value: string) => setSearch(value)}
           />
@@ -172,14 +160,13 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
           <Flex sx={styles.cardContainer}>
             {!!filteredResult.length && (
               <Box sx={styles.resultsNumberContainer}>
-                {filteredResult.length}{' '}
-                {intl.formatMessage({ id: 'faq_page.results_found' })}
+                {filteredResult.length} {messages['faq_page.results_found']}
               </Box>
             )}
 
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
-                {intl.formatMessage({ id: 'search_result.empty' })}
+                {messages['search_result.empty']}
               </Flex>
             )}
             {paginatedResult.map((question, id) => {

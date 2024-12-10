@@ -1,7 +1,9 @@
 import { Button, Flex, Text } from '@vtex/brand-ui'
 import AnnouncementCard from 'components/announcement-card'
 import styles from './styles'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 import { AnnouncementDataElement } from 'utils/typings/types'
 import Link from 'next/link'
 
@@ -10,12 +12,13 @@ interface Props {
 }
 
 const MoreArticlesSection = ({ docs }: Props) => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
 
   return (
     <Flex sx={styles.container}>
       <Text sx={styles.title}>
-        {intl.formatMessage({ id: 'announcements_page.access_more' })}
+        {messages['announcements_page.access_more']}
       </Text>
       <Flex sx={styles.innerContainer}>
         {docs.map((doc) => (
@@ -24,7 +27,7 @@ const MoreArticlesSection = ({ docs }: Props) => {
       </Flex>
       <Button sx={styles.button}>
         <Link href={'/announcements'} style={{ color: 'white' }}>
-          {intl.formatMessage({ id: 'announcements_page.see_more' })}
+          {messages['announcements_page.see_more']}
         </Link>
       </Button>
     </Flex>

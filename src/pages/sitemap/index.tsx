@@ -5,7 +5,9 @@ import { GetStaticProps } from 'next'
 import getNavigation from 'utils/getNavigation'
 import { localeType } from 'utils/navigation-utils' //eslint-disable-line
 import SiteMapSection from 'components/sitemap-section'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 import { additionalResourcesSitemap } from 'utils/constants'
 
 interface Props {
@@ -18,24 +20,21 @@ interface Props {
 } //eslint-disable-line
 
 const SiteMapPage: Page<Props> = ({ sections }) => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
 
   const documentationTitleTranslated: { [key: string]: string } = {
-    'Start here': intl.formatMessage({ id: 'documentation_start_here.title' }),
-    Tutorials: intl.formatMessage({
-      id: 'documentation_tutorials.title',
-    }),
+    'Start here': messages['documentation_start_here.title'],
+    Tutorials: messages['documentation_tutorials.title'],
   }
 
-  const arr = additionalResourcesSitemap(intl)
+  const arr = additionalResourcesSitemap(locale)
 
   return (
     <>
       <Box sx={styles.outerContainer}>
         <Box sx={styles.titleContainer}>
-          <Text sx={styles.pageTitle}>
-            {intl.formatMessage({ id: 'sitemap_page.title' })}
-          </Text>
+          <Text sx={styles.pageTitle}>{messages['sitemap_page.title']}</Text>
         </Box>
         <Flex sx={styles.contentContainer}>
           {sections.map((el) => (

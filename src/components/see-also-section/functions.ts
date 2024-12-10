@@ -2,7 +2,8 @@ import { capitalizeFirstLetter } from 'utils/string-utils'
 import { getIcon } from 'utils/constants'
 
 import { DocumentProps } from 'components/documentation-card'
-import { useIntl } from 'react-intl'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 
 const getDoctype = (category: string) => {
   switch (category) {
@@ -27,8 +28,8 @@ export const createDocFromUrl = (doc: {
   title: string
   category: string
 }): DocumentProps => {
-  const intl = useIntl()
-  const Icon = getIcon(getDoctype(doc.category), intl)!
+  const locale = useContext(LibraryContext).locale
+  const Icon = getIcon(getDoctype(doc.category), locale)!
   const title = getTitleFromUrl(doc.title)
 
   return {

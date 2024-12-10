@@ -8,7 +8,6 @@ import MenuIcon from 'components/icons/menu-icon'
 import CloseIcon from 'components/icons/close-icon'
 
 import styles from './styles'
-import { FormattedMessage } from 'react-intl'
 import { TableOfContents } from '@vtexdocs/components'
 
 const OnThisPage = () => {
@@ -24,7 +23,7 @@ const OnThisPage = () => {
       >
         <Box sx={styles.contentContainer}>
           <Text sx={styles.onThisPageTitle}>
-            <FormattedMessage id="api_guide_documentation_page_on_this_page.title" />
+            messages['api_guide_documentation_page_on_this_page.title']'
           </Text>
           <Box>
             <TableOfContents />
@@ -37,7 +36,7 @@ const OnThisPage = () => {
         onClick={() => setOnThisPageOpenStatus((open) => !open)}
       >
         <Text sx={styles.title(onThisPageOpenStatus)}>
-          <FormattedMessage id="api_guide_documentation_page_on_this_page.title" />
+          messages[api_guide_documentation_page_on_this_page.title']
         </Text>
         <Box sx={styles.iconContainer}>
           {!onThisPageOpenStatus ? (

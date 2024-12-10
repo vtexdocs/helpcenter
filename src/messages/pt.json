@@ -307,7 +307,7 @@
   "support_plans.title": "Planos de suporte",
   "support_plans.link": "/faq/como-funciona-o-suporte-da-vtex",
   "support_plans.description": "Veja detalhes dos planos de suporte disponíveis para cada plano comercial.",
-  "documentation_reading_time.text": "{minutes} min de leitura",
+  "documentation_reading_time.text": "min de leitura",
   "sidebar_known_issues.description": "Acesse conteúdo e encontre soluções para todas as suas dúvidas sobre a plataforma.",
   "sidebar_support_rules.description": "Veja detalhes dos planos de suporte disponíveis para cada plano comercial.",
   "updates_info_notes.title": "Perguntas frequentes",

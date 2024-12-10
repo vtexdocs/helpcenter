@@ -2,7 +2,8 @@ import PageHeader from 'components/page-header'
 import styles from 'styles/filterable-cards-page'
 import troubleshooting from '../../../public/images/troubleshooting.png'
 import Head from 'next/head'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
 import type { GetStaticPropsContext, NextPage } from 'next'
 import { useContext, useMemo, useState } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -37,15 +38,13 @@ const TroubleshootingPage: NextPage<Props> = ({
 }) => {
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
 
   const itemsPerPage = 5
   const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<string[]>([])
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
-
-  console.log('-------- intl')
-  console.log(intl)
 
   const filteredResult = useMemo(() => {
     const data = troubleshootingData
@@ -69,7 +68,7 @@ const TroubleshootingPage: NextPage<Props> = ({
     setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale])
+  }, [filters, sortByValue, locale])
 
   const paginatedResult = usePagination<TroubleshootingDataElement>(
     itemsPerPage,
@@ -85,45 +84,37 @@ const TroubleshootingPage: NextPage<Props> = ({
   return (
     <>
       <Head>
-        <title>
-          {intl.formatMessage({ id: 'troubleshooting_page.title' })}
-        </title>
+        <title>{messages['troubleshooting_page.title']}</title>
         <meta
           property="og:title"
-          content={intl.formatMessage({
-            id: 'troubleshooting_page.description',
-          })}
+          content={messages['troubleshooting_page.description']}
           key="title"
         />
       </Head>
       <>
         <PageHeader
-          title={intl.formatMessage({
-            id: 'troubleshooting_page.title',
-          })}
-          description={intl.formatMessage({
-            id: 'troubleshooting_page.description',
-          })}
+          title={messages['troubleshooting_page.title']}
+          description={messages['troubleshooting_page.description']}
           imageUrl={troubleshooting}
-          imageAlt={intl.formatMessage({ id: 'troubleshooting_page.title' })}
+          imageAlt={messages['troubleshooting_page.title']}
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
-              checkBoxFilter={TroubleshootingFilters(intl)}
+              checkBoxFilter={TroubleshootingFilters(locale)}
               onApply={(newFilters) => setFilters(newFilters.checklist)}
             />
             <Select
-              label={intl.formatMessage({ id: 'sort.label' })}
+              label={messages['sort.label']}
               value={sortByValue}
-              options={sortBy(intl)}
+              options={sortBy(locale)}
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
-                {intl.formatMessage({ id: 'search_result.empty' })}
+                {messages['search_result.empty']}
               </Flex>
             )}
             {paginatedResult.map((troubleshoot, id) => {

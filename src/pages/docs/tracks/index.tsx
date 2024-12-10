@@ -8,7 +8,8 @@ import startHereImage from '../../../../public/images/start-here.png'
 import styles from 'styles/documentation-landing-page'
 import Head from 'next/head'
 import { PreviewContext } from 'utils/contexts/preview'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
 import WhatsNextCard from 'components/whats-next-card'
 
 interface Props {
@@ -18,33 +19,28 @@ interface Props {
 }
 
 const ContentSection = ({ id, length }: { id: string; length: number }) => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
+  const trackTitleIndex = `${id}.title`
 
   return (
     <>
-      <Text sx={styles.contentTitle}>
-        {intl.formatMessage({ id: `${id}.title` })}
-      </Text>
+      <Text sx={styles.contentTitle}>{messages[trackTitleIndex]}</Text>
       <Flex sx={styles.cardsContainer}>
         {Array(length)
           .fill('')
           .map((_, index) => {
-            if (!intl.messages[`${id}.content.${index}.title`]) return <></>
+            const trackContentIndex = `${id}.content.${index}.title`
+            const trackContentDescriptionIndex = `${id}.content.${index}.description`
+            const trackContentLinkIndex = `${id}.content.${index}.link`
+            if (!messages[trackContentIndex]) return <></>
             return (
               <WhatsNextCard
-                title={intl.formatMessage({
-                  id: `${id}.content.${index}.title`,
-                })}
-                description={intl.formatMessage({
-                  id: `${id}.content.${index}.description`,
-                })}
-                linkTitle={intl.formatMessage({
-                  id: 'start_here_page.link',
-                })}
-                linkTo={intl.formatMessage({
-                  id: `${id}.content.${index}.link`,
-                })}
-                key={intl.formatMessage({ id: `${id}.content.${index}.title` })}
+                title={messages[trackContentIndex]}
+                description={messages[trackContentDescriptionIndex]}
+                linkTitle={messages['start_here_page.link']}
+                linkTo={messages[trackContentLinkIndex]}
+                key={messages[trackContentIndex]}
               />
             )
           })}
@@ -55,36 +51,25 @@ const ContentSection = ({ id, length }: { id: string; length: number }) => {
 
 const TracksPage: NextPage<Props> = ({ branch }) => {
   const { setBranchPreview } = useContext(PreviewContext)
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
   setBranchPreview(branch)
   return (
     <>
       <Head>
-        <title>
-          {intl.formatMessage({
-            id: 'start_here_page.title',
-          })}
-        </title>
+        <title>{messages['start_here_page.title']}</title>
         <meta
           property="og:title"
-          content={intl.formatMessage({
-            id: 'start_here_page.subtitle',
-          })}
+          content={messages['start_here_page.subtitle']}
           key="title"
         />
       </Head>
       <Fragment>
         <PageHeader
-          title={intl.formatMessage({
-            id: 'start_here_page.title',
-          })}
-          description={intl.formatMessage({
-            id: 'start_here_page.subtitle',
-          })}
+          title={messages['start_here_page.title']}
+          description={messages['start_here_page.subtitle']}
           imageUrl={startHereImage}
-          imageAlt={intl.formatMessage({
-            id: 'start_here_page.title',
-          })}
+          imageAlt={messages['start_here_page.title']}
         />
         <Box sx={styles.contentContainer}>
           <ContentSection id={'start_here_page_onboarding'} length={3} />

@@ -1,10 +1,12 @@
 import ReleaseNote from '../release-note'
 import { Box, Flex, Text } from '@vtex/brand-ui'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 
 import styles from 'components/release-section/styles'
 import { compareDates, getDate } from './functions'
 import { UpdateElement } from 'utils/typings/types'
-import { FormattedMessage } from 'react-intl'
 
 interface IReleasesData {
   releasesData: UpdateElement[]
@@ -12,14 +14,18 @@ interface IReleasesData {
 
 const ReleaseSection = ({ releasesData }: IReleasesData) => {
   const releases = releasesData.filter((release) => !release.hidden)
+
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
+
   return (
     <Flex sx={styles.outerContainer}>
       <Box sx={styles.innerContainer}>
         <Text sx={styles.sectionTitle}>
-          <FormattedMessage id="announcements_page.title" />
+          messages['announcements_page.title']
         </Text>
         <Text sx={styles.sectionSubtitle}>
-          <FormattedMessage id="announcements_page.description" />
+          {messages['announcements_page.description']}
         </Text>
         <Box sx={styles.sectionDivider}>
           <hr />

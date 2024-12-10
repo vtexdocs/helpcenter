@@ -17,7 +17,8 @@ import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { serialize } from 'next-mdx-remote/serialize'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
 import startHereImage from '../../../public/images/start-here.png'
 import KnownIssueCard from 'components/known-issue-card'
 import Pagination from 'components/pagination'
@@ -42,7 +43,8 @@ interface Props {
 }
 
 const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
 
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
@@ -82,7 +84,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
     setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale, search])
+  }, [filters, sortByValue, locale, search])
 
   const paginatedResult = usePagination<KnownIssueDataElement>(
     itemsPerPage,
@@ -98,37 +100,25 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   return (
     <>
       <Head>
-        <title>
-          {intl.formatMessage({
-            id: 'known_issues_page.title',
-          })}
-        </title>
+        <title>{messages['known_issues_page.title']}</title>
         <meta
           property="og:title"
-          content={intl.formatMessage({
-            id: 'known_issues_page.subtitle',
-          })}
+          content={messages['known_issues_page.subtitle']}
           key="title"
         />
       </Head>
       <Fragment>
         <PageHeader
-          title={intl.formatMessage({
-            id: 'known_issues_page.title',
-          })}
-          description={intl.formatMessage({
-            id: 'known_issues_page.subtitle',
-          })}
+          title={messages['known_issues_page.title']}
+          description={messages['known_issues_page.subtitle']}
           imageUrl={startHereImage}
-          imageAlt={intl.formatMessage({
-            id: 'known_issues_page.title',
-          })}
+          imageAlt={messages['known_issues_page.title']}
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
-              tagFilter={knownIssuesStatusFilter(intl)}
-              checkBoxFilter={knownIssuesModulesFilters(intl)}
+              tagFilter={knownIssuesStatusFilter(locale)}
+              checkBoxFilter={knownIssuesModulesFilters(locale)}
               selectedCheckboxes={filters.modules}
               selectedTags={filters.kiStatus}
               onApply={(newFilters) =>
@@ -139,16 +129,14 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
               }
             />
             <Select
-              label={intl.formatMessage({ id: 'sort.label' })}
+              label={messages['sort.label']}
               value={sortByValue}
-              options={sortBy(intl)}
+              options={sortBy(locale)}
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
           <Input
-            placeholder={intl.formatMessage({
-              id: 'known_issues_page_search.placeholder',
-            })}
+            placeholder={messages['known_issues_page_search.placeholder']}
             value={search}
             Icon={SearchIcon}
             onChange={(value) => setSearch(value)}
@@ -156,7 +144,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
-                {intl.formatMessage({ id: 'search_result.empty' })}
+                {messages['search_result.empty']}
               </Flex>
             )}
             {paginatedResult.map((issue, id) => {

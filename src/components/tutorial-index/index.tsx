@@ -7,24 +7,21 @@ import PageHeader from 'components/page-header'
 
 import styles from 'styles/documentation-page'
 import ArticlePagination from 'components/article-pagination'
-import { useIntl } from 'react-intl'
+import { getMessages } from 'utils/get-messages'
+import { LibraryContext } from '@vtexdocs/components'
+import { useContext } from 'react'
 
 const TutorialIndexing = ({ ...props }) => {
-  const intl = useIntl()
+  const locale = useContext(LibraryContext).locale
+  const messages = getMessages()[locale]
 
   return (
     <>
       <PageHeader
-        title={intl.formatMessage({
-          id: 'tutorials_page.title',
-        })}
-        description={intl.formatMessage({
-          id: 'tutorials_page.description',
-        })}
+        title={messages['tutorials_page.title']}
+        description={messages['tutorials_page.description']}
         imageUrl={startHereImage}
-        imageAlt={intl.formatMessage({
-          id: 'tutorials_page.title',
-        })}
+        imageAlt={messages['tutorials_page.title']}
       />
       <Flex sx={styles.innerContainer}>
         <Box sx={styles.articleBox}>
