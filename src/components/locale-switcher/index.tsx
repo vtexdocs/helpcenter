@@ -83,6 +83,23 @@ const findLocalizedSlug = async (
           return (child.slug as unknown as Slug)[locale] || slug
         }
       }
+
+      // Now check parent categories
+      if (typeof category.slug === 'object') {
+        // Check if the current locale slug matches
+        const currentLocaleSlug = Object.values(category.slug).find(
+          (s) => s === slug
+        )
+        if (currentLocaleSlug) {
+          console.log(
+            `Found matching parent slug: ${category.slug[locale] || slug}`
+          )
+          return category.slug[locale] || slug
+        } else if (category.slug[locale] === slug) {
+          console.log(`Found matching parent slug: ${category.slug}`)
+          return (category.slug as unknown as Slug)[locale] || slug
+        }
+      }
     }
   }
 
@@ -118,9 +135,13 @@ export default function LocaleSwitcher() {
   console.log(currentLocale)
 
   const handleOptionClick = async (option: string) => {
+    console.log('//////////////// locale-switcher')
+    console.log(`//////////////// Changing locale from ${currentLocale}`)
     const chosenLocale = option as LocaleType
     const currentPath = window.location.pathname
     const pathParts = currentPath.split('/')
+
+    console.log(`//////////////// to ${chosenLocale}`)
 
     // Obtain the current locale
     const newPathParts = pathParts.filter((part) => part !== currentLocale)
@@ -132,6 +153,8 @@ export default function LocaleSwitcher() {
       const contentType = newPathParts[2]
       const currentSlug = newPathParts[3]
       const localizedSlug = await findLocalizedSlug(currentSlug, chosenLocale)
+      console.log('///////////////////// localizedSlug')
+      console.log('////////////////', localizedSlug)
       const newPath = currentSlug
         ? `/${chosenLocale}/docs/${contentType}/${localizedSlug}`
         : `/${chosenLocale}/docs/${contentType}`
