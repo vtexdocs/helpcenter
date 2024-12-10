@@ -320,7 +320,7 @@ The excerpt below shows an example of how the first articles in the Tutorials se
 
 #### Updating the navigation sidebar
 
-Follow the steps below to add new content in the navigation sidebar:
+Follow the steps below to add new content to the navigation sidebar:
 
 1. Open a [feature branch](#feature-branches) in the repository.
 2. In the [navigation.json](https://github.com/vtexdocs/helpcenter/blob/main/public/navigation.json) file, locate where you want the new article reference to appear in the side bar navigation menu.
