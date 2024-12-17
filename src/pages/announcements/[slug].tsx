@@ -153,7 +153,6 @@ const AnnouncementPage: NextPage<Props> = ({
                           </Flex>
                         )}
                       </Box>
-                      {url && <ShareButton url={url} />}
                     </Flex>
                   </header>
                   <MarkdownRenderer serialized={serialized} />

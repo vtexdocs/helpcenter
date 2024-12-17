@@ -104,35 +104,6 @@ const KnownIssuePage: NextPage<Props> = ({
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <article ref={articleRef}>
-                <header>
-                  <Breadcrumb breadcrumbList={breadcrumbList} />
-                  <Flex sx={styles.flexContainer}>
-                    <Text sx={styles.documentationTitle} className="title">
-                      {serialized.frontmatter?.title}
-                    </Text>
-                    <Flex sx={styles.infoContainer}>
-                      <Text sx={styles.readingTime}>
-                        {intl.formatMessage(
-                          {
-                            id: 'documentation_reading_time.text',
-                            defaultMessage: '',
-                          },
-                          { minutes: serialized.frontmatter?.readingTime }
-                        )}
-                      </Text>
-                      <CopyLinkButton />
-                    </Flex>
-                  </Flex>
-                  <Box sx={styles.divider}></Box>
-                  <Flex sx={styles.detailedInfo}>
-                    <Flex sx={styles.id}>
-                      <Text>ID: {serialized.frontmatter?.id}</Text>
-                      <Tag>{serialized.frontmatter?.kiStatus}</Tag>
-                    </Flex>
-                  </Flex>
-                </header>
-              </article>
               <Box sx={styles.textContainer}>
                 <article ref={articleRef}>
                   <header>
@@ -146,6 +117,7 @@ const KnownIssuePage: NextPage<Props> = ({
                           minutes={serialized.frontmatter.readingTime}
                         />
                       )}
+                      <CopyLinkButton />
                     </Flex>
                     <Box sx={styles.divider}></Box>
                     <Flex sx={styles.detailedInfo}>

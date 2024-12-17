@@ -101,35 +101,6 @@ const FaqPage: NextPage<Props> = ({
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <article ref={articleRef}>
-                <header>
-                  <Breadcrumb breadcrumbList={breadcrumbList} />
-                  <Flex sx={styles.flexContainer}>
-                    <Text sx={styles.documentationTitle} className="title">
-                      {serialized.frontmatter?.title}
-                    </Text>
-                    <Flex sx={styles.infoContainer}>
-                      <Text sx={styles.readingTime}>
-                        {intl.formatMessage(
-                          {
-                            id: 'documentation_reading_time.text',
-                            defaultMessage: '',
-                          },
-                          { minutes: serialized.frontmatter?.readingTime }
-                        )}
-                      </Text>
-                      <CopyLinkButton />
-                    </Flex>
-                    {createdAtDate && updatedAtDate && (
-                      <DateText
-                        createdAt={createdAtDate}
-                        updatedAt={updatedAtDate}
-                      />
-                    )}
-                  </Flex>
-                </header>
-                <MarkdownRenderer serialized={serialized} />
-              </article>
               <Box sx={styles.textContainer}>
                 <article ref={articleRef}>
                   <header>
@@ -149,6 +120,7 @@ const FaqPage: NextPage<Props> = ({
                           updatedAt={updatedAtDate}
                         />
                       )}
+                      <CopyLinkButton />
                     </Flex>
                   </header>
                   <MarkdownRenderer serialized={serialized} />
