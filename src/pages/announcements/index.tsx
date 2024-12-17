@@ -37,15 +37,17 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
-  const itemsPerPage = 6
+  const itemsPerPage = 8
   const [searchTerm, setSearchTerm] = useState('')
   const [page, setPage] = useState({ curr: 1, total: 1 })
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
-    const data = announcementsData.filter((announcement) =>
-      announcement.title.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    const data = announcementsData
+      .filter((announcement) => announcement.status === 'PUBLISHED')
+      .filter((announcement) =>
+        announcement.title?.toLowerCase().includes(searchTerm.toLowerCase())
+      )
 
     data.sort((a, b) => {
       const dateA =
@@ -211,10 +213,11 @@ export const getStaticProps: GetStaticProps = async ({
 
           if (frontmatter)
             announcementsData.push({
-              title: frontmatter.title,
+              title: frontmatter.title ?? null,
               url: `announcements/${data.slug}`,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
+              status: frontmatter.status ?? null,
             })
         } catch (error) {
           logger.error(`${error}`)

@@ -1,8 +1,10 @@
 html,
-body,
-* {
+body, *:not(i) {
   font-family: 'VTEX Trust Regular', -apple-system, system-ui,
     BlinkMacSystemFont, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    text-rendering: optimizeLegibility;
 }
 
 body.modal-open {
@@ -13,7 +15,7 @@ body.modal-open {
 
 a {
   color: #e31c58;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 a:hover {
@@ -69,43 +71,9 @@ table th {
   font-size: 0.875em;
   border: 1px solid #e7e9ef;
   padding: 0.5em;
+  min-width: 60px;
 }
 
 table tbody tr:nth-of-type(even) {
   background-color: #f8f7fc;
-}
-
-.api {
-  box-sizing: border-box;
-  margin: 0px 4px;
-  border: 1px solid #dddddd;
-  background: #f4f4f4;
-  border-radius: 2px;
-  width: max-content;
-  height: 24px;
-  padding-left: 4px;
-  padding-right: 4px;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.api.type-post {
-  color: #2978b5;
-}
-
-.api.type-get {
-  color: #38853c;
-}
-
-.api.type-put {
-  color: #d56a00;
-}
-
-.api.type-delete {
-  color: #cc3d3d;
-}
-
-.api.type-patch {
-  color: #827717;
 }

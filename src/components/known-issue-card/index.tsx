@@ -11,7 +11,7 @@ const KnownIssueCard = ({
   title,
   id,
   module,
-  status,
+  kiStatus,
   slug,
   createdAt,
   updatedAt,
@@ -24,9 +24,11 @@ const KnownIssueCard = ({
     <Link href={`known-issues/${slug}`}>
       <Flex sx={styles.container}>
         <Flex sx={styles.topContainer}>
-          <Tag color={status}>
+          <Tag color={kiStatus}>
             {intl.formatMessage({
-              id: `known_issues_filter_status.${status.toLowerCase()}`,
+              id: `known_issues_filter_status.${kiStatus
+                .toLowerCase()
+                .replace(' ', '_')}`,
             })}
           </Tag>
           <Text sx={styles.knownIssueModule} className="module">

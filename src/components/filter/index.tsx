@@ -15,6 +15,8 @@ interface Filter {
 interface Props {
   tagFilter?: Filter
   checkBoxFilter?: Filter
+  selectedCheckboxes?: string[]
+  selectedTags?: string[]
   onApply: (filters: { tag: string[]; checklist: string[] }) => void
 }
 
@@ -23,19 +25,29 @@ interface SelectedFilters {
   checklist: string[]
 }
 
-const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
+const Filter = ({
+  tagFilter,
+  checkBoxFilter,
+  onApply,
+  selectedCheckboxes,
+  selectedTags,
+}: Props) => {
   const intl = useIntl()
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({
-    tag: [],
-    checklist: [],
-  })
   const [tempFilters, setTempFilters] = useState<SelectedFilters>({
     tag: [],
     checklist: [],
   })
   const numberOfFilters =
-    selectedFilters.tag.length + selectedFilters.checklist.length
+    getSelectedFiltersLength(selectedTags) +
+    getSelectedFiltersLength(selectedCheckboxes)
+
+  function getSelectedFiltersLength(filters: string[] | undefined) {
+    if (!filters) {
+      return 0
+    }
+    return filters.length
+  }
 
   function handleFilterClick(option: string, type: 'tag' | 'checklist') {
     if (tempFilters[type].includes(option)) {
@@ -55,22 +67,22 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
     return tempFilters[type].find((filter) => filter === option) ? true : false
   }
 
-  function closeModal() {
-    setTempFilters(selectedFilters)
-    setIsModalOpen(false)
-  }
-
   const FilterButton = () => {
     return (
       <Flex
         sx={styles.filterButton}
         onClick={() => {
-          setTempFilters(selectedFilters)
+          setTempFilters({
+            checklist: selectedCheckboxes ?? [],
+            tag: selectedTags ?? [],
+          })
           setIsModalOpen(true)
         }}
       >
         <FilterIcon size={16} />
-        <Text>{intl.formatMessage({ id: 'filter_modal.title' })}</Text>
+        <Text sx={styles.filterButtonText}>
+          {intl.formatMessage({ id: 'filter_modal.title' })}
+        </Text>
         {numberOfFilters > 0 && (
           <Text sx={styles.numberOfFilters}>{numberOfFilters}</Text>
         )}
@@ -131,11 +143,14 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
   const FilterModal = () => {
     return (
       <>
-        <Box sx={styles.blanket} onClick={() => closeModal()} />
+        <Box sx={styles.blanket} onClick={() => setIsModalOpen(false)} />
         <Box sx={styles.container}>
           <Box sx={styles.topContainer}>
             <Text sx={styles.modalTitle}>Filtros</Text>
-            <Flex sx={styles.closeButtonContainer} onClick={() => closeModal()}>
+            <Flex
+              sx={styles.closeButtonContainer}
+              onClick={() => setIsModalOpen(false)}
+            >
               <CloseIcon size={32} />
             </Flex>
           </Box>
@@ -155,7 +170,6 @@ const Filter = ({ tagFilter, checkBoxFilter, onApply }: Props) => {
             <Button
               onClick={() => {
                 setIsModalOpen(false)
-                setSelectedFilters(tempFilters)
                 onApply(tempFilters)
               }}
             >

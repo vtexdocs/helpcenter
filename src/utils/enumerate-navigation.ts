@@ -5,7 +5,7 @@ interface NavbarItem {
 }
 
 interface Document {
-  slug: string
+  slug: { en: string; es: string; pt: string }
   name: { en: string; es: string; pt: string }
   type: string
   children: Document[]
@@ -33,7 +33,10 @@ const enumerateChildren = (
   enumerate: boolean
 ): Document[] => {
   const children = document.children.map((currDoc, index) => {
-    if (enumerate) currDoc.name = enumerateName(currDoc.name, index + 1)
+    if (enumerate) {
+      currDoc.name = enumerateName(currDoc.name, index + 1)
+      currDoc.slug = enumerateSlug(currDoc.slug, index + 1)
+    }
     currDoc.children = enumerateChildren(
       currDoc,
       ENUMERATION_TYPE === currDoc.type
@@ -53,4 +56,15 @@ const enumerateName = (
   name.pt = id + '. ' + name.pt
 
   return name
+}
+
+const enumerateSlug = (
+  slug: { en: string; es: string; pt: string },
+  id: number
+) => {
+  slug.en = id + '-' + slug.en
+  slug.es = id + '-' + slug.es
+  slug.pt = id + '-' + slug.pt
+
+  return slug
 }

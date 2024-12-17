@@ -94,7 +94,7 @@ const quickStartedContainer: SxStyleProp = {
     transition: 'all 0.3s ease-out',
 
     '.learnMoreText': {
-      color: '#000711',
+      color: '#c81e51',
       transition: 'all 0.3s ease-out',
     },
   },
@@ -104,7 +104,8 @@ const learnMoreText: SxStyleProp = {
   fontSize: '16px',
   lineHeight: '22px',
   fontWeight: '400',
-  color: 'muted.0',
+  color: '#e31c58',
+  textDecoration: 'underline solid 1px',
 }
 
 const accessPortal: SxStyleProp = {

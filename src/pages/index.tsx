@@ -4,21 +4,23 @@ import type { Page } from 'utils/typings/types'
 import NewsletterSection from 'components/newsletter-section'
 import DocumentationSection from 'components/documentation-section'
 import AnnouncementSection from 'components/announcement-section'
+import SupportSection from 'components/support-section'
+import FaqSection from 'components/faq-section'
 
+import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
 import Head from 'next/head'
 import styles from 'styles/landing-page'
-import getNavigation from 'utils/getNavigation'
 import { GetStaticProps } from 'next'
 import { useContext } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
-import SupportSection from 'components/support-section'
-import FaqSection from 'components/faq-section'
 import { localeType } from 'utils/navigation-utils'
-import getAnnouncementsJson from 'utils/getAnnouncementsJson'
+import { AnnouncementDataElement } from 'utils/typings/types'
+import { getLogger } from 'utils/logging/log-util'
+import { serialize } from 'next-mdx-remote/serialize'
 
 interface Props {
   branch: string
-  announcementTimelineData: { title: string; date: string }[]
+  announcementTimelineData: AnnouncementDataElement[]
 }
 
 const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
@@ -45,7 +47,10 @@ const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
         <DocumentationSection />
         <FaqSection />
         <SupportSection />
-        <AnnouncementSection announcements={announcementTimelineData} />
+        <AnnouncementSection
+          annoucementsAmout={5}
+          announcements={announcementTimelineData}
+        />
       </Grid>
     </>
   )
@@ -53,43 +58,89 @@ const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
 
 Home.hideSidebar = true
 
+const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
+
 export const getStaticProps: GetStaticProps = async ({
   locale,
   preview,
   previewData,
 }) => {
-  const sidebarfallback = await getNavigation()
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
+  const logger = getLogger('Announcements')
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
 
-  const announcementTimelineData: {
-    title: string
-    date: string
-  }[] = []
+  const slugs = Object.keys(docsPathsGLOBAL)
 
-  const announcementJson = await getAnnouncementsJson()
+  const fetchFromGithub = async (path: string, slug: string) => {
+    try {
+      const response = await fetch(
+        `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
+      )
+      const data = await response.text()
+      return { content: data, slug }
+    } catch (error) {
+      logger.error(`Error fetching data for path ${path}` + ' ' + error)
+      return { content: '', slug }
+    }
+  }
 
-  for (let i = 0; i < announcementJson.length; i++) {
-    const announcement = announcementJson[i]
-    announcementTimelineData.push({
-      title: announcement.title[currentLocale],
-      date: String(announcement.date),
+  const batchSize = 5
+
+  const fetchBatch = async (batch: string[]) => {
+    const promises = batch.map(async (slug) => {
+      const path = docsPathsGLOBAL[slug]?.find(
+        (e) => e.locale === currentLocale
+      )?.path
+
+      if (path) return fetchFromGithub(path, slug)
+
+      return { content: '', slug }
     })
 
-    announcementTimelineData.push()
+    return Promise.all(promises)
+  }
+
+  const announcementsData: AnnouncementDataElement[] = []
+
+  for (let i = 0; i < slugs.length; i += batchSize) {
+    const batch = slugs.slice(i, i + batchSize)
+    const batchResults = await fetchBatch(batch)
+
+    for (const data of batchResults) {
+      if (data?.content) {
+        try {
+          const onlyFrontmatter = `---\n${data.content.split('---')[1]}---\n`
+
+          const { frontmatter } = await serialize(onlyFrontmatter, {
+            parseFrontmatter: true,
+          })
+
+          if (frontmatter) {
+            announcementsData.push({
+              title: frontmatter.title,
+              url: `announcements/${data.slug}`,
+              createdAt: String(frontmatter.createdAt),
+              updatedAt: String(frontmatter.updatedAt),
+              status: frontmatter.status,
+            })
+          }
+        } catch (error) {
+          logger.error(`${error}`)
+        }
+      }
+    }
   }
 
   return {
     props: {
-      sidebarfallback,
-      branch,
-      announcementTimelineData,
+      branch: branch,
+      announcementTimelineData: announcementsData,
     },
   }
 }

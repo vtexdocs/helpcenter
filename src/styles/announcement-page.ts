@@ -106,11 +106,19 @@ const date: SxStyleProp = {
   ml: '48px',
 }
 
+const textContainer: SxStyleProp = {
+  width: ['100%', '544px'],
+  gap: '8px',
+  pb: '43px',
+  mb: '64px',
+}
+
 export default {
   container,
   mainContainer,
   articleBox,
   contentContainer,
+  textContainer,
   documentationTitle,
   rightContainer,
   releaseAction,

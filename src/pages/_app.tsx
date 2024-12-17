@@ -5,9 +5,11 @@ import { useRouter } from 'next/router'
 import { IntlProvider } from 'react-intl'
 import { getMessages } from 'utils/get-messages'
 
+import '@code-hike/mdx/dist/index.css'
 import 'styles/global.css'
 import 'styles/rapidoc.css'
 import '@vtexdocs/components/dist/index.css'
+import '@fortawesome/fontawesome-free/css/all.css'
 
 import Layout from 'components/layout'
 

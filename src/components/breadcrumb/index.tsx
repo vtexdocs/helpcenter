@@ -1,4 +1,5 @@
-import { Link, Flex, IconCaret, Text } from '@vtex/brand-ui'
+import { Flex, IconCaret, Text } from '@vtex/brand-ui'
+import Link from 'next/link'
 
 import styles from './styles'
 
@@ -9,29 +10,20 @@ interface Props {
 const Breadcrumb = ({ breadcrumbList }: Props) => {
   return (
     <Flex sx={styles.breadcrumb}>
-      {breadcrumbList.map((item, idx) =>
-        item.type === 'category' ? (
-          <>
-            <Text>{item.name}</Text>
-            {idx < breadcrumbList.length - 1 ? (
-              <IconCaret direction="right" size={16} />
-            ) : (
-              ''
-            )}
-          </>
-        ) : (
-          <>
-            <Link sx={styles.breadcrumbItem} href={item.slug}>
-              {item.name}
+      {breadcrumbList.map((item, idx) => (
+        <>
+          {item.type === 'markdown' ? (
+            <Link href={item.slug}>
+              <Text sx={styles.breadcrumbItem}>{item.name}</Text>
             </Link>
-            {idx < breadcrumbList.length - 1 ? (
-              <IconCaret direction="right" size={16} />
-            ) : (
-              ''
-            )}
-          </>
-        )
-      )}
+          ) : (
+            <Text>{item.name}</Text>
+          )}
+          {idx < breadcrumbList.length - 1 ? (
+            <IconCaret direction="right" size={16} />
+          ) : null}
+        </>
+      ))}
     </Flex>
   )
 }

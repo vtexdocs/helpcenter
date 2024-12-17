@@ -18,6 +18,7 @@ export type DataElement = {
   Icon: IconComponent
   description: string
 }
+
 export interface DocDataElement extends DataElement {
   id: string
   title: string
@@ -53,6 +54,12 @@ export type WhatsNextDataElement = {
   linkTo: string
 }
 
+export type WhatsNextDataElementTutorial = {
+  title: string
+  linkTitle: string
+  linkTo: string
+}
+
 export type ResourceDataElement = {
   title: ResourceTitle
   description: string
@@ -64,16 +71,17 @@ export type KnownIssueStatus =
   | 'Closed'
   | 'Backlog'
   | 'Scheduled'
-  | 'No fix'
+  | 'No_Fix'
 
 export type KnownIssueDataElement = {
   title: string
   id: string
-  status: KnownIssueStatus
+  kiStatus: KnownIssueStatus
   module: string
   slug: string
   createdAt: string
   updatedAt: string
+  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }
 
 export type AnnouncementDataElement = {
@@ -81,6 +89,7 @@ export type AnnouncementDataElement = {
   url: string
   createdAt: string
   updatedAt: string
+  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }
 
 export type SortByType = 'newest' | 'recently_updated'
@@ -91,4 +100,14 @@ export type FaqCardDataElement = {
   createdAt: string
   updatedAt: string
   productTeam: string
+  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
+}
+
+export type TroubleshootingDataElement = {
+  title: string
+  slug: string
+  tags: string[]
+  createdAt: string
+  updatedAt: string
+  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }

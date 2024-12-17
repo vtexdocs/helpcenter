@@ -8,6 +8,8 @@ import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
+import { remarkCodeHike } from '@code-hike/mdx'
+import theme from 'styles/code-hike-theme'
 
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 
@@ -19,6 +21,7 @@ import Contributors from 'components/contributors'
 import OnThisPage from 'components/on-this-page'
 import { Item, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
+import TimeToRead from 'components/TimeToRead'
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
@@ -34,7 +37,6 @@ import { getLogger } from 'utils/logging/log-util'
 import { localeType } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 // import { ParsedUrlQuery } from 'querystring'
-import { useIntl } from 'react-intl'
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import { getDocsPaths as getFaqPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
@@ -65,7 +67,6 @@ const FaqPage: NextPage<Props> = ({
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-  const intl = useIntl()
   setBranchPreview(branch)
   const articleRef = useRef<HTMLElement>(null)
 
@@ -129,6 +130,30 @@ const FaqPage: NextPage<Props> = ({
                 </header>
                 <MarkdownRenderer serialized={serialized} />
               </article>
+              <Box sx={styles.textContainer}>
+                <article ref={articleRef}>
+                  <header>
+                    <Breadcrumb breadcrumbList={breadcrumbList} />
+                    <Flex sx={styles.flexContainer}>
+                      <Text sx={styles.documentationTitle} className="title">
+                        {serialized.frontmatter?.title}
+                      </Text>
+                      {serialized.frontmatter?.readingTime && (
+                        <TimeToRead
+                          minutes={serialized.frontmatter.readingTime}
+                        />
+                      )}
+                      {createdAtDate && updatedAtDate && (
+                        <DateText
+                          createdAt={createdAtDate}
+                          updatedAt={updatedAtDate}
+                        />
+                      )}
+                    </Flex>
+                  </header>
+                  <MarkdownRenderer serialized={serialized} />
+                </article>
+              </Box>
             </Box>
 
             <Box sx={styles.bottomContributorsContainer}>
@@ -191,6 +216,19 @@ export const getStaticProps: GetStaticProps = async ({
       .then((res) => res.text())
       .catch((err) => console.log(err))) || ''
 
+  // Serialize content and parse frontmatter
+  const serialized = await serialize(documentationContent, {
+    parseFrontmatter: true,
+  })
+
+  // Check if status is "PUBLISHED"
+  const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
+  if (!isPublished) {
+    return {
+      notFound: true,
+    }
+  }
+
   const contributors =
     (await fetch(
       `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
@@ -240,10 +278,12 @@ export const getStaticProps: GetStaticProps = async ({
         remarkPlugins: [
           remarkGFM,
           remarkImages,
+          [remarkCodeHike, theme],
           [getHeadings, { headingList }],
           remarkBlockquote,
           remarkReadingTime,
         ],
+        useDynamicImport: true,
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],
@@ -270,7 +310,7 @@ export const getStaticProps: GetStaticProps = async ({
       {
         slug,
         name: serialized?.frontmatter?.title ?? '',
-        type: '',
+        type: 'markdown',
       },
     ]
 

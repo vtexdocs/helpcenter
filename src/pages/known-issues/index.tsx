@@ -3,13 +3,14 @@ import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
 
+import usePagination from '../../utils/hooks/usePagination'
 import {
   KnownIssueDataElement,
   KnownIssueStatus,
   SortByType,
 } from 'utils/typings/types'
 import Head from 'next/head'
-import styles from 'styles/known-issues-page'
+import styles from 'styles/filterable-cards-page'
 import { PreviewContext } from 'utils/contexts/preview'
 import { Fragment, useContext, useMemo, useState } from 'react'
 import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
@@ -28,6 +29,8 @@ import {
   sortBy,
 } from 'utils/constants'
 import Select from 'components/select'
+import Input from 'components/input'
+import SearchIcon from 'components/icons/search-icon'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -38,29 +41,34 @@ interface Props {
   totalPages: number
 }
 
-const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
-
 const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const intl = useIntl()
+
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
-  const itemsPerPage = 5
-  const [page, setPage] = useState({ curr: 1, total: 1 })
+  const itemsPerPage = 8
+  const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<{
-    status: string[]
+    kiStatus: string[]
     modules: string[]
-  }>({ status: [], modules: [] })
+  }>({ kiStatus: [], modules: [] })
+  const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
-
   const filteredResult = useMemo(() => {
-    const data = knownIssuesData.filter((knownIssue) => {
-      return (
-        (filters.status.length === 0 ||
-          filters.status.includes(knownIssue.status)) &&
-        (filters.modules.length === 0 ||
-          filters.modules.includes(knownIssue.module))
-      )
-    })
+    const data = knownIssuesData
+      .filter((knownIssue) => knownIssue.status === 'PUBLISHED')
+      .filter((knownIssue) => {
+        const hasFilter: boolean =
+          (filters.kiStatus.length === 0 ||
+            filters.kiStatus.includes(knownIssue.kiStatus)) &&
+          (filters.modules.length === 0 ||
+            filters.modules.includes(knownIssue.module))
+
+        const hasSearch: boolean = knownIssue.title
+          .toLowerCase()
+          .includes(search.toLowerCase())
+        return hasFilter && hasSearch
+      })
 
     data.sort((a, b) => {
       const dateA =
@@ -71,21 +79,20 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
       return dateA.getTime() - dateB.getTime()
     })
 
-    setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
+    setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale])
+  }, [filters, sortByValue, intl.locale, search])
 
-  const paginatedResult = useMemo(() => {
-    return filteredResult.slice(
-      (page.curr - 1) * itemsPerPage,
-      page.curr * itemsPerPage
-    )
-  }, [page])
+  const paginatedResult = usePagination<KnownIssueDataElement>(
+    itemsPerPage,
+    pageIndex,
+    filteredResult
+  )
 
   function handleClick(props: { selected: number }) {
-    if (props.selected !== undefined && props.selected !== page.curr)
-      setPage({ ...page, curr: props.selected })
+    if (props.selected !== undefined && props.selected !== pageIndex.curr)
+      setPageIndex({ ...pageIndex, curr: props.selected })
   }
 
   return (
@@ -122,9 +129,11 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
             <Filter
               tagFilter={knownIssuesStatusFilter(intl)}
               checkBoxFilter={knownIssuesModulesFilters(intl)}
+              selectedCheckboxes={filters.modules}
+              selectedTags={filters.kiStatus}
               onApply={(newFilters) =>
                 setFilters({
-                  status: newFilters.tag,
+                  kiStatus: newFilters.tag,
                   modules: newFilters.checklist,
                 })
               }
@@ -136,6 +145,14 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
+          <Input
+            placeholder={intl.formatMessage({
+              id: 'known_issues_page_search.placeholder',
+            })}
+            value={search}
+            Icon={SearchIcon}
+            onChange={(value) => setSearch(value)}
+          />
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
@@ -147,8 +164,8 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
             })}
           </Flex>
           <Pagination
-            forcePage={page.curr}
-            pageCount={page.total}
+            forcePage={pageIndex.curr}
+            pageCount={pageIndex.total}
             onPageChange={handleClick}
           />
         </Flex>
@@ -169,6 +186,7 @@ export const getStaticProps: GetStaticProps = async ({
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
+  const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
   const logger = getLogger('Known Issues')
   const currentLocale: localeType = locale
     ? (locale as localeType)
@@ -222,13 +240,17 @@ export const getStaticProps: GetStaticProps = async ({
 
           if (frontmatter && frontmatter.tag && frontmatter.kiStatus)
             knownIssuesData.push({
-              id: frontmatter.id,
+              id: frontmatter.internalReference,
               title: frontmatter.title,
               module: frontmatter.tag,
               slug: data.slug,
-              status: frontmatter.kiStatus as KnownIssueStatus,
+              kiStatus: frontmatter.kiStatus.replace(
+                ' ',
+                '_'
+              ) as KnownIssueStatus,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
+              status: frontmatter.status,
             })
         } catch (error) {
           logger.error(`${error}`)

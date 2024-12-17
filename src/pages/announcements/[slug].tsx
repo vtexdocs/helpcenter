@@ -8,6 +8,8 @@ import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
+import { remarkCodeHike } from '@code-hike/mdx'
+import theme from 'styles/code-hike-theme'
 
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 
@@ -84,7 +86,7 @@ const AnnouncementPage: NextPage<Props> = ({
   }, [serialized.frontmatter])
 
   const breadcrumb = {
-    slug: '/announcements',
+    slug: `/announcements`,
     name: intl.formatMessage({ id: 'announcements_page.title' }),
     type: 'category',
   }
@@ -131,6 +133,32 @@ const AnnouncementPage: NextPage<Props> = ({
                 </header>
                 <MarkdownRenderer serialized={serialized} />
               </article>
+              <Box sx={styles.textContainer}>
+                <article ref={articleRef}>
+                  <header>
+                    <Breadcrumb breadcrumbList={[breadcrumb]} />
+                    <Text sx={styles.documentationTitle} className="title">
+                      {serialized.frontmatter?.title}
+                    </Text>
+                    <Box sx={styles.divider}></Box>
+                    <Flex sx={styles.flexContainer}>
+                      <Box>
+                        <Author contributor={contributor} />
+                        {createdAtDate && updatedAtDate && (
+                          <Flex sx={styles.date}>
+                            <DateText
+                              createdAt={createdAtDate}
+                              updatedAt={updatedAtDate}
+                            />
+                          </Flex>
+                        )}
+                      </Box>
+                      {url && <ShareButton url={url} />}
+                    </Flex>
+                  </header>
+                  <MarkdownRenderer serialized={serialized} />
+                </article>
+              </Box>
             </Box>
             <FeedbackSection docPath={path} slug={slug} />
             {serialized.frontmatter?.seeAlso && (
@@ -176,7 +204,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   const logger = getLogger('Announcements')
 
-  const path = docsPaths[slug].find((e) => e.locale === locale)?.path
+  const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
 
   if (!path) {
     return {
@@ -191,6 +219,20 @@ export const getStaticProps: GetStaticProps = async ({
       .then((res) => res.text())
       .catch((err) => console.log(err))) || ''
 
+  // Serialize content and parse frontmatter
+  let serialized = await serialize(documentationContent, {
+    parseFrontmatter: true,
+  })
+
+  // Check if status is "PUBLISHED"
+  const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
+  if (!isPublished) {
+    return {
+      notFound: true,
+    }
+  }
+
+  // Process the rest of the data
   const contributors =
     (await fetch(
       `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
@@ -237,15 +279,17 @@ export const getStaticProps: GetStaticProps = async ({
 
   try {
     const headingList: Item[] = []
-    let serialized = await serialize(documentationContent, {
+    serialized = await serialize(documentationContent, {
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [
+          [remarkCodeHike, theme],
           remarkGFM,
           remarkImages,
           [getHeadings, { headingList }],
           remarkBlockquote,
         ],
+        useDynamicImport: true,
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],
@@ -283,6 +327,7 @@ export const getStaticProps: GetStaticProps = async ({
               title: serialized.frontmatter?.title ?? seeAlsoUrl,
               createdAt: String(serialized.frontmatter?.createdAt) ?? '',
               updatedAt: String(serialized.frontmatter?.updatedAt) ?? '',
+              status: serialized.frontmatter?.status ?? '',
             })
           } catch (error) {}
         }
@@ -302,7 +347,9 @@ export const getStaticProps: GetStaticProps = async ({
     return {
       props: {
         sectionSelected,
-        parentsArray,
+        parentsArray: parentsArray.map((item) =>
+          item === undefined ? null : item
+        ),
         slug,
         serialized,
         sidebarfallback,

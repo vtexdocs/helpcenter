@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useEffect, useState, useContext, useRef } from 'react'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import jp from 'jsonpath'
 import ArticlePagination from 'components/article-pagination'
@@ -10,7 +10,7 @@ import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
-
+import { remarkCodeHike } from '@code-hike/mdx'
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
@@ -44,10 +44,13 @@ import {
   localeType,
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
-// import { ParsedUrlQuery } from 'querystring'
-import { useIntl } from 'react-intl'
+
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import CopyLinkButton from 'components/copy-link-button'
+
+import theme from 'styles/code-hike-theme'
+import TimeToRead from 'components/TimeToRead'
+import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 
 const docsPathsGLOBAL = await getTracksPaths('tracks')
 
@@ -96,7 +99,6 @@ const TrackPage: NextPage<Props> = ({
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-  const intl = useIntl()
   setBranchPreview(branch)
   const { setActiveSidebarElement } = useContext(LibraryContext)
   const articleRef = useRef<HTMLElement>(null)
@@ -149,6 +151,24 @@ const TrackPage: NextPage<Props> = ({
                 </header>
                 <MarkdownRenderer serialized={serialized} />
               </article>
+              <Box sx={styles.textContainer}>
+                <article ref={articleRef}>
+                  <header>
+                    <Breadcrumb breadcrumbList={breadcrumbList} />
+                    <Flex sx={styles.flexContainer}>
+                      <Text sx={styles.documentationTitle} className="title">
+                        {serialized.frontmatter?.title}
+                      </Text>
+                      {serialized.frontmatter?.readingTime && (
+                        <TimeToRead
+                          minutes={serialized.frontmatter.readingTime}
+                        />
+                      )}
+                    </Flex>
+                  </header>
+                  <MarkdownRenderer serialized={serialized} />
+                </article>
+              </Box>
             </Box>
 
             <Box sx={styles.bottomContributorsContainer}>
@@ -184,29 +204,7 @@ const TrackPage: NextPage<Props> = ({
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  // const slugs: { [slug: string]: { locale: string; path: string }[] } =
-  //   await getTracksPaths('tracks')
-
-  // const paths: (
-  //   | string
-  //   | {
-  //       params: ParsedUrlQuery
-  //       locale?: string | undefined
-  //     }
-  // )[] = []
-  // Object.entries(slugs).forEach(([slug, locales]) => {
-  //   locales.forEach(({ locale }) => {
-  //     paths.push({ params: { slug }, locale })
-  //   })
-  // })
-  return {
-    paths: [],
-    fallback: 'blocking',
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({
+export const getServerSideProps: GetServerSideProps = async ({
   params,
   locale,
   preview,
@@ -308,18 +306,27 @@ export const getStaticProps: GetStaticProps = async ({
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [
+          [remarkCodeHike, theme],
           remarkGFM,
           remarkImages,
           [getHeadings, { headingList }],
           remarkBlockquote,
           remarkReadingTime,
         ],
+        useDynamicImport: true,
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],
         format,
       },
     })
+
+    // Check the frontmatter status
+    if (serialized.frontmatter?.status !== 'PUBLISHED') {
+      return {
+        notFound: true,
+      }
+    }
 
     const sidebarfallback = await getNavigation()
     serialized = JSON.parse(JSON.stringify(serialized))
@@ -385,10 +392,6 @@ export const getStaticProps: GetStaticProps = async ({
       sidebarfallback,
       `$..[?(@.type=='markdown')]..name`
     )
-    const docsListType = jp.query(
-      sidebarfallback,
-      `$..[?(@.type=='markdown')]..type`
-    )
     const indexOfSlug = docsListSlug.indexOf(slug)
     const pagination = {
       previousDoc: {
@@ -417,11 +420,8 @@ export const getStaticProps: GetStaticProps = async ({
     const parentsArray: string[] = []
     const parentsArrayName: string[] = []
     const parentsArrayType: string[] = []
-    let sectionSelected = ''
+    const sectionSelected = ''
     if (keyPath) {
-      sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
-      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-      parentsArray.push(slug)
       getParents(
         keyPath,
         'name',
@@ -429,36 +429,32 @@ export const getStaticProps: GetStaticProps = async ({
         currentLocale,
         parentsArrayName
       )
-      parentsArrayName.push(docsListName[indexOfSlug][currentLocale])
-      getParents(
-        keyPath,
-        'type',
-        flattenedSidebar,
-        currentLocale,
-        parentsArrayType
-      )
-      parentsArrayType.push(docsListType[indexOfSlug])
-
-      if (serialized.frontmatter) {
-        serialized.frontmatter.title = `${
-          docsListName[indexOfSlug][currentLocale].split(' ')[0]
-        } ${serialized.frontmatter.title}`
+      if (
+        docsListName[indexOfSlug] &&
+        docsListName[indexOfSlug][currentLocale]
+      ) {
+        parentsArrayName.push(docsListName[indexOfSlug][currentLocale])
+      } else {
+        console.error(
+          `Error: docsListName or currentLocale not found for slug: ${slug}`
+        )
       }
     }
 
-    const breadcrumbList: { slug: string; name: string; type: string }[] = []
-    parentsArrayName.forEach((_el: string, idx: number) => {
-      breadcrumbList.push({
-        slug: `/docs/tracks/${parentsArray[idx]}`,
-        name: parentsArrayName[idx],
-        type: parentsArrayType[idx],
-      })
-    })
+    const breadcrumbList: { slug: string; name: string; type: string }[] =
+      getBreadcrumbsList(
+        parentsArray,
+        parentsArrayName,
+        parentsArrayType,
+        'tracks'
+      )
 
     return {
       props: {
         sectionSelected,
-        parentsArray,
+        parentsArray: parentsArray.map((item) =>
+          item === undefined ? null : item
+        ),
         slug,
         serialized,
         sidebarfallback,
@@ -472,7 +468,6 @@ export const getStaticProps: GetStaticProps = async ({
         branch,
         locale,
       },
-      revalidate: 600,
     }
   } catch (error) {
     logger.error(`Error while processing ${path}\n${error}`)

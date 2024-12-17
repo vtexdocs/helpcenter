@@ -22,13 +22,15 @@
     "cypress": "cypress open"
   },
   "dependencies": {
+    "@code-hike/mdx": "^0.9.0",
+    "@fortawesome/fontawesome-free": "^6.6.0",
     "@openreplay/tracker": "^5.0.1",
     "@plaiceholder/next": "^2.5.0",
     "@types/http-proxy": "^1.17.9",
     "@types/probe-image-size": "^7.2.0",
     "@types/uuid": "^9.0.0",
     "@vtex/brand-ui": "^0.46.1",
-    "@vtexdocs/components": "https://github.com/vtexdocs/components.git#v2.0.0",
+    "@vtexdocs/components": "https://github.com/vtexdocs/components.git",
     "algoliasearch": "^4.14.2",
     "chalk": "^5.2.0",
     "copy-text-to-clipboard": "^3.0.1",
