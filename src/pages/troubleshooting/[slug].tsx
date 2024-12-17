@@ -29,6 +29,7 @@ import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 import { getMessages } from 'utils/get-messages'
 import TimeToRead from 'components/TimeToRead'
+import CopyLinkButton from 'components/copy-link-button'
 
 interface Props {
   sectionSelected: string
@@ -106,6 +107,7 @@ const TroubleshootingPage: NextPage<Props> = ({
                           updatedAt={updatedAtDate}
                         />
                       )}
+                      <CopyLinkButton />
                     </Flex>
                   </header>
                   <MarkdownRenderer serialized={serialized} />
