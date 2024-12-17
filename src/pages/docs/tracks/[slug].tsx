@@ -395,8 +395,9 @@ export const getServerSideProps: GetServerSideProps = async ({
     const parentsArray: string[] = []
     const parentsArrayName: string[] = []
     const parentsArrayType: string[] = []
-    const sectionSelected = ''
+    let sectionSelected = ''
     if (keyPath) {
+      sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
       getParents(
         keyPath,
         'name',
@@ -404,6 +405,7 @@ export const getServerSideProps: GetServerSideProps = async ({
         currentLocale,
         parentsArrayName
       )
+      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
       if (
         docsListName[indexOfSlug] &&
         docsListName[indexOfSlug][currentLocale]
@@ -416,6 +418,12 @@ export const getServerSideProps: GetServerSideProps = async ({
       }
     }
 
+    // Ensure parentsArray does not contain undefined values
+    parentsArray.push(slug)
+    const sanitizedParentsArray = parentsArray.map((item) =>
+      item === undefined ? null : item
+    )
+
     const breadcrumbList: { slug: string; name: string; type: string }[] =
       getBreadcrumbsList(
         parentsArray,
@@ -427,9 +435,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     return {
       props: {
         sectionSelected,
-        parentsArray: parentsArray.map((item) =>
-          item === undefined ? null : item
-        ),
+        parentsArray: sanitizedParentsArray,
         slug,
         serialized,
         sidebarfallback,
