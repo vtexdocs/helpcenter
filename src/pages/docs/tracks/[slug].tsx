@@ -127,30 +127,6 @@ const TrackPage: NextPage<Props> = ({
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <article ref={articleRef}>
-                <header>
-                  <Breadcrumb breadcrumbList={breadcrumbList} />
-                  <Flex sx={styles.flexContainer}>
-                    <Text sx={styles.documentationTitle} className="title">
-                      {serialized.frontmatter?.title}
-                    </Text>
-
-                    <Flex sx={styles.infoContainer}>
-                      <Text sx={styles.readingTime}>
-                        {intl.formatMessage(
-                          {
-                            id: 'documentation_reading_time.text',
-                            defaultMessage: '',
-                          },
-                          { minutes: serialized.frontmatter?.readingTime }
-                        )}
-                      </Text>
-                      <CopyLinkButton />
-                    </Flex>
-                  </Flex>
-                </header>
-                <MarkdownRenderer serialized={serialized} />
-              </article>
               <Box sx={styles.textContainer}>
                 <article ref={articleRef}>
                   <header>
@@ -164,6 +140,7 @@ const TrackPage: NextPage<Props> = ({
                           minutes={serialized.frontmatter.readingTime}
                         />
                       )}
+                      <CopyLinkButton />
                     </Flex>
                   </header>
                   <MarkdownRenderer serialized={serialized} />
