@@ -40,13 +40,13 @@ import {
   localeType,
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
-import ShareButton from 'components/share-button'
 import Author from 'components/author'
 import { useIntl } from 'react-intl'
 import MoreArticlesSection from 'components/more-articles-section'
 import Breadcrumb from 'components/breadcrumb'
 import { AnnouncementDataElement } from 'utils/typings/types'
 import DateText from 'components/date-text'
+import CopyLinkButton from 'components/copy-link-button'
 const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
 
 interface Props {
@@ -75,7 +75,6 @@ const AnnouncementPage: NextPage<Props> = ({
 }) => {
   const intl = useIntl()
   const [headings, setHeadings] = useState<Item[]>([])
-  const [url, setUrl] = useState('')
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const { setActiveSidebarElement } = useContext(LibraryContext)
@@ -85,10 +84,6 @@ const AnnouncementPage: NextPage<Props> = ({
     setActiveSidebarElement(slug)
     setHeadings(headingList)
   }, [serialized.frontmatter])
-
-  useEffect(() => {
-    if (window) setUrl(window.location.href)
-  }, [])
 
   const breadcrumb = {
     slug: `/announcements`,
@@ -131,10 +126,10 @@ const AnnouncementPage: NextPage<Props> = ({
                               createdAt={createdAtDate}
                               updatedAt={updatedAtDate}
                             />
+                            <CopyLinkButton />
                           </Flex>
                         )}
                       </Box>
-                      {url && <ShareButton url={url} />}
                     </Flex>
                   </header>
                   <MarkdownRenderer serialized={serialized} />

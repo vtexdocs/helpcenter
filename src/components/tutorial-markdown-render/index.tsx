@@ -16,6 +16,7 @@ import ArticlePagination from 'components/article-pagination'
 import Contributors from 'components/contributors'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { ContributorsType } from 'utils/getFileContributors'
+import CopyLinkButton from 'components/copy-link-button'
 import TimeToRead from 'components/TimeToRead'
 
 interface Props {
@@ -29,11 +30,7 @@ interface Props {
     title: string
     category: string
   }[]
-  // sectionSelected: string
-  // sidebarfallback: any //eslint-disable-line
   slug: string
-  // parentsArray: string[]
-  // path: string
   isListed: boolean
   branch: string
   pagination: {
@@ -49,6 +46,7 @@ interface Props {
   breadcrumbList: { slug: string; name: string; type: string }[]
   headings: Item[]
 }
+
 const TutorialMarkdownRender = (props: Props) => {
   const intl = useIntl()
 
@@ -89,6 +87,12 @@ const TutorialMarkdownRender = (props: Props) => {
                     <Breadcrumb breadcrumbList={props.breadcrumbList} />
                     <Text sx={styles.documentationTitle} className="title">
                       {props.serialized.frontmatter?.title}
+                      {/* Adiciona a propriedade justifyContent ao Flex para alinhar o botão à direita */}
+                      <Flex
+                        sx={{ display: 'flex', justifyContent: 'flex-end' }}
+                      >
+                        <CopyLinkButton />
+                      </Flex>
                     </Text>
                     <Text sx={styles.documentationExcerpt}>
                       {props.serialized.frontmatter?.excerpt}

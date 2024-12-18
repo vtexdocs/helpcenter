@@ -25,7 +25,6 @@ import TimeToRead from 'components/TimeToRead'
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
-// import getGithubFile from 'utils/getGithubFile'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -36,11 +35,11 @@ import { ContributorsType } from 'utils/getFileContributors'
 import { getLogger } from 'utils/logging/log-util'
 import { localeType } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
-// import { ParsedUrlQuery } from 'querystring'
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import { getDocsPaths as getFaqPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
 import DateText from 'components/date-text'
+import CopyLinkButton from 'components/copy-link-button'
 
 const docsPathsGLOBAL = await getFaqPaths('faq')
 
@@ -56,8 +55,6 @@ interface Props {
 }
 
 const FaqPage: NextPage<Props> = ({
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
   serialized,
   headingList,
   contributors,
@@ -113,11 +110,27 @@ const FaqPage: NextPage<Props> = ({
                           minutes={serialized.frontmatter.readingTime}
                         />
                       )}
+
+                      {/* Verifica se as datas de criação e atualização estão disponíveis */}
                       {createdAtDate && updatedAtDate && (
-                        <DateText
-                          createdAt={createdAtDate}
-                          updatedAt={updatedAtDate}
-                        />
+                        <Flex sx={{ alignItems: 'center' }}>
+                          <DateText
+                            createdAt={createdAtDate}
+                            updatedAt={updatedAtDate}
+                          />
+
+                          {/* Coloca o botão à direita das datas */}
+                          <Flex
+                            sx={{
+                              display: 'flex',
+                              justifyContent: 'flex-end',
+                              alignItems: 'center',
+                              ml: 2,
+                            }}
+                          >
+                            <CopyLinkButton />
+                          </Flex>
+                        </Flex>
                       )}
                     </Flex>
                   </header>
