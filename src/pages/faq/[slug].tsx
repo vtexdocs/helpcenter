@@ -122,9 +122,10 @@ const FaqPage: NextPage<Props> = ({
                           {/* Coloca o botão à direita das datas */}
                           <Flex
                             sx={{
-                              ...styles.copyLinkContainer,
-                              ml: 2,
+                              display: 'flex',
                               justifyContent: 'flex-end',
+                              alignItems: 'center',
+                              ml: 2,
                             }}
                           >
                             <CopyLinkButton />

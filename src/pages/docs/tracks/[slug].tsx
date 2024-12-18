@@ -143,8 +143,10 @@ const TrackPage: NextPage<Props> = ({
                       {/* Adiciona a propriedade justifyContent ao Flex para alinhar o botão à direita */}
                       <Flex
                         sx={{
-                          ...styles.copyLinkContainer,
+                          display: 'flex',
                           justifyContent: 'flex-end',
+                          alignItems: 'center',
+                          ml: 2,
                         }}
                       >
                         <CopyLinkButton />
