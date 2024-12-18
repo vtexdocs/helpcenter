@@ -109,30 +109,6 @@ const AnnouncementPage: NextPage<Props> = ({
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <article ref={articleRef}>
-                <header>
-                  <Breadcrumb breadcrumbList={[breadcrumb]} />
-                  <Text sx={styles.documentationTitle} className="title">
-                    {serialized.frontmatter?.title}
-                  </Text>
-                  <Box sx={styles.divider}></Box>
-                  <Flex sx={styles.flexContainer}>
-                    <Box>
-                      <Author contributor={contributor} />
-                      {createdAtDate && updatedAtDate && (
-                        <Flex sx={styles.date}>
-                          <DateText
-                            createdAt={createdAtDate}
-                            updatedAt={updatedAtDate}
-                          />
-                        </Flex>
-                      )}
-                    </Box>
-                    <CopyLinkButton />
-                  </Flex>
-                </header>
-                <MarkdownRenderer serialized={serialized} />
-              </article>
               <Box sx={styles.textContainer}>
                 <article ref={articleRef}>
                   <header>
@@ -150,6 +126,7 @@ const AnnouncementPage: NextPage<Props> = ({
                               createdAt={createdAtDate}
                               updatedAt={updatedAtDate}
                             />
+                            <CopyLinkButton />
                           </Flex>
                         )}
                       </Box>

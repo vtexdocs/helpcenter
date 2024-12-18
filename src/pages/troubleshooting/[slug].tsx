@@ -101,13 +101,26 @@ const TroubleshootingPage: NextPage<Props> = ({
                           (serialized.frontmatter?.readingTime as string) ?? 0
                         }
                       />
+
+                      {/* Reorganizado para colocar o botão após as datas */}
                       {createdAtDate && updatedAtDate && (
-                        <DateText
-                          createdAt={createdAtDate}
-                          updatedAt={updatedAtDate}
-                        />
+                        <Flex sx={{ alignItems: 'center' }}>
+                          <DateText
+                            createdAt={createdAtDate}
+                            updatedAt={updatedAtDate}
+                          />
+                          <Flex
+                            sx={{
+                              display: 'flex',
+                              justifyContent: 'flex-end',
+                              alignItems: 'center',
+                              ml: 2,
+                            }}
+                          >
+                            <CopyLinkButton />
+                          </Flex>
+                        </Flex>
                       )}
-                      <CopyLinkButton />
                     </Flex>
                   </header>
                   <MarkdownRenderer serialized={serialized} />
