@@ -7,9 +7,17 @@ import styles from './styles'
 interface Props extends Pick<TooltipProps, 'children' | 'label' | 'placement'> {
   sx?: SxStyleProp
   isCard?: boolean
+  onClickTooltip?: boolean
 }
 
-const Tooltip = ({ children, label, placement, sx, isCard }: Props) => {
+const Tooltip = ({
+  children,
+  label,
+  placement,
+  sx,
+  isCard,
+  onClickTooltip,
+}: Props) => {
   const box = useRef<HTMLDivElement>()
   const [boxWidth, setBoxWidth] = useState(0)
   const [boxHeight, setBoxHeight] = useState(0)
@@ -33,8 +41,16 @@ const Tooltip = ({ children, label, placement, sx, isCard }: Props) => {
     <Box>
       <Box
         ref={box}
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
+        onMouseEnter={() => {
+          if (!onClickTooltip) setVisible(true)
+        }}
+        onMouseLeave={() => {
+          if (!onClickTooltip) setVisible(false)
+        }}
+        onClick={() => {
+          if (onClickTooltip)
+            setVisible(true), setTimeout(() => setVisible(false), 2000)
+        }}
       >
         {children}
       </Box>

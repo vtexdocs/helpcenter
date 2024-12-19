@@ -29,6 +29,7 @@ import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 import { getMessages } from 'utils/get-messages'
 import TimeToRead from 'components/TimeToRead'
+import CopyLinkButton from 'components/copy-link-button'
 
 interface Props {
   sectionSelected: string
@@ -100,11 +101,25 @@ const TroubleshootingPage: NextPage<Props> = ({
                           (serialized.frontmatter?.readingTime as string) ?? 0
                         }
                       />
+
+                      {/* Reorganizado para colocar o botão após as datas */}
                       {createdAtDate && updatedAtDate && (
-                        <DateText
-                          createdAt={createdAtDate}
-                          updatedAt={updatedAtDate}
-                        />
+                        <Flex sx={{ alignItems: 'center' }}>
+                          <DateText
+                            createdAt={createdAtDate}
+                            updatedAt={updatedAtDate}
+                          />
+                          <Flex
+                            sx={{
+                              display: 'flex',
+                              justifyContent: 'flex-end',
+                              alignItems: 'center',
+                              ml: 2,
+                            }}
+                          >
+                            <CopyLinkButton />
+                          </Flex>
+                        </Flex>
                       )}
                     </Flex>
                   </header>
