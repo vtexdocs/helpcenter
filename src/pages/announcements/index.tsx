@@ -31,8 +31,6 @@ interface Props {
   totalPages: number
 }
 
-const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
-
 const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
@@ -160,7 +158,10 @@ export const getStaticProps: GetStaticProps = async ({
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
+  const docsPathsGLOBAL = await getAnnouncementsPaths('announcements', branch)
+
   const logger = getLogger('Announcements')
+
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
