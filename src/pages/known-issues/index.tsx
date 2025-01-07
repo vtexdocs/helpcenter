@@ -180,7 +180,7 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const sidebarfallback = await getNavigation()
-  const sectionSelected = 'Known issues'
+  const sectionSelected = 'Known Issues'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
       ? JSON.parse(JSON.stringify(previewData)).branch
