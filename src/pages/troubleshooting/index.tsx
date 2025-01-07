@@ -221,11 +221,6 @@ export async function getStaticProps({
     }
   }
 
-  console.log('sidebarFallback')
-  console.log(sidebarFallback)
-  console.log('troubleshootingData')
-  console.log(troubleshootingData)
-
   return {
     props: {
       sidebarFallback,
