@@ -55,6 +55,10 @@ export default function Layout({
     startTracking()
   }, [])
 
+  console.log('////////// layout.tsx')
+  console.log('sectionSelected')
+  console.log(sectionSelected)
+
   return (
     <ThemeProvider>
       <LibraryContextProvider

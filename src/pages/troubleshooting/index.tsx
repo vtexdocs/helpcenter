@@ -143,6 +143,8 @@ export async function getStaticProps({
   preview,
   previewData,
 }: GetStaticPropsContext) {
+  console.log('///////////------- troubleshooting/index.tsx')
+  console.log('Running getStaticProps')
   const sidebarFallback = await getNavigation()
   const sectionSelected = 'Troubleshooting'
   const previewBranch =
@@ -218,6 +220,11 @@ export async function getStaticProps({
       }
     }
   }
+
+  console.log('sidebarFallback')
+  console.log(sidebarFallback)
+  console.log('troubleshootingData')
+  console.log(troubleshootingData)
 
   return {
     props: {
