@@ -49,8 +49,14 @@ export const getParents = (
     prev = el + 'children'
 
     const localizedData = flattenedSidebar[`${el}${desiredData}`]
-    if (!parent || (localizedData && localizedData.includes(parent))) {
+    const unlocalizedData = flattenedSidebar[`${el}${data}`]
+    if (
+      localizedData &&
+      (!parent || (localizedData && localizedData.includes(parent)))
+    ) {
       parentsArray.push(localizedData)
+    } else if (unlocalizedData) {
+      parentsArray.push(unlocalizedData)
     }
   })
 
