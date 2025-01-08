@@ -157,8 +157,6 @@ export async function getStaticProps({
   preview,
   previewData,
 }: GetStaticPropsContext) {
-  console.log('///////////------- troubleshooting/index.tsx')
-  console.log('Running getStaticProps')
   const sidebarFallback = await getNavigation()
   const sectionSelected = 'Troubleshooting'
   const previewBranch =
