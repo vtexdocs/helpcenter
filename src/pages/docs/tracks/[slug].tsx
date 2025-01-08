@@ -50,6 +50,7 @@ import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import theme from 'styles/code-hike-theme'
 import TimeToRead from 'components/TimeToRead'
 import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
+import CopyLinkButton from 'components/copy-link-button'
 
 const docsPathsGLOBAL = await getTracksPaths('tracks')
 
@@ -139,6 +140,17 @@ const TrackPage: NextPage<Props> = ({
                           minutes={serialized.frontmatter.readingTime}
                         />
                       )}
+                      {/* Adiciona a propriedade justifyContent ao Flex para alinhar o botão à direita */}
+                      <Flex
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'flex-end',
+                          alignItems: 'center',
+                          ml: 2,
+                        }}
+                      >
+                        <CopyLinkButton />
+                      </Flex>
                     </Flex>
                   </header>
                   <MarkdownRenderer serialized={serialized} />
@@ -209,12 +221,6 @@ export const getServerSideProps: GetServerSideProps = async ({
     }
   }
 
-  // let documentationContent = await getGithubFile(
-  //   'vtexdocs',
-  //   'help-center-content',
-  //   branch,
-  //   path
-  // )
   let documentationContent =
     (await fetch(
       `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
@@ -236,7 +242,6 @@ export const getServerSideProps: GetServerSideProps = async ({
       .then((res) => res.json())
       .then(({ users }) => {
         const result: ContributorsType[] = []
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         for (let i = 0; i < users.length; i++) {
           const user = users[i]
           if (user.id === '41898282') continue
@@ -251,17 +256,6 @@ export const getServerSideProps: GetServerSideProps = async ({
         return result
       })
       .catch((err) => console.log(err))) || []
-
-  // const contributors = []
-  // const contributors =
-  //   (await getFileContributors(
-  //     'vtexdocs',
-  //     'help-center-content',
-  //     branch,
-  //     path
-  //   ).catch((err) => {
-  //     console.log(err)
-  //   })) || []
 
   let format: 'md' | 'mdx' = 'mdx'
   try {
@@ -296,7 +290,6 @@ export const getServerSideProps: GetServerSideProps = async ({
       },
     })
 
-    // Check the frontmatter status
     if (serialized.frontmatter?.status !== 'PUBLISHED') {
       return {
         notFound: true,
@@ -328,13 +321,6 @@ export const getServerSideProps: GetServerSideProps = async ({
               )
                 .then((res) => res.text())
                 .catch((err) => console.log(err))) || ''
-
-            // const documentationContent = await getGithubFile(
-            //   'vtexdocs',
-            //   'help-center-content',W
-            //   'main',
-            //   seeAlsoPath
-            // )
 
             const serialized = await serialize(documentationContent, {
               parseFrontmatter: true,

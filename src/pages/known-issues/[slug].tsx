@@ -10,7 +10,6 @@ import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
 import { remarkCodeHike } from '@code-hike/mdx'
 import theme from 'styles/code-hike-theme'
-
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
@@ -43,6 +42,7 @@ import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
 import Tag from 'components/tag'
 import DateText from 'components/date-text'
+import CopyLinkButton from 'components/copy-link-button'
 
 const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
 
@@ -125,11 +125,26 @@ const KnownIssuePage: NextPage<Props> = ({
                         </Text>
                         <Tag>{serialized.frontmatter?.kiStatus}</Tag>
                       </Flex>
+
+                      {/* Reorganizado para colocar o botão após as datas */}
                       {createdAtDate && updatedAtDate && (
-                        <DateText
-                          createdAt={createdAtDate}
-                          updatedAt={updatedAtDate}
-                        />
+                        <Flex sx={{ alignItems: 'center' }}>
+                          <DateText
+                            createdAt={createdAtDate}
+                            updatedAt={updatedAtDate}
+                          />
+                          {/* Adicionando o botão à direita das datas */}
+                          <Flex
+                            sx={{
+                              display: 'flex',
+                              justifyContent: 'flex-end',
+                              alignItems: 'center',
+                              ml: 2,
+                            }}
+                          >
+                            <CopyLinkButton />
+                          </Flex>
+                        </Flex>
                       )}
                     </Flex>
                   </header>
