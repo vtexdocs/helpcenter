@@ -27,6 +27,7 @@ import { HamburgerMenu, SearchInput } from '@vtexdocs/components'
 const Header = () => {
   const router = useRouter()
   const isBranchPreview = router.isPreview
+  const currentPage = router.asPath.split('?')[0]
 
   const { branchPreview } = useContext(PreviewContext)
 
@@ -132,7 +133,7 @@ const Header = () => {
 
           <VtexLink
             sx={styles.rightLinksItem}
-            href={getFeedbackURL()}
+            href={`${getFeedbackURL()}https://help.vtex.com${currentPage}`}
             target="_blank"
           >
             <LongArrowIcon />
