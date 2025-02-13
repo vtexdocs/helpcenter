@@ -8,14 +8,19 @@ import getNavigation from 'utils/getNavigation'
 import { GetStaticProps } from 'next'
 import { useContext } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
+import { getFeedbackURL } from 'utils/get-url'
+import { useRouter } from 'next/router'
 
 interface Props {
   branch: string
 }
 
 const FourOhFour: Page<Props> = ({ branch }) => {
+  const router = useRouter()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
+  const currentPage = router.asPath.split('?')[0]
+  const feedbackUrl = `${getFeedbackURL()}https://help.vtex.com${currentPage}&entry.358925425=Page+not+found`
 
   return (
     <>
@@ -34,10 +39,7 @@ const FourOhFour: Page<Props> = ({ branch }) => {
               error.
             </Text>
             <Button sx={styles.button}>
-              <Link
-                sx={styles.buttonLink}
-                href="https://docs.google.com/forms/d/e/1FAIpQLSejjkI4aRPadDn0C9EKa-_mESUWPjwoS6yMTN8KA9PPCLfcfA/viewform?usp=pp_url&entry.1077155995="
-              >
+              <Link sx={styles.buttonLink} href={feedbackUrl}>
                 CONTACT US
               </Link>
             </Button>
