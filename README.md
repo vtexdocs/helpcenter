@@ -252,7 +252,7 @@ The excerpt below shows an example of how the first articles in the Tutorials se
 {
         {
          "documentation": "Tutorials",
-         "slugPrefix": "docs/tutorial",
+         "slugPrefix": "docs/tutorials",
          "categories": [
             {
                "name": {
