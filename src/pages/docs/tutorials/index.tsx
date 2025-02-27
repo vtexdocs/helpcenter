@@ -59,13 +59,13 @@ const TutorialsPage: NextPage<Props> = ({ branch }) => {
       <Head>
         <title>
           {intl.formatMessage({
-            id: 'start_here_page.title',
+            id: 'tutorials_page.title',
           })}
         </title>
         <meta
           property="og:title"
           content={intl.formatMessage({
-            id: 'start_here_page.subtitle',
+            id: 'tutorials_page.subtitle',
           })}
           key="title"
         />
