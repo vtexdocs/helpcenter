@@ -11,10 +11,13 @@ export const toCamelCase = (str: string) => {
 
 export const slugify = (str: string) => {
   return str
+    .normalize('NFD') // Decomposes diacritics (e.g., "é" → "é")
+    .replace(/[\u0300-\u036f]/g, '') // Removes diacritic marks
     .toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/\-+/g, '-')
-    .replace(/[^a-z0-9\-]/g, '')
+    .replace(/[^\w\s-]/g, '') // Removes non-word characters except spaces and hyphens
+    .replace(/\s+/g, '-') // Replaces spaces with hyphens
+    .replace(/-+/g, '-') // Removes multiple consecutive hyphens
+    .trim() // Trims leading/trailing spaces
 }
 
 type Child = string | { props: { children: Child[] } }
