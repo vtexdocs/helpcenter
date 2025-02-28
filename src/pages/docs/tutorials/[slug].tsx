@@ -229,7 +229,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       parentsArray,
       parentsArrayName,
       parentsArrayType,
-      'tutorial'
+      'tutorials'
     )
 
   if (type === 'tutorial-category') {
