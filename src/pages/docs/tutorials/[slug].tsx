@@ -254,7 +254,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     const childrenList: { slug: string; name: string }[] = []
     childrenArrayName.forEach((_el: string, idx: number) => {
       childrenList.push({
-        slug: `/${locale}/docs/tutorial/${childrenArraySlug[idx]}`,
+        slug: `/${locale}/docs/tutorials/${childrenArraySlug[idx]}`,
         name: childrenArrayName[idx],
       })
     })

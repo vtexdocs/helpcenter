@@ -118,7 +118,7 @@ export const updatesData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'updates_info_notes.description',
       }),
-      link: '/faq',
+      link: '/faqs',
     },
     {
       id: 'Announcements',
@@ -253,7 +253,7 @@ export const faqData = (intl: IntlShape) => {
         id: 'faq_order_error.description',
       }),
       productTeam: 'Channels',
-      link: '/faq/order-errors-in-marketplace-integrations',
+      link: '/faqs/order-errors-in-marketplace-integrations',
     },
     {
       Icon: WarningIcon,
@@ -264,7 +264,7 @@ export const faqData = (intl: IntlShape) => {
         id: 'faq_handling.description',
       }),
       productTeam: 'Post-purchase',
-      link: '/faq/why-has-my-order-stopped-on-ready-for-handling',
+      link: '/faqs/why-has-my-order-stopped-on-ready-for-handling',
     },
     {
       Icon: GraphIcon,
@@ -275,7 +275,7 @@ export const faqData = (intl: IntlShape) => {
         id: 'faq_product_visible.description',
       }),
       productTeam: 'Marketing & Merchandising',
-      link: '/faq/why-is-the-product-not-visible-on-the-website',
+      link: '/faqs/why-is-the-product-not-visible-on-the-website',
     },
     {
       Icon: PaperIcon,
@@ -286,7 +286,7 @@ export const faqData = (intl: IntlShape) => {
         id: 'faq_carrier.description',
       }),
       productTeam: 'Post-purchase',
-      link: '/faq/why-cant-i-see-my-carrier-on-checkout',
+      link: '/faqs/why-cant-i-see-my-carrier-on-checkout',
     },
   ]
   return data
@@ -1004,7 +1004,7 @@ export const additionalResourcesSitemap = (intl: IntlShape) => {
         name: intl.formatMessage({
           id: 'sitemap_page_section_additional_resources.faq',
         }),
-        link: '/faq',
+        link: '/faqs',
         icon: false,
       },
       {

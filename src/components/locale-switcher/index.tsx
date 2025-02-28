@@ -131,7 +131,7 @@ export default function LocaleSwitcher() {
       window.location.href = newPath
     } else if (
       currentPath.includes('/announcements') ||
-      currentPath.includes('/faq') ||
+      currentPath.includes('/faqs') ||
       currentPath.includes('/known-issues')
     ) {
       const contentType = newPathParts[1]
