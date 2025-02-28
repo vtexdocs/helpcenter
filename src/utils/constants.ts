@@ -51,7 +51,7 @@ export const documentationData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'documentation_tutorials.description',
       }),
-      link: '/docs/tutorial',
+      link: '/docs/tutorials',
     },
     {
       id: 'Developers Portal',
@@ -91,7 +91,7 @@ export const menuDocumentationData = (intl: IntlShape) => {
       description: intl.formatMessage({
         id: 'documentation_tutorials.description',
       }),
-      link: '/docs/tutorial',
+      link: '/docs/tutorials',
     },
     {
       id: 'Developers Portal',

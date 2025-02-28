@@ -2,7 +2,7 @@ export function getBreadcrumbsList(
   parents: string[],
   parentsNames: string[],
   parentsTypes: string[],
-  docsType: 'tutorial' | 'tracks'
+  docsType: 'tutorials' | 'tracks'
 ) {
   const breadcrumbs: { slug: string; name: string; type: string }[] = []
   parentsNames.forEach((_el: string, idx: number) => {
