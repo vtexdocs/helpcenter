@@ -28136,7 +28136,7 @@
                "es": "Preguntas frecuentes",
                "pt": "Perguntas frequentes"
            },
-           "slugPrefix": "faqs",
+           "slugPrefix": "faq",
            "categories": [
                {
                    "name": {
@@ -28144,7 +28144,7 @@
                        "pt": "Billing",
                        "es": "Billing"
                    },
-                   "slug": "faqs/Billing",
+                   "slug": "faq/Billing",
                    "origin": "",
                    "type": "category",
                    "children": [
@@ -28186,7 +28186,7 @@
                        "pt": "Channels",
                        "es": "Channels"
                    },
-                   "slug": "faqs/Channels",
+                   "slug": "faq/Channels",
                    "origin": "",
                    "type": "category",
                    "children": [
@@ -28963,7 +28963,7 @@
                        "pt": "Financial",
                        "es": "Financial"
                    },
-                   "slug": "faqs/Financial",
+                   "slug": "faq/Financial",
                    "origin": "",
                    "type": "category",
                    "children": [
@@ -29410,7 +29410,7 @@
                        "pt": "Identity",
                        "es": "Identity"
                    },
-                   "slug": "faqs/Identity",
+                   "slug": "faq/Identity",
                    "origin": "",
                    "type": "category",
                    "children": [
@@ -29617,7 +29617,7 @@
                        "pt": "Marketing & Merchandising",
                        "es": "Marketing & Merchandising"
                    },
-                   "slug": "faqs/Marketing & Merchandising",
+                   "slug": "faq/Marketing & Merchandising",
                    "origin": "",
                    "type": "category",
                    "children": [
@@ -30604,7 +30604,7 @@
                        "pt": "Master Data",
                        "es": "Master Data"
                    },
-                   "slug": "faqs/Master Data",
+                   "slug": "faq/Master Data",
                    "origin": "",
                    "type": "category",
                    "children": [
@@ -30796,7 +30796,7 @@
                        "pt": "Others",
                        "es": "Others"
                    },
-                   "slug": "faqs/Others",
+                   "slug": "faq/Others",
                    "origin": "",
                    "type": "category",
                    "children": [
@@ -31153,7 +31153,7 @@
                        "pt": "Post-purchase",
                        "es": "Post-purchase"
                    },
-                   "slug": "faqs/Post-purchase",
+                   "slug": "faq/Post-purchase",
                    "origin": "",
                    "type": "category",
                    "children": [
@@ -31855,7 +31855,7 @@
                        "pt": "Reliability",
                        "es": "Reliability"
                    },
-                   "slug": "faqs/Reliability",
+                   "slug": "faq/Reliability",
                    "origin": "",
                    "type": "category",
                    "children": [
@@ -31927,7 +31927,7 @@
                        "pt": "Shopping",
                        "es": "Shopping"
                    },
-                   "slug": "faqs/Shopping",
+                   "slug": "faq/Shopping",
                    "origin": "",
                    "type": "category",
                    "children": [
@@ -32404,7 +32404,7 @@
                        "pt": "VTEX IO",
                        "es": "VTEX IO"
                    },
-                   "slug": "faqs/VTEX IO",
+                   "slug": "faq/VTEX IO",
                    "origin": "",
                    "type": "category",
                    "children": [
