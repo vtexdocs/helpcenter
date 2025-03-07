@@ -209,7 +209,7 @@ export const getStaticProps: GetStaticProps = async ({
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
-  const docsPathsGLOBAL = await getFaqPaths('faqs', branch)
+  const docsPathsGLOBAL = await getFaqPaths('faq', branch)
   const logger = getLogger('FAQ')
   const currentLocale: localeType = locale
     ? (locale as localeType)
