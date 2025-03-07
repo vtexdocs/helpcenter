@@ -25,7 +25,7 @@ const FaqSection = () => {
           </Text>
         </Box>
         <Box sx={styles.leftButtonContainer}>
-          <Link href={'/faqs'}>
+          <Link href={'/faq'}>
             <Button sx={styles.button}>
               {intl.formatMessage({ id: 'landing_page_faq.button' })}
             </Button>
@@ -38,7 +38,7 @@ const FaqSection = () => {
         ))}
       </Flex>
       <Box sx={styles.bottomButtonContainer}>
-        <Link href={'/faqs'}>
+        <Link href={'/faq'}>
           <Button sx={styles.button}>
             {intl.formatMessage({ id: 'landing_page_faq.button' })}
           </Button>
