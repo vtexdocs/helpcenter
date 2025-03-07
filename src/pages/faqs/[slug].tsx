@@ -41,7 +41,7 @@ import { getMessages } from 'utils/get-messages'
 import DateText from 'components/date-text'
 import CopyLinkButton from 'components/copy-link-button'
 
-const docsPathsGLOBAL = await getFaqPaths('faqs')
+const docsPathsGLOBAL = await getFaqPaths('faq')
 
 interface Props {
   sectionSelected: string
@@ -180,7 +180,7 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
-      : await getFaqPaths('faqs', branch)
+      : await getFaqPaths('faq', branch)
 
   const logger = getLogger('FAQ')
 
@@ -286,7 +286,7 @@ export const getStaticProps: GetStaticProps = async ({
 
     const breadcrumbList: { slug: string; name: string; type: string }[] = [
       {
-        slug: '/faqs/',
+        slug: '/faq/',
         name: getMessages()[currentLocale]['landing_page_faq.title'],
         type: 'category',
       },

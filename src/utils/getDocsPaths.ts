@@ -51,7 +51,7 @@ export async function getDocsPaths(
     | 'tracks'
     | 'tutorials'
     | 'announcements'
-    | 'faqs'
+    | 'faq'
     | 'known-issues'
     | 'troubleshooting',
   branch = 'main'
