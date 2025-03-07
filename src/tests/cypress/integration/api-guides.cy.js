@@ -5,7 +5,7 @@ import { getMessages } from 'utils/get-messages'
 const messages = getMessages()
 describe('Tutorials documentation page', () => {
   before(() => {
-    cy.task('setUrl', '/docs/tutorial')
+    cy.task('setUrl', '/docs/tutorials')
     cy.writeFile('cypress.log', `#Tutorials documentation page#\n`, {
       flag: 'a+',
     })
@@ -73,7 +73,7 @@ describe('Tutorials documentation page', () => {
     })
 
     cy.url({ timeout: 10000 })
-      .should('match', /(\/tutorial\/.)/)
+      .should('match', /(\/tutorials\/.)/)
       .then((url) => cy.task('setUrl', url))
   })
 
@@ -94,7 +94,7 @@ describe('Tutorials documentation page', () => {
   })
 
   it('try to send feedback', () => {
-    cy.visit('/docs/tutorial/brands')
+    cy.visit('/docs/tutorials/brands')
 
     cy.get('[data-cy="feedback-section"]').scrollIntoView()
 
