@@ -1,4 +1,5 @@
 import { Box, Flex, Link } from '@vtex/brand-ui'
+import { useRouter } from 'next/router'
 import styles from './styles'
 import {
   getDeveloperPortalURL,
@@ -23,6 +24,8 @@ import LinkedinCircleIcon from 'components/icons/linkedin-circle-icon'
 
 const Footer = () => {
   const intl = useIntl()
+  const router = useRouter()
+  const currentPage = router.asPath.split('?')[0]
 
   const links = [
     {
@@ -47,7 +50,7 @@ const Footer = () => {
       message: intl.formatMessage({
         id: 'landing_page_footer_feedback.message',
       }),
-      to: () => getFeedbackURL(),
+      to: () => `${getFeedbackURL()}https://help.vtex.com${currentPage}`,
     },
     {
       message: intl.formatMessage({
