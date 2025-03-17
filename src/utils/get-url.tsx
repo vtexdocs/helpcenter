@@ -22,10 +22,6 @@ export const getSupportURL = () => {
   return 'https://help.vtex.com/en/support'
 }
 
-export const getSiteMapURL = () => {
-  return '/sitemap'
-}
-
 export const getLinkedinURL = () => {
   return 'https://linkedin.com/company/vtex'
 }
