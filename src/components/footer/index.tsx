@@ -5,7 +5,6 @@ import {
   getGithubURL,
   getCommunityURL,
   getFeedbackURL,
-  getSiteMapURL,
   getFacebookURL,
   getInstagramURL,
   getYoutubeURL,
@@ -48,12 +47,6 @@ const Footer = () => {
         id: 'landing_page_footer_feedback.message',
       }),
       to: () => getFeedbackURL(),
-    },
-    {
-      message: intl.formatMessage({
-        id: 'landing_page_footer_site_map.message',
-      }),
-      to: () => getSiteMapURL(),
     },
   ]
 
