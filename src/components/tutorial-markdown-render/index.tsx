@@ -67,14 +67,14 @@ const TutorialMarkdownRender = (props: Props) => {
       </Head>
       <PageHeader
         title={intl.formatMessage({
-          id: 'tutorials_page.title',
+          id: 'documentation_tutorials.title',
         })}
         description={intl.formatMessage({
-          id: 'tutorials_page.description',
+          id: 'documentation_tutorials.description',
         })}
         imageUrl={startHereImage}
         imageAlt={intl.formatMessage({
-          id: 'tutorials_page.title',
+          id: 'documentation_tutorials.title',
         })}
       />
       <DocumentContextProvider headings={props.headings}>

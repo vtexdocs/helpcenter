@@ -16,14 +16,14 @@ const TutorialIndexing = ({ ...props }) => {
     <>
       <PageHeader
         title={intl.formatMessage({
-          id: 'tutorials_page.title',
+          id: 'tutorials_landing_page.title',
         })}
         description={intl.formatMessage({
-          id: 'tutorials_page.description',
+          id: 'tutorials_landing_page.description',
         })}
         imageUrl={startHereImage}
         imageAlt={intl.formatMessage({
-          id: 'tutorials_page.title',
+          id: 'tutorials_landing_page.title',
         })}
       />
       <Flex sx={styles.innerContainer}>
