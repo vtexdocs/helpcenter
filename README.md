@@ -19,6 +19,13 @@
     - [Updating the navigation sidebar](#updating-the-navigation-sidebar)
   - [Redirects](#redirects)
     - [Creating a redirect](#creating-a-redirect)
+- [GitHub Actions](#github-actions)
+  - [Release Version Workflow](#release-version-workflow)
+  - [Verify Pull Request Labels](#verify-pull-request-labels)
+  - [Cypress Integration Tests](#cypress-integration-tests)
+  - [Cypress Extensive Tests](#cypress-extensive-tests)
+  - [Lighthouse Mobile Tests](#lighthouse-mobile-tests)
+  - [Lighthouse Desktop Tests](#lighthouse-desktop-tests)
 - [Contributing](#contributing)
   - [How to develop and propose a new contribution](#how-to-develop-and-propose-a-new-contribution)
   - [What to do when someone updated the `main` branch and I&#39;m developing something on my *feature branch*](#what-to-do-when-someone-updated-the-main-branch-and-im-developing-something-on-my-feature-branch)
@@ -520,6 +527,141 @@ Follow the steps below to create a new redirect:
    > **Important note:** You should select the `release-no` option in the `Labels` field of the PR.
 6. Send the PR link in the `#dev-portal-pr` Slack channel to be approved.
 7. Once PR is approved, apply the merge to update the navigation sidebar.
+
+## GitHub Actions
+
+The repository uses several GitHub Actions to automate various processes. Below is a detailed description of each action:
+
+### Release Version Workflow
+**File:** `.github/workflows/release-version.yml`
+
+This workflow automates the version release process when Pull Requests are merged into the `main` branch. It handles version bumping, changelog updates, and GitHub release creation.
+
+**Dependencies:**
+- `actions/checkout@v3`: Checks out the repository code
+  - Used to access the repository files and perform git operations
+  - Requires `GITHUB_TOKEN` secret for authentication
+- `actions/create-release@v1`: Creates GitHub releases
+  - Used to create new releases based on version tags
+  - Requires `GITHUB_TOKEN` secret for authentication
+
+**Trigger Conditions:**
+- Runs on PR merge to `main` branch
+- Supports different release types through PR labels:
+  - `release-major`: Major version bump
+  - `release-minor`: Minor version bump
+  - `release-patch`: Patch version bump
+  - `release-auto`: Automatic version bump based on commit messages
+  - `release-no`: No version bump
+
+### Verify Pull Request Labels
+**File:** `.github/workflows/verify-pr-labels.yml`
+
+This workflow ensures that Pull Requests have the correct labels for version management.
+
+**Dependencies:**
+- `jesusvasquez333/verify-pr-label-action@v1.4.0`: Validates PR labels
+  - Checks if PR has valid release labels
+  - Requires `GITHUB_TOKEN` secret for authentication
+
+**Trigger Conditions:**
+- Runs on PR events: opened, reopened, labeled, unlabeled, synchronize
+- Only runs on `main` branch
+- Validates against allowed labels: 'release-no', 'release-auto', 'release-patch', 'release-minor', 'release-major'
+
+### Cypress Integration Tests
+**File:** `.github/workflows/cypress.yml`
+
+This workflow runs Cypress integration tests against Pull Requests to ensure code quality.
+
+**Dependencies:**
+- `actions/checkout@v1`: Checks out the repository code
+- `fountainhead/action-wait-for-check@v1.1.0`: Waits for Netlify preview deployment
+  - Ensures tests run against the latest deployed version
+  - Requires `GITHUB_TOKEN` secret
+- `jakepartusch/wait-for-netlify-action@v1.4`: Waits for Netlify preview URL
+  - Ensures the preview site is accessible
+  - Requires `NETLIFY_TOKEN` secret
+- `wei/curl@v1`: Downloads navigation data
+  - Fetches navigation.json for test fixtures
+- `cypress-io/github-action@v5`: Runs Cypress tests
+  - Executes integration tests
+  - Requires environment variables:
+    - `CYPRESS_baseUrl`: URL to test against
+    - `CYPRESS_testProbability`: Test execution probability
+- `thollander/actions-comment-pull-request@v2`: Comments test results on PR
+  - Posts test summary as PR comment
+  - Requires `GITHUB_TOKEN` secret
+
+**Trigger Conditions:**
+- Runs on Pull Request events
+- Waits for Netlify preview deployment
+- Runs tests with 10% probability
+- Posts test results as PR comment
+
+### Cypress Extensive Tests
+**File:** `.github/workflows/cypress-extensive.yml`
+
+This workflow runs comprehensive Cypress tests against the production environment.
+
+**Dependencies:**
+- `actions/checkout@v1`: Checks out the repository code
+- `wei/curl@v1`: Downloads navigation data
+  - Fetches navigation.json for test fixtures
+- `cypress-io/github-action@v5`: Runs Cypress tests
+  - Executes integration tests
+  - Requires environment variables:
+    - `CYPRESS_baseUrl`: Set to https://developers.vtex.com
+    - `CYPRESS_testProbability`: Set to 1.0 (100% test execution)
+
+**Trigger Conditions:**
+- Manually triggered (workflow_dispatch)
+- Runs all tests against production environment
+- Generates summary report
+
+### Lighthouse Mobile Tests
+**File:** `.github/workflows/lighthouse-mobile.yml`
+
+This workflow runs Lighthouse performance tests against mobile configurations.
+
+**Dependencies:**
+- `actions/checkout@v1`: Checks out the repository code
+- `actions/setup-node@v1`: Sets up Node.js environment
+  - Configures Node.js 14.x
+- `kamranayub/wait-for-netlify-action@2.0.0`: Waits for Netlify preview
+  - Ensures tests run against deployed preview
+  - Requires `NETLIFY_TOKEN` secret
+- `@lhci/cli@0.8.x`: Lighthouse CI tool
+  - Runs performance tests
+  - Requires `LHCI_GITHUB_APP_TOKEN` secret
+
+**Trigger Conditions:**
+- Runs on Pull Request events
+- Waits for Netlify preview deployment
+- Runs mobile-specific Lighthouse tests
+- Uploads results to temporary public storage
+
+### Lighthouse Desktop Tests
+**File:** `.github/workflows/lighthouse-desktop.yml`
+
+This workflow runs Lighthouse performance tests against desktop configurations.
+
+**Dependencies:**
+- `actions/checkout@v1`: Checks out the repository code
+- `actions/setup-node@v1`: Sets up Node.js environment
+  - Configures Node.js 14.x
+- `kamranayub/wait-for-netlify-action@2.0.0`: Waits for Netlify preview
+  - Ensures tests run against deployed preview
+  - Requires `NETLIFY_TOKEN` secret
+- `@lhci/cli@0.8.x`: Lighthouse CI tool
+  - Runs performance tests
+  - Requires `LHCI_GITHUB_APP_TOKEN` secret
+
+**Trigger Conditions:**
+- Runs on Pull Request events
+- Waits for Netlify preview deployment
+- Runs desktop-specific Lighthouse tests
+- Uploads results to temporary public storage
 
 ## Contributing
 
