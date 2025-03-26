@@ -4140,7 +4140,7 @@
   resolved "https://registry.npmjs.org/@types/parse-json/-/parse-json-4.0.0.tgz"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
-"@types/probe-image-size@^7.2.5":
+"@types/probe-image-size@^7.2.0":
   version "7.2.5"
   resolved "https://registry.yarnpkg.com/@types/probe-image-size/-/probe-image-size-7.2.5.tgz#ffa9d6119a60db0b976c7fa6453eea6b9ac5f3bc"
   integrity sha512-9Bg6d/GNnjmhMMxadDstwrSlquuuLf0jQuPszbU6n3QUfybif3V/ryD3J2i9iaiC5JB/FU/8E41n88SM/UB+Tg==
