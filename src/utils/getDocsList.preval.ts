@@ -1,32 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/ban-ts-comment */
 import preval from 'next-plugin-preval'
+import { getGithubTree } from 'utils/github-utils'
+
 const docsList = {
   'billing-options': 'docs/guides/Getting Started/catalog-overview.md',
 }
 
-import octokit from 'utils/octokitConfig'
-
-async function getGithubTree(org: string, repo: string, ref: string) {
-  const response = octokit.request(
-    'GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true',
-    {
-      org: org,
-      repo: repo,
-      ref: ref,
-    }
-  )
-
-  return (await response).data
-}
-
-//https://api.github.com/repos/vtexdocs/devportal/commits?path=README.md
-
 async function getDocsList() {
-  console.log('getDocsList')
   const repoTree = await getGithubTree(
     'vtexdocs',
     'help-center-content',
-    'main'
+    'main',
+    'getDocsList'
   )
   // @ts-ignore
   repoTree.tree.map((node: any) => {

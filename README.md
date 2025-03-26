@@ -82,6 +82,32 @@ yarn dev
 
 3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### GitHub Integration
+
+The Help Center uses a sophisticated GitHub integration system for fetching and caching content. The system includes smart retry mechanisms, fallback strategies, and rate limit handling. Key features:
+
+- Multiple fallback options when GitHub API fails
+- Smart caching with promise deduplication
+- Intelligent rate limit handling
+- Comprehensive logging system
+
+For detailed documentation about the GitHub integration system, including architecture diagrams and configuration options, see [GITHUB-INTEGRATION.md](./GITHUB-INTEGRATION.md).
+
+### Logging Configuration
+
+The application uses a configurable logging system with the following log levels (from most to least verbose):
+- debug: Detailed debug information
+- info: General information about application flow
+- warn: Warning messages for potentially problematic situations
+- error: Error events that might still allow the application to continue running
+
+You can configure the minimum log level by setting the LOG_LEVEL environment variable in your .env.local file. Any log messages with a level lower than the configured level will be filtered out. The default level is 'warn'.
+
+Example configuration in .env.local:
+```
+LOG_LEVEL=warn  # Only show warnings and errors
+```
+
 ### Project Pattern
 
 Help Center is a [Next.js](https://nextjs.org/) app based on [React](https://reactjs.org/) and [Typescript](https://www.typescriptlang.org/).

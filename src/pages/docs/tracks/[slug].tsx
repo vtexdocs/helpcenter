@@ -11,43 +11,36 @@ import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
 import { remarkCodeHike } from '@code-hike/mdx'
-import remarkImages from 'utils/remark_plugins/plaiceholder'
-
+import theme from 'styles/code-hike-theme'
+import { remarkImages } from 'utils/remark_plugins/remarkImages'
 import { Box, Flex, Text } from '@vtex/brand-ui'
-
 import DocumentContextProvider from 'utils/contexts/documentContext'
-
 import Contributors from 'components/contributors'
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
 import SeeAlsoSection from 'components/see-also-section'
 import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
-
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
-// import getGithubFile from 'utils/getGithubFile'
 import { getDocsPaths as getTracksPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
-
 import styles from 'styles/documentation-page'
 import { ContributorsType } from 'utils/getFileContributors'
-
 import { getLogger } from 'utils/logging/log-util'
 import {
   flattenJSON,
-  getKeyByValue,
+  findSlugInSidebar,
   getParents,
+  getLocalizedSlug,
   localeType,
+  NavigationItem,
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
-
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
-
-import theme from 'styles/code-hike-theme'
 import TimeToRead from 'components/TimeToRead'
 import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 import CopyLinkButton from 'components/copy-link-button'
@@ -60,7 +53,7 @@ interface Props {
   breadcrumbList: { slug: string; name: string; type: string }[]
   content: string
   serialized: MDXRemoteSerializeResult
-  sidebarfallback: any //eslint-disable-line
+  sidebarfallback: NavigationItem[]
   contributors: ContributorsType[]
   path: string
   headingList: Item[]
@@ -81,11 +74,10 @@ interface Props {
   }
   isListed: boolean
   branch: string
+  slug: string
 }
 
 const TrackPage: NextPage<Props> = ({
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
   slug,
   serialized,
   path,
@@ -212,6 +204,14 @@ export const getServerSideProps: GetServerSideProps = async ({
       : await getTracksPaths('tracks', branch)
 
   const logger = getLogger('Start here')
+
+  // Check if slug exists in docsPaths
+  if (!docsPaths[slug]) {
+    logger.warn(`Slug '${slug}' not found in docsPaths for tracks`)
+    return {
+      notFound: true,
+    }
+  }
 
   const path = docsPaths[slug].find((e) => e.locale === locale)?.path
 
@@ -345,14 +345,16 @@ export const getServerSideProps: GetServerSideProps = async ({
       })
     )
 
-    const docsListSlug = jp.query(
-      sidebarfallback,
-      `$..[?(@.type=='markdown')]..slug`
-    )
+    // Process the JSONPath query to handle both string slugs and object slugs
+    const docsListSlug = jp
+      .query(sidebarfallback, `$..[?(@.type=='markdown')]..slug`)
+      .map((slugValue) => getLocalizedSlug(slugValue, currentLocale))
+
     const docsListName = jp.query(
       sidebarfallback,
       `$..[?(@.type=='markdown')]..name`
     )
+
     const indexOfSlug = docsListSlug.indexOf(slug)
     const pagination = {
       previousDoc: {
@@ -373,34 +375,57 @@ export const getServerSideProps: GetServerSideProps = async ({
       },
     }
 
-    const flattenedSidebar = flattenJSON(sidebarfallback)
-    const isListed: boolean = getKeyByValue(flattenedSidebar, slug)
-      ? true
-      : false
-    const keyPath = getKeyByValue(flattenedSidebar, slug)
+    // Flatten the sidebar and find the slug
+    const flattenedSidebar = flattenJSON(
+      sidebarfallback as unknown as Record<string, unknown>
+    )
+    const slugKey = findSlugInSidebar(flattenedSidebar, slug)
+
+    const isListed = Boolean(slugKey)
+
+    // Extract the key path to use with getParents
+    const keyPath = slugKey ? slugKey.split('.').slice(0, -1) : null
+
     const parentsArray: string[] = []
     const parentsArrayName: string[] = []
     const parentsArrayType: string[] = []
     let sectionSelected = ''
+
     if (keyPath) {
-      sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
+      sectionSelected = flattenedSidebar[
+        `${keyPath[0]}.documentation`
+      ] as string
       getParents(
-        keyPath,
+        keyPath as string[],
         'name',
         flattenedSidebar,
         currentLocale,
         parentsArrayName
       )
-      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+      getParents(
+        keyPath as string[],
+        'slug',
+        flattenedSidebar,
+        currentLocale,
+        parentsArray
+      )
+
       if (
         docsListName[indexOfSlug] &&
         docsListName[indexOfSlug][currentLocale]
       ) {
         parentsArrayName.push(docsListName[indexOfSlug][currentLocale])
       } else {
-        console.error(
-          `Error: docsListName or currentLocale not found for slug: ${slug}`
+        logger.warn(
+          `Warning: docsListName or currentLocale not found for slug: ${slug}. Using fallback.`
         )
+        // Use a fallback name instead of failing
+        const fallbackName = slug
+          .split('-')
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ')
+
+        parentsArrayName.push(fallbackName)
       }
     }
 

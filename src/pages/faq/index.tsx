@@ -2,7 +2,6 @@ import { Box, Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
-
 import { FaqCardDataElement, SortByType } from 'utils/typings/types'
 import Head from 'next/head'
 import styles from 'styles/filterable-cards-page'
@@ -24,6 +23,7 @@ import usePagination from '../../utils/hooks/usePagination'
 import Input from 'components/input'
 import SearchIcon from 'components/icons/search-icon'
 import ChipFilter from 'components/chip-filter'
+import { fetchContentBatch, FetchResult } from 'utils/githubBatchFetch'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -38,6 +38,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
+
   const itemsPerPage = 8
   const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<string[]>([])
@@ -57,7 +58,6 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
         const hasSearch: boolean = question.title
           .toLowerCase()
           .includes(search.toLowerCase())
-
         return hasFilter && hasSearch
       })
 
@@ -66,12 +66,10 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
         sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
       const dateB =
         sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
-
       return dateA.getTime() - dateB.getTime()
     })
 
     setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
-
     return data
   }, [filters, sortByValue, intl.locale, search])
 
@@ -176,7 +174,6 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
                 {intl.formatMessage({ id: 'faq_page.results_found' })}
               </Box>
             )}
-
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
                 {intl.formatMessage({ id: 'search_result.empty' })}
@@ -209,7 +206,10 @@ export const getStaticProps: GetStaticProps = async ({
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
-  const docsPathsGLOBAL = await getFaqPaths('faq', branch)
+  const docsPathsGLOBAL = (await getFaqPaths('faq', branch)) as Record<
+    string,
+    { locale: localeType; path: string }[]
+  >
   const logger = getLogger('FAQ')
   const currentLocale: localeType = locale
     ? (locale as localeType)
@@ -217,65 +217,53 @@ export const getStaticProps: GetStaticProps = async ({
 
   const slugs = Object.keys(docsPathsGLOBAL)
 
-  const fetchFromGithub = async (path: string, slug: string) => {
+  // Process each content item from the batch
+  async function processFaqContent(
+    result: FetchResult
+  ): Promise<FaqCardDataElement | null> {
+    if (!result.content) return null
+
     try {
-      const response = await fetch(
-        `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
-      )
-      const data = await response.text()
-      return { content: data, slug }
-    } catch (error) {
-      logger.error(`Error fetching data for path ${path}` + ' ' + error)
-      return { content: '', slug }
-    }
-  }
+      // Extract only the frontmatter to minimize parsing
+      const onlyFrontmatter = `---\n${result.content.split('---')[1]}---\n`
+      const { frontmatter } = await serialize(onlyFrontmatter, {
+        parseFrontmatter: true,
+      })
 
-  const batchSize = 100
-
-  const fetchBatch = async (batch: string[]) => {
-    const promises = batch.map(async (slug) => {
-      const path = docsPathsGLOBAL[slug]?.find(
-        (e) => e.locale === currentLocale
-      )?.path
-
-      if (path) return fetchFromGithub(path, slug)
-
-      return { content: '', slug }
-    })
-
-    return Promise.all(promises)
-  }
-
-  const faqData: FaqCardDataElement[] = []
-
-  for (let i = 0; i < slugs.length; i += batchSize) {
-    const batch = slugs.slice(i, i + batchSize)
-    const batchResults = await fetchBatch(batch)
-
-    for (const data of batchResults) {
-      if (data?.content) {
-        try {
-          const onlyFrontmatter = `---\n${data.content.split('---')[1]}---\n`
-
-          const { frontmatter } = await serialize(onlyFrontmatter, {
-            parseFrontmatter: true,
-          })
-
-          if (frontmatter)
-            faqData.push({
-              title: frontmatter.title,
-              slug: data.slug,
-              createdAt: String(frontmatter.createdAt),
-              updatedAt: String(frontmatter.updatedAt),
-              productTeam: frontmatter.productTeam,
-              status: frontmatter.status,
-            })
-        } catch (error) {
-          logger.error(`${error}`)
-        }
+      if (!frontmatter) {
+        logger.warn(`No frontmatter found for ${result.slug}`)
+        return null
       }
+
+      return {
+        title: frontmatter.title,
+        slug: result.slug,
+        createdAt: String(frontmatter.createdAt),
+        updatedAt: String(frontmatter.updatedAt),
+        productTeam: frontmatter.productTeam,
+        status: frontmatter.status,
+      }
+    } catch (error) {
+      logger.error(
+        `Error processing frontmatter for ${result.slug}: ${
+          error instanceof Error ? error.message : String(error)
+        }`
+      )
+      return null
     }
   }
+
+  // Use the new batch fetching utility
+  const faqData = await fetchContentBatch(
+    docsPathsGLOBAL,
+    slugs,
+    currentLocale,
+    branch,
+    50, // Smaller batch size to avoid overwhelming GitHub
+    processFaqContent
+  )
+
+  logger.info(`Successfully processed ${faqData.length} FAQ items`)
 
   return {
     props: {

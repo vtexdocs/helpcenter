@@ -10,8 +10,6 @@ import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
 
-import remarkImages from 'utils/remark_plugins/plaiceholder'
-
 import { Item, LibraryContext } from '@vtexdocs/components'
 
 import getHeadings from 'utils/getHeadings'
@@ -40,6 +38,7 @@ import TutorialIndexing from 'components/tutorial-index'
 import TutorialMarkdownRender from 'components/tutorial-markdown-render'
 import theme from 'styles/code-hike-theme'
 import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
+import { remarkImages } from 'utils/remark_plugins/remarkImages'
 
 // import { ParsedUrlQuery } from 'querystring'
 
@@ -185,7 +184,9 @@ export const getServerSideProps: GetServerSideProps = async ({
   const logger = getLogger('Tutorials')
 
   const sidebarfallback = await getNavigation()
-  const flattenedSidebar = flattenJSON(sidebarfallback)
+  const flattenedSidebar = flattenJSON(
+    sidebarfallback as unknown as Record<string, unknown>
+  )
   const keyPath = getKeyByValue(flattenedSidebar, slug)
 
   if (!keyPath) {
@@ -194,16 +195,24 @@ export const getServerSideProps: GetServerSideProps = async ({
     }
   }
 
-  const keyPathType = keyPath.split('slug')[0].concat('type')
+  const keyPathArray =
+    typeof keyPath === 'string' ? keyPath.split('.') : keyPath
+  const keyPathType = keyPathArray.join('.').split('slug')[0].concat('type')
   const type = flattenedSidebar[keyPathType]
 
   const parentsArray: string[] = []
   const parentsArrayName: string[] = []
   const parentsArrayType: string[] = []
 
-  const isListed = !(keyPath === undefined)
+  const isListed = true
 
-  getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+  getParents(
+    keyPathArray,
+    'slug',
+    flattenedSidebar,
+    currentLocale,
+    parentsArray
+  )
   parentsArray.push(slug)
 
   // Ensure parentsArray does not contain undefined values
@@ -211,17 +220,31 @@ export const getServerSideProps: GetServerSideProps = async ({
     item === undefined ? null : item
   )
 
-  getParents(keyPath, 'name', flattenedSidebar, currentLocale, parentsArrayName)
-  const mainKeyPath = keyPath.split('slug')[0]
+  getParents(
+    keyPathArray,
+    'name',
+    flattenedSidebar,
+    currentLocale,
+    parentsArrayName
+  )
+  const mainKeyPath = keyPathArray.join('.').split('slug')[0]
   const nameKeyPath = mainKeyPath.concat(`name.${locale}`)
-  const categoryTitle = flattenedSidebar[nameKeyPath]
+  const categoryTitle = flattenedSidebar[nameKeyPath] as string
   parentsArrayName.push(categoryTitle)
 
-  getParents(keyPath, 'type', flattenedSidebar, currentLocale, parentsArrayType)
+  getParents(
+    keyPathArray,
+    'type',
+    flattenedSidebar,
+    currentLocale,
+    parentsArrayType
+  )
   const typeKeyPath = mainKeyPath.concat('type')
-  parentsArrayType.push(flattenedSidebar[typeKeyPath])
+  parentsArrayType.push(flattenedSidebar[typeKeyPath] as string)
 
-  const sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
+  const sectionSelected = flattenedSidebar[
+    `${keyPath[0]}.documentation`
+  ] as string
   console.log('TUTORIAL', sectionSelected)
 
   const breadcrumbList: { slug: string; name: string; type: string }[] =
@@ -235,16 +258,17 @@ export const getServerSideProps: GetServerSideProps = async ({
   if (type === 'tutorial-category') {
     const childrenArrayName: string[] = []
     const childrenArraySlug: string[] = []
+    const pathString = keyPathArray.join('.')
 
     getChildren(
-      keyPath,
+      pathString,
       'name',
       flattenedSidebar,
       currentLocale,
       childrenArrayName
     )
     getChildren(
-      keyPath,
+      pathString,
       'slug',
       flattenedSidebar,
       currentLocale,

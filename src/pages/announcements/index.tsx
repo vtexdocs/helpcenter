@@ -2,7 +2,6 @@ import { Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import getNavigation from 'utils/getNavigation'
-
 import { AnnouncementDataElement, SortByType } from 'utils/typings/types'
 import Head from 'next/head'
 import styles from 'styles/announcements-page'
@@ -21,6 +20,7 @@ import AnnouncementCard from 'components/announcement-card'
 import { sortBy } from 'utils/constants'
 import SearchIcon from 'components/icons/search-icon'
 import Input from 'components/input'
+import { fetchContentBatch, FetchResult } from 'utils/githubBatchFetch'
 
 interface Props {
   sidebarfallback: any //eslint-disable-line
@@ -35,6 +35,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
+
   const itemsPerPage = 8
   const [searchTerm, setSearchTerm] = useState('')
   const [page, setPage] = useState({ curr: 1, total: 1 })
@@ -52,12 +53,10 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
         sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
       const dateB =
         sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
-
       return dateA.getTime() - dateB.getTime()
     })
 
     setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
-
     return data
   }, [searchTerm, sortByValue, intl.locale])
 
@@ -158,74 +157,64 @@ export const getStaticProps: GetStaticProps = async ({
       ? JSON.parse(JSON.stringify(previewData)).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
-  const docsPathsGLOBAL = await getAnnouncementsPaths('announcements', branch)
-
+  const docsPathsGLOBAL = (await getAnnouncementsPaths(
+    'announcements',
+    branch
+  )) as Record<string, { locale: localeType; path: string }[]>
   const logger = getLogger('Announcements')
-
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
-
   const slugs = Object.keys(docsPathsGLOBAL)
 
-  const fetchFromGithub = async (path: string, slug: string) => {
+  // Process each content item from the batch
+  async function processAnnouncementContent(
+    result: FetchResult
+  ): Promise<AnnouncementDataElement | null> {
+    if (!result.content) return null
+
     try {
-      const response = await fetch(
-        `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
-      )
-      const data = await response.text()
-      return { content: data, slug }
-    } catch (error) {
-      logger.error(`Error fetching data for path ${path}` + ' ' + error)
-      return { content: '', slug }
-    }
-  }
+      // Extract only the frontmatter to minimize parsing
+      const onlyFrontmatter = `---\n${result.content.split('---')[1]}---\n`
+      const { frontmatter } = await serialize(onlyFrontmatter, {
+        parseFrontmatter: true,
+      })
 
-  const batchSize = 100
-
-  const fetchBatch = async (batch: string[]) => {
-    const promises = batch.map(async (slug) => {
-      const path = docsPathsGLOBAL[slug]?.find(
-        (e) => e.locale === currentLocale
-      )?.path
-
-      if (path) return fetchFromGithub(path, slug)
-
-      return { content: '', slug }
-    })
-
-    return Promise.all(promises)
-  }
-
-  const announcementsData: AnnouncementDataElement[] = []
-
-  for (let i = 0; i < slugs.length; i += batchSize) {
-    const batch = slugs.slice(i, i + batchSize)
-    const batchResults = await fetchBatch(batch)
-
-    for (const data of batchResults) {
-      if (data?.content) {
-        try {
-          const onlyFrontmatter = `---\n${data.content.split('---')[1]}---\n`
-
-          const { frontmatter } = await serialize(onlyFrontmatter, {
-            parseFrontmatter: true,
-          })
-
-          if (frontmatter)
-            announcementsData.push({
-              title: frontmatter.title ?? null,
-              url: `announcements/${data.slug}`,
-              createdAt: String(frontmatter.createdAt),
-              updatedAt: String(frontmatter.updatedAt),
-              status: frontmatter.status ?? null,
-            })
-        } catch (error) {
-          logger.error(`${error}`)
-        }
+      if (!frontmatter) {
+        logger.warn(`No frontmatter found for ${result.slug}`)
+        return null
       }
+
+      return {
+        title: frontmatter.title ?? null,
+        url: `announcements/${result.slug}`,
+        createdAt: String(frontmatter.createdAt),
+        updatedAt: String(frontmatter.updatedAt),
+        status: frontmatter.status ?? null,
+      }
+    } catch (error) {
+      logger.error(
+        `Error processing frontmatter for ${result.slug}: ${
+          error instanceof Error ? error.message : String(error)
+        }`
+      )
+      return null
     }
   }
+
+  // Use the new batch fetching utility
+  const announcementsData = await fetchContentBatch(
+    docsPathsGLOBAL,
+    slugs,
+    currentLocale,
+    branch,
+    50, // Smaller batch size to avoid overwhelming GitHub
+    processAnnouncementContent
+  )
+
+  logger.info(
+    `Successfully processed ${announcementsData.length} announcements`
+  )
 
   return {
     props: {

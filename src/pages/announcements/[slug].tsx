@@ -10,8 +10,7 @@ import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
 import { remarkCodeHike } from '@code-hike/mdx'
 import theme from 'styles/code-hike-theme'
-
-import remarkImages from 'utils/remark_plugins/plaiceholder'
+import { remarkImages } from 'utils/remark_plugins/remarkImages'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
 
@@ -310,13 +309,26 @@ export const getStaticProps: GetStaticProps = async ({
       })
     )
 
-    const flattenedSidebar = flattenJSON(sidebarfallback)
+    // Convert to unknown first, then to Record<string, unknown>
+    const flattenedSidebar = flattenJSON(
+      sidebarfallback as unknown as Record<string, unknown>
+    )
     const keyPath = getKeyByValue(flattenedSidebar, slug)
     const parentsArray: string[] = []
     let sectionSelected = ''
     if (keyPath) {
-      sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
-      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+      sectionSelected = flattenedSidebar[
+        `${keyPath[0]}.documentation`
+      ] as string
+      // Convert keyPath to array if it's a string
+      const keyPathArray = typeof keyPath === 'string' ? [keyPath] : keyPath
+      getParents(
+        keyPathArray,
+        'slug',
+        flattenedSidebar,
+        currentLocale,
+        parentsArray
+      )
       parentsArray.push(slug)
     }
 

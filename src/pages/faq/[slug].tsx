@@ -10,8 +10,7 @@ import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
 import { remarkCodeHike } from '@code-hike/mdx'
 import theme from 'styles/code-hike-theme'
-
-import remarkImages from 'utils/remark_plugins/plaiceholder'
+import { remarkImages } from 'utils/remark_plugins/remarkImages'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
 
@@ -35,7 +34,9 @@ import { ContributorsType } from 'utils/getFileContributors'
 import { getLogger } from 'utils/logging/log-util'
 import { localeType } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
-import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
+
+// Remove remarkReadingTime import
+
 import { getDocsPaths as getFaqPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
 import DateText from 'components/date-text'
@@ -181,8 +182,15 @@ export const getStaticProps: GetStaticProps = async ({
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
       : await getFaqPaths('faq', branch)
-
   const logger = getLogger('FAQ')
+
+  // Check if slug exists in docsPaths
+  if (!docsPaths[slug]) {
+    logger.warn(`Slug '${slug}' not found in docsPaths for faq`)
+    return {
+      notFound: true,
+    }
+  }
 
   const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
 
@@ -259,12 +267,11 @@ export const getStaticProps: GetStaticProps = async ({
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [
+          [remarkCodeHike, theme],
           remarkGFM,
           remarkImages,
-          [remarkCodeHike, theme],
           [getHeadings, { headingList }],
           remarkBlockquote,
-          remarkReadingTime,
         ],
         useDynamicImport: true,
         rehypePlugins: [

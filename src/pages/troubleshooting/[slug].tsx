@@ -23,13 +23,15 @@ import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
-import remarkImages from 'utils/remark_plugins/plaiceholder'
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 import { getMessages } from 'utils/get-messages'
 import TimeToRead from 'components/TimeToRead'
 import CopyLinkButton from 'components/copy-link-button'
+import { remarkCodeHike } from '@code-hike/mdx'
+import theme from 'styles/code-hike-theme'
+import { remarkImages } from 'utils/remark_plugins/remarkImages'
 
 interface Props {
   sectionSelected: string
@@ -163,13 +165,22 @@ export const getStaticProps: GetStaticProps = async ({
       : 'main'
   const branch = preview ? previewBranch : 'main'
   const slug = params?.slug as string
-  const currentLocale: localeType = (locale ?? 'en') as localeType
+  const currentLocale: localeType = locale
+    ? (locale as localeType)
+    : ('en' as localeType)
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
       : await getTroubleshootingPaths('troubleshooting', branch)
+  const logger = getLogger('Troubleshooting')
 
-  const logger = getLogger('Start here')
+  // Check if slug exists in docsPaths
+  if (!docsPaths[slug]) {
+    logger.warn(`Slug '${slug}' not found in docsPaths for troubleshooting`)
+    return {
+      notFound: true,
+    }
+  }
 
   const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
 
@@ -246,12 +257,14 @@ export const getStaticProps: GetStaticProps = async ({
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [
+          [remarkCodeHike, theme],
           remarkGFM,
           remarkImages,
           [getHeadings, { headingList }],
           remarkBlockquote,
           remarkReadingTime,
         ],
+        useDynamicImport: true,
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],

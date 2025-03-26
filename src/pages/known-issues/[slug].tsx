@@ -10,7 +10,7 @@ import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
 import { remarkCodeHike } from '@code-hike/mdx'
 import theme from 'styles/code-hike-theme'
-import remarkImages from 'utils/remark_plugins/plaiceholder'
+import { remarkImages } from 'utils/remark_plugins/remarkImages'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
 
@@ -24,7 +24,6 @@ import TimeToRead from 'components/TimeToRead'
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
-// import getGithubFile from 'utils/getGithubFile'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -35,14 +34,16 @@ import { ContributorsType } from 'utils/getFileContributors'
 import { getLogger } from 'utils/logging/log-util'
 import { localeType } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
-// import { ParsedUrlQuery } from 'querystring'
 
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
+
 import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
 import Tag from 'components/tag'
 import DateText from 'components/date-text'
 import CopyLinkButton from 'components/copy-link-button'
+import { retryWithRateLimit } from 'utils/retry-util'
+import { fetchContentSafely } from 'utils/githubBatchFetch'
 
 const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
 
@@ -190,142 +191,222 @@ export const getStaticProps: GetStaticProps = async ({
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
-  const docsPaths =
-    process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
-      ? docsPathsGLOBAL
-      : await getKnownIssuesPaths('known-issues', branch)
+  const logger = getLogger('Known Issues')
 
-  const logger = getLogger('Start here')
+  try {
+    // Get docsPaths with error handling
+    let docsPaths: Record<string, { locale: string; path: string }[]>
 
-  const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
-
-  if (!path) {
-    return {
-      notFound: true,
+    try {
+      docsPaths =
+        process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
+          ? docsPathsGLOBAL
+          : await getKnownIssuesPaths('known-issues', branch)
+    } catch (pathError) {
+      logger.error(
+        `Failed to fetch doc paths: ${
+          pathError instanceof Error ? pathError.message : String(pathError)
+        }`
+      )
+      return { notFound: true }
     }
-  }
 
-  let documentationContent =
-    (await fetch(
-      `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
-    )
-      .then((res) => res.text())
-      .catch((err) => console.log(err))) || ''
-
-  // Serialize content and parse frontmatter
-  const serialized = await serialize(documentationContent, {
-    parseFrontmatter: true,
-  })
-
-  // Check if status is "PUBLISHED"
-  const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
-  if (!isPublished) {
-    return {
-      notFound: true,
+    // Check if slug exists in docsPaths
+    if (!docsPaths[slug]) {
+      logger.warn(`Slug '${slug}' not found in docsPaths for known-issues`)
+      return { notFound: true }
     }
-  }
 
-  const contributors =
-    (await fetch(
-      `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
+    const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
+
+    if (!path) {
+      return { notFound: true }
+    }
+
+    // Fetch document content with proper retry handling
+    let documentationContent = ''
+    try {
+      // Use fetchContentSafely from githubBatchFetch instead of direct fetch
+      const fetchResult = await fetchContentSafely(path, slug, branch)
+
+      if (fetchResult.error) {
+        throw new Error(`Failed to fetch content: ${fetchResult.error}`)
       }
-    )
-      .then((res) => res.json())
-      .then(({ users }) => {
-        const result: ContributorsType[] = []
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        for (let i = 0; i < users.length; i++) {
-          const user = users[i]
-          if (user.id === '41898282') continue
-          result.push({
-            name: user.login,
-            login: user.login,
-            avatar: user.primaryAvatarUrl,
-            userPage: `https://github.com${user.profileLink}`,
-          })
-        }
 
-        return result
+      documentationContent = fetchResult.content
+
+      if (!documentationContent) {
+        logger.warn(`Empty content for ${path}`)
+        return { notFound: true }
+      }
+    } catch (fetchError) {
+      logger.error(
+        `Error fetching documentation content: ${
+          fetchError instanceof Error ? fetchError.message : String(fetchError)
+        }`
+      )
+      return { notFound: true }
+    }
+
+    // Serialize content and parse frontmatter
+    let serialized
+    try {
+      serialized = await serialize(documentationContent, {
+        parseFrontmatter: true,
       })
-      .catch((err) => console.log(err))) || []
+    } catch (serializeError) {
+      logger.error(
+        `Error serializing markdown: ${
+          serializeError instanceof Error
+            ? serializeError.message
+            : String(serializeError)
+        }`
+      )
+      return { notFound: true }
+    }
 
-  let format: 'md' | 'mdx' = 'mdx'
-  try {
-    if (path.endsWith('.md')) {
-      documentationContent = escapeCurlyBraces(documentationContent)
-      documentationContent = replaceHTMLBlocks(documentationContent)
+    // Check if status is "PUBLISHED"
+    const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
+    if (!isPublished) {
+      return { notFound: true }
+    }
+
+    // Get contributors with retry handling
+    let contributors: ContributorsType[] = []
+    try {
+      // Use retryWithRateLimit from retry-util.ts for GitHub API calls
+      contributors = await retryWithRateLimit(
+        async () => {
+          const contributorsResponse = await fetch(
+            `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
+            {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+              },
+            }
+          )
+
+          if (!contributorsResponse.ok) {
+            throw new Error(
+              `Failed to fetch contributors: ${contributorsResponse.status}`
+            )
+          }
+
+          const { users } = await contributorsResponse.json()
+          const result: ContributorsType[] = []
+
+          for (let i = 0; i < users.length; i++) {
+            const user = users[i]
+            if (user.id === '41898282') continue
+            result.push({
+              name: user.login,
+              login: user.login,
+              avatar: user.primaryAvatarUrl,
+              userPage: `https://github.com${user.profileLink}`,
+            })
+          }
+
+          return result
+        },
+        {
+          maxRetries: 3,
+          operationName: `fetch-contributors:${slug}`,
+          handleRateLimit: true,
+        }
+      )
+    } catch (contributorsError) {
+      logger.warn(
+        `Error fetching contributors (non-critical): ${
+          contributorsError instanceof Error
+            ? contributorsError.message
+            : String(contributorsError)
+        }`
+      )
+      // Continue with empty contributors rather than failing
+    }
+
+    let format: 'md' | 'mdx' = 'mdx'
+    try {
+      if (path.endsWith('.md')) {
+        documentationContent = escapeCurlyBraces(documentationContent)
+        documentationContent = replaceHTMLBlocks(documentationContent)
+      }
+    } catch (error) {
+      logger.error(`${error}`)
+      format = 'md'
+    }
+
+    try {
+      const headingList: Item[] = []
+      let serialized = await serialize(documentationContent, {
+        parseFrontmatter: true,
+        mdxOptions: {
+          remarkPlugins: [
+            [remarkCodeHike, theme],
+            remarkGFM,
+            remarkImages,
+            [getHeadings, { headingList }],
+            remarkBlockquote,
+            remarkReadingTime,
+          ],
+          useDynamicImport: true,
+          rehypePlugins: [
+            [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
+          ],
+          format,
+        },
+      })
+
+      const sidebarfallback = await getNavigation()
+      serialized = JSON.parse(JSON.stringify(serialized))
+
+      logger.info(`Processing ${slug}`)
+      const seeAlsoData: {
+        url: string
+        title: string
+        category: string
+      }[] = []
+      const breadcrumbList: { slug: string; name: string; type: string }[] = [
+        {
+          slug: '/docs/known-issues/',
+          name: getMessages()[currentLocale]['known_issues_page.title'],
+          type: 'category',
+        },
+        {
+          slug,
+          name: serialized?.frontmatter?.title ?? '',
+          type: 'markdown',
+        },
+      ]
+
+      return {
+        props: {
+          slug,
+          serialized,
+          sidebarfallback,
+          headingList,
+          contributors,
+          path,
+          seeAlsoData,
+          breadcrumbList,
+          branch,
+        },
+        revalidate: 600,
+      }
+    } catch (error) {
+      logger.error(`Error while processing ${path}\n${error}`)
+      return {
+        notFound: true,
+      }
     }
   } catch (error) {
-    logger.error(`${error}`)
-    format = 'md'
-  }
-
-  try {
-    const headingList: Item[] = []
-    let serialized = await serialize(documentationContent, {
-      parseFrontmatter: true,
-      mdxOptions: {
-        remarkPlugins: [
-          [remarkCodeHike, theme],
-          remarkGFM,
-          remarkImages,
-          [getHeadings, { headingList }],
-          remarkBlockquote,
-          remarkReadingTime,
-        ],
-        useDynamicImport: true,
-        rehypePlugins: [
-          [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
-        ],
-        format,
-      },
-    })
-
-    const sidebarfallback = await getNavigation()
-    serialized = JSON.parse(JSON.stringify(serialized))
-
-    logger.info(`Processing ${slug}`)
-    const seeAlsoData: {
-      url: string
-      title: string
-      category: string
-    }[] = []
-
-    const breadcrumbList: { slug: string; name: string; type: string }[] = [
-      {
-        slug: '/docs/known-issues/',
-        name: getMessages()[currentLocale]['known_issues_page.title'],
-        type: 'category',
-      },
-      {
-        slug,
-        name: serialized?.frontmatter?.title ?? '',
-        type: 'markdown',
-      },
-    ]
-
-    return {
-      props: {
-        slug,
-        serialized,
-        sidebarfallback,
-        headingList,
-        contributors,
-        path,
-        seeAlsoData,
-        breadcrumbList,
-        branch,
-      },
-      revalidate: 600,
-    }
-  } catch (error) {
-    logger.error(`Error while processing ${path}\n${error}`)
+    logger.error(
+      `Unhandled error in getStaticProps: ${
+        error instanceof Error ? error.message : String(error)
+      }`
+    )
     return {
       notFound: true,
     }

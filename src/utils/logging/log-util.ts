@@ -1,55 +1,43 @@
-import chalk from 'chalk'
-import https from 'https'
-
-function sendToZapier(msg: string) {
-  const postData = JSON.stringify({
-    msg,
-  })
-
-  const options = {
-    hostname: 'hooks.zapier.com',
-    path: process.env.ZAPIER_LOG_HOOK_PATH,
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Content-Length': Buffer.byteLength(postData),
-    },
-  }
-
-  const req = https.request(options)
-
-  // Write data to request body
-  req.write(postData)
-  req.end()
+type LogLevel = 'debug' | 'info' | 'warn' | 'error'
+const LOG_LEVELS: Record<LogLevel, number> = {
+  debug: 0,
+  info: 1,
+  warn: 2,
+  error: 3,
 }
 
-chalk.level = 3
+const DEFAULT_LOG_LEVEL = 'warn'
 
-function Logger(level: string, name: string, msg: string) {
-  const msgToSend = `${level} - ${name}\n${msg}`
-  switch (level) {
-    case 'INFO':
-      console.log(chalk.bgGreenBright(msgToSend))
-      break
-    case 'ERROR':
-      console.log(chalk.bgRed(msgToSend))
-      if (process.env.ZAPIER_LOG_HOOK_PATH) {
-        sendToZapier(msgToSend)
-      }
-      break
-    default:
-      console.log(chalk.bgBlue(msgToSend))
-      break
-  }
+let currentLogLevel = (process.env.LOG_LEVEL as LogLevel) || DEFAULT_LOG_LEVEL
+
+export const setLogLevel = (level: LogLevel) => {
+  currentLogLevel = level
 }
 
-export function getLogger(name: string) {
+export const getLogger = (name: string) => {
+  const shouldLog = (level: LogLevel) =>
+    LOG_LEVELS[level] >= LOG_LEVELS[currentLogLevel]
+
   return {
-    error: (msg: string) => {
-      Logger('ERROR', name, msg)
+    info: (message: string) => {
+      if (shouldLog('info')) {
+        console.log(`[${name}] INFO: ${message}`)
+      }
     },
-    info: (msg: string) => {
-      Logger('INFO', name, msg)
+    error: (message: string) => {
+      if (shouldLog('error')) {
+        console.error(`[${name}] ERROR: ${message}`)
+      }
+    },
+    warn: (message: string) => {
+      if (shouldLog('warn')) {
+        console.warn(`[${name}] WARN: ${message}`)
+      }
+    },
+    debug: (message: string) => {
+      if (shouldLog('debug')) {
+        console.debug(`[${name}] DEBUG: ${message}`)
+      }
     },
   }
 }
