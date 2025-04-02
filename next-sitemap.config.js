@@ -11,17 +11,16 @@ module.exports = {
       lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
       alternateRefs: [
         {
-          href: `${siteUrl}/pt/${path}`,
+          href: `${siteUrl}/pt/`,
           hreflang: 'pt',
         },
         {
-          href: `${siteUrl}/es/${path}`,
+          href: `${siteUrl}/es/`,
           hreflang: 'es',
         },
       ],
     }
   },
-  generateIndexSitemap: false,
   exclude: ['/404', '/*/404', '/500', '/*/500', 'server-sitemap.xml'],
   generateRobotsTxt: true,
   robotsTxtOptions: {
