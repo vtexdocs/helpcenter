@@ -33,7 +33,8 @@ import styles from 'styles/documentation-page'
 import { ContributorsType } from 'utils/getFileContributors'
 
 import { getLogger } from 'utils/logging/log-util'
-import { localeType } from 'utils/navigation-utils'
+import { flattenJSON, getKeyByValue, localeType } from 'utils/navigation-utils'
+import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { MarkdownRenderer } from '@vtexdocs/components'
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import { getDocsPaths as getFaqPaths } from 'utils/getDocsPaths'
@@ -187,9 +188,23 @@ export const getStaticProps: GetStaticProps = async ({
   const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
 
   if (!path) {
-    return {
-      notFound: true,
+    const sidebarfallback = await getNavigation()
+    const flattenedSidebar = flattenJSON(sidebarfallback)
+    const keyPath = getKeyByValue(flattenedSidebar, slug)
+
+    if (!keyPath) {
+      return {
+        notFound: true,
+      }
     }
+
+    // If the path is not found, the function below redirects the user to the localized URL. If the localized URL is not found, it returns a 404 page.
+    return redirectToLocalizedUrl(
+      keyPath,
+      currentLocale,
+      flattenedSidebar,
+      'faq'
+    )
   }
 
   let documentationContent =
