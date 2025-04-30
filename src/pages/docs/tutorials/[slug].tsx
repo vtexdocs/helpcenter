@@ -15,6 +15,7 @@ import remarkImages from 'utils/remark_plugins/plaiceholder'
 import { Item, LibraryContext } from '@vtexdocs/components'
 
 import getHeadings from 'utils/getHeadings'
+import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import getNavigation from 'utils/getNavigation'
 // import getGithubFile from 'utils/getGithubFile'
 import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
@@ -189,25 +190,8 @@ export const getServerSideProps: GetServerSideProps = async ({
   const keyPath = getKeyByValue(flattenedSidebar, slug)
 
   if (!keyPath) {
-    console.log('KeyPath not found (if (!keyPath)')
     return {
       notFound: true,
-    }
-  } else {
-    const keypathLocale = keyPath.split('slug.')[1]
-
-    if (!(locale === keypathLocale)) {
-      const keyPathWithoutLocale = keyPath.split('.slug')[0]
-      const localizedSlug =
-        flattenedSidebar[`${keyPathWithoutLocale}.slug.${locale}`]
-      if (localizedSlug) {
-        return {
-          redirect: {
-            destination: `/${locale}/docs/tutorials/${localizedSlug}`,
-            permanent: true,
-          },
-        }
-      }
     }
   }
 
@@ -324,10 +308,13 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
   if (!path) {
-    console.log('Path not found (if (!path))')
-    return {
-      notFound: true,
-    }
+    // If the path is not found, the function below redirects the user to the localized URL. If the localized URL is not found, it returns a 404 page.
+    return redirectToLocalizedUrl(
+      keyPath,
+      currentLocale,
+      flattenedSidebar,
+      'tutorials'
+    )
   }
 
   let documentationContent = await fetch(
