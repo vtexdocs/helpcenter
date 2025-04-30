@@ -152,7 +152,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({
+export const getStaticProps: GetStaticProps<Props> = async ({
   params,
   locale,
   preview,
@@ -308,6 +308,8 @@ export const getStaticProps: GetStaticProps = async ({
         seeAlsoData,
         breadcrumbList,
         branch,
+        sectionSelected: 'troubleshooting',
+        content: documentationContent,
       },
       revalidate: 600,
     }

@@ -1,3 +1,19 @@
+import { GetStaticPropsResult } from 'next'
+import { ContributorsType } from './getFileContributors'
+import { Item } from '@vtexdocs/components'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+
+interface Props {
+  sectionSelected: string
+  breadcrumbList: { slug: string; name: string; type: string }[]
+  content: string
+  serialized: MDXRemoteSerializeResult
+  contributors: ContributorsType[]
+  path: string
+  headingList: Item[]
+  branch: string
+}
+
 export default async function redirectToLocalizedUrl(
   keyPath: string,
   locale: 'en' | 'es' | 'pt',
@@ -9,7 +25,7 @@ export default async function redirectToLocalizedUrl(
     | 'faq'
     | 'known-issues'
     | 'troubleshooting'
-) {
+): Promise<GetStaticPropsResult<Props>> {
   const keypathLocale = keyPath.split('slug.')[1]
 
   if (!(locale === keypathLocale)) {
