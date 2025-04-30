@@ -14,7 +14,6 @@ import Contributors from 'components/contributors'
 import OnThisPage from 'components/on-this-page'
 import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
-import { localeType } from 'utils/navigation-utils'
 import { getLogger } from 'utils/logging/log-util'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
@@ -26,6 +25,8 @@ import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import getHeadings from 'utils/getHeadings'
+import { flattenJSON, getKeyByValue, localeType } from 'utils/navigation-utils'
+import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import getNavigation from 'utils/getNavigation'
 import { getMessages } from 'utils/get-messages'
 import TimeToRead from 'components/TimeToRead'
@@ -174,9 +175,23 @@ export const getStaticProps: GetStaticProps = async ({
   const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
 
   if (!path) {
-    return {
-      notFound: true,
+    const sidebarfallback = await getNavigation()
+    const flattenedSidebar = flattenJSON(sidebarfallback)
+    const keyPath = getKeyByValue(flattenedSidebar, slug)
+
+    if (!keyPath) {
+      return {
+        notFound: true,
+      }
     }
+
+    // If the path is not found, the function below redirects the user to the localized URL. If the localized URL is not found, it returns a 404 page.
+    return redirectToLocalizedUrl(
+      keyPath,
+      currentLocale,
+      flattenedSidebar,
+      'troubleshooting'
+    )
   }
 
   let documentationContent =
