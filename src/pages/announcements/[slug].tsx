@@ -22,6 +22,7 @@ import OnThisPage from 'components/on-this-page'
 import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 
 import getHeadings from 'utils/getHeadings'
+import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import getNavigation from 'utils/getNavigation'
 import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
@@ -180,12 +181,32 @@ export const getStaticProps: GetStaticProps = async ({
 
   const logger = getLogger('Announcements')
 
-  const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
-
-  if (!path) {
+  const sidebarfallback = await getNavigation()
+  const flattenedSidebar = flattenJSON(sidebarfallback)
+  const keyPath = getKeyByValue(flattenedSidebar, slug)
+  const parentsArray: string[] = []
+  let sectionSelected = ''
+  if (keyPath) {
+    sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
+    getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+    parentsArray.push(slug)
+  } else {
+    logger.error(`KeyPath not found for ${slug}`)
     return {
       notFound: true,
     }
+  }
+
+  const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
+
+  if (!path) {
+    // If the path is not found, the function below redirects the user to the localized URL. If the localized URL is not found, it returns a 404 page.
+    return redirectToLocalizedUrl(
+      keyPath,
+      currentLocale,
+      flattenedSidebar,
+      'announcements'
+    )
   }
 
   let documentationContent =
@@ -273,7 +294,6 @@ export const getStaticProps: GetStaticProps = async ({
       },
     })
 
-    const sidebarfallback = await getNavigation()
     serialized = JSON.parse(JSON.stringify(serialized))
 
     logger.info(`Processing ${slug}`)
@@ -309,16 +329,6 @@ export const getStaticProps: GetStaticProps = async ({
         }
       })
     )
-
-    const flattenedSidebar = flattenJSON(sidebarfallback)
-    const keyPath = getKeyByValue(flattenedSidebar, slug)
-    const parentsArray: string[] = []
-    let sectionSelected = ''
-    if (keyPath) {
-      sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
-      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-      parentsArray.push(slug)
-    }
 
     return {
       props: {
