@@ -193,6 +193,22 @@ export const getServerSideProps: GetServerSideProps = async ({
     return {
       notFound: true,
     }
+  } else {
+    const keypathLocale = keyPath.split('slug.')[1]
+
+    if (!(locale === keypathLocale)) {
+      const keyPathWithoutLocale = keyPath.split('.slug')[0]
+      const localizedSlug =
+        flattenedSidebar[`${keyPathWithoutLocale}.slug.${locale}`]
+      if (localizedSlug) {
+        return {
+          redirect: {
+            destination: `/${locale}/docs/tutorials/${localizedSlug}`,
+            permanent: true,
+          },
+        }
+      }
+    }
   }
 
   const keyPathType = keyPath.split('slug')[0].concat('type')
@@ -301,30 +317,12 @@ export const getServerSideProps: GetServerSideProps = async ({
     }
   }
 
-  const keypathLocale = keyPath.split('slug.')[1]
-
   const docsPaths =
     process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
       ? docsPathsGLOBAL
       : await getTutorialsPaths('tutorials', branch)
 
-  let path = ''
-  if (locale === keypathLocale) {
-    path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
-  } else {
-    const keyPathWithoutLocale = keyPath.split('.slug')[0]
-    const localizedSlug =
-      flattenedSidebar[`${keyPathWithoutLocale}.slug.${locale}`]
-    if (localizedSlug) {
-      return {
-        redirect: {
-          destination: `/${locale}/docs/tutorials/${localizedSlug}`,
-          permanent: true,
-        },
-      }
-    }
-  }
-
+  const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
   if (!path) {
     console.log('Path not found (if (!path))')
     return {
