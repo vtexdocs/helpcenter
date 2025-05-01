@@ -253,16 +253,6 @@ export const getServerSideProps: GetServerSideProps = async ({
       .catch((err) => console.log(err))) || []
 
   let format: 'md' | 'mdx' = 'mdx'
-  try {
-    if (path.endsWith('.md')) {
-      documentationContent = escapeCurlyBraces(documentationContent)
-      documentationContent = replaceHTMLBlocks(documentationContent)
-      documentationContent = await replaceMagicBlocks(documentationContent)
-    }
-  } catch (error) {
-    logger.error(`${error}`)
-    format = 'md'
-  }
 
   try {
     const headingList: Item[] = []
@@ -410,6 +400,17 @@ export const getServerSideProps: GetServerSideProps = async ({
         flattenedSidebar,
         'tracks'
       )
+    }
+
+    try {
+      if (path.endsWith('.md')) {
+        documentationContent = escapeCurlyBraces(documentationContent)
+        documentationContent = replaceHTMLBlocks(documentationContent)
+        documentationContent = await replaceMagicBlocks(documentationContent)
+      }
+    } catch (error) {
+      logger.error(`${error}`)
+      format = 'md'
     }
 
     // Ensure parentsArray does not contain undefined values
