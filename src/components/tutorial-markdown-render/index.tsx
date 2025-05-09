@@ -87,16 +87,19 @@ const TutorialMarkdownRender = (props: Props) => {
                     <Breadcrumb breadcrumbList={props.breadcrumbList} />
                     <Text sx={styles.documentationTitle} className="title">
                       {props.serialized.frontmatter?.title}
-                      {/* Adiciona a propriedade justifyContent ao Flex para alinhar o botão à direita */}
-                      <Flex
-                        sx={{ display: 'flex', justifyContent: 'flex-end' }}
-                      >
-                        <CopyLinkButton />
-                      </Flex>
                     </Text>
                     <Text sx={styles.documentationExcerpt}>
                       {props.serialized.frontmatter?.excerpt}
                     </Text>
+                    <Flex
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        marginBottom: '16px',
+                      }}
+                    >
+                      <CopyLinkButton />
+                    </Flex>
                   </header>
                   {props.serialized.frontmatter?.readingTime && (
                     <TimeToRead
