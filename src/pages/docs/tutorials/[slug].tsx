@@ -15,6 +15,7 @@ import remarkImages from 'utils/remark_plugins/plaiceholder'
 import { Item, LibraryContext } from '@vtexdocs/components'
 
 import getHeadings from 'utils/getHeadings'
+import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import getNavigation from 'utils/getNavigation'
 // import getGithubFile from 'utils/getGithubFile'
 import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
@@ -306,11 +307,14 @@ export const getServerSideProps: GetServerSideProps = async ({
       : await getTutorialsPaths('tutorials', branch)
 
   const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
-
   if (!path) {
-    return {
-      notFound: true,
-    }
+    // If the path is not found, the function below redirects the user to the localized URL. If the localized URL is not found, it returns a 404 page.
+    return redirectToLocalizedUrl(
+      keyPath,
+      currentLocale,
+      flattenedSidebar,
+      'tutorials'
+    )
   }
 
   let documentationContent = await fetch(

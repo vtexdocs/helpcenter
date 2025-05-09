@@ -25,6 +25,7 @@ import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
 
 import getHeadings from 'utils/getHeadings'
+import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import getNavigation from 'utils/getNavigation'
 // import getGithubFile from 'utils/getGithubFile'
 import { getDocsPaths as getTracksPaths } from 'utils/getDocsPaths'
@@ -215,12 +216,6 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   const path = docsPaths[slug].find((e) => e.locale === locale)?.path
 
-  if (!path) {
-    return {
-      notFound: true,
-    }
-  }
-
   let documentationContent =
     (await fetch(
       `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
@@ -258,16 +253,6 @@ export const getServerSideProps: GetServerSideProps = async ({
       .catch((err) => console.log(err))) || []
 
   let format: 'md' | 'mdx' = 'mdx'
-  try {
-    if (path.endsWith('.md')) {
-      documentationContent = escapeCurlyBraces(documentationContent)
-      documentationContent = replaceHTMLBlocks(documentationContent)
-      documentationContent = await replaceMagicBlocks(documentationContent)
-    }
-  } catch (error) {
-    logger.error(`${error}`)
-    format = 'md'
-  }
 
   try {
     const headingList: Item[] = []
@@ -290,7 +275,10 @@ export const getServerSideProps: GetServerSideProps = async ({
       },
     })
 
-    if (serialized.frontmatter?.status !== 'PUBLISHED') {
+    if (
+      serialized.frontmatter?.status &&
+      serialized.frontmatter?.status !== 'PUBLISHED'
+    ) {
       return {
         notFound: true,
       }
@@ -402,6 +390,27 @@ export const getServerSideProps: GetServerSideProps = async ({
           `Error: docsListName or currentLocale not found for slug: ${slug}`
         )
       }
+    }
+
+    if (!path) {
+      // If the path is not found, the function below redirects the user to the localized URL. If the localized URL is not found, it returns a 404 page.
+      return redirectToLocalizedUrl(
+        keyPath as string,
+        currentLocale,
+        flattenedSidebar,
+        'tracks'
+      )
+    }
+
+    try {
+      if (path.endsWith('.md')) {
+        documentationContent = escapeCurlyBraces(documentationContent)
+        documentationContent = replaceHTMLBlocks(documentationContent)
+        documentationContent = await replaceMagicBlocks(documentationContent)
+      }
+    } catch (error) {
+      logger.error(`${error}`)
+      format = 'md'
     }
 
     // Ensure parentsArray does not contain undefined values
