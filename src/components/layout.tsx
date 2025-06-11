@@ -8,6 +8,7 @@ import { ThemeProvider } from '@vtex/brand-ui'
 import styles from 'styles/documentation-page'
 import Header from 'components/header'
 import Footer from 'components/footer'
+import AnnouncementBar from './announcement-bar'
 
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import Script from 'next/script'
@@ -106,6 +107,19 @@ export default function Layout({
 					`}
           </Script>
         </div>
+        <AnnouncementBar
+          type="info"
+          label={intl.formatMessage({
+            id: 'announcement_bar.label',
+          })}
+          closable={false}
+          action={{
+            button: intl.formatMessage({
+              id: 'announcement_bar.button',
+            }),
+            href: 'https://help.vtex.com/',
+          }}
+        />
         <CookieBar
           onAccept={() => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
