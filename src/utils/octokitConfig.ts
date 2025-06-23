@@ -4,7 +4,8 @@ import { createAppAuth } from '@octokit/auth-app'
 import { throttling } from '@octokit/plugin-throttling'
 import { config } from 'utils/config'
 
-const MyOctokit = Octokit.plugin(throttling)
+// Extend Octokit with the throttling plugin correctly
+const MyOctokit = Octokit.plugin(throttling as any)
 
 const octokitConfig = {
   authStrategy: createAppAuth,

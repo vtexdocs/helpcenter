@@ -87,3 +87,38 @@ export async function getDocsPaths(
   })
   return docsPaths
 }
+
+export async function getStaticPathsForDocType(
+  docType: 'tracks' | 'tutorials',
+  branch = 'main'
+): Promise<{ params: { lang: string; slug: string } }[]> {
+  const pathsForStaticGeneration: { params: { lang: string; slug: string } }[] =
+    []
+
+  const repoTree = await getGithubTree(
+    'vtexdocs',
+    'help-center-content',
+    branch
+  )
+
+  const pathRegex = new RegExp(
+    '^(?<lang>en|es|pt)/docs/(?<actualDocType>tracks|tutorials)/(?<slug>.+)\\.(md|mdx)$'
+  )
+
+  // @ts-ignore
+  repoTree.tree.forEach((node: any) => {
+    const path = node.path as string
+    const match = path.match(pathRegex)
+
+    if (match && match.groups) {
+      const { lang, actualDocType: pathDocType, slug } = match.groups
+      if (pathDocType === docType) {
+        pathsForStaticGeneration.push({
+          params: { lang, slug },
+        })
+      }
+    }
+  })
+
+  return pathsForStaticGeneration
+}

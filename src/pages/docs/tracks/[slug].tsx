@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useEffect, useState, useContext, useRef } from 'react'
-import { GetServerSideProps, NextPage } from 'next'
+import { NextPage, GetStaticPaths, GetStaticProps } from 'next' // MODIFIED: Changed GetServerSideProps to GetStaticProps
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import jp from 'jsonpath'
 import ArticlePagination from 'components/article-pagination'
@@ -25,17 +25,21 @@ import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
 
 import getHeadings from 'utils/getHeadings'
-import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import getNavigation from 'utils/getNavigation'
-// import getGithubFile from 'utils/getGithubFile'
-import { getDocsPaths as getTracksPaths } from 'utils/getDocsPaths'
+import getGithubFile from 'utils/getGithubFile' // ADDED: Import getGithubFile
+import {
+  getDocsPaths as getTracksPaths,
+  getStaticPathsForDocType,
+} from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
 import styles from 'styles/documentation-page'
-import { ContributorsType } from 'utils/getFileContributors'
+import getFileContributors, {
+  ContributorsType,
+} from 'utils/getFileContributors' // MODIFIED: Import getFileContributors as default
 
 import { getLogger } from 'utils/logging/log-util'
 import {
@@ -192,65 +196,96 @@ const TrackPage: NextPage<Props> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = await getStaticPathsForDocType('tracks')
+  return {
+    paths,
+    fallback: 'blocking',
+  }
+}
+
+interface PreviewData {
+  branch?: string
+}
+
+export const getStaticProps: GetStaticProps = async ({
   params,
   locale,
   preview,
   previewData,
 }) => {
   const previewBranch =
-    preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
-      ? JSON.parse(JSON.stringify(previewData)).branch
+    preview &&
+    previewData &&
+    typeof previewData === 'object' &&
+    'branch' in previewData
+      ? (previewData as PreviewData).branch || 'main'
       : 'main'
   const branch = preview ? previewBranch : 'main'
+
   const slug = params?.slug as string
-  const currentLocale: localeType = locale
-    ? (locale as localeType)
-    : ('en' as localeType)
+  const langFromParams = params?.lang as string | undefined
+  const currentLocale: localeType = (langFromParams ||
+    locale ||
+    'en') as localeType
+
   const docsPaths =
-    process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
-      ? docsPathsGLOBAL
-      : await getTracksPaths('tracks', branch)
+    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
+      ? await getTracksPaths('tracks', branch)
+      : docsPathsGLOBAL
 
-  const logger = getLogger('Start here')
+  const logger = getLogger('TracksPage-GetStaticProps') // MODIFIED: More specific logger name
 
-  const path = docsPaths[slug].find((e) => e.locale === locale)?.path
+  const pathEntry = docsPaths[slug]?.find((e) => e.locale === currentLocale)
 
-  let documentationContent =
-    (await fetch(
-      `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
+  if (!pathEntry?.path) {
+    logger.info(
+      `Path not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
-      .then((res) => res.text())
-      .catch((err) => console.log(err))) || ''
+    return { notFound: true, revalidate: 3600 }
+  }
+  const resolvedPath = pathEntry.path
 
-  const contributors =
-    (await fetch(
-      `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      }
+  // MODIFIED: Use getGithubFile to fetch documentation content
+  let documentationContent: string | null = null
+  try {
+    documentationContent = await getGithubFile(
+      'vtexdocs',
+      'help-center-content',
+      branch,
+      resolvedPath
     )
-      .then((res) => res.json())
-      .then(({ users }) => {
-        const result: ContributorsType[] = []
-        for (let i = 0; i < users.length; i++) {
-          const user = users[i]
-          if (user.id === '41898282') continue
-          result.push({
-            name: user.login,
-            login: user.login,
-            avatar: user.primaryAvatarUrl,
-            userPage: `https://github.com${user.profileLink}`,
-          })
-        }
+  } catch (err) {
+    logger.error(
+      `Error fetching content for ${resolvedPath} on branch ${branch}: ${err}`
+    )
+    return { notFound: true, revalidate: 3600 }
+  }
 
-        return result
-      })
-      .catch((err) => console.log(err))) || []
+  documentationContent = documentationContent || ''
+
+  // MODIFIED: Use getFileContributors to fetch contributors
+  let contributors: ContributorsType[] = []
+  try {
+    const fetchedContributors = await getFileContributors(
+      'vtexdocs',
+      'help-center-content',
+      branch,
+      resolvedPath
+    )
+    // Ensure fetchedContributors is an array before assigning
+    if (Array.isArray(fetchedContributors)) {
+      contributors = fetchedContributors
+    } else {
+      logger.info(
+        `Fetched contributors is not an array for ${resolvedPath} on branch ${branch}. Received: ${typeof fetchedContributors}`
+      )
+    }
+  } catch (err) {
+    logger.info(
+      `Error fetching contributors for ${resolvedPath} on branch ${branch}: ${err}`
+    )
+  }
 
   let format: 'md' | 'mdx' = 'mdx'
 
@@ -386,30 +421,21 @@ export const getServerSideProps: GetServerSideProps = async ({
       ) {
         parentsArrayName.push(docsListName[indexOfSlug][currentLocale])
       } else {
-        console.error(
-          `Error: docsListName or currentLocale not found for slug: ${slug}`
+        logger.info(
+          // MODIFIED: console.warn to logger.info
+          `docsListName or currentLocale not found for slug: ${slug} in locale: ${currentLocale}`
         )
       }
     }
 
-    if (!path) {
-      // If the path is not found, the function below redirects the user to the localized URL. If the localized URL is not found, it returns a 404 page.
-      return redirectToLocalizedUrl(
-        keyPath as string,
-        currentLocale,
-        flattenedSidebar,
-        'tracks'
-      )
-    }
-
     try {
-      if (path.endsWith('.md')) {
+      if (resolvedPath.endsWith('.md')) {
         documentationContent = escapeCurlyBraces(documentationContent)
         documentationContent = replaceHTMLBlocks(documentationContent)
         documentationContent = await replaceMagicBlocks(documentationContent)
       }
     } catch (error) {
-      logger.error(`${error}`)
+      logger.error(`Error processing markdown for ${resolvedPath}: ${error}`) // MODIFIED: Improved error logging
       format = 'md'
     }
 
@@ -436,19 +462,21 @@ export const getServerSideProps: GetServerSideProps = async ({
         sidebarfallback,
         headingList,
         contributors,
-        path,
+        path: resolvedPath,
         seeAlsoData,
         pagination,
         isListed,
         breadcrumbList,
         branch,
-        locale,
+        locale: currentLocale,
       },
+      revalidate: 3600,
     }
   } catch (error) {
-    logger.error(`Error while processing ${path}\n${error}`)
+    logger.error(`Error while processing ${resolvedPath}\\n${error}`)
     return {
       notFound: true,
+      revalidate: 3600,
     }
   }
 }

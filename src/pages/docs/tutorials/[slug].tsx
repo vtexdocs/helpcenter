@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
-import { GetServerSideProps, NextPage } from 'next'
+import { NextPage, GetStaticPaths, GetStaticProps } from 'next' // MODIFIED: Changed GetServerSideProps to GetStaticProps
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import jp from 'jsonpath'
 
@@ -15,16 +15,20 @@ import remarkImages from 'utils/remark_plugins/plaiceholder'
 import { Item, LibraryContext } from '@vtexdocs/components'
 
 import getHeadings from 'utils/getHeadings'
-import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import getNavigation from 'utils/getNavigation'
-// import getGithubFile from 'utils/getGithubFile'
-import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
+import getGithubFile from 'utils/getGithubFile' // ADDED: Import getGithubFile
+import {
+  getDocsPaths as getTutorialsPaths,
+  getStaticPathsForDocType,
+} from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
-import { ContributorsType } from 'utils/getFileContributors'
+import getFileContributors, {
+  ContributorsType,
+} from 'utils/getFileContributors' // ADDED: Import getFileContributors
 
 import { getLogger } from 'utils/logging/log-util'
 import {
@@ -41,8 +45,6 @@ import TutorialIndexing from 'components/tutorial-index'
 import TutorialMarkdownRender from 'components/tutorial-markdown-render'
 import theme from 'styles/code-hike-theme'
 import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
-
-// import { ParsedUrlQuery } from 'querystring'
 
 const docsPathsGLOBAL = await getTutorialsPaths('tutorials')
 
@@ -168,31 +170,53 @@ const TutorialPage: NextPage<Props> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = await getStaticPathsForDocType('tutorials')
+  return {
+    paths,
+    fallback: 'blocking',
+  }
+}
+
+// ADDED: PreviewData interface
+interface PreviewData {
+  branch?: string
+}
+
+// MODIFIED: Changed getServerSideProps to GetStaticProps
+export const getStaticProps: GetStaticProps = async ({
   params,
   locale,
   preview,
   previewData,
 }) => {
   const previewBranch =
-    preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
-      ? JSON.parse(JSON.stringify(previewData)).branch
+    preview &&
+    previewData &&
+    typeof previewData === 'object' &&
+    'branch' in previewData
+      ? (previewData as PreviewData).branch || 'main'
       : 'main'
   const branch = preview ? previewBranch : 'main'
+
   const slug = params?.slug as string
-  const currentLocale: localeType = locale
-    ? (locale as localeType)
-    : ('en' as localeType)
-  const logger = getLogger('Tutorials')
+  // MODIFIED: currentLocale to use params.lang first
+  const langFromParams = params?.lang as string | undefined
+  const currentLocale: localeType = (langFromParams ||
+    locale ||
+    'en') as localeType
+
+  const logger = getLogger('TutorialsPage-GetStaticProps') // MODIFIED: Logger name
 
   const sidebarfallback = await getNavigation()
   const flattenedSidebar = flattenJSON(sidebarfallback)
   const keyPath = getKeyByValue(flattenedSidebar, slug)
 
   if (!keyPath) {
-    return {
-      notFound: true,
-    }
+    logger.info(
+      `KeyPath not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
+    return { notFound: true, revalidate: 3600 } // ADDED: revalidate
   }
 
   const keyPathType = keyPath.split('slug')[0].concat('type')
@@ -207,14 +231,13 @@ export const getServerSideProps: GetServerSideProps = async ({
   getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
   parentsArray.push(slug)
 
-  // Ensure parentsArray does not contain undefined values
   const sanitizedParentsArray = parentsArray.map((item) =>
     item === undefined ? null : item
   )
 
   getParents(keyPath, 'name', flattenedSidebar, currentLocale, parentsArrayName)
   const mainKeyPath = keyPath.split('slug')[0]
-  const nameKeyPath = mainKeyPath.concat(`name.${locale}`)
+  const nameKeyPath = mainKeyPath.concat(`name.${currentLocale}`) // MODIFIED: use currentLocale
   const categoryTitle = flattenedSidebar[nameKeyPath]
   parentsArrayName.push(categoryTitle)
 
@@ -223,7 +246,10 @@ export const getServerSideProps: GetServerSideProps = async ({
   parentsArrayType.push(flattenedSidebar[typeKeyPath])
 
   const sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
-  console.log('TUTORIAL', sectionSelected)
+  logger.info(
+    // MODIFIED: console.log to logger.info
+    `Tutorial section selected: ${sectionSelected} for slug: ${slug}`
+  )
 
   const breadcrumbList: { slug: string; name: string; type: string }[] =
     getBreadcrumbsList(
@@ -255,25 +281,32 @@ export const getServerSideProps: GetServerSideProps = async ({
     const childrenList: { slug: string; name: string }[] = []
     childrenArrayName.forEach((_el: string, idx: number) => {
       childrenList.push({
-        slug: `/${locale}/docs/tutorials/${childrenArraySlug[idx]}`,
+        // MODIFIED: Use currentLocale in slug
+        slug: `/${currentLocale}/docs/tutorials/${childrenArraySlug[idx]}`,
         name: childrenArrayName[idx],
       })
     })
 
-    const previousDoc: { slug: string; name: string } =
+    const previousDoc: { slug: string | null; name: string | null } = // MODIFIED: Allow null
       breadcrumbList.length > 1
         ? {
             slug: breadcrumbList[breadcrumbList.length - 2].slug,
             name: breadcrumbList[breadcrumbList.length - 2].name,
           }
         : {
-            slug: '',
-            name: '',
+            slug: null, // MODIFIED: Use null for consistency
+            name: null,
           }
-    const nextDoc: { slug: string; name: string } = {
-      slug: childrenList[0].slug,
-      name: childrenList[0].name,
-    }
+    const nextDoc: { slug: string | null; name: string | null } = // MODIFIED: Allow null
+      childrenList.length > 0
+        ? {
+            slug: childrenList[0].slug,
+            name: childrenList[0].name,
+          }
+        : {
+            slug: null, // MODIFIED: Use null if no children
+            name: null,
+          }
 
     const pagination = { previousDoc, nextDoc }
     const componentProps = {
@@ -297,74 +330,89 @@ export const getServerSideProps: GetServerSideProps = async ({
         breadcrumbList,
         branch,
         componentProps,
+        locale: currentLocale, // ADDED: locale prop
       },
+      revalidate: 3600, // ADDED: revalidate
     }
   }
 
+  // Handle 'markdown' type
   const docsPaths =
-    process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
-      ? docsPathsGLOBAL
-      : await getTutorialsPaths('tutorials', branch)
+    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
+      ? await getTutorialsPaths('tutorials', branch)
+      : docsPathsGLOBAL
 
-  const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
-  if (!path) {
-    // If the path is not found, the function below redirects the user to the localized URL. If the localized URL is not found, it returns a 404 page.
-    return redirectToLocalizedUrl(
-      keyPath,
-      currentLocale,
-      flattenedSidebar,
-      'tutorials'
+  const pathEntry = docsPaths[slug]?.find((e) => e.locale === currentLocale)
+
+  if (!pathEntry?.path) {
+    logger.info(
+      `Path not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
+    // REMOVED: redirectToLocalizedUrl call
+    return { notFound: true, revalidate: 3600 } // ADDED: revalidate
+  }
+  const resolvedPath = pathEntry.path
+
+  let documentationContent: string | null = null
+  try {
+    // MODIFIED: Use getGithubFile to fetch documentation content
+    documentationContent = await getGithubFile(
+      'vtexdocs',
+      'help-center-content',
+      branch,
+      resolvedPath
+    )
+  } catch (err) {
+    // MODIFIED: Add type to err
+    logger.error(
+      `Error fetching content for ${resolvedPath} on branch ${branch}: ${
+        err instanceof Error ? err.message : err
+      }`
+    )
+    return { notFound: true, revalidate: 3600 } // ADDED: revalidate
+  }
+  documentationContent = documentationContent || ''
+
+  // MODIFIED: Use getFileContributors to fetch contributors
+  let contributors: ContributorsType[] = []
+  try {
+    const fetchedContributors = await getFileContributors(
+      'vtexdocs',
+      'help-center-content',
+      branch,
+      resolvedPath
+    )
+    if (Array.isArray(fetchedContributors)) {
+      contributors = fetchedContributors
+    } else {
+      logger.info(
+        `Fetched contributors is not an array for ${resolvedPath} on branch ${branch}. Received: ${typeof fetchedContributors}`
+      )
+    }
+  } catch (err) {
+    // MODIFIED: Add type to err and use logger.info
+    logger.info(
+      `Error fetching contributors for ${resolvedPath} on branch ${branch}: ${
+        err instanceof Error ? err.message : err
+      }`
     )
   }
 
-  let documentationContent = await fetch(
-    `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
-  )
-    .then((res) => res.text())
-    .catch((err) => {
-      logger.error(err)
-      return ''
-    })
-
-  const contributors =
-    (await fetch(
-      `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then(({ users }) => {
-        const result: ContributorsType[] = []
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        for (let i = 0; i < users.length; i++) {
-          const user = users[i]
-          if (user.id === '41898282') continue
-          result.push({
-            name: user.login,
-            login: user.login,
-            avatar: user.primaryAvatarUrl,
-            userPage: `https://github.com${user.profileLink}`,
-          })
-        }
-
-        return result
-      })
-      .catch((err) => console.log(err))) || []
-
   let format: 'md' | 'mdx' = 'mdx'
   try {
-    if (path.endsWith('.md')) {
+    if (resolvedPath.endsWith('.md')) {
+      // MODIFIED: Use resolvedPath
       documentationContent = escapeCurlyBraces(documentationContent)
       documentationContent = replaceHTMLBlocks(documentationContent)
       documentationContent = await replaceMagicBlocks(documentationContent)
     }
   } catch (error) {
-    logger.error(`${error}`)
+    // MODIFIED: Add type to error
+    logger.error(
+      `Error processing markdown for ${resolvedPath}: ${
+        error instanceof Error ? error.message : error
+      }`
+    )
     format = 'md'
   }
 
@@ -389,58 +437,82 @@ export const getServerSideProps: GetServerSideProps = async ({
       },
     })
 
-    // Check the frontmatter status
-    if (serialized.frontmatter?.status !== 'PUBLISHED') {
-      return {
-        notFound: true,
-      }
+    if (
+      serialized.frontmatter?.status &&
+      serialized.frontmatter?.status !== 'PUBLISHED'
+    ) {
+      logger.info(
+        `Document status is not PUBLISHED for ${resolvedPath}. Status: ${serialized.frontmatter?.status}`
+      )
+      return { notFound: true, revalidate: 3600 } // ADDED: revalidate
     }
 
     serialized = JSON.parse(JSON.stringify(serialized))
 
-    logger.info(`Processing ${slug}`)
+    logger.info(`Processing markdown for ${slug} (path: ${resolvedPath})`)
     const seeAlsoData: {
       url: string
       title: string
       category: string
     }[] = []
-    const seeAlsoUrls = serialized.frontmatter?.seeAlso
-      ? JSON.parse(JSON.stringify(serialized.frontmatter.seeAlso as string))
-      : []
+
+    // Handle seeAlso frontmatter which could be string or string[]
+    let seeAlsoUrls: string[] = []
+    if (serialized.frontmatter?.seeAlso) {
+      const seeAlsoValue = serialized.frontmatter.seeAlso
+      if (Array.isArray(seeAlsoValue)) {
+        seeAlsoUrls = seeAlsoValue
+      } else if (typeof seeAlsoValue === 'string') {
+        try {
+          seeAlsoUrls = JSON.parse(seeAlsoValue)
+        } catch {
+          seeAlsoUrls = [seeAlsoValue]
+        }
+      }
+    }
+
     await Promise.all(
       seeAlsoUrls.map(async (seeAlsoUrl: string) => {
-        const seeAlsoPath = docsPaths[seeAlsoUrl.split('/')[3]].find(
-          (e) => e.locale === locale
-        )?.path
+        // MODIFIED: Use currentLocale for finding seeAlsoPath
+        const seeAlsoPathEntry = docsPaths[seeAlsoUrl.split('/')[3]]?.find(
+          (e) => e.locale === currentLocale
+        )
+        const seeAlsoPath = seeAlsoPathEntry?.path
+
         if (seeAlsoPath) {
           try {
-            const documentationContent = await fetch(
-              `https://raw.githubusercontent.com/vtexdocs/help-center-content/main/${seeAlsoPath}`
+            // MODIFIED: Use getGithubFile for seeAlso content, assuming 'main' branch for linked content
+            const seeAlsoContent = await getGithubFile(
+              'vtexdocs',
+              'help-center-content',
+              'main', // Or 'branch' if seeAlso should respect current branch
+              seeAlsoPath
             )
-              .then((res) => res.text())
-              .catch((err) => {
-                logger.error(err)
-                return ''
+
+            if (seeAlsoContent) {
+              const seeAlsoSerialized = await serialize(seeAlsoContent, {
+                parseFrontmatter: true,
               })
-            // const documentationContent = await getGithubFile(
-            //   'vtexdocs',
-            //   'help-center-content',
-            //   'main',
-            //   seeAlsoPath
-            // )
-            const serialized = await serialize(documentationContent, {
-              parseFrontmatter: true,
-            })
-            seeAlsoData.push({
-              url: seeAlsoUrl,
-              title: serialized.frontmatter?.title
-                ? (serialized.frontmatter.title as string)
-                : seeAlsoUrl.split('/')[3],
-              category: serialized.frontmatter?.category
-                ? (serialized.frontmatter.category as string)
-                : seeAlsoUrl.split('/')[2],
-            })
-          } catch (error) {}
+              seeAlsoData.push({
+                url: seeAlsoUrl,
+                title: seeAlsoSerialized.frontmatter?.title
+                  ? (seeAlsoSerialized.frontmatter.title as string)
+                  : seeAlsoUrl.split('/')[3],
+                category: seeAlsoSerialized.frontmatter?.category
+                  ? (seeAlsoSerialized.frontmatter.category as string)
+                  : seeAlsoUrl.split('/')[2],
+              })
+            } else {
+              logger.info(`No content found for seeAlsoPath: ${seeAlsoPath}`)
+            }
+          } catch (error) {
+            // MODIFIED: Add type to error
+            logger.error(
+              `Error fetching or serializing seeAlso content for ${seeAlsoPath}: ${
+                error instanceof Error ? error.message : error
+              }`
+            )
+          }
         } else if (seeAlsoUrl.startsWith('/docs')) {
           seeAlsoData.push({
             url: seeAlsoUrl,
@@ -466,7 +538,7 @@ export const getServerSideProps: GetServerSideProps = async ({
           ? docsListSlug[indexOfSlug - 1]
           : null,
         name: docsListName[indexOfSlug - 1]
-          ? docsListName[indexOfSlug - 1][locale || 'en']
+          ? docsListName[indexOfSlug - 1][currentLocale || 'en'] // MODIFIED: use currentLocale
           : null,
       },
       nextDoc: {
@@ -474,24 +546,25 @@ export const getServerSideProps: GetServerSideProps = async ({
           ? docsListSlug[indexOfSlug + 1]
           : null,
         name: docsListName[indexOfSlug + 1]
-          ? docsListName[indexOfSlug + 1][locale || 'en']
+          ? docsListName[indexOfSlug + 1][currentLocale || 'en'] // MODIFIED: use currentLocale
           : null,
       },
     }
 
     const componentProps = {
+      content: documentationContent, // ADDED: content prop for MarkdownRender
       serialized,
       headingList,
       contributors,
-      path,
+      path: resolvedPath, // MODIFIED: use resolvedPath
       seeAlsoData,
     }
 
     return {
       props: {
-        type,
+        type, // ADDED: type for markdown pages
         sectionSelected,
-        sidebarfallback,
+        sidebarfallback, // This might be large, consider if needed for client
         parentsArray: sanitizedParentsArray,
         slug,
         pagination,
@@ -499,13 +572,18 @@ export const getServerSideProps: GetServerSideProps = async ({
         breadcrumbList,
         branch,
         componentProps,
+        locale: currentLocale, // ADDED: locale prop
       },
+      revalidate: 3600, // ADDED: revalidate
     }
   } catch (error) {
-    logger.error(`Error while processing ${path}\n${error}`)
-    return {
-      notFound: true,
-    }
+    // MODIFIED: Add type to error
+    logger.error(
+      `Error processing markdown page ${slug} (path: ${
+        resolvedPath || 'unknown'
+      }): ${error instanceof Error ? error.message : error}`
+    )
+    return { notFound: true, revalidate: 3600 } // ADDED: revalidate
   }
 }
 
