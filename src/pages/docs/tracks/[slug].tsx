@@ -29,7 +29,7 @@ import getNavigation from 'utils/getNavigation'
 import getGithubFile from 'utils/getGithubFile' // ADDED: Import getGithubFile
 import {
   getDocsPaths as getTracksPaths,
-  getStaticPathsForDocType,
+  // getStaticPathsForDocType, // Removed unused import
 } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
@@ -197,7 +197,15 @@ const TrackPage: NextPage<Props> = ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getStaticPathsForDocType('tracks')
+  // Use getTracksPaths to get all available slugs for tracks
+  const docsPaths = await getTracksPaths('tracks')
+  // Generate a path for each slug/locale combination
+  const paths = Object.entries(docsPaths).flatMap(([slug, entries]) =>
+    entries.map(({ locale }) => ({
+      params: { slug },
+      locale,
+    }))
+  )
   return {
     paths,
     fallback: 'blocking',
