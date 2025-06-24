@@ -191,7 +191,9 @@ export const getStaticProps: GetStaticProps = async ({
     getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
     parentsArray.push(slug)
   } else {
-    logger.error(`KeyPath not found for ${slug}`)
+    logger.warn(
+      `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
     return {
       notFound: true,
     }

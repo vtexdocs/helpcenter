@@ -17,10 +17,7 @@ import { Item, LibraryContext } from '@vtexdocs/components'
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 import getGithubFile from 'utils/getGithubFile' // ADDED: Import getGithubFile
-import {
-  getDocsPaths as getTutorialsPaths,
-  getStaticPathsForDocType,
-} from 'utils/getDocsPaths'
+import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
@@ -171,7 +168,15 @@ const TutorialPage: NextPage<Props> = ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getStaticPathsForDocType('tutorials')
+  // getTutorialsPaths returns an object mapping slugs to arrays of { locale, path }
+  // We need to flatten this into an array of { params: { slug }, locale }
+  const docsPaths = await getTutorialsPaths('tutorials')
+  const paths: { params: { slug: string }; locale: string }[] = []
+  for (const slug in docsPaths) {
+    for (const entry of docsPaths[slug]) {
+      paths.push({ params: { slug }, locale: entry.locale })
+    }
+  }
   return {
     paths,
     fallback: 'blocking',
@@ -213,10 +218,10 @@ export const getStaticProps: GetStaticProps = async ({
   const keyPath = getKeyByValue(flattenedSidebar, slug)
 
   if (!keyPath) {
-    logger.info(
-      `KeyPath not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    logger.warn(
+      `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
-    return { notFound: true, revalidate: 3600 } // ADDED: revalidate
+    return { notFound: true, revalidate: 3600 }
   }
 
   const keyPathType = keyPath.split('slug')[0].concat('type')

@@ -200,6 +200,9 @@ export const getStaticProps: GetStaticProps = async ({
   const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
 
   if (!path) {
+    logger.warn(
+      `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
     return {
       notFound: true,
     }

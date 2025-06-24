@@ -180,6 +180,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({
     const keyPath = getKeyByValue(flattenedSidebar, slug)
 
     if (!keyPath) {
+      logger.warn(
+        `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+      )
       return {
         notFound: true,
       }

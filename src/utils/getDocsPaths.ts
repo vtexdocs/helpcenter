@@ -32,9 +32,11 @@ export async function getAllDocsPaths(branch = 'main') {
     if (path.startsWith(`docs/`)) {
       const match = path.match(re)
       const filename = match?.groups?.filename ? match?.groups?.filename : ''
-      const filetype = match?.groups?.filetype ? match?.groups?.filetype : ''
       const fileLocale = match?.groups?.locale ? match?.groups?.locale : ''
-      if (filetype === 'md' || filetype === 'mdx') {
+      if (
+        match?.groups?.filetype === 'md' ||
+        match?.groups?.filetype === 'mdx'
+      ) {
         if (!docsPaths[filename]) docsPaths[filename] = []
         docsPaths[filename].push({
           locale: fileLocale,
@@ -66,22 +68,21 @@ export async function getDocsPaths(
   // @ts-ignore
   repoTree.tree.map((node: any) => {
     const path = node.path
-    const re =
-      /^(?<path>.+\/)*(?<locale>pt|es|en+)\/(?<localeDir>.+\/)*(?<filename>.+)\.(?<filetype>.+)$/
-    if (path.startsWith(`docs/`)) {
-      const match = path.match(re)
-      const localeDir = match?.groups?.localeDir ? match?.groups?.localeDir : ''
-      if (localeDir.startsWith(category)) {
-        const filename = match?.groups?.filename ? match?.groups?.filename : ''
-        const filetype = match?.groups?.filetype ? match?.groups?.filetype : ''
-        const fileLocale = match?.groups?.locale ? match?.groups?.locale : ''
-        if (filetype === 'md' || filetype === 'mdx') {
-          if (!docsPaths[filename]) docsPaths[filename] = []
-          docsPaths[filename].push({
-            locale: fileLocale,
-            path,
-          })
-        }
+    // Match docs/{locale}/{category}/.../{filename}.md(x)
+    const re = /^docs\/(?<locale>pt|es|en)\/(?<rest>.+)\.(?<filetype>md|mdx)$/
+    const match = path.match(re)
+    if (match) {
+      const { locale, rest } = match.groups as any
+      const segments = rest.split('/')
+      const fileCategory = segments[0]
+      if (fileCategory === category) {
+        // Use only the filename as the slug
+        const slug = segments[segments.length - 1]
+        if (!docsPaths[slug]) docsPaths[slug] = []
+        docsPaths[slug].push({
+          locale,
+          path,
+        })
       }
     }
   })
@@ -119,6 +120,5 @@ export async function getStaticPathsForDocType(
       }
     }
   })
-
   return pathsForStaticGeneration
 }
