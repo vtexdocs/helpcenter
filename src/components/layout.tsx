@@ -76,18 +76,34 @@ export default function Layout({
         locale={intl.locale as 'en' | 'pt' | 'es'}
       >
         <iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-KZ58QQP5"
+          src="https://www.googletagmanager.com/ns.html?id=GTM-WGQQ964"
           height="0"
           width="0"
           style={{ display: 'none', visibility: 'hidden' }}
         ></iframe>
         <div className="container">
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=UA-56275648-4"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
+          });
+          gtag('js', new Date());
+          gtag('config', 'UA-56275648-4');
+        `}
+          </Script>
           <Script id="GTM-init" strategy="afterInteractive">
             {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 					new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 					j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-					})(window,document,'script','dataLayer','GTM-KZ58QQP5')
+					})(window,document,'script','dataLayer','GTM-WGQQ964')
 					`}
           </Script>
         </div>
