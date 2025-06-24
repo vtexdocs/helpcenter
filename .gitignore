@@ -55,3 +55,6 @@ yarn-error.log*
 cypress.log
 src/tests/cypress/screenshots
 src/tests/cypress/videos
+
+AI_PROJECT_GUIDE.md
+TODO.md
