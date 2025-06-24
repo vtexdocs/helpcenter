@@ -48,23 +48,14 @@ export async function getAllDocsPaths(branch = 'main') {
   return docsPaths
 }
 
-export async function getDocsPaths(
-  category:
-    | 'tracks'
-    | 'tutorials'
-    | 'announcements'
-    | 'faq'
-    | 'known-issues'
-    | 'troubleshooting',
-  branch = 'main'
-) {
-  const docsPaths: { [slug: string]: { locale: string; path: string }[] } = {}
+let cachedRepoTree: any = null
 
-  const repoTree = await getGithubTree(
-    'vtexdocs',
-    'help-center-content',
-    branch
-  )
+function isStaticBuild() {
+  return process.env.NEXT_PHASE === 'phase-production-build'
+}
+
+function buildDocsPathsFromTree(repoTree: any, category: string) {
+  const docsPaths: { [slug: string]: { locale: string; path: string }[] } = {}
   // @ts-ignore
   repoTree.tree.map((node: any) => {
     const path = node.path
@@ -87,6 +78,31 @@ export async function getDocsPaths(
     }
   })
   return docsPaths
+}
+
+export async function getDocsPaths(
+  category:
+    | 'tracks'
+    | 'tutorials'
+    | 'announcements'
+    | 'faq'
+    | 'known-issues'
+    | 'troubleshooting',
+  branch = 'main'
+) {
+  const staticBuild = isStaticBuild()
+  if (staticBuild && cachedRepoTree) {
+    return buildDocsPathsFromTree(cachedRepoTree, category)
+  }
+  const repoTree = await getGithubTree(
+    'vtexdocs',
+    'help-center-content',
+    branch
+  )
+  if (staticBuild) {
+    cachedRepoTree = repoTree
+  }
+  return buildDocsPathsFromTree(repoTree, category)
 }
 
 export async function getStaticPathsForDocType(

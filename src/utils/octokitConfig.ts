@@ -15,7 +15,7 @@ const octokitConfig = {
     installationId: config.GITHUB_INSTALLATIONID,
   },
   throttle: {
-    enabled: false,
+    enabled: true, // Enable throttling and automatic retries
     onRateLimit: (retryAfter: any, options: any, octokit: any) => {
       octokit.log.warn(
         `Request quota exhausted for request ${options.method} ${options.url}`
@@ -24,10 +24,8 @@ const octokitConfig = {
       return true
     },
     onSecondaryRateLimit: (retryAfter: any, options: any, octokit: any) => {
-      retryAfter = retryAfter
-      // does not retry, only logs a warning
       octokit.log.warn(
-        `SecondaryRateLimit detected for request ${options.method} ${options.url}`
+        `SecondaryRateLimit detected for request ${options.method} ${options.url}. Retry after ${retryAfter} seconds.`
       )
     },
   },
