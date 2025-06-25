@@ -17,6 +17,19 @@ const octokitConfig = {
   throttle: {
     enabled: true, // Enable throttling and automatic retries
     onRateLimit: (retryAfter: any, options: any, octokit: any) => {
+      // Custom: If this is a getGithubFile request, do not wait more than 10 seconds
+      if (
+        options.request &&
+        options.request.headers &&
+        options.request.headers['x-githubfile']
+      ) {
+        if (retryAfter > 10) {
+          octokit.log.warn(
+            `getGithubFile request: Not retrying because retryAfter (${retryAfter}) > 10s for ${options.method} ${options.url}`
+          )
+          return false // Do not retry
+        }
+      }
       octokit.log.warn(
         `Request quota exhausted for request ${options.method} ${options.url}`
       )

@@ -24,6 +24,7 @@
   "dependencies": {
     "@code-hike/mdx": "^0.9.0",
     "@fortawesome/fontawesome-free": "^6.6.0",
+    "@octokit/types": "^14.1.0",
     "@openreplay/tracker": "^5.0.1",
     "@plaiceholder/next": "^2.5.0",
     "@types/http-proxy": "^1.17.9",
