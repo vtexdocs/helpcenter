@@ -293,7 +293,7 @@ export const getStaticProps: GetStaticProps = async ({
     })
 
     const previousDoc: { slug: string | null; name: string | null } = // MODIFIED: Allow null
-      breadcrumbList.length > 1
+      breadcrumbList.length > 1 && breadcrumbList[breadcrumbList.length - 2]
         ? {
             slug: breadcrumbList[breadcrumbList.length - 2].slug,
             name: breadcrumbList[breadcrumbList.length - 2].name,
@@ -303,7 +303,7 @@ export const getStaticProps: GetStaticProps = async ({
             name: null,
           }
     const nextDoc: { slug: string | null; name: string | null } = // MODIFIED: Allow null
-      childrenList.length > 0
+      childrenList.length > 0 && childrenList[0]
         ? {
             slug: childrenList[0].slug,
             name: childrenList[0].name,
@@ -316,7 +316,7 @@ export const getStaticProps: GetStaticProps = async ({
     const pagination = { previousDoc, nextDoc }
     const componentProps = {
       tutorialData: {
-        name: categoryTitle,
+        name: categoryTitle || slug, // Fallback to slug if categoryTitle is undefined
         children: childrenList,
         hidePaginationPrevious: breadcrumbList.length < 2,
         hidePaginationNext: !childrenList.length,
@@ -531,34 +531,85 @@ export const getStaticProps: GetStaticProps = async ({
       })
     )
 
-    const docsListSlug = jp.query(
+    // Extract slug strings for the current locale from navigation
+    const docsListSlugObjects = jp.query(
       sidebarfallback,
       `$..[?(@.type=='markdown')]..slug`
     )
-    const docsListName = jp.query(
+    const docsListNameObjects = jp.query(
       sidebarfallback,
       `$..[?(@.type=='markdown')]..name`
     )
+
+    // Convert slug objects to strings for the current locale
+    const docsListSlug = docsListSlugObjects
+      .map((slugObj: Record<string, string> | string) => {
+        if (typeof slugObj === 'object' && slugObj[currentLocale]) {
+          return slugObj[currentLocale]
+        } else if (typeof slugObj === 'string') {
+          return slugObj
+        }
+        // Fallback to 'en' if current locale not found
+        return (slugObj as Record<string, string>)?.en || null
+      })
+      .filter(Boolean)
+
+    const docsListName = docsListNameObjects.map(
+      (nameObj: Record<string, string> | string) => {
+        if (typeof nameObj === 'object') {
+          return nameObj
+        }
+        // If it's already a string, wrap it in an object for consistency
+        return { [currentLocale]: nameObj as string }
+      }
+    )
+
     const indexOfSlug = docsListSlug.indexOf(slug)
+
+    logger.info(
+      `Slug matching for ${slug}: found at index ${indexOfSlug} in ${docsListSlug.length} total docs`
+    )
+
+    // Log pagination status for debugging
+    if (indexOfSlug >= 0) {
+      logger.info(
+        `Pagination for ${slug}: previous=${
+          indexOfSlug > 0 ? docsListSlug[indexOfSlug - 1] : 'none'
+        }, next=${
+          indexOfSlug < docsListSlug.length - 1
+            ? docsListSlug[indexOfSlug + 1]
+            : 'none'
+        }`
+      )
+    } else {
+      logger.warn(`Document not found in navigation for slug: ${slug}`)
+    }
+
     const pagination = {
       previousDoc: {
-        slug: docsListSlug[indexOfSlug - 1]
-          ? docsListSlug[indexOfSlug - 1]
-          : null,
+        slug:
+          indexOfSlug > 0 && docsListSlug[indexOfSlug - 1]
+            ? docsListSlug[indexOfSlug - 1]
+            : null,
         name:
-          docsListName[indexOfSlug - 1] &&
-          docsListName[indexOfSlug - 1][currentLocale || 'en']
-            ? docsListName[indexOfSlug - 1][currentLocale || 'en']
+          indexOfSlug > 0 && docsListName[indexOfSlug - 1]
+            ? docsListName[indexOfSlug - 1][currentLocale] ||
+              docsListName[indexOfSlug - 1]['en']
             : null,
       },
       nextDoc: {
-        slug: docsListSlug[indexOfSlug + 1]
-          ? docsListSlug[indexOfSlug + 1]
-          : null,
+        slug:
+          indexOfSlug >= 0 &&
+          indexOfSlug < docsListSlug.length - 1 &&
+          docsListSlug[indexOfSlug + 1]
+            ? docsListSlug[indexOfSlug + 1]
+            : null,
         name:
-          docsListName[indexOfSlug + 1] &&
-          docsListName[indexOfSlug + 1][currentLocale || 'en']
-            ? docsListName[indexOfSlug + 1][currentLocale || 'en']
+          indexOfSlug >= 0 &&
+          indexOfSlug < docsListSlug.length - 1 &&
+          docsListName[indexOfSlug + 1]
+            ? docsListName[indexOfSlug + 1][currentLocale] ||
+              docsListName[indexOfSlug + 1]['en']
             : null,
       },
     }

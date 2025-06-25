@@ -395,31 +395,71 @@ export const getStaticProps: GetStaticProps = async ({
       })
     )
 
-    const docsListSlug = jp.query(
+    // Extract slug strings for the current locale from navigation
+    const docsListSlugObjects = jp.query(
       sidebarfallback,
       `$..[?(@.type=='markdown')]..slug`
     )
-    const docsListName = jp.query(
+    const docsListNameObjects = jp.query(
       sidebarfallback,
       `$..[?(@.type=='markdown')]..name`
     )
+
+    // Convert slug objects to strings for the current locale
+    const docsListSlug = docsListSlugObjects
+      .map((slugObj: Record<string, string> | string) => {
+        if (typeof slugObj === 'object' && slugObj[currentLocale]) {
+          return slugObj[currentLocale]
+        } else if (typeof slugObj === 'string') {
+          return slugObj
+        }
+        // Fallback to 'en' if current locale not found
+        return (slugObj as Record<string, string>)?.en || null
+      })
+      .filter(Boolean)
+
+    const docsListName = docsListNameObjects.map(
+      (nameObj: Record<string, string> | string) => {
+        if (typeof nameObj === 'object') {
+          return nameObj
+        }
+        // If it's already a string, wrap it in an object for consistency
+        return { [currentLocale]: nameObj as string }
+      }
+    )
+
     const indexOfSlug = docsListSlug.indexOf(slug)
+
+    logger.info(
+      `Slug matching for ${slug}: found at index ${indexOfSlug} in ${docsListSlug.length} total docs`
+    )
+
     const pagination = {
       previousDoc: {
-        slug: docsListSlug[indexOfSlug - 1]
-          ? docsListSlug[indexOfSlug - 1]
-          : null,
-        name: docsListName[indexOfSlug - 1]
-          ? docsListName[indexOfSlug - 1][locale || 'en']
-          : null,
+        slug:
+          indexOfSlug > 0 && docsListSlug[indexOfSlug - 1]
+            ? docsListSlug[indexOfSlug - 1]
+            : null,
+        name:
+          indexOfSlug > 0 && docsListName[indexOfSlug - 1]
+            ? docsListName[indexOfSlug - 1][currentLocale] ||
+              docsListName[indexOfSlug - 1]['en']
+            : null,
       },
       nextDoc: {
-        slug: docsListSlug[indexOfSlug + 1]
-          ? docsListSlug[indexOfSlug + 1]
-          : null,
-        name: docsListName[indexOfSlug + 1]
-          ? docsListName[indexOfSlug + 1][locale || 'en']
-          : null,
+        slug:
+          indexOfSlug >= 0 &&
+          indexOfSlug < docsListSlug.length - 1 &&
+          docsListSlug[indexOfSlug + 1]
+            ? docsListSlug[indexOfSlug + 1]
+            : null,
+        name:
+          indexOfSlug >= 0 &&
+          indexOfSlug < docsListSlug.length - 1 &&
+          docsListName[indexOfSlug + 1]
+            ? docsListName[indexOfSlug + 1][currentLocale] ||
+              docsListName[indexOfSlug + 1]['en']
+            : null,
       },
     }
 
@@ -442,15 +482,25 @@ export const getStaticProps: GetStaticProps = async ({
         parentsArrayName
       )
       getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-      if (
-        docsListName[indexOfSlug] &&
-        docsListName[indexOfSlug][currentLocale]
-      ) {
-        parentsArrayName.push(docsListName[indexOfSlug][currentLocale])
+      if (indexOfSlug >= 0 && docsListName[indexOfSlug]) {
+        const currentDocName =
+          docsListName[indexOfSlug][currentLocale] ||
+          docsListName[indexOfSlug]['en']
+        if (currentDocName) {
+          parentsArrayName.push(currentDocName)
+          logger.info(
+            `Added document name to breadcrumbs: ${currentDocName} for slug: ${slug}`
+          )
+        } else {
+          logger.warn(
+            `Document name not found for slug: ${slug} in locale: ${currentLocale}. Available locales: ${Object.keys(
+              docsListName[indexOfSlug] || {}
+            ).join(', ')}`
+          )
+        }
       } else {
-        logger.info(
-          // MODIFIED: console.warn to logger.info
-          `docsListName or currentLocale not found for slug: ${slug} in locale: ${currentLocale}`
+        logger.warn(
+          `Document not found in navigation for slug: ${slug} (index: ${indexOfSlug})`
         )
       }
     }

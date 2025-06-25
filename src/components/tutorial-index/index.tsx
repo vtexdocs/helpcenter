@@ -37,7 +37,7 @@ const TutorialIndexing = ({ ...props }) => {
               </header>
               <Box sx={styles.textContainer}>
                 <Box sx={styles.titleContainer}>
-                  <Text>{props.name}</Text>
+                  <Text>{props.name || 'Untitled'}</Text>
                 </Box>
                 <Box sx={styles.indexContainer}>
                   <Text sx={{ fontSize: '22px', pt: '32px' }}>
@@ -46,7 +46,7 @@ const TutorialIndexing = ({ ...props }) => {
                   <Flex sx={styles.linksContainer}>
                     {props.children.map(
                       (el: { slug: string; name: string }) => (
-                        <Link href={el.slug}>{el.name}</Link>
+                        <Link href={el.slug}>{el.name || 'Untitled'}</Link>
                       )
                     )}
                   </Flex>
