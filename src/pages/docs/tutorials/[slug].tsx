@@ -43,7 +43,9 @@ import TutorialMarkdownRender from 'components/tutorial-markdown-render'
 import theme from 'styles/code-hike-theme'
 import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 
-const docsPathsGLOBAL = await getTutorialsPaths('tutorials')
+// Initialize in getStaticProps
+let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
+  null
 
 interface TutorialIndexingDataI {
   name: string
@@ -73,7 +75,6 @@ interface MarkDownProps {
 type Props =
   | {
       sectionSelected: string
-      sidebarfallback: any //eslint-disable-line
       slug: string
       parentsArray: string[] | null[]
       // path: string
@@ -95,7 +96,6 @@ type Props =
     }
   | {
       sectionSelected: string
-      sidebarfallback: any //eslint-disable-line
       slug: string
       parentsArray: string[] | null[]
       isListed: boolean
@@ -327,7 +327,7 @@ export const getStaticProps: GetStaticProps = async ({
       props: {
         type,
         sectionSelected,
-        sidebarfallback,
+        // ❌ REMOVED: sidebarfallback (3.4MB navigation no longer sent to client)
         parentsArray: sanitizedParentsArray,
         slug,
         pagination,
@@ -342,6 +342,9 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   // Handle 'markdown' type
+  if (!docsPathsGLOBAL) {
+    docsPathsGLOBAL = await getTutorialsPaths('tutorials')
+  }
   const docsPaths =
     preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
       ? await getTutorialsPaths('tutorials', branch)
@@ -542,17 +545,21 @@ export const getStaticProps: GetStaticProps = async ({
         slug: docsListSlug[indexOfSlug - 1]
           ? docsListSlug[indexOfSlug - 1]
           : null,
-        name: docsListName[indexOfSlug - 1]
-          ? docsListName[indexOfSlug - 1][currentLocale || 'en'] // MODIFIED: use currentLocale
-          : null,
+        name:
+          docsListName[indexOfSlug - 1] &&
+          docsListName[indexOfSlug - 1][currentLocale || 'en']
+            ? docsListName[indexOfSlug - 1][currentLocale || 'en']
+            : null,
       },
       nextDoc: {
         slug: docsListSlug[indexOfSlug + 1]
           ? docsListSlug[indexOfSlug + 1]
           : null,
-        name: docsListName[indexOfSlug + 1]
-          ? docsListName[indexOfSlug + 1][currentLocale || 'en'] // MODIFIED: use currentLocale
-          : null,
+        name:
+          docsListName[indexOfSlug + 1] &&
+          docsListName[indexOfSlug + 1][currentLocale || 'en']
+            ? docsListName[indexOfSlug + 1][currentLocale || 'en']
+            : null,
       },
     }
 
@@ -569,7 +576,7 @@ export const getStaticProps: GetStaticProps = async ({
       props: {
         type, // ADDED: type for markdown pages
         sectionSelected,
-        sidebarfallback, // This might be large, consider if needed for client
+        // ❌ REMOVED: sidebarfallback (3.4MB navigation no longer sent to client)
         parentsArray: sanitizedParentsArray,
         slug,
         pagination,

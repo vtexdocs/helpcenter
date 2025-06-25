@@ -1,6 +1,16 @@
 import { Box, Flex, Text } from '@vtex/brand-ui'
-import { Item, MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
+import { Item, MarkdownRenderer } from '@vtexdocs/components'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import dynamic from 'next/dynamic'
+
+// Dynamic import for TableOfContents to avoid NextRouter mounting issues during SSG
+const TableOfContents = dynamic(
+  () =>
+    import('@vtexdocs/components').then((mod) => ({
+      default: mod.TableOfContents,
+    })),
+  { ssr: false }
+)
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import Head from 'next/head'
 import { useContext, useEffect, useRef, useState } from 'react'
@@ -43,7 +53,9 @@ interface Props {
   branch: string
 }
 
-const docsPathsGLOBAL = await getTroubleshootingPaths('troubleshooting')
+// Initialize in getStaticProps
+let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
+  null
 
 const TroubleshootingPage: NextPage<Props> = ({
   serialized,
@@ -63,11 +75,11 @@ const TroubleshootingPage: NextPage<Props> = ({
   }, [serialized.frontmatter])
 
   const createdAtDate = serialized.frontmatter?.createdAt
-    ? new Date(serialized.frontmatter?.createdAt)
+    ? new Date(String(serialized.frontmatter?.createdAt))
     : undefined
 
   const updatedAtDate = serialized.frontmatter?.updatedAt
-    ? new Date(serialized.frontmatter?.updatedAt)
+    ? new Date(String(serialized.frontmatter?.updatedAt))
     : undefined
 
   return (
@@ -97,11 +109,15 @@ const TroubleshootingPage: NextPage<Props> = ({
                       <Text sx={styles.documentationTitle} className="title">
                         {serialized.frontmatter?.title}
                       </Text>
-                      <TimeToRead
-                        minutes={
-                          (serialized.frontmatter?.readingTime as string) ?? 0
-                        }
-                      />
+                      {serialized.frontmatter?.readingTime && (
+                        <TimeToRead
+                          minutes={
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            (serialized.frontmatter.readingTime as any)?.text ||
+                            String(serialized.frontmatter.readingTime)
+                          }
+                        />
+                      )}
 
                       {/* Reorganizado para colocar o botão após as datas */}
                       {createdAtDate && updatedAtDate && (
@@ -165,10 +181,13 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   const branch = preview ? previewBranch : 'main'
   const slug = params?.slug as string
   const currentLocale: localeType = (locale ?? 'en') as localeType
+  if (!docsPathsGLOBAL) {
+    docsPathsGLOBAL = await getTroubleshootingPaths('troubleshooting')
+  }
   const docsPaths =
-    process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
-      ? docsPathsGLOBAL
-      : await getTroubleshootingPaths('troubleshooting', branch)
+    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
+      ? await getTroubleshootingPaths('troubleshooting', branch)
+      : docsPathsGLOBAL
 
   const logger = getLogger('Start here')
 
@@ -295,7 +314,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
       },
       {
         slug,
-        name: serialized?.frontmatter?.title ?? '',
+        name: String(serialized?.frontmatter?.title) ?? '',
         type: '',
       },
     ]

@@ -19,7 +19,17 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
-import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
+import { Item, LibraryContext } from '@vtexdocs/components'
+import dynamic from 'next/dynamic'
+
+// Dynamic import for TableOfContents to avoid NextRouter mounting issues during SSG
+const TableOfContents = dynamic(
+  () =>
+    import('@vtexdocs/components').then((mod) => ({
+      default: mod.TableOfContents,
+    })),
+  { ssr: false }
+)
 
 import getHeadings from 'utils/getHeadings'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
@@ -48,7 +58,9 @@ import Breadcrumb from 'components/breadcrumb'
 import { AnnouncementDataElement } from 'utils/typings/types'
 import DateText from 'components/date-text'
 import CopyLinkButton from 'components/copy-link-button'
-const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
+// Initialize in getStaticProps
+let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
+  null
 
 interface Props {
   sectionSelected: string
@@ -93,11 +105,11 @@ const AnnouncementPage: NextPage<Props> = ({
   }
 
   const createdAtDate = serialized.frontmatter?.createdAt
-    ? new Date(serialized.frontmatter?.createdAt)
+    ? new Date(String(serialized.frontmatter?.createdAt))
     : undefined
 
   const updatedAtDate = serialized.frontmatter?.updatedAt
-    ? new Date(serialized.frontmatter?.updatedAt)
+    ? new Date(String(serialized.frontmatter?.updatedAt))
     : undefined
 
   return (
@@ -174,10 +186,13 @@ export const getStaticProps: GetStaticProps = async ({
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
+  if (!docsPathsGLOBAL) {
+    docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
+  }
   const docsPaths =
-    process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
-      ? docsPathsGLOBAL
-      : await getAnnouncementsPaths('announcements', branch)
+    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
+      ? await getAnnouncementsPaths('announcements', branch)
+      : docsPathsGLOBAL
 
   const logger = getLogger('Announcements')
 
@@ -322,10 +337,10 @@ export const getStaticProps: GetStaticProps = async ({
             })
             seeAlsoData.push({
               url: seeAlsoUrl,
-              title: serialized.frontmatter?.title ?? seeAlsoUrl,
+              title: String(serialized.frontmatter?.title) ?? seeAlsoUrl,
               createdAt: String(serialized.frontmatter?.createdAt) ?? '',
               updatedAt: String(serialized.frontmatter?.updatedAt) ?? '',
-              status: serialized.frontmatter?.status ?? '',
+              status: String(serialized.frontmatter?.status) ?? '',
             })
           } catch (error) {}
         }

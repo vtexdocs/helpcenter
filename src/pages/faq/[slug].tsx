@@ -19,8 +19,18 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 
 import Contributors from 'components/contributors'
 import OnThisPage from 'components/on-this-page'
-import { Item, TableOfContents } from '@vtexdocs/components'
+import { Item } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
+import dynamic from 'next/dynamic'
+
+// Dynamic import for TableOfContents to avoid NextRouter mounting issues during SSG
+const TableOfContents = dynamic(
+  () =>
+    import('@vtexdocs/components').then((mod) => ({
+      default: mod.TableOfContents,
+    })),
+  { ssr: false }
+)
 import TimeToRead from 'components/TimeToRead'
 
 import getHeadings from 'utils/getHeadings'
@@ -42,7 +52,9 @@ import { getMessages } from 'utils/get-messages'
 import DateText from 'components/date-text'
 import CopyLinkButton from 'components/copy-link-button'
 
-const docsPathsGLOBAL = await getFaqPaths('faq')
+// Initialize in getStaticProps
+let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
+  null
 
 interface Props {
   sectionSelected: string
@@ -72,11 +84,11 @@ const FaqPage: NextPage<Props> = ({
   }, [serialized.frontmatter])
 
   const createdAtDate = serialized.frontmatter?.createdAt
-    ? new Date(serialized.frontmatter?.createdAt)
+    ? new Date(String(serialized.frontmatter?.createdAt))
     : undefined
 
   const updatedAtDate = serialized.frontmatter?.updatedAt
-    ? new Date(serialized.frontmatter?.updatedAt)
+    ? new Date(String(serialized.frontmatter?.updatedAt))
     : undefined
 
   return (
@@ -108,7 +120,11 @@ const FaqPage: NextPage<Props> = ({
                       </Text>
                       {serialized.frontmatter?.readingTime && (
                         <TimeToRead
-                          minutes={serialized.frontmatter.readingTime}
+                          minutes={
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            (serialized.frontmatter.readingTime as any)?.text ||
+                            String(serialized.frontmatter.readingTime)
+                          }
                         />
                       )}
 
@@ -178,10 +194,13 @@ export const getStaticProps: GetStaticProps = async ({
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
+  if (!docsPathsGLOBAL) {
+    docsPathsGLOBAL = await getFaqPaths('faq')
+  }
   const docsPaths =
-    process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
-      ? docsPathsGLOBAL
-      : await getFaqPaths('faq', branch)
+    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
+      ? await getFaqPaths('faq', branch)
+      : docsPathsGLOBAL
 
   const logger = getLogger('FAQ')
 
@@ -310,7 +329,7 @@ export const getStaticProps: GetStaticProps = async ({
       },
       {
         slug,
-        name: serialized?.frontmatter?.title ?? '',
+        name: String(serialized?.frontmatter?.title) ?? '',
         type: 'markdown',
       },
     ]

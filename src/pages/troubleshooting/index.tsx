@@ -223,7 +223,7 @@ export async function getStaticProps({
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
               tags: String(frontmatter.tags ?? '').split(','),
-              status: frontmatter.status,
+              status: String(frontmatter.status),
             })
           }
         } catch (error) {

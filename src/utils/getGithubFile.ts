@@ -59,12 +59,10 @@ export default async function getGithubFile(
             repo: repo,
             path: path,
             ref: ref,
-            mediaType: {
-              format: 'raw',
-            },
             request: {
               headers: {
                 'x-githubfile': 'true',
+                Accept: 'application/vnd.github.v3.raw',
               },
             },
           })
@@ -72,10 +70,12 @@ export default async function getGithubFile(
           return response.data
         } else {
           logger.error(
-            'Octokit repos.getContent did not return string data with mediaType.format: raw'
+            `Octokit repos.getContent did not return string data with Accept: application/vnd.github.v3.raw. Actual type: ${typeof response.data}, value: ${JSON.stringify(
+              response.data
+            ).slice(0, 500)}`
           )
           throw new Error(
-            'Octokit repos.getContent did not return string data with mediaType.format: raw'
+            'Octokit repos.getContent did not return string data with Accept: application/vnd.github.v3.raw'
           )
         }
       } catch (octokitErr: any) {
@@ -91,12 +91,10 @@ export default async function getGithubFile(
       repo: repo,
       path: path,
       ref: ref,
-      mediaType: {
-        format: 'raw',
-      },
       request: {
         headers: {
           'x-githubfile': 'true',
+          Accept: 'application/vnd.github.v3.raw',
         },
       },
     })
@@ -104,10 +102,12 @@ export default async function getGithubFile(
       return response.data
     } else {
       logger.error(
-        'Octokit repos.getContent did not return string data with mediaType.format: raw'
+        `Octokit repos.getContent did not return string data with Accept: application/vnd.github.v3.raw. Actual type: ${typeof response.data}, value: ${JSON.stringify(
+          response.data
+        ).slice(0, 500)}`
       )
       throw new Error(
-        'Octokit repos.getContent did not return string data with mediaType.format: raw'
+        'Octokit repos.getContent did not return string data with Accept: application/vnd.github.v3.raw'
       )
     }
   } catch (err: any) {

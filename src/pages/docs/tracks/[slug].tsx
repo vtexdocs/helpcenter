@@ -12,6 +12,7 @@ import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
 import { remarkCodeHike } from '@code-hike/mdx'
 import remarkImages from 'utils/remark_plugins/plaiceholder'
+import dynamic from 'next/dynamic'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
 
@@ -21,8 +22,17 @@ import Contributors from 'components/contributors'
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
 import SeeAlsoSection from 'components/see-also-section'
-import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
+import { Item, LibraryContext } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
+
+// Dynamic import for TableOfContents to avoid NextRouter mounting issues during SSG
+const TableOfContents = dynamic(
+  () =>
+    import('@vtexdocs/components').then((mod) => ({
+      default: mod.TableOfContents,
+    })),
+  { ssr: false }
+)
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
@@ -57,7 +67,9 @@ import TimeToRead from 'components/TimeToRead'
 import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 import CopyLinkButton from 'components/copy-link-button'
 
-const docsPathsGLOBAL = await getTracksPaths('tracks')
+// Initialize in getStaticProps
+let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
+  null
 
 interface Props {
   sectionSelected: string
@@ -65,7 +77,7 @@ interface Props {
   breadcrumbList: { slug: string; name: string; type: string }[]
   content: string
   serialized: MDXRemoteSerializeResult
-  sidebarfallback: any //eslint-disable-line
+  // ❌ REMOVED: sidebarfallback (navigation now loaded client-side)
   contributors: ContributorsType[]
   path: string
   headingList: Item[]
@@ -142,7 +154,11 @@ const TrackPage: NextPage<Props> = ({
                       </Text>
                       {serialized.frontmatter?.readingTime && (
                         <TimeToRead
-                          minutes={serialized.frontmatter.readingTime}
+                          minutes={
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            (serialized.frontmatter.readingTime as any)?.text ||
+                            String(serialized.frontmatter.readingTime)
+                          }
                         />
                       )}
                       {/* Adiciona a propriedade justifyContent ao Flex para alinhar o botão à direita */}
@@ -237,6 +253,9 @@ export const getStaticProps: GetStaticProps = async ({
     locale ||
     'en') as localeType
 
+  if (!docsPathsGLOBAL) {
+    docsPathsGLOBAL = await getTracksPaths('tracks')
+  }
   const docsPaths =
     preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
       ? await getTracksPaths('tracks', branch)
@@ -467,7 +486,7 @@ export const getStaticProps: GetStaticProps = async ({
         parentsArray: sanitizedParentsArray,
         slug,
         serialized,
-        sidebarfallback,
+        // ❌ REMOVED: sidebarfallback (3.4MB navigation no longer sent to client)
         headingList,
         contributors,
         path: resolvedPath,

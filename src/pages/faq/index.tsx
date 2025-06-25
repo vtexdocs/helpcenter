@@ -263,12 +263,12 @@ export const getStaticProps: GetStaticProps = async ({
 
           if (frontmatter)
             faqData.push({
-              title: frontmatter.title,
+              title: String(frontmatter.title),
               slug: data.slug,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
-              productTeam: frontmatter.productTeam,
-              status: frontmatter.status,
+              status: String(frontmatter.status),
+              productTeam: String(frontmatter.productTeam || ''),
             })
         } catch (error) {
           logger.error(`${error}`)

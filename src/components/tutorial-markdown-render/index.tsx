@@ -9,7 +9,33 @@ import startHereImage from '../../../public/images/start-here.png'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
 import DocumentContextProvider from 'utils/contexts/documentContext'
-import { Item, MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
+import { Item, MarkdownRenderer } from '@vtexdocs/components'
+import dynamic from 'next/dynamic'
+
+// Dynamically import TableOfContents to avoid SSR issues with useRouter
+const DynamicTableOfContents = dynamic(
+  () =>
+    import('@vtexdocs/components').then((mod) => ({
+      default: mod.TableOfContents,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <Box
+        sx={{
+          height: '40px',
+          backgroundColor: '#f5f5f5',
+          borderRadius: '4px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {/* Loading placeholder for TableOfContents */}
+      </Box>
+    ),
+  }
+)
 
 import styles from 'styles/documentation-page'
 import ArticlePagination from 'components/article-pagination'
@@ -103,7 +129,12 @@ const TutorialMarkdownRender = (props: Props) => {
                   </header>
                   {props.serialized.frontmatter?.readingTime && (
                     <TimeToRead
-                      minutes={props.serialized.frontmatter.readingTime}
+                      minutes={
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        (props.serialized.frontmatter.readingTime as any)
+                          ?.text ||
+                        String(props.serialized.frontmatter.readingTime)
+                      }
                     />
                   )}
                   <MarkdownRenderer serialized={props.serialized} />
@@ -137,7 +168,7 @@ const TutorialMarkdownRender = (props: Props) => {
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={props.contributors} />
-            <TableOfContents headingList={props.headings} />
+            <DynamicTableOfContents headingList={props.headings} />
           </Box>
           <OnThisPage />
         </Flex>
