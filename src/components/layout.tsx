@@ -101,7 +101,7 @@ export default function Layout({
             button: intl.formatMessage({
               id: 'announcement_bar.button',
             }),
-            href: 'https://help.vtex.com/',
+            href: 'https://help.vtex.com?utm_source=new-help-center-announcement-bar',
           }}
         />
         <CookieBar
