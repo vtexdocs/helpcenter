@@ -22,7 +22,6 @@ public/robots.txt
 
 # production
 /build
-/public/rapidoc/rapidoc-min.js
 
 # misc
 .DS_Store
@@ -55,3 +54,6 @@ yarn-error.log*
 cypress.log
 src/tests/cypress/screenshots
 src/tests/cypress/videos
+
+AI_PROJECT_GUIDE.md
+TODO.md

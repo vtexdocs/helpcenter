@@ -58,7 +58,9 @@ const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
 
 Home.hideSidebar = true
 
-const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
+// Initialize in getStaticProps
+let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
+  null
 
 export const getStaticProps: GetStaticProps = async ({
   locale,
@@ -75,6 +77,9 @@ export const getStaticProps: GetStaticProps = async ({
     ? (locale as localeType)
     : ('en' as localeType)
 
+  if (!docsPathsGLOBAL) {
+    docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
+  }
   const slugs = Object.keys(docsPathsGLOBAL)
 
   const fetchFromGithub = async (path: string, slug: string) => {
@@ -94,9 +99,9 @@ export const getStaticProps: GetStaticProps = async ({
 
   const fetchBatch = async (batch: string[]) => {
     const promises = batch.map(async (slug) => {
-      const path = docsPathsGLOBAL[slug]?.find(
-        (e) => e.locale === currentLocale
-      )?.path
+      const path =
+        docsPathsGLOBAL &&
+        docsPathsGLOBAL[slug]?.find((e) => e.locale === currentLocale)?.path
 
       if (path) return fetchFromGithub(path, slug)
 
@@ -123,11 +128,11 @@ export const getStaticProps: GetStaticProps = async ({
 
           if (frontmatter) {
             announcementsData.push({
-              title: frontmatter.title,
+              title: String(frontmatter.title),
               url: `announcements/${data.slug}`,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
-              status: frontmatter.status,
+              status: String(frontmatter.status),
             })
           }
         } catch (error) {

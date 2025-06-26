@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useEffect, useState, useContext, useRef } from 'react'
-import { GetServerSideProps, NextPage } from 'next'
+import { NextPage, GetStaticPaths, GetStaticProps } from 'next' // MODIFIED: Changed GetServerSideProps to GetStaticProps
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import jp from 'jsonpath'
 import ArticlePagination from 'components/article-pagination'
@@ -21,21 +21,28 @@ import Contributors from 'components/contributors'
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
 import SeeAlsoSection from 'components/see-also-section'
-import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
+import { Item, LibraryContext } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
 
+// Import TableOfContentsWrapper that handles vertical layout styling
+import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
+
 import getHeadings from 'utils/getHeadings'
-import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import getNavigation from 'utils/getNavigation'
-// import getGithubFile from 'utils/getGithubFile'
-import { getDocsPaths as getTracksPaths } from 'utils/getDocsPaths'
+import getGithubFile from 'utils/getGithubFile' // ADDED: Import getGithubFile
+import {
+  getDocsPaths as getTracksPaths,
+  // getStaticPathsForDocType, // Removed unused import
+} from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
 import styles from 'styles/documentation-page'
-import { ContributorsType } from 'utils/getFileContributors'
+import getFileContributors, {
+  ContributorsType,
+} from 'utils/getFileContributors' // MODIFIED: Import getFileContributors as default
 
 import { getLogger } from 'utils/logging/log-util'
 import {
@@ -53,7 +60,9 @@ import TimeToRead from 'components/TimeToRead'
 import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 import CopyLinkButton from 'components/copy-link-button'
 
-const docsPathsGLOBAL = await getTracksPaths('tracks')
+// Initialize in getStaticProps
+let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
+  null
 
 interface Props {
   sectionSelected: string
@@ -61,7 +70,7 @@ interface Props {
   breadcrumbList: { slug: string; name: string; type: string }[]
   content: string
   serialized: MDXRemoteSerializeResult
-  sidebarfallback: any //eslint-disable-line
+  // ❌ REMOVED: sidebarfallback (navigation now loaded client-side)
   contributors: ContributorsType[]
   path: string
   headingList: Item[]
@@ -138,7 +147,11 @@ const TrackPage: NextPage<Props> = ({
                       </Text>
                       {serialized.frontmatter?.readingTime && (
                         <TimeToRead
-                          minutes={serialized.frontmatter.readingTime}
+                          minutes={
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            (serialized.frontmatter.readingTime as any)?.text ||
+                            String(serialized.frontmatter.readingTime)
+                          }
                         />
                       )}
                       {/* Adiciona a propriedade justifyContent ao Flex para alinhar o botão à direita */}
@@ -183,7 +196,7 @@ const TrackPage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContents headingList={headings} />
+            <TableOfContentsWrapper headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>
@@ -192,65 +205,107 @@ const TrackPage: NextPage<Props> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({
+export const getStaticPaths: GetStaticPaths = async () => {
+  // Use getTracksPaths to get all available slugs for tracks
+  const docsPaths = await getTracksPaths('tracks')
+  // Generate a path for each slug/locale combination
+  const paths = Object.entries(docsPaths).flatMap(([slug, entries]) =>
+    entries.map(({ locale }) => ({
+      params: { slug },
+      locale,
+    }))
+  )
+  return {
+    paths,
+    fallback: 'blocking',
+  }
+}
+
+interface PreviewData {
+  branch?: string
+}
+
+export const getStaticProps: GetStaticProps = async ({
   params,
   locale,
   preview,
   previewData,
 }) => {
   const previewBranch =
-    preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
-      ? JSON.parse(JSON.stringify(previewData)).branch
+    preview &&
+    previewData &&
+    typeof previewData === 'object' &&
+    'branch' in previewData
+      ? (previewData as PreviewData).branch || 'main'
       : 'main'
   const branch = preview ? previewBranch : 'main'
+
   const slug = params?.slug as string
-  const currentLocale: localeType = locale
-    ? (locale as localeType)
-    : ('en' as localeType)
+  const langFromParams = params?.lang as string | undefined
+  const currentLocale: localeType = (langFromParams ||
+    locale ||
+    'en') as localeType
+
+  if (!docsPathsGLOBAL) {
+    docsPathsGLOBAL = await getTracksPaths('tracks')
+  }
   const docsPaths =
-    process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
-      ? docsPathsGLOBAL
-      : await getTracksPaths('tracks', branch)
+    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
+      ? await getTracksPaths('tracks', branch)
+      : docsPathsGLOBAL
 
-  const logger = getLogger('Start here')
+  const logger = getLogger('TracksPage-GetStaticProps') // MODIFIED: More specific logger name
 
-  const path = docsPaths[slug].find((e) => e.locale === locale)?.path
+  const pathEntry = docsPaths[slug]?.find((e) => e.locale === currentLocale)
 
-  let documentationContent =
-    (await fetch(
-      `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
+  if (!pathEntry?.path) {
+    logger.info(
+      `Path not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
-      .then((res) => res.text())
-      .catch((err) => console.log(err))) || ''
+    return { notFound: true, revalidate: 3600 }
+  }
+  const resolvedPath = pathEntry.path
 
-  const contributors =
-    (await fetch(
-      `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      }
+  // MODIFIED: Use getGithubFile to fetch documentation content
+  let documentationContent: string | null = null
+  try {
+    documentationContent = await getGithubFile(
+      'vtexdocs',
+      'help-center-content',
+      branch,
+      resolvedPath
     )
-      .then((res) => res.json())
-      .then(({ users }) => {
-        const result: ContributorsType[] = []
-        for (let i = 0; i < users.length; i++) {
-          const user = users[i]
-          if (user.id === '41898282') continue
-          result.push({
-            name: user.login,
-            login: user.login,
-            avatar: user.primaryAvatarUrl,
-            userPage: `https://github.com${user.profileLink}`,
-          })
-        }
+  } catch (err) {
+    logger.error(
+      `Error fetching content for ${resolvedPath} on branch ${branch}: ${err}`
+    )
+    return { notFound: true, revalidate: 3600 }
+  }
 
-        return result
-      })
-      .catch((err) => console.log(err))) || []
+  documentationContent = documentationContent || ''
+
+  // MODIFIED: Use getFileContributors to fetch contributors
+  let contributors: ContributorsType[] = []
+  try {
+    const fetchedContributors = await getFileContributors(
+      'vtexdocs',
+      'help-center-content',
+      branch,
+      resolvedPath
+    )
+    // Ensure fetchedContributors is an array before assigning
+    if (Array.isArray(fetchedContributors)) {
+      contributors = fetchedContributors
+    } else {
+      logger.info(
+        `Fetched contributors is not an array for ${resolvedPath} on branch ${branch}. Received: ${typeof fetchedContributors}`
+      )
+    }
+  } catch (err) {
+    logger.info(
+      `Error fetching contributors for ${resolvedPath} on branch ${branch}: ${err}`
+    )
+  }
 
   let format: 'md' | 'mdx' = 'mdx'
 
@@ -275,10 +330,16 @@ export const getServerSideProps: GetServerSideProps = async ({
       },
     })
 
-    if (
-      serialized.frontmatter?.status &&
-      serialized.frontmatter?.status !== 'PUBLISHED'
-    ) {
+    // Allow PUBLISHED and CHANGED status documents to be visible
+    const allowedStatuses = ['PUBLISHED', 'CHANGED']
+    const status = serialized.frontmatter?.status as string
+
+    if (status && !allowedStatuses.includes(status)) {
+      logger.info(
+        `Document status is not allowed for ${resolvedPath}. Status: ${status}, Allowed: ${allowedStatuses.join(
+          ', '
+        )}`
+      )
       return {
         notFound: true,
       }
@@ -333,31 +394,71 @@ export const getServerSideProps: GetServerSideProps = async ({
       })
     )
 
-    const docsListSlug = jp.query(
+    // Extract slug strings for the current locale from navigation
+    const docsListSlugObjects = jp.query(
       sidebarfallback,
       `$..[?(@.type=='markdown')]..slug`
     )
-    const docsListName = jp.query(
+    const docsListNameObjects = jp.query(
       sidebarfallback,
       `$..[?(@.type=='markdown')]..name`
     )
+
+    // Convert slug objects to strings for the current locale
+    const docsListSlug = docsListSlugObjects
+      .map((slugObj: Record<string, string> | string) => {
+        if (typeof slugObj === 'object' && slugObj[currentLocale]) {
+          return slugObj[currentLocale]
+        } else if (typeof slugObj === 'string') {
+          return slugObj
+        }
+        // Fallback to 'en' if current locale not found
+        return (slugObj as Record<string, string>)?.en || null
+      })
+      .filter(Boolean)
+
+    const docsListName = docsListNameObjects.map(
+      (nameObj: Record<string, string> | string) => {
+        if (typeof nameObj === 'object') {
+          return nameObj
+        }
+        // If it's already a string, wrap it in an object for consistency
+        return { [currentLocale]: nameObj as string }
+      }
+    )
+
     const indexOfSlug = docsListSlug.indexOf(slug)
+
+    logger.info(
+      `Slug matching for ${slug}: found at index ${indexOfSlug} in ${docsListSlug.length} total docs`
+    )
+
     const pagination = {
       previousDoc: {
-        slug: docsListSlug[indexOfSlug - 1]
-          ? docsListSlug[indexOfSlug - 1]
-          : null,
-        name: docsListName[indexOfSlug - 1]
-          ? docsListName[indexOfSlug - 1][locale || 'en']
-          : null,
+        slug:
+          indexOfSlug > 0 && docsListSlug[indexOfSlug - 1]
+            ? docsListSlug[indexOfSlug - 1]
+            : null,
+        name:
+          indexOfSlug > 0 && docsListName[indexOfSlug - 1]
+            ? docsListName[indexOfSlug - 1][currentLocale] ||
+              docsListName[indexOfSlug - 1]['en']
+            : null,
       },
       nextDoc: {
-        slug: docsListSlug[indexOfSlug + 1]
-          ? docsListSlug[indexOfSlug + 1]
-          : null,
-        name: docsListName[indexOfSlug + 1]
-          ? docsListName[indexOfSlug + 1][locale || 'en']
-          : null,
+        slug:
+          indexOfSlug >= 0 &&
+          indexOfSlug < docsListSlug.length - 1 &&
+          docsListSlug[indexOfSlug + 1]
+            ? docsListSlug[indexOfSlug + 1]
+            : null,
+        name:
+          indexOfSlug >= 0 &&
+          indexOfSlug < docsListSlug.length - 1 &&
+          docsListName[indexOfSlug + 1]
+            ? docsListName[indexOfSlug + 1][currentLocale] ||
+              docsListName[indexOfSlug + 1]['en']
+            : null,
       },
     }
 
@@ -380,36 +481,37 @@ export const getServerSideProps: GetServerSideProps = async ({
         parentsArrayName
       )
       getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-      if (
-        docsListName[indexOfSlug] &&
-        docsListName[indexOfSlug][currentLocale]
-      ) {
-        parentsArrayName.push(docsListName[indexOfSlug][currentLocale])
+      if (indexOfSlug >= 0 && docsListName[indexOfSlug]) {
+        const currentDocName =
+          docsListName[indexOfSlug][currentLocale] ||
+          docsListName[indexOfSlug]['en']
+        if (currentDocName) {
+          parentsArrayName.push(currentDocName)
+          logger.info(
+            `Added document name to breadcrumbs: ${currentDocName} for slug: ${slug}`
+          )
+        } else {
+          logger.warn(
+            `Document name not found for slug: ${slug} in locale: ${currentLocale}. Available locales: ${Object.keys(
+              docsListName[indexOfSlug] || {}
+            ).join(', ')}`
+          )
+        }
       } else {
-        console.error(
-          `Error: docsListName or currentLocale not found for slug: ${slug}`
+        logger.warn(
+          `Document not found in navigation for slug: ${slug} (index: ${indexOfSlug})`
         )
       }
     }
 
-    if (!path) {
-      // If the path is not found, the function below redirects the user to the localized URL. If the localized URL is not found, it returns a 404 page.
-      return redirectToLocalizedUrl(
-        keyPath as string,
-        currentLocale,
-        flattenedSidebar,
-        'tracks'
-      )
-    }
-
     try {
-      if (path.endsWith('.md')) {
+      if (resolvedPath.endsWith('.md')) {
         documentationContent = escapeCurlyBraces(documentationContent)
         documentationContent = replaceHTMLBlocks(documentationContent)
         documentationContent = await replaceMagicBlocks(documentationContent)
       }
     } catch (error) {
-      logger.error(`${error}`)
+      logger.error(`Error processing markdown for ${resolvedPath}: ${error}`) // MODIFIED: Improved error logging
       format = 'md'
     }
 
@@ -433,22 +535,24 @@ export const getServerSideProps: GetServerSideProps = async ({
         parentsArray: sanitizedParentsArray,
         slug,
         serialized,
-        sidebarfallback,
+        // ❌ REMOVED: sidebarfallback (3.4MB navigation no longer sent to client)
         headingList,
         contributors,
-        path,
+        path: resolvedPath,
         seeAlsoData,
         pagination,
         isListed,
         breadcrumbList,
         branch,
-        locale,
+        locale: currentLocale,
       },
+      revalidate: 3600,
     }
   } catch (error) {
-    logger.error(`Error while processing ${path}\n${error}`)
+    logger.error(`Error while processing ${resolvedPath}\\n${error}`)
     return {
       notFound: true,
+      revalidate: 3600,
     }
   }
 }

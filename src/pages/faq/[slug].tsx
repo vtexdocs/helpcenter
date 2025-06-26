@@ -19,8 +19,9 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 
 import Contributors from 'components/contributors'
 import OnThisPage from 'components/on-this-page'
-import { Item, TableOfContents } from '@vtexdocs/components'
+import { Item } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
+import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
 import TimeToRead from 'components/TimeToRead'
 
 import getHeadings from 'utils/getHeadings'
@@ -42,7 +43,9 @@ import { getMessages } from 'utils/get-messages'
 import DateText from 'components/date-text'
 import CopyLinkButton from 'components/copy-link-button'
 
-const docsPathsGLOBAL = await getFaqPaths('faq')
+// Initialize in getStaticProps
+let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
+  null
 
 interface Props {
   sectionSelected: string
@@ -72,11 +75,11 @@ const FaqPage: NextPage<Props> = ({
   }, [serialized.frontmatter])
 
   const createdAtDate = serialized.frontmatter?.createdAt
-    ? new Date(serialized.frontmatter?.createdAt)
+    ? new Date(String(serialized.frontmatter?.createdAt))
     : undefined
 
   const updatedAtDate = serialized.frontmatter?.updatedAt
-    ? new Date(serialized.frontmatter?.updatedAt)
+    ? new Date(String(serialized.frontmatter?.updatedAt))
     : undefined
 
   return (
@@ -108,7 +111,11 @@ const FaqPage: NextPage<Props> = ({
                       </Text>
                       {serialized.frontmatter?.readingTime && (
                         <TimeToRead
-                          minutes={serialized.frontmatter.readingTime}
+                          minutes={
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            (serialized.frontmatter.readingTime as any)?.text ||
+                            String(serialized.frontmatter.readingTime)
+                          }
                         />
                       )}
 
@@ -147,7 +154,7 @@ const FaqPage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContents headingList={headings} />
+            <TableOfContentsWrapper headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>
@@ -178,10 +185,13 @@ export const getStaticProps: GetStaticProps = async ({
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
+  if (!docsPathsGLOBAL) {
+    docsPathsGLOBAL = await getFaqPaths('faq')
+  }
   const docsPaths =
-    process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
-      ? docsPathsGLOBAL
-      : await getFaqPaths('faq', branch)
+    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
+      ? await getFaqPaths('faq', branch)
+      : docsPathsGLOBAL
 
   const logger = getLogger('FAQ')
 
@@ -193,6 +203,9 @@ export const getStaticProps: GetStaticProps = async ({
     const keyPath = getKeyByValue(flattenedSidebar, slug)
 
     if (!keyPath) {
+      logger.warn(
+        `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+      )
       return {
         notFound: true,
       }
@@ -219,9 +232,12 @@ export const getStaticProps: GetStaticProps = async ({
     parseFrontmatter: true,
   })
 
-  // Check if status is "PUBLISHED"
-  const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
-  if (!isPublished) {
+  // Allow PUBLISHED and CHANGED status documents to be visible
+  const allowedStatuses = ['PUBLISHED', 'CHANGED']
+  const hasAllowedStatus = allowedStatuses.includes(
+    serialized?.frontmatter?.status as string
+  )
+  if (!hasAllowedStatus) {
     return {
       notFound: true,
     }
@@ -307,7 +323,7 @@ export const getStaticProps: GetStaticProps = async ({
       },
       {
         slug,
-        name: serialized?.frontmatter?.title ?? '',
+        name: String(serialized?.frontmatter?.title) ?? '',
         type: 'markdown',
       },
     ]

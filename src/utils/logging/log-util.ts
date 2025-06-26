@@ -37,6 +37,9 @@ function Logger(level: string, name: string, msg: string) {
         sendToZapier(msgToSend)
       }
       break
+    case 'WARN':
+      console.warn(chalk.bgYellow.black(msgToSend))
+      break
     default:
       console.log(chalk.bgBlue(msgToSend))
       break
@@ -50,6 +53,9 @@ export function getLogger(name: string) {
     },
     info: (msg: string) => {
       Logger('INFO', name, msg)
+    },
+    warn: (msg: string) => {
+      Logger('WARN', name, msg)
     },
   }
 }

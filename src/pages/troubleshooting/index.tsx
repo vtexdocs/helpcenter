@@ -49,7 +49,9 @@ const TroubleshootingPage: NextPage<Props> = ({
 
   const filteredResult = useMemo(() => {
     const data = troubleshootingData
-      .filter((troubleshoot) => troubleshoot.status === 'PUBLISHED')
+      .filter((troubleshoot) =>
+        ['PUBLISHED', 'CHANGED'].includes(troubleshoot.status)
+      )
       .filter((troubleshoot) => {
         const hasFilters: boolean =
           filters.length === 0 ||
@@ -223,7 +225,7 @@ export async function getStaticProps({
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
               tags: String(frontmatter.tags ?? '').split(','),
-              status: frontmatter.status,
+              status: String(frontmatter.status),
             })
           }
         } catch (error) {

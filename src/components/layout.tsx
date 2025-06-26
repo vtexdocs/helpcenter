@@ -2,6 +2,8 @@ import { Flex, Box } from '@vtex/brand-ui'
 import type { ReactElement } from 'react'
 import { useContext, useEffect } from 'react'
 import { TrackerContext } from 'utils/contexts/trackerContext'
+import { useClientNavigation } from 'utils/useClientNavigation'
+import dynamic from 'next/dynamic'
 
 import { ThemeProvider } from '@vtex/brand-ui'
 
@@ -12,11 +14,28 @@ import AnnouncementBar from './announcement-bar'
 
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import Script from 'next/script'
-import {
-  CookieBar,
-  LibraryContextProvider,
-  Sidebar,
-} from '@vtexdocs/components'
+import { CookieBar, LibraryContextProvider } from '@vtexdocs/components'
+
+// Dynamically import Sidebar to avoid SSR issues with useRouter
+const DynamicSidebar = dynamic(
+  () =>
+    import('@vtexdocs/components').then((mod) => ({ default: mod.Sidebar })),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        style={{
+          width: '300px',
+          height: '200px',
+          backgroundColor: '#f5f5f5',
+          borderRadius: '4px',
+        }}
+      >
+        {/* Placeholder for Sidebar during SSR */}
+      </div>
+    ),
+  }
+)
 import {
   documentationData,
   feedbackSectionData,
@@ -28,7 +47,7 @@ import { useIntl } from 'react-intl'
 import EducationSection from './education-section'
 
 interface Props {
-  sidebarfallback: any //eslint-disable-line
+  // ❌ REMOVED: sidebarfallback prop (navigation now loaded client-side)
   children: ReactElement
   hideSidebar?: boolean
   isPreview: boolean
@@ -43,14 +62,15 @@ interface Props {
 
 export default function Layout({
   children,
-  sidebarfallback,
   hideSidebar,
   isPreview = false,
   sectionSelected,
   parentsArray,
 }: Props) {
   const { initTracker, startTracking } = useContext(TrackerContext)
+  const { navigation } = useClientNavigation() // Load navigation client-side
   const intl = useIntl()
+
   useEffect(() => {
     initTracker()
     startTracking()
@@ -71,7 +91,7 @@ export default function Layout({
           feedbackSectionData(intl),
         ]}
         sectionSelected={sectionSelected ?? ''}
-        fallback={sidebarfallback}
+        fallback={navigation} // Use client-side loaded navigation (null during loading)
         isPreview={isPreview}
         locale={intl.locale as 'en' | 'pt' | 'es'}
       >
@@ -116,7 +136,7 @@ export default function Layout({
         />
         <Header />
         <Flex sx={styles.container}>
-          {!hideSidebar && <Sidebar parentsArray={parentsArray} />}
+          {!hideSidebar && <DynamicSidebar parentsArray={parentsArray} />}
           <Box sx={styles.mainContainer}>{children}</Box>
         </Flex>
         <EducationSection />

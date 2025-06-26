@@ -18,8 +18,9 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 
 import Contributors from 'components/contributors'
 import OnThisPage from 'components/on-this-page'
-import { Item, TableOfContents } from '@vtexdocs/components'
+import { Item } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
+import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
 import TimeToRead from 'components/TimeToRead'
 
 import getHeadings from 'utils/getHeadings'
@@ -44,7 +45,9 @@ import Tag from 'components/tag'
 import DateText from 'components/date-text'
 import CopyLinkButton from 'components/copy-link-button'
 
-const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
+// Initialize in getStaticProps
+let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
+  null
 
 interface Props {
   sectionSelected: string
@@ -77,11 +80,11 @@ const KnownIssuePage: NextPage<Props> = ({
   }, [serialized.frontmatter])
 
   const createdAtDate = serialized.frontmatter?.createdAt
-    ? new Date(serialized.frontmatter?.createdAt)
+    ? new Date(String(serialized.frontmatter?.createdAt))
     : undefined
 
   const updatedAtDate = serialized.frontmatter?.updatedAt
-    ? new Date(serialized.frontmatter?.updatedAt)
+    ? new Date(String(serialized.frontmatter?.updatedAt))
     : undefined
 
   return (
@@ -113,7 +116,11 @@ const KnownIssuePage: NextPage<Props> = ({
                       </Text>
                       {serialized.frontmatter?.readingTime && (
                         <TimeToRead
-                          minutes={serialized.frontmatter.readingTime}
+                          minutes={
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            (serialized.frontmatter.readingTime as any)?.text ||
+                            String(serialized.frontmatter.readingTime)
+                          }
                         />
                       )}
                     </Flex>
@@ -159,7 +166,7 @@ const KnownIssuePage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContents headingList={headings} />
+            <TableOfContentsWrapper headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>
@@ -190,16 +197,22 @@ export const getStaticProps: GetStaticProps = async ({
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
+  if (!docsPathsGLOBAL) {
+    docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
+  }
   const docsPaths =
-    process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
-      ? docsPathsGLOBAL
-      : await getKnownIssuesPaths('known-issues', branch)
+    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
+      ? await getKnownIssuesPaths('known-issues', branch)
+      : docsPathsGLOBAL
 
   const logger = getLogger('Start here')
 
   const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
 
   if (!path) {
+    logger.warn(
+      `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
     return {
       notFound: true,
     }
@@ -217,9 +230,12 @@ export const getStaticProps: GetStaticProps = async ({
     parseFrontmatter: true,
   })
 
-  // Check if status is "PUBLISHED"
-  const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
-  if (!isPublished) {
+  // Allow PUBLISHED and CHANGED status documents to be visible
+  const allowedStatuses = ['PUBLISHED', 'CHANGED']
+  const hasAllowedStatus = allowedStatuses.includes(
+    serialized?.frontmatter?.status as string
+  )
+  if (!hasAllowedStatus) {
     return {
       notFound: true,
     }
@@ -305,7 +321,7 @@ export const getStaticProps: GetStaticProps = async ({
       },
       {
         slug,
-        name: serialized?.frontmatter?.title ?? '',
+        name: String(serialized?.frontmatter?.title) ?? '',
         type: 'markdown',
       },
     ]

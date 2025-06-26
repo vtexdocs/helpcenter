@@ -7,9 +7,9 @@
     "yarn": ">= 1.22.18"
   },
   "scripts": {
-    "predev": "./getPEM.sh && node src/utils/get-rapidoc.mjs",
+    "predev": "./getPEM.sh",
     "dev": "next dev",
-    "prebuild": "./getPEM.sh && node src/utils/get-rapidoc.mjs",
+    "prebuild": "./getPEM.sh",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
@@ -19,11 +19,14 @@
     "cz-commit": "cz",
     "release": "standard-version",
     "index": "chmod +x ./algolia/scripts/scraper.sh && ./algolia/scripts/scraper.sh",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "analyze": "ANALYZE=true yarn build",
+    "bundle-report": "node analyze-bundle.js"
   },
   "dependencies": {
     "@code-hike/mdx": "^0.9.0",
     "@fortawesome/fontawesome-free": "^6.6.0",
+    "@octokit/types": "^14.1.0",
     "@openreplay/tracker": "^5.0.1",
     "@plaiceholder/next": "^2.5.0",
     "@types/http-proxy": "^1.17.9",
@@ -49,7 +52,6 @@
     "octokit": "^2.0.7",
     "plaiceholder": "^2.5.0",
     "probe-image-size": "^7.2.3",
-    "rapidoc": "^9.2.0",
     "raw-loader": "^4.0.2",
     "react": "^18.2.0",
     "react-animate-height": "^3.0.4",
@@ -77,7 +79,8 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
-    "@netlify/plugin-nextjs": "^4.41.3",
+    "@netlify/plugin-nextjs": "^5.11.4",
+    "@next/bundle-analyzer": "^15.3.4",
     "@types/jsonpath": "^0.2.0",
     "@types/node": "17.0.21",
     "@types/react": "17.0.39",
@@ -118,14 +121,9 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    },
-    "rapidoc": {
-      "version": "1.2.3-vtex"
     }
   },
   "resolutions": {
-    "next": "13.0.5",
-    "@types/react": "17.0.2",
-    "@types/react-dom": "17.0.2"
+    "@vtexdocs/components/next": "^13.5.11"
   }
 }

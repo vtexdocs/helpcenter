@@ -42,7 +42,9 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
 
   const filteredResult = useMemo(() => {
     const data = announcementsData
-      .filter((announcement) => announcement.status === 'PUBLISHED')
+      .filter((announcement) =>
+        ['PUBLISHED', 'CHANGED'].includes(announcement.status)
+      )
       .filter((announcement) =>
         announcement.title?.toLowerCase().includes(searchTerm.toLowerCase())
       )
@@ -214,11 +216,11 @@ export const getStaticProps: GetStaticProps = async ({
 
           if (frontmatter)
             announcementsData.push({
-              title: frontmatter.title ?? null,
+              title: String(frontmatter.title) ?? '',
               url: `announcements/${data.slug}`,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
-              status: frontmatter.status ?? null,
+              status: String(frontmatter.status) ?? '',
             })
         } catch (error) {
           logger.error(`${error}`)

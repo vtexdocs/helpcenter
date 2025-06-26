@@ -7,7 +7,6 @@ import { getMessages } from 'utils/get-messages'
 
 import '@code-hike/mdx/dist/index.css'
 import 'styles/global.css'
-import 'styles/rapidoc.css'
 import '@vtexdocs/components/dist/index.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 
@@ -42,7 +41,7 @@ function MyApp({ Component, pageProps }: Props) {
         </Head>
         <PreviewContextProvider>
           <Layout
-            sidebarfallback={pageProps.sidebarfallback}
+            // ❌ REMOVED: sidebarfallback (now loaded client-side)
             hideSidebar={Component.hideSidebar}
             isPreview={pageProps.isPreview ?? false}
             sectionSelected={pageProps.sectionSelected}

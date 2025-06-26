@@ -19,7 +19,8 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
-import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
+import { Item, LibraryContext } from '@vtexdocs/components'
+import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
 
 import getHeadings from 'utils/getHeadings'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
@@ -48,7 +49,9 @@ import Breadcrumb from 'components/breadcrumb'
 import { AnnouncementDataElement } from 'utils/typings/types'
 import DateText from 'components/date-text'
 import CopyLinkButton from 'components/copy-link-button'
-const docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
+// Initialize in getStaticProps
+let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
+  null
 
 interface Props {
   sectionSelected: string
@@ -93,11 +96,11 @@ const AnnouncementPage: NextPage<Props> = ({
   }
 
   const createdAtDate = serialized.frontmatter?.createdAt
-    ? new Date(serialized.frontmatter?.createdAt)
+    ? new Date(String(serialized.frontmatter?.createdAt))
     : undefined
 
   const updatedAtDate = serialized.frontmatter?.updatedAt
-    ? new Date(serialized.frontmatter?.updatedAt)
+    ? new Date(String(serialized.frontmatter?.updatedAt))
     : undefined
 
   return (
@@ -143,7 +146,7 @@ const AnnouncementPage: NextPage<Props> = ({
             )}
           </Box>
           <Box sx={styles.rightContainer}>
-            <TableOfContents headingList={headings} />
+            <TableOfContentsWrapper headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>
@@ -174,10 +177,13 @@ export const getStaticProps: GetStaticProps = async ({
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
+  if (!docsPathsGLOBAL) {
+    docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
+  }
   const docsPaths =
-    process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD
-      ? docsPathsGLOBAL
-      : await getAnnouncementsPaths('announcements', branch)
+    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
+      ? await getAnnouncementsPaths('announcements', branch)
+      : docsPathsGLOBAL
 
   const logger = getLogger('Announcements')
 
@@ -191,7 +197,9 @@ export const getStaticProps: GetStaticProps = async ({
     getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
     parentsArray.push(slug)
   } else {
-    logger.error(`KeyPath not found for ${slug}`)
+    logger.warn(
+      `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
     return {
       notFound: true,
     }
@@ -221,9 +229,12 @@ export const getStaticProps: GetStaticProps = async ({
     parseFrontmatter: true,
   })
 
-  // Check if status is "PUBLISHED"
-  const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
-  if (!isPublished) {
+  // Allow PUBLISHED and CHANGED status documents to be visible
+  const allowedStatuses = ['PUBLISHED', 'CHANGED']
+  const hasAllowedStatus = allowedStatuses.includes(
+    serialized?.frontmatter?.status as string
+  )
+  if (!hasAllowedStatus) {
     return {
       notFound: true,
     }
@@ -320,10 +331,10 @@ export const getStaticProps: GetStaticProps = async ({
             })
             seeAlsoData.push({
               url: seeAlsoUrl,
-              title: serialized.frontmatter?.title ?? seeAlsoUrl,
+              title: String(serialized.frontmatter?.title) ?? seeAlsoUrl,
               createdAt: String(serialized.frontmatter?.createdAt) ?? '',
               updatedAt: String(serialized.frontmatter?.updatedAt) ?? '',
-              status: serialized.frontmatter?.status ?? '',
+              status: String(serialized.frontmatter?.status) ?? '',
             })
           } catch (error) {}
         }

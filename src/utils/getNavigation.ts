@@ -1,12 +1,26 @@
+import fs from 'fs'
+import path from 'path'
 // import { enumerateNavigation } from './enumerate-navigation'
 
-import navigationjson from '../../public/navigation.json'
-
 export default async function getNavigation() {
-  // const navigationJsonUrl = process.env.navigationJsonUrl
-  // const result = await fetch(navigationJsonUrl as string)
-  //   .then((res) => res.json())
-  //   .then((res) => enumerateNavigation(res.navbar))
-  // return result
-  return navigationjson.navbar
+  // For server-side only: read from file system to avoid bundling
+  // This prevents the 3.4MB navigation from being bundled with client code
+  try {
+    const filePath = path.join(process.cwd(), 'public', 'navigation.json')
+    const fileContent = fs.readFileSync(filePath, 'utf8')
+    const navigation = JSON.parse(fileContent)
+    return navigation.navbar
+  } catch (error) {
+    // Fallback to environment URL if file read fails
+    console.warn(
+      'Failed to read navigation.json from filesystem, falling back to URL'
+    )
+    const navigationJsonUrl =
+      process.env.navigationJsonUrl ||
+      'https://leafy-mooncake-7c2e5e.netlify.app/navigation.json'
+
+    const result = await fetch(navigationJsonUrl)
+    const data = await result.json()
+    return data.navbar
+  }
 }

@@ -56,7 +56,9 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const filteredResult = useMemo(() => {
     const data = knownIssuesData
-      .filter((knownIssue) => knownIssue.status === 'PUBLISHED')
+      .filter((knownIssue) =>
+        ['PUBLISHED', 'CHANGED'].includes(knownIssue.status)
+      )
       .filter((knownIssue) => {
         const hasFilter: boolean =
           (filters.kiStatus.length === 0 ||
@@ -240,17 +242,14 @@ export const getStaticProps: GetStaticProps = async ({
 
           if (frontmatter && frontmatter.tag && frontmatter.kiStatus)
             knownIssuesData.push({
-              id: frontmatter.internalReference,
-              title: frontmatter.title,
-              module: frontmatter.tag,
+              id: String(frontmatter.internalReference),
+              title: String(frontmatter.title),
+              module: String(frontmatter.tag),
               slug: data.slug,
-              kiStatus: frontmatter.kiStatus.replace(
-                ' ',
-                '_'
-              ) as KnownIssueStatus,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
-              status: frontmatter.status,
+              status: String(frontmatter.kiStatus),
+              kiStatus: frontmatter.kiStatus as KnownIssueStatus,
             })
         } catch (error) {
           logger.error(`${error}`)

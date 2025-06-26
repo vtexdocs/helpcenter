@@ -14,10 +14,10 @@ const Breadcrumb = ({ breadcrumbList }: Props) => {
         <>
           {item.type === 'markdown' ? (
             <Link href={item.slug}>
-              <Text sx={styles.breadcrumbItem}>{item.name}</Text>
+              <Text sx={styles.breadcrumbItem}>{item.name || 'Untitled'}</Text>
             </Link>
           ) : (
-            <Text>{item.name}</Text>
+            <Text>{item.name || 'Untitled'}</Text>
           )}
           {idx < breadcrumbList.length - 1 ? (
             <IconCaret direction="right" size={16} />
