@@ -26,7 +26,10 @@ const ShareButton = ({ url }: Props) => {
 
   const handleCopyLink = async () => {
     try {
-      if (window) await navigator.clipboard.writeText(window.location.href)
+      // Only run on client-side
+      if (typeof window !== 'undefined' && navigator?.clipboard) {
+        await navigator.clipboard.writeText(window.location.href)
+      }
     } catch (error) {
       console.error('Error copying link to clipboard:', error)
     }

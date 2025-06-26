@@ -110,6 +110,10 @@ export default function LocaleSwitcher() {
 
   const handleOptionClick = async (option: string) => {
     const locale = option as keyof Slug
+
+    // Only run on client-side
+    if (typeof window === 'undefined') return
+
     const currentPath = window.location.pathname
     const pathParts = currentPath.split('/')
 
@@ -128,7 +132,9 @@ export default function LocaleSwitcher() {
         ? `/${locale}/docs/${contentType}/${localizedSlug}`
         : `/${locale}/docs/${contentType}`
       console.log(newPath)
-      window.location.href = newPath
+      if (typeof window !== 'undefined') {
+        window.location.href = newPath
+      }
     } else if (
       currentPath.includes('/announcements') ||
       currentPath.includes('/faq') ||
@@ -141,11 +147,15 @@ export default function LocaleSwitcher() {
         ? `/${locale}/${contentType}/${localizedSlug}`
         : `/${locale}/${contentType}`
       console.log(newPath)
-      window.location.href = newPath
+      if (typeof window !== 'undefined') {
+        window.location.href = newPath
+      }
     } else {
       console.log(currentPath)
       const newPath = `/${locale}`
-      window.location.href = newPath
+      if (typeof window !== 'undefined') {
+        window.location.href = newPath
+      }
     }
   }
 

@@ -68,7 +68,7 @@ export default function Layout({
   parentsArray,
 }: Props) {
   const { initTracker, startTracking } = useContext(TrackerContext)
-  const { navigation } = useClientNavigation() // Load navigation client-side
+  const { navigation, loading } = useClientNavigation() // Load navigation client-side
   const intl = useIntl()
 
   useEffect(() => {
@@ -91,7 +91,7 @@ export default function Layout({
           feedbackSectionData(intl),
         ]}
         sectionSelected={sectionSelected ?? ''}
-        fallback={navigation} // Use client-side loaded navigation (null during loading)
+        fallback={loading ? null : navigation} // Only provide navigation when loaded to prevent hydration mismatch
         isPreview={isPreview}
         locale={intl.locale as 'en' | 'pt' | 'es'}
       >

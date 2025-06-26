@@ -16,7 +16,10 @@ export default function CopyLinkButton() {
     >
       <Button
         onClick={() => {
-          navigator.clipboard.writeText(window.location.href)
+          // Only run on client-side
+          if (typeof window !== 'undefined' && navigator?.clipboard) {
+            navigator.clipboard.writeText(window.location.href)
+          }
         }}
         sx={styles.copyLinkButton}
       >
