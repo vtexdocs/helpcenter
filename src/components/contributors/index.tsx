@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Box, Flex, Grid, IconCaret, Text } from '@vtex/brand-ui'
 
 import Tooltip from 'components/tooltip'
@@ -22,16 +22,23 @@ const Contributors = ({ contributors }: Props) => {
   const photosContainer = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const updatePageWidth = () => {
-      setPageWidth(window.innerWidth)
-    }
+    // Only run on client-side
+    if (typeof window !== 'undefined') {
+      const updatePageWidth = () => {
+        setPageWidth(window.innerWidth)
+      }
 
-    window.addEventListener('resize', updatePageWidth)
-    return () => window.removeEventListener('resize', updatePageWidth)
+      // Set initial width
+      setPageWidth(window.innerWidth)
+
+      window.addEventListener('resize', updatePageWidth)
+      return () => window.removeEventListener('resize', updatePageWidth)
+    }
   }, [])
 
-  useLayoutEffect(() => {
-    if (photosContainer.current) {
+  useEffect(() => {
+    // Only run on client-side to avoid SSR issues
+    if (typeof window !== 'undefined' && photosContainer.current) {
       const gridStyle = window.getComputedStyle(photosContainer.current)
       setPhotosPerRow(gridStyle.gridTemplateColumns.split(' ').length)
     }
