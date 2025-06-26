@@ -126,5 +126,8 @@
     "rapidoc": {
       "version": "1.2.3-vtex"
     }
+  },
+  "resolutions": {
+    "@vtexdocs/components/next": "^13.5.11"
   }
 }
