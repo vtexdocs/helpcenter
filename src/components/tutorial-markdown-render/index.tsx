@@ -12,28 +12,15 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 import { Item, MarkdownRenderer } from '@vtexdocs/components'
 import dynamic from 'next/dynamic'
 
-// Dynamically import TableOfContents to avoid SSR issues with useRouter
-const DynamicTableOfContents = dynamic(
+// Create a client-only wrapper for TableOfContents to prevent hydration mismatch
+const ClientOnlyTableOfContents = dynamic(
   () =>
     import('@vtexdocs/components').then((mod) => ({
       default: mod.TableOfContents,
     })),
   {
     ssr: false,
-    loading: () => (
-      <Box
-        sx={{
-          height: '40px',
-          backgroundColor: '#f5f5f5',
-          borderRadius: '4px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        {/* Loading placeholder for TableOfContents */}
-      </Box>
-    ),
+    loading: () => null, // No loading state to prevent hydration mismatch
   }
 )
 
@@ -168,7 +155,7 @@ const TutorialMarkdownRender = (props: Props) => {
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={props.contributors} />
-            <DynamicTableOfContents headingList={props.headings} />
+            <ClientOnlyTableOfContents headingList={props.headings} />
           </Box>
           <OnThisPage />
         </Flex>
