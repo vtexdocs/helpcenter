@@ -143,7 +143,7 @@ const TutorialPage: NextPage<Props> = ({
     slug,
     setBranchPreview,
     setActiveSidebarElement,
-    componentProps.headingList,
+    componentProps,
   ])
 
   // Render placeholder during SSR to prevent hydration mismatch
