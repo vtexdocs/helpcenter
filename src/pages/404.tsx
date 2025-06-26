@@ -4,7 +4,6 @@ import type { Page } from 'utils/typings/types'
 import { Box, Flex, Text, Button, Link } from '@vtex/brand-ui'
 import styles from 'styles/error-page'
 import fourOhFourImage from '../../public/images/404-illustration.png'
-import getNavigation from 'utils/getNavigation'
 import { GetStaticProps } from 'next'
 import { useContext } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -62,7 +61,6 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sidebarfallback = await getNavigation()
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
       ? JSON.parse(JSON.stringify(previewData)).branch
@@ -70,7 +68,6 @@ export const getStaticProps: GetStaticProps = async ({
   const branch = preview ? previewBranch : 'main'
   return {
     props: {
-      sidebarfallback,
       branch,
     },
   }
