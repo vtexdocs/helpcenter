@@ -48,14 +48,28 @@ function reducer(state, action) {
   switch (action.type) {
     case 'init': {
       if (!state.tracker) {
-        console.log('Instantiaing the tracker for the first time...')
-        return { ...state, tracker: newTracker(state.config) }
+        try {
+          console.log('Instantiaing the tracker for the first time...')
+          return { ...state, tracker: newTracker(state.config) }
+        } catch (error) {
+          console.warn('Failed to initialize tracker:', error)
+          return { ...state, tracker: null }
+        }
       }
       return state
     }
     case 'start': {
-      console.log('Starting tracker...')
-      state.tracker.start()
+      if (state.tracker) {
+        try {
+          console.log('Starting tracker...')
+          state.tracker.start()
+        } catch (error) {
+          console.warn(
+            'Failed to start tracker (browser API not supported or doNotTrack active):',
+            error
+          )
+        }
+      }
       return state
     }
   }
