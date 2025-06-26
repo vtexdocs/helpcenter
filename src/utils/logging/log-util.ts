@@ -38,7 +38,7 @@ function Logger(level: string, name: string, msg: string) {
       }
       break
     case 'WARN':
-      console.log(chalk.bgYellow.black(msgToSend))
+      console.warn(chalk.bgYellow.black(msgToSend))
       break
     default:
       console.log(chalk.bgBlue(msgToSend))
