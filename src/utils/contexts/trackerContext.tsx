@@ -1,9 +1,4 @@
-/* eslint-disable @typescript-eslint/no-empty-function, @typescript-eslint/no-explicit-any*/
-
-import { createContext } from 'react'
-import Tracker from '@openreplay/tracker'
-import { v4 as uuidV4 } from 'uuid'
-import { useReducer } from 'react'
+import { createContext, ReactNode } from 'react'
 
 type ContextType = {
   startTracking: () => void
@@ -11,78 +6,31 @@ type ContextType = {
 }
 
 export const TrackerContext = createContext<ContextType>({
-  startTracking: () => {},
-  initTracker: () => {},
+  startTracking: () => {
+    // No-op: tracking disabled
+  },
+  initTracker: () => {
+    // No-op: tracking disabled
+  },
 })
 
-function defaultGetUserId() {
-  return uuidV4()
-}
-function newTracker(config: {
-  userIdEnabled: any
-  getUserId: any
-  projectKey: any
-}) {
-  const getUserId =
-    config?.userIdEnabled && config?.getUserId
-      ? config.getUserId
-      : defaultGetUserId
-  let userId = null
-  const trackerConfig = {
-    projectKey:
-      config?.projectKey || process.env.NEXT_PUBLIC_OPENREPLAY_PROJECT_KEY,
-    ingestPoint: 'https://openreplay.vtex.com/ingest',
-    defaultInputMode: 1,
-  }
-  const tracker = new Tracker(trackerConfig)
-  if (config?.userIdEnabled) {
-    userId = getUserId()
-    tracker.setUserID(userId)
-  }
-  return tracker
+interface TrackerProviderProps {
+  children: ReactNode
+  config?: Record<string, unknown>
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-function reducer(state, action) {
-  switch (action.type) {
-    case 'init': {
-      if (!state.tracker) {
-        try {
-          console.log('Instantiaing the tracker for the first time...')
-          return { ...state, tracker: newTracker(state.config) }
-        } catch (error) {
-          console.warn('Failed to initialize tracker:', error)
-          return { ...state, tracker: null }
-        }
-      }
-      return state
-    }
-    case 'start': {
-      if (state.tracker) {
-        try {
-          console.log('Starting tracker...')
-          state.tracker.start()
-        } catch (error) {
-          console.warn(
-            'Failed to start tracker (browser API not supported or doNotTrack active):',
-            error
-          )
-        }
-      }
-      return state
-    }
-  }
-}
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-export default function TrackerProvider({ children, config = {} }) {
-  const [state, dispatch] = useReducer(reducer, { tracker: null, config })
-  state
+// Simplified tracker provider without OpenReplay
+// Provides no-op functions to maintain component compatibility
+export default function TrackerProvider({ children }: TrackerProviderProps) {
   const value = {
-    startTracking: () => dispatch({ type: 'start' }),
-    initTracker: () => dispatch({ type: 'init' }),
+    startTracking: () => {
+      // No-op: tracking disabled
+    },
+    initTracker: () => {
+      // No-op: tracking disabled
+    },
   }
+
   return (
     <TrackerContext.Provider value={value}>{children}</TrackerContext.Provider>
   )
