@@ -124,11 +124,14 @@ const TutorialPage: NextPage<Props> = ({
   breadcrumbList,
   componentProps,
 }) => {
+  // Use client-side only pattern to prevent hydration mismatch
+  const [isClient, setIsClient] = useState(false)
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
   const { setActiveSidebarElement } = useContext(LibraryContext)
 
   useEffect(() => {
+    setIsClient(true)
     setBranchPreview(branch)
     if (type === 'markdown') {
       setActiveSidebarElement(slug)
@@ -140,8 +143,13 @@ const TutorialPage: NextPage<Props> = ({
     slug,
     setBranchPreview,
     setActiveSidebarElement,
-    componentProps,
+    componentProps.headingList,
   ])
+
+  // Render placeholder during SSR to prevent hydration mismatch
+  if (!isClient) {
+    return <div>Loading...</div>
+  }
 
   return type === 'markdown' ? (
     <TutorialMarkdownRender
@@ -149,11 +157,11 @@ const TutorialPage: NextPage<Props> = ({
       pagination={pagination}
       isListed={isListed}
       branch={branch}
-      headings={headings}
+      headings={componentProps.headingList}
       slug={slug}
       content={componentProps.content}
       serialized={componentProps.serialized}
-      headingList={componentProps.headingList}
+      headingList={headings}
       contributors={componentProps.contributors}
       seeAlsoData={componentProps.seeAlsoData}
       path={componentProps.path}

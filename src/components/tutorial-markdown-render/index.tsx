@@ -10,19 +10,6 @@ import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
 import DocumentContextProvider from 'utils/contexts/documentContext'
 import { Item, MarkdownRenderer } from '@vtexdocs/components'
-import dynamic from 'next/dynamic'
-
-// Create a client-only wrapper for TableOfContents to prevent hydration mismatch
-const ClientOnlyTableOfContents = dynamic(
-  () =>
-    import('@vtexdocs/components').then((mod) => ({
-      default: mod.TableOfContents,
-    })),
-  {
-    ssr: false,
-    loading: () => null, // No loading state to prevent hydration mismatch
-  }
-)
 
 import styles from 'styles/documentation-page'
 import ArticlePagination from 'components/article-pagination'
@@ -31,6 +18,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { ContributorsType } from 'utils/getFileContributors'
 import CopyLinkButton from 'components/copy-link-button'
 import TimeToRead from 'components/TimeToRead'
+import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
 
 interface Props {
   content: string
@@ -155,7 +143,7 @@ const TutorialMarkdownRender = (props: Props) => {
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={props.contributors} />
-            <ClientOnlyTableOfContents headingList={props.headings} />
+            <TableOfContentsWrapper headingList={props.headingList} />
           </Box>
           <OnThisPage />
         </Flex>
