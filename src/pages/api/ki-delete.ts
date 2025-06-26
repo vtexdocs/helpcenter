@@ -1,16 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import octokit from 'utils/octokitConfig'
 
-async function createUpdate(
+async function deleteKI(
   ref: string,
   path: string,
-  content: string,
   message: string,
-  sha?: string
+  sha: string
 ) {
-  console.log('Creating or updating file:', path, 'on branch:', ref)
+  console.log('Deleting file:', path, 'on branch:', ref)
   const response = octokit.request(
-    'PUT /repos/{owner}/{repo}/contents/{path}',
+    'DELETE /repos/{owner}/{repo}/contents/{path}',
     {
       owner: 'vtexdocs',
       repo: 'known-issues',
@@ -22,7 +21,6 @@ async function createUpdate(
         name: 'vtex-known-issues[bot]',
         email: '213649991+vtex-known-issues[bot]@users.noreply.github.com',
       },
-      content: content,
       headers: {
         'X-GitHub-Api-Version': '2022-11-28',
         accept: 'application/vnd.github+json',
@@ -41,11 +39,10 @@ export default async function handler(
     res.status(401).end()
     return
   }
-  const content = req.body.content
   const path = req.body.path
   const message = req.body.message
   const ref = req.body.ref || 'main'
-  const sha = req.body.sha || undefined
-  res.status(200).json(await createUpdate(ref, path, content, message, sha))
+  const sha = req.body.sha
+  res.status(200).json(await deleteKI(ref, path, message, sha))
   return
 }
