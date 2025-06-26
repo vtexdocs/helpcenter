@@ -126,15 +126,22 @@ const TutorialPage: NextPage<Props> = ({
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
   const { setActiveSidebarElement } = useContext(LibraryContext)
 
   useEffect(() => {
+    setBranchPreview(branch)
     if (type === 'markdown') {
       setActiveSidebarElement(slug)
       setHeadings(componentProps.headingList)
     }
-  }, [])
+  }, [
+    branch,
+    type,
+    slug,
+    setBranchPreview,
+    setActiveSidebarElement,
+    componentProps,
+  ])
 
   return type === 'markdown' ? (
     <TutorialMarkdownRender
