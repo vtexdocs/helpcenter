@@ -49,7 +49,9 @@ const TroubleshootingPage: NextPage<Props> = ({
 
   const filteredResult = useMemo(() => {
     const data = troubleshootingData
-      .filter((troubleshoot) => troubleshoot.status === 'PUBLISHED')
+      .filter((troubleshoot) =>
+        ['PUBLISHED', 'CHANGED'].includes(troubleshoot.status)
+      )
       .filter((troubleshoot) => {
         const hasFilters: boolean =
           filters.length === 0 ||

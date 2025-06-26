@@ -56,7 +56,9 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const filteredResult = useMemo(() => {
     const data = knownIssuesData
-      .filter((knownIssue) => knownIssue.status === 'PUBLISHED')
+      .filter((knownIssue) =>
+        ['PUBLISHED', 'CHANGED'].includes(knownIssue.status)
+      )
       .filter((knownIssue) => {
         const hasFilter: boolean =
           (filters.kiStatus.length === 0 ||

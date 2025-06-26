@@ -42,7 +42,9 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
 
   const filteredResult = useMemo(() => {
     const data = announcementsData
-      .filter((announcement) => announcement.status === 'PUBLISHED')
+      .filter((announcement) =>
+        ['PUBLISHED', 'CHANGED'].includes(announcement.status)
+      )
       .filter((announcement) =>
         announcement.title?.toLowerCase().includes(searchTerm.toLowerCase())
       )

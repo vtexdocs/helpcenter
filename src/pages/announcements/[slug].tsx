@@ -20,16 +20,7 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
 import { Item, LibraryContext } from '@vtexdocs/components'
-import dynamic from 'next/dynamic'
-
-// Dynamic import for TableOfContents to avoid NextRouter mounting issues during SSG
-const TableOfContents = dynamic(
-  () =>
-    import('@vtexdocs/components').then((mod) => ({
-      default: mod.TableOfContents,
-    })),
-  { ssr: false }
-)
+import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
 
 import getHeadings from 'utils/getHeadings'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
@@ -155,7 +146,7 @@ const AnnouncementPage: NextPage<Props> = ({
             )}
           </Box>
           <Box sx={styles.rightContainer}>
-            <TableOfContents headingList={headings} />
+            <TableOfContentsWrapper headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>
@@ -238,9 +229,12 @@ export const getStaticProps: GetStaticProps = async ({
     parseFrontmatter: true,
   })
 
-  // Check if status is "PUBLISHED"
-  const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
-  if (!isPublished) {
+  // Allow PUBLISHED and CHANGED status documents to be visible
+  const allowedStatuses = ['PUBLISHED', 'CHANGED']
+  const hasAllowedStatus = allowedStatuses.includes(
+    serialized?.frontmatter?.status as string
+  )
+  if (!hasAllowedStatus) {
     return {
       notFound: true,
     }

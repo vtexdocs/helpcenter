@@ -12,7 +12,6 @@ import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
 import { remarkCodeHike } from '@code-hike/mdx'
 import remarkImages from 'utils/remark_plugins/plaiceholder'
-import dynamic from 'next/dynamic'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
 
@@ -25,14 +24,8 @@ import SeeAlsoSection from 'components/see-also-section'
 import { Item, LibraryContext } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
 
-// Dynamic import for TableOfContents to avoid NextRouter mounting issues during SSG
-const TableOfContents = dynamic(
-  () =>
-    import('@vtexdocs/components').then((mod) => ({
-      default: mod.TableOfContents,
-    })),
-  { ssr: false }
-)
+// Import TableOfContentsWrapper that handles vertical layout styling
+import TableOfContentsWrapper from 'components/TableOfContentsWrapper'
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
@@ -203,7 +196,7 @@ const TrackPage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContents headingList={headings} />
+            <TableOfContentsWrapper headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>
@@ -337,10 +330,18 @@ export const getStaticProps: GetStaticProps = async ({
       },
     })
 
+    // Allow PUBLISHED and CHANGED status documents to be visible
+    const allowedStatuses = ['PUBLISHED', 'CHANGED']
+
     if (
       serialized.frontmatter?.status &&
-      serialized.frontmatter?.status !== 'PUBLISHED'
+      !allowedStatuses.includes(serialized.frontmatter.status)
     ) {
+      logger.info(
+        `Document status is not allowed for ${resolvedPath}. Status: ${
+          serialized.frontmatter?.status
+        }, Allowed: ${allowedStatuses.join(', ')}`
+      )
       return {
         notFound: true,
       }

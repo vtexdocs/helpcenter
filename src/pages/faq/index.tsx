@@ -50,7 +50,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
 
   const filteredResult = useMemo(() => {
     const data = faqData
-      .filter((question) => question.status === 'PUBLISHED')
+      .filter((question) => ['PUBLISHED', 'CHANGED'].includes(question.status))
       .filter((question) => {
         const hasFilter: boolean =
           filters.length === 0 || filters.includes(question.productTeam)

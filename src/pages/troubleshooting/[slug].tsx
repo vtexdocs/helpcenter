@@ -1,16 +1,7 @@
 import { Box, Flex, Text } from '@vtex/brand-ui'
 import { Item, MarkdownRenderer } from '@vtexdocs/components'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import dynamic from 'next/dynamic'
-
-// Dynamic import for TableOfContents to avoid NextRouter mounting issues during SSG
-const TableOfContents = dynamic(
-  () =>
-    import('@vtexdocs/components').then((mod) => ({
-      default: mod.TableOfContents,
-    })),
-  { ssr: false }
-)
+import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import Head from 'next/head'
 import { useContext, useEffect, useRef, useState } from 'react'
@@ -152,7 +143,7 @@ const TroubleshootingPage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContents headingList={headings} />
+            <TableOfContentsWrapper headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>
@@ -228,9 +219,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({
     parseFrontmatter: true,
   })
 
-  // Check if status is "PUBLISHED"
-  const isPublished = serialized?.frontmatter?.status === 'PUBLISHED'
-  if (!isPublished) {
+  // Allow PUBLISHED and CHANGED status documents to be visible
+  const allowedStatuses = ['PUBLISHED', 'CHANGED']
+  const hasAllowedStatus = allowedStatuses.includes(
+    serialized?.frontmatter?.status as string
+  )
+  if (!hasAllowedStatus) {
     return {
       notFound: true,
     }
