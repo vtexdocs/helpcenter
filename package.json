@@ -7,9 +7,9 @@
     "yarn": ">= 1.22.18"
   },
   "scripts": {
-    "predev": "./getPEM.sh && node src/utils/get-rapidoc.mjs",
+    "predev": "./getPEM.sh",
     "dev": "next dev",
-    "prebuild": "./getPEM.sh && node src/utils/get-rapidoc.mjs",
+    "prebuild": "./getPEM.sh",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
@@ -52,7 +52,6 @@
     "octokit": "^2.0.7",
     "plaiceholder": "^2.5.0",
     "probe-image-size": "^7.2.3",
-    "rapidoc": "^9.2.0",
     "raw-loader": "^4.0.2",
     "react": "^18.2.0",
     "react-animate-height": "^3.0.4",
@@ -122,9 +121,6 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    },
-    "rapidoc": {
-      "version": "1.2.3-vtex"
     }
   },
   "resolutions": {
