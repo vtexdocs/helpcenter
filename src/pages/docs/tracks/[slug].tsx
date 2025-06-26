@@ -25,7 +25,7 @@ import { Item, LibraryContext } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
 
 // Import TableOfContentsWrapper that handles vertical layout styling
-import TableOfContentsWrapper from 'components/TableOfContentsWrapper'
+import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
@@ -332,15 +332,13 @@ export const getStaticProps: GetStaticProps = async ({
 
     // Allow PUBLISHED and CHANGED status documents to be visible
     const allowedStatuses = ['PUBLISHED', 'CHANGED']
+    const status = serialized.frontmatter?.status as string
 
-    if (
-      serialized.frontmatter?.status &&
-      !allowedStatuses.includes(serialized.frontmatter.status)
-    ) {
+    if (status && !allowedStatuses.includes(status)) {
       logger.info(
-        `Document status is not allowed for ${resolvedPath}. Status: ${
-          serialized.frontmatter?.status
-        }, Allowed: ${allowedStatuses.join(', ')}`
+        `Document status is not allowed for ${resolvedPath}. Status: ${status}, Allowed: ${allowedStatuses.join(
+          ', '
+        )}`
       )
       return {
         notFound: true,

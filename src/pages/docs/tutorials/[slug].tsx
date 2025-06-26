@@ -447,15 +447,13 @@ export const getStaticProps: GetStaticProps = async ({
 
     // Allow PUBLISHED and CHANGED status documents to be visible
     const allowedStatuses = ['PUBLISHED', 'CHANGED']
+    const status = serialized.frontmatter?.status as string
 
-    if (
-      serialized.frontmatter?.status &&
-      !allowedStatuses.includes(serialized.frontmatter.status)
-    ) {
+    if (status && !allowedStatuses.includes(status)) {
       logger.info(
-        `Document status is not allowed for ${resolvedPath}. Status: ${
-          serialized.frontmatter?.status
-        }, Allowed: ${allowedStatuses.join(', ')}`
+        `Document status is not allowed for ${resolvedPath}. Status: ${status}, Allowed: ${allowedStatuses.join(
+          ', '
+        )}`
       )
       return { notFound: true, revalidate: 3600 }
     }
