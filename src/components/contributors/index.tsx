@@ -34,6 +34,8 @@ const Contributors = ({ contributors }: Props) => {
       window.addEventListener('resize', updatePageWidth)
       return () => window.removeEventListener('resize', updatePageWidth)
     }
+    // Return undefined for server-side
+    return undefined
   }, [])
 
   useEffect(() => {
