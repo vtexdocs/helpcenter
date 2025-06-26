@@ -1,7 +1,6 @@
 import { Fragment, useContext } from 'react'
 import { Box, Flex, Text } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
-import getNavigation from 'utils/getNavigation'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import PageHeader from 'components/page-header'
 import startHereImage from '../../../../public/images/start-here.png'
@@ -12,7 +11,6 @@ import { useIntl } from 'react-intl'
 import WhatsNextCardTutorial from 'components/whats-next-card/tutorials'
 
 interface Props {
-  sidebarfallback: any //eslint-disable-line
   sectionSelected?: DocumentationTitle | UpdatesTitle | ''
   branch: string
 }
@@ -29,7 +27,8 @@ const ContentSection = ({ id, length }: { id: string; length: number }) => {
         {Array(length)
           .fill('')
           .map((_, index) => {
-            if (!intl.messages[`${id}.content.${index}.title`]) return <></>
+            if (!intl.messages[`${id}.content.${index}.title`])
+              return <Fragment key={`${id}-missing-${index}`} />
             return (
               <WhatsNextCardTutorial
                 title={intl.formatMessage({
@@ -95,7 +94,6 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sidebarfallback = await getNavigation()
   const sectionSelected = 'Tutorials'
 
   const previewBranch =
@@ -106,7 +104,6 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: {
-      sidebarfallback,
       sectionSelected,
       branch,
     },
