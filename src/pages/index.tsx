@@ -136,7 +136,16 @@ export const getStaticProps: GetStaticProps = async ({
             })
           }
         } catch (error) {
-          logger.error(`${error}`)
+          // Only log YAML errors that aren't just malformed frontmatter
+          if (
+            error instanceof Error &&
+            !error.message.includes('bad indentation')
+          ) {
+            logger.error(
+              `Error parsing frontmatter for ${data.slug}: ${error.message}`
+            )
+          }
+          // Skip this announcement if frontmatter is malformed
         }
       }
     }
