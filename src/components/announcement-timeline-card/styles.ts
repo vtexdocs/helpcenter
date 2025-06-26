@@ -55,7 +55,7 @@ const timeLineBar: SxStyleProp = {
       },
       mb: '4px',
     },
-    '& > :nth-child(2)': {
+    '& > :nth-of-type(2)': {
       width: '1px',
       borderRadius: '0.5rem',
     },
