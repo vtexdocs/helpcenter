@@ -55,6 +55,34 @@ jobs:
         else
           exit 0
         fi
+    - name: Check if tag already exists
+      if: ${{ env.RELEASE != 'no' }}
+      run: |
+        # Determine the appropriate dry-run command based on release type
+        if [[ "${{ env.RELEASE }}" == "patch" ]]; then
+          DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as patch"
+        elif [[ "${{ env.RELEASE }}" == "minor" ]]; then
+          DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as minor"
+        elif [[ "${{ env.RELEASE }}" == "major" ]]; then
+          DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as major"
+        else
+          DRY_RUN_CMD="yarn --silent standard-version --dry-run"
+        fi
+        
+        # Extract the next version from dry run output
+        NEXT_VERSION=$(eval $DRY_RUN_CMD | grep "tagging release" | awk '{print $3}' || echo "")
+        
+        if [[ -n "$NEXT_VERSION" ]] && git tag -l | grep -q "^${NEXT_VERSION}$"; then
+          echo "Error: Tag ${NEXT_VERSION} already exists!"
+          echo "Please remove the existing tag or use a different version."
+          exit 1
+        fi
+        
+        if [[ -n "$NEXT_VERSION" ]]; then
+          echo "Next version will be: $NEXT_VERSION"
+        else
+          echo "Warning: Could not determine next version from dry run"
+        fi
     - name: Patch version
       if: ${{ env.RELEASE == 'patch' }}
       # Run Standard Version script to release new patch version
@@ -80,7 +108,11 @@ jobs:
       id: publish_tag
       # Push new commits and new version tags to main branch
       run: |
-        git push --follow-tags
+        if ! git push --follow-tags; then
+          echo "Push failed - possibly due to existing tag"
+          git tag -d $(git describe HEAD --abbrev=0) || true
+          exit 1
+        fi
         echo ::set-output name=tag_name::$(git describe HEAD --abbrev=0)
     - name: Generate release body
       # Extracts the CHANGELOG.md latest version snippet
