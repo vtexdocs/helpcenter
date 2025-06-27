@@ -1,7 +1,6 @@
 import { Fragment, useContext } from 'react'
 import { Box, Flex, Text } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
-import getNavigation from 'utils/getNavigation'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import PageHeader from 'components/page-header'
 import startHereImage from '../../../../public/images/start-here.png'
@@ -10,9 +9,9 @@ import Head from 'next/head'
 import { PreviewContext } from 'utils/contexts/preview'
 import { useIntl } from 'react-intl'
 import WhatsNextCard from 'components/whats-next-card'
+import { getISRRevalidateTime } from 'utils/config'
 
 interface Props {
-  sidebarfallback: any //eslint-disable-line
   sectionSelected?: DocumentationTitle | UpdatesTitle | ''
   branch: string
 }
@@ -105,7 +104,6 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sidebarfallback = await getNavigation()
   const sectionSelected = 'Start here'
 
   const previewBranch =
@@ -116,10 +114,10 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: {
-      sidebarfallback,
       sectionSelected,
       branch,
     },
+    revalidate: getISRRevalidateTime(),
   }
 }
 

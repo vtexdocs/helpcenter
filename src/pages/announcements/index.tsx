@@ -1,7 +1,6 @@
 import { Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
-import getNavigation from 'utils/getNavigation'
 
 import { AnnouncementDataElement, SortByType } from 'utils/typings/types'
 import Head from 'next/head'
@@ -21,9 +20,9 @@ import AnnouncementCard from 'components/announcement-card'
 import { sortBy } from 'utils/constants'
 import SearchIcon from 'components/icons/search-icon'
 import Input from 'components/input'
+import { getISRRevalidateTime } from 'utils/config'
 
 interface Props {
-  sidebarfallback: any //eslint-disable-line
   sectionSelected?: DocumentationTitle | UpdatesTitle | ''
   announcementsData: AnnouncementDataElement[]
   branch: string
@@ -153,7 +152,6 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sidebarfallback = await getNavigation()
   const sectionSelected = 'News'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
@@ -231,11 +229,11 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: {
-      sidebarfallback,
       sectionSelected,
       announcementsData,
       branch,
     },
+    revalidate: getISRRevalidateTime(),
   }
 }
 
