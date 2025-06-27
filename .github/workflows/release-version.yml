@@ -73,10 +73,15 @@ jobs:
           RELEASE_TYPE="auto"
         fi
         
-        # Extract the next version from dry run output
-        NEXT_VERSION=$(eval $DRY_RUN_CMD | grep "tagging release" | awk '{print $3}' || echo "")
+        # Extract the next version from dry run output using regex for semantic versioning
+        NEXT_VERSION=$(eval $DRY_RUN_CMD | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' | head -1 || echo "")
         
-        if [[ -n "$NEXT_VERSION" ]] && git tag -l | grep -q "^${NEXT_VERSION}$"; then
+        # Validate that we got a proper semantic version
+        if [[ -z "$NEXT_VERSION" ]] || [[ ! "$NEXT_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          echo "Warning: Could not extract valid semantic version from dry run output. Skipping tag conflict check."
+          echo "Dry run output was:"
+          eval $DRY_RUN_CMD
+        elif git tag -l | grep -q "^${NEXT_VERSION}$"; then
           echo "Warning: Tag ${NEXT_VERSION} already exists! Finding next available version..."
           
           # Get the latest existing tag
