@@ -162,7 +162,7 @@ const indexContainer: SxStyleProp = {
 }
 
 const textContainer: SxStyleProp = {
-  width: ['100%', '544px'],
+  width: '100%',
   gap: '8px',
   pb: '43px',
   mb: '64px',
