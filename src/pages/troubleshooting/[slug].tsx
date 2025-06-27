@@ -1,7 +1,6 @@
 import { Box, Flex, Text } from '@vtex/brand-ui'
-import { Item, MarkdownRenderer } from '@vtexdocs/components'
+import { Item, MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import Head from 'next/head'
 import { useContext, useEffect, useRef, useState } from 'react'
@@ -143,7 +142,7 @@ const TroubleshootingPage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContentsWrapper headingList={headings} />
+            <TableOfContents headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>

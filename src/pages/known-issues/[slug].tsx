@@ -18,9 +18,8 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 
 import Contributors from 'components/contributors'
 import OnThisPage from 'components/on-this-page'
-import { Item } from '@vtexdocs/components'
+import { Item, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
-import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
 import TimeToRead from 'components/TimeToRead'
 
 import getHeadings from 'utils/getHeadings'
@@ -166,7 +165,7 @@ const KnownIssuePage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContentsWrapper headingList={headings} />
+            <TableOfContents headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>

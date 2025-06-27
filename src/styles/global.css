@@ -78,31 +78,3 @@ table tbody tr:nth-of-type(even) {
   background-color: #f8f7fc;
 }
 
-/* Fix for TableOfContents component from @vtexdocs/components displaying horizontally instead of vertically */
-[data-cy="table-of-contents"] {
-  display: block !important;
-}
-
-/* Ensure each heading item container displays as a block element vertically */
-[data-cy="table-of-contents"] > div {
-  display: block !important;
-  width: 100% !important;
-  margin-bottom: 0 !important;
-}
-
-/* Fix for nested sub-items container to display vertically */
-[data-cy="table-of-contents"] div[style*="height"] > div {
-  display: block !important;
-  width: 100% !important;
-}
-
-/* Ensure links in TOC display as block elements */
-[data-cy="table-of-contents"] a {
-  display: block !important;
-  width: 100% !important;
-}
-
-/* Override any flex styles that might be causing horizontal layout */
-[data-cy="table-of-contents"] * {
-  flex-direction: column !important;
-}

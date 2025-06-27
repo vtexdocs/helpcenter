@@ -21,11 +21,8 @@ import Contributors from 'components/contributors'
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
 import SeeAlsoSection from 'components/see-also-section'
-import { Item, LibraryContext } from '@vtexdocs/components'
+import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
-
-// Import TableOfContentsWrapper that handles vertical layout styling
-import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
@@ -196,7 +193,7 @@ const TrackPage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContentsWrapper headingList={headings} />
+            <TableOfContents headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>
