@@ -1,11 +1,4 @@
-import dynamic from 'next/dynamic'
-
-const Search = dynamic(
-  () => import('@vtexdocs/components').then((mod) => ({ default: mod.Search })),
-  {
-    ssr: false,
-  }
-)
+import { Search } from '@vtexdocs/components'
 
 const SearchPage = () => {
   return <Search />
