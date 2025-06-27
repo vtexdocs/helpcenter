@@ -3,8 +3,6 @@ import type { ReactElement } from 'react'
 import { useContext, useEffect } from 'react'
 import { TrackerContext } from 'utils/contexts/trackerContext'
 import { useClientNavigation } from 'utils/useClientNavigation'
-import dynamic from 'next/dynamic'
-
 import { ThemeProvider } from '@vtex/brand-ui'
 
 import styles from 'styles/documentation-page'
@@ -14,28 +12,11 @@ import AnnouncementBar from './announcement-bar'
 
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import Script from 'next/script'
-import { CookieBar, LibraryContextProvider } from '@vtexdocs/components'
-
-// Dynamically import Sidebar to avoid SSR issues with useRouter
-const DynamicSidebar = dynamic(
-  () =>
-    import('@vtexdocs/components').then((mod) => ({ default: mod.Sidebar })),
-  {
-    ssr: false,
-    loading: () => (
-      <div
-        style={{
-          width: '300px',
-          height: '200px',
-          backgroundColor: '#f5f5f5',
-          borderRadius: '4px',
-        }}
-      >
-        {/* Placeholder for Sidebar during SSR */}
-      </div>
-    ),
-  }
-)
+import {
+  CookieBar,
+  LibraryContextProvider,
+  Sidebar,
+} from '@vtexdocs/components'
 import {
   documentationData,
   feedbackSectionData,
@@ -136,7 +117,7 @@ export default function Layout({
         />
         <Header />
         <Flex sx={styles.container}>
-          {!hideSidebar && <DynamicSidebar parentsArray={parentsArray} />}
+          {!hideSidebar && <Sidebar parentsArray={parentsArray} />}
           <Box sx={styles.mainContainer}>{children}</Box>
         </Flex>
         <EducationSection />
