@@ -55,32 +55,127 @@ jobs:
         else
           exit 0
         fi
+    - name: Check if tag already exists and resolve conflicts
+      if: ${{ env.RELEASE != 'no' }}
+      run: |
+        # Determine the appropriate dry-run command based on release type
+        if [[ "${{ env.RELEASE }}" == "patch" ]]; then
+          DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as patch"
+          RELEASE_TYPE="patch"
+        elif [[ "${{ env.RELEASE }}" == "minor" ]]; then
+          DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as minor"
+          RELEASE_TYPE="minor"
+        elif [[ "${{ env.RELEASE }}" == "major" ]]; then
+          DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as major"
+          RELEASE_TYPE="major"
+        else
+          DRY_RUN_CMD="yarn --silent standard-version --dry-run"
+          RELEASE_TYPE="auto"
+        fi
+        
+        # Extract the next version from dry run output
+        NEXT_VERSION=$(eval $DRY_RUN_CMD | grep "tagging release" | awk '{print $3}' || echo "")
+        
+        if [[ -n "$NEXT_VERSION" ]] && git tag -l | grep -q "^${NEXT_VERSION}$"; then
+          echo "Warning: Tag ${NEXT_VERSION} already exists! Finding next available version..."
+          
+          # Get the latest existing tag
+          LATEST_TAG=$(git tag --sort=-version:refname | head -1)
+          echo "Latest existing tag: $LATEST_TAG"
+          
+          # Extract version numbers (assuming format vX.Y.Z)
+          if [[ $LATEST_TAG =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+            MAJOR=${BASH_REMATCH[1]}
+            MINOR=${BASH_REMATCH[2]}
+            PATCH=${BASH_REMATCH[3]}
+            
+            # Calculate next version based on release type
+            if [[ "$RELEASE_TYPE" == "major" ]]; then
+              NEXT_MAJOR=$((MAJOR + 1))
+              FALLBACK_VERSION="v${NEXT_MAJOR}.0.0"
+            elif [[ "$RELEASE_TYPE" == "minor" ]]; then
+              NEXT_MINOR=$((MINOR + 1))
+              FALLBACK_VERSION="v${MAJOR}.${NEXT_MINOR}.0"
+            else
+              # For patch and auto, increment patch
+              NEXT_PATCH=$((PATCH + 1))
+              FALLBACK_VERSION="v${MAJOR}.${MINOR}.${NEXT_PATCH}"
+            fi
+            
+            # Check if fallback version already exists, keep incrementing if needed
+            while git tag -l | grep -q "^${FALLBACK_VERSION}$"; do
+              echo "Version ${FALLBACK_VERSION} also exists, trying next..."
+              if [[ "$RELEASE_TYPE" == "major" ]]; then
+                NEXT_MAJOR=$((NEXT_MAJOR + 1))
+                FALLBACK_VERSION="v${NEXT_MAJOR}.0.0"
+              elif [[ "$RELEASE_TYPE" == "minor" ]]; then
+                NEXT_MINOR=$((NEXT_MINOR + 1))
+                FALLBACK_VERSION="v${MAJOR}.${NEXT_MINOR}.0"
+              else
+                NEXT_PATCH=$((NEXT_PATCH + 1))
+                FALLBACK_VERSION="v${MAJOR}.${MINOR}.${NEXT_PATCH}"
+              fi
+            done
+            
+            echo "Using fallback version: $FALLBACK_VERSION"
+            echo "OVERRIDE_VERSION=${FALLBACK_VERSION}" >> $GITHUB_ENV
+          else
+            echo "Error: Could not parse latest tag format: $LATEST_TAG"
+            exit 1
+          fi
+        else
+          if [[ -n "$NEXT_VERSION" ]]; then
+            echo "Next version will be: $NEXT_VERSION"
+          else
+            echo "Warning: Could not determine next version from dry run"
+          fi
+        fi
     - name: Patch version
       if: ${{ env.RELEASE == 'patch' }}
       # Run Standard Version script to release new patch version
       run: |
-        yarn release -- --release-as patch
+        if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
+          yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
+        else
+          yarn release -- --release-as patch
+        fi
     - name: Minor version
       if: ${{ env.RELEASE == 'minor' }}
       # Run Standard Version script to release new minor version
       run: |
-        yarn release -- --release-as minor
+        if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
+          yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
+        else
+          yarn release -- --release-as minor
+        fi
     - name: Major version
       if: ${{ env.RELEASE == 'major' }}
       # Run Standard Version script to release new major version
       run: |
-        yarn release -- --release-as major
+        if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
+          yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
+        else
+          yarn release -- --release-as major
+        fi
     - name: Automatic version
       if: ${{ env.RELEASE == 'auto' }}
       # Run Standard Version script to release new version
       run: |
-        yarn release
+        if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
+          yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
+        else
+          yarn release
+        fi
     - name: Push new version
       if: ${{ env.RELEASE != 'no' }}
       id: publish_tag
       # Push new commits and new version tags to main branch
       run: |
-        git push --follow-tags
+        if ! git push --follow-tags; then
+          echo "Push failed - possibly due to existing tag"
+          git tag -d $(git describe HEAD --abbrev=0) || true
+          exit 1
+        fi
         echo ::set-output name=tag_name::$(git describe HEAD --abbrev=0)
     - name: Generate release body
       # Extracts the CHANGELOG.md latest version snippet
