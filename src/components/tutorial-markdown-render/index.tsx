@@ -9,33 +9,7 @@ import startHereImage from '../../../public/images/start-here.png'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
 import DocumentContextProvider from 'utils/contexts/documentContext'
-import { Item, MarkdownRenderer } from '@vtexdocs/components'
-import dynamic from 'next/dynamic'
-
-// Dynamically import TableOfContents to avoid SSR issues with useRouter
-const DynamicTableOfContents = dynamic(
-  () =>
-    import('@vtexdocs/components').then((mod) => ({
-      default: mod.TableOfContents,
-    })),
-  {
-    ssr: false,
-    loading: () => (
-      <Box
-        sx={{
-          height: '40px',
-          backgroundColor: '#f5f5f5',
-          borderRadius: '4px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        {/* Loading placeholder for TableOfContents */}
-      </Box>
-    ),
-  }
-)
+import { Item, MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
 
 import styles from 'styles/documentation-page'
 import ArticlePagination from 'components/article-pagination'
@@ -168,7 +142,7 @@ const TutorialMarkdownRender = (props: Props) => {
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={props.contributors} />
-            <DynamicTableOfContents headingList={props.headings} />
+            <TableOfContents headingList={props.headings} />
           </Box>
           <OnThisPage />
         </Flex>
