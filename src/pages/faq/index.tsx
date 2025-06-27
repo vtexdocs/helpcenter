@@ -1,7 +1,6 @@
 import { Box, Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
-import getNavigation from 'utils/getNavigation'
 
 import { FaqCardDataElement, SortByType } from 'utils/typings/types'
 import Head from 'next/head'
@@ -24,9 +23,9 @@ import usePagination from '../../utils/hooks/usePagination'
 import Input from 'components/input'
 import SearchIcon from 'components/icons/search-icon'
 import ChipFilter from 'components/chip-filter'
+import { getISRRevalidateTime } from 'utils/config'
 
 interface Props {
-  sidebarfallback: any //eslint-disable-line
   sectionSelected?: DocumentationTitle | UpdatesTitle | ''
   faqData: FaqCardDataElement[]
   branch: string
@@ -202,7 +201,6 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sidebarfallback = await getNavigation()
   const sectionSelected = 'FAQs'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
@@ -279,11 +277,11 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: {
-      sidebarfallback,
       sectionSelected,
       faqData,
       branch,
     },
+    revalidate: getISRRevalidateTime(),
   }
 }
 

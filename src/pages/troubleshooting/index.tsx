@@ -8,7 +8,6 @@ import { useContext, useMemo, useState } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
 import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
-import getNavigation from 'utils/getNavigation'
 import { getLogger } from 'utils/logging/log-util'
 import { localeType } from 'utils/navigation-utils'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -23,9 +22,9 @@ import { TroubleshootingFilters } from 'utils/constants'
 import Filter from 'components/filter'
 import searchIcon from '../../components/icons/search-icon'
 import Input from 'components/input'
+import { getISRRevalidateTime } from 'utils/config'
 
 interface Props {
-  sidebarfallback: any //eslint-disable-line
   sectionSelected?: DocumentationTitle | UpdatesTitle | ''
   branch: string
   troubleshootingData: TroubleshootingDataElement[]
@@ -159,7 +158,6 @@ export async function getStaticProps({
   preview,
   previewData,
 }: GetStaticPropsContext) {
-  const sidebarFallback = await getNavigation()
   const sectionSelected = 'Troubleshooting'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
@@ -237,11 +235,11 @@ export async function getStaticProps({
 
   return {
     props: {
-      sidebarFallback,
       sectionSelected,
       troubleshootingData,
       branch,
     },
+    revalidate: getISRRevalidateTime(),
   }
 }
 
