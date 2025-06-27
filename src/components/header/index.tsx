@@ -7,14 +7,12 @@ import {
 } from '@vtex/brand-ui'
 import { useContext, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
+import { HamburgerMenu, SearchInput } from '@vtexdocs/components'
 
 import DropdownMenu from 'components/dropdown-menu'
 import VTEXHelpCenterIcon from 'components/icons/vtex-helpcenter-icon'
 import GridIcon from 'components/icons/grid-icon'
 import LongArrowIcon from 'components/icons/long-arrow-icon'
-import SearchIcon from 'components/icons/search-icon'
-
 import { getFeedbackURL } from 'utils/get-url'
 
 import AnnouncementBar from 'components/announcement-bar'
@@ -23,81 +21,6 @@ import LocaleSwitcher from 'components/locale-switcher'
 import styles from './styles'
 import { PreviewContext } from 'utils/contexts/preview'
 import { FormattedMessage } from 'react-intl'
-// Dynamic import for HamburgerMenu with SSR-safe placeholder
-const HamburgerMenu = dynamic(
-  () =>
-    import('@vtexdocs/components').then((mod) => ({
-      default: mod.HamburgerMenu,
-    })),
-  {
-    ssr: false,
-    loading: () => (
-      <Flex
-        sx={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '40px',
-          height: '40px',
-          cursor: 'pointer',
-        }}
-      >
-        <Box
-          sx={{
-            width: '24px',
-            height: '2px',
-            bg: 'gray.500',
-            position: 'relative',
-            '&::before, &::after': {
-              content: '""',
-              position: 'absolute',
-              width: '24px',
-              height: '2px',
-              bg: 'gray.500',
-              left: 0,
-            },
-            '&::before': {
-              top: '-8px',
-            },
-            '&::after': {
-              top: '8px',
-            },
-          }}
-        />
-      </Flex>
-    ),
-  }
-)
-
-// Dynamic import with SSR-safe placeholder
-const SearchInput = dynamic(
-  () =>
-    import('@vtexdocs/components').then((mod) => ({
-      default: mod.SearchInput,
-    })),
-  {
-    ssr: false,
-    loading: () => (
-      <Flex
-        sx={{
-          alignItems: 'center',
-          border: '1px solid',
-          borderColor: 'muted.2',
-          borderRadius: '4px',
-          px: 3,
-          py: 2,
-          bg: 'white',
-          minHeight: '40px',
-          width: '100%',
-        }}
-      >
-        <SearchIcon sx={{ mr: 2, color: 'muted.1' }} />
-        <Box as="span" sx={{ color: 'muted.1', fontSize: 1 }}>
-          Search...
-        </Box>
-      </Flex>
-    ),
-  }
-)
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Header = () => {

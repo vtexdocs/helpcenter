@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Box, Flex, Grid, IconCaret, Text } from '@vtex/brand-ui'
 
 import Tooltip from 'components/tooltip'
@@ -19,9 +19,14 @@ const Contributors = ({ contributors }: Props) => {
   const [pageWidth, setPageWidth] = useState(0)
   const [photosPerRow, setPhotosPerRow] = useState(0)
   const [minRows, setMinRows] = useState(0)
+  const [isClient, setIsClient] = useState(false)
   const photosContainer = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // Set client-side flag and initial width
+    setIsClient(true)
+    setPageWidth(window.innerWidth)
+
     const updatePageWidth = () => {
       setPageWidth(window.innerWidth)
     }
@@ -30,12 +35,13 @@ const Contributors = ({ contributors }: Props) => {
     return () => window.removeEventListener('resize', updatePageWidth)
   }, [])
 
-  useLayoutEffect(() => {
-    if (photosContainer.current) {
+  useEffect(() => {
+    // Only calculate grid columns on client-side
+    if (isClient && photosContainer.current) {
       const gridStyle = window.getComputedStyle(photosContainer.current)
       setPhotosPerRow(gridStyle.gridTemplateColumns.split(' ').length)
     }
-  }, [pageWidth])
+  }, [pageWidth, isClient])
 
   useEffect(() => {
     setMinRows(photosPerRow === 6 ? 1 : 2)

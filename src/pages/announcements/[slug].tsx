@@ -19,8 +19,7 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
-import { Item, LibraryContext } from '@vtexdocs/components'
-import TableOfContentsWrapper from 'components/table-of-contents-wrapper'
+import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 
 import getHeadings from 'utils/getHeadings'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
@@ -146,7 +145,7 @@ const AnnouncementPage: NextPage<Props> = ({
             )}
           </Box>
           <Box sx={styles.rightContainer}>
-            <TableOfContentsWrapper headingList={headings} />
+            <TableOfContents headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>

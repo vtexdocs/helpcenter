@@ -11,7 +11,10 @@ const Breadcrumb = ({ breadcrumbList }: Props) => {
   return (
     <Flex sx={styles.breadcrumb}>
       {breadcrumbList.map((item, idx) => (
-        <>
+        <Flex
+          key={`breadcrumb-${idx}-${item.slug}`}
+          sx={{ alignItems: 'center' }}
+        >
           {item.type === 'markdown' ? (
             <Link href={item.slug}>
               <Text sx={styles.breadcrumbItem}>{item.name || 'Untitled'}</Text>
@@ -22,7 +25,7 @@ const Breadcrumb = ({ breadcrumbList }: Props) => {
           {idx < breadcrumbList.length - 1 ? (
             <IconCaret direction="right" size={16} />
           ) : null}
-        </>
+        </Flex>
       ))}
     </Flex>
   )
