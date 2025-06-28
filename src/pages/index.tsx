@@ -16,6 +16,7 @@ import { PreviewContext } from 'utils/contexts/preview'
 import { localeType } from 'utils/navigation-utils'
 import { AnnouncementDataElement } from 'utils/typings/types'
 import { getLogger } from 'utils/logging/log-util'
+import { getISRRevalidateTime } from 'utils/config'
 import { serialize } from 'next-mdx-remote/serialize'
 
 interface Props {
@@ -158,6 +159,7 @@ export const getStaticProps: GetStaticProps = async ({
       branch: branch,
       announcementTimelineData: announcementsData,
     },
+    revalidate: getISRRevalidateTime(),
   }
 }
 
