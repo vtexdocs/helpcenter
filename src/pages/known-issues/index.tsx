@@ -246,13 +246,13 @@ export const getStaticProps: GetStaticProps = async ({
 
           if (frontmatter && frontmatter.tag && frontmatter.kiStatus)
             knownIssuesData.push({
-              id: String(frontmatter.internalReference),
+              id: String(frontmatter.id),
               title: String(frontmatter.title),
               module: String(frontmatter.tag),
               slug: data.slug,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
-              status: String(frontmatter.kiStatus),
+              status: String(frontmatter.status),
               kiStatus: frontmatter.kiStatus as KnownIssueStatus,
             })
         } catch (error) {
