@@ -71,6 +71,8 @@ const TracksPage: NextPage<Props> = ({ branch }) => {
           })}
           key="title"
         />
+        {/* Preload critical LCP image */}
+        <link rel="preload" as="image" href="/images/start-here.png" />
       </Head>
       <Fragment>
         <PageHeader
@@ -84,6 +86,7 @@ const TracksPage: NextPage<Props> = ({ branch }) => {
           imageAlt={intl.formatMessage({
             id: 'start_here_page.title',
           })}
+          priority
         />
         <Box sx={styles.contentContainer}>
           <ContentSection id={'start_here_page_onboarding'} length={3} />

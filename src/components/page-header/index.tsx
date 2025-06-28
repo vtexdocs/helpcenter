@@ -8,6 +8,7 @@ interface IPageHeader {
   description: string
   imageUrl: StaticImageData
   imageAlt: string
+  priority?: boolean
 }
 
 const PageHeader = ({
@@ -15,6 +16,7 @@ const PageHeader = ({
   description,
   imageUrl,
   imageAlt,
+  priority = false,
 }: IPageHeader) => {
   return (
     <Fragment>
@@ -30,6 +32,7 @@ const PageHeader = ({
               <Image
                 alt={imageAlt}
                 src={imageUrl}
+                priority={priority}
                 style={{
                   maxWidth: '100%',
                   height: 'auto',

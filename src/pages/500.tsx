@@ -21,6 +21,8 @@ const FiveHundredPage: Page<Props> = ({ branch }) => {
     <>
       <Head>
         <title>500 - Internal Server Error</title>
+        {/* Preload critical LCP image */}
+        <link rel="preload" as="image" href="/images/500-illustration.png" />
       </Head>
       <Box sx={styles.mainContainer}>
         <Flex sx={styles.innerContainer}>
@@ -43,6 +45,7 @@ const FiveHundredPage: Page<Props> = ({ branch }) => {
             <Image
               alt="500 error"
               src={fiveHundredImage}
+              priority
               style={{
                 maxWidth: '100%',
                 height: 'auto',

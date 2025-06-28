@@ -68,6 +68,8 @@ const TutorialsPage: NextPage<Props> = ({ branch }) => {
           })}
           key="title"
         />
+        {/* Preload critical LCP image */}
+        <link rel="preload" as="image" href="/images/start-here.png" />
       </Head>
       <Fragment>
         <PageHeader
@@ -81,6 +83,7 @@ const TutorialsPage: NextPage<Props> = ({ branch }) => {
           imageAlt={intl.formatMessage({
             id: 'app_development_page.title',
           })}
+          priority
         />
         <Box sx={styles.contentContainer}>
           <ContentSection id={'tutorials_main_page'} length={40} />

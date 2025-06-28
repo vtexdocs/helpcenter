@@ -111,6 +111,8 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           })}
           key="title"
         />
+        {/* Preload critical LCP image */}
+        <link rel="preload" as="image" href="/images/start-here.png" />
       </Head>
       <Fragment>
         <PageHeader
@@ -124,6 +126,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           imageAlt={intl.formatMessage({
             id: 'known_issues_page.title',
           })}
+          priority
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>

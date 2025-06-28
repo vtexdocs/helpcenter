@@ -21,6 +21,8 @@ const FourOhFour: Page<Props> = ({ branch }) => {
     <>
       <Head>
         <title>404 - Page not found</title>
+        {/* Preload critical LCP image */}
+        <link rel="preload" as="image" href="/images/404-illustration.png" />
       </Head>
       <Box sx={styles.mainContainer}>
         <Flex sx={styles.innerContainer}>
@@ -46,6 +48,7 @@ const FourOhFour: Page<Props> = ({ branch }) => {
             <Image
               alt="404 error"
               src={fourOhFourImage}
+              priority
               style={{
                 maxWidth: '100%',
                 height: 'auto',
