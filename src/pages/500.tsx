@@ -5,7 +5,6 @@ import { Box, Flex, Text, Button, Link } from '@vtex/brand-ui'
 import styles from 'styles/error-page'
 import fiveHundredImage from '../../public/images/500-illustration.png'
 import { GetStaticProps } from 'next'
-import getNavigation from 'utils/getNavigation'
 import { useContext } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 
@@ -21,6 +20,8 @@ const FiveHundredPage: Page<Props> = ({ branch }) => {
     <>
       <Head>
         <title>500 - Internal Server Error</title>
+        {/* Preload critical LCP image */}
+        <link rel="preload" as="image" href="/images/500-illustration.png" />
       </Head>
       <Box sx={styles.mainContainer}>
         <Flex sx={styles.innerContainer}>
@@ -43,6 +44,7 @@ const FiveHundredPage: Page<Props> = ({ branch }) => {
             <Image
               alt="500 error"
               src={fiveHundredImage}
+              priority
               style={{
                 maxWidth: '100%',
                 height: 'auto',
@@ -59,15 +61,16 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sidebarfallback = await getNavigation()
   const previewBranch =
-    preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
-      ? JSON.parse(JSON.stringify(previewData)).branch
+    preview &&
+    previewData &&
+    typeof previewData === 'object' &&
+    'branch' in previewData
+      ? (previewData as { branch: string }).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
   return {
     props: {
-      sidebarfallback,
       branch,
     },
   }

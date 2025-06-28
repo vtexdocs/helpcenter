@@ -4,7 +4,6 @@ import type { Page } from 'utils/typings/types'
 import { Box, Flex, Text, Button, Link } from '@vtex/brand-ui'
 import styles from 'styles/error-page'
 import fourOhFourImage from '../../public/images/404-illustration.png'
-import getNavigation from 'utils/getNavigation'
 import { GetStaticProps } from 'next'
 import { useContext } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -21,6 +20,8 @@ const FourOhFour: Page<Props> = ({ branch }) => {
     <>
       <Head>
         <title>404 - Page not found</title>
+        {/* Preload critical LCP image */}
+        <link rel="preload" as="image" href="/images/404-illustration.png" />
       </Head>
       <Box sx={styles.mainContainer}>
         <Flex sx={styles.innerContainer}>
@@ -46,6 +47,7 @@ const FourOhFour: Page<Props> = ({ branch }) => {
             <Image
               alt="404 error"
               src={fourOhFourImage}
+              priority
               style={{
                 maxWidth: '100%',
                 height: 'auto',
@@ -62,15 +64,16 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sidebarfallback = await getNavigation()
   const previewBranch =
-    preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
-      ? JSON.parse(JSON.stringify(previewData)).branch
+    preview &&
+    previewData &&
+    typeof previewData === 'object' &&
+    'branch' in previewData
+      ? (previewData as { branch: string }).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
   return {
     props: {
-      sidebarfallback,
       branch,
     },
   }

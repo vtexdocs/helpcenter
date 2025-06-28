@@ -12,7 +12,7 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
-import startHereImage from '../../../public/images/faq.png'
+import faqImage from '../../../public/images/faq.png'
 import Pagination from 'components/pagination'
 import { localeType } from 'utils/navigation-utils'
 import Select from 'components/select'
@@ -124,6 +124,8 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
           })}
           key="title"
         />
+        {/* Preload critical LCP image */}
+        <link rel="preload" as="image" href="/images/faq.png" />
       </Head>
       <Fragment>
         <PageHeader
@@ -133,10 +135,11 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
           description={intl.formatMessage({
             id: 'landing_page_faq.description',
           })}
-          imageUrl={startHereImage}
+          imageUrl={faqImage}
           imageAlt={intl.formatMessage({
             id: 'landing_page_faq.title',
           })}
+          priority
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
@@ -203,8 +206,11 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const sectionSelected = 'FAQs'
   const previewBranch =
-    preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
-      ? JSON.parse(JSON.stringify(previewData)).branch
+    preview &&
+    previewData &&
+    typeof previewData === 'object' &&
+    'branch' in previewData
+      ? (previewData as { branch: string }).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
   const docsPathsGLOBAL = await getFaqPaths('faq', branch)

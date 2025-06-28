@@ -14,6 +14,7 @@ const NewsletterSection = () => {
           src={'/images/landing.png'}
           alt="Image of the VTEX store environment"
           fill
+          priority
           style={{
             width: '100%',
             height: '100%',

@@ -111,6 +111,8 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           })}
           key="title"
         />
+        {/* Preload critical LCP image */}
+        <link rel="preload" as="image" href="/images/start-here.png" />
       </Head>
       <Fragment>
         <PageHeader
@@ -124,6 +126,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           imageAlt={intl.formatMessage({
             id: 'known_issues_page.title',
           })}
+          priority
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
@@ -182,8 +185,11 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const sectionSelected = 'Known Issues'
   const previewBranch =
-    preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
-      ? JSON.parse(JSON.stringify(previewData)).branch
+    preview &&
+    previewData &&
+    typeof previewData === 'object' &&
+    'branch' in previewData
+      ? (previewData as { branch: string }).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
   const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
@@ -240,13 +246,13 @@ export const getStaticProps: GetStaticProps = async ({
 
           if (frontmatter && frontmatter.tag && frontmatter.kiStatus)
             knownIssuesData.push({
-              id: String(frontmatter.internalReference),
+              id: String(frontmatter.id),
               title: String(frontmatter.title),
               module: String(frontmatter.tag),
               slug: data.slug,
               createdAt: String(frontmatter.createdAt),
               updatedAt: String(frontmatter.updatedAt),
-              status: String(frontmatter.kiStatus),
+              status: String(frontmatter.status),
               kiStatus: frontmatter.kiStatus as KnownIssueStatus,
             })
         } catch (error) {

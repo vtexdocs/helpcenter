@@ -16,6 +16,7 @@ import { PreviewContext } from 'utils/contexts/preview'
 import { localeType } from 'utils/navigation-utils'
 import { AnnouncementDataElement } from 'utils/typings/types'
 import { getLogger } from 'utils/logging/log-util'
+import { getISRRevalidateTime } from 'utils/config'
 import { serialize } from 'next-mdx-remote/serialize'
 
 interface Props {
@@ -41,6 +42,14 @@ const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
           property="og:image"
           content="https://cdn.jsdelivr.net/gh/vtexdocs/devportal@main/public/images/meta-image.png"
         />
+        {/* Preload critical LCP image */}
+        <link rel="preload" as="image" href="/images/landing.png" />
+        {/* Preconnect to third-party domains */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://openreplay.vtex.com" />
       </Head>
       <Grid sx={styles.grid}>
         <NewsletterSection />
@@ -68,8 +77,11 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const previewBranch =
-    preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
-      ? JSON.parse(JSON.stringify(previewData)).branch
+    preview &&
+    previewData &&
+    typeof previewData === 'object' &&
+    'branch' in previewData
+      ? (previewData as { branch: string }).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
   const logger = getLogger('Announcements')
@@ -147,6 +159,7 @@ export const getStaticProps: GetStaticProps = async ({
       branch: branch,
       announcementTimelineData: announcementsData,
     },
+    revalidate: getISRRevalidateTime(),
   }
 }
 

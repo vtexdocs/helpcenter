@@ -48,14 +48,17 @@ function reducer(state, action) {
   switch (action.type) {
     case 'init': {
       if (!state.tracker) {
-        console.log('Instantiaing the tracker for the first time...')
+        console.log('Instantiating the tracker for the first time...')
         return { ...state, tracker: newTracker(state.config) }
       }
       return state
     }
     case 'start': {
-      console.log('Starting tracker...')
-      state.tracker.start()
+      if (state.tracker && !state.isStarted) {
+        console.log('Starting tracker...')
+        state.tracker.start()
+        return { ...state, isStarted: true }
+      }
       return state
     }
   }
@@ -63,7 +66,11 @@ function reducer(state, action) {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 export default function TrackerProvider({ children, config = {} }) {
-  const [state, dispatch] = useReducer(reducer, { tracker: null, config })
+  const [state, dispatch] = useReducer(reducer, {
+    tracker: null,
+    config,
+    isStarted: false,
+  })
   state
   const value = {
     startTracking: () => dispatch({ type: 'start' }),

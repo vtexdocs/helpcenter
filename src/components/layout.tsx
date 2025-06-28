@@ -53,8 +53,13 @@ export default function Layout({
   const intl = useIntl()
 
   useEffect(() => {
-    initTracker()
-    startTracking()
+    // Lazy load tracker to avoid blocking main thread
+    const timer = setTimeout(() => {
+      initTracker()
+      startTracking()
+    }, 100)
+
+    return () => clearTimeout(timer)
   }, [])
 
   return (
@@ -83,7 +88,7 @@ export default function Layout({
           style={{ display: 'none', visibility: 'hidden' }}
         ></iframe>
         <div className="container">
-          <Script id="GTM-init" strategy="afterInteractive">
+          <Script id="GTM-init" strategy="lazyOnload">
             {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 					new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 					j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
