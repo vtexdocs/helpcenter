@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.1](https://github.com/vtexdocs/helpcenter/compare/v0.8.0...v0.8.1) (2025-07-17)
+
+
+### Chore
+
+* **url occurrences:** change URL (newhelp.vtex.com) ([c00a041](https://github.com/vtexdocs/helpcenter/commit/c00a0419627f0854f7a36b3c21186c28fa68fcbe))
+
 ## [0.8.0](https://github.com/vtexdocs/helpcenter/compare/v0.5.2...v0.8.0) (2025-06-28)
 
 
