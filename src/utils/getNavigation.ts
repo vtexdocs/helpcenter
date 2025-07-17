@@ -17,7 +17,7 @@ export default async function getNavigation() {
     )
     const navigationJsonUrl =
       process.env.navigationJsonUrl ||
-      'https://leafy-mooncake-7c2e5e.netlify.app/navigation.json'
+      'https://newhelp.vtex.com/navigation.json'
 
     const result = await fetch(navigationJsonUrl)
     const data = await result.json()
