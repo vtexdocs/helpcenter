@@ -205,7 +205,7 @@ export const getStaticProps: GetStaticProps = async ({
       ? await getKnownIssuesPaths('known-issues', branch)
       : docsPathsGLOBAL
 
-  const logger = getLogger('Start here')
+  const logger = getLogger('Known Issues')
 
   const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
 
