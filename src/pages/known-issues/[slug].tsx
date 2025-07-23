@@ -204,7 +204,7 @@ export const getStaticProps: GetStaticProps = async ({
       ? await getKnownIssuesPaths('known-issues', branch)
       : docsPathsGLOBAL
 
-  const logger = getLogger('Start here')
+  const logger = getLogger('Known Issues')
 
   const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
 
@@ -219,7 +219,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   let documentationContent =
     (await fetch(
-      `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
+      `https://raw.githubusercontent.com/vtexdocs/known-issues/${branch}/${path}`
     )
       .then((res) => res.text())
       .catch((err) => console.log(err))) || ''
@@ -242,7 +242,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   const contributors =
     (await fetch(
-      `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
+      `https://github.com/vtexdocs/known-issues/file-contributors/${branch}/${path}`,
       {
         method: 'GET',
         headers: {
