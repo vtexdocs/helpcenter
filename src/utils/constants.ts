@@ -53,18 +53,6 @@ export const documentationData = (intl: IntlShape) => {
       }),
       link: '/docs/tutorials',
     },
-    {
-      id: 'Developers Portal',
-      Icon: DeveloperPortalIcon,
-      title: intl.formatMessage({
-        id: 'documentation_developers_portal.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_developers_portal.description',
-      }),
-      link: 'https://developers.vtex.com/',
-      isExternalLink: true,
-    },
   ]
   return data
 }
@@ -93,18 +81,6 @@ export const menuDocumentationData = (intl: IntlShape) => {
       }),
       link: '/docs/tutorials',
     },
-    {
-      id: 'Developers Portal',
-      Icon: DeveloperPortalIcon,
-      title: intl.formatMessage({
-        id: 'documentation_developers_portal.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_developers_portal.description',
-      }),
-      link: 'https://developers.vtex.com/',
-      isExternalLink: true,
-    },
   ]
   return data
 }
@@ -130,6 +106,19 @@ export const updatesData = (intl: IntlShape) => {
         id: 'announcements_page.description',
       }),
       link: '/announcements',
+    },
+
+    {
+      id: 'Developers Portal',
+      Icon: DeveloperPortalIcon,
+      title: intl.formatMessage({
+        id: 'documentation_developers_portal.title',
+      }),
+      description: intl.formatMessage({
+        id: 'documentation_developers_portal.description',
+      }),
+      link: 'https://developers.vtex.com/',
+      isExternalLink: true,
     },
   ]
   return data
