@@ -79,6 +79,8 @@
   "announcements_page.see_more": "Vea mas",
   "api_reference_page.title": "API Reference",
   "api_reference_page.subtitle": "Use our API reference documentation to build custom solutions that fit your business.",
+  "article_pagination.previous": "Anterior",
+  "article_pagination.next": "Siguiente",
   "start_here_page.title": "Comience aquí",
   "start_here_page.link": "Aprenda más",
   "start_here_page.subtitle": "Aprende, paso a paso, todo lo que necesitas saber para empezar a usar VTEX.",
