@@ -1,5 +1,6 @@
 import { Link, Grid, Text, Box } from '@vtex/brand-ui'
 import { useRouter } from 'next/router'
+import { useIntl } from 'react-intl'
 interface Props {
   pagination: {
     previousDoc: {
@@ -23,6 +24,7 @@ const ArticlePagination = ({
   hidePaginationPrevious,
 }: Props) => {
   const router = useRouter()
+  const intl = useIntl()
 
   const handleClick = (e: { preventDefault: () => void }, slug: string) => {
     e.preventDefault()
@@ -45,7 +47,12 @@ const ArticlePagination = ({
                 <Text sx={styles.paginationText}>
                   {pagination.previousDoc.name}
                 </Text>
-                <Text sx={styles.subTitle}>« Previous</Text>
+                <Text sx={styles.subTitle}>
+                  {`« ${intl.formatMessage({
+                    id: 'article_pagination.previous',
+                    defaultMessage: 'Previous',
+                  })}`}
+                </Text>
               </Box>
             </Link>
           )}
@@ -69,7 +76,12 @@ const ArticlePagination = ({
                 <Text sx={styles.paginationText}>
                   {pagination.nextDoc.name}
                 </Text>
-                <Text sx={styles.subTitle}>Next »</Text>
+                <Text sx={styles.subTitle}>
+                  {`${intl.formatMessage({
+                    id: 'article_pagination.next',
+                    defaultMessage: 'Next',
+                  })} »`}
+                </Text>
               </Box>
             </Link>
           )}
