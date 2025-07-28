@@ -11,6 +11,7 @@ import '@vtexdocs/components/dist/index.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 
 import Layout from 'components/layout'
+import SEOControl from 'components/seo-control'
 
 type Props = AppProps & {
   Component: Page
@@ -39,6 +40,7 @@ function MyApp({ Component, pageProps }: Props) {
             content={pageProps.locale || currentLocale}
           />
         </Head>
+        <SEOControl />
         <PreviewContextProvider>
           <Layout
             // ❌ REMOVED: sidebarfallback (now loaded client-side)
