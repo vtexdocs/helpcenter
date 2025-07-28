@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.2](https://github.com/vtexdocs/helpcenter/compare/v0.8.1...v0.8.2) (2025-07-28)
+
+
+### Features
+
+* add article pagination messages ([0a255dc](https://github.com/vtexdocs/helpcenter/commit/0a255dc8e8bc446f18c56e70691c016a1bcee785))
+* changing menu order ([1e241dd](https://github.com/vtexdocs/helpcenter/commit/1e241dd6de45da3274a7d8596ca8491aa70911fd))
+* fetch kis from known-issues repo ([548b98d](https://github.com/vtexdocs/helpcenter/commit/548b98dc3967cf98f4331aecaf0b125a485d7cec))
+* fetch kis from known-issues repo ([f7e1892](https://github.com/vtexdocs/helpcenter/commit/f7e1892c6ac76fb76fa40e3010b5f6cc13864e40))
+* localizing ES string ([f01f2cb](https://github.com/vtexdocs/helpcenter/commit/f01f2cb90ffc2821f14e1a093cf65aa1fb9097a2))
+* localizing ES strings ([cdf6c52](https://github.com/vtexdocs/helpcenter/commit/cdf6c52a33ccbd2eb6997cdd836b913d88113e9d))
+* support localized strings in article pagination ([04eb34f](https://github.com/vtexdocs/helpcenter/commit/04eb34f10b2add4f45e3274450326d4de167f7af))
+
+
+### Bug Fixes
+
+* change logger to Known Issues ([19d0c92](https://github.com/vtexdocs/helpcenter/commit/19d0c92f332fa606c4d6464ef101b9bff41c85f5))
+
+
+### Chore
+
+* **navigation:** update navigation ([b4807f6](https://github.com/vtexdocs/helpcenter/commit/b4807f67021a889a2df87692dc5ec03b0ad434b4))
+* **navigation:** update navigation.json file ([e9921b4](https://github.com/vtexdocs/helpcenter/commit/e9921b41aed2a734fe37d11ed7e036b3b49344ec))
+
 ### [0.8.1](https://github.com/vtexdocs/helpcenter/compare/v0.8.0...v0.8.1) (2025-07-17)
 
 
