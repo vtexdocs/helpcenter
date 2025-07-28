@@ -203,7 +203,7 @@ export const getStaticProps: GetStaticProps = async ({
   const fetchFromGithub = async (path: string, slug: string) => {
     try {
       const response = await fetch(
-        `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
+        `https://raw.githubusercontent.com/vtexdocs/known-issues/${branch}/${path}`
       )
       const data = await response.text()
       return { content: data, slug }
