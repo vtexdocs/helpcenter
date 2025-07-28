@@ -29,9 +29,8 @@ export default function SEOControl({ allowIndexing }: SEOControlProps) {
   return (
     <Head>
       <meta name="robots" content="noindex, nofollow" />
-      <meta name="googlebot" content="noindex, nofollow" />
+      <meta name="googlebot" content="noindex, nofollow, nosnippet" />
       {/* Prevent content from being used in AI Overviews and AI Mode */}
-      <meta name="googlebot" content="nosnippet" />
     </Head>
   )
 }
