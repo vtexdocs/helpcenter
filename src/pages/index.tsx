@@ -49,7 +49,6 @@ const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://openreplay.vtex.com" />
       </Head>
       <Grid sx={styles.grid}>
         <NewsletterSection />
