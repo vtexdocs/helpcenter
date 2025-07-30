@@ -1,0 +1,20 @@
+# Requirements for Algolia indexing - Python 3.6 compatible
+# These match the docsearch-scraper Pipfile requirements
+
+# Core scraping dependencies
+scrapy==2.2.1
+requests==2.25.1
+lxml==4.5.2
+
+# Selenium for JavaScript rendering
+selenium==3.141.0
+
+# Additional utilities
+python-dotenv==0.7.1
+beautifulsoup4==4.9.3
+
+# Additional dependencies from the Pipfile
+requests-iap==0.2.0
+tldextract==2.1.0
+ratelimit==1.4.1
+algoliasearch==2.6.0

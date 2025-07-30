@@ -18,7 +18,6 @@ type Props = AppProps & {
 import { ErrorBoundary, SuspenseFallback } from 'components/error-boundary'
 import { Suspense } from 'react'
 
-import TrackerProvider from 'utils/contexts/trackerContext'
 import PreviewContextProvider from 'utils/contexts/preview'
 
 function MyApp({ Component, pageProps }: Props) {
@@ -27,37 +26,33 @@ function MyApp({ Component, pageProps }: Props) {
   const messages = getMessages()
 
   return (
-    <TrackerProvider>
-      <IntlProvider locale={currentLocale} messages={messages[currentLocale]}>
-        <Head>
-          <meta
-            property="og:image"
-            content="https://cdn.jsdelivr.net/gh/vtexdocs/helpcenter@main/public/images/meta-image.png"
-          />
-          <meta
-            name="docsearch:language"
-            content={pageProps.locale || currentLocale}
-          />
-        </Head>
-        <PreviewContextProvider>
-          <Layout
-            // ❌ REMOVED: sidebarfallback (now loaded client-side)
-            hideSidebar={Component.hideSidebar}
-            isPreview={pageProps.isPreview ?? false}
-            sectionSelected={pageProps.sectionSelected}
-            parentsArray={pageProps.parentsArray}
-          >
-            <ErrorBoundary>
-              <Suspense
-                fallback={<SuspenseFallback branch={pageProps.branch} />}
-              >
-                <Component {...pageProps} />
-              </Suspense>
-            </ErrorBoundary>
-          </Layout>
-        </PreviewContextProvider>
-      </IntlProvider>
-    </TrackerProvider>
+    <IntlProvider locale={currentLocale} messages={messages[currentLocale]}>
+      <Head>
+        <meta
+          property="og:image"
+          content="https://cdn.jsdelivr.net/gh/vtexdocs/helpcenter@main/public/images/meta-image.png"
+        />
+        <meta
+          name="docsearch:language"
+          content={pageProps.locale || currentLocale}
+        />
+      </Head>
+      <PreviewContextProvider>
+        <Layout
+          // ❌ REMOVED: sidebarfallback (now loaded client-side)
+          hideSidebar={Component.hideSidebar}
+          isPreview={pageProps.isPreview ?? false}
+          sectionSelected={pageProps.sectionSelected}
+          parentsArray={pageProps.parentsArray}
+        >
+          <ErrorBoundary>
+            <Suspense fallback={<SuspenseFallback branch={pageProps.branch} />}>
+              <Component {...pageProps} />
+            </Suspense>
+          </ErrorBoundary>
+        </Layout>
+      </PreviewContextProvider>
+    </IntlProvider>
   )
 }
 
