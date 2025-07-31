@@ -29,7 +29,12 @@ const AnnouncementTimelineItem = ({
         sx={styles.timeLineBar}
         title={
           first ? (
-            <Text sx={styles.newTitle}>New</Text>
+            <Text sx={styles.newTitle}>
+              {intl.formatMessage({
+                id: 'announcement_card.new_tag',
+                defaultMessage: 'New',
+              })}
+            </Text>
           ) : (
             <Link href={articleLink}>
               <Text sx={styles.timelineTitle}>{title}</Text>
