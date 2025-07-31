@@ -15,20 +15,17 @@ const AnnouncementSection = ({
   announcements,
   annoucementsAmout,
 }: AnnouncementSectionProps) => {
-  function getNewestDate(createdAt: string, updatedAt: string) {
+  function getNewestDate(createdAt: string) {
     const createdAtTimestamp = Date.parse(createdAt)
-    const updatedAtTimestamp = Date.parse(updatedAt)
 
-    return createdAtTimestamp > updatedAtTimestamp ? createdAt : updatedAt
+    return createdAtTimestamp
   }
   const intl = useIntl()
   const newAnnouncements = announcements
     .map((announcement) => {
       return {
         title: announcement.title,
-        date: new Date(
-          getNewestDate(announcement.createdAt, announcement.updatedAt)
-        ),
+        date: new Date(getNewestDate(announcement.createdAt)),
         articleLink: announcement.url,
       }
     })
