@@ -24,7 +24,7 @@ const WarningIcon = (props: IconProps) => (
     />
     <path
       d="M9 11.75H9.0075"
-      stroke="red"
+      stroke="currentcolor"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
