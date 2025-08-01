@@ -18,7 +18,7 @@ const GraphIcon = (props: IconProps) => (
     <path
       d="M1 14V3C1 1.89543 1.89543 1 3 1H14C15.1046 1 16 1.89543 16 3V14C16 15.1046 15.1046 16 14 16H3C1.89543 16 1 15.1046 1 14Z"
       stroke="currentcolor"
-      strokeWidth="2"
+      strokeWidth="1.5"
     />
   </Icon>
 )
