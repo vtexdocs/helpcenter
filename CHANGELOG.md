@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.3](https://github.com/vtexdocs/helpcenter/compare/v0.8.2...v0.8.3) (2025-08-01)
+
+
+### Bug Fixes
+
+* **messages:** support url ([7662dbd](https://github.com/vtexdocs/helpcenter/commit/7662dbdc9491bfb3b62bc2ded08f93cad6481dc0))
+
+
+### Chore
+
+* **navigation:** update navigation ([46723aa](https://github.com/vtexdocs/helpcenter/commit/46723aabb85de54b1a93e326f95c074e0a2a3dff))
+
 ### [0.8.2](https://github.com/vtexdocs/helpcenter/compare/v0.8.1...v0.8.2) (2025-07-28)
 
 
