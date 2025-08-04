@@ -52,6 +52,8 @@ interface Props {
   contributors: ContributorsType[]
   headingList: Item[]
   branch: string
+  path: string
+  slug: string
 }
 
 const FaqPage: NextPage<Props> = ({
@@ -60,8 +62,8 @@ const FaqPage: NextPage<Props> = ({
   contributors,
   breadcrumbList,
   branch,
-  slug,
   path,
+  slug,
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
