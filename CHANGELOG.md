@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.6](https://github.com/vtexdocs/helpcenter/compare/v0.8.4...v0.8.6) (2025-08-04)
+
+
+### Features
+
+* **faq:** add feedbacksection component to faq pages ([cb48066](https://github.com/vtexdocs/helpcenter/commit/cb48066a4538e33020bf1a842ae1718275d5c6cc))
+
+
+### Bug Fixes
+
+* **types.ts:** remove optional ([c12fdb6](https://github.com/vtexdocs/helpcenter/commit/c12fdb605bef942e0a5dad3332ec0ea4d17ec54a))
+* update EN urls ([37266fd](https://github.com/vtexdocs/helpcenter/commit/37266fd3909b39864f0be1179ce9eb1eb656d249))
+* update ES urls ([0f3cee9](https://github.com/vtexdocs/helpcenter/commit/0f3cee9cb20f549ac1e9cb3b8e17aa6ecd96430d))
+* update PT urls ([9555035](https://github.com/vtexdocs/helpcenter/commit/95550355b563fc8ca51fe79c82256bd40b1a34b9))
+* **utils:** fix constants, types and sectionSelected bug ([211a8c1](https://github.com/vtexdocs/helpcenter/commit/211a8c1e5d72228d5827ebd21da87b50b4469451))
+
 ### [0.8.4](https://github.com/vtexdocs/helpcenter/compare/v0.8.3...v0.8.4) (2025-08-04)
 
 
