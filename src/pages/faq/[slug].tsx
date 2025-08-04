@@ -20,6 +20,7 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 import Contributors from 'components/contributors'
 import OnThisPage from 'components/on-this-page'
 import { Item, TableOfContents } from '@vtexdocs/components'
+import FeedbackSection from 'components/feedback-section'
 import Breadcrumb from 'components/breadcrumb'
 import TimeToRead from 'components/TimeToRead'
 
@@ -59,6 +60,8 @@ const FaqPage: NextPage<Props> = ({
   contributors,
   breadcrumbList,
   branch,
+  slug,
+  path,
 }) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
@@ -147,6 +150,7 @@ const FaqPage: NextPage<Props> = ({
                 </article>
               </Box>
             </Box>
+            <FeedbackSection docPath={path} slug={slug} />
 
             <Box sx={styles.bottomContributorsContainer}>
               <Box sx={styles.bottomContributorsDivider} />
