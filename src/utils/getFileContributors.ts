@@ -6,7 +6,6 @@ export interface ContributorsType {
   login: string
   avatar: string
   userPage: string
-  primaryAvatarUrl: string
 }
 
 export default async function getFileContributors(

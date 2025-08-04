@@ -241,9 +241,9 @@ export const getStaticProps: GetStaticProps = async ({
       return { notFound: true }
     }
 
-    const contributors: ContributorsType[] =
+    const contributors =
       (await fetch(
-        `https://github.com/vtexdocs/known-issues/file-contributors/${branch}/${path}`,
+        `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
         {
           method: 'GET',
           headers: {
@@ -253,18 +253,23 @@ export const getStaticProps: GetStaticProps = async ({
         }
       )
         .then((res) => res.json())
-        .then(({ users }: { users: ContributorsType[] }) =>
-          users.map((user) => ({
-            name: user.login,
-            login: user.login,
-            avatar: user.primaryAvatarUrl,
-            userPage: `https://github.com${user.profileLink}`,
-          }))
-        )
-        .catch((err) => {
-          logger.warn(`Error fetching contributors: ${err}`)
-          return []
-        })) || []
+        .then(({ users }) => {
+          const result: ContributorsType[] = []
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          for (let i = 0; i < users.length; i++) {
+            const user = users[i]
+            if (user.id === '41898282') continue
+            result.push({
+              name: user.login,
+              login: user.login,
+              avatar: user.primaryAvatarUrl,
+              userPage: `https://github.com${user.profileLink}`,
+            })
+          }
+
+          return result
+        })
+        .catch((err) => console.log(err))) || []
 
     const sidebarfallback = await getNavigation()
 
