@@ -88,7 +88,7 @@ export type AnnouncementDataElement = {
   title: string
   url: string
   createdAt: string
-  updatedAt?: string
+  updatedAt: string
   status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }
 
@@ -98,16 +98,16 @@ export type FaqCardDataElement = {
   title: string
   slug: string
   createdAt: string
-  updatedAt?: string
-  productTeam?: string
+  updatedAt: string
+  productTeam: string
   status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }
 
 export type TroubleshootingDataElement = {
   title: string
   slug: string
-  tags?: string[]
+  tags: string[]
   createdAt: string
-  updatedAt?: string
+  updatedAt: string
   status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }
