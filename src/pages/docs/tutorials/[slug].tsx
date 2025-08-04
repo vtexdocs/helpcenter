@@ -154,11 +154,11 @@ const TutorialPage: NextPage<Props> = ({
   ) : (
     <TutorialIndexing
       breadcrumbList={breadcrumbList}
-      name={componentProps.tutorialData.name}
-      children={componentProps.tutorialData.children}
-      hidePaginationNext={componentProps.tutorialData.hidePaginationNext}
+      name={componentProps?.tutorialData?.name ?? ''}
+      children={componentProps?.tutorialData?.children}
+      hidePaginationNext={componentProps?.tutorialData?.hidePaginationNext}
       hidePaginationPrevious={
-        componentProps.tutorialData.hidePaginationPrevious
+        componentProps?.tutorialData?.hidePaginationPrevious
       }
       isListed={isListed}
       slug={slug}
@@ -250,7 +250,7 @@ export const getStaticProps: GetStaticProps = async ({
   const typeKeyPath = mainKeyPath.concat('type')
   parentsArrayType.push(flattenedSidebar[typeKeyPath])
 
-  const sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
+  const sectionSelected = 'tutorials'
   logger.info(
     // MODIFIED: console.log to logger.info
     `Tutorial section selected: ${sectionSelected} for slug: ${slug}`

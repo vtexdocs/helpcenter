@@ -92,7 +92,7 @@ export const getStaticProps: GetStaticProps = async ({
   if (!docsPathsGLOBAL) {
     docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
   }
-  const slugs = Object.keys(docsPathsGLOBAL)
+  const slugs = Object.keys(docsPathsGLOBAL).slice(-5)
 
   const fetchFromGithub = async (path: string, slug: string) => {
     try {
