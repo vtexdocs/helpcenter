@@ -18,9 +18,8 @@ import {
   Sidebar,
 } from '@vtexdocs/components'
 import {
-  documentationData,
+  menuDocumentationData,
   feedbackSectionData,
-  knownIssuesData,
   menuSupportData,
   updatesData,
 } from 'utils/constants'
@@ -66,12 +65,12 @@ export default function Layout({
     <ThemeProvider>
       <LibraryContextProvider
         sections={[
-          documentationData(intl),
-          knownIssuesData(intl),
+          menuDocumentationData(intl),
+          menuSupportData(intl),
           updatesData(intl),
         ]}
         hamburguerMenuSections={[
-          documentationData(intl),
+          menuDocumentationData(intl),
           menuSupportData(intl),
           updatesData(intl),
           feedbackSectionData(intl),
