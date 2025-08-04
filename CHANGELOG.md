@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.4](https://github.com/vtexdocs/helpcenter/compare/v0.8.3...v0.8.4) (2025-08-04)
+
+
+### Features
+
+* add localized new tag ([90b4250](https://github.com/vtexdocs/helpcenter/commit/90b4250973326d6665cdfe19bb08ffcf17271008))
+
+
+### Bug Fixes
+
+* edit faq home page cards ([f73867d](https://github.com/vtexdocs/helpcenter/commit/f73867d715bf9cefbad3b1cddab8a586f5aa44b7))
+* get only recently created announcements ([35495d1](https://github.com/vtexdocs/helpcenter/commit/35495d1cad5b2cb4bb1852d18cc5842a0340a68b))
+* **header:** fix announcement bar and header behavior ([90bcf4a](https://github.com/vtexdocs/helpcenter/commit/90bcf4a8f336881937fa110ca4b73d3420d5add6))
+
+
+### Style
+
+* **icons:** fix icon thickness, stroke and fill ([d36a694](https://github.com/vtexdocs/helpcenter/commit/d36a69411e487efad5012ad52043769e9efb535d))
+
+
+### Refactoring
+
+* delete unused files ([8c97ec6](https://github.com/vtexdocs/helpcenter/commit/8c97ec68b01a7ea11cef150948861cd26901abfb))
+* **pages/index.tsx:** refactor data fetching on home page ([98277c7](https://github.com/vtexdocs/helpcenter/commit/98277c7a21fb546d52e1c1cf2752917b6dc85e70))
+* **pages:** separate reusable fetchBatch code ([ad45047](https://github.com/vtexdocs/helpcenter/commit/ad45047f9ae336b985aa0d8afbb25e338b198ad4))
+
 ### [0.8.3](https://github.com/vtexdocs/helpcenter/compare/v0.8.2...v0.8.3) (2025-08-01)
 
 
