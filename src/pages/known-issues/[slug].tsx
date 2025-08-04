@@ -209,7 +209,7 @@ export const getStaticProps: GetStaticProps = async ({
 
     if (!path) {
       logger.warn(
-        `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+        `Path not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
       )
       return { notFound: true }
     }
@@ -233,6 +233,10 @@ export const getStaticProps: GetStaticProps = async ({
       logger,
       path,
     })
+    if (!serialized) {
+      logger.error(`Serialization failed for ${path}`)
+      return { notFound: true }
+    }
     const allowedStatuses = ['PUBLISHED', 'CHANGED']
     const hasAllowedStatus = allowedStatuses.includes(
       serialized?.frontmatter?.status as string

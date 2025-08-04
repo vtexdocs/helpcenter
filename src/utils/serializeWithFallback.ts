@@ -10,6 +10,7 @@ import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
 import { Item } from '@vtexdocs/components'
 import { type CompileOptions as OriginalCompileOptions } from '@mdx-js/mdx'
 import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 export type SerializeMdxOptions = Omit<
   OriginalCompileOptions,
@@ -45,7 +46,7 @@ export async function serializeWithFallback({
 
   try {
     // Try to serialize as MDX first
-    const serialized = await serialize(content, {
+    const serialized: MDXRemoteSerializeResult = await serialize(content, {
       parseFrontmatter: true,
       mdxOptions: mdxOptionsBase('mdx', headingList) as SerializeMdxOptions,
     })
@@ -56,7 +57,7 @@ export async function serializeWithFallback({
     )
 
     try {
-      const serialized = await serialize(content, {
+      const serialized: MDXRemoteSerializeResult = await serialize(content, {
         parseFrontmatter: true,
         mdxOptions: mdxOptionsBase('md', headingList) as SerializeMdxOptions,
       })

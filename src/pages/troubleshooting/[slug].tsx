@@ -228,7 +228,10 @@ export const getStaticProps: GetStaticProps = async ({
       logger,
       path,
     })
-
+    if (!serialized) {
+      logger.error(`Serialization failed for ${path}`)
+      return { notFound: true }
+    }
     // Allow PUBLISHED and CHANGED status documents to be visible
     const allowedStatuses = ['PUBLISHED', 'CHANGED']
     const hasAllowedStatus = allowedStatuses.includes(

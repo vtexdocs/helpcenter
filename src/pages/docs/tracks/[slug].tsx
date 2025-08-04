@@ -254,17 +254,10 @@ export const getStaticProps: GetStaticProps = async ({
     const path = docEntry?.path
 
     if (!path) {
-      logger.warn(
-        `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
-      )
-      return { notFound: true }
-    }
-
-    if (!path) {
       logger.info(
         `Path not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
       )
-      return { notFound: true, revalidate: 3600 }
+      return { notFound: true }
     }
 
     // MODIFIED: Use getGithubFile to fetch documentation content
@@ -315,6 +308,10 @@ export const getStaticProps: GetStaticProps = async ({
       logger,
       path,
     })
+    if (!serialized) {
+      logger.error(`Serialization failed for ${path}`)
+      return { notFound: true }
+    }
 
     // Allow PUBLISHED and CHANGED status documents to be visible
     const allowedStatuses = ['PUBLISHED', 'CHANGED']
