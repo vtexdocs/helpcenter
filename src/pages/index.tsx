@@ -109,13 +109,13 @@ export const getStaticProps: GetStaticProps = async ({
       logger
     )
 
-    for (const { content } of batchResults) {
+    for (const { content, slug } of batchResults) {
       if (!content) continue
       const frontmatter = await parseFrontmatter(content, logger)
       if (frontmatter && (frontmatter.status == 'PUBLISHED' || 'CHANGED')) {
         announcementsData.push({
           title: String(frontmatter.title),
-          url: `announcements/${String(frontmatter.slug)}`,
+          url: `announcements/${slug}`,
           createdAt: String(frontmatter.createdAt),
           updatedAt: String(frontmatter.updatedAt),
           status: String(frontmatter.status),
