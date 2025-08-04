@@ -1,6 +1,5 @@
 import { Flex } from '@vtex/brand-ui'
-import { GetStaticProps, NextPage } from 'next'
-import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
+import { GetStaticPropsContext, NextPage } from 'next'
 
 import usePagination from '../../utils/hooks/usePagination'
 import {
@@ -13,7 +12,6 @@ import styles from 'styles/filterable-cards-page'
 import { PreviewContext } from 'utils/contexts/preview'
 import { Fragment, useContext, useMemo, useState } from 'react'
 import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
-import { serialize } from 'next-mdx-remote/serialize'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
@@ -31,13 +29,11 @@ import Select from 'components/select'
 import Input from 'components/input'
 import SearchIcon from 'components/icons/search-icon'
 import { getISRRevalidateTime } from 'utils/config'
+import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 
 interface Props {
-  sectionSelected?: DocumentationTitle | UpdatesTitle | ''
   knownIssuesData: KnownIssueDataElement[]
   branch: string
-  page: number
-  totalPages: number
 }
 
 const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
@@ -46,7 +42,10 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
   const itemsPerPage = 8
-  const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
+  const [pageIndex, setPageIndex] = useState({
+    curr: 1,
+    total: Math.ceil(knownIssuesData.length / itemsPerPage),
+  })
   const [filters, setFilters] = useState<{
     kiStatus: string[]
     modules: string[]
@@ -54,22 +53,18 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const filteredResult = useMemo(() => {
-    const data = knownIssuesData
-      .filter((knownIssue) =>
-        ['PUBLISHED', 'CHANGED'].includes(knownIssue.status)
-      )
-      .filter((knownIssue) => {
-        const hasFilter: boolean =
-          (filters.kiStatus.length === 0 ||
-            filters.kiStatus.includes(knownIssue.kiStatus)) &&
-          (filters.modules.length === 0 ||
-            filters.modules.includes(knownIssue.module))
+    const data = knownIssuesData.filter((knownIssue) => {
+      const hasFilter: boolean =
+        (filters.kiStatus.length === 0 ||
+          filters.kiStatus.includes(knownIssue.kiStatus)) &&
+        (filters.modules.length === 0 ||
+          filters.modules.includes(knownIssue.module))
 
-        const hasSearch: boolean = knownIssue.title
-          .toLowerCase()
-          .includes(search.toLowerCase())
-        return hasFilter && hasSearch
-      })
+      const hasSearch: boolean = knownIssue.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+      return hasFilter && hasSearch
+    })
 
     data.sort((a, b) => {
       const dateA =
@@ -178,12 +173,13 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({
+export async function getStaticProps({
   locale,
   preview,
   previewData,
-}) => {
+}: GetStaticPropsContext) {
   const sectionSelected = 'Known Issues'
+
   const previewBranch =
     preview &&
     previewData &&
@@ -199,65 +195,44 @@ export const getStaticProps: GetStaticProps = async ({
     : ('en' as localeType)
 
   const slugs = Object.keys(docsPathsGLOBAL)
-
-  const fetchFromGithub = async (path: string, slug: string) => {
-    try {
-      const response = await fetch(
-        `https://raw.githubusercontent.com/vtexdocs/known-issues/${branch}/${path}`
-      )
-      const data = await response.text()
-      return { content: data, slug }
-    } catch (error) {
-      logger.error(`Error fetching data for path ${path}` + ' ' + error)
-      return { content: '', slug }
-    }
-  }
-
   const batchSize = 100
-
-  const fetchBatch = async (batch: string[]) => {
-    const promises = batch.map(async (slug) => {
-      const path = docsPathsGLOBAL[slug]?.find(
-        (e) => e.locale === currentLocale
-      )?.path
-
-      if (path) return fetchFromGithub(path, slug)
-
-      return { content: '', slug }
-    })
-
-    return Promise.all(promises)
-  }
-
   const knownIssuesData: KnownIssueDataElement[] = []
 
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
-    const batchResults = await fetchBatch(batch)
+    const batchResults = await fetchBatch(
+      batch,
+      'known-issues',
+      docsPathsGLOBAL,
+      currentLocale,
+      branch,
+      logger
+    )
 
-    for (const data of batchResults) {
-      if (data?.content) {
-        try {
-          const onlyFrontmatter = `---\n${data.content.split('---')[1]}---\n`
+    for (const { content, slug } of batchResults) {
+      if (!content) continue
+      const frontmatter = await parseFrontmatter(content, logger)
 
-          const { frontmatter } = await serialize(onlyFrontmatter, {
-            parseFrontmatter: true,
-          })
-
-          if (frontmatter && frontmatter.tag && frontmatter.kiStatus)
-            knownIssuesData.push({
-              id: String(frontmatter.id),
-              title: String(frontmatter.title),
-              module: String(frontmatter.tag),
-              slug: data.slug,
-              createdAt: String(frontmatter.createdAt),
-              updatedAt: String(frontmatter.updatedAt),
-              status: String(frontmatter.status),
-              kiStatus: frontmatter.kiStatus as KnownIssueStatus,
-            })
-        } catch (error) {
-          logger.error(`${error}`)
-        }
+      if (
+        frontmatter &&
+        frontmatter.tag &&
+        frontmatter.kiStatus &&
+        frontmatter.id &&
+        frontmatter.title &&
+        frontmatter.createdAt &&
+        frontmatter.updatedAt &&
+        (frontmatter.status == 'PUBLISHED' || 'CHANGED')
+      ) {
+        knownIssuesData.push({
+          id: String(frontmatter.id),
+          title: String(frontmatter.title),
+          module: String(frontmatter.tag),
+          slug,
+          createdAt: String(frontmatter.createdAt),
+          updatedAt: String(frontmatter.updatedAt),
+          status: String(frontmatter.status),
+          kiStatus: frontmatter.kiStatus as KnownIssueStatus,
+        })
       }
     }
   }
