@@ -208,7 +208,7 @@ export const getStaticProps: GetStaticProps = async ({
       : 'main'
   const branch = preview ? previewBranch : 'main'
   const docsPathsGLOBAL = await getFaqPaths('faq', branch)
-  const logger = getLogger('FAQ')
+  const logger = getLogger('FAQs')
   const currentLocale: localeType = (locale ?? 'en') as localeType
   const slugs = Object.keys(docsPathsGLOBAL)
   const batchSize = 100

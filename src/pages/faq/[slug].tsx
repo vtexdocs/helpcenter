@@ -192,7 +192,7 @@ export const getStaticProps: GetStaticProps = async ({
       ? await getFaqPaths('faq', branch)
       : docsPathsGLOBAL
 
-  const logger = getLogger('FAQ')
+  const logger = getLogger('FAQs')
 
   const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
 

@@ -184,7 +184,7 @@ export const getStaticProps: GetStaticProps = async ({
       ? await getAnnouncementsPaths('announcements', branch)
       : docsPathsGLOBAL
 
-  const logger = getLogger('Announcements')
+  const logger = getLogger('News')
 
   const sidebarfallback = await getNavigation()
   const flattenedSidebar = flattenJSON(sidebarfallback)
