@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.5](https://github.com/vtexdocs/helpcenter/compare/v0.8.4...v0.8.5) (2025-08-04)
+
+
+### Bug Fixes
+
+* **types.ts:** remove optional ([c12fdb6](https://github.com/vtexdocs/helpcenter/commit/c12fdb605bef942e0a5dad3332ec0ea4d17ec54a))
+* **utils:** fix constants, types and sectionSelected bug ([211a8c1](https://github.com/vtexdocs/helpcenter/commit/211a8c1e5d72228d5827ebd21da87b50b4469451))
+
 ### [0.8.4](https://github.com/vtexdocs/helpcenter/compare/v0.8.3...v0.8.4) (2025-08-04)
 
 
