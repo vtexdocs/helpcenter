@@ -234,17 +234,6 @@ export const menuSupportData = (intl: IntlShape) => {
 export const faqData = (intl: IntlShape) => {
   const data: FaqDataElement[] = [
     {
-      Icon: PaperIcon,
-      title: intl.formatMessage({
-        id: 'faq_order_error.title',
-      }),
-      description: intl.formatMessage({
-        id: 'faq_order_error.description',
-      }),
-      productTeam: 'Channels',
-      link: '/faq/order-errors-in-marketplace-integrations',
-    },
-    {
       Icon: WarningIcon,
       title: intl.formatMessage({
         id: 'faq_handling.title',
@@ -276,6 +265,17 @@ export const faqData = (intl: IntlShape) => {
       }),
       productTeam: 'Post-purchase',
       link: '/faq/why-cant-i-see-my-carrier-on-checkout',
+    },
+    {
+      Icon: PaperIcon,
+      title: intl.formatMessage({
+        id: 'faq_order_error.title',
+      }),
+      description: intl.formatMessage({
+        id: 'faq_order_error.description',
+      }),
+      productTeam: 'Post-purchase',
+      link: '/faq/why-was-my-order-canceled',
     },
   ]
   return data
