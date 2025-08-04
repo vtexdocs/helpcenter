@@ -25,7 +25,6 @@ import TimeToRead from 'components/TimeToRead'
 
 import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
-import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
@@ -47,12 +46,9 @@ let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
   null
 
 interface Props {
-  sectionSelected: string
   breadcrumbList: { slug: string; name: string; type: string }[]
-  content: string
   serialized: MDXRemoteSerializeResult
   contributors: ContributorsType[]
-  path: string
   headingList: Item[]
   branch: string
 }
@@ -85,7 +81,13 @@ const FaqPage: NextPage<Props> = ({
     <>
       <Head>
         <title>{serialized.frontmatter?.title as string}</title>
-        <meta name="docsearch:doctype" content="Start here" />
+        <meta name="docsearch:doctype" content="faq" />
+        {serialized.frontmatter?.title && (
+          <meta
+            name="docsearch:doctitle"
+            content={serialized.frontmatter.title as string}
+          />
+        )}
         {serialized.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />
         )}
@@ -175,6 +177,7 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
+  const sectionSelected = 'faqs'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
       ? JSON.parse(JSON.stringify(previewData)).branch
@@ -194,7 +197,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   const logger = getLogger('FAQs')
 
-  const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
+  const path = docsPaths[slug]?.find((e) => e.locale === currentLocale)?.path
 
   if (!path) {
     const sidebarfallback = await getNavigation()
@@ -225,6 +228,7 @@ export const getStaticProps: GetStaticProps = async ({
     )
       .then((res) => res.text())
       .catch((err) => console.log(err))) || ''
+  documentationContent = replaceHTMLBlocks(documentationContent)
 
   // Serialize content and parse frontmatter
   const serialized = await serialize(documentationContent, {
@@ -272,17 +276,6 @@ export const getStaticProps: GetStaticProps = async ({
       })
       .catch((err) => console.log(err))) || []
 
-  let format: 'md' | 'mdx' = 'mdx'
-  try {
-    if (path.endsWith('.md')) {
-      documentationContent = escapeCurlyBraces(documentationContent)
-      documentationContent = replaceHTMLBlocks(documentationContent)
-    }
-  } catch (error) {
-    logger.error(`${error}`)
-    format = 'md'
-  }
-
   try {
     const headingList: Item[] = []
     let serialized = await serialize(documentationContent, {
@@ -300,7 +293,7 @@ export const getStaticProps: GetStaticProps = async ({
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],
-        format,
+        format: 'mdx',
       },
     })
 
@@ -329,6 +322,7 @@ export const getStaticProps: GetStaticProps = async ({
 
     return {
       props: {
+        sectionSelected,
         slug,
         serialized,
         sidebarfallback,

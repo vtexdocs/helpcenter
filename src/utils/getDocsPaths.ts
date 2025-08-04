@@ -97,7 +97,6 @@ export async function getDocsPaths(
   const repo =
     category === 'known-issues' ? 'known-issues' : 'help-center-content'
   const repoTree = await getGithubTree('vtexdocs', repo, branch)
-  console.log('Fetched repoTree for', repo, 'branch', branch, repoTree)
   if (staticBuild) {
     cachedRepoTree = repoTree
   }

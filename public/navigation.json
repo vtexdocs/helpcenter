@@ -1,7 +1,7 @@
 {
     "navbar": [
         {
-            "documentation": "Start here",
+            "documentation": "tracks",
             "name": {
                 "en": "Start here",
                 "es": "Comece aqui",
@@ -5296,7 +5296,7 @@
             ]
         },
         {
-            "documentation": "Tutorials",
+            "documentation": "tutorials",
             "name": {
                 "en": "Tutorials",
                 "es": "Tutoriales",
@@ -22011,7 +22011,7 @@
             ]
         },
         {
-            "documentation": "News",
+            "documentation": "news",
             "name": {
                 "en": "News",
                 "es": "Anuncios",
@@ -27881,7 +27881,7 @@
             ]
         },
         {
-            "documentation": "FAQs",
+            "documentation": "faqs",
             "name": {
                 "en": "Frequently asked questions",
                 "es": "Preguntas frecuentes",
@@ -29740,7 +29740,7 @@
             ]
         },
         {
-            "documentation": "Known Issues",
+            "documentation": "known-issues",
             "name": {
                 "en": "Known issues",
                 "es": "Problemas Conocidos",
@@ -56394,7 +56394,7 @@
             ]
         },
         {
-            "documentation": "Troubleshooting",
+            "documentation": "troubleshooting",
             "name": {
                 "en": "Troubleshooting",
                 "es": "Troubleshooting",

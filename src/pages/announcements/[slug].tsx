@@ -190,9 +190,8 @@ export const getStaticProps: GetStaticProps = async ({
   const flattenedSidebar = flattenJSON(sidebarfallback)
   const keyPath = getKeyByValue(flattenedSidebar, slug)
   const parentsArray: string[] = []
-  let sectionSelected = ''
+  const sectionSelected = 'news'
   if (keyPath) {
-    sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
     getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
     parentsArray.push(slug)
   } else {

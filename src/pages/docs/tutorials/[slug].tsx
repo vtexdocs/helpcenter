@@ -18,8 +18,6 @@ import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 import getGithubFile from 'utils/getGithubFile' // ADDED: Import getGithubFile
 import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
-import replaceMagicBlocks from 'utils/replaceMagicBlocks'
-import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
@@ -379,7 +377,7 @@ export const getStaticProps: GetStaticProps = async ({
     )
     return { notFound: true, revalidate: 3600 } // ADDED: revalidate
   }
-  documentationContent = documentationContent || ''
+  documentationContent = replaceHTMLBlocks(documentationContent) || ''
 
   // MODIFIED: Use getFileContributors to fetch contributors
   let contributors: ContributorsType[] = []
@@ -406,24 +404,6 @@ export const getStaticProps: GetStaticProps = async ({
     )
   }
 
-  let format: 'md' | 'mdx' = 'mdx'
-  try {
-    if (resolvedPath.endsWith('.md')) {
-      // MODIFIED: Use resolvedPath
-      documentationContent = escapeCurlyBraces(documentationContent)
-      documentationContent = replaceHTMLBlocks(documentationContent)
-      documentationContent = await replaceMagicBlocks(documentationContent)
-    }
-  } catch (error) {
-    // MODIFIED: Add type to error
-    logger.error(
-      `Error processing markdown for ${resolvedPath}: ${
-        error instanceof Error ? error.message : error
-      }`
-    )
-    format = 'md'
-  }
-
   try {
     const headingList: Item[] = []
     let serialized = await serialize(documentationContent, {
@@ -441,7 +421,7 @@ export const getStaticProps: GetStaticProps = async ({
         rehypePlugins: [
           [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
         ],
-        format,
+        format: 'mdx',
       },
     })
 

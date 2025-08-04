@@ -144,7 +144,7 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sectionSelected = 'News'
+  const sectionSelected = 'news'
   const previewBranch =
     preview &&
     previewData &&
