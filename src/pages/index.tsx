@@ -17,7 +17,7 @@ import { localeType } from 'utils/navigation-utils'
 import { AnnouncementDataElement } from 'utils/typings/types'
 import { getLogger } from 'utils/logging/log-util'
 import { getISRRevalidateTime } from 'utils/config'
-import { serialize } from 'next-mdx-remote/serialize'
+import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 
 interface Props {
   branch: string
@@ -84,7 +84,7 @@ export const getStaticProps: GetStaticProps = async ({
       ? (previewData as { branch: string }).branch
       : 'main'
   const branch = preview ? previewBranch : 'main'
-  const logger = getLogger('Announcements')
+  const logger = getLogger('Home News')
   const currentLocale: localeType = locale
     ? (locale as localeType)
     : ('en' as localeType)
@@ -94,62 +94,32 @@ export const getStaticProps: GetStaticProps = async ({
   }
   const slugs = Object.keys(docsPathsGLOBAL)
 
-  const fetchFromGithub = async (path: string, slug: string) => {
-    try {
-      const response = await fetch(
-        `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
-      )
-      const data = await response.text()
-      return { content: data, slug }
-    } catch (error) {
-      logger.error(`Error fetching data for path ${path}` + ' ' + error)
-      return { content: '', slug }
-    }
-  }
-
   const batchSize = 5
-
-  const fetchBatch = async (batch: string[]) => {
-    const promises = batch.map(async (slug) => {
-      const path =
-        docsPathsGLOBAL &&
-        docsPathsGLOBAL[slug]?.find((e) => e.locale === currentLocale)?.path
-
-      if (path) return fetchFromGithub(path, slug)
-
-      return { content: '', slug }
-    })
-
-    return Promise.all(promises)
-  }
 
   const announcementsData: AnnouncementDataElement[] = []
 
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
-    const batchResults = await fetchBatch(batch)
+    const batchResults = await fetchBatch(
+      batch,
+      'help-center-content',
+      docsPathsGLOBAL,
+      currentLocale,
+      branch,
+      logger
+    )
 
-    for (const data of batchResults) {
-      if (data?.content) {
-        try {
-          const onlyFrontmatter = `---\n${data.content.split('---')[1]}---\n`
-
-          const { frontmatter } = await serialize(onlyFrontmatter, {
-            parseFrontmatter: true,
-          })
-
-          if (frontmatter) {
-            announcementsData.push({
-              title: String(frontmatter.title),
-              url: `announcements/${data.slug}`,
-              createdAt: String(frontmatter.createdAt),
-              updatedAt: String(frontmatter.updatedAt),
-              status: String(frontmatter.status),
-            })
-          }
-        } catch (error) {
-          logger.error(`${error}`)
-        }
+    for (const { content } of batchResults) {
+      if (!content) continue
+      const frontmatter = await parseFrontmatter(content, logger)
+      if (frontmatter && (frontmatter.status == 'PUBLISHED' || 'CHANGED')) {
+        announcementsData.push({
+          title: String(frontmatter.title),
+          url: `announcements/${String(frontmatter.slug)}`,
+          createdAt: String(frontmatter.createdAt),
+          updatedAt: String(frontmatter.updatedAt),
+          status: String(frontmatter.status),
+        })
       }
     }
   }

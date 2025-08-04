@@ -137,3 +137,10 @@ export async function getStaticPathsForDocType(
   })
   return pathsForStaticGeneration
 }
+
+export type DocsPaths = {
+  [slug: string]: {
+    locale: string
+    path: string
+  }[]
+}
