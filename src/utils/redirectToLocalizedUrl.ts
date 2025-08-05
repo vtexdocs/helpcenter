@@ -16,7 +16,7 @@ interface Props {
 
 export default async function redirectToLocalizedUrl(
   keyPath: string,
-  locale: 'en' | 'es' | 'pt',
+  locale: 'en' | 'es' | 'pt' = 'en',
   flattenedSidebar: Record<string, string>,
   docType:
     | 'tutorials'

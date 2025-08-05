@@ -25,8 +25,8 @@ import { ContributorsType } from 'utils/getFileContributors'
 import { getLogger } from 'utils/logging/log-util'
 import {
   flattenJSON,
+  getArticleParentsArray,
   getKeyByValue,
-  getParents,
   localeType,
 } from 'utils/navigation-utils'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
@@ -203,7 +203,11 @@ export const getStaticProps: GetStaticProps = async ({
   const path = docsPaths[slug]?.find((e) => e.locale === currentLocale)?.path
   try {
     const sidebarfallback = await getNavigation()
-    const flattenedSidebar = flattenJSON(sidebarfallback)
+    const filteredSidebar = sidebarfallback.find(
+      (item: { documentation: string }) =>
+        item.documentation === sectionSelected
+    )
+    const flattenedSidebar = flattenJSON(filteredSidebar)
     const keyPath = getKeyByValue(flattenedSidebar, slug) as string
 
     if (!path) {
@@ -225,38 +229,12 @@ export const getStaticProps: GetStaticProps = async ({
       )
     }
 
-    const parentsArray: string[] = []
-    const parentsArrayName: string[] = []
-    const parentsArrayType: string[] = []
-
-    getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-    parentsArray.push(slug)
-
-    const sanitizedParentsArray = parentsArray.map((item) =>
-      item === undefined ? null : item
-    )
-
-    getParents(
+    const parentsArray = getArticleParentsArray(
       keyPath,
-      'name',
       flattenedSidebar,
       currentLocale,
-      parentsArrayName
+      slug
     )
-    const mainKeyPath = keyPath.split('slug')[0]
-    const nameKeyPath = mainKeyPath.concat(`name.${currentLocale}`) // MODIFIED: use currentLocale
-    const categoryTitle = flattenedSidebar[nameKeyPath]
-    parentsArrayName.push(categoryTitle)
-
-    getParents(
-      keyPath,
-      'type',
-      flattenedSidebar,
-      currentLocale,
-      parentsArrayType
-    )
-    const typeKeyPath = mainKeyPath.concat('type')
-    parentsArrayType.push(flattenedSidebar[typeKeyPath])
 
     let documentationContent =
       (await fetch(
@@ -345,7 +323,7 @@ export const getStaticProps: GetStaticProps = async ({
     return {
       props: {
         sectionSelected,
-        parentsArray: sanitizedParentsArray,
+        parentsArray,
         slug,
         serialized,
         sidebarfallback,
