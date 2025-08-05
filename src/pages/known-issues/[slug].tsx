@@ -206,7 +206,27 @@ export const getStaticProps: GetStaticProps = async ({
 
   const logger = getLogger('Start here')
 
-  const path = docsPaths[slug].find((e) => e.locale === currentLocale)?.path
+  const slugPaths = docsPaths[slug]
+
+  if (!Array.isArray(slugPaths)) {
+    logger.warn(
+      `Slug not found in docsPaths: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
+    return {
+      notFound: true,
+    }
+  }
+
+  const path = slugPaths.find((e) => e.locale === currentLocale)?.path
+
+  if (!path) {
+    logger.warn(
+      `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
+    return {
+      notFound: true,
+    }
+  }
 
   if (!path) {
     logger.warn(
