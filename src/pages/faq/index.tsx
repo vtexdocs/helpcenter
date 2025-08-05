@@ -1,6 +1,5 @@
 import { Box, Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
-import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 
 import { FaqCardDataElement, SortByType } from 'utils/typings/types'
 import Head from 'next/head'
@@ -8,7 +7,6 @@ import styles from 'styles/filterable-cards-page'
 import { PreviewContext } from 'utils/contexts/preview'
 import { Fragment, useContext, useMemo, useState } from 'react'
 import { getDocsPaths as getFaqPaths } from 'utils/getDocsPaths'
-import { serialize } from 'next-mdx-remote/serialize'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
@@ -24,13 +22,11 @@ import Input from 'components/input'
 import SearchIcon from 'components/icons/search-icon'
 import ChipFilter from 'components/chip-filter'
 import { getISRRevalidateTime } from 'utils/config'
+import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 
 interface Props {
-  sectionSelected?: DocumentationTitle | UpdatesTitle | ''
   faqData: FaqCardDataElement[]
   branch: string
-  page: number
-  totalPages: number
 }
 
 const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
@@ -48,17 +44,15 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   )
 
   const filteredResult = useMemo(() => {
-    const data = faqData
-      .filter((question) => ['PUBLISHED', 'CHANGED'].includes(question.status))
-      .filter((question) => {
-        const hasFilter: boolean =
-          filters.length === 0 || filters.includes(question.productTeam)
-        const hasSearch: boolean = question.title
-          .toLowerCase()
-          .includes(search.toLowerCase())
+    const data = faqData.filter((question) => {
+      const hasFilter: boolean =
+        filters.length === 0 || filters.includes(question.productTeam)
+      const hasSearch: boolean = question.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
 
-        return hasFilter && hasSearch
-      })
+      return hasFilter && hasSearch
+    })
 
     data.sort((a, b) => {
       const dateA =
@@ -204,7 +198,7 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sectionSelected = 'FAQs'
+  const sectionSelected = 'faq'
   const previewBranch =
     preview &&
     previewData &&
@@ -214,69 +208,37 @@ export const getStaticProps: GetStaticProps = async ({
       : 'main'
   const branch = preview ? previewBranch : 'main'
   const docsPathsGLOBAL = await getFaqPaths('faq', branch)
-  const logger = getLogger('FAQ')
-  const currentLocale: localeType = locale
-    ? (locale as localeType)
-    : ('en' as localeType)
-
+  const logger = getLogger('FAQs')
+  const currentLocale: localeType = (locale ?? 'en') as localeType
   const slugs = Object.keys(docsPathsGLOBAL)
-
-  const fetchFromGithub = async (path: string, slug: string) => {
-    try {
-      const response = await fetch(
-        `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
-      )
-      const data = await response.text()
-      return { content: data, slug }
-    } catch (error) {
-      logger.error(`Error fetching data for path ${path}` + ' ' + error)
-      return { content: '', slug }
-    }
-  }
-
   const batchSize = 100
-
-  const fetchBatch = async (batch: string[]) => {
-    const promises = batch.map(async (slug) => {
-      const path = docsPathsGLOBAL[slug]?.find(
-        (e) => e.locale === currentLocale
-      )?.path
-
-      if (path) return fetchFromGithub(path, slug)
-
-      return { content: '', slug }
-    })
-
-    return Promise.all(promises)
-  }
 
   const faqData: FaqCardDataElement[] = []
 
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
-    const batchResults = await fetchBatch(batch)
+    const batchResults = await fetchBatch(
+      batch,
+      'help-center-content',
+      docsPathsGLOBAL,
+      currentLocale,
+      branch,
+      logger
+    )
 
-    for (const data of batchResults) {
-      if (data?.content) {
-        try {
-          const onlyFrontmatter = `---\n${data.content.split('---')[1]}---\n`
+    for (const { content, slug } of batchResults) {
+      if (!content) continue
+      const frontmatter = await parseFrontmatter(content, logger)
 
-          const { frontmatter } = await serialize(onlyFrontmatter, {
-            parseFrontmatter: true,
-          })
-
-          if (frontmatter)
-            faqData.push({
-              title: String(frontmatter.title),
-              slug: data.slug,
-              createdAt: String(frontmatter.createdAt),
-              updatedAt: String(frontmatter.updatedAt),
-              status: String(frontmatter.status),
-              productTeam: String(frontmatter.productTeam || ''),
-            })
-        } catch (error) {
-          logger.error(`${error}`)
-        }
+      if (frontmatter && (frontmatter.status == 'PUBLISHED' || 'CHANGED')) {
+        faqData.push({
+          title: String(frontmatter.title),
+          slug,
+          createdAt: String(frontmatter.createdAt),
+          updatedAt: String(frontmatter.updatedAt),
+          status: String(frontmatter.status),
+          productTeam: String(frontmatter.productTeam || ''),
+        })
       }
     }
   }

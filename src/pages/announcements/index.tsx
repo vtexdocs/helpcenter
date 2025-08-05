@@ -1,6 +1,5 @@
 import { Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
-import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 
 import { AnnouncementDataElement, SortByType } from 'utils/typings/types'
 import Head from 'next/head'
@@ -8,7 +7,6 @@ import styles from 'styles/announcements-page'
 import { PreviewContext } from 'utils/contexts/preview'
 import { Fragment, useContext, useMemo, useState } from 'react'
 import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
-import { serialize } from 'next-mdx-remote/serialize'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
@@ -21,13 +19,11 @@ import { sortBy } from 'utils/constants'
 import SearchIcon from 'components/icons/search-icon'
 import Input from 'components/input'
 import { getISRRevalidateTime } from 'utils/config'
+import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 
 interface Props {
-  sectionSelected?: DocumentationTitle | UpdatesTitle | ''
   announcementsData: AnnouncementDataElement[]
   branch: string
-  page: number
-  totalPages: number
 }
 
 const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
@@ -40,13 +36,9 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
-    const data = announcementsData
-      .filter((announcement) =>
-        ['PUBLISHED', 'CHANGED'].includes(announcement.status)
-      )
-      .filter((announcement) =>
-        announcement.title?.toLowerCase().includes(searchTerm.toLowerCase())
-      )
+    const data = announcementsData.filter((announcement) =>
+      announcement.title?.toLowerCase().includes(searchTerm.toLowerCase())
+    )
 
     data.sort((a, b) => {
       const dateA =
@@ -152,7 +144,7 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sectionSelected = 'News'
+  const sectionSelected = 'announcements'
   const previewBranch =
     preview &&
     previewData &&
@@ -163,69 +155,35 @@ export const getStaticProps: GetStaticProps = async ({
   const branch = preview ? previewBranch : 'main'
   const docsPathsGLOBAL = await getAnnouncementsPaths('announcements', branch)
 
-  const logger = getLogger('Announcements')
-
-  const currentLocale: localeType = locale
-    ? (locale as localeType)
-    : ('en' as localeType)
-
+  const logger = getLogger('News')
+  const currentLocale: localeType = (locale ?? 'en') as localeType
   const slugs = Object.keys(docsPathsGLOBAL)
-
-  const fetchFromGithub = async (path: string, slug: string) => {
-    try {
-      const response = await fetch(
-        `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
-      )
-      const data = await response.text()
-      return { content: data, slug }
-    } catch (error) {
-      logger.error(`Error fetching data for path ${path}` + ' ' + error)
-      return { content: '', slug }
-    }
-  }
-
   const batchSize = 100
-
-  const fetchBatch = async (batch: string[]) => {
-    const promises = batch.map(async (slug) => {
-      const path = docsPathsGLOBAL[slug]?.find(
-        (e) => e.locale === currentLocale
-      )?.path
-
-      if (path) return fetchFromGithub(path, slug)
-
-      return { content: '', slug }
-    })
-
-    return Promise.all(promises)
-  }
 
   const announcementsData: AnnouncementDataElement[] = []
 
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
-    const batchResults = await fetchBatch(batch)
+    const batchResults = await fetchBatch(
+      batch,
+      'help-center-content',
+      docsPathsGLOBAL,
+      currentLocale,
+      branch,
+      logger
+    )
 
-    for (const data of batchResults) {
-      if (data?.content) {
-        try {
-          const onlyFrontmatter = `---\n${data.content.split('---')[1]}---\n`
-
-          const { frontmatter } = await serialize(onlyFrontmatter, {
-            parseFrontmatter: true,
-          })
-
-          if (frontmatter)
-            announcementsData.push({
-              title: String(frontmatter.title) ?? '',
-              url: `announcements/${data.slug}`,
-              createdAt: String(frontmatter.createdAt),
-              updatedAt: String(frontmatter.updatedAt),
-              status: String(frontmatter.status) ?? '',
-            })
-        } catch (error) {
-          logger.error(`${error}`)
-        }
+    for (const { content, slug } of batchResults) {
+      if (!content) continue
+      const frontmatter = await parseFrontmatter(content, logger)
+      if (frontmatter && (frontmatter.status == 'PUBLISHED' || 'CHANGED')) {
+        announcementsData.push({
+          title: String(frontmatter.title),
+          url: `announcements/${slug}`,
+          createdAt: String(frontmatter.createdAt),
+          updatedAt: String(frontmatter.updatedAt),
+          status: String(frontmatter.status),
+        })
       }
     }
   }

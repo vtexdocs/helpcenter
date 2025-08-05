@@ -2,7 +2,7 @@ import { Box, Flex, Text } from '@vtex/brand-ui'
 
 import DocumentationSectionCard from '../documentation-section-card'
 
-import { documentationData } from 'utils/constants'
+import { menuDocumentationData } from 'utils/constants'
 
 import styles from './styles'
 import { useIntl } from 'react-intl'
@@ -20,7 +20,7 @@ const DocumentationSection = () => {
         sx={styles.cardsContainer}
         data-cy="documentation-section-card-list"
       >
-        {documentationData(intl).map((card) => (
+        {menuDocumentationData(intl).map((card) => (
           <DocumentationSectionCard key={card.title} {...card} />
         ))}
       </Flex>

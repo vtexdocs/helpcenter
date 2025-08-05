@@ -21,6 +21,7 @@ import LocaleSwitcher from 'components/locale-switcher'
 import styles from './styles'
 import { PreviewContext } from 'utils/contexts/preview'
 import { FormattedMessage } from 'react-intl'
+import { useIntl } from 'react-intl'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Header = () => {
@@ -33,6 +34,7 @@ const Header = () => {
   const modalOpen = useRef(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const headerElement = useRef<HTMLElement>()
+  const intl = useIntl()
 
   useEffect(() => {
     const body = document.body
@@ -87,7 +89,21 @@ const Header = () => {
 
   return (
     <Box ref={headerElement} sx={styles.headerContainer}>
-      {!isBranchPreview ? null : (
+      {!isBranchPreview ? (
+        <AnnouncementBar
+          type="info"
+          label={intl.formatMessage({
+            id: 'announcement_bar.label',
+          })}
+          closable={false}
+          action={{
+            button: intl.formatMessage({
+              id: 'announcement_bar.button',
+            }),
+            href: 'https://help.vtex.com?utm_source=new-help-center-announcement-bar',
+          }}
+        />
+      ) : (
         <AnnouncementBar
           closable={false}
           type="warning"

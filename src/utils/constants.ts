@@ -9,7 +9,6 @@ import {
 
 import {
   DocDataElement,
-  WhatsNextDataElement,
   ResourceDataElement,
   FaqDataElement,
 } from './typings/types'
@@ -29,38 +28,10 @@ import TroubleshootingIcon from 'components/icons/troubleshooting-icon'
 libraryConfig
 export const messages = getMessages()
 
-export const documentationData = (intl: IntlShape) => {
-  const data: DocDataElement[] = [
-    {
-      id: 'Start here',
-      Icon: StartHereIcon,
-      title: intl.formatMessage({
-        id: 'documentation_start_here.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_start_here.description',
-      }),
-      link: '/docs/tracks',
-    },
-    {
-      id: 'Tutorials',
-      Icon: TutorialsIcon,
-      title: intl.formatMessage({
-        id: 'documentation_tutorials.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_tutorials.description',
-      }),
-      link: '/docs/tutorials',
-    },
-  ]
-  return data
-}
-
 export const menuDocumentationData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
-      id: 'Start here',
+      id: 'tracks',
       Icon: StartHereIcon,
       title: intl.formatMessage({
         id: 'documentation_start_here.title',
@@ -71,7 +42,7 @@ export const menuDocumentationData = (intl: IntlShape) => {
       link: '/docs/tracks',
     },
     {
-      id: 'Tutorials',
+      id: 'tutorials',
       Icon: TutorialsIcon,
       title: intl.formatMessage({
         id: 'documentation_tutorials.title',
@@ -88,16 +59,7 @@ export const menuDocumentationData = (intl: IntlShape) => {
 export const updatesData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
-      id: 'FAQ',
-      Icon: FAQIcon,
-      title: intl.formatMessage({ id: 'updates_info_notes.title' }),
-      description: intl.formatMessage({
-        id: 'updates_info_notes.description',
-      }),
-      link: '/faq',
-    },
-    {
-      id: 'Announcements',
+      id: 'announcements',
       Icon: MegaphoneIcon,
       title: intl.formatMessage({
         id: 'announcements_page.title',
@@ -107,9 +69,20 @@ export const updatesData = (intl: IntlShape) => {
       }),
       link: '/announcements',
     },
-
     {
-      id: 'Developers Portal',
+      id: 'Status',
+      Icon: GraphIcon,
+      title: intl.formatMessage({
+        id: 'menu_status.title',
+      }),
+      description: intl.formatMessage({
+        id: 'menu_status.description',
+      }),
+      link: 'https://status.vtex.com',
+      isExternalLink: true,
+    },
+    {
+      id: 'Developer Portal',
       Icon: DeveloperPortalIcon,
       title: intl.formatMessage({
         id: 'documentation_developers_portal.title',
@@ -140,50 +113,19 @@ export const feedbackSectionData = (intl: IntlShape) => {
   return data
 }
 
-export const knownIssuesData = (intl: IntlShape) => {
-  const data: DocDataElement[] = [
-    {
-      id: 'Known Issues',
-      Icon: WarningIcon,
-      title: intl.formatMessage({
-        id: 'sidebar_known_issues.title',
-      }),
-      description: intl.formatMessage({
-        id: 'sidebar_known_issues.description',
-      }),
-      link: '/known-issues',
-    },
-    {
-      id: 'Support Rules',
-      Icon: PaperIcon,
-      title: intl.formatMessage({
-        id: 'sidebar_support_rules.title',
-      }),
-      description: intl.formatMessage({
-        id: 'sidebar_support_rules.description',
-      }),
-      link: intl.formatMessage({
-        id: 'sidebar_support_rules.link',
-      }),
-    },
-    {
-      id: 'Troubleshooting',
-      Icon: TroubleshootingIcon,
-      title: intl.formatMessage({
-        id: 'sidebar_troubleshooting.title',
-      }),
-      description: 'sidebar_troubleshooting.description',
-      link: '/troubleshooting',
-    },
-  ]
-
-  return data
-}
-
 export const menuSupportData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
-      id: 'Known Issues',
+      id: 'faq',
+      Icon: FAQIcon,
+      title: intl.formatMessage({ id: 'updates_info_notes.title' }),
+      description: intl.formatMessage({
+        id: 'updates_info_notes.description',
+      }),
+      link: '/faq',
+    },
+    {
+      id: 'known-issues',
       Icon: WarningIcon,
       title: intl.formatMessage({
         id: 'sidebar_known_issues.title',
@@ -194,37 +136,26 @@ export const menuSupportData = (intl: IntlShape) => {
       link: '/known-issues',
     },
     {
-      id: 'Status',
-      Icon: GraphIcon,
-      title: intl.formatMessage({
-        id: 'menu_status.title',
-      }),
-      description: intl.formatMessage({
-        id: 'menu_status.description',
-      }),
-      link: 'https://status.vtex.com',
-    },
-    {
-      id: 'Support Rules',
-      Icon: PaperIcon,
-      title: intl.formatMessage({
-        id: 'sidebar_support_rules.title',
-      }),
-      description: intl.formatMessage({
-        id: 'sidebar_support_rules.description',
-      }),
-      link: intl.formatMessage({
-        id: 'sidebar_support_rules.link',
-      }),
-    },
-    {
-      id: 'Troubleshooting',
+      id: 'troubleshooting',
       Icon: TroubleshootingIcon,
       title: intl.formatMessage({ id: 'menu_troubleshooting.title' }),
       description: intl.formatMessage({
         id: 'menu_troubleshooting.description',
       }),
       link: '/troubleshooting',
+    },
+    {
+      id: 'Support Rules',
+      Icon: PaperIcon,
+      title: intl.formatMessage({
+        id: 'sidebar_support_rules.title',
+      }),
+      description: intl.formatMessage({
+        id: 'sidebar_support_rules.description',
+      }),
+      link: intl.formatMessage({
+        id: 'sidebar_support_rules.link',
+      }),
     },
   ]
 
@@ -233,17 +164,6 @@ export const menuSupportData = (intl: IntlShape) => {
 
 export const faqData = (intl: IntlShape) => {
   const data: FaqDataElement[] = [
-    {
-      Icon: PaperIcon,
-      title: intl.formatMessage({
-        id: 'faq_order_error.title',
-      }),
-      description: intl.formatMessage({
-        id: 'faq_order_error.description',
-      }),
-      productTeam: 'Channels',
-      link: '/faq/order-errors-in-marketplace-integrations',
-    },
     {
       Icon: WarningIcon,
       title: intl.formatMessage({
@@ -277,47 +197,16 @@ export const faqData = (intl: IntlShape) => {
       productTeam: 'Post-purchase',
       link: '/faq/why-cant-i-see-my-carrier-on-checkout',
     },
-  ]
-  return data
-}
-
-export const supportData = (intl: IntlShape) => {
-  const data: DocDataElement[] = [
     {
-      id: 'Known Issues',
-      Icon: WarningIcon,
-      title: intl.formatMessage({
-        id: 'support_known_issues.title',
-      }),
-      description: intl.formatMessage({
-        id: 'support_known_issues.description',
-      }),
-      link: '/known-issues',
-    },
-    {
-      id: 'Support Plans',
       Icon: PaperIcon,
       title: intl.formatMessage({
-        id: 'support_plans.title',
+        id: 'faq_order_error.title',
       }),
       description: intl.formatMessage({
-        id: 'support_plans.description',
+        id: 'faq_order_error.description',
       }),
-      link: intl.formatMessage({
-        id: 'support_plans.link',
-      }),
-    },
-    {
-      id: 'Status',
-      Icon: GraphIcon,
-      title: intl.formatMessage({
-        id: 'support_status.title',
-      }),
-      description: intl.formatMessage({
-        id: 'support_status.description',
-      }),
-      isExternalLink: true,
-      link: 'https://status.vtex.com/',
+      productTeam: 'Post-purchase',
+      link: '/faq/why-was-my-order-canceled',
     },
   ]
   return data
@@ -325,64 +214,9 @@ export const supportData = (intl: IntlShape) => {
 
 export const getIcon = (doc: string, intl: IntlShape) => {
   return (
-    documentationData(intl).find((icon) => icon.title === doc)?.Icon ||
+    menuDocumentationData(intl).find((icon) => icon.title === doc)?.Icon ||
     updatesData(intl).find((icon) => icon.title === doc)?.Icon
   )
-}
-
-export const whatsNextData = (intl: IntlShape) => {
-  const data: WhatsNextDataElement[] = [
-    {
-      title: intl.formatMessage({
-        id: 'app_development_page_new_to_app_development.title',
-      }),
-      description: intl.formatMessage({
-        id: 'app_development_page_new_to_app_development.description',
-      }),
-      linkTitle: intl.formatMessage({
-        id: 'app_development_page_new_to_app_development.link',
-      }),
-      linkTo: '/docs/guides/vtex-io-getting-started',
-    },
-    {
-      title: intl.formatMessage({
-        id: 'app_development_page_solve_real_world_issues.title',
-      }),
-      description: intl.formatMessage({
-        id: 'app_development_page_solve_real_world_issues.description',
-      }),
-      linkTitle: intl.formatMessage({
-        id: 'app_development_page_solve_real_world_issues.link',
-      }),
-      linkTo: '/docs/guides/app-development-guides',
-    },
-    {
-      title: intl.formatMessage({
-        id: 'app_development_page_build_foundations.title',
-      }),
-      description: intl.formatMessage({
-        id: 'app_development_page_build_foundations.description',
-      }),
-      linkTitle: intl.formatMessage({
-        id: 'app_development_page_build_foundations.link',
-      }),
-      linkTo: '/docs/guides/concepts',
-    },
-    {
-      title: intl.formatMessage({
-        id: 'app_development_page_go_further.title',
-      }),
-      description: intl.formatMessage({
-        id: 'app_development_page_go_further.description',
-      }),
-      linkTitle: intl.formatMessage({
-        id: 'app_development_page_go_further.link',
-      }),
-      linkTo:
-        '/docs/guides/vtex-io-documentation-homologation-requirements-for-vtex-app-store',
-    },
-  ]
-  return data
 }
 
 export const resources = (intl: IntlShape) => {

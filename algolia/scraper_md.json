@@ -1,6 +1,6 @@
 {
   "index_name": "helpcenter-docs",
-  "start_urls": ["https://newhelp.vtex.com/docs"],
+  "start_urls": ["https://newhelp.vtex.com/"],
   "stop_urls": [],
   "sitemap_urls": ["https://newhelp.vtex.com/server-sitemap.xml"],
   "sitemap_alternate_links": true,
@@ -21,12 +21,14 @@
       "anchor",
       "url",
       "type",
-      "doctype"
+      "doctype",
+      "doctitle",
+      "language"
     ]
   },
   "use_anchors": true,
   "min_indexed_level": 0,
-  "clear_index": true,
+  "clear_index": false,
   "conversation_id": ["706181789"],
-  "nb_hits": 21855
+  "nb_hits": 106
 }

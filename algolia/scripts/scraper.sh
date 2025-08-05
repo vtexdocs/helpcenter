@@ -24,7 +24,6 @@ fi
 git clone https://github.com/vtexdocs/docsearch-scraper.git
 
 cp ./algolia/scraper_md.json ./docsearch-scraper/configs
-cp ./algolia/scraper_openapi.json ./docsearch-scraper/configs
 
 cd docsearch-scraper/
 
@@ -49,8 +48,6 @@ CHROMEDRIVER_PATH=./chromedriver
 PIPENV_VENV_IN_PROJECT=true pipenv install
 
 pipenv run ./docsearch run ./configs/scraper_md.json
-
-pipenv run ./docsearch run ./configs/scraper_openapi.json
 
 echo "🚀 Successfully indexed and uploaded the results to Algolia"
 

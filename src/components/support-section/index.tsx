@@ -2,7 +2,7 @@ import { Flex, Text } from '@vtex/brand-ui'
 
 import styles from './styles'
 import { FormattedMessage, useIntl } from 'react-intl'
-import { supportData } from 'utils/constants'
+import { menuSupportData } from 'utils/constants'
 import SupportSectionCard from 'components/support-section-card'
 
 const SupportSection = () => {
@@ -14,7 +14,7 @@ const SupportSection = () => {
         <FormattedMessage id="landing_page_support.title" />
       </Text>
       <Flex sx={styles.contentCards}>
-        {supportData(intl).map((support) => (
+        {menuSupportData(intl).map((support) => (
           <SupportSectionCard {...support} key={support.title} />
         ))}
       </Flex>

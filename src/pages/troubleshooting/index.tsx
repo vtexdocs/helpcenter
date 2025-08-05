@@ -7,10 +7,8 @@ import type { GetStaticPropsContext, NextPage } from 'next'
 import { useContext, useMemo, useState } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
-import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
 import { getLogger } from 'utils/logging/log-util'
 import { localeType } from 'utils/navigation-utils'
-import { serialize } from 'next-mdx-remote/serialize'
 import { Flex } from '@vtex/brand-ui'
 import Select from 'components/select'
 import { SortByType, TroubleshootingDataElement } from 'utils/typings/types'
@@ -23,13 +21,12 @@ import Filter from 'components/filter'
 import searchIcon from '../../components/icons/search-icon'
 import Input from 'components/input'
 import { getISRRevalidateTime } from 'utils/config'
+import { fetchBatch } from 'utils/fetchBatchGithubData'
+import { parseFrontmatter } from 'utils/fetchBatchGithubData'
 
 interface Props {
-  sectionSelected?: DocumentationTitle | UpdatesTitle | ''
   branch: string
   troubleshootingData: TroubleshootingDataElement[]
-  page: number
-  totalPages: number
 }
 
 const TroubleshootingPage: NextPage<Props> = ({
@@ -41,25 +38,24 @@ const TroubleshootingPage: NextPage<Props> = ({
   const intl = useIntl()
 
   const itemsPerPage = 8
-  const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
+  const [pageIndex, setPageIndex] = useState({
+    curr: 1,
+    total: Math.ceil(troubleshootingData.length / itemsPerPage),
+  })
   const [filters, setFilters] = useState<string[]>([])
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const [search, setSearch] = useState<string>('')
 
   const filteredResult = useMemo(() => {
-    const data = troubleshootingData
-      .filter((troubleshoot) =>
-        ['PUBLISHED', 'CHANGED'].includes(troubleshoot.status)
-      )
-      .filter((troubleshoot) => {
-        const hasFilters: boolean =
-          filters.length === 0 ||
-          troubleshoot.tags.some((tag) => filters.includes(tag))
-        const hasSearch: boolean = troubleshoot.title
-          .toLowerCase()
-          .includes(search.toLowerCase())
-        return hasSearch && hasFilters
-      })
+    const data = troubleshootingData.filter((troubleshoot) => {
+      const hasFilters: boolean =
+        filters.length === 0 ||
+        troubleshoot.tags.some((tag) => filters.includes(tag))
+      const hasSearch: boolean = troubleshoot.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+      return hasSearch && hasFilters
+    })
 
     data.sort((a, b) => {
       const dateA =
@@ -158,7 +154,7 @@ export async function getStaticProps({
   preview,
   previewData,
 }: GetStaticPropsContext) {
-  const sectionSelected = 'Troubleshooting'
+  const sectionSelected = 'troubleshooting'
   const previewBranch =
     preview &&
     previewData &&
@@ -173,65 +169,34 @@ export async function getStaticProps({
   )
   const logger = getLogger('troubleshooting')
   const currentLocale: localeType = (locale ?? 'en') as localeType
-
   const slugs = Object.keys(docsPathsGLOBAL)
-
-  async function fetchFromGithub(path: string, slug: string) {
-    try {
-      const response = await fetch(
-        `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
-      )
-      const data = await response.text()
-      return { content: data, slug }
-    } catch (error) {
-      logger.error(`Error fetching data for path ${path}` + ' ' + error)
-      return { content: '', slug }
-    }
-  }
-
   const batchSize = 100
 
-  const fetchBatch = async (batch: string[]) => {
-    const promises = batch.map(async (slug) => {
-      const path = docsPathsGLOBAL[slug]?.find(
-        (e) => e.locale === currentLocale
-      )?.path
-
-      if (path) return await fetchFromGithub(path, slug)
-
-      return { content: '', slug }
-    })
-
-    return Promise.all(promises)
-  }
-
   const troubleshootingData: TroubleshootingDataElement[] = []
+
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
-    const batchResults = await fetchBatch(batch)
+    const batchResults = await fetchBatch(
+      batch,
+      'help-center-content',
+      docsPathsGLOBAL,
+      currentLocale,
+      branch,
+      logger
+    )
 
-    for (const data of batchResults) {
-      if (data?.content) {
-        try {
-          const onlyFrontmatter = `---\n${data.content.split('---')[1]}---\n`
-
-          const { frontmatter } = await serialize(onlyFrontmatter, {
-            parseFrontmatter: true,
-          })
-
-          if (frontmatter) {
-            troubleshootingData.push({
-              title: String(frontmatter.title ?? ''),
-              slug: data.slug,
-              createdAt: String(frontmatter.createdAt),
-              updatedAt: String(frontmatter.updatedAt),
-              tags: String(frontmatter.tags ?? '').split(','),
-              status: String(frontmatter.status),
-            })
-          }
-        } catch (error) {
-          logger.error(`${error}`)
-        }
+    for (const { content, slug } of batchResults) {
+      if (!content) continue
+      const frontmatter = await parseFrontmatter(content, logger)
+      if (frontmatter && (frontmatter.status == 'PUBLISHED' || 'CHANGED')) {
+        troubleshootingData.push({
+          title: String(frontmatter.title),
+          slug,
+          createdAt: String(frontmatter.createdAt),
+          updatedAt: String(frontmatter.updatedAt),
+          tags: String(frontmatter.tags ?? '').split(','),
+          status: String(frontmatter.status),
+        })
       }
     }
   }

@@ -16,14 +16,13 @@ async function getGithubTree(org: string, repo: string, ref: string) {
 
 //https://api.github.com/repos/vtexdocs/devportal/commits?path=README.md
 
-export async function getAllDocsPaths(branch = 'main') {
+export async function getAllDocsPaths(branch = 'main', category?: string) {
   const docsPaths: { [slug: string]: { locale: string; path: string }[] } = {}
 
-  const repoTree = await getGithubTree(
-    'vtexdocs',
-    'help-center-content',
-    branch
-  )
+  // Use known-issues repo if category is known-issues, else use help-center-content
+  const repo =
+    category === 'known-issues' ? 'known-issues' : 'help-center-content'
+  const repoTree = await getGithubTree('vtexdocs', repo, branch)
   // @ts-ignore
   repoTree.tree.map((node: any) => {
     const path = node.path
@@ -94,11 +93,10 @@ export async function getDocsPaths(
   if (staticBuild && cachedRepoTree) {
     return buildDocsPathsFromTree(cachedRepoTree, category)
   }
-  const repoTree = await getGithubTree(
-    'vtexdocs',
-    'help-center-content',
-    branch
-  )
+  // Use known-issues repo if category is known-issues, else use help-center-content
+  const repo =
+    category === 'known-issues' ? 'known-issues' : 'help-center-content'
+  const repoTree = await getGithubTree('vtexdocs', repo, branch)
   if (staticBuild) {
     cachedRepoTree = repoTree
   }
@@ -137,4 +135,11 @@ export async function getStaticPathsForDocType(
     }
   })
   return pathsForStaticGeneration
+}
+
+export type DocsPaths = {
+  [slug: string]: {
+    locale: string
+    path: string
+  }[]
 }

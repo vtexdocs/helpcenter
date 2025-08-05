@@ -38,7 +38,10 @@ const AnnouncementCard = ({
         {isNew && (
           <Flex sx={styles.bottomContainer}>
             <Tag sx={styles.tag} color={'New'}>
-              New
+              {intl.formatMessage({
+                id: 'announcement_card.new_tag',
+                defaultMessage: 'New',
+              })}
             </Tag>
           </Flex>
         )}

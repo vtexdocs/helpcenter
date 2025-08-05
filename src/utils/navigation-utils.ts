@@ -86,3 +86,36 @@ export const getChildren = (
 
   return childrenArray
 }
+
+export const getArticleParentsArray = (
+  keyPath: string,
+  flattenedSidebar: { [x: string]: string },
+  currentLocale: localeType = 'en',
+  slug: string
+): string[] => {
+  const parentsArray: string[] = []
+  const parentsArrayName: string[] = []
+  const parentsArrayType: string[] = []
+
+  const pushSanitizedParents = (
+    key: string,
+    array: string[],
+    pathSuffix: string
+  ) => {
+    getParents(keyPath, key, flattenedSidebar, currentLocale, array)
+    const keyPathWithSuffix = keyPath.split('slug')[0].concat(pathSuffix)
+    array.push(flattenedSidebar[keyPathWithSuffix] ?? null)
+  }
+
+  getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+  parentsArray.push(slug)
+
+  const sanitizedParentsArray = parentsArray.filter(
+    (item) => item !== null && item !== undefined
+  )
+
+  pushSanitizedParents('name', parentsArrayName, `name.${currentLocale}`)
+  pushSanitizedParents('type', parentsArrayType, 'type')
+
+  return sanitizedParentsArray
+}
