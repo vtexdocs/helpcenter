@@ -27,26 +27,27 @@ export async function middleware(request: NextRequest) {
   console.log('Middleware running:', request.nextUrl.pathname)
   const { pathname } = request.nextUrl
 
-  // Match /{locale}/docs/known-issues/{internalReference}
-  const match = pathname.match(/^\/([a-z]{2})\/docs\/known-issues\/(\d+)$/)
+  // Match /{locale}/known-issues/{internalReference}
+  const match = pathname.match(/^\/([a-z]{2})\/known-issues\/(\d+)$/)
   if (match) {
     const locale = match[1]
     const internalReference = Number(match[2])
     const mapping = await getMapping()
-    console.log('Mapping loaded:', mapping)
     const entry = mapping.find(
       (item) =>
         item.locale === locale && item.internalReference === internalReference
     )
+
     if (entry) {
-      const newPath = `/${locale}/docs/known-issues/${entry.slug}`
+      const newPath = `/${locale}/known-issues/${entry.slug}`
       return NextResponse.redirect(new URL(newPath, request.url), 308)
+    } else {
+      return new NextResponse('Not found', { status: 404 })
     }
   }
-
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/([a-z]{2})/docs/known-issues/:internalReference*'],
+  matcher: ['/([a-z]{2})/known-issues/:internalReference(\\d+)'],
 }
