@@ -6,11 +6,11 @@ const selfClosingHTMLTagRegex = /<([a-z-]+)(.+?)style="([^"]+)"(.*?)\/>/g
 const getStyleObject: (styleValue: string) => string = (styleValue) => {
   const styleProps = styleValue.split(';')
   const styles = styleProps.map((styleProp: string) => {
-    if (styleProp.trim() == '') return null
+    if (!styleProp || styleProp.trim() === '') return null
     const [attribute, value] = styleProp.split(':')
+    if (!attribute || !value) return null
     return `${toCamelCase(attribute.trim())}: "${value.trim()}"`
   })
-
   return `{ ${styles.join(', ')} }`
 }
 
@@ -44,8 +44,33 @@ const selfClosingHTMLTagReplacer: (
   return `<${tag}${stylePrefix}style={${styleObject}}${styleSuffix}/>`
 }
 
+const convertCalloutToMarkdown = (markdownContent: string): string => {
+  const calloutMap: Record<string, string> = {
+    info: 'ℹ️',
+    warning: '⚠️',
+    danger: '❗',
+  }
+
+  return markdownContent.replace(
+    /<div\s+[^>]*class\s*=\s*"alert alert-(info|warning|danger)"[^>]*>([\s\S]*?)<\/div>/gi,
+    (_: string, type: string, inner: string): string => {
+      const emoji = calloutMap[type] || ''
+      return inner
+        .trim()
+        .split('\n')
+        .map((line: string) => `> ${emoji} ${line.trim()}`)
+        .join('\n')
+    }
+  )
+}
+
 const replaceHTMLBlocks: (content: string) => string = (content) => {
+  content = convertCalloutToMarkdown(content)
   return content
+    .replace(/<div\s+style="[^"]*">\s*([\s\S]*?)\s*<\/div>/gi, (_, content) => {
+      const trimmed = content.trim().replace(/\n/g, '\n> ')
+      return `> ${trimmed}`
+    })
     .replace(/<>/g, '\\<\\>')
     .replace(/<br>/g, '<br />')
     .replace(/<!--.*?-->/gs, '')

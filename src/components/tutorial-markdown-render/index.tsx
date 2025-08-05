@@ -54,7 +54,13 @@ const TutorialMarkdownRender = (props: Props) => {
     <>
       <Head>
         <title>{props.serialized.frontmatter?.title as string}</title>
-        <meta name="docsearch:doctype" content="Tutorials" />
+        <meta name="docsearch:doctype" content="tutorials" />
+        {props.serialized.frontmatter?.title && (
+          <meta
+            name="docsearch:doctitle"
+            content={props.serialized.frontmatter.title as string}
+          />
+        )}
         {props.serialized.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />
         )}

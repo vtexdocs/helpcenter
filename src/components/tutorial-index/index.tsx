@@ -44,7 +44,7 @@ const TutorialIndexing = ({ ...props }) => {
                     In this section
                   </Text>
                   <Flex sx={styles.linksContainer}>
-                    {props.children.map(
+                    {props?.children?.map(
                       (el: { slug: string; name: string }) => (
                         <Link href={el.slug}>{el.name || 'Untitled'}</Link>
                       )

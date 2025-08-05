@@ -31,7 +31,7 @@ export const messages = getMessages()
 export const menuDocumentationData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
-      id: 'Start here',
+      id: 'tracks',
       Icon: StartHereIcon,
       title: intl.formatMessage({
         id: 'documentation_start_here.title',
@@ -42,7 +42,7 @@ export const menuDocumentationData = (intl: IntlShape) => {
       link: '/docs/tracks',
     },
     {
-      id: 'Tutorials',
+      id: 'tutorials',
       Icon: TutorialsIcon,
       title: intl.formatMessage({
         id: 'documentation_tutorials.title',
@@ -59,7 +59,7 @@ export const menuDocumentationData = (intl: IntlShape) => {
 export const updatesData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
-      id: 'FAQs',
+      id: 'faqs',
       Icon: FAQIcon,
       title: intl.formatMessage({ id: 'updates_info_notes.title' }),
       description: intl.formatMessage({
@@ -68,7 +68,7 @@ export const updatesData = (intl: IntlShape) => {
       link: '/faq',
     },
     {
-      id: 'News',
+      id: 'news',
       Icon: MegaphoneIcon,
       title: intl.formatMessage({
         id: 'announcements_page.title',
@@ -113,7 +113,7 @@ export const feedbackSectionData = (intl: IntlShape) => {
 export const menuSupportData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
-      id: 'Known Issues',
+      id: 'known-issues',
       Icon: WarningIcon,
       title: intl.formatMessage({
         id: 'sidebar_known_issues.title',
@@ -149,7 +149,7 @@ export const menuSupportData = (intl: IntlShape) => {
       }),
     },
     {
-      id: 'Troubleshooting',
+      id: 'troubleshooting',
       Icon: TroubleshootingIcon,
       title: intl.formatMessage({ id: 'menu_troubleshooting.title' }),
       description: intl.formatMessage({

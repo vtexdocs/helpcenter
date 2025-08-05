@@ -6,12 +6,6 @@ import jp from 'jsonpath'
 import ArticlePagination from 'components/article-pagination'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import remarkGFM from 'remark-gfm'
-import rehypeHighlight from 'rehype-highlight'
-import hljsCurl from 'highlightjs-curl'
-import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
-import { remarkCodeHike } from '@code-hike/mdx'
-import remarkImages from 'utils/remark_plugins/plaiceholder'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
 
@@ -24,15 +18,12 @@ import SeeAlsoSection from 'components/see-also-section'
 import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
 
-import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 import getGithubFile from 'utils/getGithubFile' // ADDED: Import getGithubFile
 import {
   getDocsPaths as getTracksPaths,
   // getStaticPathsForDocType, // Removed unused import
 } from 'utils/getDocsPaths'
-import replaceMagicBlocks from 'utils/replaceMagicBlocks'
-import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
@@ -50,12 +41,10 @@ import {
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 
-import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
-
-import theme from 'styles/code-hike-theme'
 import TimeToRead from 'components/TimeToRead'
 import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 import CopyLinkButton from 'components/copy-link-button'
+import { serializeWithFallback } from 'utils/serializeWithFallback'
 
 // Initialize in getStaticProps
 let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
@@ -120,6 +109,12 @@ const TrackPage: NextPage<Props> = ({
       <Head>
         <title>{serialized.frontmatter?.title as string}</title>
         <meta name="docsearch:doctype" content="tracks" />
+        {serialized.frontmatter?.title && (
+          <meta
+            name="docsearch:doctitle"
+            content={serialized.frontmatter.title as string}
+          />
+        )}
         {serialized.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />
         )}
@@ -228,112 +223,103 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const previewBranch =
-    preview &&
-    previewData &&
-    typeof previewData === 'object' &&
-    'branch' in previewData
-      ? (previewData as PreviewData).branch || 'main'
-      : 'main'
-  const branch = preview ? previewBranch : 'main'
-
-  const slug = params?.slug as string
-  const langFromParams = params?.lang as string | undefined
-  const currentLocale: localeType = (langFromParams ||
-    locale ||
-    'en') as localeType
-
-  if (!docsPathsGLOBAL) {
-    docsPathsGLOBAL = await getTracksPaths('tracks')
-  }
-  const docsPaths =
-    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
-      ? await getTracksPaths('tracks', branch)
-      : docsPathsGLOBAL
-
   const logger = getLogger('TracksPage-GetStaticProps') // MODIFIED: More specific logger name
 
-  const pathEntry = docsPaths[slug]?.find((e) => e.locale === currentLocale)
-
-  if (!pathEntry?.path) {
-    logger.info(
-      `Path not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
-    )
-    return { notFound: true, revalidate: 3600 }
-  }
-  const resolvedPath = pathEntry.path
-
-  // MODIFIED: Use getGithubFile to fetch documentation content
-  let documentationContent: string | null = null
   try {
-    documentationContent = await getGithubFile(
-      'vtexdocs',
-      'help-center-content',
-      branch,
-      resolvedPath
-    )
-  } catch (err) {
-    logger.error(
-      `Error fetching content for ${resolvedPath} on branch ${branch}: ${err}`
-    )
-    return { notFound: true, revalidate: 3600 }
-  }
+    const sectionSelected = 'tracks'
+    const slug = params?.slug as string
+    const langFromParams = params?.lang as string | undefined
+    const currentLocale: localeType = (langFromParams ||
+      locale ||
+      'en') as localeType
 
-  documentationContent = documentationContent || ''
+    const previewBranch =
+      preview &&
+      previewData &&
+      typeof previewData === 'object' &&
+      'branch' in previewData
+        ? (previewData as PreviewData).branch || 'main'
+        : 'main'
+    const branch = preview ? previewBranch : 'main'
 
-  // MODIFIED: Use getFileContributors to fetch contributors
-  let contributors: ContributorsType[] = []
-  try {
-    const fetchedContributors = await getFileContributors(
-      'vtexdocs',
-      'help-center-content',
-      branch,
-      resolvedPath
-    )
-    // Ensure fetchedContributors is an array before assigning
-    if (Array.isArray(fetchedContributors)) {
-      contributors = fetchedContributors
-    } else {
+    if (!docsPathsGLOBAL) {
+      docsPathsGLOBAL = await getTracksPaths('tracks')
+    }
+    const docsPaths =
+      preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
+        ? await getTracksPaths('tracks', branch)
+        : docsPathsGLOBAL
+
+    const docEntry = docsPaths[slug]?.find((e) => e.locale === currentLocale)
+    const path = docEntry?.path
+
+    if (!path) {
       logger.info(
-        `Fetched contributors is not an array for ${resolvedPath} on branch ${branch}. Received: ${typeof fetchedContributors}`
+        `Path not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+      )
+      return { notFound: true }
+    }
+
+    // MODIFIED: Use getGithubFile to fetch documentation content
+    let documentationContent: string | null = null
+    try {
+      documentationContent = await getGithubFile(
+        'vtexdocs',
+        'help-center-content',
+        branch,
+        path
+      )
+    } catch (err) {
+      logger.error(
+        `Error fetching content for ${path} on branch ${branch}: ${err}`
+      )
+      return { notFound: true, revalidate: 3600 }
+    }
+
+    documentationContent = replaceHTMLBlocks(documentationContent) || ''
+
+    // MODIFIED: Use getFileContributors to fetch contributors
+    let contributors: ContributorsType[] = []
+    try {
+      const fetchedContributors = await getFileContributors(
+        'vtexdocs',
+        'help-center-content',
+        branch,
+        path
+      )
+      // Ensure fetchedContributors is an array before assigning
+      if (Array.isArray(fetchedContributors)) {
+        contributors = fetchedContributors
+      } else {
+        logger.info(
+          `Fetched contributors is not an array for ${path} on branch ${branch}. Received: ${typeof fetchedContributors}`
+        )
+      }
+    } catch (err) {
+      logger.info(
+        `Error fetching contributors for ${path} on branch ${branch}: ${err}`
       )
     }
-  } catch (err) {
-    logger.info(
-      `Error fetching contributors for ${resolvedPath} on branch ${branch}: ${err}`
-    )
-  }
 
-  let format: 'md' | 'mdx' = 'mdx'
-
-  try {
     const headingList: Item[] = []
-    let serialized = await serialize(documentationContent, {
-      parseFrontmatter: true,
-      mdxOptions: {
-        remarkPlugins: [
-          [remarkCodeHike, theme],
-          remarkGFM,
-          remarkImages,
-          [getHeadings, { headingList }],
-          remarkBlockquote,
-          remarkReadingTime,
-        ],
-        useDynamicImport: true,
-        rehypePlugins: [
-          [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
-        ],
-        format,
-      },
+    let serialized = await serializeWithFallback({
+      content: documentationContent,
+      headingList,
+      logger,
+      path,
     })
+    if (!serialized) {
+      logger.error(`Serialization failed for ${path}`)
+      return { notFound: true }
+    }
 
     // Allow PUBLISHED and CHANGED status documents to be visible
     const allowedStatuses = ['PUBLISHED', 'CHANGED']
-    const status = serialized.frontmatter?.status as string
+    const status = serialized?.frontmatter?.status as string
 
     if (status && !allowedStatuses.includes(status)) {
       logger.info(
-        `Document status is not allowed for ${resolvedPath}. Status: ${status}, Allowed: ${allowedStatuses.join(
+        `Document status is not allowed for ${path}. Status: ${status}, Allowed: ${allowedStatuses.join(
           ', '
         )}`
       )
@@ -351,8 +337,8 @@ export const getStaticProps: GetStaticProps = async ({
       title: string
       category: string
     }[] = []
-    const seeAlsoUrls = serialized.frontmatter?.seeAlso
-      ? JSON.parse(JSON.stringify(serialized.frontmatter.seeAlso as string))
+    const seeAlsoUrls = serialized?.frontmatter?.seeAlso
+      ? JSON.parse(JSON.stringify(serialized?.frontmatter.seeAlso as string))
       : []
     await Promise.all(
       seeAlsoUrls.map(async (seeAlsoUrl: string) => {
@@ -467,9 +453,7 @@ export const getStaticProps: GetStaticProps = async ({
     const parentsArray: string[] = []
     const parentsArrayName: string[] = []
     const parentsArrayType: string[] = []
-    let sectionSelected = ''
     if (keyPath) {
-      sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
       getParents(
         keyPath,
         'name',
@@ -501,17 +485,6 @@ export const getStaticProps: GetStaticProps = async ({
       }
     }
 
-    try {
-      if (resolvedPath.endsWith('.md')) {
-        documentationContent = escapeCurlyBraces(documentationContent)
-        documentationContent = replaceHTMLBlocks(documentationContent)
-        documentationContent = await replaceMagicBlocks(documentationContent)
-      }
-    } catch (error) {
-      logger.error(`Error processing markdown for ${resolvedPath}: ${error}`) // MODIFIED: Improved error logging
-      format = 'md'
-    }
-
     // Ensure parentsArray does not contain undefined values
     parentsArray.push(slug)
     const sanitizedParentsArray = parentsArray.map((item) =>
@@ -535,7 +508,7 @@ export const getStaticProps: GetStaticProps = async ({
         // ❌ REMOVED: sidebarfallback (3.4MB navigation no longer sent to client)
         headingList,
         contributors,
-        path: resolvedPath,
+        path,
         seeAlsoData,
         pagination,
         isListed,
@@ -546,11 +519,8 @@ export const getStaticProps: GetStaticProps = async ({
       revalidate: 3600,
     }
   } catch (error) {
-    logger.error(`Error while processing ${resolvedPath}\\n${error}`)
-    return {
-      notFound: true,
-      revalidate: 3600,
-    }
+    logger.error(`Error while processing ${params?.slug}:\n${error}`)
+    return { notFound: true }
   }
 }
 

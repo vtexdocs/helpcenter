@@ -5,21 +5,12 @@ import jp from 'jsonpath'
 
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import remarkGFM from 'remark-gfm'
-import rehypeHighlight from 'rehype-highlight'
-import hljsCurl from 'highlightjs-curl'
-import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
-
-import remarkImages from 'utils/remark_plugins/plaiceholder'
 
 import { Item, LibraryContext } from '@vtexdocs/components'
 
-import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
 import getGithubFile from 'utils/getGithubFile' // ADDED: Import getGithubFile
 import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
-import replaceMagicBlocks from 'utils/replaceMagicBlocks'
-import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
@@ -36,12 +27,10 @@ import {
   localeType,
 } from 'utils/navigation-utils'
 
-import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
-import { remarkCodeHike } from '@code-hike/mdx'
 import TutorialIndexing from 'components/tutorial-index'
 import TutorialMarkdownRender from 'components/tutorial-markdown-render'
-import theme from 'styles/code-hike-theme'
 import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
+import { serializeWithFallback } from 'utils/serializeWithFallback'
 
 // Initialize in getStaticProps
 let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
@@ -154,11 +143,11 @@ const TutorialPage: NextPage<Props> = ({
   ) : (
     <TutorialIndexing
       breadcrumbList={breadcrumbList}
-      name={componentProps.tutorialData.name}
-      children={componentProps.tutorialData.children}
-      hidePaginationNext={componentProps.tutorialData.hidePaginationNext}
+      name={componentProps?.tutorialData?.name ?? ''}
+      children={componentProps?.tutorialData?.children}
+      hidePaginationNext={componentProps?.tutorialData?.hidePaginationNext}
       hidePaginationPrevious={
-        componentProps.tutorialData.hidePaginationPrevious
+        componentProps?.tutorialData?.hidePaginationPrevious
       }
       isListed={isListed}
       slug={slug}
@@ -250,7 +239,7 @@ export const getStaticProps: GetStaticProps = async ({
   const typeKeyPath = mainKeyPath.concat('type')
   parentsArrayType.push(flattenedSidebar[typeKeyPath])
 
-  const sectionSelected = flattenedSidebar[`${keyPath[0]}.documentation`]
+  const sectionSelected = 'tutorials'
   logger.info(
     // MODIFIED: console.log to logger.info
     `Tutorial section selected: ${sectionSelected} for slug: ${slug}`
@@ -379,7 +368,7 @@ export const getStaticProps: GetStaticProps = async ({
     )
     return { notFound: true, revalidate: 3600 } // ADDED: revalidate
   }
-  documentationContent = documentationContent || ''
+  documentationContent = replaceHTMLBlocks(documentationContent) || ''
 
   // MODIFIED: Use getFileContributors to fetch contributors
   let contributors: ContributorsType[] = []
@@ -406,44 +395,18 @@ export const getStaticProps: GetStaticProps = async ({
     )
   }
 
-  let format: 'md' | 'mdx' = 'mdx'
-  try {
-    if (resolvedPath.endsWith('.md')) {
-      // MODIFIED: Use resolvedPath
-      documentationContent = escapeCurlyBraces(documentationContent)
-      documentationContent = replaceHTMLBlocks(documentationContent)
-      documentationContent = await replaceMagicBlocks(documentationContent)
-    }
-  } catch (error) {
-    // MODIFIED: Add type to error
-    logger.error(
-      `Error processing markdown for ${resolvedPath}: ${
-        error instanceof Error ? error.message : error
-      }`
-    )
-    format = 'md'
-  }
-
   try {
     const headingList: Item[] = []
-    let serialized = await serialize(documentationContent, {
-      parseFrontmatter: true,
-      mdxOptions: {
-        remarkPlugins: [
-          [remarkCodeHike, theme],
-          remarkGFM,
-          remarkImages,
-          [getHeadings, { headingList }],
-          remarkBlockquote,
-          remarkReadingTime,
-        ],
-        useDynamicImport: true,
-        rehypePlugins: [
-          [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
-        ],
-        format,
-      },
+    let serialized = await serializeWithFallback({
+      content: documentationContent,
+      headingList,
+      logger,
+      path: resolvedPath,
     })
+    if (!serialized) {
+      logger.error(`Serialization failed for ${resolvedPath}`)
+      return { notFound: true }
+    }
 
     // Allow PUBLISHED and CHANGED status documents to be visible
     const allowedStatuses = ['PUBLISHED', 'CHANGED']
@@ -469,8 +432,8 @@ export const getStaticProps: GetStaticProps = async ({
 
     // Handle seeAlso frontmatter which could be string or string[]
     let seeAlsoUrls: string[] = []
-    if (serialized.frontmatter?.seeAlso) {
-      const seeAlsoValue = serialized.frontmatter.seeAlso
+    if (serialized?.frontmatter?.seeAlso) {
+      const seeAlsoValue = serialized?.frontmatter.seeAlso
       if (Array.isArray(seeAlsoValue)) {
         seeAlsoUrls = seeAlsoValue
       } else if (typeof seeAlsoValue === 'string') {
