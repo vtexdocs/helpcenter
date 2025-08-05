@@ -49,6 +49,12 @@ interface Props {
   contributors: ContributorsType[]
   headingList: Item[]
   branch: string
+  parentsArray?: string[]
+  sectionSelected: string
+  slug: string
+  path: string
+  seeAlsoData: { url: string; title: string; category: string }[]
+  sidebarfallback: any //eslint-disable-line
 }
 
 const KnownIssuePage: NextPage<Props> = ({
@@ -225,13 +231,6 @@ export const getStaticProps: GetStaticProps = async ({
         item.documentation === sectionSelected
     )
     const flattenedSidebar = flattenJSON(filteredSidebar)
-    const keyPath = getKeyByValue(flattenedSidebar, slug) as string
-    const parentsArray = getArticleParentsArray(
-      keyPath,
-      flattenedSidebar,
-      currentLocale,
-      slug
-    )
 
     let documentationContent = ''
     try {
@@ -244,6 +243,18 @@ export const getStaticProps: GetStaticProps = async ({
     }
 
     documentationContent = replaceHTMLBlocks(documentationContent)
+
+    const keyPath = getKeyByValue(flattenedSidebar, slug) as string
+    let parentsArray: string[] = []
+
+    if (keyPath) {
+      parentsArray = getArticleParentsArray(
+        keyPath,
+        flattenedSidebar,
+        currentLocale,
+        slug
+      )
+    }
 
     const headingList: Item[] = []
     const serialized = await serializeWithFallback({
@@ -311,20 +322,27 @@ export const getStaticProps: GetStaticProps = async ({
       },
     ]
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const props: Props = {
+      sectionSelected,
+      slug,
+      serialized: JSON.parse(JSON.stringify(serialized)),
+      sidebarfallback,
+      headingList,
+      contributors,
+      path,
+      seeAlsoData,
+      breadcrumbList,
+      branch,
+    }
+
+    // Only add parentsArray if keyPath exists
+    if (keyPath) {
+      props.parentsArray = parentsArray
+    }
+
     return {
-      props: {
-        sectionSelected,
-        slug,
-        serialized: JSON.parse(JSON.stringify(serialized)),
-        sidebarfallback,
-        parentsArray,
-        headingList,
-        contributors,
-        path,
-        seeAlsoData,
-        breadcrumbList,
-        branch,
-      },
+      props,
       revalidate: 600,
     }
   } catch (error) {
