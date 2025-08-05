@@ -38,7 +38,8 @@
     "**/*.ts",
     "**/*.tsx",
     "src/tests/cypress/support/commands.js",
-    "src/components/error-boundary/index.jsx"
+    "src/components/error-boundary/index.jsx",
+    "src/middleware.ts"
   ],
   "exclude": ["node_modules"]
 }
