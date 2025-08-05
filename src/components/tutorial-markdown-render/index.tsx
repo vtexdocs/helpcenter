@@ -47,27 +47,39 @@ interface Props {
   headings: Item[]
 }
 
-const TutorialMarkdownRender = (props: Props) => {
+const TutorialMarkdownRender = ({
+  serialized,
+  isListed,
+  headings,
+  breadcrumbList,
+  contributors,
+  path,
+  seeAlsoData,
+  pagination,
+  slug,
+}: Props) => {
   const intl = useIntl()
 
   return (
     <>
       <Head>
-        <title>{props.serialized.frontmatter?.title as string}</title>
         <meta name="docsearch:doctype" content="tutorials" />
-        {props.serialized.frontmatter?.title && (
-          <meta
-            name="docsearch:doctitle"
-            content={props.serialized.frontmatter.title as string}
-          />
+        {serialized.frontmatter?.title && (
+          <>
+            <title>{serialized.frontmatter?.title as string}</title>
+            <meta
+              name="docsearch:doctitle"
+              content={serialized.frontmatter.title as string}
+            />
+          </>
         )}
-        {props.serialized.frontmatter?.hidden && (
+        {serialized.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />
         )}
-        {props.serialized.frontmatter?.excerpt && (
+        {serialized.frontmatter?.excerpt && (
           <meta
             property="og:description"
-            content={props.serialized.frontmatter?.excerpt as string}
+            content={serialized.frontmatter?.excerpt as string}
           />
         )}
       </Head>
@@ -83,19 +95,19 @@ const TutorialMarkdownRender = (props: Props) => {
           id: 'documentation_tutorials.title',
         })}
       />
-      <DocumentContextProvider headings={props.headings}>
+      <DocumentContextProvider headings={headings}>
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
               <Box sx={styles.textContainer}>
                 <article>
                   <header>
-                    <Breadcrumb breadcrumbList={props.breadcrumbList} />
+                    <Breadcrumb breadcrumbList={breadcrumbList} />
                     <Text sx={styles.documentationTitle} className="title">
-                      {props.serialized.frontmatter?.title}
+                      {serialized.frontmatter?.title}
                     </Text>
                     <Text sx={styles.documentationExcerpt}>
-                      {props.serialized.frontmatter?.excerpt}
+                      {serialized.frontmatter?.excerpt}
                     </Text>
                     <Flex
                       sx={{
@@ -107,48 +119,45 @@ const TutorialMarkdownRender = (props: Props) => {
                       <CopyLinkButton />
                     </Flex>
                   </header>
-                  {props.serialized.frontmatter?.readingTime && (
+                  {serialized.frontmatter?.readingTime && (
                     <TimeToRead
                       minutes={
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        (props.serialized.frontmatter.readingTime as any)
-                          ?.text ||
-                        String(props.serialized.frontmatter.readingTime)
+                        (serialized.frontmatter.readingTime as any)?.text ||
+                        String(serialized.frontmatter.readingTime)
                       }
                     />
                   )}
-                  <MarkdownRenderer serialized={props.serialized} />
+                  <MarkdownRenderer serialized={serialized} />
                 </article>
               </Box>
             </Box>
 
             <Box sx={styles.bottomContributorsContainer}>
               <Box sx={styles.bottomContributorsDivider} />
-              <Contributors contributors={props.contributors} />
+              <Contributors contributors={contributors} />
             </Box>
 
-            <FeedbackSection docPath={props.path} slug={props.slug} />
-            {props.isListed && (
+            <FeedbackSection docPath={path} slug={slug} />
+            {isListed && (
               <ArticlePagination
                 hidePaginationNext={
-                  Boolean(props.serialized.frontmatter?.hidePaginationNext) ||
-                  false
+                  Boolean(serialized.frontmatter?.hidePaginationNext) || false
                 }
                 hidePaginationPrevious={
-                  Boolean(
-                    props.serialized.frontmatter?.hidePaginationPrevious
-                  ) || false
+                  Boolean(serialized.frontmatter?.hidePaginationPrevious) ||
+                  false
                 }
-                pagination={props.pagination}
+                pagination={pagination}
               />
             )}
-            {props.serialized.frontmatter?.seeAlso && (
-              <SeeAlsoSection docs={props.seeAlsoData} />
+            {serialized.frontmatter?.seeAlso && (
+              <SeeAlsoSection docs={seeAlsoData} />
             )}
           </Box>
           <Box sx={styles.rightContainer}>
-            <Contributors contributors={props.contributors} />
-            <TableOfContents headingList={props.headings} />
+            <Contributors contributors={contributors} />
+            <TableOfContents headingList={headings} />
           </Box>
           <OnThisPage />
         </Flex>
