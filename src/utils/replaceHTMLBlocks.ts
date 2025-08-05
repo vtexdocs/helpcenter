@@ -71,11 +71,19 @@ const replaceHTMLBlocks: (content: string) => string = (content) => {
       const trimmed = content.trim().replace(/\n/g, '\n> ')
       return `> ${trimmed}`
     })
+    .replace(/<p>([\s\S]*?)<\/p>/gi, (_, inner) =>
+      inner.trim() ? `${inner.trim()}\n\n` : ''
+    )
+    .replace(/\s*style="[^"]*"/gi, '') // <-- Removes all style="..." attributes
     .replace(/<>/g, '\\<\\>')
     .replace(/<br>/g, '<br />')
     .replace(/<!--.*?-->/gs, '')
     .replace(HTMLBlockRegex, HTMLBlockReplacer)
     .replace(selfClosingHTMLTagRegex, selfClosingHTMLTagReplacer)
+    .replace(
+      /<code>(.*?)<\/code>/gs,
+      (_, codeContent) => `\`${codeContent.trim()}\``
+    )
 }
 
 export default replaceHTMLBlocks
