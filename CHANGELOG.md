@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.2](https://github.com/vtexdocs/helpcenter/compare/v0.9.1...v0.9.2) (2025-08-05)
+
+
+### Bug Fixes
+
+* **known-issues:** track navigation ([333ee2d](https://github.com/vtexdocs/helpcenter/commit/333ee2d3ab27d357c4e2ab42ca89ba0901cfeb6e))
+* **redirecttolocalizedurl:** fix defaultLocale redirect behavior and track troubleshooting sidebar ([283cca7](https://github.com/vtexdocs/helpcenter/commit/283cca727e6dbe2a2246c1c11d4fcf9457bba683))
+
 ### [0.9.1](https://github.com/vtexdocs/helpcenter/compare/v0.9.0...v0.9.1) (2025-08-05)
 
 
