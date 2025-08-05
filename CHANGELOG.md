@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/vtexdocs/helpcenter/compare/v0.8.6...v0.9.0) (2025-08-05)
+
+
+### Features
+
+* **pages:** add log for failed serialization ([e337f82](https://github.com/vtexdocs/helpcenter/commit/e337f82cdd5571f6ed339d594bedfe93019a1475))
+
+
+### Bug Fixes
+
+* **announcements:** fix announcements links ([eaeb299](https://github.com/vtexdocs/helpcenter/commit/eaeb299da3cb9f19d2f6c2aa4ba61def2a12a83a))
+* **faq:** fix faq position on sidebar ([45298bc](https://github.com/vtexdocs/helpcenter/commit/45298bc1e11b8883169b330a2bbf1a38bc766370))
+* **faq:** fix props ([65eedf9](https://github.com/vtexdocs/helpcenter/commit/65eedf95f0c356217e64183f00b28f0212c0f449))
+* **known-issues:** update contributors ([f82d2fd](https://github.com/vtexdocs/helpcenter/commit/f82d2fd839764cbcdc7c98b0a1c7edea9d0ce86e))
+* **replacehtmlblocks:** avoid erros with conditional props ([b8cab84](https://github.com/vtexdocs/helpcenter/commit/b8cab8475fb24128044b00c6365ea5bbcfdfba3a))
+* **replacehtmlblocks:** minor fixes + replace HTML divs ([ee25c1c](https://github.com/vtexdocs/helpcenter/commit/ee25c1c441cdd097baf96e29e837dd10f9a4517c))
+
+
+### Refactoring
+
+* **pages:** refactor serialization ([d7e3618](https://github.com/vtexdocs/helpcenter/commit/d7e3618be8737b65240779475511230465778f43))
+
 ### [0.8.6](https://github.com/vtexdocs/helpcenter/compare/v0.8.4...v0.8.6) (2025-08-04)
 
 
