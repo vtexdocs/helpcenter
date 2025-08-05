@@ -184,6 +184,7 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
+  const sectionSelected = 'tutorials'
   const previewBranch =
     preview &&
     previewData &&
@@ -203,7 +204,10 @@ export const getStaticProps: GetStaticProps = async ({
   const logger = getLogger('TutorialsPage-GetStaticProps') // MODIFIED: Logger name
 
   const sidebarfallback = await getNavigation()
-  const flattenedSidebar = flattenJSON(sidebarfallback)
+  const filteredSidebar = sidebarfallback.find(
+    (item: { documentation: string }) => item.documentation === sectionSelected
+  )
+  const flattenedSidebar = flattenJSON(filteredSidebar)
   const keyPath = getKeyByValue(flattenedSidebar, slug)
 
   if (!keyPath) {
@@ -239,7 +243,6 @@ export const getStaticProps: GetStaticProps = async ({
   const typeKeyPath = mainKeyPath.concat('type')
   parentsArrayType.push(flattenedSidebar[typeKeyPath])
 
-  const sectionSelected = 'tutorials'
   logger.info(
     // MODIFIED: console.log to logger.info
     `Tutorial section selected: ${sectionSelected} for slug: ${slug}`

@@ -16,7 +16,12 @@ import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import { getLogger } from 'utils/logging/log-util'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
-import { flattenJSON, getKeyByValue, localeType } from 'utils/navigation-utils'
+import {
+  flattenJSON,
+  getArticleParentsArray,
+  getKeyByValue,
+  localeType,
+} from 'utils/navigation-utils'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import getNavigation from 'utils/getNavigation'
 import { getMessages } from 'utils/get-messages'
@@ -162,6 +167,7 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const logger = getLogger('troubleshooting')
   try {
+    const sectionSelected = 'troubleshooting'
     const previewBranch =
       preview &&
       JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
@@ -179,12 +185,15 @@ export const getStaticProps: GetStaticProps = async ({
         : docsPathsGLOBAL
 
     const path = docsPaths[slug]?.find((e) => e.locale === currentLocale)?.path
+    const sidebarfallback = await getNavigation()
+    const filteredSidebar = sidebarfallback.find(
+      (item: { documentation: string }) =>
+        item.documentation === sectionSelected
+    )
+    const flattenedSidebar = flattenJSON(filteredSidebar)
+    const keyPath = getKeyByValue(flattenedSidebar, slug) as string
 
     if (!path) {
-      const sidebarfallback = await getNavigation()
-      const flattenedSidebar = flattenJSON(sidebarfallback)
-      const keyPath = getKeyByValue(flattenedSidebar, slug)
-
       if (!keyPath) {
         logger.warn(
           `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
@@ -202,6 +211,13 @@ export const getStaticProps: GetStaticProps = async ({
         'troubleshooting'
       )
     }
+
+    const parentsArray = getArticleParentsArray(
+      keyPath,
+      flattenedSidebar,
+      currentLocale,
+      slug
+    )
 
     let documentationContent: string | null = null
     try {
@@ -273,7 +289,6 @@ export const getStaticProps: GetStaticProps = async ({
         })
         .catch((err) => console.log(err))) || []
 
-    const sidebarfallback = await getNavigation()
     serialized = JSON.parse(JSON.stringify(serialized))
 
     logger.info(`Processing ${slug}`)
@@ -301,13 +316,14 @@ export const getStaticProps: GetStaticProps = async ({
         slug,
         serialized,
         sidebarfallback,
+        parentsArray,
         headingList,
         contributors,
         path,
         seeAlsoData,
         breadcrumbList,
         branch,
-        sectionSelected: 'troubleshooting',
+        sectionSelected,
         content: documentationContent,
       },
       revalidate: 600,

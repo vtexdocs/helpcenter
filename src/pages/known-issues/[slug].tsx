@@ -23,7 +23,12 @@ import styles from 'styles/documentation-page'
 import { ContributorsType } from 'utils/getFileContributors'
 
 import { getLogger } from 'utils/logging/log-util'
-import { localeType } from 'utils/navigation-utils'
+import {
+  flattenJSON,
+  getArticleParentsArray,
+  getKeyByValue,
+  localeType,
+} from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 // import { ParsedUrlQuery } from 'querystring'
 
@@ -214,6 +219,20 @@ export const getStaticProps: GetStaticProps = async ({
       return { notFound: true }
     }
 
+    const sidebarfallback = await getNavigation()
+    const filteredSidebar = sidebarfallback.find(
+      (item: { documentation: string }) =>
+        item.documentation === sectionSelected
+    )
+    const flattenedSidebar = flattenJSON(filteredSidebar)
+    const keyPath = getKeyByValue(flattenedSidebar, slug) as string
+    const parentsArray = getArticleParentsArray(
+      keyPath,
+      flattenedSidebar,
+      currentLocale,
+      slug
+    )
+
     let documentationContent = ''
     try {
       documentationContent = await fetch(
@@ -275,8 +294,6 @@ export const getStaticProps: GetStaticProps = async ({
         })
         .catch((err) => console.log(err))) || []
 
-    const sidebarfallback = await getNavigation()
-
     logger.info(`Processing ${slug}`)
 
     const seeAlsoData: { url: string; title: string; category: string }[] = []
@@ -300,6 +317,7 @@ export const getStaticProps: GetStaticProps = async ({
         slug,
         serialized: JSON.parse(JSON.stringify(serialized)),
         sidebarfallback,
+        parentsArray,
         headingList,
         contributors,
         path,
