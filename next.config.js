@@ -43,6 +43,10 @@ const nextConfig = {
     contentOrg: '',
     contentRepo: '',
     contentBranch: '',
+    NEXT_PUBLIC_ALLOW_INDEXING:
+      process.env.NEXT_PUBLIC_ALLOW_INDEXING || 'true',
+    NEXT_PUBLIC_SITE_URL:
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://help.vtex.com',
   },
   async redirects() {
     return []
