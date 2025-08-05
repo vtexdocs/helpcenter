@@ -6,11 +6,11 @@ const selfClosingHTMLTagRegex = /<([a-z-]+)(.+?)style="([^"]+)"(.*?)\/>/g
 const getStyleObject: (styleValue: string) => string = (styleValue) => {
   const styleProps = styleValue.split(';')
   const styles = styleProps.map((styleProp: string) => {
-    if (styleProp.trim() == '') return null
+    if (!styleProp || styleProp.trim() === '') return null
     const [attribute, value] = styleProp.split(':')
+    if (!attribute || !value) return null
     return `${toCamelCase(attribute.trim())}: "${value.trim()}"`
   })
-
   return `{ ${styles.join(', ')} }`
 }
 
