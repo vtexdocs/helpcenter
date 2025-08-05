@@ -80,13 +80,15 @@ const FaqPage: NextPage<Props> = ({
   return (
     <>
       <Head>
-        <title>{serialized.frontmatter?.title as string}</title>
         <meta name="docsearch:doctype" content="faq" />
         {serialized.frontmatter?.title && (
-          <meta
-            name="docsearch:doctitle"
-            content={serialized.frontmatter.title as string}
-          />
+          <>
+            <title>{serialized.frontmatter?.title as string}</title>
+            <meta
+              name="docsearch:doctitle"
+              content={serialized.frontmatter.title as string}
+            />
+          </>
         )}
         {serialized.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />
@@ -180,7 +182,7 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const logger = getLogger('FAQs')
 
-  const sectionSelected = 'faqs'
+  const sectionSelected = 'faq'
   const previewBranch =
     preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
       ? JSON.parse(JSON.stringify(previewData)).branch

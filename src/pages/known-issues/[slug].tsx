@@ -77,7 +77,7 @@ const KnownIssuePage: NextPage<Props> = ({
     <>
       <Head>
         <title>{serialized.frontmatter?.title as string}</title>
-        <meta name="docsearch:doctype" content="Start here" />
+        <meta name="docsearch:doctype" content="known-issues" />
         {serialized.frontmatter?.title && (
           <meta
             name="docsearch:doctitle"

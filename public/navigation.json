@@ -22011,7 +22011,7 @@
             ]
         },
         {
-            "documentation": "news",
+            "documentation": "announcement",
             "name": {
                 "en": "News",
                 "es": "Anuncios",
@@ -27881,7 +27881,7 @@
             ]
         },
         {
-            "documentation": "faqs",
+            "documentation": "faq",
             "name": {
                 "en": "Frequently asked questions",
                 "es": "Preguntas frecuentes",

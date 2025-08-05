@@ -107,13 +107,15 @@ const TrackPage: NextPage<Props> = ({
   return (
     <>
       <Head>
-        <title>{serialized.frontmatter?.title as string}</title>
         <meta name="docsearch:doctype" content="tracks" />
         {serialized.frontmatter?.title && (
-          <meta
-            name="docsearch:doctitle"
-            content={serialized.frontmatter.title as string}
-          />
+          <>
+            <title>{serialized.frontmatter?.title as string}</title>
+            <meta
+              name="docsearch:doctitle"
+              content={serialized.frontmatter.title as string}
+            />
+          </>
         )}
         {serialized.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />

@@ -105,8 +105,16 @@ const AnnouncementPage: NextPage<Props> = ({
   return (
     <>
       <Head>
-        <title>{serialized.frontmatter?.title as string}</title>
         <meta name="docsearch:doctype" content="announcements" />
+        {serialized.frontmatter?.title && (
+          <>
+            <title>{serialized.frontmatter?.title as string}</title>
+            <meta
+              name="docsearch:doctitle"
+              content={serialized.frontmatter.title as string}
+            />
+          </>
+        )}
       </Head>
       <DocumentContextProvider headings={headings}>
         <Flex sx={styles.innerContainer}>
@@ -190,7 +198,7 @@ export const getStaticProps: GetStaticProps = async ({
   const flattenedSidebar = flattenJSON(sidebarfallback)
   const keyPath = getKeyByValue(flattenedSidebar, slug)
   const parentsArray: string[] = []
-  const sectionSelected = 'news'
+  const sectionSelected = 'announcements'
   if (keyPath) {
     getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
     parentsArray.push(slug)

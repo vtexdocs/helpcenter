@@ -59,16 +59,7 @@ export const menuDocumentationData = (intl: IntlShape) => {
 export const updatesData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
-      id: 'faqs',
-      Icon: FAQIcon,
-      title: intl.formatMessage({ id: 'updates_info_notes.title' }),
-      description: intl.formatMessage({
-        id: 'updates_info_notes.description',
-      }),
-      link: '/faq',
-    },
-    {
-      id: 'news',
+      id: 'announcements',
       Icon: MegaphoneIcon,
       title: intl.formatMessage({
         id: 'announcements_page.title',
@@ -77,6 +68,18 @@ export const updatesData = (intl: IntlShape) => {
         id: 'announcements_page.description',
       }),
       link: '/announcements',
+    },
+    {
+      id: 'Status',
+      Icon: GraphIcon,
+      title: intl.formatMessage({
+        id: 'menu_status.title',
+      }),
+      description: intl.formatMessage({
+        id: 'menu_status.description',
+      }),
+      link: 'https://status.vtex.com',
+      isExternalLink: true,
     },
     {
       id: 'Developer Portal',
@@ -113,6 +116,15 @@ export const feedbackSectionData = (intl: IntlShape) => {
 export const menuSupportData = (intl: IntlShape) => {
   const data: DocDataElement[] = [
     {
+      id: 'faq',
+      Icon: FAQIcon,
+      title: intl.formatMessage({ id: 'updates_info_notes.title' }),
+      description: intl.formatMessage({
+        id: 'updates_info_notes.description',
+      }),
+      link: '/faq',
+    },
+    {
       id: 'known-issues',
       Icon: WarningIcon,
       title: intl.formatMessage({
@@ -124,16 +136,13 @@ export const menuSupportData = (intl: IntlShape) => {
       link: '/known-issues',
     },
     {
-      id: 'Status',
-      Icon: GraphIcon,
-      title: intl.formatMessage({
-        id: 'menu_status.title',
-      }),
+      id: 'troubleshooting',
+      Icon: TroubleshootingIcon,
+      title: intl.formatMessage({ id: 'menu_troubleshooting.title' }),
       description: intl.formatMessage({
-        id: 'menu_status.description',
+        id: 'menu_troubleshooting.description',
       }),
-      link: 'https://status.vtex.com',
-      isExternalLink: true,
+      link: '/troubleshooting',
     },
     {
       id: 'Support Rules',
@@ -147,15 +156,6 @@ export const menuSupportData = (intl: IntlShape) => {
       link: intl.formatMessage({
         id: 'sidebar_support_rules.link',
       }),
-    },
-    {
-      id: 'troubleshooting',
-      Icon: TroubleshootingIcon,
-      title: intl.formatMessage({ id: 'menu_troubleshooting.title' }),
-      description: intl.formatMessage({
-        id: 'menu_troubleshooting.description',
-      }),
-      link: '/troubleshooting',
     },
   ]
 
