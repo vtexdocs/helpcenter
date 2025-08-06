@@ -90,6 +90,7 @@ export type AnnouncementDataElement = {
   createdAt: string
   updatedAt: string
   status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
+  synopsis?: string
 }
 
 export type SortByType = 'newest' | 'recently_updated'

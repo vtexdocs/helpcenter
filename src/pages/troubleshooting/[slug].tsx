@@ -24,6 +24,7 @@ import { fetchFileContributors } from 'utils/fetchFileContributors'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
+import FeedbackSection from 'components/feedback-section'
 
 interface Props {
   breadcrumbList: { slug: string; name: string; type: string }[]
@@ -31,6 +32,8 @@ interface Props {
   contributors: ContributorsType[]
   headingList: Item[]
   branch: string
+  path: string
+  slug: string
 }
 
 // Initialize in getStaticProps
@@ -45,6 +48,8 @@ const TroubleshootingPage: NextPage<Props> = ({
   contributors,
   breadcrumbList,
   branch,
+  path,
+  slug,
 }: Props) => {
   const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
@@ -132,6 +137,7 @@ const TroubleshootingPage: NextPage<Props> = ({
                 </article>
               </Box>
             </Box>
+            <FeedbackSection docPath={path} slug={slug} />
 
             <Box sx={styles.bottomContributorsContainer}>
               <Box sx={styles.bottomContributorsDivider} />

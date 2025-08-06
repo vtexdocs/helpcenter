@@ -162,6 +162,23 @@ export const getStaticProps: GetStaticProps = async ({
 
   const announcementsData: AnnouncementDataElement[] = []
 
+  function getAnnouncementSynopsis(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    frontmatter: any,
+    locale: localeType
+  ): string | undefined {
+    switch (locale) {
+      case 'en':
+        return frontmatter?.announcementSynopsisEN
+      case 'es':
+        return frontmatter?.announcementSynopsisES
+      case 'pt':
+        return frontmatter?.announcementSynopsisPT
+      default:
+        return undefined
+    }
+  }
+
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
     const batchResults = await fetchBatch(
@@ -183,6 +200,7 @@ export const getStaticProps: GetStaticProps = async ({
           createdAt: String(frontmatter.createdAt),
           updatedAt: String(frontmatter.updatedAt),
           status: String(frontmatter.status),
+          synopsis: getAnnouncementSynopsis(frontmatter, currentLocale),
         })
       }
     }
