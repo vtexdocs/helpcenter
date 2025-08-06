@@ -1,10 +1,11 @@
 html,
-body, *:not(i) {
+body,
+*:not(i) {
   font-family: 'VTEX Trust Regular', -apple-system, system-ui,
     BlinkMacSystemFont, sans-serif !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; 
-    text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body.modal-open {
@@ -63,7 +64,7 @@ pre,
 code,
 pre *,
 code * {
-  font-family: Consolas,monaco,monospace !important;
+  font-family: Consolas, monaco, monospace !important;
 }
 
 table td,
@@ -78,3 +79,27 @@ table tbody tr:nth-of-type(even) {
   background-color: #f8f7fc;
 }
 
+.chips-container::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scrollbar {
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  max-height: calc(100vh - 5rem - 16px);
+  scrollbar-width: thin;
+  scrollbar-color: white white;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background: white;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: #ccced8;
+}

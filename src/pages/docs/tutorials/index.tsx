@@ -21,9 +21,7 @@ const ContentSection = ({ id, length }: { id: string; length: number }) => {
 
   return (
     <>
-      <Text sx={styles.contentTitle}>
-        {intl.formatMessage({ id: `${id}.title` })}
-      </Text>
+      <Text>{intl.formatMessage({ id: `${id}.title` })}</Text>
       <Flex sx={styles.cardsContainer}>
         {Array(length)
           .fill('')

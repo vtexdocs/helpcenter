@@ -20,21 +20,8 @@ const innerContainer: SxStyleProp = {
   scrollbarWidth: 'thin',
   scrollbarColor: 'white white',
 
-  '::-webkit-scrollbar': {
-    width: '5px',
-  },
-
-  '::-webkit-scrollbar-thumb': {
-    borderRadius: '100px',
-    background: 'white',
-  },
-
   ':hover': {
     scrollbarColor: '#CCCED8 white',
-
-    '::-webkit-scrollbar-thumb': {
-      background: '#CCCED8',
-    },
   },
 }
 

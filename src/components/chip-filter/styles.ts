@@ -15,9 +15,6 @@ const chipsContainer: SxStyleProp = {
   '-ms-overflow-style': 'none',
   overflow: 'scroll',
   scrollBehavior: 'smooth',
-  '& ::-webkit-scrollbar': {
-    display: 'none',
-  },
   display: 'flex',
 }
 

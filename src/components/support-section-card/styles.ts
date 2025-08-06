@@ -3,7 +3,6 @@ import { SxStyleProp } from '@vtex/brand-ui'
 const cardContainer: SxStyleProp = {
   flexDirection: 'column',
   width: '290px',
-  height: '293px',
   boxSizing: 'initial',
   borderRadius: '8px',
   border: '1px solid #E7E9EE',
@@ -13,14 +12,19 @@ const cardContainer: SxStyleProp = {
     cursor: 'pointer',
     backgroundColor: 'white',
     borderColor: 'muted.2',
+    boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.1)',
     transition: 'all 0.3s ease-out',
 
     '.titleContainer': {
-      backgroundColor: '#363F4C',
+      backgroundColor: '#324154',
     },
 
     '.quickStartedContainer': {
       borderColor: 'muted.2',
+    },
+    '.learnMoreText': {
+      color: '#000711',
+      transition: 'all 0.3s ease-out',
     },
   },
 }
@@ -46,7 +50,6 @@ const infoContainer: SxStyleProp = {
   backgroundColor: '#FEFEFE',
   borderTopLeftRadius: '8px',
   borderTopRightRadius: '8px',
-  height: '157px',
 }
 
 const icon: SxStyleProp = {
@@ -81,15 +84,6 @@ const quickStartedContainer: SxStyleProp = {
   '.learnMoreText': {
     transition: 'all 0.3s ease-out',
   },
-
-  ':active, :hover': {
-    transition: 'all 0.3s ease-out',
-
-    '.learnMoreText': {
-      color: '#000711',
-      transition: 'all 0.3s ease-out',
-    },
-  },
 }
 
 const learnMoreText: SxStyleProp = {
@@ -97,7 +91,7 @@ const learnMoreText: SxStyleProp = {
   lineHeight: '22px',
   fontWeight: '400',
   color: '#e31c58',
-  textDecoration: 'underline solid 1px',
+  textDecoration: 'none',
 }
 
 const accessPortal: SxStyleProp = {

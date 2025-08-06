@@ -37,12 +37,10 @@ export async function extractStaticPropsParams({
   const branch = preview ? previewBranch : 'main'
   const slug = params?.slug as string
   const currentLocale: localeType = (locale as localeType) || 'en'
-
-  if (!docsPathsGLOBAL) {
-    docsPathsGLOBAL = await getDocsPaths(sectionSelected)
-  }
   const docsPaths =
-    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
+    preview ||
+    process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD ||
+    !docsPathsGLOBAL
       ? await getDocsPaths(sectionSelected, branch)
       : docsPathsGLOBAL
   const docExists = Boolean(docsPaths[slug])
