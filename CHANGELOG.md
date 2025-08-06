@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.3](https://github.com/vtexdocs/helpcenter/compare/v0.9.2...v0.9.3) (2025-08-06)
+
+
+### Chore
+
+* **package.json:** update components package to fix search result page ([186dac5](https://github.com/vtexdocs/helpcenter/commit/186dac5f107c0503570879814a51d22d92ea9cbb))
+
+
+### Refactoring
+
+* **pages:** refactor pages for easier maintanability ([8d0d134](https://github.com/vtexdocs/helpcenter/commit/8d0d1343f4ca2a91189ca883cfe9d21b47c4403c))
+
 ### [0.9.2](https://github.com/vtexdocs/helpcenter/compare/v0.9.1...v0.9.2) (2025-08-05)
 
 
