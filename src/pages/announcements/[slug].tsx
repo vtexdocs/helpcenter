@@ -22,7 +22,6 @@ import OnThisPage from 'components/on-this-page'
 import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 
 import getHeadings from 'utils/getHeadings'
-import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import getNavigation from 'utils/getNavigation'
 import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
 import replaceMagicBlocks from 'utils/replaceMagicBlocks'
@@ -48,6 +47,8 @@ import Breadcrumb from 'components/breadcrumb'
 import { AnnouncementDataElement } from 'utils/typings/types'
 import DateText from 'components/date-text'
 import CopyLinkButton from 'components/copy-link-button'
+import { serializeWithFallback } from 'utils/serializeWithFallback'
+import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 // Initialize in getStaticProps
 let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
   null
@@ -196,31 +197,26 @@ export const getStaticProps: GetStaticProps = async ({
 
   const sidebarfallback = await getNavigation()
   const flattenedSidebar = flattenJSON(sidebarfallback)
-  const keyPath = getKeyByValue(flattenedSidebar, slug)
+  const keyPath = getKeyByValue(flattenedSidebar, slug) as string
   const parentsArray: string[] = []
   const sectionSelected = 'announcements'
-  if (keyPath) {
-    getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-    parentsArray.push(slug)
-  } else {
-    logger.warn(
-      `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
-    )
-    return {
-      notFound: true,
-    }
-  }
-
   const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
 
   if (!path) {
-    // If the path is not found, the function below redirects the user to the localized URL. If the localized URL is not found, it returns a 404 page.
+    logger.warn(
+      `Path not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}. Redirecting to localized version.`
+    )
     return redirectToLocalizedUrl(
       keyPath,
       currentLocale,
       flattenedSidebar,
       'announcements'
     )
+  }
+
+  if (keyPath) {
+    getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+    parentsArray.push(slug)
   }
 
   let documentationContent =
@@ -231,9 +227,16 @@ export const getStaticProps: GetStaticProps = async ({
       .catch((err) => console.log(err))) || ''
 
   // Serialize content and parse frontmatter
-  let serialized = await serialize(documentationContent, {
-    parseFrontmatter: true,
+  let serialized = await serializeWithFallback({
+    content: documentationContent,
+    headingList: [],
+    logger,
+    path,
   })
+  if (!serialized) {
+    logger.error(`Serialization failed for ${path}`)
+    return { notFound: true }
+  }
 
   // Allow PUBLISHED and CHANGED status documents to be visible
   const allowedStatuses = ['PUBLISHED', 'CHANGED']
@@ -315,7 +318,7 @@ export const getStaticProps: GetStaticProps = async ({
 
     logger.info(`Processing ${slug}`)
     const seeAlsoData: AnnouncementDataElement[] = []
-    const seeAlsoUrls = serialized.frontmatter?.seeAlso
+    const seeAlsoUrls = serialized?.frontmatter?.seeAlso
       ? JSON.parse(JSON.stringify(serialized.frontmatter.seeAlso as string))
       : []
     await Promise.all(
@@ -350,9 +353,7 @@ export const getStaticProps: GetStaticProps = async ({
     return {
       props: {
         sectionSelected,
-        parentsArray: parentsArray.map((item) =>
-          item === undefined ? null : item
-        ),
+        parentsArray,
         slug,
         serialized,
         sidebarfallback,

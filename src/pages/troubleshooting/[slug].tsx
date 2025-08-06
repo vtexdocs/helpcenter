@@ -12,23 +12,18 @@ import { PreviewContext } from 'utils/contexts/preview'
 import DateText from 'components/date-text'
 import Contributors from 'components/contributors'
 import OnThisPage from 'components/on-this-page'
-import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
-import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import { getLogger } from 'utils/logging/log-util'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
-import {
-  flattenJSON,
-  getArticleParentsArray,
-  getKeyByValue,
-  localeType,
-} from 'utils/navigation-utils'
-import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
+import { flattenJSON, getKeyByValue, getParents } from 'utils/navigation-utils'
 import getNavigation from 'utils/getNavigation'
 import { getMessages } from 'utils/get-messages'
 import TimeToRead from 'components/TimeToRead'
 import CopyLinkButton from 'components/copy-link-button'
 import { serializeWithFallback } from 'utils/serializeWithFallback'
-import getGithubFile from 'utils/getGithubFile'
+import { fetchFileContributors } from 'utils/fetchFileContributors'
+import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
+import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
+import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 
 interface Props {
   breadcrumbList: { slug: string; name: string; type: string }[]
@@ -39,8 +34,10 @@ interface Props {
 }
 
 // Initialize in getStaticProps
-let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
-  null
+const docsPathsGLOBAL: Record<
+  string,
+  { locale: string; path: string }[]
+> | null = null
 
 const TroubleshootingPage: NextPage<Props> = ({
   serialized,
@@ -167,24 +164,31 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const logger = getLogger('troubleshooting')
   try {
-    const sectionSelected = 'troubleshooting'
-    const previewBranch =
-      preview &&
-      JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
-        ? JSON.parse(JSON.stringify(previewData)).branch
-        : 'main'
-    const branch = preview ? previewBranch : 'main'
-    const slug = params?.slug as string
-    const currentLocale: localeType = (locale ?? 'en') as localeType
-    if (!docsPathsGLOBAL) {
-      docsPathsGLOBAL = await getTroubleshootingPaths('troubleshooting')
+    const {
+      sectionSelected,
+      branch,
+      slug,
+      currentLocale,
+      docsPaths,
+      docExists,
+    } = await extractStaticPropsParams({
+      sectionSelected: 'troubleshooting',
+      params,
+      locale,
+      preview,
+      previewData,
+      docsPathsGLOBAL,
+    })
+
+    if (!docExists) {
+      logger.warn(
+        `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+      )
+      return { notFound: true }
     }
-    const docsPaths =
-      preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
-        ? await getTroubleshootingPaths('troubleshooting', branch)
-        : docsPathsGLOBAL
 
     const path = docsPaths[slug]?.find((e) => e.locale === currentLocale)?.path
+    const parentsArray: string[] = []
     const sidebarfallback = await getNavigation()
     const filteredSidebar = sidebarfallback.find(
       (item: { documentation: string }) =>
@@ -194,16 +198,9 @@ export const getStaticProps: GetStaticProps = async ({
     const keyPath = getKeyByValue(flattenedSidebar, slug) as string
 
     if (!path) {
-      if (!keyPath) {
-        logger.warn(
-          `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
-        )
-        return {
-          notFound: true,
-        }
-      }
-
-      // If the path is not found, the function below redirects the user to the localized URL. If the localized URL is not found, it returns a 404 page.
+      logger.warn(
+        `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
+      )
       return redirectToLocalizedUrl(
         keyPath,
         currentLocale,
@@ -212,33 +209,17 @@ export const getStaticProps: GetStaticProps = async ({
       )
     }
 
-    const parentsArray = getArticleParentsArray(
-      keyPath,
-      flattenedSidebar,
-      currentLocale,
-      slug
-    )
-
-    let documentationContent: string | null = null
-    try {
-      documentationContent = await getGithubFile(
-        'vtexdocs',
-        'help-center-content',
-        branch,
-        path
-      )
-    } catch (err) {
-      logger.error(
-        `Error fetching content for ${path} on branch ${branch}: ${err}`
-      )
-      return { notFound: true, revalidate: 3600 }
+    if (keyPath) {
+      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+      parentsArray.push(slug)
     }
 
-    documentationContent = replaceHTMLBlocks(documentationContent) || ''
+    const rawContent = await fetchRawMarkdown(branch, path)
+    const documentationContent = replaceHTMLBlocks(rawContent)
 
     // Serialize content and parse frontmatter
     const headingList: Item[] = []
-    let serialized = await serializeWithFallback({
+    const serialized = await serializeWithFallback({
       content: documentationContent,
       headingList,
       logger,
@@ -249,47 +230,16 @@ export const getStaticProps: GetStaticProps = async ({
       return { notFound: true }
     }
     // Allow PUBLISHED and CHANGED status documents to be visible
-    const allowedStatuses = ['PUBLISHED', 'CHANGED']
-    const hasAllowedStatus = allowedStatuses.includes(
-      serialized?.frontmatter?.status as string
-    )
-    if (!hasAllowedStatus) {
-      return {
-        notFound: true,
-      }
+    const status = serialized.frontmatter?.status as string
+    if (!['PUBLISHED', 'CHANGED'].includes(status)) {
+      logger.warn(
+        `Document status is not allowed for ${path}. Status: ${status}.'
+        )}`
+      )
+      return { notFound: true }
     }
 
-    const contributors =
-      (await fetch(
-        `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-        }
-      )
-        .then((res) => res.json())
-        .then(({ users }) => {
-          const result: ContributorsType[] = []
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          for (let i = 0; i < users.length; i++) {
-            const user = users[i]
-            if (user.id === '41898282') continue
-            result.push({
-              name: user.login,
-              login: user.login,
-              avatar: user.primaryAvatarUrl,
-              userPage: `https://github.com${user.profileLink}`,
-            })
-          }
-
-          return result
-        })
-        .catch((err) => console.log(err))) || []
-
-    serialized = JSON.parse(JSON.stringify(serialized))
+    const contributors = await fetchFileContributors(branch, path)
 
     logger.info(`Processing ${slug}`)
     const seeAlsoData: {
@@ -314,7 +264,7 @@ export const getStaticProps: GetStaticProps = async ({
     return {
       props: {
         slug,
-        serialized,
+        serialized: JSON.parse(JSON.stringify(serialized)),
         sidebarfallback,
         parentsArray,
         headingList,
