@@ -207,12 +207,14 @@ export const getStaticProps: GetStaticProps = async ({
       logger.warn(
         `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
       )
-      return redirectToLocalizedUrl(
-        keyPath,
-        currentLocale,
-        flattenedSidebar,
-        'troubleshooting'
-      )
+      if (keyPath) {
+        return redirectToLocalizedUrl(
+          keyPath,
+          currentLocale,
+          flattenedSidebar,
+          'troubleshooting'
+        )
+      }
     }
 
     if (keyPath) {
