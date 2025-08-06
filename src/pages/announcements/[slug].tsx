@@ -200,46 +200,45 @@ export const getStaticProps: GetStaticProps = async ({
         'announcements'
       )
     }
-  }
-
-  if (keyPath) {
-    getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-    parentsArray.push(slug)
-  }
-
-  const rawContent = await fetchRawMarkdown(branch, path)
-  const documentationContent = replaceHTMLBlocks(rawContent)
-
-  // Serialize content and parse frontmatter
-  const headingList: Item[] = []
-
-  const serialized = await serializeWithFallback({
-    content: documentationContent,
-    headingList,
-    logger,
-    path,
-  })
-  if (!serialized) {
-    logger.error(`Serialization failed for ${path}`)
     return { notFound: true }
   }
 
-  // Allow PUBLISHED and CHANGED status documents to be visible
-  const allowedStatuses = ['PUBLISHED', 'CHANGED']
-  const hasAllowedStatus = allowedStatuses.includes(
-    serialized?.frontmatter?.status as string
-  )
-  if (!hasAllowedStatus) {
-    return {
-      notFound: true,
-    }
-  }
-
-  // Process the rest of the data
-  const contributor = (await fetchFileContributors(branch, path))[0]
-
   try {
+    if (keyPath) {
+      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+      parentsArray.push(slug)
+    }
+
+    const rawContent = await fetchRawMarkdown(branch, path)
+    const documentationContent = replaceHTMLBlocks(rawContent)
+
+    const headingList: Item[] = []
+
+    const serialized = await serializeWithFallback({
+      content: documentationContent,
+      headingList,
+      logger,
+      path,
+    })
+
+    if (!serialized) {
+      logger.error(`Serialization failed for ${path}`)
+      return { notFound: true }
+    }
+
+    const allowedStatuses = ['PUBLISHED', 'CHANGED']
+    const hasAllowedStatus = allowedStatuses.includes(
+      serialized.frontmatter.status as string
+    )
+
+    if (!hasAllowedStatus) {
+      return { notFound: true }
+    }
+
+    const contributor = (await fetchFileContributors(branch, path))[0]
+
     logger.info(`Processing ${slug}`)
+
     const seeAlsoData: AnnouncementDataElement[] = []
     const seeAlsoUrls = serialized?.frontmatter?.seeAlso
       ? JSON.parse(JSON.stringify(serialized.frontmatter.seeAlso as string))
@@ -291,9 +290,7 @@ export const getStaticProps: GetStaticProps = async ({
     }
   } catch (error) {
     logger.error(`Error while processing ${path}\n${error}`)
-    return {
-      notFound: true,
-    }
+    return { notFound: true }
   }
 }
 

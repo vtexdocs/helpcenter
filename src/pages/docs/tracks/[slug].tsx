@@ -256,6 +256,7 @@ export const getStaticProps: GetStaticProps = async ({
         'tracks'
       )
     }
+    return { notFound: true }
   }
 
   try {

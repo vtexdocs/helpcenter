@@ -217,6 +217,7 @@ export const getStaticProps: GetStaticProps = async ({
         'tutorials'
       )
     }
+    return { notFound: true }
   }
   const parentsArray: string[] = []
   const parentsArrayName: string[] = []
