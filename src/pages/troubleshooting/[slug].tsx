@@ -215,6 +215,7 @@ export const getStaticProps: GetStaticProps = async ({
           'troubleshooting'
         )
       }
+      return { notFound: true }
     }
 
     if (keyPath) {

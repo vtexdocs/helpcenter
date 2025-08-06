@@ -216,6 +216,7 @@ export const getStaticProps: GetStaticProps = async ({
         'faq'
       )
     }
+    return { notFound: true }
   }
 
   try {

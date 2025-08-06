@@ -227,6 +227,7 @@ export const getStaticProps: GetStaticProps = async ({
           'known-issues'
         )
       }
+      return { notFound: true }
     }
 
     const rawContent = await fetchRawMarkdown(branch, path)
