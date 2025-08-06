@@ -1,11 +1,16 @@
 export type Locale = 'en' | 'pt' | 'es'
 
-export type DocumentationTitle =
-  | 'Start here'
-  | 'Tutorials'
-  | 'Developers Portal'
+export type SectionId =
+  | 'tracks'
+  | 'tutorials'
+  | 'faq'
+  | 'announcements'
+  | 'known-issues'
+  | 'troubleshooting'
 
-export type UpdatesTitle = 'Announcement' | 'FAQ'
+export type DocumentationTitle = 'Start here' | 'Tutorials'
+
+export type UpdatesTitle = 'News' | 'FAQs' | 'Known Issues' | 'Troubleshooting'
 
 export type SlugPrefix = 'tutorials'
 

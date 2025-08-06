@@ -1,7 +1,7 @@
 import { Fragment, useContext } from 'react'
 import { Box, Flex, Text } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
-import { DocumentationTitle, UpdatesTitle } from 'utils/typings/unionTypes'
+import { SectionId } from 'utils/typings/unionTypes'
 import PageHeader from 'components/page-header'
 import startHereImage from '../../../../public/images/start-here.png'
 import styles from 'styles/documentation-landing-page'
@@ -12,7 +12,7 @@ import WhatsNextCard from 'components/whats-next-card'
 import { getISRRevalidateTime } from 'utils/config'
 
 interface Props {
-  sectionSelected?: DocumentationTitle | UpdatesTitle | ''
+  sectionSelected?: SectionId | ''
   branch: string
 }
 
@@ -107,7 +107,7 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sectionSelected = 'Start here'
+  const sectionSelected = 'tracks'
 
   const previewBranch =
     preview &&

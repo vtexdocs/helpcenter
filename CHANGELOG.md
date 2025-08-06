@@ -2,6 +2,121 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.2](https://github.com/vtexdocs/helpcenter/compare/v0.9.1...v0.9.2) (2025-08-05)
+
+
+### Bug Fixes
+
+* **known-issues:** track navigation ([333ee2d](https://github.com/vtexdocs/helpcenter/commit/333ee2d3ab27d357c4e2ab42ca89ba0901cfeb6e))
+* **redirecttolocalizedurl:** fix defaultLocale redirect behavior and track troubleshooting sidebar ([283cca7](https://github.com/vtexdocs/helpcenter/commit/283cca727e6dbe2a2246c1c11d4fcf9457bba683))
+
+### [0.9.1](https://github.com/vtexdocs/helpcenter/compare/v0.9.0...v0.9.1) (2025-08-05)
+
+
+### Bug Fixes
+
+* **search:** update components package to v6.0.6 ([d8e66bd](https://github.com/vtexdocs/helpcenter/commit/d8e66bd20c60aa690e9091a51bd7028106bf3a9a))
+
+## [0.9.0](https://github.com/vtexdocs/helpcenter/compare/v0.8.6...v0.9.0) (2025-08-05)
+
+
+### Features
+
+* **pages:** add log for failed serialization ([e337f82](https://github.com/vtexdocs/helpcenter/commit/e337f82cdd5571f6ed339d594bedfe93019a1475))
+
+
+### Bug Fixes
+
+* **announcements:** fix announcements links ([eaeb299](https://github.com/vtexdocs/helpcenter/commit/eaeb299da3cb9f19d2f6c2aa4ba61def2a12a83a))
+* **faq:** fix faq position on sidebar ([45298bc](https://github.com/vtexdocs/helpcenter/commit/45298bc1e11b8883169b330a2bbf1a38bc766370))
+* **faq:** fix props ([65eedf9](https://github.com/vtexdocs/helpcenter/commit/65eedf95f0c356217e64183f00b28f0212c0f449))
+* **known-issues:** update contributors ([f82d2fd](https://github.com/vtexdocs/helpcenter/commit/f82d2fd839764cbcdc7c98b0a1c7edea9d0ce86e))
+* **replacehtmlblocks:** avoid erros with conditional props ([b8cab84](https://github.com/vtexdocs/helpcenter/commit/b8cab8475fb24128044b00c6365ea5bbcfdfba3a))
+* **replacehtmlblocks:** minor fixes + replace HTML divs ([ee25c1c](https://github.com/vtexdocs/helpcenter/commit/ee25c1c441cdd097baf96e29e837dd10f9a4517c))
+
+
+### Refactoring
+
+* **pages:** refactor serialization ([d7e3618](https://github.com/vtexdocs/helpcenter/commit/d7e3618be8737b65240779475511230465778f43))
+
+### [0.8.6](https://github.com/vtexdocs/helpcenter/compare/v0.8.4...v0.8.6) (2025-08-04)
+
+
+### Features
+
+* **faq:** add feedbacksection component to faq pages ([cb48066](https://github.com/vtexdocs/helpcenter/commit/cb48066a4538e33020bf1a842ae1718275d5c6cc))
+
+
+### Bug Fixes
+
+* **types.ts:** remove optional ([c12fdb6](https://github.com/vtexdocs/helpcenter/commit/c12fdb605bef942e0a5dad3332ec0ea4d17ec54a))
+* update EN urls ([37266fd](https://github.com/vtexdocs/helpcenter/commit/37266fd3909b39864f0be1179ce9eb1eb656d249))
+* update ES urls ([0f3cee9](https://github.com/vtexdocs/helpcenter/commit/0f3cee9cb20f549ac1e9cb3b8e17aa6ecd96430d))
+* update PT urls ([9555035](https://github.com/vtexdocs/helpcenter/commit/95550355b563fc8ca51fe79c82256bd40b1a34b9))
+* **utils:** fix constants, types and sectionSelected bug ([211a8c1](https://github.com/vtexdocs/helpcenter/commit/211a8c1e5d72228d5827ebd21da87b50b4469451))
+
+### [0.8.4](https://github.com/vtexdocs/helpcenter/compare/v0.8.3...v0.8.4) (2025-08-04)
+
+
+### Features
+
+* add localized new tag ([90b4250](https://github.com/vtexdocs/helpcenter/commit/90b4250973326d6665cdfe19bb08ffcf17271008))
+
+
+### Bug Fixes
+
+* edit faq home page cards ([f73867d](https://github.com/vtexdocs/helpcenter/commit/f73867d715bf9cefbad3b1cddab8a586f5aa44b7))
+* get only recently created announcements ([35495d1](https://github.com/vtexdocs/helpcenter/commit/35495d1cad5b2cb4bb1852d18cc5842a0340a68b))
+* **header:** fix announcement bar and header behavior ([90bcf4a](https://github.com/vtexdocs/helpcenter/commit/90bcf4a8f336881937fa110ca4b73d3420d5add6))
+
+
+### Style
+
+* **icons:** fix icon thickness, stroke and fill ([d36a694](https://github.com/vtexdocs/helpcenter/commit/d36a69411e487efad5012ad52043769e9efb535d))
+
+
+### Refactoring
+
+* delete unused files ([8c97ec6](https://github.com/vtexdocs/helpcenter/commit/8c97ec68b01a7ea11cef150948861cd26901abfb))
+* **pages/index.tsx:** refactor data fetching on home page ([98277c7](https://github.com/vtexdocs/helpcenter/commit/98277c7a21fb546d52e1c1cf2752917b6dc85e70))
+* **pages:** separate reusable fetchBatch code ([ad45047](https://github.com/vtexdocs/helpcenter/commit/ad45047f9ae336b985aa0d8afbb25e338b198ad4))
+
+### [0.8.3](https://github.com/vtexdocs/helpcenter/compare/v0.8.2...v0.8.3) (2025-08-01)
+
+
+### Bug Fixes
+
+* **messages:** support url ([7662dbd](https://github.com/vtexdocs/helpcenter/commit/7662dbdc9491bfb3b62bc2ded08f93cad6481dc0))
+
+
+### Chore
+
+* **navigation:** update navigation ([46723aa](https://github.com/vtexdocs/helpcenter/commit/46723aabb85de54b1a93e326f95c074e0a2a3dff))
+
+### [0.8.2](https://github.com/vtexdocs/helpcenter/compare/v0.8.1...v0.8.2) (2025-07-28)
+
+
+### Features
+
+* add article pagination messages ([0a255dc](https://github.com/vtexdocs/helpcenter/commit/0a255dc8e8bc446f18c56e70691c016a1bcee785))
+* changing menu order ([1e241dd](https://github.com/vtexdocs/helpcenter/commit/1e241dd6de45da3274a7d8596ca8491aa70911fd))
+* fetch kis from known-issues repo ([548b98d](https://github.com/vtexdocs/helpcenter/commit/548b98dc3967cf98f4331aecaf0b125a485d7cec))
+* fetch kis from known-issues repo ([f7e1892](https://github.com/vtexdocs/helpcenter/commit/f7e1892c6ac76fb76fa40e3010b5f6cc13864e40))
+* localizing ES string ([f01f2cb](https://github.com/vtexdocs/helpcenter/commit/f01f2cb90ffc2821f14e1a093cf65aa1fb9097a2))
+* localizing ES strings ([cdf6c52](https://github.com/vtexdocs/helpcenter/commit/cdf6c52a33ccbd2eb6997cdd836b913d88113e9d))
+* support localized strings in article pagination ([04eb34f](https://github.com/vtexdocs/helpcenter/commit/04eb34f10b2add4f45e3274450326d4de167f7af))
+
+
+### Bug Fixes
+
+* change logger to Known Issues ([19d0c92](https://github.com/vtexdocs/helpcenter/commit/19d0c92f332fa606c4d6464ef101b9bff41c85f5))
+
+
+### Chore
+
+* **navigation:** update navigation ([b4807f6](https://github.com/vtexdocs/helpcenter/commit/b4807f67021a889a2df87692dc5ec03b0ad434b4))
+* **navigation:** update navigation.json file ([e9921b4](https://github.com/vtexdocs/helpcenter/commit/e9921b41aed2a734fe37d11ed7e036b3b49344ec))
+
 ### [0.8.1](https://github.com/vtexdocs/helpcenter/compare/v0.8.0...v0.8.1) (2025-07-17)
 
 

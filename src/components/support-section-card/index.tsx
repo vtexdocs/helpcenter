@@ -18,7 +18,7 @@ const SupportSectionCard = ({
   const descriptionRef = useRef<HTMLElement>()
 
   return (
-    <Link href={link}>
+    <Link href={link} target={isExternalLink ? '_blank' : '_self'}>
       <Flex sx={styles.cardContainer}>
         <Flex className="titleContainer" sx={styles.titleContainer}>
           <Icon sx={styles.icon} />

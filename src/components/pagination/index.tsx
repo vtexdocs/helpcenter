@@ -39,7 +39,7 @@ const Pagination = ({ forcePage, pageCount, onPageChange }: Props) => {
         breakLinkClassName="page-link"
         containerClassName="pagination"
         activeClassName="active"
-        renderOnZeroPageCount={() => <></>}
+        renderOnZeroPageCount={undefined}
       />
     </Box>
   )
