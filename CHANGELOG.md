@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.4](https://github.com/vtexdocs/helpcenter/compare/v0.9.3...v0.9.4) (2025-08-06)
+
+
+### Features
+
+* **pages:** add synopsis to announcements cards ([0b2b0b8](https://github.com/vtexdocs/helpcenter/commit/0b2b0b8c2fa4be7ec1ed1c0bfdae8722f30c1999))
+
+
+### Bug Fixes
+
+* **package.json:** fix search results page ([beabddd](https://github.com/vtexdocs/helpcenter/commit/beabdddd0aa93d30a4ff31ceccc2bfe6ef521c0c))
+* **pages:** redirect to localized if keypath ([7f7ae6e](https://github.com/vtexdocs/helpcenter/commit/7f7ae6e50cbadf6c0f66ebf02e68f6c6a26341dd))
+* **pages:** return not fond if path does not exist ([a45ed63](https://github.com/vtexdocs/helpcenter/commit/a45ed6391faddbe0fb8cea2a508ab3dd8975892a))
+* **tutorials:** fix keyPath usage ([afc8a3c](https://github.com/vtexdocs/helpcenter/commit/afc8a3c00baff749ca8c8f8615e6cadc73f9c958))
+* **tutorials:** refactoring ([73573a3](https://github.com/vtexdocs/helpcenter/commit/73573a35e8d8b563cae57c2a6143affdfc178571))
+
+
+### Style
+
+* **components:** minor improvements ([fd35310](https://github.com/vtexdocs/helpcenter/commit/fd353105dc1e6aa654c6de133738d50cf7ca99ab))
+
 ### [0.9.3](https://github.com/vtexdocs/helpcenter/compare/v0.9.2...v0.9.3) (2025-08-06)
 
 
