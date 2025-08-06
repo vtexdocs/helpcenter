@@ -220,6 +220,7 @@ export const getStaticProps: GetStaticProps = async ({
   const parentsArrayName: string[] = []
   const parentsArrayType: string[] = []
   let type = ''
+  let categoryTitle = ''
   if (keyPath) {
     const keyPathType = keyPath.split('slug')[0].concat('type')
     type = flattenedSidebar[keyPathType]
@@ -236,7 +237,7 @@ export const getStaticProps: GetStaticProps = async ({
 
     const mainKeyPath = keyPath.split('slug')[0]
     const nameKeyPath = mainKeyPath.concat(`name.${currentLocale}`) // MODIFIED: use currentLocale
-    const categoryTitle = flattenedSidebar[nameKeyPath]
+    categoryTitle = flattenedSidebar[nameKeyPath]
     parentsArrayName.push(categoryTitle)
 
     getParents(
