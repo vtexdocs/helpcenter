@@ -5,9 +5,6 @@ import Breadcrumb from 'components/breadcrumb'
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
 import SeeAlsoSection from 'components/see-also-section'
-import startHereImage from '../../../public/images/start-here.png'
-import PageHeader from 'components/page-header'
-import { useIntl } from 'react-intl'
 import DocumentContextProvider from 'utils/contexts/documentContext'
 import { Item, MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
 
@@ -58,8 +55,6 @@ const TutorialMarkdownRender = ({
   pagination,
   slug,
 }: Props) => {
-  const intl = useIntl()
-
   return (
     <>
       <Head>
@@ -83,18 +78,6 @@ const TutorialMarkdownRender = ({
           />
         )}
       </Head>
-      <PageHeader
-        title={intl.formatMessage({
-          id: 'documentation_tutorials.title',
-        })}
-        description={intl.formatMessage({
-          id: 'documentation_tutorials.description',
-        })}
-        imageUrl={startHereImage}
-        imageAlt={intl.formatMessage({
-          id: 'documentation_tutorials.title',
-        })}
-      />
       <DocumentContextProvider headings={headings}>
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
