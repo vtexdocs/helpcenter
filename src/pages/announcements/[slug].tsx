@@ -1,17 +1,8 @@
 import Head from 'next/head'
 import { useEffect, useState, useContext, useRef } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import remarkGFM from 'remark-gfm'
-import rehypeHighlight from 'rehype-highlight'
-import hljsCurl from 'highlightjs-curl'
-import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
-import { remarkCodeHike } from '@code-hike/mdx'
-import theme from 'styles/code-hike-theme'
-
-import remarkImages from 'utils/remark_plugins/plaiceholder'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
 
@@ -21,11 +12,7 @@ import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
 import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 
-import getHeadings from 'utils/getHeadings'
 import getNavigation from 'utils/getNavigation'
-import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
-import replaceMagicBlocks from 'utils/replaceMagicBlocks'
-import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
@@ -33,12 +20,7 @@ import styles from 'styles/announcement-page'
 import { ContributorsType } from 'utils/getFileContributors'
 
 import { getLogger } from 'utils/logging/log-util'
-import {
-  flattenJSON,
-  getKeyByValue,
-  getParents,
-  localeType,
-} from 'utils/navigation-utils'
+import { flattenJSON, getKeyByValue, getParents } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 import Author from 'components/author'
 import { useIntl } from 'react-intl'
@@ -49,9 +31,14 @@ import DateText from 'components/date-text'
 import CopyLinkButton from 'components/copy-link-button'
 import { serializeWithFallback } from 'utils/serializeWithFallback'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
+import { fetchFileContributors } from 'utils/fetchFileContributors'
+import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
+import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 // Initialize in getStaticProps
-let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
-  null
+const docsPathsGLOBAL: Record<
+  string,
+  { locale: string; path: string }[]
+> | null = null
 
 interface Props {
   sectionSelected: string
@@ -176,35 +163,34 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const previewBranch =
-    preview && JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
-      ? JSON.parse(JSON.stringify(previewData)).branch
-      : 'main'
-  const branch = preview ? previewBranch : 'main'
-  const slug = params?.slug as string
-  const currentLocale: localeType = locale
-    ? (locale as localeType)
-    : ('en' as localeType)
-  if (!docsPathsGLOBAL) {
-    docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
-  }
-  const docsPaths =
-    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
-      ? await getAnnouncementsPaths('announcements', branch)
-      : docsPathsGLOBAL
-
   const logger = getLogger('News')
+
+  const { sectionSelected, branch, slug, currentLocale, docsPaths, docExists } =
+    await extractStaticPropsParams({
+      sectionSelected: 'announcements',
+      params,
+      locale,
+      preview,
+      previewData,
+      docsPathsGLOBAL,
+    })
+
+  if (!docExists) {
+    logger.warn(
+      `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
+    return { notFound: true }
+  }
 
   const sidebarfallback = await getNavigation()
   const flattenedSidebar = flattenJSON(sidebarfallback)
   const keyPath = getKeyByValue(flattenedSidebar, slug) as string
   const parentsArray: string[] = []
-  const sectionSelected = 'announcements'
   const path = docsPaths[slug]?.find((e) => e.locale === locale)?.path
 
   if (!path) {
     logger.warn(
-      `Path not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}. Redirecting to localized version.`
+      `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
     )
     return redirectToLocalizedUrl(
       keyPath,
@@ -219,17 +205,15 @@ export const getStaticProps: GetStaticProps = async ({
     parentsArray.push(slug)
   }
 
-  let documentationContent =
-    (await fetch(
-      `https://raw.githubusercontent.com/vtexdocs/help-center-content/${branch}/${path}`
-    )
-      .then((res) => res.text())
-      .catch((err) => console.log(err))) || ''
+  const rawContent = await fetchRawMarkdown(branch, path)
+  const documentationContent = replaceHTMLBlocks(rawContent)
 
   // Serialize content and parse frontmatter
-  let serialized = await serializeWithFallback({
+  const headingList: Item[] = []
+
+  const serialized = await serializeWithFallback({
     content: documentationContent,
-    headingList: [],
+    headingList,
     logger,
     path,
   })
@@ -250,72 +234,9 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   // Process the rest of the data
-  const contributors =
-    (await fetch(
-      `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then(({ users }) => {
-        const result: ContributorsType[] = []
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        for (let i = 0; i < users.length; i++) {
-          const user = users[i]
-          if (user.id === '41898282') continue
-          result.push({
-            name: user.login,
-            login: user.login,
-            avatar: user.primaryAvatarUrl,
-            userPage: `https://github.com${user.profileLink}`,
-          })
-        }
-
-        return result
-      })
-      .catch((err) => console.log(err))) || []
-
-  const contributor = contributors[0]
-
-  let format: 'md' | 'mdx' = 'mdx'
-  try {
-    if (path.endsWith('.md')) {
-      documentationContent = escapeCurlyBraces(documentationContent)
-      documentationContent = replaceHTMLBlocks(documentationContent)
-      documentationContent = await replaceMagicBlocks(documentationContent)
-    }
-  } catch (error) {
-    logger.error(`${error}`)
-    format = 'md'
-  }
+  const contributor = (await fetchFileContributors(branch, path))[0]
 
   try {
-    const headingList: Item[] = []
-    serialized = await serialize(documentationContent, {
-      parseFrontmatter: true,
-      mdxOptions: {
-        remarkPlugins: [
-          [remarkCodeHike, theme],
-          remarkGFM,
-          remarkImages,
-          [getHeadings, { headingList }],
-          remarkBlockquote,
-        ],
-        useDynamicImport: true,
-        rehypePlugins: [
-          [rehypeHighlight, { languages: { hljsCurl }, ignoreMissing: true }],
-        ],
-        format,
-      },
-    })
-
-    serialized = JSON.parse(JSON.stringify(serialized))
-
     logger.info(`Processing ${slug}`)
     const seeAlsoData: AnnouncementDataElement[] = []
     const seeAlsoUrls = serialized?.frontmatter?.seeAlso
@@ -355,7 +276,7 @@ export const getStaticProps: GetStaticProps = async ({
         sectionSelected,
         parentsArray,
         slug,
-        serialized,
+        serialized: JSON.parse(JSON.stringify(serialized)),
         sidebarfallback,
         headingList,
         contributor,
