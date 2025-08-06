@@ -56,6 +56,11 @@ const AnnouncementCard = ({
             <Text sx={{ ...styles.date[appearance] }}>{createdAtText}</Text>
           </Flex>
         )}
+        {announcement?.synopsis && (
+          <Text sx={{ ...styles.synopsis[appearance] }}>
+            {announcement.synopsis}
+          </Text>
+        )}
       </Box>
     </Link>
   )
