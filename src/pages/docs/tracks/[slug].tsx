@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { useEffect, useState, useContext, useRef } from 'react'
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next' // MODIFIED: Changed GetServerSideProps to GetStaticProps
-import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import jp from 'jsonpath'
 import ArticlePagination from 'components/article-pagination'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -19,7 +18,6 @@ import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
 
 import getNavigation from 'utils/getNavigation'
-import getGithubFile from 'utils/getGithubFile' // ADDED: Import getGithubFile
 import {
   getDocsPaths as getTracksPaths,
   // getStaticPathsForDocType, // Removed unused import
@@ -28,27 +26,26 @@ import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
 import styles from 'styles/documentation-page'
-import getFileContributors, {
-  ContributorsType,
-} from 'utils/getFileContributors' // MODIFIED: Import getFileContributors as default
+import { ContributorsType } from 'utils/getFileContributors'
 
 import { getLogger } from 'utils/logging/log-util'
-import {
-  flattenJSON,
-  getKeyByValue,
-  getParents,
-  localeType,
-} from 'utils/navigation-utils'
+import { flattenJSON, getKeyByValue, getParents } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 
 import TimeToRead from 'components/TimeToRead'
 import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 import CopyLinkButton from 'components/copy-link-button'
 import { serializeWithFallback } from 'utils/serializeWithFallback'
+import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
+import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
+import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
+import { fetchFileContributors } from 'utils/fetchFileContributors'
 
 // Initialize in getStaticProps
-let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
-  null
+const docsPathsGLOBAL: Record<
+  string,
+  { locale: string; path: string }[]
+> | null = null
 
 interface Props {
   sectionSelected: string
@@ -215,10 +212,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-interface PreviewData {
-  branch?: string
-}
-
 export const getStaticProps: GetStaticProps = async ({
   params,
   locale,
@@ -226,85 +219,49 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const logger = getLogger('TracksPage-GetStaticProps') // MODIFIED: More specific logger name
+  const { sectionSelected, branch, slug, currentLocale, docsPaths, docExists } =
+    await extractStaticPropsParams({
+      sectionSelected: 'tracks',
+      params,
+      locale,
+      preview,
+      previewData,
+      docsPathsGLOBAL,
+    })
+
+  if (!docExists) {
+    logger.warn(
+      `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
+    return { notFound: true }
+  }
+
+  const path = docsPaths[slug]?.find((e) => e.locale === currentLocale)?.path
+  const sidebarfallback = await getNavigation()
+  const filteredSidebar = sidebarfallback.find(
+    (item: { documentation: string }) => item.documentation === sectionSelected
+  )
+  const flattenedSidebar = flattenJSON(filteredSidebar)
+  const keyPath = getKeyByValue(flattenedSidebar, slug) as string
+
+  if (!path) {
+    logger.warn(
+      `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
+    )
+    return redirectToLocalizedUrl(
+      keyPath,
+      currentLocale,
+      flattenedSidebar,
+      'tracks'
+    )
+  }
 
   try {
-    const sectionSelected = 'tracks'
-    const slug = params?.slug as string
-    const langFromParams = params?.lang as string | undefined
-    const currentLocale: localeType = (langFromParams ||
-      locale ||
-      'en') as localeType
-
-    const previewBranch =
-      preview &&
-      previewData &&
-      typeof previewData === 'object' &&
-      'branch' in previewData
-        ? (previewData as PreviewData).branch || 'main'
-        : 'main'
-    const branch = preview ? previewBranch : 'main'
-
-    if (!docsPathsGLOBAL) {
-      docsPathsGLOBAL = await getTracksPaths('tracks')
-    }
-    const docsPaths =
-      preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
-        ? await getTracksPaths('tracks', branch)
-        : docsPathsGLOBAL
-
-    const docEntry = docsPaths[slug]?.find((e) => e.locale === currentLocale)
-    const path = docEntry?.path
-
-    if (!path) {
-      logger.info(
-        `Path not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
-      )
-      return { notFound: true }
-    }
-
-    // MODIFIED: Use getGithubFile to fetch documentation content
-    let documentationContent: string | null = null
-    try {
-      documentationContent = await getGithubFile(
-        'vtexdocs',
-        'help-center-content',
-        branch,
-        path
-      )
-    } catch (err) {
-      logger.error(
-        `Error fetching content for ${path} on branch ${branch}: ${err}`
-      )
-      return { notFound: true, revalidate: 3600 }
-    }
-
-    documentationContent = replaceHTMLBlocks(documentationContent) || ''
-
-    // MODIFIED: Use getFileContributors to fetch contributors
-    let contributors: ContributorsType[] = []
-    try {
-      const fetchedContributors = await getFileContributors(
-        'vtexdocs',
-        'help-center-content',
-        branch,
-        path
-      )
-      // Ensure fetchedContributors is an array before assigning
-      if (Array.isArray(fetchedContributors)) {
-        contributors = fetchedContributors
-      } else {
-        logger.info(
-          `Fetched contributors is not an array for ${path} on branch ${branch}. Received: ${typeof fetchedContributors}`
-        )
-      }
-    } catch (err) {
-      logger.info(
-        `Error fetching contributors for ${path} on branch ${branch}: ${err}`
-      )
-    }
+    const rawContent = await fetchRawMarkdown(branch, path)
+    const documentationContent = replaceHTMLBlocks(rawContent)
 
     const headingList: Item[] = []
-    let serialized = await serializeWithFallback({
+    const serialized = await serializeWithFallback({
       content: documentationContent,
       headingList,
       logger,
@@ -316,22 +273,16 @@ export const getStaticProps: GetStaticProps = async ({
     }
 
     // Allow PUBLISHED and CHANGED status documents to be visible
-    const allowedStatuses = ['PUBLISHED', 'CHANGED']
-    const status = serialized?.frontmatter?.status as string
-
-    if (status && !allowedStatuses.includes(status)) {
-      logger.info(
-        `Document status is not allowed for ${path}. Status: ${status}, Allowed: ${allowedStatuses.join(
-          ', '
+    const status = serialized.frontmatter?.status as string
+    if (!['PUBLISHED', 'CHANGED'].includes(status)) {
+      logger.warn(
+        `Document status is not allowed for ${path}. Status: ${status}.'
         )}`
       )
-      return {
-        notFound: true,
-      }
+      return { notFound: true }
     }
 
-    const sidebarfallback = await getNavigation()
-    serialized = JSON.parse(JSON.stringify(serialized))
+    const contributors = await fetchFileContributors(branch, path)
 
     logger.info(`Processing ${slug}`)
     const seeAlsoData: {
@@ -447,11 +398,9 @@ export const getStaticProps: GetStaticProps = async ({
       },
     }
 
-    const flattenedSidebar = flattenJSON(sidebarfallback)
     const isListed: boolean = getKeyByValue(flattenedSidebar, slug)
       ? true
       : false
-    const keyPath = getKeyByValue(flattenedSidebar, slug)
     const parentsArray: string[] = []
     const parentsArrayName: string[] = []
     const parentsArrayType: string[] = []
@@ -506,7 +455,7 @@ export const getStaticProps: GetStaticProps = async ({
         sectionSelected,
         parentsArray: sanitizedParentsArray,
         slug,
-        serialized,
+        serialized: JSON.parse(JSON.stringify(serialized)),
         // ❌ REMOVED: sidebarfallback (3.4MB navigation no longer sent to client)
         headingList,
         contributors,

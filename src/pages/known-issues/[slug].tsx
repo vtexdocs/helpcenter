@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { useEffect, useState, useContext, useRef } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 import { Box, Flex, Text } from '@vtex/brand-ui'
@@ -27,21 +26,25 @@ import {
   flattenJSON,
   getArticleParentsArray,
   getKeyByValue,
-  localeType,
 } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 // import { ParsedUrlQuery } from 'querystring'
 
-import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { getMessages } from 'utils/get-messages'
 import Tag from 'components/tag'
 import DateText from 'components/date-text'
 import CopyLinkButton from 'components/copy-link-button'
 import { serializeWithFallback } from 'utils/serializeWithFallback'
+import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
+import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
+import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
+import { fetchFileContributors } from 'utils/fetchFileContributors'
 
 // Initialize in getStaticProps
-let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
-  null
+const docsPathsGLOBAL: Record<
+  string,
+  { locale: string; path: string }[]
+> | null = null
 
 interface Props {
   breadcrumbList: { slug: string; name: string; type: string }[]
@@ -49,12 +52,6 @@ interface Props {
   contributors: ContributorsType[]
   headingList: Item[]
   branch: string
-  parentsArray?: string[]
-  sectionSelected: string
-  slug: string
-  path: string
-  seeAlsoData: { url: string; title: string; category: string }[]
-  sidebarfallback: any //eslint-disable-line
 }
 
 const KnownIssuePage: NextPage<Props> = ({
@@ -192,59 +189,47 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const logger = getLogger('Known Issues')
+  const { sectionSelected, branch, slug, currentLocale, docsPaths, docExists } =
+    await extractStaticPropsParams({
+      sectionSelected: 'known-issues',
+      params,
+      locale,
+      preview,
+      previewData,
+      docsPathsGLOBAL,
+    })
 
+  if (!docExists) {
+    logger.warn(
+      `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
+    return { notFound: true }
+  }
   try {
-    const sectionSelected = 'known-issues'
-    const slug = params?.slug as string
-    const currentLocale: localeType = (locale ?? 'en') as localeType
-
-    const previewBranch =
-      preview &&
-      JSON.parse(JSON.stringify(previewData)).hasOwnProperty('branch')
-        ? JSON.parse(JSON.stringify(previewData)).branch
-        : 'main'
-
-    const branch = preview ? previewBranch : 'main'
-
-    if (!docsPathsGLOBAL) {
-      docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
-    }
-
-    const docsPaths =
-      preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
-        ? await getKnownIssuesPaths('known-issues', branch)
-        : docsPathsGLOBAL
-
-    const docEntry = docsPaths[slug]?.find((e) => e.locale === currentLocale)
-    const path = docEntry?.path
-
-    if (!path) {
-      logger.warn(
-        `Path not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
-      )
-      return { notFound: true }
-    }
-
+    const path = docsPaths[slug]?.find((e) => e.locale === currentLocale)?.path
     const sidebarfallback = await getNavigation()
     const filteredSidebar = sidebarfallback.find(
       (item: { documentation: string }) =>
         item.documentation === sectionSelected
     )
     const flattenedSidebar = flattenJSON(filteredSidebar)
+    const keyPath = getKeyByValue(flattenedSidebar, slug) as string
 
-    let documentationContent = ''
-    try {
-      documentationContent = await fetch(
-        `https://raw.githubusercontent.com/vtexdocs/known-issues/${branch}/${path}`
-      ).then((res) => res.text())
-    } catch (err) {
-      logger.error(`Failed to fetch content for ${path}: ${err}`)
-      return { notFound: true }
+    if (!path) {
+      logger.warn(
+        `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
+      )
+      return redirectToLocalizedUrl(
+        keyPath,
+        currentLocale,
+        flattenedSidebar,
+        'known-issues'
+      )
     }
 
-    documentationContent = replaceHTMLBlocks(documentationContent)
+    const rawContent = await fetchRawMarkdown(branch, path)
+    const documentationContent = replaceHTMLBlocks(rawContent)
 
-    const keyPath = getKeyByValue(flattenedSidebar, slug) as string
     let parentsArray: string[] = []
 
     if (keyPath) {
@@ -267,43 +252,17 @@ export const getStaticProps: GetStaticProps = async ({
       logger.error(`Serialization failed for ${path}`)
       return { notFound: true }
     }
-    const allowedStatuses = ['PUBLISHED', 'CHANGED']
-    const hasAllowedStatus = allowedStatuses.includes(
-      serialized?.frontmatter?.status as string
-    )
-    if (!hasAllowedStatus) {
+
+    const status = serialized.frontmatter?.status as string
+    if (!['PUBLISHED', 'CHANGED'].includes(status)) {
+      logger.warn(
+        `Document status is not allowed for ${path}. Status: ${status}.'
+        )}`
+      )
       return { notFound: true }
     }
 
-    const contributors =
-      (await fetch(
-        `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-        }
-      )
-        .then((res) => res.json())
-        .then(({ users }) => {
-          const result: ContributorsType[] = []
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          for (let i = 0; i < users.length; i++) {
-            const user = users[i]
-            if (user.id === '41898282') continue
-            result.push({
-              name: user.login,
-              login: user.login,
-              avatar: user.primaryAvatarUrl,
-              userPage: `https://github.com${user.profileLink}`,
-            })
-          }
-
-          return result
-        })
-        .catch((err) => console.log(err))) || []
+    const contributors = await fetchFileContributors(branch, path)
 
     logger.info(`Processing ${slug}`)
 
@@ -322,27 +281,20 @@ export const getStaticProps: GetStaticProps = async ({
       },
     ]
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const props: Props = {
-      sectionSelected,
-      slug,
-      serialized: JSON.parse(JSON.stringify(serialized)),
-      sidebarfallback,
-      headingList,
-      contributors,
-      path,
-      seeAlsoData,
-      breadcrumbList,
-      branch,
-    }
-
-    // Only add parentsArray if keyPath exists
-    if (keyPath) {
-      props.parentsArray = parentsArray
-    }
-
     return {
-      props,
+      props: {
+        sectionSelected,
+        slug,
+        serialized: JSON.parse(JSON.stringify(serialized)),
+        sidebarfallback,
+        headingList,
+        parentsArray,
+        contributors,
+        path,
+        seeAlsoData,
+        breadcrumbList,
+        branch,
+      },
       revalidate: 600,
     }
   } catch (error) {

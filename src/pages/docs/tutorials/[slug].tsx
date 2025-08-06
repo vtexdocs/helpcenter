@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next' // MODIFIED: Changed GetServerSideProps to GetStaticProps
-import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import jp from 'jsonpath'
 
 import { serialize } from 'next-mdx-remote/serialize'
@@ -14,9 +13,7 @@ import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
-import getFileContributors, {
-  ContributorsType,
-} from 'utils/getFileContributors' // ADDED: Import getFileContributors
+import { ContributorsType } from 'utils/getFileContributors' // ADDED: Import getFileContributors
 
 import { getLogger } from 'utils/logging/log-util'
 import {
@@ -24,13 +21,16 @@ import {
   getChildren,
   getKeyByValue,
   getParents,
-  localeType,
 } from 'utils/navigation-utils'
 
 import TutorialIndexing from 'components/tutorial-index'
 import TutorialMarkdownRender from 'components/tutorial-markdown-render'
 import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
 import { serializeWithFallback } from 'utils/serializeWithFallback'
+import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
+import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
+import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
+import { fetchFileContributors } from 'utils/fetchFileContributors'
 
 // Initialize in getStaticProps
 let docsPathsGLOBAL: Record<string, { locale: string; path: string }[]> | null =
@@ -172,11 +172,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-// ADDED: PreviewData interface
-interface PreviewData {
-  branch?: string
-}
-
 // MODIFIED: Changed getServerSideProps to GetStaticProps
 export const getStaticProps: GetStaticProps = async ({
   params,
@@ -184,37 +179,42 @@ export const getStaticProps: GetStaticProps = async ({
   preview,
   previewData,
 }) => {
-  const sectionSelected = 'tutorials'
-  const previewBranch =
-    preview &&
-    previewData &&
-    typeof previewData === 'object' &&
-    'branch' in previewData
-      ? (previewData as PreviewData).branch || 'main'
-      : 'main'
-  const branch = preview ? previewBranch : 'main'
-
-  const slug = params?.slug as string
-  // MODIFIED: currentLocale to use params.lang first
-  const langFromParams = params?.lang as string | undefined
-  const currentLocale: localeType = (langFromParams ||
-    locale ||
-    'en') as localeType
-
   const logger = getLogger('TutorialsPage-GetStaticProps') // MODIFIED: Logger name
+  const { sectionSelected, branch, slug, currentLocale, docsPaths, docExists } =
+    await extractStaticPropsParams({
+      sectionSelected: 'tutorials',
+      params,
+      locale,
+      preview,
+      previewData,
+      docsPathsGLOBAL,
+    })
 
+  if (!docExists) {
+    logger.warn(
+      `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+    )
+    return { notFound: true }
+  }
+
+  const path = docsPaths[slug]?.find((e) => e.locale === currentLocale)?.path
   const sidebarfallback = await getNavigation()
   const filteredSidebar = sidebarfallback.find(
     (item: { documentation: string }) => item.documentation === sectionSelected
   )
   const flattenedSidebar = flattenJSON(filteredSidebar)
-  const keyPath = getKeyByValue(flattenedSidebar, slug)
+  const keyPath = getKeyByValue(flattenedSidebar, slug) as string
 
-  if (!keyPath) {
+  if (!path) {
     logger.warn(
-      `File exists in the repo but not in navigation: slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
+      `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
     )
-    return { notFound: true, revalidate: 3600 }
+    return redirectToLocalizedUrl(
+      keyPath,
+      currentLocale,
+      flattenedSidebar,
+      'tutorials'
+    )
   }
 
   const keyPathType = keyPath.split('slug')[0].concat('type')
@@ -337,10 +337,6 @@ export const getStaticProps: GetStaticProps = async ({
   if (!docsPathsGLOBAL) {
     docsPathsGLOBAL = await getTutorialsPaths('tutorials')
   }
-  const docsPaths =
-    preview || process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
-      ? await getTutorialsPaths('tutorials', branch)
-      : docsPathsGLOBAL
 
   const pathEntry = docsPaths[slug]?.find((e) => e.locale === currentLocale)
 
@@ -353,50 +349,11 @@ export const getStaticProps: GetStaticProps = async ({
   }
   const resolvedPath = pathEntry.path
 
-  let documentationContent: string | null = null
-  try {
-    // MODIFIED: Use getGithubFile to fetch documentation content
-    documentationContent = await getGithubFile(
-      'vtexdocs',
-      'help-center-content',
-      branch,
-      resolvedPath
-    )
-  } catch (err) {
-    // MODIFIED: Add type to err
-    logger.error(
-      `Error fetching content for ${resolvedPath} on branch ${branch}: ${
-        err instanceof Error ? err.message : err
-      }`
-    )
-    return { notFound: true, revalidate: 3600 } // ADDED: revalidate
-  }
-  documentationContent = replaceHTMLBlocks(documentationContent) || ''
+  const rawContent = await fetchRawMarkdown(branch, path)
+  const documentationContent = replaceHTMLBlocks(rawContent)
 
   // MODIFIED: Use getFileContributors to fetch contributors
-  let contributors: ContributorsType[] = []
-  try {
-    const fetchedContributors = await getFileContributors(
-      'vtexdocs',
-      'help-center-content',
-      branch,
-      resolvedPath
-    )
-    if (Array.isArray(fetchedContributors)) {
-      contributors = fetchedContributors
-    } else {
-      logger.info(
-        `Fetched contributors is not an array for ${resolvedPath} on branch ${branch}. Received: ${typeof fetchedContributors}`
-      )
-    }
-  } catch (err) {
-    // MODIFIED: Add type to err and use logger.info
-    logger.info(
-      `Error fetching contributors for ${resolvedPath} on branch ${branch}: ${
-        err instanceof Error ? err.message : err
-      }`
-    )
-  }
+  const contributors = await fetchFileContributors(branch, path)
 
   try {
     const headingList: Item[] = []
@@ -412,16 +369,13 @@ export const getStaticProps: GetStaticProps = async ({
     }
 
     // Allow PUBLISHED and CHANGED status documents to be visible
-    const allowedStatuses = ['PUBLISHED', 'CHANGED']
     const status = serialized.frontmatter?.status as string
-
-    if (status && !allowedStatuses.includes(status)) {
-      logger.info(
-        `Document status is not allowed for ${resolvedPath}. Status: ${status}, Allowed: ${allowedStatuses.join(
-          ', '
+    if (!['PUBLISHED', 'CHANGED'].includes(status)) {
+      logger.warn(
+        `Document status is not allowed for ${path}. Status: ${status}.'
         )}`
       )
-      return { notFound: true, revalidate: 3600 }
+      return { notFound: true }
     }
 
     serialized = JSON.parse(JSON.stringify(serialized))
