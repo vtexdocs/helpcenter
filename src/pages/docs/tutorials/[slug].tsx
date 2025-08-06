@@ -216,32 +216,41 @@ export const getStaticProps: GetStaticProps = async ({
       'tutorials'
     )
   }
-
-  const keyPathType = keyPath.split('slug')[0].concat('type')
-  const type = flattenedSidebar[keyPathType]
-
   const parentsArray: string[] = []
   const parentsArrayName: string[] = []
   const parentsArrayType: string[] = []
+  let type = ''
+  if (keyPath) {
+    const keyPathType = keyPath.split('slug')[0].concat('type')
+    type = flattenedSidebar[keyPathType]
+    getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+    parentsArray.push(slug)
+
+    getParents(
+      keyPath,
+      'name',
+      flattenedSidebar,
+      currentLocale,
+      parentsArrayName
+    )
+
+    const mainKeyPath = keyPath.split('slug')[0]
+    const nameKeyPath = mainKeyPath.concat(`name.${currentLocale}`) // MODIFIED: use currentLocale
+    const categoryTitle = flattenedSidebar[nameKeyPath]
+    parentsArrayName.push(categoryTitle)
+
+    getParents(
+      keyPath,
+      'type',
+      flattenedSidebar,
+      currentLocale,
+      parentsArrayType
+    )
+    const typeKeyPath = mainKeyPath.concat('type')
+    parentsArrayType.push(flattenedSidebar[typeKeyPath])
+  }
 
   const isListed = !(keyPath === undefined)
-
-  getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-  parentsArray.push(slug)
-
-  const sanitizedParentsArray = parentsArray.map((item) =>
-    item === undefined ? null : item
-  )
-
-  getParents(keyPath, 'name', flattenedSidebar, currentLocale, parentsArrayName)
-  const mainKeyPath = keyPath.split('slug')[0]
-  const nameKeyPath = mainKeyPath.concat(`name.${currentLocale}`) // MODIFIED: use currentLocale
-  const categoryTitle = flattenedSidebar[nameKeyPath]
-  parentsArrayName.push(categoryTitle)
-
-  getParents(keyPath, 'type', flattenedSidebar, currentLocale, parentsArrayType)
-  const typeKeyPath = mainKeyPath.concat('type')
-  parentsArrayType.push(flattenedSidebar[typeKeyPath])
 
   logger.info(
     // MODIFIED: console.log to logger.info
@@ -320,7 +329,7 @@ export const getStaticProps: GetStaticProps = async ({
         type,
         sectionSelected,
         // ❌ REMOVED: sidebarfallback (3.4MB navigation no longer sent to client)
-        parentsArray: sanitizedParentsArray,
+        parentsArray,
         slug,
         pagination,
         isListed,
@@ -551,7 +560,9 @@ export const getStaticProps: GetStaticProps = async ({
         type, // ADDED: type for markdown pages
         sectionSelected,
         // ❌ REMOVED: sidebarfallback (3.4MB navigation no longer sent to client)
-        parentsArray: sanitizedParentsArray,
+        parentsArray: parentsArray.map((item) =>
+          item === undefined ? null : item
+        ),
         slug,
         pagination,
         isListed,
