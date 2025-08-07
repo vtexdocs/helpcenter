@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.5](https://github.com/vtexdocs/helpcenter/compare/v0.9.4...v0.9.5) (2025-08-07)
+
+
+### Refactoring
+
+* **tutorials:** full refactor ([2f59234](https://github.com/vtexdocs/helpcenter/commit/2f59234a279b049884b8049d4b416aae2056dff0))
+
 ### [0.9.4](https://github.com/vtexdocs/helpcenter/compare/v0.9.3...v0.9.4) (2025-08-06)
 
 
