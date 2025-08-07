@@ -176,7 +176,7 @@ export const getStaticProps: GetStaticProps = async ({
       slug,
       currentLocale,
       docsPaths,
-      docExists,
+      mdFileExists,
     } = await extractStaticPropsParams({
       sectionSelected: 'troubleshooting',
       params,
@@ -186,7 +186,7 @@ export const getStaticProps: GetStaticProps = async ({
       docsPathsGLOBAL,
     })
 
-    if (!docExists) {
+    if (!mdFileExists) {
       logger.warn(
         `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
       )

@@ -10,7 +10,9 @@ type ExtractedParams = {
   slug: string
   currentLocale: localeType
   docsPaths: Record<string, { locale: string; path: string }[]>
-  docExists: boolean
+  mdFileExists: boolean
+  mdFileExistsForCurrentLocale: boolean
+  mdFilePath: string
 }
 
 export async function extractStaticPropsParams({
@@ -43,7 +45,10 @@ export async function extractStaticPropsParams({
     !docsPathsGLOBAL
       ? await getDocsPaths(sectionSelected, branch)
       : docsPathsGLOBAL
-  const docExists = Boolean(docsPaths[slug])
+  const mdFileExists = Boolean(docsPaths[slug])
+  const mdFile = docsPaths[slug]?.find((e) => e.locale === currentLocale)
+  const mdFileExistsForCurrentLocale = Boolean(mdFile)
+  const mdFilePath = mdFileExists ? mdFile?.path : ''
 
   return {
     sectionSelected,
@@ -51,6 +56,8 @@ export async function extractStaticPropsParams({
     slug,
     currentLocale,
     docsPaths,
-    docExists,
+    mdFileExists,
+    mdFileExistsForCurrentLocale,
+    mdFilePath: mdFilePath || '',
   }
 }
