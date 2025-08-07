@@ -286,7 +286,11 @@ export const getStaticProps: GetStaticProps = async ({
       return { notFound: true }
     }
 
-    const contributors = await fetchFileContributors(branch, mdFilePath)
+    const contributors = await fetchFileContributors(
+      sectionSelected,
+      branch,
+      mdFilePath
+    )
 
     logger.info(`Processing ${slug}`)
 

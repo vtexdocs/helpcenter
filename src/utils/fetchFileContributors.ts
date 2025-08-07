@@ -8,12 +8,15 @@ interface GitHubUser {
 }
 
 export const fetchFileContributors = async (
+  section: string,
   branch: string,
   path: string
 ): Promise<ContributorsType[]> => {
+  const repo =
+    section === 'known-issues' ? 'known-issues' : 'help-center-content'
   try {
     const res = await fetch(
-      `https://github.com/vtexdocs/help-center-content/file-contributors/${branch}/${path}`,
+      `https://github.com/vtexdocs/${repo}/file-contributors/${branch}/${path}`,
       {
         headers: {
           'Content-Type': 'application/json',

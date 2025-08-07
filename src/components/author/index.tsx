@@ -11,14 +11,12 @@ const Author = ({ contributor }: Props) => {
   return (
     <Flex sx={styles.container}>
       <Box sx={styles.photo} key={contributor.login}>
-        <a key={contributor.login} href={contributor.userPage}>
-          <Image
-            src={contributor.avatar}
-            alt="Photo of the author"
-            width={32}
-            height={32}
-          />
-        </a>
+        <Image
+          src={contributor.avatar}
+          alt="Photo of the author"
+          width={32}
+          height={32}
+        />
       </Box>
       <Text>{contributor.name}</Text>
     </Flex>
