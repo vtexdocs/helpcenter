@@ -26,6 +26,7 @@ import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
 import { getSidebarMetadata } from 'utils/getSidebarMetadata'
+import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -77,7 +78,7 @@ type Props =
         }
       }
       breadcrumbList: { slug: string; name: string; type: string }[]
-      type: 'markdown'
+      mdFileExists: true
       componentProps: MarkDownProps
     }
   | {
@@ -97,12 +98,12 @@ type Props =
         }
       }
       breadcrumbList: { slug: string; name: string; type: string }[]
-      type: 'category'
+      mdFileExists: false
       componentProps: TutorialIndexingProps
     }
 
 const TutorialPage: NextPage<Props> = ({
-  type,
+  mdFileExists,
   slug,
   isListed,
   branch,
@@ -117,12 +118,12 @@ const TutorialPage: NextPage<Props> = ({
 
   useEffect(() => {
     setActiveSidebarElement(slug)
-    if (type === 'markdown') {
+    if (mdFileExists) {
       setHeadings(componentProps.headingList)
     }
   }, [])
 
-  return type === 'markdown' ? (
+  return mdFileExists === true ? (
     <TutorialMarkdownRender
       breadcrumbList={breadcrumbList}
       pagination={pagination}
@@ -227,13 +228,13 @@ export const getStaticProps: GetStaticProps = async ({
   const parentsArray: string[] = []
   const parentsArrayName: string[] = []
   const parentsArrayType: string[] = []
-  let type = ''
   let categoryTitle = ''
-  let breadcrumbList
+  let breadcrumbList: { slug: string; name: string; type: string }[] = []
+  let pagination = {}
+
   if (isListed) {
     const mainKeyPath = keyPath.split('slug')[0]
     const localizedKeyPath = `${mainKeyPath}slug.${currentLocale}`
-    type = flattenedSidebar[`${mainKeyPath}type`]
 
     getParents(
       localizedKeyPath,
@@ -257,6 +258,36 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArrayType,
       'tutorials'
     )
+    const docsListSlug = jp
+      .query(sidebarfallback, `$..[?(@.type=='markdown')]..slug`)
+      .map((s) => (typeof s === 'object' ? s[currentLocale] || s.en : s))
+      .filter(Boolean)
+
+    const docsListName = jp
+      .query(sidebarfallback, `$..[?(@.type=='markdown')]..name`)
+      .map((n) => (typeof n === 'object' ? n : { [currentLocale]: n }))
+
+    const index = docsListSlug.indexOf(slug)
+    pagination = {
+      previousDoc:
+        index > 0
+          ? {
+              slug: docsListSlug[index - 1],
+              name:
+                docsListName[index - 1]?.[currentLocale] ||
+                docsListName[index - 1]?.en,
+            }
+          : { slug: null, name: null },
+      nextDoc:
+        index < docsListSlug.length - 1
+          ? {
+              slug: docsListSlug[index + 1],
+              name:
+                docsListName[index + 1]?.[currentLocale] ||
+                docsListName[index + 1]?.en,
+            }
+          : { slug: null, name: null },
+    }
 
     if (isCategoryCover) {
       const childrenArrayName: string[] = []
@@ -294,7 +325,7 @@ export const getStaticProps: GetStaticProps = async ({
 
       return {
         props: {
-          type,
+          mdFileExists,
           sectionSelected,
           parentsArray,
           slug,
@@ -317,9 +348,11 @@ export const getStaticProps: GetStaticProps = async ({
     }
   }
 
-  if (type === 'markdown') {
+  if (mdFileExists) {
     const rawContent = await fetchRawMarkdown(branch, mdFilePath)
-    const documentationContent = replaceHTMLBlocks(rawContent)
+    const documentationContent = escapeCurlyBraces(
+      replaceHTMLBlocks(rawContent)
+    )
     const contributors = await fetchFileContributors(branch, mdFilePath)
 
     const headingList: Item[] = []
@@ -329,7 +362,6 @@ export const getStaticProps: GetStaticProps = async ({
       logger,
       path: mdFilePath,
     })
-
     if (!serialized) {
       logger.error(`Serialization failed for ${mdFilePath}`)
       return { notFound: true }
@@ -390,42 +422,11 @@ export const getStaticProps: GetStaticProps = async ({
         })
     )
 
-    const docsListSlug = jp
-      .query(sidebarfallback, `$..[?(@.type=='markdown')]..slug`)
-      .map((s) => (typeof s === 'object' ? s[currentLocale] || s.en : s))
-      .filter(Boolean)
-
-    const docsListName = jp
-      .query(sidebarfallback, `$..[?(@.type=='markdown')]..name`)
-      .map((n) => (typeof n === 'object' ? n : { [currentLocale]: n }))
-
-    const index = docsListSlug.indexOf(slug)
-    const pagination = {
-      previousDoc:
-        index > 0
-          ? {
-              slug: docsListSlug[index - 1],
-              name:
-                docsListName[index - 1]?.[currentLocale] ||
-                docsListName[index - 1]?.en,
-            }
-          : { slug: null, name: null },
-      nextDoc:
-        index < docsListSlug.length - 1
-          ? {
-              slug: docsListSlug[index + 1],
-              name:
-                docsListName[index + 1]?.[currentLocale] ||
-                docsListName[index + 1]?.en,
-            }
-          : { slug: null, name: null },
-    }
-
     logger.info(`Generating markdown file for: ${slug}`)
 
     return {
       props: {
-        type,
+        mdFileExists,
         sectionSelected,
         parentsArray,
         slug,

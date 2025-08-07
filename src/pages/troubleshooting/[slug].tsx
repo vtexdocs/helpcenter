@@ -25,6 +25,7 @@ import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import FeedbackSection from 'components/feedback-section'
+import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 
 interface Props {
   breadcrumbList: { slug: string; name: string; type: string }[]
@@ -224,7 +225,9 @@ export const getStaticProps: GetStaticProps = async ({
     }
 
     const rawContent = await fetchRawMarkdown(branch, path)
-    const documentationContent = replaceHTMLBlocks(rawContent)
+    const documentationContent = escapeCurlyBraces(
+      replaceHTMLBlocks(rawContent)
+    )
 
     // Serialize content and parse frontmatter
     const headingList: Item[] = []
