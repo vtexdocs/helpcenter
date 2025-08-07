@@ -55,11 +55,8 @@ const convertCalloutToMarkdown = (markdownContent: string): string => {
     /<div\s+[^>]*class\s*=\s*"alert alert-(info|warning|danger)"[^>]*>([\s\S]*?)<\/div>/gi,
     (_: string, type: string, inner: string): string => {
       const emoji = calloutMap[type] || ''
-      return inner
-        .trim()
-        .split('\n')
-        .map((line: string) => `> ${emoji} ${line.trim()}`)
-        .join('\n')
+      const collapsed = inner.trim().replace(/\s*\n\s*/g, ' ')
+      return `> ${emoji} ${collapsed}`
     }
   )
 }

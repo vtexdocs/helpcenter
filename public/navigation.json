@@ -5481,6 +5481,21 @@
                   "origin": "",
                   "type": "markdown",
                   "children": []
+                },
+                {
+                  "name": {
+                    "en": "Delivery Promise: FAQ",
+                    "es": "Delivery Promise: FAQ",
+                    "pt": "Delivery Promise: FAQ"
+                  },
+                  "slug": {
+                    "en": "delivery-promise-faq",
+                    "es": "delivery-promise-faq",
+                    "pt": "delivery-promise-faq"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
                 }
               ]
             },
@@ -17021,21 +17036,6 @@
                 },
                 {
                   "name": {
-                    "en": "How promotion competition works",
-                    "es": "Cómo funciona la competencia de promociones",
-                    "pt": "Como funciona a concorrência de promoções"
-                  },
-                  "slug": {
-                    "en": "how-promotion-competition-works",
-                    "es": "como-funciona-la-competencia-de-promociones",
-                    "pt": "como-funciona-a-concorrencia-de-promocoes"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
                     "en": "Creating a More for Less promotion",
                     "es": "Crear promoción Más por Menos",
                     "pt": "Criar promoção Leve Mais por Menos"
@@ -24294,7 +24294,7 @@
                 },
                 {
                   "name": {
-                    "en": "Access Google",
+                    "en": "Access Google's PageSpeed Insights in your VTEX Admin",
                     "pt": "Acesse o PageSpeed Insights do Google no seu Admin VTEX",
                     "es": "Accede a PageSpeed Insights de Google en tu Admin VTEX"
                   },
@@ -24519,7 +24519,7 @@
               "children": [
                 {
                   "name": {
-                    "en": "​​Rate VTEX",
+                    "en": "​​Rate VTEX's service in your Admin  ",
                     "pt": "Avalie o atendimento da VTEX pelo seu Admin",
                     "es": "Evalúa el servicio VTEX en tu Admin"
                   },
@@ -24558,7 +24558,7 @@
               "children": [
                 {
                   "name": {
-                    "en": "Search filters in inStore",
+                    "en": "Search filters in inStore's Endless Aisle",
                     "pt": "Filtros de busca na Prateleira Infinita do inStore",
                     "es": "Filtros de búsqueda en el Pasillo Infinito de inStore"
                   },
@@ -25374,7 +25374,7 @@
                 },
                 {
                   "name": {
-                    "en": "The term ",
+                    "en": "The term \"Access Profile\" has been replaced by the term \"Role\" in your Admin UI",
                     "pt": "O termo “Access Profile” foi substituído por “Role” na UI do Admin",
                     "es": "El término ‘Access Profile’ ha sido sustituido por ‘Role’ en la interfaz del Admin"
                   },
@@ -25542,7 +25542,7 @@
               "children": [
                 {
                   "name": {
-                    "en": "Empower your customers with the new ",
+                    "en": "Empower your customers with the new \"Reviews and Ratings\" app",
                     "pt": "Empodere seus consumidores com o novo app ",
                     "es": "Empodere a sus consumidores con la nueva app "
                   },
@@ -25587,7 +25587,7 @@
                 },
                 {
                   "name": {
-                    "en": "New UI for the Admin",
+                    "en": "New UI for the Admin's user management dashboard",
                     "pt": "Nova UI para o painel de gerenciamento de usuários do Admin",
                     "es": "Nueva UI del panel de gestión de usuarios del Admin"
                   },
@@ -25791,7 +25791,7 @@
                 },
                 {
                   "name": {
-                    "en": "Inventory & Shipping: learn what has changed in the ",
+                    "en": "Inventory & Shipping: learn what has changed in the \"Inventory management\" tab ",
                     "pt": "Estoque & entrega: entenda o que mudou na aba ",
                     "es": "Inventario y envío: entienda lo que cambió en la pestaña "
                   },
@@ -25977,7 +25977,7 @@
                 },
                 {
                   "name": {
-                    "en": "",
+                    "en": "\"Recurrences\" module will be discontinued: migrate your data until August",
                     "pt": "Módulo ",
                     "es": "El módulo de Recurrencia será descontinuado: migre sus datos hasta el mes de agosto "
                   },
@@ -25992,7 +25992,7 @@
                 },
                 {
                   "name": {
-                    "en": "Store Framework: optimize your store",
+                    "en": "Store Framework: optimize your store's loading time thanks to improvements in performance",
                     "pt": "Store Framework: otimize o tempo de carregamento da sua loja com melhorias de performance",
                     "es": "Store Framework: optimice el tiempo de carga de su tienda con mejoras de rendimiento"
                   },
@@ -26076,7 +26076,7 @@
               "children": [
                 {
                   "name": {
-                    "en": "Configuring your network",
+                    "en": "Configuring your network's firewall access rules to allow the new domain",
                     "pt": "Liberação de novo domínio nas regras do firewall da sua rede",
                     "es": "Liberación de nuevo dominio en las reglas del firewall de su red"
                   },
@@ -26157,7 +26157,7 @@
               "children": [
                 {
                   "name": {
-                    "en": "More time to adapt your store",
+                    "en": "More time to adapt your store's front-end requests to Master Data",
                     "pt": "",
                     "es": ""
                   },
@@ -26367,7 +26367,7 @@
               "children": [
                 {
                   "name": {
-                    "en": "New returned object in API Get Order  ",
+                    "en": "New returned object in API Get Order  \"itemMetadata\"",
                     "pt": "Novo objeto retornado na API Get Order  ",
                     "es": "Nuevo objeto devuelto en API Get Order  "
                   },
@@ -26382,7 +26382,7 @@
                 },
                 {
                   "name": {
-                    "en": "New object returned to API Get Order ",
+                    "en": "New object returned to API Get Order \"cancelReason\"",
                     "pt": "Novo objeto retornado na API Get Order ",
                     "es": "Nuevo objeto devuelto a API Get Order "
                   },
@@ -26565,7 +26565,7 @@
                 },
                 {
                   "name": {
-                    "en": "VTEX",
+                    "en": "VTEX's integration with Magazine Luiza is already available to all stores",
                     "pt": "Integração VTEX com Magazine Luiza já está disponível para todas as lojas",
                     "es": "Integración VTEX con Magazine Luiza ya está disponible para todas las tiendas"
                   },
@@ -26580,7 +26580,7 @@
                 },
                 {
                   "name": {
-                    "en": "Your store",
+                    "en": "Your store's orders now display the currency used on the transaction",
                     "pt": "Os pedidos da sua loja agora têm informação da moeda usada na transação",
                     "es": "Los pedidos de su tienda ahora tienen información de la moneda usada en la transacción"
                   },
@@ -26622,7 +26622,7 @@
               "children": [
                 {
                   "name": {
-                    "en": "Review your store",
+                    "en": "Review your store's CAA record",
                     "pt": "Revise as entradas CAA da sua loja",
                     "es": "Revise las entradas CAA en su tienda"
                   },
@@ -26709,7 +26709,7 @@
                 },
                 {
                   "name": {
-                    "en": "The ",
+                    "en": "The \"items\" field will be removed from the List Orders API",
                     "pt": "Campo ",
                     "es": "Campo "
                   },
@@ -26865,7 +26865,7 @@
               "children": [
                 {
                   "name": {
-                    "en": "A new feature to use Mercado Livre",
+                    "en": "A new feature to use Mercado Livre's messaging service",
                     "pt": "Nova feature para usar a Mensageria do Mercado Livre",
                     "es": "Feature VTEX para usar la Mensajería del MercadoLibre"
                   },
@@ -26895,7 +26895,7 @@
                 },
                 {
                   "name": {
-                    "en": "Catalog",
+                    "en": "Catalog's new visual and navigation",
                     "pt": "Visual e navegação novos para o Catálogo",
                     "es": "Visual y navegación nuevos para el Catálogo"
                   },
@@ -26925,7 +26925,7 @@
                 },
                 {
                   "name": {
-                    "en": "Shift your business with VTEX",
+                    "en": "Shift your business with VTEX's omnichannel experience",
                     "pt": "Mude seu negócio com a experiência Omnichannel VTEX",
                     "es": "Cambie su negocio con la experiencia omnichannel VTEX"
                   },
@@ -26952,7 +26952,7 @@
               "children": [
                 {
                   "name": {
-                    "en": "Now it",
+                    "en": "Now it's possible to add 300 items in a single cart",
                     "pt": "Agora é possível ter 300 itens no mesmo carrinho",
                     "es": "Ahora es posible tener 300 ítems en un mismo carrito"
                   },
@@ -27009,7 +27009,7 @@
                 },
                 {
                   "name": {
-                    "en": "Meet VTEX Help",
+                    "en": "Meet VTEX Help's new content format: the tracks",
                     "pt": "Conheça as tracks, o novo formato de conteúdo do Help",
                     "es": "Conozca el nuevo contenido del Help: las tracks"
                   },
@@ -27081,7 +27081,7 @@
                 },
                 {
                   "name": {
-                    "en": " Add Apple Pay to your store",
+                    "en": " Add Apple Pay to your store's payment methods",
                     "pt": "Ofereça Apple Pay como opção de pagamento na sua loja",
                     "es": "Agregue Apple Pay a los métodos de pago de su tienda"
                   },
@@ -27183,7 +27183,7 @@
                 },
                 {
                   "name": {
-                    "en": "Meet the License Manager",
+                    "en": "Meet the License Manager's Security Wizard",
                     "pt": "Conheça o assistente de segurança do License Manager",
                     "es": "Conozca el Security Wizard de License Manager"
                   },
@@ -27300,7 +27300,7 @@
                 },
                 {
                   "name": {
-                    "en": "My Orders",
+                    "en": "My Orders's new version is already on App Store",
                     "pt": "Última versão do My Orders já está na App Store",
                     "es": "Nueva versión de My Orders ya está en App Store"
                   },
@@ -27342,7 +27342,7 @@
               "children": [
                 {
                   "name": {
-                    "en": "SmartCheckout™",
+                    "en": "SmartCheckout™'s new version available for all stores",
                     "pt": "Nova versão do SmartCheckout™ já está no ar para todas as lojas",
                     "es": "Nueva versión de SmartCheckout ™ ha sido lanzada para todas las tiendas"
                   },
@@ -27411,7 +27411,7 @@
               "children": [
                 {
                   "name": {
-                    "en": "We",
+                    "en": "We've released our new Cross-selling and Up-selling APIs",
                     "pt": "Lançamos nossas novas APIs de Cross-selling e Up-selling",
                     "es": "Lanzamos nuestras nuevas API de Cross-selling y Up-selling"
                   },
@@ -27528,7 +27528,7 @@
                 },
                 {
                   "name": {
-                    "en": "We",
+                    "en": "We're launching your personal data set up screen",
                     "pt": "Lançamos a tela de configuração dos seus dados pessoais",
                     "es": "Lanzamos la pantalla de configuración de sus datos personales"
                   },
@@ -27715,7 +27715,7 @@
           "children": [
             {
               "name": {
-                "en": "I received an invoice and I",
+                "en": "I received an invoice and I'm not a VTEX client. Why?",
                 "pt": "Recebi uma Nota Fiscal e não sou cliente VTEX. Por quê?",
                 "es": "Recibí una factura y no soy cliente VTEX. ¿Por qué?"
               },
@@ -27772,7 +27772,7 @@
             },
             {
               "name": {
-                "en": "I don",
+                "en": "I don't recognize the reservation ID of an order. What's happened?",
                 "pt": "Não reconheço o ID de reserva de um pedido. O que pode ter acontecido? ",
                 "es": "No reconozco el ID de reserva de un pedido. ¿Qué puede haber ocurrido?"
               },
@@ -28144,7 +28144,7 @@
             },
             {
               "name": {
-                "en": "What to do when the product",
+                "en": "What to do when the product's NSU is duplicated in transactions performed by Rede?",
                 "pt": "O que fazer quando o NSU do produto é duplicada em transações realizadas pela Rede?",
                 "es": "¿Qué hacer cuando el NSU del producto se duplica en las transacciones realizadas por Rede?"
               },
@@ -28159,7 +28159,7 @@
             },
             {
               "name": {
-                "en": "Why can",
+                "en": "Why can't I find a transaction in Payments?",
                 "pt": "Por que não encontro uma transação em Pagamentos?",
                 "es": "¿Por qué no encuentro una transacción en Pagos?"
               },
@@ -28306,7 +28306,7 @@
             },
             {
               "name": {
-                "en": "Why authentication with appkey and apptoken doesn",
+                "en": "Why authentication with appkey and apptoken doesn't work?",
                 "pt": "Por que a autenticação utilizando appKey e appToken não funciona? ",
                 "es": "¿Por qué  no funciona la autentificación con appkey y apptoken?"
               },
@@ -28363,7 +28363,7 @@
             },
             {
               "name": {
-                "en": "I received the message error ",
+                "en": "I received the message error \"the limit of activated calculators has been reached\". What to do?",
                 "pt": "Recebi a mensagem de erro ",
                 "es": "He recibido el mensaje de error "
               },
@@ -28393,7 +28393,7 @@
             },
             {
               "name": {
-                "en": "I",
+                "en": "I've activated a product subscription, but it doesn't appear on the site. Why?",
                 "pt": "Ativei a assinatura de um produto, mas ele não aparece no site. Por quê?",
                 "es": "He activado la suscripción de un producto, pero no aparece en el sitio. ¿Por qué?"
               },
@@ -28408,7 +28408,7 @@
             },
             {
               "name": {
-                "en": "I",
+                "en": "I've edited a placeholder and the site hasn't been updated. What to do?",
                 "pt": "Editei um placeholder e o site não atualiza. O que fazer?",
                 "es": "He editado un placeholder y el sitio no se actualiza. ¿Que hacer?"
               },
@@ -28438,7 +28438,7 @@
             },
             {
               "name": {
-                "en": "I can",
+                "en": "I can't find a collection. What do I do?",
                 "pt": "Não encontro uma coleção. O que fazer?",
                 "es": "No encuentro una colección. ¿Que hacer?"
               },
@@ -28498,7 +28498,7 @@
             },
             {
               "name": {
-                "en": "Why can",
+                "en": "Why can't I change the fields of a group?",
                 "pt": "Por que não consigo alterar os campos de um grupo?",
                 "es": "Por que no puedo cambiar los campos en un grupo?"
               },
@@ -28513,7 +28513,7 @@
             },
             {
               "name": {
-                "en": "Why doesn",
+                "en": "Why doesn't my benefit work for a client cluster?",
                 "pt": "Por que minha promoção não funciona para um cluster de clientes?",
                 "es": "¿Por qué mi promoción no funciona para un clúster de clientes?"
               },
@@ -28528,7 +28528,7 @@
             },
             {
               "name": {
-                "en": "Why doesn",
+                "en": "Why doesn't my benefit work for all types of delivery?",
                 "pt": "Por que minha promoção não funciona para todos os tipos de entrega?",
                 "es": "¿Por qué mi promoción no funciona para todos los tipos de entrega?"
               },
@@ -28543,7 +28543,7 @@
             },
             {
               "name": {
-                "en": "Why doesn",
+                "en": "Why doesn't the product field appear as a filter?",
                 "pt": "Por que campo de produto não aparece como filtro?",
                 "es": "¿Por qué el  campo de producto no aparece como filtro?"
               },
@@ -28558,7 +28558,7 @@
             },
             {
               "name": {
-                "en": "Why I don",
+                "en": "Why I don't receive my abandoned cart emails?",
                 "pt": "Por que não recebo email de carrinho abandonado?",
                 "es": "¿Por qué no recibo el e-mail de Carrito Abandonado?"
               },
@@ -28663,7 +28663,7 @@
             },
             {
               "name": {
-                "en": "Why is the ",
+                "en": "Why is the \"thumb\" image of poor quality?",
                 "pt": "Por que a imagem ",
                 "es": "¿Por qué la imagen "
               },
@@ -28693,7 +28693,7 @@
             },
             {
               "name": {
-                "en": "Why isn",
+                "en": "Why isn't the price table displayed to the customer?",
                 "pt": "Por que a tabela de preços não aparece para o cliente?",
                 "es": "¿Por qué la tabla de precios no aparece para el cliente?"
               },
@@ -28776,7 +28776,7 @@
             },
             {
               "name": {
-                "en": "What to do when the ",
+                "en": "What to do when the \"Notify me\" option is not displayed",
                 "pt": "O que fazer quando o ",
                 "es": "Qué hacer cuando no aparece la opción Avísame"
               },
@@ -28863,7 +28863,7 @@
             },
             {
               "name": {
-                "en": "",
+                "en": "\"Invalid header signature\" error when trying to import freight spreadsheet",
                 "pt": "Erro ",
                 "es": "Error "
               },
@@ -28878,7 +28878,7 @@
             },
             {
               "name": {
-                "en": "Error ",
+                "en": "Error \"object reference not set to an instance of an object\" when uploading a freight spreadsheet",
                 "pt": "Erro ",
                 "es": "Error "
               },
@@ -28953,7 +28953,7 @@
             },
             {
               "name": {
-                "en": "Order is locked in ",
+                "en": "Order is locked in \"Ready for Handling\", what should I do?",
                 "pt": "Pedido está travado em ",
                 "es": "Pedido está trabado en "
               },
@@ -28983,7 +28983,7 @@
             },
             {
               "name": {
-                "en": "The order was billed in the ERP but remains in the ",
+                "en": "The order was billed in the ERP but remains in the \"Preparing Delivery\" status. What to do?",
                 "pt": "O pedido foi faturado no ERP mas continua no status ",
                 "es": "El pedido fue facturado en el ERP pero continúa en el status "
               },
@@ -29028,7 +29028,7 @@
             },
             {
               "name": {
-                "en": "When trying to approve payment, Orders Managment returns ",
+                "en": "When trying to approve payment, Orders Managment returns \"authorize-fulfillment\" error. What to do?",
                 "pt": "Ao tentar aprovar pagamento, Gerenciamento de Pedidos retorna erro. O que fazer?",
                 "es": "Al intentar aprobar el pago, Gestión de Pedidos devuelve el error de "
               },
@@ -29043,7 +29043,7 @@
             },
             {
               "name": {
-                "en": "Why can",
+                "en": "Why can't I see my carrier on checkout?",
                 "pt": "Por que minha transportadora não aparece no checkout?",
                 "es": "¿Por qué mi transportista no aparece en el checkout?"
               },
@@ -29103,7 +29103,7 @@
             },
             {
               "name": {
-                "en": "Why does the message ",
+                "en": "Why does the message \"The TimeSpan could not be parsed... \" appear when importing the shipping worksheet?",
                 "pt": "Por que aparece a mensagem ",
                 "es": "¿Por qué aparece el mensaje "
               },
@@ -29163,7 +29163,7 @@
             },
             {
               "name": {
-                "en": "Why don",
+                "en": "Why don't I receive VTEX emails?",
                 "pt": "Por que não recebo os emails da VTEX?",
                 "es": "¿Por qué no recibo los correos electrónicos de VTEX?"
               },
@@ -29352,7 +29352,7 @@
             },
             {
               "name": {
-                "en": "Checkout with ",
+                "en": "Checkout with \"store not found\" error. What to do?",
                 "pt": "Checkout com erro ",
                 "es": "Checkout con error "
               },
@@ -29472,7 +29472,7 @@
             },
             {
               "name": {
-                "en": "UTM",
+                "en": "UTM's",
                 "pt": "UTM",
                 "es": "UTM"
               },
@@ -29596,7 +29596,7 @@
           "children": [
             {
               "name": {
-                "en": "[Admin] Global Search doesn",
+                "en": "[Admin] Global Search doesn't recognize \"Profile Menu items",
                 "pt": "",
                 "es": ""
               },
@@ -29686,7 +29686,7 @@
             },
             {
               "name": {
-                "en": "[Magazine Luiza] [tracking] Erro: Data de Entrega ao Cliente",
+                "en": "[Magazine Luiza] [tracking] Erro: Data de Entrega ao Cliente' deve ser maior que a 'Data de Despacho' e deve ser igual ou menor a data de hoje",
                 "pt": "[Magazine Luiza] [tracking] Erro: Data de Entrega ao Cliente",
                 "es": ""
               },
@@ -29788,7 +29788,7 @@
             },
             {
               "name": {
-                "en": "Visited product",
+                "en": "Visited product\" feature does not work properly",
                 "pt": "",
                 "es": ""
               },
@@ -29872,7 +29872,7 @@
             },
             {
               "name": {
-                "en": "CLI",
+                "en": "CLI's Windows installer doesn’t have a publisher",
                 "pt": "",
                 "es": ""
               },
@@ -29902,7 +29902,7 @@
             },
             {
               "name": {
-                "en": "Error listing workspace dependencies",
+                "en": "Error listing workspace dependencies\" when trying to access an account",
                 "pt": "",
                 "es": ""
               },
@@ -29977,7 +29977,7 @@
             },
             {
               "name": {
-                "en": "Unhandled exception",
+                "en": "Unhandled exception\" error when changing edition of account",
                 "pt": "",
                 "es": ""
               },
@@ -30019,7 +30019,7 @@
           "children": [
             {
               "name": {
-                "en": "Addresses are shown in the Checkout when buyer has ",
+                "en": "Addresses are shown in the Checkout when buyer has \"Can add shipping\" permission",
                 "pt": "",
                 "es": ""
               },
@@ -30049,7 +30049,7 @@
             },
             {
               "name": {
-                "en": "B2B Bulk Import doesn",
+                "en": "B2B Bulk Import doesn't validate ID already in use",
                 "pt": "",
                 "es": ""
               },
@@ -30109,7 +30109,7 @@
             },
             {
               "name": {
-                "en": "B2B Orders History considers Sales",
+                "en": "B2B Orders History considers Sales' Representative roles when impersonating an user",
                 "pt": "",
                 "es": ""
               },
@@ -30124,7 +30124,7 @@
             },
             {
               "name": {
-                "en": "B2B Orders History doesn",
+                "en": "B2B Orders History doesn't work in the website domain",
                 "pt": "",
                 "es": ""
               },
@@ -30139,7 +30139,7 @@
             },
             {
               "name": {
-                "en": "B2B Organization don",
+                "en": "B2B Organization don't consider accounts using geolocation when registering address",
                 "pt": "",
                 "es": ""
               },
@@ -30169,7 +30169,7 @@
             },
             {
               "name": {
-                "en": "B2B Organizations",
+                "en": "B2B Organizations' impersonate feature doesn't register information in orders",
                 "pt": "",
                 "es": ""
               },
@@ -30199,7 +30199,7 @@
             },
             {
               "name": {
-                "en": "B2B Quotes doesn",
+                "en": "B2B Quotes doesn't apply discount at checkout in the website domain",
                 "pt": "",
                 "es": ""
               },
@@ -30214,7 +30214,7 @@
             },
             {
               "name": {
-                "en": "B2B Suite don",
+                "en": "B2B Suite don't use geocoordinates to calculate region Id",
                 "pt": "",
                 "es": ""
               },
@@ -30229,7 +30229,7 @@
             },
             {
               "name": {
-                "en": "Back",
+                "en": "Back\" button is not rendered in My Organization",
                 "pt": "",
                 "es": ""
               },
@@ -30244,7 +30244,7 @@
             },
             {
               "name": {
-                "en": "Buyers can",
+                "en": "Buyers can't login if there is misconfiguration in organizations/cost centers",
                 "pt": "",
                 "es": ""
               },
@@ -30259,7 +30259,7 @@
             },
             {
               "name": {
-                "en": "Collections doesn",
+                "en": "Collections doesn't work in custom search results pages in B2B Suite",
                 "pt": "",
                 "es": ""
               },
@@ -30394,7 +30394,7 @@
             },
             {
               "name": {
-                "en": "Order Again from B2B Orders History doesn",
+                "en": "Order Again from B2B Orders History doesn't work",
                 "pt": "",
                 "es": ""
               },
@@ -30439,7 +30439,7 @@
             },
             {
               "name": {
-                "en": "Product-comparison doesn",
+                "en": "Product-comparison doesn't allow changing checkboxes if you keep the drawer open",
                 "pt": "",
                 "es": ""
               },
@@ -30454,7 +30454,7 @@
             },
             {
               "name": {
-                "en": "Quick Order changes item",
+                "en": "Quick Order changes item's quantity when a More for Less promotion is applied",
                 "pt": "",
                 "es": ""
               },
@@ -30499,7 +30499,7 @@
             },
             {
               "name": {
-                "en": "Search in Users tab in B2B Organization Details doesn",
+                "en": "Search in Users tab in B2B Organization Details doesn't filter when there is no result",
                 "pt": "",
                 "es": ""
               },
@@ -30529,7 +30529,7 @@
             },
             {
               "name": {
-                "en": "Settings UI doesn",
+                "en": "Settings UI doesn't update \"expiration period\" of quotes",
                 "pt": "",
                 "es": ""
               },
@@ -30574,7 +30574,7 @@
             },
             {
               "name": {
-                "en": "Storefront permissions app sets ",
+                "en": "Storefront permissions app sets \"documentType\" as \"cpf",
                 "pt": "",
                 "es": ""
               },
@@ -30661,7 +30661,7 @@
             },
             {
               "name": {
-                "en": "Can",
+                "en": "Can't edit the name of the Styles template",
                 "pt": "",
                 "es": ""
               },
@@ -30676,7 +30676,7 @@
             },
             {
               "name": {
-                "en": "Changes made in Site Editor are saved but don",
+                "en": "Changes made in Site Editor are saved but don't reflect on the page",
                 "pt": "",
                 "es": ""
               },
@@ -30691,7 +30691,7 @@
             },
             {
               "name": {
-                "en": "Checkbox \\",
+                "en": "Checkbox \"Requires authentication\" doesn't work on Pages module",
                 "pt": "",
                 "es": ""
               },
@@ -30706,7 +30706,7 @@
             },
             {
               "name": {
-                "en": "CMS Styles selector doesn",
+                "en": "CMS Styles selector doesn't work in development workspaces",
                 "pt": "",
                 "es": ""
               },
@@ -30751,7 +30751,7 @@
             },
             {
               "name": {
-                "en": "Error ",
+                "en": "Error \"Something went wrong. Please try again.\" when adding images via Site Editor",
                 "pt": "",
                 "es": ""
               },
@@ -30856,7 +30856,7 @@
             },
             {
               "name": {
-                "en": "It is not possible to change the title displayed on the admin of a page create on the store",
+                "en": "It is not possible to change the title displayed on the admin of a page create on the store's theme",
                 "pt": "",
                 "es": ""
               },
@@ -30961,7 +30961,7 @@
             },
             {
               "name": {
-                "en": "Scheduled banners doesn",
+                "en": "Scheduled banners doesn't work properly",
                 "pt": "",
                 "es": ""
               },
@@ -30991,7 +30991,7 @@
             },
             {
               "name": {
-                "en": "Site Editor content set to apply to specific categories isn",
+                "en": "Site Editor content set to apply to specific categories isn't displayed if the category is not accessed using its direct link",
                 "pt": "",
                 "es": ""
               },
@@ -31006,7 +31006,7 @@
             },
             {
               "name": {
-                "en": "Site editor doesn",
+                "en": "Site editor doesn't allow changes on the conditional template",
                 "pt": "",
                 "es": ""
               },
@@ -31021,7 +31021,7 @@
             },
             {
               "name": {
-                "en": "Site Editor doesn",
+                "en": "Site Editor doesn't load blocks when accessing the landing route URL",
                 "pt": "",
                 "es": ""
               },
@@ -31123,7 +31123,7 @@
           "children": [
             {
               "name": {
-                "en": "A SKU can be active and have the ",
+                "en": "A SKU can be active and have the \"activate if possible\" flag unchecked",
                 "pt": "",
                 "es": ""
               },
@@ -31198,7 +31198,7 @@
             },
             {
               "name": {
-                "en": "Advanced search",
+                "en": "Advanced search's file import not functioning on catalog filters",
                 "pt": "",
                 "es": ""
               },
@@ -31258,7 +31258,7 @@
             },
             {
               "name": {
-                "en": "Attachents API doesn",
+                "en": "Attachents API doesn't allow null \"domainValues\" (and it should)",
                 "pt": "",
                 "es": ""
               },
@@ -31333,7 +31333,7 @@
             },
             {
               "name": {
-                "en": "Bundle component ",
+                "en": "Bundle component \"active\" status can be outdated in new catalog UI",
                 "pt": "",
                 "es": ""
               },
@@ -31438,7 +31438,7 @@
             },
             {
               "name": {
-                "en": "Catalog API doesn",
+                "en": "Catalog API doesn't respond properly to space at the end of strings",
                 "pt": "",
                 "es": ""
               },
@@ -31453,7 +31453,7 @@
             },
             {
               "name": {
-                "en": "[Catalog] API Get Product by RefId returns ",
+                "en": "[Catalog] API Get Product by RefId returns \"not found\" for some products/RefId",
                 "pt": "",
                 "es": ""
               },
@@ -31543,7 +31543,7 @@
             },
             {
               "name": {
-                "en": "Catalog Export does not show Sales Channels when ",
+                "en": "Catalog Export does not show Sales Channels when \"none\" are tagged",
                 "pt": "",
                 "es": ""
               },
@@ -31663,7 +31663,7 @@
             },
             {
               "name": {
-                "en": "Catalog Inactivating productid using API isn",
+                "en": "Catalog Inactivating productid using API isn't inactivating SKU",
                 "pt": "",
                 "es": ""
               },
@@ -31693,7 +31693,7 @@
             },
             {
               "name": {
-                "en": "Catalog Indexing Report ",
+                "en": "Catalog Indexing Report \"Total\" Section Calculation Error",
                 "pt": "",
                 "es": ""
               },
@@ -31798,7 +31798,7 @@
             },
             {
               "name": {
-                "en": "[Catalog] Select brand in catalog doesn",
+                "en": "[Catalog] Select brand in catalog doesn't work",
                 "pt": "",
                 "es": ""
               },
@@ -31918,7 +31918,7 @@
             },
             {
               "name": {
-                "en": "Category tree",
+                "en": "Category tree's specification navigation can return incorrect data",
                 "pt": "",
                 "es": ""
               },
@@ -32038,7 +32038,7 @@
             },
             {
               "name": {
-                "en": "Collections don",
+                "en": "Collections don't open on subaccounts",
                 "pt": "",
                 "es": ""
               },
@@ -32113,7 +32113,7 @@
             },
             {
               "name": {
-                "en": "Collections - Search bar - ",
+                "en": "Collections - Search bar - \"Search for products in catalog\" issue",
                 "pt": "",
                 "es": ""
               },
@@ -32143,7 +32143,7 @@
             },
             {
               "name": {
-                "en": "Collections UI doesn",
+                "en": "Collections UI doesn't allow to search for products with special characters",
                 "pt": "",
                 "es": ""
               },
@@ -32158,7 +32158,7 @@
             },
             {
               "name": {
-                "en": "Conflicts with price filters and ",
+                "en": "Conflicts with price filters and \"isAvailablePerSalesChannel\" in searches (Portal and Search) (Again)",
                 "pt": "",
                 "es": ""
               },
@@ -32203,7 +32203,7 @@
             },
             {
               "name": {
-                "en": "Create product API doesn",
+                "en": "Create product API doesn't send nulls as Release Date values.",
                 "pt": "",
                 "es": ""
               },
@@ -32218,7 +32218,7 @@
             },
             {
               "name": {
-                "en": "Creating a regionalized sales channel with an already used binding does not update the item",
+                "en": "Creating a regionalized sales channel with an already used binding does not update the item's stockbalance",
                 "pt": "",
                 "es": ""
               },
@@ -32308,7 +32308,7 @@
             },
             {
               "name": {
-                "en": "DefaultValue property doesn",
+                "en": "DefaultValue property doesn't update on specification API",
                 "pt": "",
                 "es": ""
               },
@@ -32398,7 +32398,7 @@
             },
             {
               "name": {
-                "en": "Error ",
+                "en": "Error \"Field Group not found in the category\" when creating specification via API using group that belongs to parent category",
                 "pt": "",
                 "es": ""
               },
@@ -32503,7 +32503,7 @@
             },
             {
               "name": {
-                "en": "Exporting SKU images for accounts starting with ",
+                "en": "Exporting SKU images for accounts starting with 'h','t' or 'p' get this character cut in the \"Image URL\" rows.",
                 "pt": "",
                 "es": ""
               },
@@ -32563,7 +32563,7 @@
             },
             {
               "name": {
-                "en": "Filter products by ",
+                "en": "Filter products by \"Store\" on the Catalog Admin can show the wrong ammount of results",
                 "pt": "",
                 "es": ""
               },
@@ -32608,7 +32608,7 @@
             },
             {
               "name": {
-                "en": "GET Product by Refid Returning ",
+                "en": "GET Product by Refid Returning \"Null\" when not Found",
                 "pt": "",
                 "es": ""
               },
@@ -32773,7 +32773,7 @@
             },
             {
               "name": {
-                "en": "Import collection only accepts the order of products if import is made based on ",
+                "en": "Import collection only accepts the order of products if import is made based on \"skuId",
                 "pt": "",
                 "es": ""
               },
@@ -32893,7 +32893,7 @@
             },
             {
               "name": {
-                "en": "Insert SKU File API doesnt accept URLs from servers that require ",
+                "en": "Insert SKU File API doesnt accept URLs from servers that require \"User Agents",
                 "pt": "",
                 "es": ""
               },
@@ -32983,7 +32983,7 @@
             },
             {
               "name": {
-                "en": "Invisible Characters in Category Names Cause ",
+                "en": "Invisible Characters in Category Names Cause 'Page Not Found' Errors",
                 "pt": "",
                 "es": ""
               },
@@ -33088,7 +33088,7 @@
             },
             {
               "name": {
-                "en": "Large Indexed Text",
+                "en": "Large Indexed Text\" and \"Indexed Text\" not being changed by Specification Import",
                 "pt": "",
                 "es": ""
               },
@@ -33103,7 +33103,7 @@
             },
             {
               "name": {
-                "en": "lastModifiedBy field always returns ",
+                "en": "lastModifiedBy field always returns \"null\" in search API.",
                 "pt": "",
                 "es": ""
               },
@@ -33118,7 +33118,7 @@
             },
             {
               "name": {
-                "en": "Legacy Catalog UI ",
+                "en": "Legacy Catalog UI \"delete\" button not functional",
                 "pt": "",
                 "es": ""
               },
@@ -33133,7 +33133,7 @@
             },
             {
               "name": {
-                "en": "Legacy CMS",
+                "en": "Legacy CMS's banner custom element not working",
                 "pt": "",
                 "es": ""
               },
@@ -33223,7 +33223,7 @@
             },
             {
               "name": {
-                "en": "Link ",
+                "en": "Link \"Why fill VTEX Global Category?\" on category setup only works opening in a new tab",
                 "pt": "",
                 "es": ""
               },
@@ -33268,7 +33268,7 @@
             },
             {
               "name": {
-                "en": "Manually changing ",
+                "en": "Manually changing \"flagSKU\" in the URL allows a specification type to be improperly changed.",
                 "pt": "",
                 "es": ""
               },
@@ -33283,7 +33283,7 @@
             },
             {
               "name": {
-                "en": "maximum number of eligible items for each cart",
+                "en": "maximum number of eligible items for each cart\" + more for less applies incorrect discount when using the same item.",
                 "pt": "",
                 "es": ""
               },
@@ -33298,7 +33298,7 @@
             },
             {
               "name": {
-                "en": "MetaTagDescription",
+                "en": "MetaTagDescription' field cannot be deleted through Admin",
                 "pt": "",
                 "es": ""
               },
@@ -33343,7 +33343,7 @@
             },
             {
               "name": {
-                "en": "Não é possível inativar este produto porque ele possui um ou mais skus ativos.",
+                "en": "Não é possível inativar este produto porque ele possui um ou mais skus ativos.\" does not automatically translate on the Product admin",
                 "pt": "Não é possível inativar este produto porque ele possui um ou mais skus ativos.",
                 "es": ""
               },
@@ -33373,7 +33373,7 @@
             },
             {
               "name": {
-                "en": "New Collections ",
+                "en": "New Collections 'Newly Released' filter is not working for Exports",
                 "pt": "",
                 "es": ""
               },
@@ -33463,7 +33463,7 @@
             },
             {
               "name": {
-                "en": "Offers Management sku",
+                "en": "Offers Management sku's interactions are not stable",
                 "pt": "",
                 "es": ""
               },
@@ -33538,7 +33538,7 @@
             },
             {
               "name": {
-                "en": "Position",
+                "en": "Position\" of the trade policy depends on the page it is shown on the admin interface",
                 "pt": "",
                 "es": ""
               },
@@ -33628,7 +33628,7 @@
             },
             {
               "name": {
-                "en": "Product Insert/Update API allows ",
+                "en": "Product Insert/Update API allows \"\\n\" in the textLink field.",
                 "pt": "",
                 "es": ""
               },
@@ -33643,7 +33643,7 @@
             },
             {
               "name": {
-                "en": "Product name contains\\",
+                "en": "Product name contains\" search with more than one term doesn't work on catalog's redesigned UI",
                 "pt": "",
                 "es": ""
               },
@@ -33703,7 +33703,7 @@
             },
             {
               "name": {
-                "en": "Product Specification",
+                "en": "Product Specification\" filter on Collection Module assuming incorrect values",
                 "pt": "",
                 "es": ""
               },
@@ -33733,7 +33733,7 @@
             },
             {
               "name": {
-                "en": "Product specification import with type ",
+                "en": "Product specification import with type 'text' does not trigger the product's indexation",
                 "pt": "",
                 "es": ""
               },
@@ -33793,7 +33793,7 @@
             },
             {
               "name": {
-                "en": "Products&SKUs Import does not support ",
+                "en": "Products&SKUs Import does not support 'lb",
                 "pt": "",
                 "es": ""
               },
@@ -33838,7 +33838,7 @@
             },
             {
               "name": {
-                "en": "PUT Brand API does not update ",
+                "en": "PUT Brand API does not update \"LinkID\" property",
                 "pt": "",
                 "es": ""
               },
@@ -33853,7 +33853,7 @@
             },
             {
               "name": {
-                "en": "Received Skus: Association approvals don",
+                "en": "Received Skus: Association approvals don't add the seller's available sales channel on the product when the sku is sold by more than 1 seller",
                 "pt": "",
                 "es": ""
               },
@@ -33973,7 +33973,7 @@
             },
             {
               "name": {
-                "en": "See error\\",
+                "en": "See error\" button doesn't show anything on collections module for generic errors",
                 "pt": "",
                 "es": ""
               },
@@ -34018,7 +34018,7 @@
             },
             {
               "name": {
-                "en": "Seller Portal Product Doesn",
+                "en": "Seller Portal Product Doesn't Load When Without Images",
                 "pt": "",
                 "es": ""
               },
@@ -34123,7 +34123,7 @@
             },
             {
               "name": {
-                "en": "[Sku binding] Doesn",
+                "en": "[Sku binding] Doesn't show all columns in the spreadsheet",
                 "pt": "",
                 "es": ""
               },
@@ -34153,7 +34153,7 @@
             },
             {
               "name": {
-                "en": "SKU Insert File API is not responding with the ",
+                "en": "SKU Insert File API is not responding with the \"Text\" property.",
                 "pt": "",
                 "es": ""
               },
@@ -34363,7 +34363,7 @@
             },
             {
               "name": {
-                "en": "SVG file replacement with the same name doesn",
+                "en": "SVG file replacement with the same name doesn't work",
                 "pt": "",
                 "es": ""
               },
@@ -34408,7 +34408,7 @@
             },
             {
               "name": {
-                "en": "Telesales search doesn",
+                "en": "Telesales search doesn't accept special characters aside from \"@\".",
                 "pt": "",
                 "es": ""
               },
@@ -34438,7 +34438,7 @@
             },
             {
               "name": {
-                "en": "Textlink created with ",
+                "en": "Textlink created with \" \" on Marketplace upon approvals - Reoccurence",
                 "pt": "",
                 "es": ""
               },
@@ -34648,7 +34648,7 @@
             },
             {
               "name": {
-                "en": "Update seller",
+                "en": "Update seller's available trade policies does not trigger automatic indexation",
                 "pt": "",
                 "es": ""
               },
@@ -34678,7 +34678,7 @@
             },
             {
               "name": {
-                "en": "Url Logo",
+                "en": "Url Logo\" Field in the Update Seller Request not Updating",
                 "pt": "",
                 "es": ""
               },
@@ -34813,7 +34813,7 @@
             },
             {
               "name": {
-                "en": "XML",
+                "en": "XML's \"Product Name\" flag not working properly",
                 "pt": "",
                 "es": ""
               },
@@ -34900,7 +34900,7 @@
             },
             {
               "name": {
-                "en": "Marketplace doesn",
+                "en": "Marketplace doesn't consider installment rule for products that have a commercial condition in the seller",
                 "pt": "",
                 "es": ""
               },
@@ -34990,7 +34990,7 @@
             },
             {
               "name": {
-                "en": "Schema doesn",
+                "en": "Schema doesn't present price in outOfstock items (unavailable)",
                 "pt": "",
                 "es": ""
               },
@@ -35005,7 +35005,7 @@
             },
             {
               "name": {
-                "en": "Seller",
+                "en": "Seller's Name is not provided in native mkp integrations",
                 "pt": "",
                 "es": ""
               },
@@ -35020,7 +35020,7 @@
             },
             {
               "name": {
-                "en": "Seller",
+                "en": "Seller's logo doesn't appear on the product page",
                 "pt": "",
                 "es": ""
               },
@@ -35065,7 +35065,7 @@
             },
             {
               "name": {
-                "en": "Tx Id link in Orders management doesn",
+                "en": "Tx Id link in Orders management doesn't redirect to Payment module in marketplace orders",
                 "pt": "",
                 "es": ""
               },
@@ -35137,7 +35137,7 @@
             },
             {
               "name": {
-                "en": "Address in orderForm with excessive size for multiples cities separated by ",
+                "en": "Address in orderForm with excessive size for multiples cities separated by \"::",
                 "pt": "",
                 "es": ""
               },
@@ -35167,7 +35167,7 @@
             },
             {
               "name": {
-                "en": "AddressId mismatch causes ",
+                "en": "AddressId mismatch causes \"invalid address for an item\" error",
                 "pt": "",
                 "es": ""
               },
@@ -35257,7 +35257,7 @@
             },
             {
               "name": {
-                "en": "Attachment",
+                "en": "Attachment's permitted values are not updated when it's added to items",
                 "pt": "",
                 "es": ""
               },
@@ -35272,7 +35272,7 @@
             },
             {
               "name": {
-                "en": "availability",
+                "en": "availability\" field is incorrect in Fulfillment Simulation for no stock or price products",
                 "pt": "",
                 "es": ""
               },
@@ -35302,7 +35302,7 @@
             },
             {
               "name": {
-                "en": "Back to site",
+                "en": "Back to site\" button takes to gatewayCallback//Success instead of placeOrder page",
                 "pt": "",
                 "es": ""
               },
@@ -35347,7 +35347,7 @@
             },
             {
               "name": {
-                "en": "Call center operator",
+                "en": "Call center operator's email is sent to orderForm when adding items to cart from Store Framework front-end",
                 "pt": "",
                 "es": ""
               },
@@ -35362,7 +35362,7 @@
             },
             {
               "name": {
-                "en": "Can",
+                "en": "Can't create orders with promotions applied on the marketplace layer to a seller under the multilevel behavior",
                 "pt": "",
                 "es": ""
               },
@@ -35377,7 +35377,7 @@
             },
             {
               "name": {
-                "en": "Cart created from an old order doesn",
+                "en": "Cart created from an old order doesn't bring the assembly options",
                 "pt": "",
                 "es": ""
               },
@@ -35392,7 +35392,7 @@
             },
             {
               "name": {
-                "en": "Cart created from an old order doesn",
+                "en": "Cart created from an old order doesn't bring the attachments",
                 "pt": "",
                 "es": ""
               },
@@ -35407,7 +35407,7 @@
             },
             {
               "name": {
-                "en": "Cart created from an \\",
+                "en": "Cart created from an \"order again\" option in My Orders, the customer's email is not being placed as expected in the orderForm",
                 "pt": "",
                 "es": ""
               },
@@ -35467,7 +35467,7 @@
             },
             {
               "name": {
-                "en": "Cart with items displays ",
+                "en": "Cart with items displays \"empty cart\" message while screen is still loading",
                 "pt": "",
                 "es": ""
               },
@@ -35482,7 +35482,7 @@
             },
             {
               "name": {
-                "en": "Cart with multiple country addresses lose the pickup address if store can",
+                "en": "Cart with multiple country addresses lose the pickup address if store can't ship to all the countries",
                 "pt": "",
                 "es": ""
               },
@@ -35557,7 +35557,7 @@
             },
             {
               "name": {
-                "en": "Checkout allows users to jump to payment step with an empty ",
+                "en": "Checkout allows users to jump to payment step with an empty 'shippingData' when using geolocation",
                 "pt": "",
                 "es": ""
               },
@@ -35587,7 +35587,7 @@
             },
             {
               "name": {
-                "en": "Checkout can",
+                "en": "Checkout can't remove gift item when unavailable after pickup-point selected",
                 "pt": "",
                 "es": ""
               },
@@ -35662,7 +35662,7 @@
             },
             {
               "name": {
-                "en": "Checkout doesn",
+                "en": "Checkout doesn't consider locale to translate API errors",
                 "pt": "",
                 "es": ""
               },
@@ -35677,7 +35677,7 @@
             },
             {
               "name": {
-                "en": "Checkout firing Google Analytics",
+                "en": "Checkout firing Google Analytics' pageview events multiplied per tracker",
                 "pt": "",
                 "es": ""
               },
@@ -35767,7 +35767,7 @@
             },
             {
               "name": {
-                "en": "Checkout payment split may generate incorrect information in the ",
+                "en": "Checkout payment split may generate incorrect information in the \"paymentData\" of orders (NO-PAYMENT)",
                 "pt": "Checkout payment split may generate incorrect information in the ",
                 "es": "Checkout payment split may generate incorrect information in the "
               },
@@ -35782,7 +35782,7 @@
             },
             {
               "name": {
-                "en": "Checkout payment step doesn",
+                "en": "Checkout payment step doesn't work if Apple Pay is the first payment method",
                 "pt": "Checkout payment step doesn",
                 "es": "Checkout payment step doesn"
               },
@@ -35797,7 +35797,7 @@
             },
             {
               "name": {
-                "en": "Checkout pipeline doesn",
+                "en": "Checkout pipeline doesn't update taxes considering the correct seller when merging cart information",
                 "pt": "",
                 "es": ""
               },
@@ -35812,7 +35812,7 @@
             },
             {
               "name": {
-                "en": "Checkout Simulation returns value 0 in ",
+                "en": "Checkout Simulation returns value 0 in \"slas.tax\" field for Shipping Percentage taxes",
                 "pt": "",
                 "es": ""
               },
@@ -35857,7 +35857,7 @@
             },
             {
               "name": {
-                "en": "Checkout UI is not automatically using ",
+                "en": "Checkout UI is not automatically using \"lean shipping\" for items with no common shipping methods",
                 "pt": "",
                 "es": ""
               },
@@ -35932,7 +35932,7 @@
             },
             {
               "name": {
-                "en": "Checkout UI unselects the ",
+                "en": "Checkout UI unselects the \"Schedule all\" toggle after refreshing the page",
                 "pt": "",
                 "es": ""
               },
@@ -36067,7 +36067,7 @@
             },
             {
               "name": {
-                "en": "Customer information being lost when it has some order with ",
+                "en": "Customer information being lost when it has some order with \"profileErrorOnLoading",
                 "pt": "",
                 "es": ""
               },
@@ -36232,7 +36232,7 @@
             },
             {
               "name": {
-                "en": "Divergent value while mixing ",
+                "en": "Divergent value while mixing \"paymentSystemToCheckFirstInstallment\" configuration and splitted items",
                 "pt": "",
                 "es": ""
               },
@@ -36352,7 +36352,7 @@
             },
             {
               "name": {
-                "en": "Failure to add data in the ",
+                "en": "Failure to add data in the \"deliver to another address\" step causes the \"go to payment\" button to disappear",
                 "pt": "",
                 "es": ""
               },
@@ -36367,7 +36367,7 @@
             },
             {
               "name": {
-                "en": "Field ",
+                "en": "Field \"reference\" always set as null",
                 "pt": "",
                 "es": ""
               },
@@ -36397,7 +36397,7 @@
             },
             {
               "name": {
-                "en": "GeoCoordinates data can",
+                "en": "GeoCoordinates data can't be informed for some cultureInfo",
                 "pt": "",
                 "es": ""
               },
@@ -36427,7 +36427,7 @@
             },
             {
               "name": {
-                "en": "Go to payment\\",
+                "en": "Go to payment\" button doesn't work in delivery split when switching between Delivery and Pick up options",
                 "pt": "",
                 "es": ""
               },
@@ -36517,7 +36517,7 @@
             },
             {
               "name": {
-                "en": "installmentOptions from orderForm API doesn",
+                "en": "installmentOptions from orderForm API doesn't take into account specific installment promotions",
                 "pt": "",
                 "es": ""
               },
@@ -36562,7 +36562,7 @@
             },
             {
               "name": {
-                "en": "Invalid postal code",
+                "en": "Invalid postal code\" message in Checkout UI when address is in available addresses with different country",
                 "pt": "",
                 "es": ""
               },
@@ -36607,7 +36607,7 @@
             },
             {
               "name": {
-                "en": "Item becomes unavailable if its possible assembly options don",
+                "en": "Item becomes unavailable if its possible assembly options don't match the cart sales channel",
                 "pt": "",
                 "es": ""
               },
@@ -36622,7 +36622,7 @@
             },
             {
               "name": {
-                "en": "Lack of feedback while selecting gift items that aren",
+                "en": "Lack of feedback while selecting gift items that aren't available",
                 "pt": "",
                 "es": ""
               },
@@ -36667,7 +36667,7 @@
             },
             {
               "name": {
-                "en": "Lean shipping causes ",
+                "en": "Lean shipping causes \"Something went wrong\" after changing pick-up points",
                 "pt": "",
                 "es": ""
               },
@@ -36697,7 +36697,7 @@
             },
             {
               "name": {
-                "en": "Lean shipping doesn",
+                "en": "Lean shipping doesn't allow selecting regular delivery when scheduled delivery is the cheapest and fastest",
                 "pt": "",
                 "es": ""
               },
@@ -36712,7 +36712,7 @@
             },
             {
               "name": {
-                "en": "Lean Shipping doesn",
+                "en": "Lean Shipping doesn't deactivate after removing items from cart",
                 "pt": "",
                 "es": ""
               },
@@ -36742,7 +36742,7 @@
             },
             {
               "name": {
-                "en": "ListPrice shown in a cart doesn",
+                "en": "ListPrice shown in a cart doesn't consider if the regular price is being modified by a unitMultiplier",
                 "pt": "",
                 "es": ""
               },
@@ -36862,7 +36862,7 @@
             },
             {
               "name": {
-                "en": "Marketplace tax hub request doesn",
+                "en": "Marketplace tax hub request doesn't consider manual price for discounts",
                 "pt": "",
                 "es": ""
               },
@@ -36877,7 +36877,7 @@
             },
             {
               "name": {
-                "en": "Marketplace tax hub request doesn",
+                "en": "Marketplace tax hub request doesn't consider some discount types",
                 "pt": "",
                 "es": ""
               },
@@ -36907,7 +36907,7 @@
             },
             {
               "name": {
-                "en": "Message ",
+                "en": "Message \"Freight value has changed\" is shown incorrectly",
                 "pt": "",
                 "es": ""
               },
@@ -36922,7 +36922,7 @@
             },
             {
               "name": {
-                "en": "Misbehaviors for addToCart mutation from checkout-graphql while sending ",
+                "en": "Misbehaviors for addToCart mutation from checkout-graphql while sending \"options\" for already added items",
                 "pt": "",
                 "es": ""
               },
@@ -36937,7 +36937,7 @@
             },
             {
               "name": {
-                "en": "Mismatched information in checkout",
+                "en": "Mismatched information in checkout's UI leads to incorrect packages visualization",
                 "pt": "",
                 "es": ""
               },
@@ -36952,7 +36952,7 @@
             },
             {
               "name": {
-                "en": "New subscription orders aren",
+                "en": "New subscription orders aren't created with saved credit card and savePersonalDataAsOptIn",
                 "pt": "",
                 "es": ""
               },
@@ -37012,7 +37012,7 @@
             },
             {
               "name": {
-                "en": "Order can",
+                "en": "Order can't be created due to invalid credit card",
                 "pt": "",
                 "es": ""
               },
@@ -37042,7 +37042,7 @@
             },
             {
               "name": {
-                "en": "Order replacement feature doesn",
+                "en": "Order replacement feature doesn't work when the replaced cart and original order have the same value",
                 "pt": "",
                 "es": ""
               },
@@ -37072,7 +37072,7 @@
             },
             {
               "name": {
-                "en": "OrderForm can",
+                "en": "OrderForm can't be retrieved after modifying item attachments in the catalog",
                 "pt": "",
                 "es": ""
               },
@@ -37087,7 +37087,7 @@
             },
             {
               "name": {
-                "en": "orderForm (Chk API) suggesting invalid scheduled delivery that can",
+                "en": "orderForm (Chk API) suggesting invalid scheduled delivery that can't be used",
                 "pt": "",
                 "es": ""
               },
@@ -37117,7 +37117,7 @@
             },
             {
               "name": {
-                "en": "OrderForm not returning customer",
+                "en": "OrderForm not returning customer's data even for authorized credentials",
                 "pt": "",
                 "es": ""
               },
@@ -37147,7 +37147,7 @@
             },
             {
               "name": {
-                "en": "Orders for gift items aren",
+                "en": "Orders for gift items aren't canceled if the payment is refused for the regular item's order",
                 "pt": "",
                 "es": ""
               },
@@ -37252,7 +37252,7 @@
             },
             {
               "name": {
-                "en": "Payout and Transaction split don",
+                "en": "Payout and Transaction split don't work in the same order for Multilevel Omnichannel Inventory",
                 "pt": "",
                 "es": ""
               },
@@ -37297,7 +37297,7 @@
             },
             {
               "name": {
-                "en": "Pick-up point can",
+                "en": "Pick-up point can't be selected in marketplaces with multi-level sellers",
                 "pt": "",
                 "es": ""
               },
@@ -37312,7 +37312,7 @@
             },
             {
               "name": {
-                "en": "Pickup point modal doesn",
+                "en": "Pickup point modal doesn't utilize geoCoordinates without a Google Maps key",
                 "pt": "",
                 "es": ""
               },
@@ -37372,7 +37372,7 @@
             },
             {
               "name": {
-                "en": "Pickup points list can",
+                "en": "Pickup points list can't be scrolled after searching addresses in map mode",
                 "pt": "",
                 "es": ""
               },
@@ -37522,7 +37522,7 @@
             },
             {
               "name": {
-                "en": "Prices restricted to ",
+                "en": "Prices restricted to \"Int32\" max value on Change Price API",
                 "pt": "",
                 "es": ""
               },
@@ -37597,7 +37597,7 @@
             },
             {
               "name": {
-                "en": "Profile data loaded empty in the UI for complete profile with ",
+                "en": "Profile data loaded empty in the UI for complete profile with 'ignoreProfileData",
                 "pt": "",
                 "es": ""
               },
@@ -37627,7 +37627,7 @@
             },
             {
               "name": {
-                "en": "Promotions and taxes restricted by shipping method doesn",
+                "en": "Promotions and taxes restricted by shipping method doesn't works for Whitelabel Sellers",
                 "pt": "",
                 "es": ""
               },
@@ -37672,7 +37672,7 @@
             },
             {
               "name": {
-                "en": "Purchase can",
+                "en": "Purchase can't be finished and is stuck on \"freight type has changed",
                 "pt": "",
                 "es": ""
               },
@@ -37687,7 +37687,7 @@
             },
             {
               "name": {
-                "en": "Purchase can",
+                "en": "Purchase can't be finished and returns the error \"receiver name field is invalid",
                 "pt": "",
                 "es": ""
               },
@@ -37822,7 +37822,7 @@
             },
             {
               "name": {
-                "en": "Seller selection algorithm doesn",
+                "en": "Seller selection algorithm doesn't consider the real availability of the item to choose the best option",
                 "pt": "",
                 "es": ""
               },
@@ -37852,7 +37852,7 @@
             },
             {
               "name": {
-                "en": "Shipping component locked in ",
+                "en": "Shipping component locked in \"Waiting for more information\" state",
                 "pt": "",
                 "es": ""
               },
@@ -37957,7 +37957,7 @@
             },
             {
               "name": {
-                "en": "Shipping Preview wrongly displaying the date when it",
+                "en": "Shipping Preview wrongly displaying the date when it's scheduled delivery",
                 "pt": "",
                 "es": ""
               },
@@ -37987,7 +37987,7 @@
             },
             {
               "name": {
-                "en": "Shipping Preview wrongly displaying the price when it",
+                "en": "Shipping Preview wrongly displaying the price when it's scheduled delivery",
                 "pt": "",
                 "es": ""
               },
@@ -38032,7 +38032,7 @@
             },
             {
               "name": {
-                "en": "Shipping preview",
+                "en": "Shipping preview's postal code input field is not hidden",
                 "pt": "",
                 "es": ""
               },
@@ -38107,7 +38107,7 @@
             },
             {
               "name": {
-                "en": "Something went wrong",
+                "en": "Something went wrong\" when adding an incomplete address and tried to edit it",
                 "pt": "",
                 "es": ""
               },
@@ -38137,7 +38137,7 @@
             },
             {
               "name": {
-                "en": "Subscription options translations don",
+                "en": "Subscription options translations don't work properly for some languages",
                 "pt": "",
                 "es": ""
               },
@@ -38182,7 +38182,7 @@
             },
             {
               "name": {
-                "en": "Tax hub request doesn",
+                "en": "Tax hub request doesn't sum discounts when manual price is applied",
                 "pt": "",
                 "es": ""
               },
@@ -38212,7 +38212,7 @@
             },
             {
               "name": {
-                "en": "Tax Service doesn",
+                "en": "Tax Service doesn't apply free shipping promotions with promotion that splits items",
                 "pt": "",
                 "es": ""
               },
@@ -38227,7 +38227,7 @@
             },
             {
               "name": {
-                "en": "Tax Service doesn",
+                "en": "Tax Service doesn't consider nominal promotions when placing orders",
                 "pt": "",
                 "es": ""
               },
@@ -38332,7 +38332,7 @@
             },
             {
               "name": {
-                "en": "UI doesn",
+                "en": "UI doesn't show delivery window selection for pick-up points when an item from a seller is between items for pick-up from another seller",
                 "pt": "",
                 "es": ""
               },
@@ -38347,7 +38347,7 @@
             },
             {
               "name": {
-                "en": "UI doesn",
+                "en": "UI doesn't show the form to edit address when selecting to add a new address first",
                 "pt": "",
                 "es": ""
               },
@@ -38362,7 +38362,7 @@
             },
             {
               "name": {
-                "en": "UI doesn",
+                "en": "UI doesn't show window selection for pick-up points when an item from a seller is between items for pick-up from another seller",
                 "pt": "",
                 "es": ""
               },
@@ -38437,7 +38437,7 @@
             },
             {
               "name": {
-                "en": "UI shows a pick-up was selected in cart with subscriptions but it wasn",
+                "en": "UI shows a pick-up was selected in cart with subscriptions but it wasn't in API",
                 "pt": "",
                 "es": ""
               },
@@ -38467,7 +38467,7 @@
             },
             {
               "name": {
-                "en": "UI shows ",
+                "en": "UI shows \"Gifts picked!\" when using Order replacement feature",
                 "pt": "",
                 "es": ""
               },
@@ -38587,7 +38587,7 @@
             },
             {
               "name": {
-                "en": "UseSessionRegionAtCheckout doesn",
+                "en": "UseSessionRegionAtCheckout doesn't work properly when adding the first item to the cart",
                 "pt": "",
                 "es": ""
               },
@@ -38854,7 +38854,7 @@
             },
             {
               "name": {
-                "en": "[AMAZON] ",
+                "en": "[AMAZON] \"Object reference not set to an instance of an object",
                 "pt": "",
                 "es": ""
               },
@@ -38914,7 +38914,7 @@
             },
             {
               "name": {
-                "en": "[Amazon] SKUs for the same product weren",
+                "en": "[Amazon] SKUs for the same product weren't grouped on Amazon.",
                 "pt": "",
                 "es": ""
               },
@@ -38974,7 +38974,7 @@
             },
             {
               "name": {
-                "en": "[B2W] ",
+                "en": "[B2W] \"B2W direct\" order (FOB) integrating with carrier",
                 "pt": "",
                 "es": ""
               },
@@ -39004,7 +39004,7 @@
             },
             {
               "name": {
-                "en": "[B2W] Order with ",
+                "en": "[B2W] Order with \"Parameter count mismatch\" error",
                 "pt": "",
                 "es": ""
               },
@@ -39034,7 +39034,7 @@
             },
             {
               "name": {
-                "en": "Card facebook doesn",
+                "en": "Card facebook doesn't save some settings",
                 "pt": "",
                 "es": ""
               },
@@ -39049,7 +39049,7 @@
             },
             {
               "name": {
-                "en": "Centauro Orders with ",
+                "en": "Centauro Orders with \"Pedido sem o campo: \"packages\" error",
                 "pt": "Centauro Orders with ",
                 "es": ""
               },
@@ -39064,7 +39064,7 @@
             },
             {
               "name": {
-                "en": "[Centauro] To implement ",
+                "en": "[Centauro] To implement \"Centauro Envios",
                 "pt": "",
                 "es": ""
               },
@@ -39094,7 +39094,7 @@
             },
             {
               "name": {
-                "en": "[Dafiti] Orders that are in ",
+                "en": "[Dafiti] Orders that are in \"Awaiting Authorization to Dispatch\" at VTEX, but are still \"payment_pending\" at Dafiti.",
                 "pt": "",
                 "es": ""
               },
@@ -39184,7 +39184,7 @@
             },
             {
               "name": {
-                "en": "Erro \\",
+                "en": "Erro \"Category XXX not found in browse node mapping for SKU's department specification, choose a more specific global category\" persistente",
                 "pt": "",
                 "es": ""
               },
@@ -39214,7 +39214,7 @@
             },
             {
               "name": {
-                "en": "Error integrating sku ",
+                "en": "Error integrating sku \"Field may not be null\" - Magalu",
                 "pt": "",
                 "es": ""
               },
@@ -39244,7 +39244,7 @@
             },
             {
               "name": {
-                "en": "ey ",
+                "en": "ey \"Send Kit:\" is not recording a change in the Card",
                 "pt": "",
                 "es": ""
               },
@@ -39349,7 +39349,7 @@
             },
             {
               "name": {
-                "en": "[Magalu] Order with error ",
+                "en": "[Magalu] Order with error \"Object reference not set to an instance of an object",
                 "pt": "",
                 "es": ""
               },
@@ -39394,7 +39394,7 @@
             },
             {
               "name": {
-                "en": "[Magazine Luiza] Integrated FOB order with ",
+                "en": "[Magazine Luiza] Integrated FOB order with \"Conventional\" delivery",
                 "pt": "",
                 "es": ""
               },
@@ -39409,7 +39409,7 @@
             },
             {
               "name": {
-                "en": "[Magazine Luiza] [Order canceled on Marketplace didn",
+                "en": "[Magazine Luiza] [Order canceled on Marketplace didn't cancel on VTEX]",
                 "pt": "",
                 "es": ""
               },
@@ -39424,7 +39424,7 @@
             },
             {
               "name": {
-                "en": "[Magazine Luiza] Order canceled on marketplace didn",
+                "en": "[Magazine Luiza] Order canceled on marketplace didn't update status on VTEX",
                 "pt": "",
                 "es": ""
               },
@@ -39439,7 +39439,7 @@
             },
             {
               "name": {
-                "en": "[Magazine Luiza] Order with error ",
+                "en": "[Magazine Luiza] Order with error \"Object reference not set to an instance of an object",
                 "pt": "",
                 "es": ""
               },
@@ -39619,7 +39619,7 @@
             },
             {
               "name": {
-                "en": "[Meli] Error sku integration ",
+                "en": "[Meli] Error sku integration \"Input string was not in a correct format",
                 "pt": "",
                 "es": ""
               },
@@ -39709,7 +39709,7 @@
             },
             {
               "name": {
-                "en": "MELI integration is receiving errors from MELI ",
+                "en": "MELI integration is receiving errors from MELI \"429 too many requests",
                 "pt": "",
                 "es": ""
               },
@@ -39754,7 +39754,7 @@
             },
             {
               "name": {
-                "en": "MELI integration ZIPCodes ",
+                "en": "MELI integration ZIPCodes \"11111\" Meli - Lima/Perú",
                 "pt": "",
                 "es": ""
               },
@@ -39934,7 +39934,7 @@
             },
             {
               "name": {
-                "en": "[Meli] SKU integration with ",
+                "en": "[Meli] SKU integration with \"Object reference not set to an instance of an object\" error.",
                 "pt": "",
                 "es": ""
               },
@@ -39979,7 +39979,7 @@
             },
             {
               "name": {
-                "en": "[Mercado Livre] AD BuyBox doesn",
+                "en": "[Mercado Livre] AD BuyBox doesn't update shipping_mode for ME2",
                 "pt": "",
                 "es": ""
               },
@@ -40009,7 +40009,7 @@
             },
             {
               "name": {
-                "en": "[Mercado Livre] [Bridge] Bridge isn",
+                "en": "[Mercado Livre] [Bridge] Bridge isn't logging some error messages",
                 "pt": "",
                 "es": ""
               },
@@ -40069,7 +40069,7 @@
             },
             {
               "name": {
-                "en": "[Mercado Livre] Error downloading invoices in the ",
+                "en": "[Mercado Livre] Error downloading invoices in the \"Invoices\" module",
                 "pt": "",
                 "es": ""
               },
@@ -40084,7 +40084,7 @@
             },
             {
               "name": {
-                "en": "[Mercado Livre] In some cases, a canceled order on the marketplace doesn",
+                "en": "[Mercado Livre] In some cases, a canceled order on the marketplace doesn't update stock in the catalog",
                 "pt": "",
                 "es": ""
               },
@@ -40129,7 +40129,7 @@
             },
             {
               "name": {
-                "en": "[Mercado Livre] [Sku] Bridge isn",
+                "en": "[Mercado Livre] [Sku] Bridge isn't logging some error messages",
                 "pt": "",
                 "es": ""
               },
@@ -40144,7 +40144,7 @@
             },
             {
               "name": {
-                "en": "Mercado Livre \\",
+                "en": "Mercado Livre \"The following attributes need to be created to configure me2: ''attribute name.",
                 "pt": "",
                 "es": ""
               },
@@ -40189,7 +40189,7 @@
             },
             {
               "name": {
-                "en": "Order doesn",
+                "en": "Order doesn't update status in OMS",
                 "pt": "",
                 "es": ""
               },
@@ -40219,7 +40219,7 @@
             },
             {
               "name": {
-                "en": "Orders invoiced at VTEX but that don",
+                "en": "Orders invoiced at VTEX but that don't update the invoice at Netshoes",
                 "pt": "",
                 "es": ""
               },
@@ -40324,7 +40324,7 @@
             },
             {
               "name": {
-                "en": "Sku inactive, updates on B2W but doesn",
+                "en": "Sku inactive, updates on B2W but doesn't log correct message on bridge",
                 "pt": "",
                 "es": ""
               },
@@ -40384,7 +40384,7 @@
             },
             {
               "name": {
-                "en": "Some skus don",
+                "en": "Some skus don't integrate - Dafiti",
                 "pt": "",
                 "es": ""
               },
@@ -40414,7 +40414,7 @@
             },
             {
               "name": {
-                "en": "t",
+                "en": "t's not possible to update a product name and description on Centauro.",
                 "pt": "",
                 "es": ""
               },
@@ -40471,7 +40471,7 @@
             },
             {
               "name": {
-                "en": "Error ",
+                "en": "Error \"The specified Root Directory \"{name}\" does not exist\" when using version tags",
                 "pt": "",
                 "es": ""
               },
@@ -40501,7 +40501,7 @@
             },
             {
               "name": {
-                "en": "Failed searches are treated as ",
+                "en": "Failed searches are treated as \"not found",
                 "pt": "",
                 "es": ""
               },
@@ -40636,7 +40636,7 @@
             },
             {
               "name": {
-                "en": "Faststore",
+                "en": "Faststore's breadcrumb doesn't handle special characters well",
                 "pt": "",
                 "es": ""
               },
@@ -40741,7 +40741,7 @@
             },
             {
               "name": {
-                "en": "Pagination on searchpage doesn",
+                "en": "Pagination on searchpage doesn't reset when changing search context",
                 "pt": "",
                 "es": ""
               },
@@ -40786,7 +40786,7 @@
             },
             {
               "name": {
-                "en": "Quantity Selector won",
+                "en": "Quantity Selector won't let me change the value by typing",
                 "pt": "",
                 "es": ""
               },
@@ -40846,7 +40846,7 @@
             },
             {
               "name": {
-                "en": "Unavailable product",
+                "en": "Unavailable product's PDP are still being returned",
                 "pt": "",
                 "es": ""
               },
@@ -40963,7 +40963,7 @@
           "children": [
             {
               "name": {
-                "en": "Address\\",
+                "en": "Address\" field comes with \"null\" vaule in Payment's API query",
                 "pt": "",
                 "es": ""
               },
@@ -41053,7 +41053,7 @@
             },
             {
               "name": {
-                "en": "The ",
+                "en": "The \"Save new card\" option does not work when using 3-D Secure (3DS)",
                 "pt": "",
                 "es": ""
               },
@@ -41083,7 +41083,7 @@
             },
             {
               "name": {
-                "en": "You cannot pay with MercadoPago Redirect and Vale in shopping cart having Seller",
+                "en": "You cannot pay with MercadoPago Redirect and Vale in shopping cart having Seller's product",
                 "pt": "",
                 "es": ""
               },
@@ -41110,7 +41110,7 @@
           "children": [
             {
               "name": {
-                "en": "2FA SMS sent by VTEX appears as ",
+                "en": "2FA SMS sent by VTEX appears as \"likely scam\" to users in Ireland",
                 "pt": "",
                 "es": ""
               },
@@ -41260,7 +41260,7 @@
             },
             {
               "name": {
-                "en": "The field ",
+                "en": "The field \"Administrator who approved the product (id)\" does not change when the updating is done by webservice",
                 "pt": "",
                 "es": ""
               },
@@ -41305,7 +41305,7 @@
             },
             {
               "name": {
-                "en": "Update user",
+                "en": "Update user's name in the login section",
                 "pt": "",
                 "es": ""
               },
@@ -41320,7 +41320,7 @@
             },
             {
               "name": {
-                "en": "User only with the role ",
+                "en": "User only with the role \"User Administrator - RESTRICTED\" is not able to list the users",
                 "pt": "",
                 "es": ""
               },
@@ -41362,7 +41362,7 @@
           "children": [
             {
               "name": {
-                "en": "Accounts with \\",
+                "en": "Accounts with \"-\" on the name don't have metrics on search report",
                 "pt": "",
                 "es": ""
               },
@@ -41422,7 +41422,7 @@
             },
             {
               "name": {
-                "en": "Autocomplete Suggestion API removes the dot ",
+                "en": "Autocomplete Suggestion API removes the dot \".\" from the product name",
                 "pt": "",
                 "es": ""
               },
@@ -41542,7 +41542,7 @@
             },
             {
               "name": {
-                "en": "Clear filter button doesn",
+                "en": "Clear filter button doesn't handle multiple filters correctly",
                 "pt": "",
                 "es": ""
               },
@@ -41557,7 +41557,7 @@
             },
             {
               "name": {
-                "en": "Collection search-title doesn",
+                "en": "Collection search-title doesn't display accents when accessed through map=productClusterNames",
                 "pt": "",
                 "es": ""
               },
@@ -41722,7 +41722,7 @@
             },
             {
               "name": {
-                "en": "Filter ",
+                "en": "Filter \"productClusterIds\" is overwritten by \"productClusterNames\" while applying additional filters",
                 "pt": "",
                 "es": ""
               },
@@ -41782,7 +41782,7 @@
             },
             {
               "name": {
-                "en": "First search in a store is not considered on UI ",
+                "en": "First search in a store is not considered on UI \"last searches",
                 "pt": "",
                 "es": ""
               },
@@ -41932,7 +41932,7 @@
             },
             {
               "name": {
-                "en": "Intelligent Search multilanguage doesn",
+                "en": "Intelligent Search multilanguage doesn't support 2 variations of the same language/idiom",
                 "pt": "",
                 "es": ""
               },
@@ -42037,7 +42037,7 @@
             },
             {
               "name": {
-                "en": "Intelligent Search",
+                "en": "Intelligent Search's pagination of field values is limited to 9,999 items",
                 "pt": "",
                 "es": ""
               },
@@ -42127,7 +42127,7 @@
             },
             {
               "name": {
-                "en": "Merchandising rules not working for the facet ",
+                "en": "Merchandising rules not working for the facet \"productClusterIds",
                 "pt": "",
                 "es": ""
               },
@@ -42172,7 +42172,7 @@
             },
             {
               "name": {
-                "en": "Price filter applied on top of ",
+                "en": "Price filter applied on top of \"spot price\" instead of regular price",
                 "pt": "",
                 "es": ""
               },
@@ -42187,7 +42187,7 @@
             },
             {
               "name": {
-                "en": "Price range at the facets API doesn",
+                "en": "Price range at the facets API doesn't correspond to the search results",
                 "pt": "",
                 "es": ""
               },
@@ -42217,7 +42217,7 @@
             },
             {
               "name": {
-                "en": "Prioritization by product",
+                "en": "Prioritization by product's \"keyword\" not considering stopwords",
                 "pt": "",
                 "es": ""
               },
@@ -42232,7 +42232,7 @@
             },
             {
               "name": {
-                "en": "Product Highlights doesn",
+                "en": "Product Highlights doesn't work into a product list",
                 "pt": "",
                 "es": ""
               },
@@ -42247,7 +42247,7 @@
             },
             {
               "name": {
-                "en": "Product Image sorting doesn",
+                "en": "Product Image sorting doesn't respect the Catalog order",
                 "pt": "",
                 "es": ""
               },
@@ -42322,7 +42322,7 @@
             },
             {
               "name": {
-                "en": "Products with ",
+                "en": "Products with \"unitMultiplier\" wrongly flagged as \"with promotion\" for search filters",
                 "pt": "",
                 "es": ""
               },
@@ -42382,7 +42382,7 @@
             },
             {
               "name": {
-                "en": "Regionalization or trade policies aren",
+                "en": "Regionalization or trade policies aren't considered while filtering or sorting items by price",
                 "pt": "",
                 "es": ""
               },
@@ -42502,7 +42502,7 @@
             },
             {
               "name": {
-                "en": "Search banners not following the operator ",
+                "en": "Search banners not following the operator \"AND\" for trigger conditions",
                 "pt": "",
                 "es": ""
               },
@@ -42592,7 +42592,7 @@
             },
             {
               "name": {
-                "en": "SKU Specification filters aren",
+                "en": "SKU Specification filters aren't loaded when the SKU is only available in a Whitelabel seller",
                 "pt": "",
                 "es": ""
               },
@@ -42622,7 +42622,7 @@
             },
             {
               "name": {
-                "en": "SKU variations doesn",
+                "en": "SKU variations doesn't return in the PLP",
                 "pt": "",
                 "es": ""
               },
@@ -42652,7 +42652,7 @@
             },
             {
               "name": {
-                "en": "Some promotions can",
+                "en": "Some promotions can't be displayed in search context",
                 "pt": "",
                 "es": ""
               },
@@ -42979,7 +42979,7 @@
             },
             {
               "name": {
-                "en": "Carriers with Shipping Method named ",
+                "en": "Carriers with Shipping Method named \"Agendada\" does not work",
                 "pt": "",
                 "es": ""
               },
@@ -43024,7 +43024,7 @@
             },
             {
               "name": {
-                "en": "Delay in processing the shipping policy (locked in ",
+                "en": "Delay in processing the shipping policy (locked in \"processing\" status)",
                 "pt": "",
                 "es": ""
               },
@@ -43114,7 +43114,7 @@
             },
             {
               "name": {
-                "en": "FOB External Marketplace integrate an order (Erro code: ",
+                "en": "FOB External Marketplace integrate an order (Erro code: \"FMT010\")",
                 "pt": "",
                 "es": ""
               },
@@ -43204,7 +43204,7 @@
             },
             {
               "name": {
-                "en": "Logistics inventory full access",
+                "en": "Logistics inventory full access\" permission did not work as expected",
                 "pt": "",
                 "es": ""
               },
@@ -43339,7 +43339,7 @@
             },
             {
               "name": {
-                "en": "Problems opening ",
+                "en": "Problems opening \"Manage Inventory\" by Admin page with error (UI).",
                 "pt": "",
                 "es": ""
               },
@@ -43369,7 +43369,7 @@
             },
             {
               "name": {
-                "en": "Shipping policy not prioritized due ",
+                "en": "Shipping policy not prioritized due \"Reason: Dismissed as a matter of priority\" even with better cost",
                 "pt": "",
                 "es": ""
               },
@@ -43489,7 +43489,7 @@
             },
             {
               "name": {
-                "en": "Status ",
+                "en": "Status \"ERRO DE PROCESSAMENTO\" Shipping Policy",
                 "pt": "",
                 "es": ""
               },
@@ -43549,7 +43549,7 @@
             },
             {
               "name": {
-                "en": "The template ",
+                "en": "The template \"relatorio-de-importacao-de-estoque\" does not support multi-language",
                 "pt": "",
                 "es": ""
               },
@@ -43666,7 +43666,7 @@
           "children": [
             {
               "name": {
-                "en": "Add",
+                "en": "Add\" option not available when creating dictionary",
                 "pt": "",
                 "es": ""
               },
@@ -43681,7 +43681,7 @@
             },
             {
               "name": {
-                "en": "After clicking to review a product, the user can",
+                "en": "After clicking to review a product, the user can't exit the login screen",
                 "pt": "",
                 "es": ""
               },
@@ -43741,7 +43741,7 @@
             },
             {
               "name": {
-                "en": "Avise-me",
+                "en": "Avise-me\" report does not open",
                 "pt": "",
                 "es": ""
               },
@@ -43801,7 +43801,7 @@
             },
             {
               "name": {
-                "en": "Button to add brand in the product registration search doesn",
+                "en": "Button to add brand in the product registration search doesn't work",
                 "pt": "",
                 "es": ""
               },
@@ -43936,7 +43936,7 @@
             },
             {
               "name": {
-                "en": "Changes to the ",
+                "en": "Changes to the \"my account\" page do not appear immediately in the domain \"vtexcommercestable.com.br",
                 "pt": "",
                 "es": ""
               },
@@ -44041,7 +44041,7 @@
             },
             {
               "name": {
-                "en": "Different accessories by SKU don",
+                "en": "Different accessories by SKU don't work",
                 "pt": "",
                 "es": ""
               },
@@ -44206,7 +44206,7 @@
             },
             {
               "name": {
-                "en": "I don",
+                "en": "I don't know my ZIP code\" link in the wedding list creation page is redirecting to the wedding list creation page",
                 "pt": "",
                 "es": ""
               },
@@ -44251,7 +44251,7 @@
             },
             {
               "name": {
-                "en": "It",
+                "en": "It's not possible to create XML feed in HTTPS",
                 "pt": "",
                 "es": ""
               },
@@ -44266,7 +44266,7 @@
             },
             {
               "name": {
-                "en": "It",
+                "en": "It's not possible to schedule prices for a range of hours",
                 "pt": "",
                 "es": ""
               },
@@ -44281,7 +44281,7 @@
             },
             {
               "name": {
-                "en": "Kit created by integration doesn",
+                "en": "Kit created by integration doesn't receive a table of values",
                 "pt": "",
                 "es": ""
               },
@@ -44326,7 +44326,7 @@
             },
             {
               "name": {
-                "en": "Let me know\\",
+                "en": "Let me know\" email is sent even when the product is not available for the website's trade policy",
                 "pt": "",
                 "es": ""
               },
@@ -44401,7 +44401,7 @@
             },
             {
               "name": {
-                "en": "My Account",
+                "en": "My Account\" page does not work on domain \"myvtex.com",
                 "pt": "",
                 "es": ""
               },
@@ -44476,7 +44476,7 @@
             },
             {
               "name": {
-                "en": "Page",
+                "en": "Page's internal collection links have a nonexistent canonical URL",
                 "pt": "",
                 "es": ""
               },
@@ -44506,7 +44506,7 @@
             },
             {
               "name": {
-                "en": "Postal Code as condition in a promotion doesn",
+                "en": "Postal Code as condition in a promotion doesn't consider the country",
                 "pt": "",
                 "es": ""
               },
@@ -44521,7 +44521,7 @@
             },
             {
               "name": {
-                "en": "Price by UTM doesn",
+                "en": "Price by UTM doesn't work when using special characters",
                 "pt": "",
                 "es": ""
               },
@@ -44611,7 +44611,7 @@
             },
             {
               "name": {
-                "en": "Problems with ",
+                "en": "Problems with \"price from\" in the \"ButtonBuyModal\" control",
                 "pt": "",
                 "es": ""
               },
@@ -44791,7 +44791,7 @@
             },
             {
               "name": {
-                "en": "Search doesn",
+                "en": "Search doesn't encode hyphen and replaces it with a space",
                 "pt": "",
                 "es": ""
               },
@@ -44806,7 +44806,7 @@
             },
             {
               "name": {
-                "en": "Search doesn",
+                "en": "Search doesn't work for a second folderlevel",
                 "pt": "",
                 "es": ""
               },
@@ -44896,7 +44896,7 @@
             },
             {
               "name": {
-                "en": "Secondary images",
+                "en": "Secondary images' Title and Alt repeat main image's content",
                 "pt": "",
                 "es": ""
               },
@@ -44911,7 +44911,7 @@
             },
             {
               "name": {
-                "en": "Second-level folders don",
+                "en": "Second-level folders don't consider the \"search context",
                 "pt": "",
                 "es": ""
               },
@@ -45001,7 +45001,7 @@
             },
             {
               "name": {
-                "en": "Special character ",
+                "en": "Special character \"|\" not mapped to be ignored in TextLink",
                 "pt": "",
                 "es": ""
               },
@@ -45031,7 +45031,7 @@
             },
             {
               "name": {
-                "en": "Specification update through API or webservice doesn",
+                "en": "Specification update through API or webservice doesn't send product for indexing",
                 "pt": "",
                 "es": ""
               },
@@ -45046,7 +45046,7 @@
             },
             {
               "name": {
-                "en": "Store texts\\",
+                "en": "Store texts\" search doesn't work",
                 "pt": "",
                 "es": ""
               },
@@ -45241,7 +45241,7 @@
             },
             {
               "name": {
-                "en": "Welcome Message control doesn",
+                "en": "Welcome Message control doesn't work in the homepage",
                 "pt": "",
                 "es": ""
               },
@@ -45478,7 +45478,7 @@
             },
             {
               "name": {
-                "en": "Department",
+                "en": "Department's name not loading on seller management commissions UI",
                 "pt": "",
                 "es": ""
               },
@@ -45538,7 +45538,7 @@
             },
             {
               "name": {
-                "en": "Exporting spreadsheet not working on Received Sku",
+                "en": "Exporting spreadsheet not working on Received Sku's Processing Tab",
                 "pt": "",
                 "es": ""
               },
@@ -45553,7 +45553,7 @@
             },
             {
               "name": {
-                "en": "Field ",
+                "en": "Field \"Exchanges and returns\" is not updating on seller management UI after save",
                 "pt": "",
                 "es": ""
               },
@@ -45583,7 +45583,7 @@
             },
             {
               "name": {
-                "en": "Get all SKU suggestions\\",
+                "en": "Get all SKU suggestions\" API doesn't keep same sku order when changing limits",
                 "pt": "",
                 "es": ""
               },
@@ -45613,7 +45613,7 @@
             },
             {
               "name": {
-                "en": "Match Multiple Received SKUs API returning ",
+                "en": "Match Multiple Received SKUs API returning \"Invalid sellerId",
                 "pt": "",
                 "es": ""
               },
@@ -45703,7 +45703,7 @@
             },
             {
               "name": {
-                "en": "Received Skus ",
+                "en": "Received Skus \"Review\" tab missing products",
                 "pt": "",
                 "es": ""
               },
@@ -45778,7 +45778,7 @@
             },
             {
               "name": {
-                "en": "Seller register UI doesn",
+                "en": "Seller register UI doesn't send products to reindex when inactivating a seller",
                 "pt": "",
                 "es": ""
               },
@@ -45793,7 +45793,7 @@
             },
             {
               "name": {
-                "en": "Seller",
+                "en": "Seller's skus are not being Matched to the marketplace's skus",
                 "pt": "",
                 "es": ""
               },
@@ -45928,7 +45928,7 @@
             },
             {
               "name": {
-                "en": "When loading the ",
+                "en": "When loading the \"Catalog Maping\" page on admin the initial message is not translated",
                 "pt": "",
                 "es": ""
               },
@@ -45970,7 +45970,7 @@
             },
             {
               "name": {
-                "en": "Automatic field doesn",
+                "en": "Automatic field doesn't calculate the field correctly when set to \"Calculate during the first hour of the day",
                 "pt": "",
                 "es": ""
               },
@@ -46030,7 +46030,7 @@
             },
             {
               "name": {
-                "en": "Error when toggling subaccounts on MasterData",
+                "en": "Error when toggling subaccounts on MasterData's CRM topbar",
                 "pt": "",
                 "es": ""
               },
@@ -46135,7 +46135,7 @@
             },
             {
               "name": {
-                "en": "MasterData doesn",
+                "en": "MasterData doesn't load after successfully authenticating",
                 "pt": "",
                 "es": ""
               },
@@ -46180,7 +46180,7 @@
             },
             {
               "name": {
-                "en": "ObterTotalDePontos",
+                "en": "ObterTotalDePontos\" function does not work inside the Automatic Field",
                 "pt": "",
                 "es": ""
               },
@@ -46195,7 +46195,7 @@
             },
             {
               "name": {
-                "en": "Trigger doesn",
+                "en": "Trigger doesn't work",
                 "pt": "",
                 "es": ""
               },
@@ -46210,7 +46210,7 @@
             },
             {
               "name": {
-                "en": "Trigger",
+                "en": "Trigger's Source E-mail field doesn't accept placeholder",
                 "pt": "",
                 "es": ""
               },
@@ -46339,7 +46339,7 @@
             },
             {
               "name": {
-                "en": "An error has occurred",
+                "en": "An error has occurred\" when adding tracking information",
                 "pt": "",
                 "es": ""
               },
@@ -46519,7 +46519,7 @@
             },
             {
               "name": {
-                "en": "Error generating subscription order ",
+                "en": "Error generating subscription order \"\"The same item cannot have more than one SLA selected",
                 "pt": "",
                 "es": ""
               },
@@ -46849,7 +46849,7 @@
             },
             {
               "name": {
-                "en": "It is not possible to save some addresses from Argentina in ",
+                "en": "It is not possible to save some addresses from Argentina in \"My Account",
                 "pt": "",
                 "es": ""
               },
@@ -46864,7 +46864,7 @@
             },
             {
               "name": {
-                "en": "It is not possible to save some addresses from Chile in ",
+                "en": "It is not possible to save some addresses from Chile in \"My Account",
                 "pt": "",
                 "es": ""
               },
@@ -46924,7 +46924,7 @@
             },
             {
               "name": {
-                "en": "My Account - Receiver Name field doesn",
+                "en": "My Account - Receiver Name field doesn't recognize input.",
                 "pt": "",
                 "es": ""
               },
@@ -47149,7 +47149,7 @@
             },
             {
               "name": {
-                "en": "Order Filter doesn",
+                "en": "Order Filter doesn't work properly due to double quotes (\") in the Promotion name or SKU name",
                 "pt": "",
                 "es": ""
               },
@@ -47329,7 +47329,7 @@
             },
             {
               "name": {
-                "en": "Orders with a ",
+                "en": "Orders with a \"Creation Error\" remain stuck in a \"cancel\" status",
                 "pt": "",
                 "es": ""
               },
@@ -47464,7 +47464,7 @@
             },
             {
               "name": {
-                "en": "Retrieve user",
+                "en": "Retrieve user's orders API does not return paging",
                 "pt": "",
                 "es": ""
               },
@@ -47524,7 +47524,7 @@
             },
             {
               "name": {
-                "en": "Seller",
+                "en": "Seller's order invoiced with problem in the payment capture",
                 "pt": "",
                 "es": ""
               },
@@ -47689,7 +47689,7 @@
             },
             {
               "name": {
-                "en": "Subscription plan is ",
+                "en": "Subscription plan is \"stuck\" in \"importing\" after uploading the SKUs association spreadsheet",
                 "pt": "",
                 "es": ""
               },
@@ -47779,7 +47779,7 @@
             },
             {
               "name": {
-                "en": "The Delivery Split will not be displayed in the UI or in My Orders, when the order has the same ",
+                "en": "The Delivery Split will not be displayed in the UI or in My Orders, when the order has the same \"Shipping Method\".",
                 "pt": "",
                 "es": ""
               },
@@ -47974,7 +47974,7 @@
             },
             {
               "name": {
-                "en": "When adding a SKU through our ",
+                "en": "When adding a SKU through our \"Change Order\" functionality, the product name is not displayed in the order and e-mail notification",
                 "pt": "",
                 "es": ""
               },
@@ -48175,7 +48175,7 @@
             },
             {
               "name": {
-                "en": "Amount to use\\",
+                "en": "Amount to use\" from Gift card does not allow user to change the value when the currency doesn't have decimals",
                 "pt": "",
                 "es": ""
               },
@@ -48250,7 +48250,7 @@
             },
             {
               "name": {
-                "en": "Button ",
+                "en": "Button \"Cancel\" inside the MyCards page not translated to Spanish",
                 "pt": "",
                 "es": ""
               },
@@ -48265,7 +48265,7 @@
             },
             {
               "name": {
-                "en": "Cabal",
+                "en": "Cabal's Regex update",
                 "pt": "",
                 "es": ""
               },
@@ -48460,7 +48460,7 @@
             },
             {
               "name": {
-                "en": "Customer Credit doesn",
+                "en": "Customer Credit doesn't show installments correctly",
                 "pt": "",
                 "es": ""
               },
@@ -48490,7 +48490,7 @@
             },
             {
               "name": {
-                "en": "Customer Credit ",
+                "en": "Customer Credit \"Total Due\" value updating according to the pagination",
                 "pt": "",
                 "es": ""
               },
@@ -48505,7 +48505,7 @@
             },
             {
               "name": {
-                "en": "Customer Credit",
+                "en": "Customer Credit's invoice list cannot be exported",
                 "pt": "",
                 "es": ""
               },
@@ -48580,7 +48580,7 @@
             },
             {
               "name": {
-                "en": "DecidirV1 Connector",
+                "en": "DecidirV1 Connector's Inconsistent rounding method for CSPTGRANDTOTALAMOUNT and CSITTOTALAMOUNT Fields.",
                 "pt": "",
                 "es": ""
               },
@@ -48595,7 +48595,7 @@
             },
             {
               "name": {
-                "en": "DecidirV1 transaction got ",
+                "en": "DecidirV1 transaction got \"reprocessed\" after some retries to authorization",
                 "pt": "",
                 "es": ""
               },
@@ -48700,7 +48700,7 @@
             },
             {
               "name": {
-                "en": "Elo",
+                "en": "Elo's card brand transactions with ERedeRest are not respecting early capture",
                 "pt": "",
                 "es": ""
               },
@@ -48790,7 +48790,7 @@
             },
             {
               "name": {
-                "en": "Error in refund and capture operations with Payout Split - ",
+                "en": "Error in refund and capture operations with Payout Split - \"Value in recipients * is different than operation value *.",
                 "pt": "",
                 "es": ""
               },
@@ -48805,7 +48805,7 @@
             },
             {
               "name": {
-                "en": "Error in refund - ",
+                "en": "Error in refund - \"Value cannot be null. Parameter name: value",
                 "pt": "",
                 "es": ""
               },
@@ -49105,7 +49105,7 @@
             },
             {
               "name": {
-                "en": "Gift Card hub is adding an extra backslash (",
+                "en": "Gift Card hub is adding an extra backslash (\"/\") when calling providers.",
                 "pt": "",
                 "es": ""
               },
@@ -49120,7 +49120,7 @@
             },
             {
               "name": {
-                "en": "Gift card - It does not return Fields ",
+                "en": "Gift card - It does not return Fields \"caption\" and \"relationName\" when we make a get request.",
                 "pt": "",
                 "es": ""
               },
@@ -49150,7 +49150,7 @@
             },
             {
               "name": {
-                "en": "Giftcard HUB setting ",
+                "en": "Giftcard HUB setting \"R$\" as the automatic currency on the UI",
                 "pt": "",
                 "es": ""
               },
@@ -49390,7 +49390,7 @@
             },
             {
               "name": {
-                "en": "Incorrect address format on the ",
+                "en": "Incorrect address format on the \"My Cards\" billing addresses",
                 "pt": "",
                 "es": ""
               },
@@ -49420,7 +49420,7 @@
             },
             {
               "name": {
-                "en": "Incorrect refund calculation in Payout Split - ",
+                "en": "Incorrect refund calculation in Payout Split - \"Value in recipients * is different than operation value *.",
                 "pt": "",
                 "es": ""
               },
@@ -49450,7 +49450,7 @@
             },
             {
               "name": {
-                "en": "Installments dropdown on checkout UI is ",
+                "en": "Installments dropdown on checkout UI is \"loose\" when scrolling the screen",
                 "pt": "",
                 "es": ""
               },
@@ -49495,7 +49495,7 @@
             },
             {
               "name": {
-                "en": "isBillingAddressDifferent",
+                "en": "isBillingAddressDifferent\": false when it should be true in a first buy as pick-up point",
                 "pt": "",
                 "es": ""
               },
@@ -49585,7 +49585,7 @@
             },
             {
               "name": {
-                "en": "It",
+                "en": "It's possible to go from order to transaction but the inverse flow doesn't work",
                 "pt": "",
                 "es": ""
               },
@@ -49645,7 +49645,7 @@
             },
             {
               "name": {
-                "en": "Main account is being selected as ",
+                "en": "Main account is being selected as \"Merchant.Name\" in the sub-account environment",
                 "pt": "",
                 "es": ""
               },
@@ -49795,7 +49795,7 @@
             },
             {
               "name": {
-                "en": "My Credits doesn",
+                "en": "My Credits doesn't show the PaymentLink invoice even if the field is set",
                 "pt": "",
                 "es": ""
               },
@@ -49855,7 +49855,7 @@
             },
             {
               "name": {
-                "en": "Native wallets UI always shows ",
+                "en": "Native wallets UI always shows 'no interest' when using external interest flag",
                 "pt": "",
                 "es": ""
               },
@@ -49885,7 +49885,7 @@
             },
             {
               "name": {
-                "en": "NPS - we aren",
+                "en": "NPS - we aren't accepting response with more than 65536 characters",
                 "pt": "",
                 "es": ""
               },
@@ -50005,7 +50005,7 @@
             },
             {
               "name": {
-                "en": "Outdated locale zones in Guatemala",
+                "en": "Outdated locale zones in Guatemala's billing address on the checkout page",
                 "pt": "",
                 "es": ""
               },
@@ -50290,7 +50290,7 @@
             },
             {
               "name": {
-                "en": "Save card doesn",
+                "en": "Save card doesn't work when 3DS2 is active",
                 "pt": "",
                 "es": ""
               },
@@ -50350,7 +50350,7 @@
             },
             {
               "name": {
-                "en": "Status on Transactions list doesn",
+                "en": "Status on Transactions list doesn't match actual state",
                 "pt": "",
                 "es": ""
               },
@@ -50425,7 +50425,7 @@
             },
             {
               "name": {
-                "en": "The Cielo 3DS2 app is returning an ",
+                "en": "The Cielo 3DS2 app is returning an \"approved\" status even in scenarios when the authentication has failed.",
                 "pt": "",
                 "es": ""
               },
@@ -50470,7 +50470,7 @@
             },
             {
               "name": {
-                "en": "The current gift card system",
+                "en": "The current gift card system's /transaction route returns a 200 OK status code when adding or removing credits, even if the card is inactive.",
                 "pt": "",
                 "es": ""
               },
@@ -50500,7 +50500,7 @@
             },
             {
               "name": {
-                "en": "The Issuing Bank Special Condition is causing for some BINs the error on checkout page ",
+                "en": "The Issuing Bank Special Condition is causing for some BINs the error on checkout page \"Issuer bank for this bank is not accepted",
                 "pt": "",
                 "es": ""
               },
@@ -50560,7 +50560,7 @@
             },
             {
               "name": {
-                "en": "The message ",
+                "en": "The message \"My billing address is ...\" on the credit card iFrame is in the wrong language when using checkout in Catalan language",
                 "pt": "",
                 "es": ""
               },
@@ -50605,7 +50605,7 @@
             },
             {
               "name": {
-                "en": "The ",
+                "en": "The \"Save new card\" option does not work for asynchronous Payment Providers",
                 "pt": "",
                 "es": ""
               },
@@ -50650,7 +50650,7 @@
             },
             {
               "name": {
-                "en": "The system doesn",
+                "en": "The system doesn't work with more than one extension payment affiliation for debit online method",
                 "pt": "",
                 "es": ""
               },
@@ -50680,7 +50680,7 @@
             },
             {
               "name": {
-                "en": "The validity of the promissory doesn",
+                "en": "The validity of the promissory doesn't cancel the transaction",
                 "pt": "",
                 "es": ""
               },
@@ -50695,7 +50695,7 @@
             },
             {
               "name": {
-                "en": "Transaction canceled by timeout: ",
+                "en": "Transaction canceled by timeout: \"Timeout no request para o Sistema de Parcelamento",
                 "pt": "",
                 "es": ""
               },
@@ -50710,7 +50710,7 @@
             },
             {
               "name": {
-                "en": "Transaction cancellation error with ",
+                "en": "Transaction cancellation error with \"Unreachable code\" message",
                 "pt": "",
                 "es": ""
               },
@@ -50785,7 +50785,7 @@
             },
             {
               "name": {
-                "en": "Transaction stuck in ",
+                "en": "Transaction stuck in \"Canceling\" because AntiFraud rejected after the payment is \"Finished",
                 "pt": "",
                 "es": ""
               },
@@ -50845,7 +50845,7 @@
             },
             {
               "name": {
-                "en": "Transaction with antifraud doesn",
+                "en": "Transaction with antifraud doesn't update to \"settling\" when \"riskApproved\" log is missing",
                 "pt": "",
                 "es": ""
               },
@@ -50965,7 +50965,7 @@
             },
             {
               "name": {
-                "en": "Unable to change status on gateway when transaction Cart object in /transaction is ",
+                "en": "Unable to change status on gateway when transaction Cart object in /transaction is \"unknown\".",
                 "pt": "",
                 "es": ""
               },
@@ -51010,7 +51010,7 @@
             },
             {
               "name": {
-                "en": "Users can",
+                "en": "Users can't access Gift Card admin (looping page)",
                 "pt": "",
                 "es": ""
               },
@@ -51070,7 +51070,7 @@
             },
             {
               "name": {
-                "en": "When settleId is sent as null and code as ",
+                "en": "When settleId is sent as null and code as \"refund-manually\" our gateway performs a double refund.",
                 "pt": "",
                 "es": ""
               },
@@ -51202,7 +51202,7 @@
             },
             {
               "name": {
-                "en": "Processing",
+                "en": "Processing\" status when checking last orders page",
                 "pt": "",
                 "es": ""
               },
@@ -51586,7 +51586,7 @@
             },
             {
               "name": {
-                "en": "Manual sorting of collections doesn",
+                "en": "Manual sorting of collections doesn't work as expected",
                 "pt": "",
                 "es": ""
               },
@@ -51646,7 +51646,7 @@
             },
             {
               "name": {
-                "en": "Portal doesn",
+                "en": "Portal doesn't delete cookies when client logout at checkout",
                 "pt": "",
                 "es": ""
               },
@@ -51676,7 +51676,7 @@
             },
             {
               "name": {
-                "en": "Portal keeps UTM",
+                "en": "Portal keeps UTM's after logging out when using Callcenter Operator.",
                 "pt": "",
                 "es": ""
               },
@@ -51946,7 +51946,7 @@
             },
             {
               "name": {
-                "en": "Unable to create ",
+                "en": "Unable to create \"Produtos Relacionados\" Custom Element",
                 "pt": "Unable to create ",
                 "es": ""
               },
@@ -52036,7 +52036,7 @@
             },
             {
               "name": {
-                "en": "URL",
+                "en": "URL's redirecionando para BuscaVazia",
                 "pt": "URL",
                 "es": ""
               },
@@ -52066,7 +52066,7 @@
             },
             {
               "name": {
-                "en": "<vtex:contentPlaceHolder id=",
+                "en": "<vtex:contentPlaceHolder id=\"Acessorios\"/> is not working",
                 "pt": "",
                 "es": ""
               },
@@ -52096,7 +52096,7 @@
             },
             {
               "name": {
-                "en": "Webanalytics Viewpart Shows success even when it isn",
+                "en": "Webanalytics Viewpart Shows success even when it isn't working",
                 "pt": "",
                 "es": ""
               },
@@ -52303,7 +52303,7 @@
             },
             {
               "name": {
-                "en": "List Purchases",
+                "en": "List Purchases\" link in the gift list report does not apply filter correctly in Orders Managment",
                 "pt": "",
                 "es": ""
               },
@@ -52348,7 +52348,7 @@
             },
             {
               "name": {
-                "en": "Order isn",
+                "en": "Order isn't fully canceled",
                 "pt": "",
                 "es": ""
               },
@@ -52378,7 +52378,7 @@
             },
             {
               "name": {
-                "en": "Orders management filter doesn",
+                "en": "Orders management filter doesn't bring the orders made on 02/18/2018",
                 "pt": "",
                 "es": ""
               },
@@ -52423,7 +52423,7 @@
             },
             {
               "name": {
-                "en": "Orders with error ",
+                "en": "Orders with error \"Ocorreu um erro de comunicação com o Sistema de Perfis",
                 "pt": "",
                 "es": ""
               },
@@ -52588,7 +52588,7 @@
             },
             {
               "name": {
-                "en": "Transactional emails don",
+                "en": "Transactional emails don't consider items removed from the order",
                 "pt": "",
                 "es": ""
               },
@@ -52630,7 +52630,7 @@
             },
             {
               "name": {
-                "en": "Audit pricing logs showing ",
+                "en": "Audit pricing logs showing \"unknow\" information",
                 "pt": "",
                 "es": ""
               },
@@ -52690,7 +52690,7 @@
             },
             {
               "name": {
-                "en": "Campaign Audience doesn",
+                "en": "Campaign Audience doesn't save coupon information",
                 "pt": "",
                 "es": ""
               },
@@ -52705,7 +52705,7 @@
             },
             {
               "name": {
-                "en": "Campaign audience UI changing ",
+                "en": "Campaign audience UI changing \"Different from\" to \"Equal to\" with a collection",
                 "pt": "",
                 "es": ""
               },
@@ -52720,7 +52720,7 @@
             },
             {
               "name": {
-                "en": "Checkbox for ",
+                "en": "Checkbox for 'Apply discount only with selected carrier' does not persist in UI",
                 "pt": "",
                 "es": ""
               },
@@ -52735,7 +52735,7 @@
             },
             {
               "name": {
-                "en": "Collections Field always appearing as ",
+                "en": "Collections Field always appearing as \"Equal To\" on the Campaign Audience Form",
                 "pt": "",
                 "es": ""
               },
@@ -52825,7 +52825,7 @@
             },
             {
               "name": {
-                "en": "Error \\",
+                "en": "Error \"can't create search criteria! error: filter already exists:\"brandId\"\" when creating a promotion excluding more than 1 brand.",
                 "pt": "",
                 "es": ""
               },
@@ -52840,7 +52840,7 @@
             },
             {
               "name": {
-                "en": "Error ",
+                "en": "Error \"Date to\" must be greater than \"Date from\" when creating pricing rules",
                 "pt": "",
                 "es": ""
               },
@@ -52945,7 +52945,7 @@
             },
             {
               "name": {
-                "en": "Flag ",
+                "en": "Flag \"Only apply discount to the cheapest shipping option\" not working as expected",
                 "pt": "",
                 "es": ""
               },
@@ -52990,7 +52990,7 @@
             },
             {
               "name": {
-                "en": "GET Coupon Usage API doesn",
+                "en": "GET Coupon Usage API doesn't list multiple orders for the same coupon",
                 "pt": "",
                 "es": ""
               },
@@ -53020,7 +53020,7 @@
             },
             {
               "name": {
-                "en": "How many times will your benefit be applied in your store",
+                "en": "How many times will your benefit be applied in your store\" Saving Incorrectly on Promotion Form Interface",
                 "pt": "",
                 "es": ""
               },
@@ -53035,7 +53035,7 @@
             },
             {
               "name": {
-                "en": "Incorrect discount calculation for ",
+                "en": "Incorrect discount calculation for 'More for Less' with Max price after item split by previous promotion application",
                 "pt": "",
                 "es": ""
               },
@@ -53065,7 +53065,7 @@
             },
             {
               "name": {
-                "en": "Incorrect price update when a promotion doesn",
+                "en": "Incorrect price update when a promotion doesn't apply the discount to all the same items in a cart",
                 "pt": "",
                 "es": ""
               },
@@ -53485,7 +53485,7 @@
             },
             {
               "name": {
-                "en": "Same SKU in multiple lists in ",
+                "en": "Same SKU in multiple lists in \"Buy Together\" promotions on the new UI is causing the promotion to not apply at the checkout",
                 "pt": "",
                 "es": ""
               },
@@ -53500,7 +53500,7 @@
             },
             {
               "name": {
-                "en": "Searching for multiple products in the pricing module doesn",
+                "en": "Searching for multiple products in the pricing module doesn't work",
                 "pt": "",
                 "es": ""
               },
@@ -53560,7 +53560,7 @@
             },
             {
               "name": {
-                "en": "Some Payment Methods are not displayed at ",
+                "en": "Some Payment Methods are not displayed at \"Buy Together\" promotions on the New UI",
                 "pt": "",
                 "es": ""
               },
@@ -53605,7 +53605,7 @@
             },
             {
               "name": {
-                "en": "Timeout API Get Account",
+                "en": "Timeout API Get Account's Approval Settings",
                 "pt": "",
                 "es": ""
               },
@@ -53719,7 +53719,7 @@
             },
             {
               "name": {
-                "en": "Changing zip code doesn",
+                "en": "Changing zip code doesn't remove old address",
                 "pt": "",
                 "es": ""
               },
@@ -53749,7 +53749,7 @@
             },
             {
               "name": {
-                "en": "Creating ",
+                "en": "Creating \"custom fields\" for \"custom data\" converts the IDs to lowercase letters",
                 "pt": "",
                 "es": ""
               },
@@ -53899,7 +53899,7 @@
             },
             {
               "name": {
-                "en": "Incorrect delivery calculation when one of the SLAs doesn",
+                "en": "Incorrect delivery calculation when one of the SLAs doesn't have all items",
                 "pt": "",
                 "es": ""
               },
@@ -54004,7 +54004,7 @@
             },
             {
               "name": {
-                "en": "Receive and Pick-up tabs are displayed according to the searched ZIP code",
+                "en": "Receive and Pick-up tabs are displayed according to the searched ZIP code's availability",
                 "pt": "",
                 "es": ""
               },
@@ -54121,7 +54121,7 @@
             },
             {
               "name": {
-                "en": "Cluster",
+                "en": "Cluster's indexes that exceed the limit of fields cause documents to fail to be indexed.",
                 "pt": "",
                 "es": ""
               },
@@ -54211,7 +54211,7 @@
             },
             {
               "name": {
-                "en": "Error occurs when attempting to perform a search using the ",
+                "en": "Error occurs when attempting to perform a search using the \"All\" field in VTEX CRM UI",
                 "pt": "",
                 "es": ""
               },
@@ -54331,7 +54331,7 @@
             },
             {
               "name": {
-                "en": "MDv2 returns error ",
+                "en": "MDv2 returns error \"504 Gateway Timeout\" when we try to update a document passing a symbol or special character.",
                 "pt": "",
                 "es": ""
               },
@@ -54466,7 +54466,7 @@
             },
             {
               "name": {
-                "en": "The SAML solution doesn",
+                "en": "The SAML solution doesn't allow sending the SAMLRequest as query string in the CRM login",
                 "pt": "",
                 "es": ""
               },
@@ -54496,7 +54496,7 @@
             },
             {
               "name": {
-                "en": "Users can",
+                "en": "Users can't access Master Data/CRM system when they try to log in by SAML authentication",
                 "pt": "",
                 "es": ""
               },
@@ -54511,7 +54511,7 @@
             },
             {
               "name": {
-                "en": "Version author ",
+                "en": "Version author \"Note: Not found on VTEX ID.\" on the profile",
                 "pt": "",
                 "es": ""
               },
@@ -54553,7 +54553,7 @@
             },
             {
               "name": {
-                "en": "addToCart function doesn",
+                "en": "addToCart function doesn't work correctly with attachments and assembly options' component's attachment",
                 "pt": "",
                 "es": ""
               },
@@ -54628,7 +54628,7 @@
             },
             {
               "name": {
-                "en": "Bad Request when searching terms with ",
+                "en": "Bad Request when searching terms with \"%\" directly via URL",
                 "pt": "",
                 "es": ""
               },
@@ -54643,7 +54643,7 @@
             },
             {
               "name": {
-                "en": "Bad Request when searching terms with ",
+                "en": "Bad Request when searching terms with \"#\" through autocomplete",
                 "pt": "",
                 "es": ""
               },
@@ -54808,7 +54808,7 @@
             },
             {
               "name": {
-                "en": "Component drawer doesn",
+                "en": "Component drawer doesn't work when implemented in product-summary for iOS",
                 "pt": "",
                 "es": ""
               },
@@ -54838,7 +54838,7 @@
             },
             {
               "name": {
-                "en": "Configuration \\",
+                "en": "Configuration \"Blocks default routes in other bindings\" on Rewriter can lead to 'Not Found' Page after applying filters",
                 "pt": "",
                 "es": ""
               },
@@ -54868,7 +54868,7 @@
             },
             {
               "name": {
-                "en": "Creating wrong redirects containing characters/queries that shouldn",
+                "en": "Creating wrong redirects containing characters/queries that shouldn't be uploaded the upload/download of the csv through the CLI doesn't work",
                 "pt": "",
                 "es": ""
               },
@@ -54898,7 +54898,7 @@
             },
             {
               "name": {
-                "en": "Disclosure Layout can",
+                "en": "Disclosure Layout can't be used properly when prop animated is set as true",
                 "pt": "",
                 "es": ""
               },
@@ -54973,7 +54973,7 @@
             },
             {
               "name": {
-                "en": "GA4 purchase event doesn",
+                "en": "GA4 purchase event doesn't have the category tree on item_category in dataLayer",
                 "pt": "",
                 "es": ""
               },
@@ -55078,7 +55078,7 @@
             },
             {
               "name": {
-                "en": "Infocard mobile images won",
+                "en": "Infocard mobile images won't apply",
                 "pt": "",
                 "es": ""
               },
@@ -55168,7 +55168,7 @@
             },
             {
               "name": {
-                "en": "Locale Switcher doesn",
+                "en": "Locale Switcher doesn't work in myvtex environment",
                 "pt": "",
                 "es": ""
               },
@@ -55228,7 +55228,7 @@
             },
             {
               "name": {
-                "en": "Minicart Displays ",
+                "en": "Minicart Displays \"FREE\" Instead of \"TBD\" After Removing Available Items Quickly",
                 "pt": "",
                 "es": ""
               },
@@ -55393,7 +55393,7 @@
             },
             {
               "name": {
-                "en": "Position on selected image on PDP doesn",
+                "en": "Position on selected image on PDP doesn't reset when changing product",
                 "pt": "",
                 "es": ""
               },
@@ -55468,7 +55468,7 @@
             },
             {
               "name": {
-                "en": "Product with ",
+                "en": "Product with 'Show When Out of Stock' set as false returns 200 instead of 404",
                 "pt": "",
                 "es": ""
               },
@@ -55498,7 +55498,7 @@
             },
             {
               "name": {
-                "en": "ProductImpression doesn",
+                "en": "ProductImpression doesn't show all the products when the SKU is individually showed",
                 "pt": "",
                 "es": ""
               },
@@ -55513,7 +55513,7 @@
             },
             {
               "name": {
-                "en": "Products in the ",
+                "en": "Products in the 'product-list' that have an 'itemAttachment' duplicate when the quantity is increased",
                 "pt": "",
                 "es": ""
               },
@@ -55558,7 +55558,7 @@
             },
             {
               "name": {
-                "en": "Quantity selector component doesn",
+                "en": "Quantity selector component doesn't return to the limit value when user quickly clicks",
                 "pt": "",
                 "es": ""
               },
@@ -55573,7 +55573,7 @@
             },
             {
               "name": {
-                "en": "Quantity-selector on stepper mode doesn",
+                "en": "Quantity-selector on stepper mode doesn't refresh after reaching max available qunatity",
                 "pt": "",
                 "es": ""
               },
@@ -55648,7 +55648,7 @@
             },
             {
               "name": {
-                "en": "Scroll issues when swiping in mobile in quick view when there",
+                "en": "Scroll issues when swiping in mobile in quick view when there's a slider layout on background",
                 "pt": "",
                 "es": ""
               },
@@ -55738,7 +55738,7 @@
             },
             {
               "name": {
-                "en": "Sitemap isn",
+                "en": "Sitemap isn't being generated/updated",
                 "pt": "",
                 "es": ""
               },
@@ -55813,7 +55813,7 @@
             },
             {
               "name": {
-                "en": "Some functions of the sticky layout component won",
+                "en": "Some functions of the sticky layout component won't work as expected when viewed through Safari browser",
                 "pt": "",
                 "es": ""
               },
@@ -55888,7 +55888,7 @@
             },
             {
               "name": {
-                "en": "Styleguide",
+                "en": "Styleguide's autocomplete presents bug when deleting the search term",
                 "pt": "",
                 "es": ""
               },
@@ -55918,7 +55918,7 @@
             },
             {
               "name": {
-                "en": "Tags won",
+                "en": "Tags won't sometimes appear on List Format PLP View",
                 "pt": "",
                 "es": ""
               },
@@ -55993,7 +55993,7 @@
             },
             {
               "name": {
-                "en": "The Apply to the theme feature doesn",
+                "en": "The Apply to the theme feature doesn't work on the Site Editor with custom pages",
                 "pt": "",
                 "es": ""
               },
@@ -56008,7 +56008,7 @@
             },
             {
               "name": {
-                "en": "The ProductImage component doesn",
+                "en": "The ProductImage component doesn't update its images based on SKU specifications change",
                 "pt": "",
                 "es": ""
               },
@@ -56083,7 +56083,7 @@
             },
             {
               "name": {
-                "en": "Video component doesn",
+                "en": "Video component doesn't work properly on iOS devices",
                 "pt": "",
                 "es": ""
               },
@@ -56143,7 +56143,7 @@
             },
             {
               "name": {
-                "en": "When disabling native service worker it",
+                "en": "When disabling native service worker it's not possible to use a custom one",
                 "pt": "",
                 "es": ""
               },
@@ -56158,7 +56158,7 @@
             },
             {
               "name": {
-                "en": "When using horizontal filters, after choosing three of them, the filter",
+                "en": "When using horizontal filters, after choosing three of them, the filter's options doesn't colapse anymore",
                 "pt": "",
                 "es": ""
               },
@@ -56244,11 +56244,7 @@
             "es": "Integraciones",
             "pt": "Integrações"
           },
-          "slug": {
-            "en": "category-integrations",
-            "pt": "category-integracoes",
-            "es": "category-integraciones"
-          },
+          "slug": "category-integrations",
           "origin": "",
           "type": "category",
           "children": [
@@ -56350,11 +56346,7 @@
             "es": "Operaciones de la tienda",
             "pt": "Operações da loja"
           },
-          "slug": {
-            "en": "category-store-operations",
-            "pt": "category-operacoes-da-loja",
-            "es": "category-operaciones-de-la-tienda"
-          },
+          "slug": "category-store-operations",
           "origin": "",
           "type": "category",
           "children": [

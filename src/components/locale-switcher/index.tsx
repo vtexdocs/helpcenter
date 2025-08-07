@@ -130,6 +130,8 @@ export default function LocaleSwitcher() {
       console.log(newPath)
       window.location.href = newPath
     } else if (
+      currentPath.includes('/known-issues') ||
+      currentPath.includes('/troubleshooting') ||
       currentPath.includes('/announcements') ||
       currentPath.includes('/faq') ||
       currentPath.includes('/known-issues')

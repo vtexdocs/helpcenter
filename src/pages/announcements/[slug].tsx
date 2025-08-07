@@ -34,6 +34,7 @@ import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
+import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
   string,
@@ -165,17 +166,23 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const logger = getLogger('News')
 
-  const { sectionSelected, branch, slug, currentLocale, docsPaths, docExists } =
-    await extractStaticPropsParams({
-      sectionSelected: 'announcements',
-      params,
-      locale,
-      preview,
-      previewData,
-      docsPathsGLOBAL,
-    })
+  const {
+    sectionSelected,
+    branch,
+    slug,
+    currentLocale,
+    docsPaths,
+    mdFileExists,
+  } = await extractStaticPropsParams({
+    sectionSelected: 'announcements',
+    params,
+    locale,
+    preview,
+    previewData,
+    docsPathsGLOBAL,
+  })
 
-  if (!docExists) {
+  if (!mdFileExists) {
     logger.warn(
       `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
@@ -210,7 +217,9 @@ export const getStaticProps: GetStaticProps = async ({
     }
 
     const rawContent = await fetchRawMarkdown(branch, path)
-    const documentationContent = replaceHTMLBlocks(rawContent)
+    const documentationContent = escapeCurlyBraces(
+      replaceHTMLBlocks(rawContent)
+    )
 
     const headingList: Item[] = []
 

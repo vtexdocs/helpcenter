@@ -14,8 +14,7 @@ import Contributors from 'components/contributors'
 import OnThisPage from 'components/on-this-page'
 import { getLogger } from 'utils/logging/log-util'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
-import { flattenJSON, getKeyByValue, getParents } from 'utils/navigation-utils'
-import getNavigation from 'utils/getNavigation'
+import { getParents } from 'utils/navigation-utils'
 import { getMessages } from 'utils/get-messages'
 import TimeToRead from 'components/TimeToRead'
 import CopyLinkButton from 'components/copy-link-button'
@@ -25,6 +24,8 @@ import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import FeedbackSection from 'components/feedback-section'
+import escapeCurlyBraces from 'utils/escapeCurlyBraces'
+import { getSidebarMetadata } from 'utils/getSidebarMetadata'
 
 interface Props {
   breadcrumbList: { slug: string; name: string; type: string }[]
@@ -169,127 +170,125 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const logger = getLogger('troubleshooting')
-  try {
-    const {
-      sectionSelected,
-      branch,
-      slug,
-      currentLocale,
-      docsPaths,
-      docExists,
-    } = await extractStaticPropsParams({
-      sectionSelected: 'troubleshooting',
-      params,
-      locale,
-      preview,
-      previewData,
-      docsPathsGLOBAL,
-    })
+  const {
+    sectionSelected,
+    branch,
+    slug,
+    currentLocale,
+    mdFileExists,
+    mdFileExistsForCurrentLocale,
+    mdFilePath,
+  } = await extractStaticPropsParams({
+    sectionSelected: 'troubleshooting',
+    params,
+    locale,
+    preview,
+    previewData,
+    docsPathsGLOBAL,
+  })
 
-    if (!docExists) {
-      logger.warn(
-        `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
-      )
-      return { notFound: true }
-    }
-
-    const path = docsPaths[slug]?.find((e) => e.locale === currentLocale)?.path
-    const parentsArray: string[] = []
-    const sidebarfallback = await getNavigation()
-    const filteredSidebar = sidebarfallback.find(
-      (item: { documentation: string }) =>
-        item.documentation === sectionSelected
+  if (!mdFileExists) {
+    logger.warn(
+      `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
-    const flattenedSidebar = flattenJSON(filteredSidebar)
-    const keyPath = getKeyByValue(flattenedSidebar, slug) as string
-
-    if (!path) {
-      logger.warn(
-        `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
-      )
-      if (keyPath) {
-        return redirectToLocalizedUrl(
-          keyPath,
-          currentLocale,
-          flattenedSidebar,
-          'troubleshooting'
-        )
-      }
-      return { notFound: true }
-    }
-
-    if (keyPath) {
-      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-      parentsArray.push(slug)
-    }
-
-    const rawContent = await fetchRawMarkdown(branch, path)
-    const documentationContent = replaceHTMLBlocks(rawContent)
-
-    // Serialize content and parse frontmatter
-    const headingList: Item[] = []
-    const serialized = await serializeWithFallback({
-      content: documentationContent,
-      headingList,
-      logger,
-      path,
-    })
-    if (!serialized) {
-      logger.error(`Serialization failed for ${path}`)
-      return { notFound: true }
-    }
-    // Allow PUBLISHED and CHANGED status documents to be visible
-    const status = serialized.frontmatter?.status as string
-    if (!['PUBLISHED', 'CHANGED'].includes(status)) {
-      logger.warn(
-        `Document status is not allowed for ${path}. Status: ${status}.'
-        )}`
-      )
-      return { notFound: true }
-    }
-
-    const contributors = await fetchFileContributors(branch, path)
-
-    logger.info(`Processing ${slug}`)
-    const seeAlsoData: {
-      url: string
-      title: string
-      category: string
-    }[] = []
-
-    const breadcrumbList: { slug: string; name: string; type: string }[] = [
-      {
-        slug: '/docs/troubleshooting/',
-        name: getMessages()[currentLocale]['troubleshooting_page.title'],
-        type: 'category',
-      },
-      {
-        slug,
-        name: String(serialized?.frontmatter?.title) ?? '',
-        type: '',
-      },
-    ]
-
-    return {
-      props: {
-        slug,
-        serialized: JSON.parse(JSON.stringify(serialized)),
-        sidebarfallback,
-        parentsArray,
-        headingList,
-        contributors,
-        path,
-        seeAlsoData,
-        breadcrumbList,
-        branch,
-        sectionSelected,
-        content: documentationContent,
-      },
-      revalidate: 600,
-    }
-  } catch (error) {
-    logger.error(`Error while processing ${params?.slug}:\n${error}`)
     return { notFound: true }
+  }
+
+  const { keyPath, flattenedSidebar } = await getSidebarMetadata(
+    sectionSelected,
+    slug
+  )
+
+  if (!mdFileExistsForCurrentLocale) {
+    logger.warn(
+      `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
+    )
+    if (keyPath) {
+      return redirectToLocalizedUrl(
+        keyPath,
+        currentLocale,
+        flattenedSidebar,
+        'troubleshooting'
+      )
+    }
+    return { notFound: true }
+  }
+
+  const isListed = !!keyPath
+  const parentsArray: string[] = []
+
+  if (isListed) {
+    getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+    parentsArray.push(slug)
+  }
+
+  if (!mdFileExists) {
+    logger.error(`Markdown file does not exist for ${slug}`)
+    return { notFound: true }
+  }
+
+  const rawContent = await fetchRawMarkdown(branch, mdFilePath)
+  const documentationContent = escapeCurlyBraces(replaceHTMLBlocks(rawContent))
+
+  // Serialize content and parse frontmatter
+  const headingList: Item[] = []
+  const serialized = await serializeWithFallback({
+    content: documentationContent,
+    headingList,
+    logger,
+    path: mdFilePath,
+  })
+  if (!serialized) {
+    logger.error(`Serialization failed for ${mdFilePath}`)
+    return { notFound: true }
+  }
+  // Allow PUBLISHED and CHANGED status documents to be visible
+  const status = serialized.frontmatter?.status as string
+  if (!['PUBLISHED', 'CHANGED'].includes(status)) {
+    logger.warn(
+      `Document status is not allowed for ${mdFilePath}. Status: ${status}.'
+        )}`
+    )
+    return { notFound: true }
+  }
+
+  const contributors = await fetchFileContributors(branch, mdFilePath)
+
+  logger.info(`Processing ${slug}`)
+  const seeAlsoData: {
+    url: string
+    title: string
+    category: string
+  }[] = []
+
+  const breadcrumbList: { slug: string; name: string; type: string }[] = [
+    {
+      slug: '/docs/troubleshooting/',
+      name: getMessages()[currentLocale]['troubleshooting_page.title'],
+      type: 'category',
+    },
+    {
+      slug,
+      name: String(serialized?.frontmatter?.title) ?? '',
+      type: '',
+    },
+  ]
+
+  return {
+    props: {
+      sectionSelected,
+      parentsArray,
+      slug,
+      serialized: JSON.parse(JSON.stringify(serialized)),
+      headingList,
+      contributors,
+      path: mdFilePath,
+      isListed,
+      seeAlsoData,
+      breadcrumbList,
+      branch,
+    },
+    revalidate: 600,
   }
 }
 
