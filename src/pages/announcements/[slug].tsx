@@ -31,10 +31,11 @@ import DateText from 'components/date-text'
 import CopyLinkButton from 'components/copy-link-button'
 import { serializeWithFallback } from 'utils/serializeWithFallback'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
-import { fetchFileContributors } from 'utils/fetchFileContributors'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
+import { contentfulAuthor } from 'utils/constants'
+import { fetchGitHubUser } from 'utils/fetchGithubUser'
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
   string,
@@ -119,17 +120,17 @@ const AnnouncementPage: NextPage<Props> = ({
                     <Box sx={styles.divider}></Box>
                     <Flex sx={styles.flexContainer}>
                       <Box>
-                        <Author contributor={contributor} />
+                        {contributor && <Author contributor={contributor} />}
                         {createdAtDate && updatedAtDate && (
                           <Flex sx={styles.date}>
                             <DateText
                               createdAt={createdAtDate}
                               updatedAt={updatedAtDate}
                             />
-                            <CopyLinkButton />
                           </Flex>
                         )}
                       </Box>
+                      <CopyLinkButton />
                     </Flex>
                   </header>
                   <MarkdownRenderer serialized={serialized} />
@@ -243,8 +244,9 @@ export const getStaticProps: GetStaticProps = async ({
     if (!hasAllowedStatus) {
       return { notFound: true }
     }
-
-    const contributor = (await fetchFileContributors(branch, path))[0]
+    const authorId = serialized.frontmatter?.author as string
+    const githubLogin = contentfulAuthor[authorId]
+    const contributor = githubLogin ? await fetchGitHubUser(githubLogin) : null
 
     logger.info(`Processing ${slug}`)
 

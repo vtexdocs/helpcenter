@@ -355,7 +355,11 @@ export const getStaticProps: GetStaticProps = async ({
     const documentationContent = escapeCurlyBraces(
       replaceHTMLBlocks(rawContent)
     )
-    const contributors = await fetchFileContributors(branch, mdFilePath)
+    const contributors = await fetchFileContributors(
+      sectionSelected,
+      branch,
+      mdFilePath
+    )
 
     const headingList: Item[] = []
     const serialized = await serializeWithFallback({
