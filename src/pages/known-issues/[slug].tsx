@@ -13,8 +13,6 @@ import { Item, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
 import TimeToRead from 'components/TimeToRead'
 
-import getNavigation from 'utils/getNavigation'
-// import getGithubFile from 'utils/getGithubFile'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
@@ -22,11 +20,7 @@ import styles from 'styles/documentation-page'
 import { ContributorsType } from 'utils/getFileContributors'
 
 import { getLogger } from 'utils/logging/log-util'
-import {
-  flattenJSON,
-  getArticleParentsArray,
-  getKeyByValue,
-} from 'utils/navigation-utils'
+import { getParents } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 // import { ParsedUrlQuery } from 'querystring'
 
@@ -40,6 +34,8 @@ import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
+import { resolveSlugFromKiFormat } from 'utils/resolveSlugFromKiFormat'
+import { getSidebarMetadata } from 'utils/getSidebarMetadata'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -185,21 +181,27 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({
   params,
-  locale,
+  locale = 'en',
   preview,
   previewData,
 }) => {
   const logger = getLogger('Known Issues')
+
+  const slug = params?.slug as string
+
+  // Check if slug starts with ki-- and get the number
+  await resolveSlugFromKiFormat(slug, locale, logger)
+
   const {
     sectionSelected,
     branch,
-    slug,
     currentLocale,
-    docsPaths,
     mdFileExists,
+    mdFileExistsForCurrentLocale,
+    mdFilePath,
   } = await extractStaticPropsParams({
     sectionSelected: 'known-issues',
-    params,
+    params: { ...params, slug },
     locale,
     preview,
     previewData,
@@ -213,16 +215,12 @@ export const getStaticProps: GetStaticProps = async ({
     return { notFound: true }
   }
   try {
-    const path = docsPaths[slug]?.find((e) => e.locale === currentLocale)?.path
-    const sidebarfallback = await getNavigation()
-    const filteredSidebar = sidebarfallback.find(
-      (item: { documentation: string }) =>
-        item.documentation === sectionSelected
+    const { keyPath, flattenedSidebar } = await getSidebarMetadata(
+      sectionSelected,
+      slug
     )
-    const flattenedSidebar = flattenJSON(filteredSidebar)
-    const keyPath = getKeyByValue(flattenedSidebar, slug) as string
 
-    if (!path) {
+    if (!mdFileExistsForCurrentLocale) {
       logger.warn(
         `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
       )
@@ -237,20 +235,17 @@ export const getStaticProps: GetStaticProps = async ({
       return { notFound: true }
     }
 
-    const rawContent = await fetchRawMarkdown(branch, path)
+    const rawContent = await fetchRawMarkdown(branch, mdFilePath)
     const documentationContent = escapeCurlyBraces(
       replaceHTMLBlocks(rawContent)
     )
 
-    let parentsArray: string[] = []
+    const isListed = !!keyPath
+    const parentsArray: string[] = []
 
-    if (keyPath) {
-      parentsArray = getArticleParentsArray(
-        keyPath,
-        flattenedSidebar,
-        currentLocale,
-        slug
-      )
+    if (isListed) {
+      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
+      parentsArray.push(slug)
     }
 
     const headingList: Item[] = []
@@ -258,23 +253,23 @@ export const getStaticProps: GetStaticProps = async ({
       content: documentationContent,
       headingList,
       logger,
-      path,
+      path: mdFilePath,
     })
     if (!serialized) {
-      logger.error(`Serialization failed for ${path}`)
+      logger.error(`Serialization failed for ${mdFilePath}`)
       return { notFound: true }
     }
 
     const status = serialized.frontmatter?.status as string
     if (!['PUBLISHED', 'CHANGED'].includes(status)) {
       logger.warn(
-        `Document status is not allowed for ${path}. Status: ${status}.'
+        `Document status is not allowed for ${mdFilePath}. Status: ${status}.'
         )}`
       )
       return { notFound: true }
     }
 
-    const contributors = await fetchFileContributors(branch, path)
+    const contributors = await fetchFileContributors(branch, mdFilePath)
 
     logger.info(`Processing ${slug}`)
 
@@ -298,11 +293,10 @@ export const getStaticProps: GetStaticProps = async ({
         sectionSelected,
         slug,
         serialized: JSON.parse(JSON.stringify(serialized)),
-        sidebarfallback,
         headingList,
         parentsArray,
         contributors,
-        path,
+        path: mdFilePath,
         seeAlsoData,
         breadcrumbList,
         branch,
