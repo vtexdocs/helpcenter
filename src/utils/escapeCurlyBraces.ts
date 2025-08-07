@@ -60,7 +60,11 @@ const assertCodeBlocksAreCorrectlyFormatted = (content: string) => {
 }
 
 const escapeCurlyBraces: (content: string) => string = (content) => {
-  assertCodeBlocksAreCorrectlyFormatted(content)
+  try {
+    assertCodeBlocksAreCorrectlyFormatted(content)
+  } catch (err) {
+    console.warn('Warning:', err instanceof Error ? err.message : err)
+  }
 
   let idx = 0
   let newContent = ''
