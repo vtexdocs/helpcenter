@@ -100,28 +100,28 @@ const TrackPage: NextPage<Props> = ({
   useEffect(() => {
     setActiveSidebarElement(slug)
     setHeadings(headingList)
-  }, [serialized.frontmatter])
+  }, [serialized?.frontmatter])
 
   return (
     <>
       <Head>
         <meta name="docsearch:doctype" content="tracks" />
-        {serialized.frontmatter?.title && (
+        {serialized?.frontmatter?.title && (
           <>
-            <title>{serialized.frontmatter?.title as string}</title>
+            <title>{serialized?.frontmatter?.title as string}</title>
             <meta
               name="docsearch:doctitle"
-              content={serialized.frontmatter.title as string}
+              content={serialized?.frontmatter.title as string}
             />
           </>
         )}
-        {serialized.frontmatter?.hidden && (
+        {serialized?.frontmatter?.hidden && (
           <meta name="robots" content="noindex" />
         )}
-        {serialized.frontmatter?.excerpt && (
+        {serialized?.frontmatter?.excerpt && (
           <meta
             property="og:description"
-            content={serialized.frontmatter?.excerpt as string}
+            content={serialized?.frontmatter?.excerpt as string}
           />
         )}
       </Head>
@@ -135,14 +135,15 @@ const TrackPage: NextPage<Props> = ({
                     <Breadcrumb breadcrumbList={breadcrumbList} />
                     <Flex sx={styles.flexContainer}>
                       <Text sx={styles.documentationTitle} className="title">
-                        {serialized.frontmatter?.title}
+                        {serialized?.frontmatter?.title}
                       </Text>
-                      {serialized.frontmatter?.readingTime && (
+                      {serialized?.frontmatter?.readingTime && (
                         <TimeToRead
                           minutes={
                             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            (serialized.frontmatter.readingTime as any)?.text ||
-                            String(serialized.frontmatter.readingTime)
+                            (serialized?.frontmatter.readingTime as any)
+                              ?.text ||
+                            String(serialized?.frontmatter.readingTime)
                           }
                         />
                       )}
@@ -173,16 +174,16 @@ const TrackPage: NextPage<Props> = ({
             {isListed && (
               <ArticlePagination
                 hidePaginationNext={
-                  Boolean(serialized.frontmatter?.hidePaginationNext) || false
+                  Boolean(serialized?.frontmatter?.hidePaginationNext) || false
                 }
                 hidePaginationPrevious={
-                  Boolean(serialized.frontmatter?.hidePaginationPrevious) ||
+                  Boolean(serialized?.frontmatter?.hidePaginationPrevious) ||
                   false
                 }
                 pagination={pagination}
               />
             )}
-            {serialized.frontmatter?.seeAlso && (
+            {serialized?.frontmatter?.seeAlso && (
               <SeeAlsoSection docs={seeAlsoData} />
             )}
           </Box>
@@ -267,7 +268,7 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   try {
-    const rawContent = await fetchRawMarkdown(branch, path)
+    const rawContent = await fetchRawMarkdown(sectionSelected, branch, path)
     const documentationContent = escapeCurlyBraces(
       replaceHTMLBlocks(rawContent)
     )
@@ -324,11 +325,11 @@ export const getStaticProps: GetStaticProps = async ({
             })
             seeAlsoData.push({
               url: seeAlsoUrl,
-              title: serialized.frontmatter?.title
-                ? (serialized.frontmatter.title as string)
+              title: serialized?.frontmatter?.title
+                ? (serialized?.frontmatter.title as string)
                 : seeAlsoUrl.split('/')[3],
-              category: serialized.frontmatter?.category
-                ? (serialized.frontmatter.category as string)
+              category: serialized?.frontmatter?.category
+                ? (serialized?.frontmatter.category as string)
                 : seeAlsoUrl.split('/')[2],
             })
           } catch (error) {}

@@ -216,7 +216,7 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArray.push(slug)
     }
 
-    const rawContent = await fetchRawMarkdown(branch, path)
+    const rawContent = await fetchRawMarkdown(sectionSelected, branch, path)
     const documentationContent = escapeCurlyBraces(
       replaceHTMLBlocks(rawContent)
     )

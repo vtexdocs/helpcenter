@@ -59,12 +59,12 @@ const TutorialMarkdownRender = ({
     <>
       <Head>
         <meta name="docsearch:doctype" content="tutorials" />
-        {serialized.frontmatter?.title && (
+        {serialized?.frontmatter?.title && (
           <>
-            <title>{serialized.frontmatter?.title as string}</title>
+            <title>{serialized?.frontmatter?.title as string}</title>
             <meta
               name="docsearch:doctitle"
-              content={serialized.frontmatter.title as string}
+              content={serialized?.frontmatter?.title as string}
             />
           </>
         )}

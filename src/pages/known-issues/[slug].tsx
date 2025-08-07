@@ -248,7 +248,11 @@ export const getStaticProps: GetStaticProps = async ({
       return { notFound: true }
     }
 
-    const rawContent = await fetchRawMarkdown(branch, mdFilePath)
+    const rawContent = await fetchRawMarkdown(
+      sectionSelected,
+      branch,
+      mdFilePath
+    )
     const documentationContent = escapeCurlyBraces(
       replaceHTMLBlocks(rawContent)
     )
