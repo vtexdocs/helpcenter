@@ -4,7 +4,7 @@ export async function resolveSlugFromKiFormat(
   originalSlug: string,
   locale: string,
   logger: LoggerType
-) {
+): Promise<string | null> {
   if (!originalSlug.startsWith('ki--')) return originalSlug
 
   const internalReference = Number(originalSlug.replace('ki--', ''))
@@ -26,23 +26,18 @@ export async function resolveSlugFromKiFormat(
     )
 
     if (entry) {
-      logger.info(`Redirecting ki--${internalReference} to slug: ${entry.slug}`)
-      return {
-        redirect: {
-          destination: `/${locale}/known-issues/${entry.slug}`,
-          permanent: true,
-        },
-      }
+      logger.info(`Mapped ki--${internalReference} to slug: ${entry.slug}`)
+      return entry.slug
     } else {
       logger.warn(
         `No mapping found for ki--${internalReference} in locale ${locale}`
       )
-      return { notFound: true }
+      return null
     }
   } catch (error) {
     logger.error(
       `Error fetching mapping for ki--${internalReference}: ${error}`
     )
-    return { notFound: true }
+    return null
   }
 }
