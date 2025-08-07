@@ -189,10 +189,50 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const logger = getLogger('Known Issues')
+
+  // Check if slug starts with ki-- and get the number
+  const originalSlug = params?.slug as string
+  let finalSlug = originalSlug
+
+  if (originalSlug?.startsWith('ki--')) {
+    const internalReference = Number(originalSlug.replace('ki--', ''))
+    try {
+      const res = await fetch(
+        'https://raw.githubusercontent.com/vtexdocs/known-issues/refs/heads/main/.github/ki-slugs-and-zendesk-ids.json'
+      )
+      if (!res.ok) throw new Error('Failed to fetch mapping')
+
+      const mapping: Array<{
+        locale: string
+        slug: string
+        internalReference: number
+      }> = await res.json()
+      const entry = mapping.find(
+        (item) =>
+          item.locale === locale && item.internalReference === internalReference
+      )
+
+      if (entry) {
+        finalSlug = entry.slug
+        logger.info(`Mapped ki--${internalReference} to slug: ${finalSlug}`)
+      } else {
+        logger.warn(
+          `No mapping found for ki--${internalReference} in locale ${locale}`
+        )
+        return { notFound: true }
+      }
+    } catch (error) {
+      logger.error(
+        `Error fetching mapping for ki--${internalReference}: ${error}`
+      )
+      return { notFound: true }
+    }
+  }
+
   const { sectionSelected, branch, slug, currentLocale, docsPaths, docExists } =
     await extractStaticPropsParams({
       sectionSelected: 'known-issues',
-      params,
+      params: { ...params, slug: finalSlug },
       locale,
       preview,
       previewData,
