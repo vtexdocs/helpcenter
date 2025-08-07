@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.8](https://github.com/vtexdocs/helpcenter/compare/v0.9.7...v0.9.8) (2025-08-07)
+
+
+### Bug Fixes
+
+* **fetchrawmarkdown:** fetch data from ki repo if category is known-issues ([61fb883](https://github.com/vtexdocs/helpcenter/commit/61fb88346294eb047fec5b65a394825f996be020))
+* **known-issues:** resolveSlugFromKiFormat returns the ki slug instead of redirect object ([e5f0e3b](https://github.com/vtexdocs/helpcenter/commit/e5f0e3b99f91bcf804bd2f7e601224628568b3b0))
+
 ### [0.9.7](https://github.com/vtexdocs/helpcenter/compare/v0.9.6...v0.9.7) (2025-08-07)
 
 
