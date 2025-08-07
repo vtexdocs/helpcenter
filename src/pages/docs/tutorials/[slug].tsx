@@ -289,7 +289,7 @@ export const getStaticProps: GetStaticProps = async ({
           : { slug: null, name: null },
     }
 
-    if (isCategoryCover) {
+    if (isCategoryCover && !mdFileExists) {
       const childrenArrayName: string[] = []
       const childrenArraySlug: string[] = []
 
@@ -307,7 +307,6 @@ export const getStaticProps: GetStaticProps = async ({
         currentLocale,
         childrenArraySlug
       )
-      console.log(childrenArraySlug)
 
       const childrenList = childrenArrayName.map((name, idx) => ({
         slug: `/${currentLocale}/docs/tutorials/${childrenArraySlug[idx]}`,
@@ -319,7 +318,6 @@ export const getStaticProps: GetStaticProps = async ({
         name: null,
       }
       const nextDoc = childrenList[0] ?? { slug: null, name: null }
-      console.log(childrenList)
 
       logger.info(`Generating category cover for: ${slug}`)
 
@@ -349,7 +347,11 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   if (mdFileExists) {
-    const rawContent = await fetchRawMarkdown(branch, mdFilePath)
+    const rawContent = await fetchRawMarkdown(
+      sectionSelected,
+      branch,
+      mdFilePath
+    )
     const documentationContent = escapeCurlyBraces(
       replaceHTMLBlocks(rawContent)
     )
@@ -367,16 +369,18 @@ export const getStaticProps: GetStaticProps = async ({
       return { notFound: true }
     }
 
-    const status = serialized.frontmatter?.status as string
-    if (!['PUBLISHED', 'CHANGED'].includes(status)) {
-      logger.warn(`Unauthorized status: ${status} for path ${mdFilePath}`)
+    const status = serialized.frontmatter?.status as string | undefined
+    if (!status || !['PUBLISHED', 'CHANGED'].includes(status)) {
+      logger.warn(
+        `Unauthorized or missing status: ${status} for path ${mdFilePath}`
+      )
       return { notFound: true }
     }
 
     const seeAlsoData = await Promise.all(
-      (Array.isArray(serialized.frontmatter?.seeAlso)
-        ? serialized.frontmatter.seeAlso
-        : [serialized.frontmatter?.seeAlso]
+      (Array.isArray(serialized?.frontmatter?.seeAlso)
+        ? serialized?.frontmatter.seeAlso
+        : [serialized?.frontmatter?.seeAlso]
       )
         .filter(Boolean)
         .map(async (url: string) => {
