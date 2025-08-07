@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
-import { NextPage, GetStaticPaths, GetStaticProps } from 'next' // MODIFIED: Changed GetServerSideProps to GetStaticProps
+import { NextPage, GetStaticPaths, GetStaticProps } from 'next'
 import jp from 'jsonpath'
 
 import { serialize } from 'next-mdx-remote/serialize'
@@ -7,21 +7,15 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 import { Item, LibraryContext } from '@vtexdocs/components'
 
-import getNavigation from 'utils/getNavigation'
-import getGithubFile from 'utils/getGithubFile' // ADDED: Import getGithubFile
+import getGithubFile from 'utils/getGithubFile'
 import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
-import { ContributorsType } from 'utils/getFileContributors' // ADDED: Import getFileContributors
+import { ContributorsType } from 'utils/getFileContributors'
 
 import { getLogger } from 'utils/logging/log-util'
-import {
-  flattenJSON,
-  getChildren,
-  getKeyByValue,
-  getParents,
-} from 'utils/navigation-utils'
+import { getChildren, getParents } from 'utils/navigation-utils'
 
 import TutorialIndexing from 'components/tutorial-index'
 import TutorialMarkdownRender from 'components/tutorial-markdown-render'
@@ -31,6 +25,7 @@ import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
+import { getSidebarMetadata } from 'utils/getSidebarMetadata'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -102,7 +97,7 @@ type Props =
         }
       }
       breadcrumbList: { slug: string; name: string; type: string }[]
-      type: 'tutorial-category'
+      type: 'category'
       componentProps: TutorialIndexingProps
     }
 
@@ -173,6 +168,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: 'blocking',
   }
 }
+
 export const getStaticProps: GetStaticProps = async ({
   params,
   locale,
@@ -181,36 +177,39 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const logger = getLogger('TutorialsPage-GetStaticProps')
 
-  const { sectionSelected, branch, slug, currentLocale, docsPaths, docExists } =
-    await extractStaticPropsParams({
-      sectionSelected: 'tutorials',
-      params,
-      locale,
-      preview,
-      previewData,
-      docsPathsGLOBAL,
-    })
+  const {
+    sectionSelected,
+    branch,
+    slug,
+    currentLocale,
+    docsPaths,
+    mdFileExists,
+    mdFileExistsForCurrentLocale,
+    mdFilePath,
+  } = await extractStaticPropsParams({
+    sectionSelected: 'tutorials',
+    params,
+    locale,
+    preview,
+    previewData,
+    docsPathsGLOBAL,
+  })
 
   const isCategoryCover = slug.startsWith('category-')
 
-  if (!docExists && !isCategoryCover) {
+  //Se não existe o arquivo md para a slug e não é capa de categoria, retorna 404
+  if (!mdFileExists && !isCategoryCover) {
     logger.warn(
       `Markdown file not found: slug=${slug}, locale=${currentLocale}, branch=${branch}`
     )
     return { notFound: true }
   }
 
-  const pathEntry = docsPaths[slug]?.find((e) => e.locale === currentLocale)
-  const path = pathEntry?.path
+  const { keyPath, flattenedSidebar, sidebarfallback } =
+    await getSidebarMetadata(sectionSelected, slug)
 
-  const sidebarfallback = await getNavigation()
-  const filteredSidebar = sidebarfallback.find(
-    (item: { documentation: string }) => item.documentation === sectionSelected
-  )
-  const flattenedSidebar = flattenJSON(filteredSidebar)
-  const keyPath = getKeyByValue(flattenedSidebar, slug) as string
-
-  if (!path && !isCategoryCover) {
+  //Se existe o arquivo md, mas apenas para outro locale, redireciona
+  if (!mdFileExistsForCurrentLocale && !isCategoryCover) {
     logger.warn(
       `Localized path missing for slug=${slug}, redirecting to available locale`
     )
@@ -224,13 +223,14 @@ export const getStaticProps: GetStaticProps = async ({
       : { notFound: true }
   }
 
+  const isListed = !!keyPath
   const parentsArray: string[] = []
   const parentsArrayName: string[] = []
   const parentsArrayType: string[] = []
   let type = ''
   let categoryTitle = ''
-
-  if (keyPath) {
+  let breadcrumbList
+  if (isListed) {
     const mainKeyPath = keyPath.split('slug')[0]
     const localizedKeyPath = `${mainKeyPath}slug.${currentLocale}`
     type = flattenedSidebar[`${mainKeyPath}type`]
@@ -250,95 +250,94 @@ export const getStaticProps: GetStaticProps = async ({
     categoryTitle = flattenedSidebar[nameKeyPath]
     parentsArrayName.push(categoryTitle)
     parentsArrayType.push(flattenedSidebar[`${mainKeyPath}type`])
-  }
 
-  const isListed = !!keyPath
-
-  logger.info(`Tutorial section selected: ${sectionSelected} for slug: ${slug}`)
-
-  const breadcrumbList = getBreadcrumbsList(
-    parentsArray,
-    parentsArrayName,
-    parentsArrayType,
-    'tutorials'
-  )
-
-  if (isCategoryCover && isListed) {
-    const childrenArrayName: string[] = []
-    const childrenArraySlug: string[] = []
-
-    getChildren(
-      keyPath,
-      'name',
-      flattenedSidebar,
-      currentLocale,
-      childrenArrayName
-    )
-    getChildren(
-      keyPath,
-      'slug',
-      flattenedSidebar,
-      currentLocale,
-      childrenArraySlug
+    breadcrumbList = getBreadcrumbsList(
+      parentsArray,
+      parentsArrayName,
+      parentsArrayType,
+      'tutorials'
     )
 
-    const childrenList = childrenArrayName.map((name, idx) => ({
-      slug: `/${currentLocale}/docs/tutorials/${childrenArraySlug[idx]}`,
-      name,
-    }))
+    if (isCategoryCover) {
+      const childrenArrayName: string[] = []
+      const childrenArraySlug: string[] = []
 
-    const previousDoc = breadcrumbList[breadcrumbList.length - 2] ?? {
-      slug: null,
-      name: null,
-    }
-    const nextDoc = childrenList[0] ?? { slug: null, name: null }
+      getChildren(
+        keyPath,
+        'name',
+        flattenedSidebar,
+        currentLocale,
+        childrenArrayName
+      )
+      getChildren(
+        keyPath,
+        'slug',
+        flattenedSidebar,
+        currentLocale,
+        childrenArraySlug
+      )
+      console.log(childrenArraySlug)
 
-    return {
-      props: {
-        type,
-        sectionSelected,
-        parentsArray,
-        slug,
-        pagination: { previousDoc, nextDoc },
-        isListed,
-        breadcrumbList,
-        branch,
-        componentProps: {
-          tutorialData: {
-            name: categoryTitle || slug,
-            children: childrenList,
-            hidePaginationPrevious: breadcrumbList.length < 2,
-            hidePaginationNext: !childrenList.length,
+      const childrenList = childrenArrayName.map((name, idx) => ({
+        slug: `/${currentLocale}/docs/tutorials/${childrenArraySlug[idx]}`,
+        name,
+      }))
+
+      const previousDoc = breadcrumbList[breadcrumbList.length - 2] ?? {
+        slug: null,
+        name: null,
+      }
+      const nextDoc = childrenList[0] ?? { slug: null, name: null }
+      console.log(childrenList)
+
+      logger.info(`Generating category cover for: ${slug}`)
+
+      return {
+        props: {
+          type,
+          sectionSelected,
+          parentsArray,
+          slug,
+          pagination: { previousDoc, nextDoc },
+          isListed,
+          breadcrumbList,
+          branch,
+          componentProps: {
+            tutorialData: {
+              name: categoryTitle || slug,
+              children: childrenList,
+              hidePaginationPrevious: breadcrumbList.length < 2,
+              hidePaginationNext: !childrenList.length,
+            },
           },
+          locale: currentLocale,
         },
-        locale: currentLocale,
-      },
-      revalidate: 3600,
+        revalidate: 3600,
+      }
     }
   }
 
   if (type === 'markdown') {
-    const resolvedPath = path!
-    const rawContent = await fetchRawMarkdown(branch, resolvedPath)
+    const rawContent = await fetchRawMarkdown(branch, mdFilePath)
     const documentationContent = replaceHTMLBlocks(rawContent)
-    const contributors = await fetchFileContributors(branch, resolvedPath)
+    const contributors = await fetchFileContributors(branch, mdFilePath)
 
     const headingList: Item[] = []
     const serialized = await serializeWithFallback({
       content: documentationContent,
       headingList,
       logger,
-      path: resolvedPath,
+      path: mdFilePath,
     })
 
     if (!serialized) {
-      logger.error(`Serialization failed for ${resolvedPath}`)
+      logger.error(`Serialization failed for ${mdFilePath}`)
       return { notFound: true }
     }
 
     const status = serialized.frontmatter?.status as string
     if (!['PUBLISHED', 'CHANGED'].includes(status)) {
-      logger.warn(`Unauthorized status: ${status} for path ${resolvedPath}`)
+      logger.warn(`Unauthorized status: ${status} for path ${mdFilePath}`)
       return { notFound: true }
     }
 
@@ -422,6 +421,8 @@ export const getStaticProps: GetStaticProps = async ({
           : { slug: null, name: null },
     }
 
+    logger.info(`Generating markdown file for: ${slug}`)
+
     return {
       props: {
         type,
@@ -437,7 +438,7 @@ export const getStaticProps: GetStaticProps = async ({
           serialized: JSON.parse(JSON.stringify(serialized)),
           headingList,
           contributors,
-          path: resolvedPath,
+          path: mdFilePath,
           seeAlsoData,
         },
         locale: currentLocale,
@@ -446,7 +447,7 @@ export const getStaticProps: GetStaticProps = async ({
     }
   }
 
-  logger.error(`Unhandled type: ${type}`)
+  logger.error(`Markdown file and tutorial category do not exist for ${slug}`)
   return { notFound: true }
 }
 

@@ -56244,11 +56244,7 @@
             "es": "Integraciones",
             "pt": "Integrações"
           },
-          "slug": {
-            "en": "category-integrations",
-            "pt": "category-integracoes",
-            "es": "category-integraciones"
-          },
+          "slug": "category-integrations",
           "origin": "",
           "type": "category",
           "children": [
@@ -56350,11 +56346,7 @@
             "es": "Operaciones de la tienda",
             "pt": "Operações da loja"
           },
-          "slug": {
-            "en": "category-store-operations",
-            "pt": "category-operacoes-da-loja",
-            "es": "category-operaciones-de-la-tienda"
-          },
+          "slug": "category-store-operations",
           "origin": "",
           "type": "category",
           "children": [

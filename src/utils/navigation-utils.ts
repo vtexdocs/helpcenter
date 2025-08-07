@@ -69,19 +69,16 @@ export const getChildren = (
   data: string,
   flattenedSidebar: { [x: string]: string },
   locale: localeType = 'en',
-  childrenArray: string[]
-) => {
-  const childrenBasePath = path?.split('slug')[0].concat('children.')
-  const desiredData = data === 'name' ? `${data}.${locale}` : data
+  childrenArray: string[] = []
+): string[] => {
+  const childrenBasePath = path?.split('slug')[0] + 'children.'
+  const desiredData = locale ? `${data}.${locale}` : data
 
   for (let i = 0; i < 100; i++) {
-    const completePath = childrenBasePath
-      .concat(String(i))
-      .concat(`.${desiredData}`)
-    if (!flattenedSidebar[completePath]) {
-      break
-    }
-    childrenArray.push(flattenedSidebar[completePath])
+    const completePath = `${childrenBasePath}${i}.${desiredData}`
+    const value = flattenedSidebar[completePath]
+    if (!value) break
+    childrenArray.push(value)
   }
 
   return childrenArray
