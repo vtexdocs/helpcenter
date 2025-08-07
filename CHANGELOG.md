@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.9](https://github.com/vtexdocs/helpcenter/compare/v0.9.8...v0.9.9) (2025-08-07)
+
+
+### Features
+
+* **announcmenets:** display contentful author ([8642d98](https://github.com/vtexdocs/helpcenter/commit/8642d98774ca40768ef8f3a9942e2cf21f8e2c00))
+
 ### [0.9.8](https://github.com/vtexdocs/helpcenter/compare/v0.9.7...v0.9.8) (2025-08-07)
 
 
