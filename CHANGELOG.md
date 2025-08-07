@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.7](https://github.com/vtexdocs/helpcenter/compare/v0.9.6...v0.9.7) (2025-08-07)
+
+
+### Features
+
+* add support for an alternative route for known issues ([577928d](https://github.com/vtexdocs/helpcenter/commit/577928da4f74aa215e178ff3e01878f3e0154e0b))
+
+
+### Bug Fixes
+
+* **escapecurlybraces:** handle errors ([af438ed](https://github.com/vtexdocs/helpcenter/commit/af438edbad168165f5340d055ecae838363693d1))
+* **locale-switcher:** enable locale switcher for troubleshooting docs ([0ba2698](https://github.com/vtexdocs/helpcenter/commit/0ba2698ddf14e06e2385258a4740f768936685fa))
+* **tutorials:** fix tutorials and update navigation ([26b8240](https://github.com/vtexdocs/helpcenter/commit/26b8240666124a81d1a267588c33066728f5e408))
+
+
+### Chore
+
+* **navigation.json:** update navigation ([c929a0a](https://github.com/vtexdocs/helpcenter/commit/c929a0a0d379e549cadd5aef0aba44873852adbb))
+
+
+### Refactoring
+
+* **known-issues:** create separate resolveSlugFromKiFormat function ([5715b0e](https://github.com/vtexdocs/helpcenter/commit/5715b0e4da824d9447bb24b3bd34305d9b942c14))
+
 ### [0.9.6](https://github.com/vtexdocs/helpcenter/compare/v0.9.5...v0.9.6) (2025-08-07)
 
 
