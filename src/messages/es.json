@@ -60,6 +60,7 @@
   "tutorials_landing_page.description": "Explore tutoriales detallados para operar su tienda VTEX.",
   "search_input.placeholder": "Búsqueda en el Help Center",
   "search_input.empty": "No results found. Try different search terms.",
+  "search_results.text": "Mostrando resultados para",
   "feedback_section.question": "¿Te ha resultado útil esta información?",
   "feedback_section.response": "Thanks for your feedback.",
   "feedback_section.positive": "Sí",
