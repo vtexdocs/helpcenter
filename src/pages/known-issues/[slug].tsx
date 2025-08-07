@@ -187,21 +187,34 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const logger = getLogger('Known Issues')
 
-  const slug = params?.slug as string
+  const originalSlug = params?.slug as string
 
   // Check if slug starts with ki-- and get the number
-  await resolveSlugFromKiFormat(slug, locale, logger)
+  const resolvedSlug = await resolveSlugFromKiFormat(
+    originalSlug,
+    locale,
+    logger
+  )
+  if (!resolvedSlug) return { notFound: true }
+  if (originalSlug !== resolvedSlug)
+    return {
+      redirect: {
+        destination: `/${locale}/known-issues/${resolvedSlug}`,
+        permanent: true,
+      },
+    }
 
   const {
     sectionSelected,
     branch,
+    slug,
     currentLocale,
     mdFileExists,
     mdFileExistsForCurrentLocale,
     mdFilePath,
   } = await extractStaticPropsParams({
     sectionSelected: 'known-issues',
-    params: { ...params, slug },
+    params: { ...params, slug: resolvedSlug },
     locale,
     preview,
     previewData,
@@ -217,7 +230,7 @@ export const getStaticProps: GetStaticProps = async ({
   try {
     const { keyPath, flattenedSidebar } = await getSidebarMetadata(
       sectionSelected,
-      slug
+      resolvedSlug
     )
 
     if (!mdFileExistsForCurrentLocale) {
