@@ -285,16 +285,6 @@ export const getStaticProps: GetStaticProps = async ({
       return { notFound: true }
     }
 
-    // Allow PUBLISHED and CHANGED status documents to be visible
-    const status = serialized.frontmatter?.status as string
-    if (!['PUBLISHED', 'CHANGED'].includes(status)) {
-      logger.warn(
-        `Document status is not allowed for ${path}. Status: ${status}.'
-        )}`
-      )
-      return { notFound: true }
-    }
-
     const contributors = await fetchFileContributors(
       sectionSelected,
       branch,

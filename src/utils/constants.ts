@@ -817,8 +817,8 @@ export const faqFilter = (intl: IntlShape) => {
 export const contentfulAuthor: { [key: string]: string } = {
   '2p7evLfTcDrhc5qtrzbLWD': 'anabaarbosa',
   YRJ73j8mt38D5TUleocQB: 'barbara-celi',
-  '2mXZkbi0oi061KicTExNjo': 'brunoamui',
-  '6ZIASoEIeITT63epPauz12': 'carolinamenezes',
+  '127RQ7SUoFfyTh5gbXUpdM': 'brunoamui',
+  '1u80f14cWqneWquMc8tUq1': 'carolinamenezes',
   '2AhArvGNSPKwUAd8GOz0iU': 'geisecosta',
   '4ubliktPJIsvyl1hq91RdK': 'henriquessb',
   '5l9ZQjiivHzkEVjafL4O6v': 'Isabella-Veloso',
@@ -828,5 +828,5 @@ export const contentfulAuthor: { [key: string]: string } = {
   '4JJllZ4I71DHhIOaLOE3nz': 'mariananantua',
   '2Gy429C47ie3tL9XUEjeFL': 'PedroAntunesCosta',
   '6DODK49lJPk3yvcoe6GB6g': 'ricardoaerobr',
-  '1u80f14cWqneWquMc8tUq1': 'georgebrindeiro',
+  '56yU9Wz6mLwmzo82TjgAHy': 'georgebrindeiro',
 }

@@ -242,15 +242,6 @@ export const getStaticProps: GetStaticProps = async ({
     logger.error(`Serialization failed for ${mdFilePath}`)
     return { notFound: true }
   }
-  // Allow PUBLISHED and CHANGED status documents to be visible
-  const status = serialized.frontmatter?.status as string
-  if (!['PUBLISHED', 'CHANGED'].includes(status)) {
-    logger.warn(
-      `Document status is not allowed for ${mdFilePath}. Status: ${status}.'
-        )}`
-    )
-    return { notFound: true }
-  }
 
   const contributors = await fetchFileContributors(
     sectionSelected,

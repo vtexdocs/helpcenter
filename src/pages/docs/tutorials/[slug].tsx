@@ -373,14 +373,6 @@ export const getStaticProps: GetStaticProps = async ({
       return { notFound: true }
     }
 
-    const status = serialized.frontmatter?.status as string | undefined
-    if (!status || !['PUBLISHED', 'CHANGED'].includes(status)) {
-      logger.warn(
-        `Unauthorized or missing status: ${status} for path ${mdFilePath}`
-      )
-      return { notFound: true }
-    }
-
     const seeAlsoData = await Promise.all(
       (Array.isArray(serialized?.frontmatter?.seeAlso)
         ? serialized?.frontmatter.seeAlso
