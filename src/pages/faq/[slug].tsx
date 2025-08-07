@@ -32,6 +32,7 @@ import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
+import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -234,7 +235,9 @@ export const getStaticProps: GetStaticProps = async ({
     }
 
     const rawContent = await fetchRawMarkdown(branch, path)
-    const documentationContent = replaceHTMLBlocks(rawContent)
+    const documentationContent = escapeCurlyBraces(
+      replaceHTMLBlocks(rawContent)
+    )
 
     // Serialize content and parse frontmatter
     const headingList: Item[] = []
