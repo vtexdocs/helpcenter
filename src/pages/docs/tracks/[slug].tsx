@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useEffect, useContext, useRef } from 'react'
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next' // MODIFIED: Changed GetServerSideProps to GetStaticProps
-import jp from 'jsonpath'
 import ArticlePagination from 'components/article-pagination'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
@@ -14,10 +13,9 @@ import Contributors from 'components/contributors'
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
 import SeeAlsoSection from 'components/see-also-section'
-import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
+import { Item, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
 
-import getNavigation from 'utils/getNavigation'
 import {
   getDocsPaths as getTracksPaths,
   // getStaticPathsForDocType, // Removed unused import
@@ -29,7 +27,7 @@ import styles from 'styles/documentation-page'
 import { ContributorsType } from 'utils/getFileContributors'
 
 import { getLogger } from 'utils/logging/log-util'
-import { flattenJSON, getKeyByValue, getParents } from 'utils/navigation-utils'
+import { getParents } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 
 import TimeToRead from 'components/TimeToRead'
@@ -41,6 +39,8 @@ import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
+import { getSidebarMetadata } from 'utils/getSidebarMetadata'
+import { getPagination } from 'utils/getPagination'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -91,16 +91,12 @@ const TrackPage: NextPage<Props> = ({
   breadcrumbList,
   branch,
 }) => {
-  const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
-  const { setActiveSidebarElement } = useContext(LibraryContext)
   const articleRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    setActiveSidebarElement(slug)
-    setHeadings(headingList)
-  }, [serialized?.frontmatter])
+    setBranchPreview(branch)
+  }, [slug])
 
   return (
     <>
@@ -125,7 +121,7 @@ const TrackPage: NextPage<Props> = ({
           />
         )}
       </Head>
-      <DocumentContextProvider headings={headings}>
+      <DocumentContextProvider headings={headingList}>
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
@@ -189,7 +185,7 @@ const TrackPage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContents headingList={headings} />
+            <TableOfContents headingList={headingList} />
           </Box>
           <OnThisPage />
         </Flex>
@@ -228,6 +224,7 @@ export const getStaticProps: GetStaticProps = async ({
     currentLocale,
     docsPaths,
     mdFileExists,
+    mdFilePath,
   } = await extractStaticPropsParams({
     sectionSelected: 'tracks',
     params,
@@ -244,15 +241,10 @@ export const getStaticProps: GetStaticProps = async ({
     return { notFound: true }
   }
 
-  const path = docsPaths[slug]?.find((e) => e.locale === currentLocale)?.path
-  const sidebarfallback = await getNavigation()
-  const filteredSidebar = sidebarfallback.find(
-    (item: { documentation: string }) => item.documentation === sectionSelected
-  )
-  const flattenedSidebar = flattenJSON(filteredSidebar)
-  const keyPath = getKeyByValue(flattenedSidebar, slug) as string
+  const { keyPath, flattenedSidebar, sidebarfallback } =
+    await getSidebarMetadata(sectionSelected, slug)
 
-  if (!path) {
+  if (!mdFilePath) {
     logger.warn(
       `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
     )
@@ -267,8 +259,12 @@ export const getStaticProps: GetStaticProps = async ({
     return { notFound: true }
   }
 
-  try {
-    const rawContent = await fetchRawMarkdown(sectionSelected, branch, path)
+  if (mdFileExists) {
+    const rawContent = await fetchRawMarkdown(
+      sectionSelected,
+      branch,
+      mdFilePath
+    )
     const documentationContent = escapeCurlyBraces(
       replaceHTMLBlocks(rawContent)
     )
@@ -278,17 +274,17 @@ export const getStaticProps: GetStaticProps = async ({
       content: documentationContent,
       headingList,
       logger,
-      path,
+      path: mdFilePath,
     })
     if (!serialized) {
-      logger.error(`Serialization failed for ${path}`)
+      logger.error(`Serialization failed for ${mdFilePath}`)
       return { notFound: true }
     }
 
     const contributors = await fetchFileContributors(
       sectionSelected,
       branch,
-      path
+      mdFilePath
     )
 
     logger.info(`Processing ${slug}`)
@@ -337,81 +333,18 @@ export const getStaticProps: GetStaticProps = async ({
       })
     )
 
-    // Extract slug strings for the current locale from navigation
-    const docsListSlugObjects = jp.query(
+    const { pagination, indexOfSlug, docsListName } = getPagination({
       sidebarfallback,
-      `$..[?(@.type=='markdown')]..slug`
-    )
-    const docsListNameObjects = jp.query(
-      sidebarfallback,
-      `$..[?(@.type=='markdown')]..name`
-    )
+      currentLocale,
+      slug,
+      logger,
+    })
 
-    // Convert slug objects to strings for the current locale
-    const docsListSlug = docsListSlugObjects
-      .map((slugObj: Record<string, string> | string) => {
-        if (typeof slugObj === 'object' && slugObj[currentLocale]) {
-          return slugObj[currentLocale]
-        } else if (typeof slugObj === 'string') {
-          return slugObj
-        }
-        // Fallback to 'en' if current locale not found
-        return (slugObj as Record<string, string>)?.en || null
-      })
-      .filter(Boolean)
-
-    const docsListName = docsListNameObjects.map(
-      (nameObj: Record<string, string> | string) => {
-        if (typeof nameObj === 'object') {
-          return nameObj
-        }
-        // If it's already a string, wrap it in an object for consistency
-        return { [currentLocale]: nameObj as string }
-      }
-    )
-
-    const indexOfSlug = docsListSlug.indexOf(slug)
-
-    logger.info(
-      `Slug matching for ${slug}: found at index ${indexOfSlug} in ${docsListSlug.length} total docs`
-    )
-
-    const pagination = {
-      previousDoc: {
-        slug:
-          indexOfSlug > 0 && docsListSlug[indexOfSlug - 1]
-            ? docsListSlug[indexOfSlug - 1]
-            : null,
-        name:
-          indexOfSlug > 0 && docsListName[indexOfSlug - 1]
-            ? docsListName[indexOfSlug - 1][currentLocale] ||
-              docsListName[indexOfSlug - 1]['en']
-            : null,
-      },
-      nextDoc: {
-        slug:
-          indexOfSlug >= 0 &&
-          indexOfSlug < docsListSlug.length - 1 &&
-          docsListSlug[indexOfSlug + 1]
-            ? docsListSlug[indexOfSlug + 1]
-            : null,
-        name:
-          indexOfSlug >= 0 &&
-          indexOfSlug < docsListSlug.length - 1 &&
-          docsListName[indexOfSlug + 1]
-            ? docsListName[indexOfSlug + 1][currentLocale] ||
-              docsListName[indexOfSlug + 1]['en']
-            : null,
-      },
-    }
-
-    const isListed: boolean = getKeyByValue(flattenedSidebar, slug)
-      ? true
-      : false
+    const isListed = !!keyPath
     const parentsArray: string[] = []
     const parentsArrayName: string[] = []
     const parentsArrayType: string[] = []
-    if (keyPath) {
+    if (isListed) {
       getParents(
         keyPath,
         'name',
@@ -420,25 +353,20 @@ export const getStaticProps: GetStaticProps = async ({
         parentsArrayName
       )
       getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-      if (indexOfSlug >= 0 && docsListName[indexOfSlug]) {
-        const currentDocName =
-          docsListName[indexOfSlug][currentLocale] ||
-          docsListName[indexOfSlug]['en']
-        if (currentDocName) {
-          parentsArrayName.push(currentDocName)
-          logger.info(
-            `Added document name to breadcrumbs: ${currentDocName} for slug: ${slug}`
-          )
-        } else {
-          logger.warn(
-            `Document name not found for slug: ${slug} in locale: ${currentLocale}. Available locales: ${Object.keys(
-              docsListName[indexOfSlug] || {}
-            ).join(', ')}`
-          )
-        }
-      } else {
+
+      const currentDoc = docsListName[indexOfSlug]
+      const currentDocName = currentDoc?.[currentLocale] || currentDoc?.['en']
+
+      if (indexOfSlug >= 0 && currentDocName) {
+        parentsArrayName.push(currentDocName)
+        logger.info(
+          `Added document name to breadcrumbs: ${currentDocName} for slug: ${slug}`
+        )
+      } else if (indexOfSlug >= 0) {
         logger.warn(
-          `Document not found in navigation for slug: ${slug} (index: ${indexOfSlug})`
+          `Document name not found for slug: ${slug} in locale: ${currentLocale}. Available locales: ${Object.keys(
+            currentDoc || {}
+          ).join(', ')}`
         )
       }
     }
@@ -466,7 +394,7 @@ export const getStaticProps: GetStaticProps = async ({
         // ❌ REMOVED: sidebarfallback (3.4MB navigation no longer sent to client)
         headingList,
         contributors,
-        path,
+        path: mdFilePath,
         seeAlsoData,
         pagination,
         isListed,
@@ -476,10 +404,9 @@ export const getStaticProps: GetStaticProps = async ({
       },
       revalidate: 3600,
     }
-  } catch (error) {
-    logger.error(`Error while processing ${params?.slug}:\n${error}`)
-    return { notFound: true }
   }
+  logger.error(`Markdown file does not exist for ${slug}`)
+  return { notFound: true }
 }
 
 export default TrackPage

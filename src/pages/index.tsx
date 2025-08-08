@@ -35,12 +35,12 @@ const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
         <meta property="og:title" content="VTEX Help Center" key="title" />
         <meta
           property="og:description"
-          content="Build and extend your world of commerce with VTEX development platform and Core Commerce APIs."
+          content="Everything you need to build, sell, and grow with VTEX."
           key="desc"
         />
         <meta
           property="og:image"
-          content="https://cdn.jsdelivr.net/gh/vtexdocs/devportal@main/public/images/meta-image.png"
+          content="https://cdn.jsdelivr.net/gh/vtexdocs/helpcenter@main/public/images/meta-image.png"
         />
         {/* Preload critical LCP image */}
         <link rel="preload" as="image" href="/images/landing.png" />

@@ -46,6 +46,21 @@
                 },
                 {
                   "name": {
+                    "en": "2. Accounts and architecture",
+                    "pt": "2. Contas e arquitetura",
+                    "es": "2. Cuentas y arquitectura"
+                  },
+                  "slug": {
+                    "en": "accounts-and-architecture",
+                    "es": "cuentas-y-arquitectura",
+                    "pt": "contas-e-arquitetura"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "3. Initial setup",
                     "pt": "3. Configurações iniciais",
                     "es": "3. Configuración inicial"
@@ -910,6 +925,21 @@
                 },
                 {
                   "name": {
+                    "en": "3. Creating discount coupons",
+                    "pt": "3. Criar cupons de desconto",
+                    "es": "3. Crear cupones de descuento"
+                  },
+                  "slug": {
+                    "en": "creating-discount-coupons",
+                    "es": "crear-cupones-de-descuento",
+                    "pt": "criar-cupons-de-desconto"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "4. Creating Regular Promotions",
                     "pt": "4. Criar Promoção Regular",
                     "es": "4. Crear Promoción Regular "
@@ -933,6 +963,21 @@
                     "en": "promotions-for-specific-scenarios",
                     "es": "promociones-para-escenarios-especificos",
                     "pt": "promocoes-para-cenarios-especificos"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "6. Surcharges: what they are and how to create them",
+                    "pt": "6. Taxas: o que são e como criar",
+                    "es": "6. Tasas: qué son y cómo crearlas"
+                  },
+                  "slug": {
+                    "en": "surcharges-what-they-are-and-how-to-create-them",
+                    "es": "tasas-que-son-y-como-crearlas",
+                    "pt": "taxas-o-que-sao-e-como-criar"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -975,6 +1020,21 @@
                     "en": "order-flow",
                     "es": "flujo-del-pedido",
                     "pt": "fluxo-do-pedido"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "3. The reservation",
+                    "pt": "3. A reserva",
+                    "es": "3. La reserva"
+                  },
+                  "slug": {
+                    "en": "the-reservation",
+                    "es": "la-reserva",
+                    "pt": "a-reserva"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -1231,6 +1291,21 @@
               "children": [
                 {
                   "name": {
+                    "en": "1. How Message Center works",
+                    "pt": "1. Como funciona o Message Center",
+                    "es": "1. Cómo funciona el Message Center"
+                  },
+                  "slug": {
+                    "en": "how-message-center-works",
+                    "es": "como-funciona-el-message-center",
+                    "pt": "como-funciona-o-message-center"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "2. Adding a sender",
                     "pt": "2. Cadastrar remetente",
                     "es": "2. Registrar remitente "
@@ -1480,6 +1555,21 @@
                 },
                 {
                   "name": {
+                    "en": "7. How the account relates to the website's pages",
+                    "pt": "7. Como a conta se relaciona às páginas do site",
+                    "es": "7. Cómo se relaciona la cuenta con las páginas del sitio web"
+                  },
+                  "slug": {
+                    "en": "como-a-conta-se-relaciona-as-paginas-do-site",
+                    "es": "como-se-relaciona-la-cuenta-con-las-paginas-del-sitio-web",
+                    "pt": "como-a-conta-se-relaciona-as-paginas-do-site"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "8. Enabling two-factor authentication (2FA)",
                     "pt": "8. Habilitar verificação em duas etapas (2FA)",
                     "es": "8. Habilitar autenticación de dos factores (2FA)"
@@ -1535,6 +1625,21 @@
               "origin": "",
               "type": "category",
               "children": [
+                {
+                  "name": {
+                    "en": "1. Go-live your store",
+                    "pt": "1. Realizando o go-live da sua loja",
+                    "es": "1. Cómo realizar el go live de tu tienda"
+                  },
+                  "slug": {
+                    "en": "go-live-process",
+                    "es": "processo-de-go-live",
+                    "pt": "processo-de-go-live"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
                 {
                   "name": {
                     "en": "2. Settings",
@@ -3328,6 +3433,21 @@
                 },
                 {
                   "name": {
+                    "en": "3. Amazon account settings",
+                    "pt": "3. Configurações de conta na Amazon ",
+                    "es": "3. Configuración de la cuenta de Amazon"
+                  },
+                  "slug": {
+                    "en": "amazon-account-settings",
+                    "es": "configuracion-de-la-cuenta-amazon",
+                    "pt": "configuracoes-na-conta-amazon"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "4. VTEX platform settings",
                     "pt": "4. Configurações na plataforma VTEX",
                     "es": "4. Configuración de la plataforma VTEX"
@@ -4525,6 +4645,36 @@
                   "origin": "",
                   "type": "markdown",
                   "children": []
+                },
+                {
+                  "name": {
+                    "en": "5. Integration configurations",
+                    "pt": "5. Configurações da integração",
+                    "es": "5. Configuraciones de la integración "
+                  },
+                  "slug": {
+                    "en": "integration-configurations",
+                    "es": "configuraciones-de-la-integracion",
+                    "pt": "configuracoes-da-integracao"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "6. Mapping colors and sizes",
+                    "pt": "6. Mapeamento de cor e tamanho",
+                    "es": "6. Mapeo de color y tamaño"
+                  },
+                  "slug": {
+                    "en": "mapping-colors-and-sizes",
+                    "es": "mapeo-de-color-y-tamaño",
+                    "pt": "mapeamento-de-cor-e-tamanho"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
                 }
               ]
             },
@@ -4687,6 +4837,21 @@
                 },
                 {
                   "name": {
+                    "en": "2. Google Shopping Ads setup",
+                    "pt": "2. Configurações iniciais do Google Shopping Ads",
+                    "es": "2. Configuración inicial de Google Shopping Ads"
+                  },
+                  "slug": {
+                    "en": "google-shopping-ads-set-up",
+                    "es": "configuracion-inicial-de-google-shopping-ads",
+                    "pt": "configuraces-iniciais-do-google-shopping-ads"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "3. Setting up a Smart Campaign",
                     "pt": "3. Configurando uma Campanha Inteligente",
                     "es": "3. Configuración de una Campaña Inteligente"
@@ -4737,6 +4902,66 @@
                     "en": "what-is-lengow",
                     "es": "que-es-lengow",
                     "pt": "o-que-e-lengow"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "2. Installation and setup",
+                    "pt": "2. Instalação e configuração",
+                    "es": "2. Instalación y configuración"
+                  },
+                  "slug": {
+                    "en": "installation-and-setup",
+                    "es": "instalacion-y-configuracion",
+                    "pt": "instalacao-e-configuracao"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "3. Create product feed",
+                    "pt": "3. Criar feed de produtos",
+                    "es": "3. Crear feed de productos"
+                  },
+                  "slug": {
+                    "en": "create-product-feed",
+                    "es": "crear-feed-de-productos",
+                    "pt": "criar-feed-de-produtos"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "4. Sales channel mapping",
+                    "pt": "4. Mapeamento de canais de venda",
+                    "es": "4. Mapeo de canales de venta"
+                  },
+                  "slug": {
+                    "en": "sales-channel-mapping",
+                    "es": "mapeo-de-canales-de-venta",
+                    "pt": "mapeamento-de-canais-de-venda"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "5. Specifications mapping",
+                    "pt": "5. Mapeamento de especificações",
+                    "es": "5. Mapeo de especificaciones"
+                  },
+                  "slug": {
+                    "en": "specifications-mapping",
+                    "es": "mapeo-de-especificaciones",
+                    "pt": "mapeamento-de-especificacoes"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -5238,6 +5463,21 @@
               "origin": "",
               "type": "category",
               "children": [
+                {
+                  "name": {
+                    "en": "Subscription plans",
+                    "es": "Planes de suscripción",
+                    "pt": "Planos de assinatura"
+                  },
+                  "slug": {
+                    "en": "subscription-plans",
+                    "es": "planes-de-suscripcion",
+                    "pt": "planos-de-assinatura"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
                 {
                   "name": {
                     "en": "Creating a subscription plan",
@@ -7623,6 +7863,21 @@
                   "origin": "",
                   "type": "markdown",
                   "children": []
+                },
+                {
+                  "name": {
+                    "en": "Credit management through Customer Credit",
+                    "es": "Gestión de crédito a través de Customer Credit",
+                    "pt": "Gestão de crédito por meio do Customer Credit"
+                  },
+                  "slug": {
+                    "en": "managing-credit-with-customer-credit",
+                    "es": "gestion-crediticia-a-traves-del-customer-credit",
+                    "pt": "gestao-de-credito-por-meio-do-customer-credit"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
                 }
               ]
             },
@@ -7865,6 +8120,21 @@
                     "en": "configuring-b2b-self-service-stores",
                     "es": "configurar-una-tienda-b2b-de-autoservicio",
                     "pt": "configurar-loja-b2b-self-service"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Facilitating B2B store operation",
+                    "es": "Facilitar la operación de una tienda B2B",
+                    "pt": "Facilitar a operação da loja B2B"
+                  },
+                  "slug": {
+                    "en": "facilitating-b2b-store-operation",
+                    "es": "facilitar-la-operacion-de-una-tienda-b2b",
+                    "pt": "facilitar-a-operacao-da-loja-b2b"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -11924,6 +12194,21 @@
                 },
                 {
                   "name": {
+                    "en": "Media - Overview",
+                    "es": "Multimedia - Visión general",
+                    "pt": "Mídia - Visão geral"
+                  },
+                  "slug": {
+                    "en": "media-overview",
+                    "es": "multimedia-vision-general",
+                    "pt": "midia-visao-geral"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Managing Projects",
                     "es": "Gestionar Proyectos",
                     "pt": "Gerenciando Projetos"
@@ -12482,6 +12767,21 @@
               "children": [
                 {
                   "name": {
+                    "en": "Managing shipping rates",
+                    "es": "Gestionar las tarifas de envío",
+                    "pt": "Gerenciar Tarifas de envio"
+                  },
+                  "slug": {
+                    "en": "managing-shipping-rates",
+                    "es": "gestionar-las-tarifas-de-envio",
+                    "pt": "gerenciar-tarifas-de-envio"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Shipping rates",
                     "es": "Tarifas de envío",
                     "pt": "Tarifas de envio"
@@ -12742,6 +13042,21 @@
               "children": [
                 {
                   "name": {
+                    "en": "When should I group products in the same shipment?",
+                    "es": "¿Cuándo debo agrupar productos en el mismo envío?",
+                    "pt": "Quando devo agrupar produtos na mesma remessa?"
+                  },
+                  "slug": {
+                    "en": "when-should-i-group-products-in-the-same-shipment",
+                    "es": "cuando-debo-agrupar-productos-en-el-mismo-envio",
+                    "pt": "quando-devo-agrupar-produtos-na-mesma-remessa"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Setting up shipment",
                     "es": "Configurar grupos de envío",
                     "pt": "Configurar remessa"
@@ -12772,6 +13087,21 @@
                 },
                 {
                   "name": {
+                    "en": "How the modal works",
+                    "es": "Cómo funciona el modal",
+                    "pt": "Como funciona o modal"
+                  },
+                  "slug": {
+                    "en": "how-does-the-modal-work",
+                    "es": "como-se-maneja-el-modal",
+                    "pt": "como-funciona-o-modal"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Setting up the Low Inventory Alert",
                     "es": "Configurar la Alerta de Stock Crítico",
                     "pt": "Configurar o Alerta de Estoque Crítico"
@@ -12780,6 +13110,21 @@
                     "en": "setting-up-the-critical-stock-alert",
                     "es": "configurar-la-alerta-de-stock-critico",
                     "pt": "configurar-o-alerta-de-estoque-critico"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Setting up modal for carriers",
+                    "es": "Configurar modal para transportistas",
+                    "pt": "Configurar modal para transportadoras"
+                  },
+                  "slug": {
+                    "en": "configure-modal",
+                    "es": "configurar-modal",
+                    "pt": "configurar-modal-para-transportadoras"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -13795,6 +14140,36 @@
                     "en": "vtex-agreement",
                     "es": "contrato-vtex",
                     "pt": "contrato-vtex"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Requesting a contract termination in Argentina and Colombia ",
+                    "es": "Solicitar la rescisión contractual en Argentina y Colombia ",
+                    "pt": "Solicitar rescisão contratual na Argentina e Colômbia"
+                  },
+                  "slug": {
+                    "en": "requesting-a-contract-termination-in-argentina-and-colombia",
+                    "es": "solicitar-la-rescision-contractual-en-argentina-y-colombia",
+                    "pt": "solicitar-rescisao-contratual-na-argentina-e-colombia"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Names of VTEX branches worldwide",
+                    "es": "Nombres de las sucursales VTEX en el mundo",
+                    "pt": "Nomes das filiais VTEX pelo mundo"
+                  },
+                  "slug": {
+                    "en": "names-of-vtex-branches-worldwide",
+                    "es": "nombres-de-las-sucursales-vtex-en-el-mundo",
+                    "pt": "nomes-das-filiais-vtex-pelo-mundo"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -16355,6 +16730,21 @@
               "children": [
                 {
                   "name": {
+                    "en": "Configuring a marketplace between VTEX stores",
+                    "es": "Configurando marketplace entre tiendas VTEX",
+                    "pt": "Configurando marketplace entre lojas VTEX"
+                  },
+                  "slug": {
+                    "en": "configuring-the-marketplace-between-vtex-stores",
+                    "es": "configurando-marketplace-entre-tiendas-vtex",
+                    "pt": "configurando-marketplace-entre-lojas-vtex"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Adding a seller",
                     "es": "Agregar seller",
                     "pt": "Adicionar seller"
@@ -16886,6 +17276,21 @@
                 },
                 {
                   "name": {
+                    "en": "How does promotion proration work?",
+                    "es": "¿Cómo funciona el prorrateo de una promoción?",
+                    "pt": "Como funciona o rateio de promoção?"
+                  },
+                  "slug": {
+                    "en": "how-does-promotion-proration-work",
+                    "es": "como-funciona-el-prorrateo-de-una-promocion",
+                    "pt": "como-funciona-o-rateio-de-promocao"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "How to identify promotions attributed to an SKU?",
                     "es": "Cómo identificar promociones asignadas a un SKU?",
                     "pt": "Como identificar promoções atribuídas a um SKU?"
@@ -17036,6 +17441,21 @@
                 },
                 {
                   "name": {
+                    "en": "How promotion competition works",
+                    "es": "Cómo funciona la competencia de promociones",
+                    "pt": "Como funciona a concorrência de promoções"
+                  },
+                  "slug": {
+                    "en": "how-promotion-competition-works",
+                    "es": "como-funciona-la-competencia-de-promociones",
+                    "pt": "como-funciona-a-concorrencia-de-promocoes"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Creating a More for Less promotion",
                     "es": "Crear promoción Más por Menos",
                     "pt": "Criar promoção Leve Mais por Menos"
@@ -17141,6 +17561,21 @@
                 },
                 {
                   "name": {
+                    "en": "How to set a Buy One Get One promotion (gift) for a specific SKU",
+                    "es": "Configurar una promoción Comprar y Obtener (regalo) para un SKU específico",
+                    "pt": "Configurar promoção Compre e ganhe para um SKU específico"
+                  },
+                  "slug": {
+                    "en": "how-to-set-a-buy-and-win-promotion-gift-for-a-specific-sku",
+                    "es": "configurar-una-promocion-compre-y-gane-regalo-para-un-sku-especifico",
+                    "pt": "configurar-promocao-compre-e-ganhe-para-um-sku-especifico"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Configuring shipping promotions",
                     "es": "Registrar promociones de envío",
                     "pt": "Configurar promoções de frete"
@@ -17230,6 +17665,21 @@
               "origin": "",
               "type": "category",
               "children": [
+                {
+                  "name": {
+                    "en": "Coupons list",
+                    "es": "Lísta de cupones",
+                    "pt": "Lista de cupons"
+                  },
+                  "slug": {
+                    "en": "coupons-list-beta",
+                    "es": "lista-de-cupones-beta",
+                    "pt": "lista-de-cupons-beta"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
                 {
                   "name": {
                     "en": "Creating a coupon",
@@ -19230,6 +19680,21 @@
               "origin": "",
               "type": "category",
               "children": [
+                {
+                  "name": {
+                    "en": "How do you calculate payments in installments with compound interest?",
+                    "es": "¿Cómo se hace el cálculo del pago en plazos con interés compuesto?",
+                    "pt": "Como é feito o cálculo do parcelado com juros compostos?"
+                  },
+                  "slug": {
+                    "en": "how-do-you-calculate-payments-in-installments-with-compound-interest",
+                    "es": "como-se-hace-el-calculo-del-pago-en-plazos-con-intereses-compuesto",
+                    "pt": "como-e-feito-o-calculo-do-parcelado-com-juros-compostos"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
                 {
                   "name": {
                     "en": "How do I add the PCI SSC certificate to my store?",
@@ -21675,6 +22140,21 @@
                     "en": "creating-an-xml-with-promotional-price-using-a-price-table",
                     "es": "crear-xml-con-precio-promocional-por-tabla-de-precios",
                     "pt": "criando-um-xml-com-preco-promocional-por-tabela-de-preco"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Registering a product's base price",
+                    "es": "Registrar el precio base de un producto",
+                    "pt": "Cadastrar o preço base de um produto"
+                  },
+                  "slug": {
+                    "en": "registering-a-products-base-price",
+                    "es": "registrar-el-precio-base-de-un-producto",
+                    "pt": "cadastrar-o-preco-base-de-um-produto"
                   },
                   "origin": "",
                   "type": "markdown",
