@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.11](https://github.com/vtexdocs/helpcenter/compare/v0.9.10...v0.9.11) (2025-08-08)
+
+
+### Features
+
+* add ki product team to ki page ([edf2243](https://github.com/vtexdocs/helpcenter/commit/edf2243b0f753de1b47b7a118f3c4a238c460b14))
+
+
+### Bug Fixes
+
+* **faq:** fix getCategoryAmount and improve faq and ki index pages ([c488d4a](https://github.com/vtexdocs/helpcenter/commit/c488d4a86c539284d0b7cc235b66ea4968581f5e))
+
+
+### Chore
+
+* **_app.ts:** update meta-image ([c6eb414](https://github.com/vtexdocs/helpcenter/commit/c6eb414437db2e7772893bab9d45b638586c82fd))
+
 ### [0.9.10](https://github.com/vtexdocs/helpcenter/compare/v0.9.9...v0.9.10) (2025-08-08)
 
 
