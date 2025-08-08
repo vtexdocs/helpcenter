@@ -5,7 +5,14 @@ import { FaqCardDataElement, SortByType } from 'utils/typings/types'
 import Head from 'next/head'
 import styles from 'styles/filterable-cards-page'
 import { PreviewContext } from 'utils/contexts/preview'
-import { Fragment, useContext, useMemo, useState } from 'react'
+import {
+  Fragment,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { getDocsPaths as getFaqPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
@@ -38,6 +45,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const [filters, setFilters] = useState<string[]>([])
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+  const normalizedSearch = useMemo(() => search.toLowerCase(), [search])
 
   const chipCategories: string[] = faqFilter(intl).options.map(
     (option) => option.name
@@ -49,12 +57,12 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
         filters.length === 0 || filters.includes(question.productTeam)
       const hasSearch: boolean = question.title
         .toLowerCase()
-        .includes(search.toLowerCase())
+        .includes(normalizedSearch)
 
       return hasFilter && hasSearch
     })
 
-    data.sort((a, b) => {
+    const sorted = data.sort((a, b) => {
       const dateA =
         sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
       const dateB =
@@ -63,10 +71,15 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
       return dateA.getTime() - dateB.getTime()
     })
 
-    setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
+    return sorted
+  }, [filters, sortByValue, intl.locale, normalizedSearch])
 
-    return data
-  }, [filters, sortByValue, intl.locale, search])
+  useEffect(() => {
+    setPageIndex({
+      curr: 1,
+      total: Math.ceil(filteredResult.length / itemsPerPage),
+    })
+  }, [filteredResult.length])
 
   const paginatedResult = usePagination<FaqCardDataElement>(
     itemsPerPage,
@@ -74,10 +87,9 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
     filteredResult
   )
 
-  function handleClick(props: { selected: number }) {
-    if (props.selected !== undefined && props.selected !== pageIndex.curr)
-      setPageIndex({ ...pageIndex, curr: props.selected })
-  }
+  const handleClick = useCallback(({ selected }: { selected: number }) => {
+    setPageIndex((prev) => ({ ...prev, curr: selected }))
+  }, [])
 
   function handleFilterApply(filters: string[]) {
     setFilters(filters)
@@ -99,7 +111,9 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
 
   function getCategoryAmount(category: string): number {
     return faqData.filter((data) => {
-      return data.productTeam === category
+      const matchesCategory = data.productTeam === category
+      const matchesSearch = data.title.toLowerCase().includes(normalizedSearch)
+      return matchesCategory && matchesSearch
     }).length
   }
 
@@ -178,8 +192,8 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
                 {intl.formatMessage({ id: 'search_result.empty' })}
               </Flex>
             )}
-            {paginatedResult.map((question, id) => {
-              return <FaqCard key={id} {...question} />
+            {paginatedResult.map((question) => {
+              return <FaqCard key={question.slug} {...question} />
             })}
           </Flex>
           <Pagination
@@ -226,21 +240,36 @@ export const getStaticProps: GetStaticProps = async ({
       logger
     )
 
-    for (const { content, slug } of batchResults) {
-      if (!content) continue
-      const frontmatter = await parseFrontmatter(content, logger)
+    const parsedBatch = await Promise.all(
+      batchResults.map(async ({ content, slug }) => {
+        if (!content) return null
 
-      if (frontmatter && (frontmatter.status == 'PUBLISHED' || 'CHANGED')) {
-        faqData.push({
-          title: String(frontmatter.title),
-          slug,
-          createdAt: String(frontmatter.createdAt),
-          updatedAt: String(frontmatter.updatedAt),
-          status: String(frontmatter.status),
-          productTeam: String(frontmatter.productTeam || ''),
-        })
-      }
-    }
+        const frontmatter = await parseFrontmatter(content, logger)
+
+        if (
+          frontmatter &&
+          (frontmatter.status === 'PUBLISHED' ||
+            frontmatter.status === 'CHANGED')
+        ) {
+          return {
+            title: String(frontmatter.title),
+            slug,
+            createdAt: String(frontmatter.createdAt),
+            updatedAt: String(frontmatter.updatedAt),
+            status: String(frontmatter.status),
+            productTeam: String(frontmatter.productTeam || ''),
+          }
+        }
+
+        return null
+      })
+    )
+
+    const validFaqs = parsedBatch.filter(
+      (item): item is FaqCardDataElement => item !== null
+    )
+
+    faqData.push(...validFaqs)
   }
 
   return {
