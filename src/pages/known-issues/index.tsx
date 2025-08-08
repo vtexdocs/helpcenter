@@ -10,7 +10,14 @@ import {
 import Head from 'next/head'
 import styles from 'styles/filterable-cards-page'
 import { PreviewContext } from 'utils/contexts/preview'
-import { Fragment, useContext, useMemo, useState } from 'react'
+import {
+  Fragment,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
@@ -40,7 +47,11 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const intl = useIntl()
 
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
+
+  useEffect(() => {
+    setBranchPreview(branch)
+  }, [])
+
   const itemsPerPage = 8
   const [pageIndex, setPageIndex] = useState({
     curr: 1,
@@ -52,6 +63,8 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   }>({ kiStatus: [], modules: [] })
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+  const normalizedSearch = useMemo(() => search.toLowerCase(), [search])
+
   const filteredResult = useMemo(() => {
     const data = knownIssuesData.filter((knownIssue) => {
       const hasFilter: boolean =
@@ -62,11 +75,11 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
 
       const hasSearch: boolean = knownIssue.title
         .toLowerCase()
-        .includes(search.toLowerCase())
+        .includes(normalizedSearch)
       return hasFilter && hasSearch
     })
 
-    data.sort((a, b) => {
+    const sorted = data.sort((a, b) => {
       const dateA =
         sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
       const dateB =
@@ -74,11 +87,15 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
 
       return dateA.getTime() - dateB.getTime()
     })
+    return sorted
+  }, [filters, sortByValue, normalizedSearch])
 
-    setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
-
-    return data
-  }, [filters, sortByValue, intl.locale, search])
+  useEffect(() => {
+    setPageIndex({
+      curr: 1,
+      total: Math.ceil(filteredResult.length / itemsPerPage),
+    })
+  }, [filteredResult.length])
 
   const paginatedResult = usePagination<KnownIssueDataElement>(
     itemsPerPage,
@@ -86,10 +103,9 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
     filteredResult
   )
 
-  function handleClick(props: { selected: number }) {
-    if (props.selected !== undefined && props.selected !== pageIndex.curr)
-      setPageIndex({ ...pageIndex, curr: props.selected })
-  }
+  const handleClick = useCallback(({ selected }: { selected: number }) => {
+    setPageIndex((prev) => ({ ...prev, curr: selected }))
+  }, [])
 
   return (
     <>
@@ -158,8 +174,8 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
                 {intl.formatMessage({ id: 'search_result.empty' })}
               </Flex>
             )}
-            {paginatedResult.map((issue, id) => {
-              return <KnownIssueCard key={id} {...issue} />
+            {paginatedResult.map((issue) => {
+              return <KnownIssueCard key={issue.id} {...issue} />
             })}
           </Flex>
           <Pagination
@@ -209,32 +225,42 @@ export async function getStaticProps({
       logger
     )
 
-    for (const { content, slug } of batchResults) {
-      if (!content) continue
-      const frontmatter = await parseFrontmatter(content, logger)
+    const parsedBatch = await Promise.all(
+      batchResults.map(async ({ content, slug }) => {
+        if (!content) return null
 
-      if (
-        frontmatter &&
-        frontmatter.tag &&
-        frontmatter.kiStatus &&
-        frontmatter.internalReference &&
-        frontmatter.title &&
-        frontmatter.createdAt &&
-        frontmatter.updatedAt &&
-        (frontmatter.status == 'PUBLISHED' || 'CHANGED')
-      ) {
-        knownIssuesData.push({
-          id: String(frontmatter.internalReference),
-          title: String(frontmatter.title),
-          module: String(frontmatter.tag),
-          slug,
-          createdAt: String(frontmatter.createdAt),
-          updatedAt: String(frontmatter.updatedAt),
-          status: String(frontmatter.status),
-          kiStatus: frontmatter.kiStatus as KnownIssueStatus,
-        })
-      }
-    }
+        const frontmatter = await parseFrontmatter(content, logger)
+        if (
+          frontmatter &&
+          frontmatter.tag &&
+          frontmatter.kiStatus &&
+          frontmatter.internalReference &&
+          frontmatter.title &&
+          frontmatter.createdAt &&
+          frontmatter.updatedAt &&
+          (frontmatter.status == 'PUBLISHED' || 'CHANGED')
+        ) {
+          return {
+            id: String(frontmatter.internalReference),
+            title: String(frontmatter.title),
+            module: String(frontmatter.tag),
+            slug,
+            createdAt: String(frontmatter.createdAt),
+            updatedAt: String(frontmatter.updatedAt),
+            status: String(frontmatter.status),
+            kiStatus: frontmatter.kiStatus as KnownIssueStatus,
+          }
+        }
+
+        return null
+      })
+    )
+
+    const validBatch = parsedBatch.filter(
+      (item): item is KnownIssueDataElement => item !== null
+    )
+
+    knownIssuesData.push(...validBatch)
   }
 
   return {
