@@ -234,15 +234,14 @@ export async function getStaticProps({
           frontmatter &&
           frontmatter.tag &&
           frontmatter.kiStatus &&
-          frontmatter.id &&
+          frontmatter.internalReference &&
           frontmatter.title &&
           frontmatter.createdAt &&
           frontmatter.updatedAt &&
-          (frontmatter.status === 'PUBLISHED' ||
-            frontmatter.status === 'CHANGED')
+          (frontmatter.status == 'PUBLISHED' || 'CHANGED')
         ) {
           return {
-            id: String(frontmatter.id),
+            id: String(frontmatter.internalReference),
             title: String(frontmatter.title),
             module: String(frontmatter.tag),
             slug,

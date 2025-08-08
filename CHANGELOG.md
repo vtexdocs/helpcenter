@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.10](https://github.com/vtexdocs/helpcenter/compare/v0.9.9...v0.9.10) (2025-08-08)
+
+
+### Features
+
+* **meta-image.png:** update meta image ([97b88f4](https://github.com/vtexdocs/helpcenter/commit/97b88f421a3981eebf77b36e2aa19e7f6d61754f))
+
+
+### Bug Fixes
+
+* **pages:** various improvements ([a13f808](https://github.com/vtexdocs/helpcenter/commit/a13f808d472b2e2e9cff790c9b2a2f2f72137ddc))
+* replace contentful id with zendesk id in ki list ([7876f8f](https://github.com/vtexdocs/helpcenter/commit/7876f8fa0ee75bc9aed8d4d4803961e52df3f818))
+
 ### [0.9.9](https://github.com/vtexdocs/helpcenter/compare/v0.9.8...v0.9.9) (2025-08-07)
 
 
