@@ -217,14 +217,14 @@ export async function getStaticProps({
         frontmatter &&
         frontmatter.tag &&
         frontmatter.kiStatus &&
-        frontmatter.id &&
+        frontmatter.internalReference &&
         frontmatter.title &&
         frontmatter.createdAt &&
         frontmatter.updatedAt &&
         (frontmatter.status == 'PUBLISHED' || 'CHANGED')
       ) {
         knownIssuesData.push({
-          id: String(frontmatter.id),
+          id: String(frontmatter.internalReference),
           title: String(frontmatter.title),
           module: String(frontmatter.tag),
           slug,
