@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }: Props) {
         <Head>
           <meta
             property="og:image"
-            content="https://cdn.jsdelivr.net/gh/vtexdocs/devportal@main/public/images/meta-image.png"
+            content="https://cdn.jsdelivr.net/gh/vtexdocs/helpcenter@main/public/images/meta-image.png"
           />
           <meta
             name="docsearch:language"
