@@ -1,11 +1,11 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next'
 import jp from 'jsonpath'
 
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
-import { Item, LibraryContext } from '@vtexdocs/components'
+import { Item } from '@vtexdocs/components'
 
 import getGithubFile from 'utils/getGithubFile'
 import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
@@ -80,6 +80,7 @@ type Props =
       breadcrumbList: { slug: string; name: string; type: string }[]
       mdFileExists: true
       componentProps: MarkDownProps
+      headingList: Item[]
     }
   | {
       sectionSelected: string
@@ -100,6 +101,7 @@ type Props =
       breadcrumbList: { slug: string; name: string; type: string }[]
       mdFileExists: false
       componentProps: TutorialIndexingProps
+      headingList?: Item[]
     }
 
 const TutorialPage: NextPage<Props> = ({
@@ -110,18 +112,13 @@ const TutorialPage: NextPage<Props> = ({
   pagination,
   breadcrumbList,
   componentProps,
+  headingList,
 }) => {
-  const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
-  const { setActiveSidebarElement } = useContext(LibraryContext)
 
   useEffect(() => {
-    setActiveSidebarElement(slug)
-    if (mdFileExists) {
-      setHeadings(componentProps.headingList)
-    }
-  }, [])
+    setBranchPreview(branch)
+  }, [componentProps])
 
   return mdFileExists === true ? (
     <TutorialMarkdownRender
@@ -129,7 +126,7 @@ const TutorialPage: NextPage<Props> = ({
       pagination={pagination}
       isListed={isListed}
       branch={branch}
-      headings={headings}
+      headings={headingList}
       slug={slug}
       content={componentProps.content}
       serialized={componentProps.serialized}

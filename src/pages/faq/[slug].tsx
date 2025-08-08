@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useEffect, useContext, useRef } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
@@ -14,7 +14,6 @@ import FeedbackSection from 'components/feedback-section'
 import Breadcrumb from 'components/breadcrumb'
 import TimeToRead from 'components/TimeToRead'
 
-import getNavigation from 'utils/getNavigation'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
@@ -22,7 +21,7 @@ import styles from 'styles/documentation-page'
 import { ContributorsType } from 'utils/getFileContributors'
 
 import { getLogger } from 'utils/logging/log-util'
-import { flattenJSON, getKeyByValue, getParents } from 'utils/navigation-utils'
+import { getParents } from 'utils/navigation-utils'
 import { MarkdownRenderer } from '@vtexdocs/components'
 import { getMessages } from 'utils/get-messages'
 import DateText from 'components/date-text'
@@ -33,6 +32,7 @@ import { fetchFileContributors } from 'utils/fetchFileContributors'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
+import { getSidebarMetadata } from 'utils/getSidebarMetadata'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -44,29 +44,27 @@ interface Props {
   breadcrumbList: { slug: string; name: string; type: string }[]
   serialized: MDXRemoteSerializeResult
   contributors: ContributorsType[]
-  headingList: Item[]
   branch: string
   path: string
   slug: string
+  headingList: Item[]
 }
 
 const FaqPage: NextPage<Props> = ({
   serialized,
-  headingList,
   contributors,
   breadcrumbList,
   branch,
   path,
   slug,
+  headingList,
 }) => {
-  const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
   const articleRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    setHeadings(headingList)
-  }, [serialized.frontmatter])
+    setBranchPreview(branch)
+  }, [slug])
 
   const createdAtDate = serialized.frontmatter?.createdAt
     ? new Date(String(serialized.frontmatter?.createdAt))
@@ -99,7 +97,7 @@ const FaqPage: NextPage<Props> = ({
           />
         )}
       </Head>
-      <DocumentContextProvider headings={headings}>
+      <DocumentContextProvider headings={headingList}>
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
@@ -157,7 +155,7 @@ const FaqPage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContents headingList={headings} />
+            <TableOfContents headingList={headingList} />
           </Box>
           <OnThisPage />
         </Flex>
@@ -185,8 +183,8 @@ export const getStaticProps: GetStaticProps = async ({
     branch,
     slug,
     currentLocale,
-    docsPaths,
     mdFileExists,
+    mdFilePath,
   } = await extractStaticPropsParams({
     sectionSelected: 'faq',
     params,
@@ -203,15 +201,10 @@ export const getStaticProps: GetStaticProps = async ({
     return { notFound: true }
   }
 
-  const path = docsPaths[slug]?.find((e) => e.locale === currentLocale)?.path
-  const sidebarfallback = await getNavigation()
-  const filteredSidebar = sidebarfallback.find(
-    (item: { documentation: string }) => item.documentation === sectionSelected
-  )
-  const flattenedSidebar = flattenJSON(filteredSidebar)
-  const keyPath = getKeyByValue(flattenedSidebar, slug) as string
+  const { keyPath, flattenedSidebar, sidebarfallback } =
+    await getSidebarMetadata(sectionSelected, slug)
 
-  if (!path) {
+  if (!mdFilePath) {
     logger.warn(
       `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
     )
@@ -226,7 +219,7 @@ export const getStaticProps: GetStaticProps = async ({
     return { notFound: true }
   }
 
-  try {
+  if (mdFileExists) {
     const parentsArray: string[] = []
 
     if (keyPath) {
@@ -234,7 +227,11 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArray.push(slug)
     }
 
-    const rawContent = await fetchRawMarkdown(sectionSelected, branch, path)
+    const rawContent = await fetchRawMarkdown(
+      sectionSelected,
+      branch,
+      mdFilePath
+    )
     const documentationContent = escapeCurlyBraces(
       replaceHTMLBlocks(rawContent)
     )
@@ -245,17 +242,17 @@ export const getStaticProps: GetStaticProps = async ({
       content: documentationContent,
       headingList,
       logger,
-      path,
+      path: mdFilePath,
     })
     if (!serialized) {
-      logger.error(`Serialization failed for ${path}`)
+      logger.error(`Serialization failed for ${mdFilePath}`)
       return { notFound: true }
     }
 
     const contributors = await fetchFileContributors(
       sectionSelected,
       branch,
-      path
+      mdFilePath
     )
 
     logger.info(`Processing ${slug}`)
@@ -287,19 +284,16 @@ export const getStaticProps: GetStaticProps = async ({
         sidebarfallback,
         headingList,
         contributors,
-        path,
+        path: mdFilePath,
         seeAlsoData,
         breadcrumbList,
         branch,
       },
       revalidate: 600,
     }
-  } catch (error) {
-    logger.error(`Error while processing ${path}\n${error}`)
-    return {
-      notFound: true,
-    }
   }
+  logger.error(`Markdown file does not exist for ${slug}`)
+  return { notFound: true }
 }
 
 export default FaqPage

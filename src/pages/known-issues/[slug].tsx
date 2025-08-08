@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useRef } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
@@ -14,7 +14,6 @@ import Breadcrumb from 'components/breadcrumb'
 import TimeToRead from 'components/TimeToRead'
 
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
-import { PreviewContext } from 'utils/contexts/preview'
 
 import styles from 'styles/documentation-page'
 import { ContributorsType } from 'utils/getFileContributors'
@@ -58,18 +57,8 @@ const KnownIssuePage: NextPage<Props> = ({
   headingList,
   contributors,
   breadcrumbList,
-  branch,
 }) => {
-  const [headings, setHeadings] = useState<Item[]>([])
-  const { setBranchPreview } = useContext(PreviewContext)
-
-  setBranchPreview(branch)
   const articleRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    setHeadings(headingList)
-  }, [serialized.frontmatter])
-
   const createdAtDate = serialized.frontmatter?.createdAt
     ? new Date(String(serialized.frontmatter?.createdAt))
     : undefined
@@ -99,7 +88,7 @@ const KnownIssuePage: NextPage<Props> = ({
           />
         )}
       </Head>
-      <DocumentContextProvider headings={headings}>
+      <DocumentContextProvider headings={headingList}>
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
@@ -163,7 +152,7 @@ const KnownIssuePage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContents headingList={headings} />
+            <TableOfContents headingList={headingList} />
           </Box>
           <OnThisPage />
         </Flex>
@@ -311,7 +300,6 @@ export const getStaticProps: GetStaticProps = async ({
         path: mdFilePath,
         seeAlsoData,
         breadcrumbList,
-        branch,
       },
       revalidate: 600,
     }

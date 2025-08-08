@@ -3,7 +3,7 @@ import { Item, MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import Head from 'next/head'
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import DocumentContextProvider from 'utils/contexts/documentContext'
 import { ContributorsType } from 'utils/getFileContributors'
 import styles from 'styles/documentation-page'
@@ -52,15 +52,12 @@ const TroubleshootingPage: NextPage<Props> = ({
   path,
   slug,
 }: Props) => {
-  const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-
-  setBranchPreview(branch)
   const articleRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    setHeadings(headingList)
-  }, [serialized.frontmatter])
+    setBranchPreview(branch)
+  }, [headingList])
 
   const createdAtDate = serialized.frontmatter?.createdAt
     ? new Date(String(serialized.frontmatter?.createdAt))
@@ -91,7 +88,7 @@ const TroubleshootingPage: NextPage<Props> = ({
           />
         )}
       </Head>
-      <DocumentContextProvider headings={headings}>
+      <DocumentContextProvider headings={headingList}>
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
@@ -122,7 +119,6 @@ const TroubleshootingPage: NextPage<Props> = ({
                           />
                           <Flex
                             sx={{
-                              display: 'flex',
                               justifyContent: 'flex-end',
                               alignItems: 'center',
                               ml: 2,
@@ -147,7 +143,7 @@ const TroubleshootingPage: NextPage<Props> = ({
           </Box>
           <Box sx={styles.rightContainer}>
             <Contributors contributors={contributors} />
-            <TableOfContents headingList={headings} />
+            <TableOfContents headingList={headingList} />
           </Box>
           <OnThisPage />
         </Flex>
@@ -258,14 +254,14 @@ export const getStaticProps: GetStaticProps = async ({
 
   const breadcrumbList: { slug: string; name: string; type: string }[] = [
     {
-      slug: '/docs/troubleshooting/',
+      slug: '/troubleshooting/',
       name: getMessages()[currentLocale]['troubleshooting_page.title'],
-      type: 'category',
+      type: 'markdown',
     },
     {
       slug,
       name: String(serialized?.frontmatter?.title) ?? '',
-      type: '',
+      type: 'markdown',
     },
   ]
 

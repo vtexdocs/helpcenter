@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useEffect, useContext, useRef } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
@@ -10,7 +10,7 @@ import DocumentContextProvider from 'utils/contexts/documentContext'
 
 import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
-import { Item, LibraryContext, TableOfContents } from '@vtexdocs/components'
+import { Item, TableOfContents } from '@vtexdocs/components'
 
 import getNavigation from 'utils/getNavigation'
 import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
@@ -67,21 +67,17 @@ const AnnouncementPage: NextPage<Props> = ({
   branch,
 }) => {
   const intl = useIntl()
-  const [headings, setHeadings] = useState<Item[]>([])
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
-  const { setActiveSidebarElement } = useContext(LibraryContext)
   const articleRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    setActiveSidebarElement(slug)
-    setHeadings(headingList)
-  }, [serialized.frontmatter])
+    setBranchPreview(branch)
+  }, [slug])
 
   const breadcrumb = {
     slug: `/announcements`,
     name: intl.formatMessage({ id: 'announcements_page.title' }),
-    type: 'category',
+    type: 'markdown',
   }
 
   const createdAtDate = serialized.frontmatter?.createdAt
@@ -106,7 +102,7 @@ const AnnouncementPage: NextPage<Props> = ({
           </>
         )}
       </Head>
-      <DocumentContextProvider headings={headings}>
+      <DocumentContextProvider headings={headingList}>
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
@@ -143,7 +139,7 @@ const AnnouncementPage: NextPage<Props> = ({
             )}
           </Box>
           <Box sx={styles.rightContainer}>
-            <TableOfContents headingList={headings} />
+            <TableOfContents headingList={headingList} />
           </Box>
           <OnThisPage />
         </Flex>

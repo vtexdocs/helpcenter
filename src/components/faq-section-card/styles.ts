@@ -2,7 +2,6 @@ import { SxStyleProp } from '@vtex/brand-ui'
 
 const cardContainer: SxStyleProp = {
   flexDirection: 'column',
-  margin: '16px',
   width: ['292px', '292px', '441px', '441px', '441px', '441px', '441px'],
   height: ['84px', '84px', '172px'],
   boxSizing: 'initial',
