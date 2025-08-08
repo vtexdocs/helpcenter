@@ -111,32 +111,45 @@ const KnownIssuePage: NextPage<Props> = ({
                       )}
                     </Flex>
                     <Box sx={styles.divider}></Box>
-                    <Flex sx={styles.detailedInfo}>
-                      <Flex sx={styles.id}>
+                    <Flex
+                      sx={{
+                        ...styles.detailedInfo,
+                        flexDirection: 'column',
+                        gap: '16px',
+                      }}
+                    >
+                      {/* Top row: ID and Tags */}
+                      <Flex
+                        sx={{
+                          alignItems: 'center',
+                          width: '100%',
+                          gap: '12px',
+                        }}
+                      >
+                        <Text>{serialized.frontmatter?.productTeam}</Text>
+                        <Text>•</Text>
                         <Text>
                           ID: {serialized.frontmatter?.internalReference}
                         </Text>
-                        <Tag>{serialized.frontmatter?.kiStatus}</Tag>
+                        <Tag sx={{ marginLeft: 'auto' }}>
+                          {serialized.frontmatter?.kiStatus}
+                        </Tag>
                       </Flex>
 
-                      {/* Reorganizado para colocar o botão após as datas */}
+                      {/* Bottom row: Dates and Copy Button */}
                       {createdAtDate && updatedAtDate && (
-                        <Flex sx={{ alignItems: 'center' }}>
+                        <Flex
+                          sx={{
+                            width: '100%',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                          }}
+                        >
                           <DateText
                             createdAt={createdAtDate}
                             updatedAt={updatedAtDate}
                           />
-                          {/* Adicionando o botão à direita das datas */}
-                          <Flex
-                            sx={{
-                              display: 'flex',
-                              justifyContent: 'flex-end',
-                              alignItems: 'center',
-                              ml: 2,
-                            }}
-                          >
-                            <CopyLinkButton />
-                          </Flex>
+                          <CopyLinkButton />
                         </Flex>
                       )}
                     </Flex>
