@@ -4,7 +4,7 @@ const cardContainer: SxStyleProp = {
   mt: ['16px', '24px', '24px', '32px'],
   px: ['16px', '24px', '24px', '48px'],
   py: ['16px', '64px', '64px'],
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   backgroundColor: 'white',
   borderRadius: '8px',
   border: '1px solid #E7E9EE',
@@ -17,7 +17,6 @@ const cardContainer: SxStyleProp = {
 
 const title: SxStyleProp = {
   fontSize: '22px',
-  fontWeight: '400',
   lineHeight: '22px',
   gap: '10px',
   textAlign: 'top',

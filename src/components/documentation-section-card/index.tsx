@@ -18,42 +18,41 @@ const DocumentationSectionCard = ({
   const descriptionRef = useRef<HTMLElement>()
 
   return (
-    <Link href={link} target={isExternalLink ? '_blank' : '_self'}>
-      <Flex sx={styles.cardContainer}>
-        <Flex sx={styles.infoContainer}>
-          <Icon sx={styles.icon} />
-          <Text className="title" sx={styles.title}>
-            {title}
-          </Text>
-          <Text
-            ref={descriptionRef}
-            className="description"
-            sx={styles.description}
-          >
-            {description}
-          </Text>
-        </Flex>
-        <Flex
-          className="quickStartedContainer"
-          sx={styles.quickStartedContainer}
+    <Link
+      style={styles.cardContainer}
+      href={link}
+      target={isExternalLink ? '_blank' : '_self'}
+    >
+      <Flex sx={styles.infoContainer}>
+        <Icon sx={styles.icon} />
+        <Text className="title" sx={styles.title}>
+          {title}
+        </Text>
+        <Text
+          ref={descriptionRef}
+          className="description"
+          sx={styles.description}
         >
-          {!isExternalLink ? (
-            <Text className="learnMoreText" sx={styles.learnMoreText}>
+          {description}
+        </Text>
+      </Flex>
+      <Flex className="quickStartedContainer" sx={styles.quickStartedContainer}>
+        {!isExternalLink ? (
+          <Text className="learnMoreText" sx={styles.learnMoreText}>
+            {intl.formatMessage({
+              id: 'landing_page_documentation_card.learnMoreText',
+            })}
+          </Text>
+        ) : (
+          <Flex sx={styles.accessPortal}>
+            <Text className="accessPortal" sx={styles.learnMoreText}>
               {intl.formatMessage({
-                id: 'landing_page_documentation_card.learnMoreText',
+                id: 'landing_page_documentation_card.accessPortal',
               })}
             </Text>
-          ) : (
-            <Flex sx={styles.accessPortal}>
-              <Text className="accessPortal" sx={styles.learnMoreText}>
-                {intl.formatMessage({
-                  id: 'landing_page_documentation_card.accessPortal',
-                })}
-              </Text>
-              <LongArrowIcon size={18} />
-            </Flex>
-          )}
-        </Flex>
+            <LongArrowIcon size={18} />
+          </Flex>
+        )}
       </Flex>
     </Link>
   )

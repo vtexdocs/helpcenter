@@ -10,7 +10,7 @@ import Link from 'next/link'
 const FaqSection = () => {
   const intl = useIntl()
   return (
-    <Box sx={styles.sectionContainer}>
+    <Flex sx={styles.sectionContainer}>
       <Box sx={styles.titleContainer}>
         <Box>
           <Text sx={styles.title}>
@@ -44,7 +44,7 @@ const FaqSection = () => {
           </Button>
         </Link>
       </Box>
-    </Box>
+    </Flex>
   )
 }
 

@@ -5,7 +5,6 @@ const sectionContainer: SxStyleProp = {
   paddingTop: ['0px', '32px'],
   paddingBottom: ['32px', '42px', '54px', '102px', '102px', '48px'],
   backgroundColor: 'muted.4',
-  display: 'flex',
   alignItems: ['center', 'center', 'center', 'center', 'center', 'flex-start'],
   justifyContent: 'center',
   flexDirection: ['column', 'column', 'column', 'column', 'column', 'row'],

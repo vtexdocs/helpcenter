@@ -22,7 +22,6 @@ const title: SxStyleProp = {
 const contentCards: SxStyleProp = {
   flexWrap: 'wrap',
   flexDirection: 'row',
-  alignItems: 'center',
   justifyContent: 'center',
   flex: '0 0 50%',
   gap: '32px',
