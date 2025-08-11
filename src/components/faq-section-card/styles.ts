@@ -71,7 +71,6 @@ const title: SxStyleProp = {
   lineHeight: ['22px', '22px', '32px'],
   fontWeight: '400',
   color: 'muted.0',
-  height: '50%',
 }
 
 const description: SxStyleProp = {

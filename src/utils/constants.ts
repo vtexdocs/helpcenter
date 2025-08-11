@@ -176,17 +176,6 @@ export const faqData = (intl: IntlShape) => {
       link: '/faq/why-has-my-order-stopped-on-ready-for-handling',
     },
     {
-      Icon: GraphIcon,
-      title: intl.formatMessage({
-        id: 'faq_product_visible.title',
-      }),
-      description: intl.formatMessage({
-        id: 'faq_product_visible.description',
-      }),
-      productTeam: 'Marketing & Merchandising',
-      link: '/faq/why-is-the-product-not-visible-on-the-website',
-    },
-    {
       Icon: PaperIcon,
       title: intl.formatMessage({
         id: 'faq_carrier.title',
@@ -196,6 +185,17 @@ export const faqData = (intl: IntlShape) => {
       }),
       productTeam: 'Post-purchase',
       link: '/faq/why-cant-i-see-my-carrier-on-checkout',
+    },
+    {
+      Icon: GraphIcon,
+      title: intl.formatMessage({
+        id: 'faq_product_visible.title',
+      }),
+      description: intl.formatMessage({
+        id: 'faq_product_visible.description',
+      }),
+      productTeam: 'Marketing & Merchandising',
+      link: '/faq/why-is-the-product-not-visible-on-the-website',
     },
     {
       Icon: PaperIcon,

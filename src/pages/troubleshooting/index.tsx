@@ -188,7 +188,7 @@ export async function getStaticProps({
     for (const { content, slug } of batchResults) {
       if (!content) continue
       const frontmatter = await parseFrontmatter(content, logger)
-      if (frontmatter && (frontmatter.status == 'PUBLISHED' || 'CHANGED')) {
+      if (frontmatter) {
         troubleshootingData.push({
           title: String(frontmatter.title),
           slug,

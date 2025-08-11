@@ -86,6 +86,7 @@ const date: { [size in AnnouncementCardSize]: SxStyleProp } = {
 const tag: SxStyleProp = {
   height: '20px',
   width: '66px',
+  mb: '12px',
 }
 
 const link: { [size in AnnouncementCardSize]: SxStyleProp } = {

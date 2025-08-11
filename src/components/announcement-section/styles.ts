@@ -17,7 +17,6 @@ const title: SxStyleProp = {
 }
 
 const cardsContainer: SxStyleProp = {
-  mt: ['16px', '40px'],
   flexDirection: 'column',
   alignItems: 'center',
   display: ['inline-block', 'inline-block', 'flex'],
@@ -29,7 +28,7 @@ const button: SxStyleProp = {
 }
 
 const buttonContainer: SxStyleProp = {
-  mt: ['31px', '60px', '60px', '54px', '69px', '58px'],
+  mt: ['18px', '32px'],
   display: ['block', 'block', 'block', 'block', 'block', 'none'],
 }
 

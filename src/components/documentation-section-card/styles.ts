@@ -1,14 +1,13 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
 const cardContainer: SxStyleProp = {
+  display: 'flex',
   flexDirection: 'column',
-  width: '282px',
-  height: '293px',
+  flex: '1',
   boxSizing: 'initial',
   borderRadius: '8px',
   border: '1px solid #E7E9EE',
   transition: 'all 0.3s ease-out',
-
   '.title, .description, .quickStartedContainer': {
     transition: 'all 0.3s ease-out',
   },
@@ -61,19 +60,14 @@ const title: SxStyleProp = {
   mb: '8px',
   fontSize: '22px',
   lineHeight: '32px',
-  fontWeight: '400',
   color: 'muted.0',
 }
 
 const description: SxStyleProp = {
   fontSize: '16px',
   lineHeight: '22px',
-  fontWeight: '400',
   color: 'muted.1',
-  minHeight: '44px',
   overflow: 'hidden',
-  width: '100%',
-  height: '100%',
 }
 
 const quickStartedContainer: SxStyleProp = {
