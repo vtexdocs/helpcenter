@@ -6760,13 +6760,118 @@
         {
           "name": {
             "en": "Accounts And Permissions",
-            "es": "Accounts And Permissions",
-            "pt": "Accounts And Permissions"
+            "es": "Contas E Permissoes",
+            "pt": "Contas E Permissoes"
           },
           "slug": "accounts-and-permissions",
           "origin": "",
           "type": "category",
           "children": [
+            {
+              "name": {
+                "en": "Configuring login with Facebook",
+                "es": "Configurar inicio de sesión con Facebook",
+                "pt": "Configurar login com Facebook"
+              },
+              "slug": {
+                "en": "configuring-login-with-facebook",
+                "es": "configurar-inicio-de-sesion-con-facebook",
+                "pt": "configurar-login-com-facebook"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Configuring login with Google",
+                "es": "Configurar inicio de sesión con Google",
+                "pt": "Configurar login com Google"
+              },
+              "slug": {
+                "en": "configuring-login-with-google",
+                "es": "configurar-inicio-de-sesion-con-google",
+                "pt": "configurar-login-com-google"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Creating and editing roles",
+                "es": "Crear y editar perfiles de acceso",
+                "pt": "Criar e editar perfis de acesso"
+              },
+              "slug": {
+                "en": "creating-and-editing-access-profiles",
+                "es": "crear-y-editar-perfiles-de-acceso",
+                "pt": "criar-e-editar-perfis-de-acesso"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Creating and editing users",
+                "es": "Crear y editar usuario ",
+                "pt": "Criar e editar usuário"
+              },
+              "slug": {
+                "en": "creating-and-editing-users",
+                "es": "crear-y-editar-usuario",
+                "pt": "criar-e-editar-usuario"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Editing account data",
+                "es": "Editar datos de la cuenta",
+                "pt": "Editar dados da conta"
+              },
+              "slug": {
+                "en": "editing-account-data",
+                "es": "editar-datos-de-la-cuenta",
+                "pt": "editar-dados-da-conta"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Enabling two-factor authentication login",
+                "es": "Habilitar inicio de sesión por autenticación de dos factores",
+                "pt": "Habilitar login por autenticação de dois fatores"
+              },
+              "slug": {
+                "en": "enabling-2-factor-authentication-login",
+                "es": "habilitar-inicio-de-sesion-por-autenticacion-de-2-factores",
+                "pt": "habilitar-login-por-autenticacao-de-2-fatores"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Understanding your account",
+                "es": "Entendiendo su cuenta ",
+                "pt": "Entendendo a sua conta"
+              },
+              "slug": {
+                "en": "understanding-your-account",
+                "es": "entendiendo-su-cuenta",
+                "pt": "entendendo-a-sua-conta"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
             {
               "name": {
                 "en": "What are permissions and roles",
@@ -6777,6 +6882,21 @@
                 "en": "what-are-permissions-and-access-profiles",
                 "es": "que-son-permisos-y-perfiles-de-acceso",
                 "pt": "o-que-sao-permissoes-e-perfis-de-acesso"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "What is the Sponsor user",
+                "es": "Qué es el usuario titular",
+                "pt": "O que é o usuário Titular"
+              },
+              "slug": {
+                "en": "what-is-the-master-user",
+                "es": "que-es-el-usuario-master",
+                "pt": "o-que-e-o-usuario-master"
               },
               "origin": "",
               "type": "markdown",
@@ -6874,8 +6994,8 @@
         {
           "name": {
             "en": "Amazon Integration",
-            "es": "Amazon Integration",
-            "pt": "Amazon Integration"
+            "es": "Configurar La Integracion De Amazon",
+            "pt": "Configurar Integracao Com A Amazon"
           },
           "slug": "amazon-integration",
           "origin": "",
@@ -6913,6 +7033,21 @@
             },
             {
               "name": {
+                "en": "Configuring Price Divergence rule",
+                "es": "Configurar regla de Divergencia de precios",
+                "pt": "Configurar regra de Divergência de valores"
+              },
+              "slug": {
+                "en": "configuring-price-divergence-rule-amazon",
+                "es": "configurar-regla-de-divergencia-de-precios-amazon",
+                "pt": "configurar-regra-de-divergencia-de-valores-amazon"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "Configuring the Amazon integration",
                 "es": "Configurar la integración de Amazon",
                 "pt": "Configurar a integração da Amazon"
@@ -6921,6 +7056,21 @@
                 "en": "configuring-the-amazon-integration",
                 "es": "configurar-la-integracion-de-amazon",
                 "pt": "configurar-a-integracao-da-amazon"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Product integration errors with Amazon",
+                "es": "Errores de integración de productos Amazon",
+                "pt": "Erros de integração de produtos Amazon"
+              },
+              "slug": {
+                "en": "product-integration-errors-with-amazon",
+                "es": "errores-de-integracion-de-productos-amazon",
+                "pt": "erros-de-integracao-de-produtos-amazon"
               },
               "origin": "",
               "type": "markdown",
@@ -6960,36 +7110,9 @@
         },
         {
           "name": {
-            "en": "Amazon Integration Setup",
-            "es": "Amazon Integration Setup",
-            "pt": "Amazon Integration Setup"
-          },
-          "slug": "amazon-integration-setup",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "Configuring Price Divergence rule",
-                "es": "Configurar regla de Divergencia de precios",
-                "pt": "Configurar regra de Divergência de valores"
-              },
-              "slug": {
-                "en": "configuring-price-divergence-rule-amazon",
-                "es": "configurar-regla-de-divergencia-de-precios-amazon",
-                "pt": "configurar-regra-de-divergencia-de-valores-amazon"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
             "en": "B2w Integration Set Up",
-            "es": "B2w Integration Set Up",
-            "pt": "B2w Integration Set Up"
+            "es": "Configurar Integracion B2w",
+            "pt": "Configurar Integracao Da B2w"
           },
           "slug": "b2w-integration-set-up",
           "origin": "",
@@ -7084,14 +7207,29 @@
               "origin": "",
               "type": "markdown",
               "children": []
+            },
+            {
+              "name": {
+                "en": "Setting up a marketplace trade policy",
+                "es": "Configurar la política comercial para marketplace",
+                "pt": "Configurar política comercial para marketplace"
+              },
+              "slug": {
+                "en": "setting-up-a-marketplace-trade-policy-skyhub-b2w",
+                "es": "configurar-la-politica-comercial-para-marketplace-skyhub-b2w",
+                "pt": "configurar-politica-comercial-para-marketplace-skyhub-b2w"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
             }
           ]
         },
         {
           "name": {
             "en": "Carrefour Integration Set Up",
-            "es": "Carrefour Integration Set Up",
-            "pt": "Carrefour Integration Set Up"
+            "es": "Configurar Integracion Carrefour",
+            "pt": "Configurar Integracao Com O Carrefour"
           },
           "slug": "carrefour-integration-set-up",
           "origin": "",
@@ -7207,8 +7345,8 @@
         {
           "name": {
             "en": "Casas Bahia Marketplace Integration",
-            "es": "Casas Bahia Marketplace Integration",
-            "pt": "Casas Bahia Marketplace Integration"
+            "es": "Integracion De Casas Bahia Marketplace",
+            "pt": "Integracao Com A Casas Bahia Marketplace"
           },
           "slug": "casas-bahia-marketplace-integration",
           "origin": "",
@@ -7339,8 +7477,8 @@
         {
           "name": {
             "en": "Catalog 101",
-            "es": "Catalog 101",
-            "pt": "Catalog 101"
+            "es": "Catalogo 101",
+            "pt": "Catalogo 101"
           },
           "slug": "catalog-101",
           "origin": "",
@@ -7546,8 +7684,8 @@
         {
           "name": {
             "en": "Centauro Integration",
-            "es": "Centauro Integration",
-            "pt": "Centauro Integration"
+            "es": "Integracion Con Centauro",
+            "pt": "Cadastro Da Integracao Da Centauro"
           },
           "slug": "centauro-integration",
           "origin": "",
@@ -7597,14 +7735,44 @@
               "origin": "",
               "type": "markdown",
               "children": []
+            },
+            {
+              "name": {
+                "en": "Mapping Centauro categories, variations and attributes",
+                "es": "Mapeo de categorías, variaciones y atributos de Centauro",
+                "pt": "Mapeamento de categorias e atributos da Centauro"
+              },
+              "slug": {
+                "en": "mapping-centauro-categories-variations-and-attributes",
+                "es": "mapeo-de-categorias-variaciones-y-atributos-de-centauro",
+                "pt": "mapeamento-de-categorias-e-atributos-da-centauro"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Registering the Centauro integration",
+                "es": "Registro de la integración de Centauro",
+                "pt": "Cadastro da integração da Centauro"
+              },
+              "slug": {
+                "en": "registering-the-centauro-integration",
+                "es": "registro-de-la-integracion-de-centauro",
+                "pt": "cadastro-da-integracao-da-centauro"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
             }
           ]
         },
         {
           "name": {
             "en": "Clustered Payment Conditions",
-            "es": "Clustered Payment Conditions",
-            "pt": "Clustered Payment Conditions"
+            "es": "Condiciones De Pago Clusterizadas",
+            "pt": "Condicoes De Pagamento Clusterizadas"
           },
           "slug": "clustered-payment-conditions",
           "origin": "",
@@ -7776,141 +7944,9 @@
         },
         {
           "name": {
-            "en": "Contas E Permissoes",
-            "es": "Contas E Permissoes",
-            "pt": "Contas E Permissoes"
-          },
-          "slug": "contas-e-permissoes",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "Configuring login with Facebook",
-                "es": "Configurar inicio de sesión con Facebook",
-                "pt": "Configurar login com Facebook"
-              },
-              "slug": {
-                "en": "configuring-login-with-facebook",
-                "es": "configurar-inicio-de-sesion-con-facebook",
-                "pt": "configurar-login-com-facebook"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
-                "en": "Configuring login with Google",
-                "es": "Configurar inicio de sesión con Google",
-                "pt": "Configurar login com Google"
-              },
-              "slug": {
-                "en": "configuring-login-with-google",
-                "es": "configurar-inicio-de-sesion-con-google",
-                "pt": "configurar-login-com-google"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
-                "en": "Creating and editing roles",
-                "es": "Crear y editar perfiles de acceso",
-                "pt": "Criar e editar perfis de acesso"
-              },
-              "slug": {
-                "en": "creating-and-editing-access-profiles",
-                "es": "crear-y-editar-perfiles-de-acceso",
-                "pt": "criar-e-editar-perfis-de-acesso"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
-                "en": "Creating and editing users",
-                "es": "Crear y editar usuario ",
-                "pt": "Criar e editar usuário"
-              },
-              "slug": {
-                "en": "creating-and-editing-users",
-                "es": "crear-y-editar-usuario",
-                "pt": "criar-e-editar-usuario"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
-                "en": "Editing account data",
-                "es": "Editar datos de la cuenta",
-                "pt": "Editar dados da conta"
-              },
-              "slug": {
-                "en": "editing-account-data",
-                "es": "editar-datos-de-la-cuenta",
-                "pt": "editar-dados-da-conta"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
-                "en": "Enabling two-factor authentication login",
-                "es": "Habilitar inicio de sesión por autenticación de dos factores",
-                "pt": "Habilitar login por autenticação de dois fatores"
-              },
-              "slug": {
-                "en": "enabling-2-factor-authentication-login",
-                "es": "habilitar-inicio-de-sesion-por-autenticacion-de-2-factores",
-                "pt": "habilitar-login-por-autenticacao-de-2-fatores"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
-                "en": "Understanding your account",
-                "es": "Entendiendo su cuenta ",
-                "pt": "Entendendo a sua conta"
-              },
-              "slug": {
-                "en": "understanding-your-account",
-                "es": "entendiendo-su-cuenta",
-                "pt": "entendendo-a-sua-conta"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
-                "en": "What is the Sponsor user",
-                "es": "Qué es el usuario titular",
-                "pt": "O que é o usuário Titular"
-              },
-              "slug": {
-                "en": "what-is-the-master-user",
-                "es": "que-es-el-usuario-master",
-                "pt": "o-que-e-o-usuario-master"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
             "en": "Creating Franchise Accounts",
-            "es": "Creating Franchise Accounts",
-            "pt": "Creating Franchise Accounts"
+            "es": "Crear Cuentas Franquicia",
+            "pt": "Cadastrar O Codigo De Barras Dos Skus Para Instore"
           },
           "slug": "creating-franchise-accounts",
           "origin": "",
@@ -7930,14 +7966,119 @@
               "origin": "",
               "type": "markdown",
               "children": []
+            },
+            {
+              "name": {
+                "en": "Customizing VTEX Sales App",
+                "es": "Personalización de VTEX Sales App",
+                "pt": "Customizar o VTEX Sales App"
+              },
+              "slug": {
+                "en": "customizing-instore",
+                "es": "personalizacion-de-instore",
+                "pt": "customizar-o-instore"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Managing physical stores in VTEX Sales App",
+                "es": "Gestionar tiendas físicas en VTEX Sales App",
+                "pt": "Gerenciar lojas físicas no VTEX Sales App"
+              },
+              "slug": {
+                "en": "adding-new-stores-to-instore",
+                "es": "agregar-nuevos-tiendas-al-instore",
+                "pt": "adicionar-lojas-ao-instore"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Managing sales associates in VTEX Sales App",
+                "es": "Gestionar vendedores en VTEX Sales App",
+                "pt": "Gerenciar vendedores no VTEX Sales App"
+              },
+              "slug": {
+                "en": "managing-sales-associates-in-instore",
+                "es": "gestionar-vendedores-en-instore",
+                "pt": "gerenciar-vendedores-no-instore"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Prerequisites for using VTEX Sales App",
+                "es": "Requisitos previos para usar VTEX Sales App",
+                "pt": "Pré-requisitos para usar o VTEX Sales App"
+              },
+              "slug": {
+                "en": "prerequisites-for-using-instore",
+                "es": "requisitos-previos-para-usar-instore",
+                "pt": "pre-requisitos-para-usar-o-instore"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Register the barcode of the SKUs for VTEX Sales App",
+                "es": "Registrar el código de barras de los SKUs para VTEX Sales App",
+                "pt": "Cadastrar o código de barras dos SKUs para o VTEX Sales App"
+              },
+              "slug": {
+                "en": "register-the-barcode-of-the-skus-for-instore",
+                "es": "registrar-el-codigo-de-barras-de-los-skus-para-el-instore",
+                "pt": "cadastrar-o-codigo-de-barras-dos-skus-para-instore"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "VTEX Sales App - Basic settings",
+                "es": "VTEX Sales App - Configuración básica",
+                "pt": "VTEX Sales App - Configurações Básicas"
+              },
+              "slug": {
+                "en": "instore-basic-settings",
+                "es": "instore-configuracion-basica",
+                "pt": "instore-setup-basico"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "What is VTEX Sales App?",
+                "es": "¿Qué es VTEX Sales App?",
+                "pt": "O que é o VTEX Sales App?"
+              },
+              "slug": {
+                "en": "what-is-instore",
+                "es": "que-es-instore",
+                "pt": "o-que-e-o-instore"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
             }
           ]
         },
         {
           "name": {
             "en": "Customer Credit Getting Started",
-            "es": "Customer Credit Getting Started",
-            "pt": "Customer Credit Getting Started"
+            "es": "Customer Credit Como Empezar",
+            "pt": "Customer Credit Como Comecar"
           },
           "slug": "customer-credit-getting-started",
           "origin": "",
@@ -8023,8 +8164,8 @@
         {
           "name": {
             "en": "Dafiti Integration Setup",
-            "es": "Dafiti Integration Setup",
-            "pt": "Dafiti Integration Setup"
+            "es": "Configurar La Integracion De Dafiti",
+            "pt": "Configurar Integracao Da Dafiti"
           },
           "slug": "dafiti-integration-setup",
           "origin": "",
@@ -8125,8 +8266,8 @@
         {
           "name": {
             "en": "Data And Privacy",
-            "es": "Data And Privacy",
-            "pt": "Data And Privacy"
+            "es": "Datos Y Privacidad",
+            "pt": "Dados E Privacidade"
           },
           "slug": "data-and-privacy",
           "origin": "",
@@ -8164,21 +8305,6 @@
             },
             {
               "name": {
-                "en": "Personal data",
-                "es": "Datos personales",
-                "pt": "Dados pessoais"
-              },
-              "slug": {
-                "en": "personal-data",
-                "es": "datos-personales",
-                "pt": "dados-pessoais"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
                 "en": "Technical and administrative measures",
                 "es": "Medidas técnicas y administrativas",
                 "pt": "Medidas técnicas e administrativas"
@@ -8196,9 +8322,36 @@
         },
         {
           "name": {
+            "en": "Data And Privacy",
+            "es": "Datos Y Privacidad",
+            "pt": "Dados E Privacidade"
+          },
+          "slug": "data-and-privacy",
+          "origin": "",
+          "type": "category",
+          "children": [
+            {
+              "name": {
+                "en": "Personal data",
+                "es": "Datos personales",
+                "pt": "Dados pessoais"
+              },
+              "slug": {
+                "en": "personal-data",
+                "es": "datos-personales",
+                "pt": "dados-pessoais"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": {
             "en": "Digital Wallet E Wallet",
-            "es": "Digital Wallet E Wallet",
-            "pt": "Digital Wallet E Wallet"
+            "es": "Cartera Digital E Wallet",
+            "pt": "Carteira Digital E Wallet"
           },
           "slug": "digital-wallet-e-wallet",
           "origin": "",
@@ -8254,8 +8407,8 @@
         {
           "name": {
             "en": "Extensions Hub",
-            "es": "Extensions Hub",
-            "pt": "Extensions Hub"
+            "es": "Hub De Extensiones",
+            "pt": "Hub De Extensoes"
           },
           "slug": "extensions-hub",
           "origin": "",
@@ -8311,8 +8464,8 @@
         {
           "name": {
             "en": "Facebook Integration",
-            "es": "Facebook Integration",
-            "pt": "Facebook Integration"
+            "es": "Integracion De Facebook",
+            "pt": "Integracao Com O Facebook"
           },
           "slug": "facebook-integration",
           "origin": "",
@@ -8470,8 +8623,8 @@
         {
           "name": {
             "en": "How To Campaign Through Google Ads",
-            "es": "How To Campaign Through Google Ads",
-            "pt": "How To Campaign Through Google Ads"
+            "es": "Como Hacer Campanas A Traves De Google Ads",
+            "pt": "Como Fazer Campanhas Atraves Do Google Ads"
           },
           "slug": "how-to-campaign-through-google-ads",
           "origin": "",
@@ -8526,108 +8679,9 @@
         },
         {
           "name": {
-            "en": "Instore First Steps And Configurations",
-            "es": "Instore First Steps And Configurations",
-            "pt": "Instore First Steps And Configurations"
-          },
-          "slug": "instore-first-steps-and-configurations",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "Managing physical stores in VTEX Sales App",
-                "es": "Gestionar tiendas físicas en VTEX Sales App",
-                "pt": "Gerenciar lojas físicas no VTEX Sales App"
-              },
-              "slug": {
-                "en": "adding-new-stores-to-instore",
-                "es": "agregar-nuevos-tiendas-al-instore",
-                "pt": "adicionar-lojas-ao-instore"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
-                "en": "Managing sales associates in VTEX Sales App",
-                "es": "Gestionar vendedores en VTEX Sales App",
-                "pt": "Gerenciar vendedores no VTEX Sales App"
-              },
-              "slug": {
-                "en": "managing-sales-associates-in-instore",
-                "es": "gestionar-vendedores-en-instore",
-                "pt": "gerenciar-vendedores-no-instore"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
-                "en": "VTEX Sales App - Basic settings",
-                "es": "VTEX Sales App - Configuración básica",
-                "pt": "VTEX Sales App - Configurações Básicas"
-              },
-              "slug": {
-                "en": "instore-basic-settings",
-                "es": "instore-configuracion-basica",
-                "pt": "instore-setup-basico"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
-            "en": "Instore Getting Started And Setting Up",
-            "es": "Instore Getting Started And Setting Up",
-            "pt": "Instore Getting Started And Setting Up"
-          },
-          "slug": "instore-getting-started-and-setting-up",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "Customizing VTEX Sales App",
-                "es": "Personalización de VTEX Sales App",
-                "pt": "Customizar o VTEX Sales App"
-              },
-              "slug": {
-                "en": "customizing-instore",
-                "es": "personalizacion-de-instore",
-                "pt": "customizar-o-instore"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
-                "en": "Prerequisites for using VTEX Sales App",
-                "es": "Requisitos previos para usar VTEX Sales App",
-                "pt": "Pré-requisitos para usar o VTEX Sales App"
-              },
-              "slug": {
-                "en": "prerequisites-for-using-instore",
-                "es": "requisitos-previos-para-usar-instore",
-                "pt": "pre-requisitos-para-usar-o-instore"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
             "en": "Instore Payments",
-            "es": "Instore Payments",
-            "pt": "Instore Payments"
+            "es": "Instore Pagos",
+            "pt": "Instore Pagamentos"
           },
           "slug": "instore-payments",
           "origin": "",
@@ -8728,64 +8782,10 @@
         {
           "name": {
             "en": "Instore Product Overview",
-            "es": "Instore Product Overview",
-            "pt": "Instore Product Overview"
+            "es": "Instore   Descripción Del Producto",
+            "pt": "Instore Usando O App"
           },
           "slug": "instore-product-overview",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "VTEX Sales App - Using the app",
-                "es": "VTEX Sales App - Usando el app",
-                "pt": "VTEX Sales App - Usando o app"
-              },
-              "slug": {
-                "en": "instore-using-the-app",
-                "es": "instore-usando-el-app",
-                "pt": "instore-usando-o-app"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
-            "en": "Instore Using App",
-            "es": "Instore Using App",
-            "pt": "Instore Using App"
-          },
-          "slug": "instore-using-app",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "Printing an order summary",
-                "es": "Impresión del resumen del pedido",
-                "pt": "Impressão de resumo do pedido"
-              },
-              "slug": {
-                "en": "printing-an-order-summary",
-                "es": "impresion-del-resumen-del-pedido",
-                "pt": "impressao-de-resumo-do-pedido"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
-            "en": "Instore Using The App",
-            "es": "Instore Using The App",
-            "pt": "Instore Using The App"
-          },
-          "slug": "instore-using-the-app",
           "origin": "",
           "type": "category",
           "children": [
@@ -8956,6 +8956,21 @@
             },
             {
               "name": {
+                "en": "Printing an order summary",
+                "es": "Impresión del resumen del pedido",
+                "pt": "Impressão de resumo do pedido"
+              },
+              "slug": {
+                "en": "printing-an-order-summary",
+                "es": "impresion-del-resumen-del-pedido",
+                "pt": "impressao-de-resumo-do-pedido"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "Product details",
                 "es": "Detalles del producto",
                 "pt": "Detalhes do produto"
@@ -9016,6 +9031,21 @@
             },
             {
               "name": {
+                "en": "VTEX Sales App - Using the app",
+                "es": "VTEX Sales App - Usando el app",
+                "pt": "VTEX Sales App - Usando o app"
+              },
+              "slug": {
+                "en": "instore-using-the-app",
+                "es": "instore-usando-el-app",
+                "pt": "instore-usando-o-app"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "VTEX Sales App Login",
                 "es": "Iniciar sesión en VTEX Sales App",
                 "pt": "Login no VTEX Sales App"
@@ -9034,8 +9064,8 @@
         {
           "name": {
             "en": "Integrating With Google Shopping",
-            "es": "Integrating With Google Shopping",
-            "pt": "Integrating With Google Shopping"
+            "es": "Integracion Con Google Shopping",
+            "pt": "Configurar Integracao Com O Google Shopping"
           },
           "slug": "integrating-with-google-shopping",
           "origin": "",
@@ -9166,8 +9196,8 @@
         {
           "name": {
             "en": "Integration With Facebook Business Extension",
-            "es": "Integration With Facebook Business Extension",
-            "pt": "Integration With Facebook Business Extension"
+            "es": "Integracion Con Facebook Business Extension",
+            "pt": "Integracao Com O Facebook Business Extension"
           },
           "slug": "integration-with-facebook-business-extension",
           "origin": "",
@@ -9198,21 +9228,6 @@
                 "en": "facebook-business-extension",
                 "es": "facebook-business-extension",
                 "pt": "facebook-business-extension"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
-                "en": "Installing the Facebook Business Extension e Conversions API app",
-                "es": "Instalar la aplicación Facebook Business Extension e Conversions API",
-                "pt": "Instalar a app Facebook Business Extension e Conversions API"
-              },
-              "slug": {
-                "en": "installing-the-facebook-business-extension-e-conversions-api-app",
-                "es": "instalar-la-aplicacion-facebook-business-extension-e-conversions-api",
-                "pt": "instalar-a-app-facebook-business-extension-e-conversions-api"
               },
               "origin": "",
               "type": "markdown",
@@ -9252,9 +9267,36 @@
         },
         {
           "name": {
+            "en": "Integration With Facebook Business Extension",
+            "es": "Integracion Con Facebook Business Extension",
+            "pt": "Integracao Com O Facebook Business Extension"
+          },
+          "slug": "integration-with-facebook-business-extension",
+          "origin": "",
+          "type": "category",
+          "children": [
+            {
+              "name": {
+                "en": "Installing the Facebook Business Extension e Conversions API app",
+                "es": "Instalar la aplicación Facebook Business Extension e Conversions API",
+                "pt": "Instalar a app Facebook Business Extension e Conversions API"
+              },
+              "slug": {
+                "en": "installing-the-facebook-business-extension-e-conversions-api-app",
+                "es": "instalar-la-aplicacion-facebook-business-extension-e-conversions-api",
+                "pt": "instalar-a-app-facebook-business-extension-e-conversions-api"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": {
             "en": "Lengow Integration",
-            "es": "Lengow Integration",
-            "pt": "Lengow Integration"
+            "es": "Integracion De Lengow",
+            "pt": "Integracao Com A Lengow"
           },
           "slug": "lengow-integration",
           "origin": "",
@@ -9310,8 +9352,8 @@
         {
           "name": {
             "en": "Livelo Integration",
-            "es": "Livelo Integration",
-            "pt": "Livelo Integration"
+            "es": "Integracion De Livelo",
+            "pt": "Integracao Livelo"
           },
           "slug": "livelo-integration",
           "origin": "",
@@ -9397,8 +9439,8 @@
         {
           "name": {
             "en": "Logistics 101",
-            "es": "Logistics 101",
-            "pt": "Logistics 101"
+            "es": "Logistica 101",
+            "pt": "Logistica 101"
           },
           "slug": "logistics-101",
           "origin": "",
@@ -9484,8 +9526,8 @@
         {
           "name": {
             "en": "Magazine Luiza Integration Set Up",
-            "es": "Magazine Luiza Integration Set Up",
-            "pt": "Magazine Luiza Integration Set Up"
+            "es": "Configurar Integracion Netshoes",
+            "pt": "Configurar Integracao Com O Magazine Luiza"
           },
           "slug": "magazine-luiza-integration-set-up",
           "origin": "",
@@ -9553,6 +9595,21 @@
             },
             {
               "name": {
+                "en": "Defining Magazine Luiza trade policy",
+                "es": "Definir la política comercial para Magazine Luiza",
+                "pt": "Definição da política comercial para Magazine Luiza"
+              },
+              "slug": {
+                "en": "defining-magazine-luiza-trade-policy",
+                "es": "definir-la-politica-comercial-para-magazine-luiza",
+                "pt": "definicao-da-politica-comercial-para-magazine-luiza"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "Integrate with Magazine Luiza",
                 "es": "Integrar con Magazine Luiza",
                 "pt": "Integrar com o Magazine Luiza"
@@ -9583,6 +9640,21 @@
             },
             {
               "name": {
+                "en": "Setting up a marketplace trade policy",
+                "es": "Configurar la política comercial para marketplace",
+                "pt": "Configurar política comercial para marketplace"
+              },
+              "slug": {
+                "en": "setting-up-a-marketplace-trade-policy",
+                "es": "configurar-la-politica-comercial-para-marketplace",
+                "pt": "configurar-politica-comercial-para-marketplace"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "What functionalities does the integration offer?",
                 "es": "¿Qué funciones ofrece la integración?",
                 "pt": "Quais são as funcionalidades que a integração oferece?"
@@ -9600,36 +9672,9 @@
         },
         {
           "name": {
-            "en": "Mapping Centauro Categories Variations And Attributes",
-            "es": "Mapping Centauro Categories Variations And Attributes",
-            "pt": "Mapping Centauro Categories Variations And Attributes"
-          },
-          "slug": "mapping-centauro-categories-variations-and-attributes",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "Mapping Centauro categories, variations and attributes",
-                "es": "Mapeo de categorías, variaciones y atributos de Centauro",
-                "pt": "Mapeamento de categorias e atributos da Centauro"
-              },
-              "slug": {
-                "en": "mapping-centauro-categories-variations-and-attributes",
-                "es": "mapeo-de-categorias-variaciones-y-atributos-de-centauro",
-                "pt": "mapeamento-de-categorias-e-atributos-da-centauro"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
             "en": "Mercado Libre Integration Set Up",
-            "es": "Mercado Libre Integration Set Up",
-            "pt": "Mercado Libre Integration Set Up"
+            "es": "Configurar Integracion Con Mercado Libre",
+            "pt": "Configurar Integracao Do Mercado Livre"
           },
           "slug": "mercado-libre-integration-set-up",
           "origin": "",
@@ -9769,14 +9814,29 @@
               "origin": "",
               "type": "markdown",
               "children": []
+            },
+            {
+              "name": {
+                "en": "What features does the integration offer?",
+                "es": "¿Qué funcionalidades ofrece la integración?",
+                "pt": "Quais são as funcionalidades que a integração oferece?"
+              },
+              "slug": {
+                "en": "what-features-does-the-integration-offer",
+                "es": "que-funcionalidades-ofrece-la-integracion",
+                "pt": "quais-sao-as-funcionalidades-que-a-integracao-oferece"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
             }
           ]
         },
         {
           "name": {
             "en": "Netshoes Integration Set Up",
-            "es": "Netshoes Integration Set Up",
-            "pt": "Netshoes Integration Set Up"
+            "es": "Configurar Integracion Netshoes",
+            "pt": "Configurar Integracao Da Netshoes"
           },
           "slug": "netshoes-integration-set-up",
           "origin": "",
@@ -9886,56 +9946,14 @@
               "origin": "",
               "type": "markdown",
               "children": []
-            },
-            {
-              "name": {
-                "en": "Setting up a marketplace trade policy",
-                "es": "Configurar la política comercial para marketplace",
-                "pt": "Configurar política comercial para marketplace"
-              },
-              "slug": {
-                "en": "setting-up-a-marketplace-trade-policy",
-                "es": "configurar-la-politica-comercial-para-marketplace",
-                "pt": "configurar-politica-comercial-para-marketplace"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
-            "en": "Netshoes Integration Set Up Magazine Luiza",
-            "es": "Netshoes Integration Set Up Magazine Luiza",
-            "pt": "Netshoes Integration Set Up Magazine Luiza"
-          },
-          "slug": "netshoes-integration-set-up-magazine-luiza",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "Defining Magazine Luiza trade policy",
-                "es": "Definir la política comercial para Magazine Luiza",
-                "pt": "Definição da política comercial para Magazine Luiza"
-              },
-              "slug": {
-                "en": "defining-magazine-luiza-trade-policy",
-                "es": "definir-la-politica-comercial-para-magazine-luiza",
-                "pt": "definicao-da-politica-comercial-para-magazine-luiza"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
             }
           ]
         },
         {
           "name": {
             "en": "Next Steps After The Go Live",
-            "es": "Next Steps After The Go Live",
-            "pt": "Next Steps After The Go Live"
+            "es": "Proximos Pasos Tras El Go Live",
+            "pt": "Proximos Passos Apos O Go Live"
           },
           "slug": "next-steps-after-the-go-live",
           "origin": "",
@@ -10006,8 +10024,8 @@
         {
           "name": {
             "en": "Orders",
-            "es": "Orders",
-            "pt": "Orders"
+            "es": "Pedidos",
+            "pt": "Pedidos"
           },
           "slug": "orders",
           "origin": "",
@@ -10168,8 +10186,8 @@
         {
           "name": {
             "en": "Payments",
-            "es": "Payments",
-            "pt": "Payments"
+            "es": "Pagos",
+            "pt": "Pagamentos"
           },
           "slug": "payments",
           "origin": "",
@@ -10285,8 +10303,8 @@
         {
           "name": {
             "en": "Posthaus Integration",
-            "es": "Posthaus Integration",
-            "pt": "Posthaus Integration"
+            "es": "Integracion Posthaus",
+            "pt": "Integracao Posthaus"
           },
           "slug": "posthaus-integration",
           "origin": "",
@@ -10372,8 +10390,8 @@
         {
           "name": {
             "en": "Prices 101",
-            "es": "Prices 101",
-            "pt": "Prices 101"
+            "es": "Precios 101",
+            "pt": "Precos 101"
           },
           "slug": "prices-101",
           "origin": "",
@@ -10593,36 +10611,9 @@
         },
         {
           "name": {
-            "en": "Product Integration Errors With Amazon",
-            "es": "Product Integration Errors With Amazon",
-            "pt": "Product Integration Errors With Amazon"
-          },
-          "slug": "product-integration-errors-with-amazon",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "Product integration errors with Amazon",
-                "es": "Errores de integración de productos Amazon",
-                "pt": "Erros de integração de produtos Amazon"
-              },
-              "slug": {
-                "en": "product-integration-errors-with-amazon",
-                "es": "errores-de-integracion-de-productos-amazon",
-                "pt": "erros-de-integracao-de-produtos-amazon"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
             "en": "Promotions",
-            "es": "Promotions",
-            "pt": "Promotions"
+            "es": "Promociones",
+            "pt": "Promocoes"
           },
           "slug": "promotions",
           "origin": "",
@@ -10693,8 +10684,8 @@
         {
           "name": {
             "en": "Rappi Integration",
-            "es": "Rappi Integration",
-            "pt": "Rappi Integration"
+            "es": "Integracion De Rappi",
+            "pt": "Integracao Rappi"
           },
           "slug": "rappi-integration",
           "origin": "",
@@ -10779,63 +10770,9 @@
         },
         {
           "name": {
-            "en": "Register The Barcode Of The Skus For The Instore",
-            "es": "Register The Barcode Of The Skus For The Instore",
-            "pt": "Register The Barcode Of The Skus For The Instore"
-          },
-          "slug": "register-the-barcode-of-the-skus-for-the-instore",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "Register the barcode of the SKUs for VTEX Sales App",
-                "es": "Registrar el código de barras de los SKUs para VTEX Sales App",
-                "pt": "Cadastrar o código de barras dos SKUs para o VTEX Sales App"
-              },
-              "slug": {
-                "en": "register-the-barcode-of-the-skus-for-instore",
-                "es": "registrar-el-codigo-de-barras-de-los-skus-para-el-instore",
-                "pt": "cadastrar-o-codigo-de-barras-dos-skus-para-instore"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
-            "en": "Registering The Centauro Integration",
-            "es": "Registering The Centauro Integration",
-            "pt": "Registering The Centauro Integration"
-          },
-          "slug": "registering-the-centauro-integration",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "Registering the Centauro integration",
-                "es": "Registro de la integración de Centauro",
-                "pt": "Cadastro da integração da Centauro"
-              },
-              "slug": {
-                "en": "registering-the-centauro-integration",
-                "es": "registro-de-la-integracion-de-centauro",
-                "pt": "cadastro-da-integracao-da-centauro"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
             "en": "Shopee Integration",
-            "es": "Shopee Integration",
-            "pt": "Shopee Integration"
+            "es": "Integracion Con Shopee",
+            "pt": "Integracao Shopee"
           },
           "slug": "shopee-integration",
           "origin": "",
@@ -10920,36 +10857,9 @@
         },
         {
           "name": {
-            "en": "Skyhub B2w Integration Set Up",
-            "es": "Skyhub B2w Integration Set Up",
-            "pt": "Skyhub B2w Integration Set Up"
-          },
-          "slug": "skyhub-b2w-integration-set-up",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "Setting up a marketplace trade policy",
-                "es": "Configurar la política comercial para marketplace",
-                "pt": "Configurar política comercial para marketplace"
-              },
-              "slug": {
-                "en": "setting-up-a-marketplace-trade-policy-skyhub-b2w",
-                "es": "configurar-la-politica-comercial-para-marketplace-skyhub-b2w",
-                "pt": "configurar-politica-comercial-para-marketplace-skyhub-b2w"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
             "en": "Store Development",
-            "es": "Store Development",
-            "pt": "Store Development"
+            "es": "Desarrollo De La Tienda",
+            "pt": "Desenvolvimento De Loja"
           },
           "slug": "store-development",
           "origin": "",
@@ -11137,8 +11047,8 @@
         {
           "name": {
             "en": "Support At Vtex",
-            "es": "Support At Vtex",
-            "pt": "Support At Vtex"
+            "es": "Soporte En Vtex",
+            "pt": "Suporte Na Vtex"
           },
           "slug": "support-at-vtex",
           "origin": "",
@@ -11254,8 +11164,8 @@
         {
           "name": {
             "en": "Tiktok Integration",
-            "es": "Tiktok Integration",
-            "pt": "Tiktok Integration"
+            "es": "Integracion De Tiktok",
+            "pt": "Integracao Com O Tiktok"
           },
           "slug": "tiktok-integration",
           "origin": "",
@@ -11341,8 +11251,8 @@
         {
           "name": {
             "en": "Transactional Emails",
-            "es": "Transactional Emails",
-            "pt": "Transactional Emails"
+            "es": "E Mails Transaccionales",
+            "pt": "E Mails Transacionais"
           },
           "slug": "transactional-emails",
           "origin": "",
@@ -11413,8 +11323,8 @@
         {
           "name": {
             "en": "Unified Commerce Strategies",
-            "es": "Unified Commerce Strategies",
-            "pt": "Unified Commerce Strategies"
+            "es": "Estrategias De Comercio Unificado",
+            "pt": "Estrategias De Comercio Unificado"
           },
           "slug": "unified-commerce-strategies",
           "origin": "",
@@ -11674,8 +11584,8 @@
         {
           "name": {
             "en": "Vtex Live Shopping Getting Started",
-            "es": "Vtex Live Shopping Getting Started",
-            "pt": "Vtex Live Shopping Getting Started"
+            "es": "Vtex Live Shopping Primeros Pasos",
+            "pt": "Vtex Live Shopping Primeiros Passos"
           },
           "slug": "vtex-live-shopping-getting-started",
           "origin": "",
@@ -11866,8 +11776,8 @@
         {
           "name": {
             "en": "Vtex Store Overview",
-            "es": "Vtex Store Overview",
-            "pt": "Vtex Store Overview"
+            "es": "Serie De La Tienda Vtex",
+            "pt": "Trilha Da Loja Vtex"
           },
           "slug": "vtex-store-overview",
           "origin": "",
@@ -11967,63 +11877,9 @@
         },
         {
           "name": {
-            "en": "What Features Does The Integration Offer",
-            "es": "What Features Does The Integration Offer",
-            "pt": "What Features Does The Integration Offer"
-          },
-          "slug": "what-features-does-the-integration-offer",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "What features does the integration offer?",
-                "es": "¿Qué funcionalidades ofrece la integración?",
-                "pt": "Quais são as funcionalidades que a integração oferece?"
-              },
-              "slug": {
-                "en": "what-features-does-the-integration-offer",
-                "es": "que-funcionalidades-ofrece-la-integracion",
-                "pt": "quais-sao-as-funcionalidades-que-a-integracao-oferece"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
-            "en": "What Is Instore",
-            "es": "What Is Instore",
-            "pt": "What Is Instore"
-          },
-          "slug": "what-is-instore",
-          "origin": "",
-          "type": "category",
-          "children": [
-            {
-              "name": {
-                "en": "What is VTEX Sales App?",
-                "es": "¿Qué es VTEX Sales App?",
-                "pt": "O que é o VTEX Sales App?"
-              },
-              "slug": {
-                "en": "what-is-instore",
-                "es": "que-es-instore",
-                "pt": "o-que-e-o-instore"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": {
             "en": "Wish Integration",
-            "es": "Wish Integration",
-            "pt": "Wish Integration"
+            "es": "Integracion Con Wish",
+            "pt": "Integracao Com A Wish"
           },
           "slug": "wish-integration",
           "origin": "",
@@ -12090,1161 +11946,6 @@
               "children": []
             }
           ]
-        },
-        {
-          "name": {
-            "en": "Cartera Digital E Wallet",
-            "es": "Cartera Digital E Wallet",
-            "pt": "Cartera Digital E Wallet"
-          },
-          "slug": "cartera-digital-e-wallet",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Catalogo 101",
-            "es": "Catalogo 101",
-            "pt": "Catalogo 101"
-          },
-          "slug": "catalogo-101",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Como Hacer Campanas A Traves De Google Ads",
-            "es": "Como Hacer Campanas A Traves De Google Ads",
-            "pt": "Como Hacer Campanas A Traves De Google Ads"
-          },
-          "slug": "como-hacer-campanas-a-traves-de-google-ads",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Condiciones De Pago Clusterizadas",
-            "es": "Condiciones De Pago Clusterizadas",
-            "pt": "Condiciones De Pago Clusterizadas"
-          },
-          "slug": "condiciones-de-pago-clusterizadas",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracion B2w",
-            "es": "Configurar Integracion B2w",
-            "pt": "Configurar Integracion B2w"
-          },
-          "slug": "configurar-integracion-b2w",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracion Carrefour",
-            "es": "Configurar Integracion Carrefour",
-            "pt": "Configurar Integracion Carrefour"
-          },
-          "slug": "configurar-integracion-carrefour",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracion Con Carrefour",
-            "es": "Configurar Integracion Con Carrefour",
-            "pt": "Configurar Integracion Con Carrefour"
-          },
-          "slug": "configurar-integracion-con-carrefour",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracion Con Mercado Libre",
-            "es": "Configurar Integracion Con Mercado Libre",
-            "pt": "Configurar Integracion Con Mercado Libre"
-          },
-          "slug": "configurar-integracion-con-mercado-libre",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracion Netshoes",
-            "es": "Configurar Integracion Netshoes",
-            "pt": "Configurar Integracion Netshoes"
-          },
-          "slug": "configurar-integracion-netshoes",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracion Netshoes Magazine Luiza",
-            "es": "Configurar Integracion Netshoes Magazine Luiza",
-            "pt": "Configurar Integracion Netshoes Magazine Luiza"
-          },
-          "slug": "configurar-integracion-netshoes-magazine-luiza",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracion Skyhub B2w",
-            "es": "Configurar Integracion Skyhub B2w",
-            "pt": "Configurar Integracion Skyhub B2w"
-          },
-          "slug": "configurar-integracion-skyhub-b2w",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar La Integracion De Amazon",
-            "es": "Configurar La Integracion De Amazon",
-            "pt": "Configurar La Integracion De Amazon"
-          },
-          "slug": "configurar-la-integracion-de-amazon",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar La Integracion De Dafiti",
-            "es": "Configurar La Integracion De Dafiti",
-            "pt": "Configurar La Integracion De Dafiti"
-          },
-          "slug": "configurar-la-integracion-de-dafiti",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar La Integracion De Magazine Luiza",
-            "es": "Configurar La Integracion De Magazine Luiza",
-            "pt": "Configurar La Integracion De Magazine Luiza"
-          },
-          "slug": "configurar-la-integracion-de-magazine-luiza",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Crear Cuentas Franquicia",
-            "es": "Crear Cuentas Franquicia",
-            "pt": "Crear Cuentas Franquicia"
-          },
-          "slug": "crear-cuentas-franquicia",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Cuentas Y Permisos",
-            "es": "Cuentas Y Permisos",
-            "pt": "Cuentas Y Permisos"
-          },
-          "slug": "cuentas-y-permisos",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Customer Credit Como Empezar",
-            "es": "Customer Credit Como Empezar",
-            "pt": "Customer Credit Como Empezar"
-          },
-          "slug": "customer-credit-como-empezar",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Datos Y Privacidad",
-            "es": "Datos Y Privacidad",
-            "pt": "Datos Y Privacidad"
-          },
-          "slug": "datos-y-privacidad",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Desarrollo De La Tienda",
-            "es": "Desarrollo De La Tienda",
-            "pt": "Desarrollo De La Tienda"
-          },
-          "slug": "desarrollo-de-la-tienda",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "E Mails Transaccionales",
-            "es": "E Mails Transaccionales",
-            "pt": "E Mails Transaccionales"
-          },
-          "slug": "e-mails-transaccionales",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Errores De Integracion De Productos Amazon",
-            "es": "Errores De Integracion De Productos Amazon",
-            "pt": "Errores De Integracion De Productos Amazon"
-          },
-          "slug": "errores-de-integracion-de-productos-amazon",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Estrategias De Comercio Unificado",
-            "es": "Estrategias De Comercio Unificado",
-            "pt": "Estrategias De Comercio Unificado"
-          },
-          "slug": "estrategias-de-comercio-unificado",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Hub De Extensiones",
-            "es": "Hub De Extensiones",
-            "pt": "Hub De Extensiones"
-          },
-          "slug": "hub-de-extensiones",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Instore   Descripción Del Producto",
-            "es": "Instore   Descripción Del Producto",
-            "pt": "Instore   Descripción Del Producto"
-          },
-          "slug": "instore-descripci-n-del-producto",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Instore Pagos",
-            "es": "Instore Pagos",
-            "pt": "Instore Pagos"
-          },
-          "slug": "instore-pagos",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Instore Primeros Pasos Y Configuracion",
-            "es": "Instore Primeros Pasos Y Configuracion",
-            "pt": "Instore Primeros Pasos Y Configuracion"
-          },
-          "slug": "instore-primeros-pasos-y-configuracion",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Instore Usando El App",
-            "es": "Instore Usando El App",
-            "pt": "Instore Usando El App"
-          },
-          "slug": "instore-usando-el-app",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Instore Utilizando La Aplicación",
-            "es": "Instore Utilizando La Aplicación",
-            "pt": "Instore Utilizando La Aplicación"
-          },
-          "slug": "instore-utilizando-la-aplicaci-n",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion Con Centauro",
-            "es": "Integracion Con Centauro",
-            "pt": "Integracion Con Centauro"
-          },
-          "slug": "integracion-con-centauro",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion Con Facebook Business Extension",
-            "es": "Integracion Con Facebook Business Extension",
-            "pt": "Integracion Con Facebook Business Extension"
-          },
-          "slug": "integracion-con-facebook-business-extension",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion Con Google Shopping",
-            "es": "Integracion Con Google Shopping",
-            "pt": "Integracion Con Google Shopping"
-          },
-          "slug": "integracion-con-google-shopping",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion Con Shopee",
-            "es": "Integracion Con Shopee",
-            "pt": "Integracion Con Shopee"
-          },
-          "slug": "integracion-con-shopee",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion Con Wish",
-            "es": "Integracion Con Wish",
-            "pt": "Integracion Con Wish"
-          },
-          "slug": "integracion-con-wish",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion De Amazon",
-            "es": "Integracion De Amazon",
-            "pt": "Integracion De Amazon"
-          },
-          "slug": "integracion-de-amazon",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion De Casas Bahia Marketplace",
-            "es": "Integracion De Casas Bahia Marketplace",
-            "pt": "Integracion De Casas Bahia Marketplace"
-          },
-          "slug": "integracion-de-casas-bahia-marketplace",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion De Facebook",
-            "es": "Integracion De Facebook",
-            "pt": "Integracion De Facebook"
-          },
-          "slug": "integracion-de-facebook",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion De Lengow",
-            "es": "Integracion De Lengow",
-            "pt": "Integracion De Lengow"
-          },
-          "slug": "integracion-de-lengow",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion De Livelo",
-            "es": "Integracion De Livelo",
-            "pt": "Integracion De Livelo"
-          },
-          "slug": "integracion-de-livelo",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion De Rappi",
-            "es": "Integracion De Rappi",
-            "pt": "Integracion De Rappi"
-          },
-          "slug": "integracion-de-rappi",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion De Tiktok",
-            "es": "Integracion De Tiktok",
-            "pt": "Integracion De Tiktok"
-          },
-          "slug": "integracion-de-tiktok",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion Posthaus",
-            "es": "Integracion Posthaus",
-            "pt": "Integracion Posthaus"
-          },
-          "slug": "integracion-posthaus",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracion Rappi",
-            "es": "Integracion Rappi",
-            "pt": "Integracion Rappi"
-          },
-          "slug": "integracion-rappi",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Logistica 101",
-            "es": "Logistica 101",
-            "pt": "Logistica 101"
-          },
-          "slug": "logistica-101",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Mapeo De Categorias Variaciones Y Atributos De Centauro",
-            "es": "Mapeo De Categorias Variaciones Y Atributos De Centauro",
-            "pt": "Mapeo De Categorias Variaciones Y Atributos De Centauro"
-          },
-          "slug": "mapeo-de-categorias-variaciones-y-atributos-de-centauro",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Pagos",
-            "es": "Pagos",
-            "pt": "Pagos"
-          },
-          "slug": "pagos",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Pedidos",
-            "es": "Pedidos",
-            "pt": "Pedidos"
-          },
-          "slug": "pedidos",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Precios 101",
-            "es": "Precios 101",
-            "pt": "Precios 101"
-          },
-          "slug": "precios-101",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Promociones",
-            "es": "Promociones",
-            "pt": "Promociones"
-          },
-          "slug": "promociones",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Proximos Pasos Tras El Go Live",
-            "es": "Proximos Pasos Tras El Go Live",
-            "pt": "Proximos Pasos Tras El Go Live"
-          },
-          "slug": "proximos-pasos-tras-el-go-live",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Que Es Instore",
-            "es": "Que Es Instore",
-            "pt": "Que Es Instore"
-          },
-          "slug": "que-es-instore",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Que Funcionalidades Ofrece La Integracion",
-            "es": "Que Funcionalidades Ofrece La Integracion",
-            "pt": "Que Funcionalidades Ofrece La Integracion"
-          },
-          "slug": "que-funcionalidades-ofrece-la-integracion",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Registrar El Codigo De Barras De Los Skus Para El Instore",
-            "es": "Registrar El Codigo De Barras De Los Skus Para El Instore",
-            "pt": "Registrar El Codigo De Barras De Los Skus Para El Instore"
-          },
-          "slug": "registrar-el-codigo-de-barras-de-los-skus-para-el-instore",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Registro De La Integracion De Centauro",
-            "es": "Registro De La Integracion De Centauro",
-            "pt": "Registro De La Integracion De Centauro"
-          },
-          "slug": "registro-de-la-integracion-de-centauro",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Serie De La Tienda Vtex",
-            "es": "Serie De La Tienda Vtex",
-            "pt": "Serie De La Tienda Vtex"
-          },
-          "slug": "serie-de-la-tienda-vtex",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Soporte En Vtex",
-            "es": "Soporte En Vtex",
-            "pt": "Soporte En Vtex"
-          },
-          "slug": "soporte-en-vtex",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Vtex Live Shopping Primeros Pasos",
-            "es": "Vtex Live Shopping Primeros Pasos",
-            "pt": "Vtex Live Shopping Primeros Pasos"
-          },
-          "slug": "vtex-live-shopping-primeros-pasos",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Cadastrar O Codigo De Barras Dos Skus Para Instore",
-            "es": "Cadastrar O Codigo De Barras Dos Skus Para Instore",
-            "pt": "Cadastrar O Codigo De Barras Dos Skus Para Instore"
-          },
-          "slug": "cadastrar-o-codigo-de-barras-dos-skus-para-instore",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Cadastro Da Integracao Da Centauro",
-            "es": "Cadastro Da Integracao Da Centauro",
-            "pt": "Cadastro Da Integracao Da Centauro"
-          },
-          "slug": "cadastro-da-integracao-da-centauro",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Carteira Digital E Wallet",
-            "es": "Carteira Digital E Wallet",
-            "pt": "Carteira Digital E Wallet"
-          },
-          "slug": "carteira-digital-e-wallet",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Como Fazer Campanhas Atraves Do Google Ads",
-            "es": "Como Fazer Campanhas Atraves Do Google Ads",
-            "pt": "Como Fazer Campanhas Atraves Do Google Ads"
-          },
-          "slug": "como-fazer-campanhas-atraves-do-google-ads",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Condicoes De Pagamento Clusterizadas",
-            "es": "Condicoes De Pagamento Clusterizadas",
-            "pt": "Condicoes De Pagamento Clusterizadas"
-          },
-          "slug": "condicoes-de-pagamento-clusterizadas",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracao Com A Amazon",
-            "es": "Configurar Integracao Com A Amazon",
-            "pt": "Configurar Integracao Com A Amazon"
-          },
-          "slug": "configurar-integracao-com-a-amazon",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracao Com O Carrefour",
-            "es": "Configurar Integracao Com O Carrefour",
-            "pt": "Configurar Integracao Com O Carrefour"
-          },
-          "slug": "configurar-integracao-com-o-carrefour",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracao Com O Google Shopping",
-            "es": "Configurar Integracao Com O Google Shopping",
-            "pt": "Configurar Integracao Com O Google Shopping"
-          },
-          "slug": "configurar-integracao-com-o-google-shopping",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracao Com O Magazine Luiza",
-            "es": "Configurar Integracao Com O Magazine Luiza",
-            "pt": "Configurar Integracao Com O Magazine Luiza"
-          },
-          "slug": "configurar-integracao-com-o-magazine-luiza",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracao Da B2w",
-            "es": "Configurar Integracao Da B2w",
-            "pt": "Configurar Integracao Da B2w"
-          },
-          "slug": "configurar-integracao-da-b2w",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracao Da Dafiti",
-            "es": "Configurar Integracao Da Dafiti",
-            "pt": "Configurar Integracao Da Dafiti"
-          },
-          "slug": "configurar-integracao-da-dafiti",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracao Da Netshoes",
-            "es": "Configurar Integracao Da Netshoes",
-            "pt": "Configurar Integracao Da Netshoes"
-          },
-          "slug": "configurar-integracao-da-netshoes",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracao Da Skyhub B2w",
-            "es": "Configurar Integracao Da Skyhub B2w",
-            "pt": "Configurar Integracao Da Skyhub B2w"
-          },
-          "slug": "configurar-integracao-da-skyhub-b2w",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracao Do Carrefour",
-            "es": "Configurar Integracao Do Carrefour",
-            "pt": "Configurar Integracao Do Carrefour"
-          },
-          "slug": "configurar-integracao-do-carrefour",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Configurar Integracao Do Mercado Livre",
-            "es": "Configurar Integracao Do Mercado Livre",
-            "pt": "Configurar Integracao Do Mercado Livre"
-          },
-          "slug": "configurar-integracao-do-mercado-livre",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Criar Contas Franquias",
-            "es": "Criar Contas Franquias",
-            "pt": "Criar Contas Franquias"
-          },
-          "slug": "criar-contas-franquias",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Customer Credit Como Comecar",
-            "es": "Customer Credit Como Comecar",
-            "pt": "Customer Credit Como Comecar"
-          },
-          "slug": "customer-credit-como-comecar",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Dados E Privacidade",
-            "es": "Dados E Privacidade",
-            "pt": "Dados E Privacidade"
-          },
-          "slug": "dados-e-privacidade",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Desenvolvimento De Loja",
-            "es": "Desenvolvimento De Loja",
-            "pt": "Desenvolvimento De Loja"
-          },
-          "slug": "desenvolvimento-de-loja",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "E Mails Transacionais",
-            "es": "E Mails Transacionais",
-            "pt": "E Mails Transacionais"
-          },
-          "slug": "e-mails-transacionais",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Envio Dos Produtos Para Dafiti",
-            "es": "Envio Dos Produtos Para Dafiti",
-            "pt": "Envio Dos Produtos Para Dafiti"
-          },
-          "slug": "envio-dos-produtos-para-dafiti",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Erros De Integracao De Produtos Amazon",
-            "es": "Erros De Integracao De Produtos Amazon",
-            "pt": "Erros De Integracao De Produtos Amazon"
-          },
-          "slug": "erros-de-integracao-de-produtos-amazon",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Hub De Extensoes",
-            "es": "Hub De Extensoes",
-            "pt": "Hub De Extensoes"
-          },
-          "slug": "hub-de-extensoes",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Instore Pagamentos",
-            "es": "Instore Pagamentos",
-            "pt": "Instore Pagamentos"
-          },
-          "slug": "instore-pagamentos",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Instore Primeiros Passos E Configuracoes",
-            "es": "Instore Primeiros Passos E Configuracoes",
-            "pt": "Instore Primeiros Passos E Configuracoes"
-          },
-          "slug": "instore-primeiros-passos-e-configuracoes",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Instore Usando O App",
-            "es": "Instore Usando O App",
-            "pt": "Instore Usando O App"
-          },
-          "slug": "instore-usando-o-app",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Instore Visao Geral Do Produto",
-            "es": "Instore Visao Geral Do Produto",
-            "pt": "Instore Visao Geral Do Produto"
-          },
-          "slug": "instore-visao-geral-do-produto",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Com A Amazon",
-            "es": "Integracao Com A Amazon",
-            "pt": "Integracao Com A Amazon"
-          },
-          "slug": "integracao-com-a-amazon",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Com A Casas Bahia Marketplace",
-            "es": "Integracao Com A Casas Bahia Marketplace",
-            "pt": "Integracao Com A Casas Bahia Marketplace"
-          },
-          "slug": "integracao-com-a-casas-bahia-marketplace",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Com A Centauro",
-            "es": "Integracao Com A Centauro",
-            "pt": "Integracao Com A Centauro"
-          },
-          "slug": "integracao-com-a-centauro",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Com A Lengow",
-            "es": "Integracao Com A Lengow",
-            "pt": "Integracao Com A Lengow"
-          },
-          "slug": "integracao-com-a-lengow",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Com A Wish",
-            "es": "Integracao Com A Wish",
-            "pt": "Integracao Com A Wish"
-          },
-          "slug": "integracao-com-a-wish",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Com O Facebook",
-            "es": "Integracao Com O Facebook",
-            "pt": "Integracao Com O Facebook"
-          },
-          "slug": "integracao-com-o-facebook",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Com O Facebook Business Extension",
-            "es": "Integracao Com O Facebook Business Extension",
-            "pt": "Integracao Com O Facebook Business Extension"
-          },
-          "slug": "integracao-com-o-facebook-business-extension",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Com O Tiktok",
-            "es": "Integracao Com O Tiktok",
-            "pt": "Integracao Com O Tiktok"
-          },
-          "slug": "integracao-com-o-tiktok",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Livelo",
-            "es": "Integracao Livelo",
-            "pt": "Integracao Livelo"
-          },
-          "slug": "integracao-livelo",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Posthaus",
-            "es": "Integracao Posthaus",
-            "pt": "Integracao Posthaus"
-          },
-          "slug": "integracao-posthaus",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Rappi",
-            "es": "Integracao Rappi",
-            "pt": "Integracao Rappi"
-          },
-          "slug": "integracao-rappi",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Integracao Shopee",
-            "es": "Integracao Shopee",
-            "pt": "Integracao Shopee"
-          },
-          "slug": "integracao-shopee",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Mapeamento De Categorias E Atributos Da Centauro",
-            "es": "Mapeamento De Categorias E Atributos Da Centauro",
-            "pt": "Mapeamento De Categorias E Atributos Da Centauro"
-          },
-          "slug": "mapeamento-de-categorias-e-atributos-da-centauro",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "O Que E O Instore",
-            "es": "O Que E O Instore",
-            "pt": "O Que E O Instore"
-          },
-          "slug": "o-que-e-o-instore",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Pagamentos",
-            "es": "Pagamentos",
-            "pt": "Pagamentos"
-          },
-          "slug": "pagamentos",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Precos 101",
-            "es": "Precos 101",
-            "pt": "Precos 101"
-          },
-          "slug": "precos-101",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Promocoes",
-            "es": "Promocoes",
-            "pt": "Promocoes"
-          },
-          "slug": "promocoes",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Proximos Passos Apos O Go Live",
-            "es": "Proximos Passos Apos O Go Live",
-            "pt": "Proximos Passos Apos O Go Live"
-          },
-          "slug": "proximos-passos-apos-o-go-live",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Quais Sao As Funcionalidades Que A Integracao Oferece",
-            "es": "Quais Sao As Funcionalidades Que A Integracao Oferece",
-            "pt": "Quais Sao As Funcionalidades Que A Integracao Oferece"
-          },
-          "slug": "quais-sao-as-funcionalidades-que-a-integracao-oferece",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Suporte Na Vtex",
-            "es": "Suporte Na Vtex",
-            "pt": "Suporte Na Vtex"
-          },
-          "slug": "suporte-na-vtex",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Trilha Da Loja Vtex",
-            "es": "Trilha Da Loja Vtex",
-            "pt": "Trilha Da Loja Vtex"
-          },
-          "slug": "trilha-da-loja-vtex",
-          "origin": "",
-          "type": "category",
-          "children": []
-        },
-        {
-          "name": {
-            "en": "Vtex Live Shopping Primeiros Passos",
-            "es": "Vtex Live Shopping Primeiros Passos",
-            "pt": "Vtex Live Shopping Primeiros Passos"
-          },
-          "slug": "vtex-live-shopping-primeiros-passos",
-          "origin": "",
-          "type": "category",
-          "children": []
         }
       ]
     },
