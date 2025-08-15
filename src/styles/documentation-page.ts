@@ -84,6 +84,7 @@ const articleBox: SxStyleProp = {
 const contentContainer: SxStyleProp = {
   width: '100%',
   px: ['1.125em', 'initial'],
+  minWidth: ['0px', '470px', '470px'],
 }
 
 const documentationTitle: SxStyleProp = {
