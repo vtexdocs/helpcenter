@@ -43,6 +43,9 @@ interface Props {
   branch: string
 }
 
+type Option = { id: string; name: string }
+type FilterConfig = { name: string; options: Option[] }
+
 const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const intl = useIntl()
 
@@ -64,6 +67,24 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const normalizedSearch = useMemo(() => search.toLowerCase(), [search])
+
+  const statusConfig: FilterConfig = useMemo(
+    () => knownIssuesStatusFilter(intl),
+    [intl]
+  )
+  const moduleConfig: FilterConfig = useMemo(
+    () => knownIssuesModulesFilters(intl),
+    [intl]
+  )
+
+  const statusNameToId = useMemo(
+    () => Object.fromEntries(statusConfig.options.map((o) => [o.name, o.id])),
+    [statusConfig]
+  )
+  const moduleNameToId = useMemo(
+    () => Object.fromEntries(moduleConfig.options.map((o) => [o.name, o.id])),
+    [moduleConfig]
+  )
 
   const filteredResult = useMemo(() => {
     const data = knownIssuesData.filter((knownIssue) => {
@@ -95,7 +116,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
       curr: 1,
       total: Math.ceil(filteredResult.length / itemsPerPage),
     })
-  }, [filteredResult.length])
+  }, [filteredResult])
 
   const paginatedResult = usePagination<KnownIssueDataElement>(
     itemsPerPage,
@@ -142,14 +163,18 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
-              tagFilter={knownIssuesStatusFilter(intl)}
-              checkBoxFilter={knownIssuesModulesFilters(intl)}
+              tagFilter={statusConfig}
+              checkBoxFilter={moduleConfig}
               selectedCheckboxes={filters.modules}
               selectedTags={filters.kiStatus}
               onApply={(newFilters) =>
                 setFilters({
-                  kiStatus: newFilters.tag,
-                  modules: newFilters.checklist,
+                  kiStatus: (newFilters.tag ?? []).map(
+                    (n: string) => statusNameToId[n] ?? n
+                  ),
+                  modules: (newFilters.checklist ?? []).map(
+                    (n: string) => moduleNameToId[n] ?? n
+                  ),
                 })
               }
             />
@@ -230,25 +255,16 @@ export async function getStaticProps({
         if (!content) return null
 
         const frontmatter = await parseFrontmatter(content, logger)
-        if (
-          frontmatter &&
-          frontmatter.tag &&
-          frontmatter.kiStatus &&
-          frontmatter.internalReference &&
-          frontmatter.title &&
-          frontmatter.createdAt &&
-          frontmatter.updatedAt &&
-          (frontmatter.status == 'PUBLISHED' || 'CHANGED')
-        ) {
+        if (frontmatter) {
           return {
-            id: String(frontmatter.internalReference),
-            title: String(frontmatter.title),
-            module: String(frontmatter.tag),
+            id: String(frontmatter?.internalReference),
+            title: String(frontmatter?.title),
+            module: String(frontmatter?.tag),
             slug,
-            createdAt: String(frontmatter.createdAt),
-            updatedAt: String(frontmatter.updatedAt),
-            status: String(frontmatter.status),
-            kiStatus: frontmatter.kiStatus as KnownIssueStatus,
+            createdAt: String(frontmatter?.createdAt),
+            updatedAt: String(frontmatter?.updatedAt),
+            status: String(frontmatter?.status),
+            kiStatus: frontmatter?.kiStatus as KnownIssueStatus,
           }
         }
 

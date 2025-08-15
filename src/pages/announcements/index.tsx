@@ -175,7 +175,7 @@ export const getStaticProps: GetStaticProps = async ({
       case 'pt':
         return frontmatter?.announcementSynopsisPT
       default:
-        return undefined
+        return '-'
     }
   }
 

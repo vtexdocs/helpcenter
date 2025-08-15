@@ -234,6 +234,13 @@ export const getStaticProps: GetStaticProps = async ({
     const localizedKeyPath = `${mainKeyPath}slug.${currentLocale}`
 
     getParents(
+      keyPath,
+      'name',
+      flattenedSidebar,
+      currentLocale,
+      parentsArrayName
+    )
+    getParents(
       localizedKeyPath,
       'slug',
       flattenedSidebar,
@@ -255,6 +262,11 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArrayType,
       'tutorials'
     )
+    breadcrumbList.unshift({
+      slug: '/docs/tutorials',
+      name: 'Tutorials',
+      type: 'markdown',
+    })
     const docsListSlug = jp
       .query(sidebarfallback, `$..[?(@.type=='markdown')]..slug`)
       .map((s) => (typeof s === 'object' ? s[currentLocale] || s.en : s))
