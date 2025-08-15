@@ -7948,7 +7948,7 @@
             "es": "Crear Cuentas Franquicia",
             "pt": "Cadastrar O Codigo De Barras Dos Skus Para Instore"
           },
-          "slug": "creating-franchise-accounts",
+          "slug": "creating-franchise-accounts-category",
           "origin": "",
           "type": "category",
           "children": [
@@ -8353,7 +8353,7 @@
             "es": "Cartera Digital E Wallet",
             "pt": "Carteira Digital E Wallet"
           },
-          "slug": "digital-wallet-e-wallet",
+          "slug": "digital-wallet-e-wallet-category",
           "origin": "",
           "type": "category",
           "children": [
@@ -8554,7 +8554,7 @@
             "es": "Go Live",
             "pt": "Go Live"
           },
-          "slug": "go-live",
+          "slug": "go-live-category",
           "origin": "",
           "type": "category",
           "children": [
@@ -10861,7 +10861,7 @@
             "es": "Desarrollo De La Tienda",
             "pt": "Desenvolvimento De Loja"
           },
-          "slug": "store-development",
+          "slug": "store-development-category",
           "origin": "",
           "type": "category",
           "children": [
@@ -12500,7 +12500,7 @@
                 "es": "Overview",
                 "pt": "Overview"
               },
-              "slug": "overview",
+              "slug": "overview-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -12542,7 +12542,7 @@
                 "es": "B2b Checkout Settings",
                 "pt": "B2b Checkout Settings"
               },
-              "slug": "b2b-checkout-settings",
+              "slug": "b2b-checkout-settings-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -16793,7 +16793,7 @@
                 "es": "Gift Card",
                 "pt": "Gift Card"
               },
-              "slug": "gift-card",
+              "slug": "gift-card-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -21590,7 +21590,7 @@
                 "es": "Vtex Pick And Pack",
                 "pt": "Vtex Pick And Pack"
               },
-              "slug": "vtex-pick-and-pack",
+              "slug": "vtex-pick-and-pack-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -23318,7 +23318,7 @@
                 "es": "Storefront Overview",
                 "pt": "Storefront Overview"
               },
-              "slug": "storefront-overview",
+              "slug": "storefront-overview-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -23747,7 +23747,7 @@
                 "es": "Application Keys",
                 "pt": "Application Keys"
               },
-              "slug": "application-keys",
+              "slug": "application-keys-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -23933,7 +23933,7 @@
                 "es": "Affiliates Program App",
                 "pt": "Affiliates Program App"
               },
-              "slug": "affiliates-program-app",
+              "slug": "affiliates-program-app-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -24068,7 +24068,7 @@
                 "es": "Live Shopping",
                 "pt": "Live Shopping"
               },
-              "slug": "live-shopping",
+              "slug": "live-shopping-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -24401,7 +24401,7 @@
                 "es": "Api Keys Beta",
                 "pt": "Api Keys Beta"
               },
-              "slug": "api-keys-beta",
+              "slug": "api-keys-beta-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -24599,7 +24599,7 @@
                 "es": "Product Recommendations Beta",
                 "pt": "Product Recommendations Beta"
               },
-              "slug": "product-recommendations-beta",
+              "slug": "product-recommendations-beta-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -25907,7 +25907,7 @@
                 "es": "Banners",
                 "pt": "Banners"
               },
-              "slug": "banners",
+              "slug": "banners-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -26066,7 +26066,7 @@
                 "es": "Intelligent Search Overview",
                 "pt": "Intelligent Search Overview"
               },
-              "slug": "intelligent-search-overview",
+              "slug": "intelligent-search-overview-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -26294,7 +26294,7 @@
                 "es": "Synonyms",
                 "pt": "Synonyms"
               },
-              "slug": "synonyms",
+              "slug": "synonyms-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -28265,7 +28265,7 @@
                 "es": "Campaign Audiences",
                 "pt": "Campaign Audiences"
               },
-              "slug": "campaign-audiences",
+              "slug": "campaign-audiences-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -29216,7 +29216,7 @@
                 "es": "Vtex Shield",
                 "pt": "Vtex Shield"
               },
-              "slug": "vtex-shield",
+              "slug": "vtex-shield-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -29315,7 +29315,7 @@
                 "es": "Best Practices For The Success Of Your Vtex Store",
                 "pt": "Best Practices For The Success Of Your Vtex Store"
               },
-              "slug": "best-practices-for-the-success-of-your-vtex-store",
+              "slug": "best-practices-for-the-success-of-your-vtex-store-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -29342,7 +29342,7 @@
                 "es": "Store Settings Overview",
                 "pt": "Store Settings Overview"
               },
-              "slug": "store-settings-overview",
+              "slug": "store-settings-overview-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -30305,7 +30305,7 @@
                 "es": "Reports",
                 "pt": "Reports"
               },
-              "slug": "reports",
+              "slug": "reports-category",
               "origin": "",
               "type": "category",
               "children": [
@@ -30392,7 +30392,7 @@
                 "es": "Routes",
                 "pt": "Routes"
               },
-              "slug": "routes",
+              "slug": "routes-category",
               "origin": "",
               "type": "category",
               "children": [
