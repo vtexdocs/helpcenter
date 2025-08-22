@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.13](https://github.com/vtexdocs/helpcenter/compare/v0.9.12...v0.9.13) (2025-08-22)
+
+
+### Bug Fixes
+
+* **announcements:** avoid undefined synopsis in getStaticProps and only include PUBLISHED/CHANGED ([e489e02](https://github.com/vtexdocs/helpcenter/commit/e489e024799953607ebc000d40fa92f3d7f44cb2))
+
 ### [0.9.12](https://github.com/vtexdocs/helpcenter/compare/v0.9.11...v0.9.12) (2025-08-22)
 
 
