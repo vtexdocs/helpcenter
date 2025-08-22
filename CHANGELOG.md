@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.12](https://github.com/vtexdocs/helpcenter/compare/v0.9.11...v0.9.12) (2025-08-22)
+
+
+### Bug Fixes
+
+* **faq:** fix faq filters not being applied ([d8135bc](https://github.com/vtexdocs/helpcenter/commit/d8135bcc7c305157ac616897296ba60a0cf04fc8))
+* resolve JSON serialization errors in getStaticProps ([7081476](https://github.com/vtexdocs/helpcenter/commit/7081476d623c3537b917300fab75f84aa30f1166))
+
+
+### Performance
+
+* **public:** improve images size and css styles ([90caa3d](https://github.com/vtexdocs/helpcenter/commit/90caa3dd9f5935e6a35d150381c3b521781d4f31))
+
+
+### Chore
+
+* **navigation.json:** update known issues ([0949341](https://github.com/vtexdocs/helpcenter/commit/094934121a94366d76e697c73ca34197ce42eeed))
+* resolve merge conflict by keeping PR branch navigation.json ([6b0c413](https://github.com/vtexdocs/helpcenter/commit/6b0c4138cae95cc7dc2f071bcae06d1aadea6c41))
+* update navigation with latest changes ([1154406](https://github.com/vtexdocs/helpcenter/commit/1154406a920d5e0fc9ede8b129e08501f0cce7c5))
+* update navigation.json ([9c22ff5](https://github.com/vtexdocs/helpcenter/commit/9c22ff5a0c750d79b659b285b05dd13041cfe7a5))
+
 ### [0.9.11](https://github.com/vtexdocs/helpcenter/compare/v0.9.10...v0.9.11) (2025-08-08)
 
 
