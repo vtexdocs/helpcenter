@@ -27,6 +27,7 @@ import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
 import { getSidebarMetadata } from 'utils/getSidebarMetadata'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
+import { sanitizeArray } from 'utils/sanitizeArrays'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -247,14 +248,55 @@ export const getStaticProps: GetStaticProps = async ({
       currentLocale,
       parentsArray
     )
-    const localizedSlug =
-      flattenedSidebar[`${mainKeyPath}slug.${currentLocale}`]
-    parentsArray.push(localizedSlug)
+    const localizedSlugKey = `${mainKeyPath}slug.${currentLocale}`
+    const localizedSlug = flattenedSidebar[localizedSlugKey]
+
+    // Debug logging for localization issues
+    if (localizedSlug === undefined) {
+      logger.warn(
+        `DEBUG: localizedSlug is undefined for keyPath: ${localizedSlugKey}, slug: ${slug}`
+      )
+      // Log available keys that start with mainKeyPath to help debug
+      const availableKeys = Object.keys(flattenedSidebar)
+        .filter((key) => key.startsWith(mainKeyPath))
+        .slice(0, 10) // Limit to first 10 to avoid spam
+      logger.warn(
+        `DEBUG: Available keys starting with ${mainKeyPath}: ${JSON.stringify(
+          availableKeys
+        )}`
+      )
+      // Also log what keyPath was found
+      logger.warn(`DEBUG: Original keyPath found: ${keyPath}`)
+    }
+
+    // Only push if localizedSlug is not undefined to avoid JSON serialization errors
+    if (localizedSlug !== undefined) {
+      parentsArray.push(localizedSlug)
+    } else {
+      logger.warn(
+        `localizedSlug is undefined for keyPath: ${localizedSlugKey}, slug: ${slug}`
+      )
+    }
 
     const nameKeyPath = `${mainKeyPath}name.${currentLocale}`
     categoryTitle = flattenedSidebar[nameKeyPath]
-    parentsArrayName.push(categoryTitle)
-    parentsArrayType.push(flattenedSidebar[`${mainKeyPath}type`])
+    // Only push if categoryTitle is not undefined
+    if (categoryTitle !== undefined) {
+      parentsArrayName.push(categoryTitle)
+    } else {
+      logger.warn(
+        `categoryTitle is undefined for keyPath: ${nameKeyPath}, slug: ${slug}`
+      )
+    }
+    const typeValue = flattenedSidebar[`${mainKeyPath}type`]
+    // Only push if typeValue is not undefined
+    if (typeValue !== undefined) {
+      parentsArrayType.push(typeValue)
+    } else {
+      logger.warn(
+        `typeValue is undefined for keyPath: ${mainKeyPath}type, slug: ${slug}`
+      )
+    }
 
     breadcrumbList = getBreadcrumbsList(
       parentsArray,
@@ -330,11 +372,18 @@ export const getStaticProps: GetStaticProps = async ({
 
       logger.info(`Generating category cover for: ${slug}`)
 
+      // Sanitize arrays to remove any undefined values that might cause JSON serialization errors
+      const sanitizedParentsArray = sanitizeArray(
+        parentsArray,
+        `category cover parentsArray for slug: ${slug}`,
+        logger.warn
+      )
+
       return {
         props: {
           mdFileExists,
           sectionSelected,
-          parentsArray,
+          parentsArray: sanitizedParentsArray,
           slug,
           pagination: { previousDoc, nextDoc },
           isListed,
@@ -433,11 +482,18 @@ export const getStaticProps: GetStaticProps = async ({
 
     logger.info(`Generating markdown file for: ${slug}`)
 
+    // Sanitize arrays to remove any undefined values that might cause JSON serialization errors
+    const sanitizedParentsArray = sanitizeArray(
+      parentsArray,
+      `markdown file parentsArray for slug: ${slug}`,
+      logger.warn
+    )
+
     return {
       props: {
         mdFileExists,
         sectionSelected,
-        parentsArray,
+        parentsArray: sanitizedParentsArray,
         slug,
         pagination,
         isListed,
