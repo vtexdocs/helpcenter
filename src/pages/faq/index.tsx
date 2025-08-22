@@ -79,7 +79,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
       curr: 1,
       total: Math.ceil(filteredResult.length / itemsPerPage),
     })
-  }, [filteredResult.length])
+  }, [filteredResult])
 
   const paginatedResult = usePagination<FaqCardDataElement>(
     itemsPerPage,
@@ -246,11 +246,7 @@ export const getStaticProps: GetStaticProps = async ({
 
         const frontmatter = await parseFrontmatter(content, logger)
 
-        if (
-          frontmatter &&
-          (frontmatter.status === 'PUBLISHED' ||
-            frontmatter.status === 'CHANGED')
-        ) {
+        if (frontmatter) {
           return {
             title: String(frontmatter.title),
             slug,
