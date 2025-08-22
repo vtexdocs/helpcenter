@@ -193,15 +193,25 @@ export const getStaticProps: GetStaticProps = async ({
     for (const { content, slug } of batchResults) {
       if (!content) continue
       const frontmatter = await parseFrontmatter(content, logger)
-      if (frontmatter && (frontmatter.status == 'PUBLISHED' || 'CHANGED')) {
-        announcementsData.push({
+      // Only include published or changed announcements
+      if (
+        frontmatter &&
+        (frontmatter.status === 'PUBLISHED' || frontmatter.status === 'CHANGED')
+      ) {
+        const base: AnnouncementDataElement = {
           title: String(frontmatter.title),
           url: `announcements/${slug}`,
           createdAt: String(frontmatter.createdAt),
           updatedAt: String(frontmatter.updatedAt),
           status: String(frontmatter.status),
-          synopsis: getAnnouncementSynopsis(frontmatter, currentLocale),
-        })
+        }
+
+        const synopsis = getAnnouncementSynopsis(frontmatter, currentLocale)
+        if (synopsis !== undefined) {
+          base.synopsis = synopsis
+        }
+
+        announcementsData.push(base)
       }
     }
   }
