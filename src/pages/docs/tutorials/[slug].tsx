@@ -194,7 +194,13 @@ export const getStaticProps: GetStaticProps = async ({
     docsPathsGLOBAL,
   })
 
-  const isCategoryCover = slug.startsWith('category-')
+  const { keyPath, flattenedSidebar, sidebarfallback } =
+    await getSidebarMetadata(sectionSelected, slug)
+  const tutorialCategories = jp.query(
+    sidebarfallback,
+    `$..[?(@.type=="category")].slug.*`
+  )
+  const isCategoryCover = tutorialCategories.includes(slug)
 
   //Se não existe o arquivo md para a slug e não é capa de categoria, retorna 404
   if (!mdFileExists && !isCategoryCover) {
@@ -203,9 +209,6 @@ export const getStaticProps: GetStaticProps = async ({
     )
     return { notFound: true }
   }
-
-  const { keyPath, flattenedSidebar, sidebarfallback } =
-    await getSidebarMetadata(sectionSelected, slug)
 
   //Se existe o arquivo md, mas apenas para outro locale, redireciona
   if (!mdFileExistsForCurrentLocale && !isCategoryCover) {

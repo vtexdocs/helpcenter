@@ -5,8 +5,10 @@ import FeedbackSection from 'components/feedback-section'
 
 import styles from 'styles/documentation-page'
 import ArticlePagination from 'components/article-pagination'
+import { useIntl } from 'react-intl'
 
 const TutorialIndexing = ({ ...props }) => {
+  const intl = useIntl()
   return (
     <Flex sx={styles.innerContainer}>
       <Box sx={styles.articleBox}>
@@ -23,7 +25,10 @@ const TutorialIndexing = ({ ...props }) => {
               </Box>
               <Box sx={styles.indexContainer}>
                 <Text sx={{ fontSize: '22px', pt: '32px' }}>
-                  In this section
+                  {intl.formatMessage({
+                    id: 'tutorials.in_this_section',
+                    defaultMessage: 'In this section',
+                  })}
                 </Text>
                 <Flex sx={styles.linksContainer}>
                   {props?.children?.map(

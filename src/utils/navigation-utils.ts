@@ -77,11 +77,14 @@ export const getChildren = (
   childrenArray: string[] = []
 ): string[] => {
   const childrenBasePath = path?.split('slug')[0] + 'children.'
-  const desiredData = locale ? `${data}.${locale}` : data
+  const desiredData = `${data}.${locale}`
 
   for (let i = 0; i < 100; i++) {
     const completePath = `${childrenBasePath}${i}.${desiredData}`
-    const value = flattenedSidebar[completePath]
+    let value = flattenedSidebar[completePath]
+    if (value == undefined) {
+      value = flattenedSidebar[`${childrenBasePath}${i}.${data}`]
+    }
     if (!value) {
       // Log if we're breaking due to undefined/null/empty value
       if (i === 0) {
