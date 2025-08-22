@@ -29585,8 +29585,8 @@
             {
               "name": {
                 "en": "I received the message error \"the limit of activated calculators has been reached\". What to do?",
-                "pt": "Recebi a mensagem de erro ",
-                "es": "He recibido el mensaje de error "
+                "pt": "Recebi a mensagem de erro \"the limit of activated calculators has been reached\". O que fazer?",
+                "es": "He recibido el mensaje de error \"the limit of activated calculators has been reached\". Que hacer?"
               },
               "slug": {
                 "en": "i-received-the-message-error-the-limit-of-activated-calculators-has-been-reached-what-to-do",
@@ -29795,8 +29795,8 @@
             {
               "name": {
                 "en": "Why is “Let me know” not showing?",
-                "pt": "Por que não aparece o ",
-                "es": "¿Por qué no aparece el "
+                "pt": "Por que não aparece o \"Avise-me\"?",
+                "es": "¿Por qué no aparece el \"Avíseme\"?"
               },
               "slug": {
                 "en": "why-is-let-me-know-not-showing",
@@ -29885,8 +29885,8 @@
             {
               "name": {
                 "en": "Why is the \"thumb\" image of poor quality?",
-                "pt": "Por que a imagem ",
-                "es": "¿Por qué la imagen "
+                "pt": "Por que a imagem \"thumb\" está em baixa qualidade?",
+                "es": "¿Por qué la imagen \"thumb\" está en baja calidad?"
               },
               "slug": {
                 "en": "why-is-the-thumb-image-of-poor-quality",
@@ -29998,8 +29998,8 @@
             {
               "name": {
                 "en": "What to do when the \"Notify me\" option is not displayed",
-                "pt": "O que fazer quando o ",
-                "es": "Qué hacer cuando no aparece la opción Avísame"
+                "pt": "O que fazer quando o \"Avise-me\" não está sendo exibido",
+                "es": "Qué hacer cuando no aparece la opción \"Avísame\""
               },
               "slug": {
                 "en": "what-to-do-when-the-notify-me-option-is-not-displayed",
@@ -30085,8 +30085,8 @@
             {
               "name": {
                 "en": "\"Invalid header signature\" error when trying to import freight spreadsheet",
-                "pt": "Erro ",
-                "es": "Error "
+                "pt": "Erro \"Invalid header signature\" ao tentar importar planilha de frete",
+                "es": "Error \"Invalid header signature\" al intentar importar la plantilla de flete"
               },
               "slug": {
                 "en": "erro-invalid-header-signature-ao-tentar-importar-planilha-de-frete",
@@ -30100,8 +30100,8 @@
             {
               "name": {
                 "en": "Error \"object reference not set to an instance of an object\" when uploading a freight spreadsheet",
-                "pt": "Erro ",
-                "es": "Error "
+                "pt": "Erro \"object reference not set to an instance of an object\" ao tentar importar planilha de frete",
+                "es": "Error \"object reference not set to an instance of an object\" al intentar hacer el upload de una plantilla de flete"
               },
               "slug": {
                 "en": "erro-object-reference-not-set-to-an-instance-of-an-object-ao-tentar",
@@ -30175,8 +30175,8 @@
             {
               "name": {
                 "en": "Order is locked in \"Ready for Handling\", what should I do?",
-                "pt": "Pedido está travado em ",
-                "es": "Pedido está trabado en "
+                "pt": "Pedido está travado em \"Pronto para manuseio\", o que fazer?",
+                "es": "Pedido está trabado en \"Listo para preparación\", ¿qué se hace?"
               },
               "slug": {
                 "en": "order-is-locked-in-ready-for-handling-what-should-i-do",
@@ -30399,9 +30399,9 @@
             },
             {
               "name": {
-                "en": "Why has my order stopped on “Ready for Handling”?",
-                "pt": "Por que meu pedido está parado em ",
-                "es": "¿Por qué está mi pedido parado en  "
+                "en": "Why has my order stopped on \"Ready for Handling\"?",
+                "pt": "Por que meu pedido está parado em \"Preparando entrega\"?",
+                "es": "¿Por qué está mi pedido parado en \"Listo para preparar\"?"
               },
               "slug": {
                 "en": "why-has-my-order-stopped-on-ready-for-handling",
@@ -30574,8 +30574,8 @@
             {
               "name": {
                 "en": "Checkout with \"store not found\" error. What to do?",
-                "pt": "Checkout com erro ",
-                "es": "Checkout con error "
+                "pt": "Checkout com erro \"loja não encontrada\". O que fazer?",
+                "es": "Checkout con error \"tienda no encontrada\". ¿Que hacer?"
               },
               "slug": {
                 "en": "checkout-with-store-not-found-error",
