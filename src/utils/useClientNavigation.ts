@@ -15,16 +15,10 @@ export function useClientNavigation() {
       try {
         setLoading(true)
 
-        // Option 1: Dynamic import (preferred for static files)
-        const navigationModule = (await import(
-          '../../public/navigation.json'
-        )) as NavigationData
-        setNavigation(navigationModule.navbar)
-
-        // Option 2: API call (alternative approach)
-        // const response = await fetch('/api/navigation')
-        // const data = await response.json()
-        // setNavigation(data.navbar)
+        // Fetch via API route to unify source (env URL or filesystem)
+        const response = await fetch('/api/navigation')
+        const data = (await response.json()) as NavigationData
+        setNavigation(data.navbar)
       } catch (err) {
         console.error('Failed to load navigation:', err)
         setError(

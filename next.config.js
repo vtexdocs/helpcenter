@@ -39,7 +39,9 @@ const nextConfig = {
     return config
   },
   env: {
-    navigationJsonUrl: 'https://newhelp.vtex.com/navigation.json',
+    // Source navigation from help-center-content repo by default
+    navigationJsonUrl:
+      'https://raw.githubusercontent.com/vtexdocs/help-center-content/main/public/navigation.json',
     contentOrg: '',
     contentRepo: '',
     contentBranch: '',
