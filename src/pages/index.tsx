@@ -92,13 +92,15 @@ export const getStaticProps: GetStaticProps = async ({
   if (!docsPathsGLOBAL) {
     docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
   }
-  const slugs = Object.keys(docsPathsGLOBAL).slice(-5)
+  // Consider all slugs and stop once we collect enough items for the homepage
+  const slugs = Object.keys(docsPathsGLOBAL).reverse()
 
   const batchSize = 5
 
   const announcementsData: AnnouncementDataElement[] = []
+  let done = false
 
-  for (let i = 0; i < slugs.length; i += batchSize) {
+  for (let i = 0; i < slugs.length && !done; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
     const batchResults = await fetchBatch(
       batch,
@@ -112,7 +114,10 @@ export const getStaticProps: GetStaticProps = async ({
     for (const { content, slug } of batchResults) {
       if (!content) continue
       const frontmatter = await parseFrontmatter(content, logger)
-      if (frontmatter && (frontmatter.status == 'PUBLISHED' || 'CHANGED')) {
+      if (
+        frontmatter &&
+        (frontmatter.status === 'PUBLISHED' || frontmatter.status === 'CHANGED')
+      ) {
         announcementsData.push({
           title: String(frontmatter.title),
           url: `announcements/${slug}`,
@@ -120,6 +125,10 @@ export const getStaticProps: GetStaticProps = async ({
           updatedAt: String(frontmatter.updatedAt),
           status: String(frontmatter.status),
         })
+        if (announcementsData.length >= 5) {
+          done = true
+          break
+        }
       }
     }
   }
