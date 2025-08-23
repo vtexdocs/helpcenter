@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.14](https://github.com/vtexdocs/helpcenter/compare/v0.9.13...v0.9.14) (2025-08-23)
+
+
+### Features
+
+* **navigation:** fetch from help-center-content via env URL ([ce91d00](https://github.com/vtexdocs/helpcenter/commit/ce91d00f8d3ca4a48db21184ed322efb10d23991))
+
+
+### Bug Fixes
+
+* **home:** show latest announcements first on landing timeline ([8532118](https://github.com/vtexdocs/helpcenter/commit/853211886079fe066d40531b55ff6b42480b5fc8))
+
+
+### Chore
+
+* **cache:** set nav API cache to s-maxage=300, swr=1800 ([64fbe15](https://github.com/vtexdocs/helpcenter/commit/64fbe15513d1c148aa2c29e30680bbb46c663bb5))
+
 ### [0.9.13](https://github.com/vtexdocs/helpcenter/compare/v0.9.12...v0.9.13) (2025-08-22)
 
 
