@@ -21,14 +21,14 @@ export default async function handler(
           )
         }
         const data = await response.json()
-        // Cache for 10 minutes on CDN, allow stale while revalidate
+        // Cache for 5 minutes on CDN, allow stale while revalidate for 30 minutes
         res.setHeader(
           'Cache-Control',
-          'public, s-maxage=600, stale-while-revalidate=59'
+          'public, s-maxage=300, stale-while-revalidate=1800'
         )
         res.setHeader(
           'Netlify-CDN-Cache-Control',
-          'public, s-maxage=600, stale-while-revalidate=59'
+          'public, s-maxage=300, stale-while-revalidate=1800'
         )
         return res.status(200).json(data)
       } catch (e) {
@@ -47,11 +47,11 @@ export default async function handler(
     const navigation = JSON.parse(fileContent)
     res.setHeader(
       'Cache-Control',
-      'public, s-maxage=600, stale-while-revalidate=59'
+      'public, s-maxage=300, stale-while-revalidate=1800'
     )
     res.setHeader(
       'Netlify-CDN-Cache-Control',
-      'public, s-maxage=600, stale-while-revalidate=59'
+      'public, s-maxage=300, stale-while-revalidate=1800'
     )
     return res.status(200).json(navigation)
   } catch (error) {
