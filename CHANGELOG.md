@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.15](https://github.com/vtexdocs/helpcenter/compare/v0.9.14...v0.9.15) (2025-08-25)
+
+
+### Bug Fixes
+
+* **tutorials:** fix tutorial index pages ([96c357e](https://github.com/vtexdocs/helpcenter/commit/96c357e9cd027efdea9a90d0b93dcab2dfdeafb9))
+
 ### [0.9.14](https://github.com/vtexdocs/helpcenter/compare/v0.9.13...v0.9.14) (2025-08-23)
 
 
