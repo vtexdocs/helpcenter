@@ -3,6 +3,9 @@ import type { SxStyleProp } from '@vtex/brand-ui'
 const container: SxStyleProp = {
   alignItems: 'center',
   columnGap: '16px',
+  borderTop: '1px solid #E7E9EE',
+  pt: '18px',
+  mt: '18px',
 }
 
 const titleContainer: SxStyleProp = {

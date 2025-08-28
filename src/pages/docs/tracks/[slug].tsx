@@ -1,7 +1,6 @@
 import { useEffect, useContext } from 'react'
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next' // MODIFIED: Changed GetServerSideProps to GetStaticProps
 import { Item } from '@vtexdocs/components'
-import jp from 'jsonpath'
 
 import {
   getDocsPaths as getTracksPaths,
@@ -21,7 +20,10 @@ import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
-import { getPagination } from 'utils/article-page/getPagination'
+import {
+  getPagination,
+  isCategoryCover,
+} from 'utils/article-page/getPagination'
 import { sanitizeArray } from 'utils/sanitizeArrays'
 import ArticleIndex from 'components/article-index'
 import ArticleRender from 'components/article-render'
@@ -128,20 +130,16 @@ export const getStaticProps: GetStaticProps = async ({
   const { keyPath, flattenedSidebar, sidebarfallback } =
     await getSidebarMetadata(sectionSelected, slug)
 
-  const trackCategories = jp.query(
-    sidebarfallback,
-    `$..[?(@.type=="category")].slug.*`
-  )
-  const isCategoryCover = trackCategories.includes(slug)
+  const isTrackCover = isCategoryCover(slug, sidebarfallback)
 
-  if (!mdFileExists && !isCategoryCover) {
+  if (!mdFileExists && !isTrackCover) {
     logger.warn(
       `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
     return { notFound: true }
   }
 
-  if (!mdFileExistsForCurrentLocale && !isCategoryCover) {
+  if (!mdFileExistsForCurrentLocale && !isTrackCover) {
     logger.warn(
       `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
     )
@@ -202,7 +200,7 @@ export const getStaticProps: GetStaticProps = async ({
       'tracks'
     )
 
-    if (isCategoryCover && !mdFileExists) {
+    if (isTrackCover && !mdFileExists) {
       const childrenArrayName: string[] = []
       const childrenArraySlug: string[] = []
 
@@ -297,7 +295,6 @@ export const getStaticProps: GetStaticProps = async ({
     )
 
     // Ensure parentsArray does not contain undefined values
-    parentsArray.push(slug)
     const sanitizedParentsArray = parentsArray.map((item) =>
       item === undefined ? null : item
     )
