@@ -17,8 +17,8 @@ const title: SxStyleProp = {
 }
 
 const cardsContainer: SxStyleProp = {
-  width: ['50%', '60%', '70%', '60%', '45%', '45%'],
-  justifySelf: 'center',
+  width: ['80%', '60%', '70%', '60%', '45%', '45%'],
+  margin: 'auto',
   flexWrap: 'wrap',
   gap: ['12px', '32px'],
   alignItems: 'stretch',

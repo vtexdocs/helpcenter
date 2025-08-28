@@ -165,7 +165,7 @@ export const getStaticProps: GetStaticProps = async ({
   let parentsArrayName: string[] = []
   let parentsArrayType: string[] = []
   let categoryTitle = ''
-  let pagination: ReturnType<typeof getPagination>['pagination'] | undefined
+  let pagination = {}
 
   if (isListed) {
     const {

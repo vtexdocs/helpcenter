@@ -11,7 +11,7 @@ import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
 import { getLogger } from 'utils/logging/log-util'
-import { getChildren, getParents } from 'utils/navigation-utils'
+import { computeParents, getChildren } from 'utils/navigation-utils'
 
 import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { serializeWithFallback } from 'utils/serializeWithFallback'
@@ -157,9 +157,6 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   const isListed = !!keyPath
-  const parentsArray: string[] = []
-  const parentsArrayName: string[] = []
-  const parentsArrayType: string[] = []
   const breadcrumbList: { slug: string; name: string; type: string }[] = [
     {
       slug: `/docs/tracks`,
@@ -167,68 +164,35 @@ export const getStaticProps: GetStaticProps = async ({
       type: 'markdown',
     },
   ]
-  let pagination2 = {}
+  let parentsArray: string[] = []
+  let parentsArrayName: string[] = []
+  let parentsArrayType: string[] = []
+  let categoryTitle = ''
+  let pagination = {}
 
   if (isListed) {
-    const mainKeyPath = keyPath.split('slug')[0]
-    const localizedKeyPath = `${mainKeyPath}slug.${currentLocale}`
+    const {
+      parentsArray: p,
+      parentsArrayName: pn,
+      parentsArrayType: pt,
+      categoryTitle: c,
+    } = computeParents(keyPath, flattenedSidebar, currentLocale, logger)
+    parentsArray = p
+    parentsArrayName = pn
+    parentsArrayType = pt
+    categoryTitle = c || ''
 
-    const { pagination } = getPagination({
+    parentsArray = p
+    parentsArrayName = pn
+    parentsArrayType = pt
+    categoryTitle = c || ''
+
+    pagination = getPagination({
       sidebarfallback,
       currentLocale,
       slug,
       logger,
-    })
-
-    pagination2 = pagination
-
-    getParents(
-      keyPath,
-      'name',
-      flattenedSidebar,
-      currentLocale,
-      parentsArrayName
-    )
-    getParents(
-      localizedKeyPath,
-      'slug',
-      flattenedSidebar,
-      currentLocale,
-      parentsArray
-    )
-
-    const localizedSlugKey = `${mainKeyPath}slug.${currentLocale}`
-    const localizedSlug = flattenedSidebar[localizedSlugKey]
-
-    // Debug logging for localization issues
-    if (localizedSlug === undefined) {
-      logger.warn(
-        `DEBUG: localizedSlug is undefined for keyPath: ${localizedSlugKey}, slug: ${slug}`
-      )
-      // Log available keys that start with mainKeyPath to help debug
-      const availableKeys = Object.keys(flattenedSidebar)
-        .filter((key) => key.startsWith(mainKeyPath))
-        .slice(0, 10) // Limit to first 10 to avoid spam
-      logger.warn(
-        `DEBUG: Available keys starting with ${mainKeyPath}: ${JSON.stringify(
-          availableKeys
-        )}`
-      )
-      // Also log what keyPath was found
-      logger.warn(`DEBUG: Original keyPath found: ${keyPath}`)
-    }
-
-    // Only push if localizedSlug is not undefined to avoid JSON serialization errors
-    if (localizedSlug !== undefined) {
-      parentsArray.push(localizedSlug)
-    } else {
-      logger.warn(
-        `localizedSlug is undefined for keyPath: ${localizedSlugKey}, slug: ${slug}`
-      )
-    }
-
-    const nameKeyPath = `${mainKeyPath}name.${currentLocale}`
-    const categoryTitle = flattenedSidebar[nameKeyPath]
+    }).pagination
 
     getBreadcrumbsList(
       breadcrumbList,
@@ -344,7 +308,7 @@ export const getStaticProps: GetStaticProps = async ({
         sectionSelected,
         parentsArray: sanitizedParentsArray,
         slug,
-        pagination: pagination2,
+        pagination,
         isListed,
         breadcrumbList,
         branch,
