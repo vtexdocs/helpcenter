@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.17](https://github.com/vtexdocs/helpcenter/compare/v0.9.16...v0.9.17) (2025-08-28)
+
+
+### Refactoring
+
+* **article-pagination:** improve error handling ([f5a15cc](https://github.com/vtexdocs/helpcenter/commit/f5a15cc3f0dd9008b91ba43383eacf333ca70f93))
+* **pages:** refactor content types to show category index ([11f7b9d](https://github.com/vtexdocs/helpcenter/commit/11f7b9d155e494fcfd7eb838ad9d99f4dffd04d1))
+
 ### [0.9.16](https://github.com/vtexdocs/helpcenter/compare/v0.9.15...v0.9.16) (2025-08-28)
 
 
