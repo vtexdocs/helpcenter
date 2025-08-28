@@ -13,7 +13,7 @@ import DateText from 'components/date-text'
 import Contributors from 'components/contributors'
 import OnThisPage from 'components/on-this-page'
 import { getLogger } from 'utils/logging/log-util'
-import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
+import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 import { getParents } from 'utils/navigation-utils'
 import { getMessages } from 'utils/get-messages'
 import TimeToRead from 'components/TimeToRead'
@@ -25,7 +25,7 @@ import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import FeedbackSection from 'components/feedback-section'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
-import { getSidebarMetadata } from 'utils/getSidebarMetadata'
+import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
 
 interface Props {
   breadcrumbList: { slug: string; name: string; type: string }[]

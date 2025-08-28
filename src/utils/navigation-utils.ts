@@ -1,3 +1,5 @@
+import { LoggerType } from './logging/log-util'
+
 export const flattenJSON = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   obj: any = {},
@@ -103,43 +105,58 @@ export const getChildren = (
   return childrenArray
 }
 
-export const getArticleParentsArray = (
+function safePush<T>(
+  arr: T[],
+  value: T | undefined,
+  onWarn?: (msg: string) => void,
+  warnMsg?: string
+) {
+  if (value !== undefined) arr.push(value)
+  else if (onWarn && warnMsg) onWarn(warnMsg)
+}
+
+export function computeParents(
   keyPath: string,
   flattenedSidebar: { [x: string]: string },
-  currentLocale: localeType = 'en',
-  slug: string
-): string[] => {
+  currentLocale: localeType,
+  logger: LoggerType
+) {
   const parentsArray: string[] = []
   const parentsArrayName: string[] = []
   const parentsArrayType: string[] = []
 
-  const pushSanitizedParents = (
-    key: string,
-    array: string[],
-    pathSuffix: string
-  ) => {
-    getParents(keyPath, key, flattenedSidebar, currentLocale, array)
-    const keyPathWithSuffix = keyPath.split('slug')[0].concat(pathSuffix)
-    const value = flattenedSidebar[keyPathWithSuffix]
-    // Only push non-undefined values to avoid serialization issues
-    if (value !== undefined) {
-      array.push(value)
-    } else {
-      console.warn(
-        `pushSanitizedParents: Value is undefined for keyPath: ${keyPathWithSuffix}, key: ${key}, slug: ${slug}`
-      )
-    }
-  }
+  const mainKeyPath = keyPath.split('slug')[0]
+  const localizedSlugKey = `${mainKeyPath}slug.${currentLocale}`
+  const nameKeyPath = `${mainKeyPath}name.${currentLocale}`
+  const typeKey = `${mainKeyPath}type`
 
-  getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-  parentsArray.push(slug)
-
-  const sanitizedParentsArray = parentsArray.filter(
-    (item) => item !== null && item !== undefined
+  // These mutate via provided utils to walk the tree
+  getParents(keyPath, 'name', flattenedSidebar, currentLocale, parentsArrayName)
+  getParents(
+    `${mainKeyPath}slug.${currentLocale}`,
+    'slug',
+    flattenedSidebar,
+    currentLocale,
+    parentsArray
   )
 
-  pushSanitizedParents('name', parentsArrayName, `name.${currentLocale}`)
-  pushSanitizedParents('type', parentsArrayType, 'type')
+  const localizedSlug = flattenedSidebar[localizedSlugKey]
+  if (localizedSlug === undefined) {
+    logger.warn(`localizedSlug is undefined for keyPath: ${localizedSlugKey}`)
+  }
+  safePush(parentsArray, localizedSlug)
 
-  return sanitizedParentsArray
+  const categoryTitle = flattenedSidebar[nameKeyPath]
+  if (categoryTitle === undefined) {
+    logger.warn(`categoryTitle is undefined for keyPath: ${nameKeyPath}`)
+  }
+  safePush(parentsArrayName, categoryTitle)
+
+  const typeValue = flattenedSidebar[typeKey]
+  if (typeValue === undefined) {
+    logger.warn(`typeValue is undefined for keyPath: ${typeKey}`)
+  }
+  safePush(parentsArrayType, typeValue)
+
+  return { parentsArray, parentsArrayName, parentsArrayType, categoryTitle }
 }

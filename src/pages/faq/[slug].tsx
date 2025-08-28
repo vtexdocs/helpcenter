@@ -14,7 +14,7 @@ import FeedbackSection from 'components/feedback-section'
 import Breadcrumb from 'components/breadcrumb'
 import TimeToRead from 'components/TimeToRead'
 
-import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
+import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
 import styles from 'styles/documentation-page'
@@ -32,7 +32,7 @@ import { fetchFileContributors } from 'utils/fetchFileContributors'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
-import { getSidebarMetadata } from 'utils/getSidebarMetadata'
+import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<

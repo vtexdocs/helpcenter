@@ -1,4 +1,4 @@
-import { toCamelCase } from './string-utils'
+import { toCamelCase } from '../string-utils'
 
 const HTMLBlockRegex = /<([a-z-]+)(.+?)style="([^"]+)"([^>]*)>(.*?)<\/\1>/g
 const selfClosingHTMLTagRegex = /<([a-z-]+)(.+?)style="([^"]+)"(.*?)\/>/g

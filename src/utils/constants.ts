@@ -11,6 +11,7 @@ import {
   DocDataElement,
   ResourceDataElement,
   FaqDataElement,
+  IconComponent,
 } from './typings/types'
 import { IntlShape } from 'react-intl'
 import libraryConfig from './libraryConfig'
@@ -212,11 +213,17 @@ export const faqData = (intl: IntlShape) => {
   return data
 }
 
-export const getIcon = (doc: string, intl: IntlShape) => {
-  return (
-    menuDocumentationData(intl).find((icon) => icon.title === doc)?.Icon ||
-    updatesData(intl).find((icon) => icon.title === doc)?.Icon
-  )
+export const ICON_REGISTRY: Record<string, IconComponent> = {
+  tracks: StartHereIcon,
+  tutorials: TutorialsIcon,
+  announcements: MegaphoneIcon,
+  faq: FAQIcon,
+  'known-issues': WarningIcon,
+  troubleshooting: TroubleshootingIcon,
+}
+
+export const getIcon = (categoryId: string): IconComponent => {
+  return ICON_REGISTRY[categoryId] || TutorialsIcon
 }
 
 export const resources = (intl: IntlShape) => {

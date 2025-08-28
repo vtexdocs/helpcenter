@@ -1,8 +1,7 @@
 import { serialize } from 'next-mdx-remote/serialize'
 import getReleasePaths from './getReleasePaths'
 import getGithubFile from './getGithubFile'
-import replaceHTMLBlocks from './replaceHTMLBlocks'
-import replaceMagicBlocks from './replaceMagicBlocks'
+import replaceHTMLBlocks from './article-page/replaceHTMLBlocks'
 import { UpdateElement } from './typings/types'
 import { ActionType } from 'components/announcement-timeline-card/functions'
 import { getLogger } from 'utils/logging/log-util'
@@ -37,14 +36,12 @@ export default async function getReleasesData(branch = 'main', locale: string) {
     releases.map(async (release) => {
       try {
         releasesContent.push(
-          await replaceMagicBlocks(
-            replaceHTMLBlocks(
-              await getGithubFile(
-                'vtexdocs',
-                'help-center-content',
-                branch,
-                release
-              )
+          await replaceHTMLBlocks(
+            await getGithubFile(
+              'vtexdocs',
+              'help-center-content',
+              branch,
+              release
             )
           )
         )
