@@ -1,5 +1,5 @@
-import getNavigation from './getNavigation'
-import { flattenJSON, getKeyByValue } from './navigation-utils'
+import getNavigation from '../getNavigation'
+import { flattenJSON, getKeyByValue } from '../navigation-utils'
 
 export async function getSidebarMetadata(
   sectionSelected: string,

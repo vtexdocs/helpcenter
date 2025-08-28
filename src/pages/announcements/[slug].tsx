@@ -13,7 +13,7 @@ import OnThisPage from 'components/on-this-page'
 import { Item, TableOfContents } from '@vtexdocs/components'
 
 import getNavigation from 'utils/getNavigation'
-import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
+import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
 import styles from 'styles/announcement-page'

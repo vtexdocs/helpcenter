@@ -2,28 +2,10 @@ import { capitalizeFirstLetter } from 'utils/string-utils'
 import { getIcon } from 'utils/constants'
 
 import { DocumentProps } from 'components/documentation-card'
-import { useIntl } from 'react-intl'
-
-const getDoctype = (category: string) => {
-  switch (category) {
-    case 'Tutorials':
-      return 'Tutorials'
-    case 'Start here':
-      return 'Start here'
-    case 'News':
-      return 'News'
-    case 'Known Issues':
-      return 'Known Issues'
-    case 'FAQs':
-      return 'FAQs'
-    default:
-      return 'Tutorials'
-  }
-}
 
 const getTitleFromUrl = (url: string) => {
   const words = url.split('#')[0].split('-')
-  return `${words.map(capitalizeFirstLetter).join(' ').replace('Api', 'API')}`
+  return `${words.map(capitalizeFirstLetter).join(' ')}`
 }
 
 export const createDocFromUrl = (doc: {
@@ -31,8 +13,7 @@ export const createDocFromUrl = (doc: {
   title: string
   category: string
 }): DocumentProps => {
-  const intl = useIntl()
-  const Icon = getIcon(getDoctype(doc.category), intl)!
+  const Icon = getIcon(doc.category)
   const title = getTitleFromUrl(doc.title)
 
   return {

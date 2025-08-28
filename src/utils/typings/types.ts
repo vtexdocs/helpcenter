@@ -3,6 +3,9 @@ import { IconProps } from '@vtex/brand-ui'
 
 import { ActionType } from 'components/announcement-timeline-card/functions'
 import { UpdatesTitle, ResourceTitle } from './unionTypes'
+import { MarkDownProps } from 'components/article-render'
+import { Item } from '@vtexdocs/components'
+import { ArticleIndexingProps } from 'components/article-index'
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type Page<P = {}, IP = P> = NextPage<P, IP> & {
@@ -112,3 +115,48 @@ export type TroubleshootingDataElement = {
   updatedAt: string
   status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }
+
+export type ArticlePageProps =
+  | {
+      sectionSelected: string
+      slug: string
+      parentsArray: string[] | null[]
+      // path: string
+      isListed: boolean
+      branch: string
+      pagination: {
+        previousDoc: {
+          slug: string | null
+          name: string | null
+        }
+        nextDoc: {
+          slug: string | null
+          name: string | null
+        }
+      }
+      breadcrumbList: { slug: string; name: string; type: string }[]
+      mdFileExists: true
+      componentProps: MarkDownProps
+      headingList: Item[]
+    }
+  | {
+      sectionSelected: string
+      slug: string
+      parentsArray: string[] | null[]
+      isListed: boolean
+      branch: string
+      pagination: {
+        previousDoc: {
+          slug: string | null
+          name: string | null
+        }
+        nextDoc: {
+          slug: string | null
+          name: string | null
+        }
+      }
+      breadcrumbList: { slug: string; name: string; type: string }[]
+      mdFileExists: false
+      componentProps: ArticleIndexingProps
+      headingList?: Item[]
+    }

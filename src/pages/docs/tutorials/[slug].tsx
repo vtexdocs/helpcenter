@@ -1,33 +1,32 @@
 import { useEffect, useContext } from 'react'
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next'
-import jp from 'jsonpath'
-
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-
 import { Item } from '@vtexdocs/components'
 
-import getGithubFile from 'utils/getGithubFile'
 import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
-import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
+import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
-import { ContributorsType } from 'utils/getFileContributors'
-
 import { getLogger } from 'utils/logging/log-util'
-import { getChildren, getParents } from 'utils/navigation-utils'
+import { computeParents, getChildren } from 'utils/navigation-utils'
 
-import TutorialIndexing from 'components/tutorial-index'
-import TutorialMarkdownRender from 'components/tutorial-markdown-render'
-import { getBreadcrumbsList } from 'utils/getBreadcrumbsList'
+import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { serializeWithFallback } from 'utils/serializeWithFallback'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
-import { getSidebarMetadata } from 'utils/getSidebarMetadata'
+import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import { sanitizeArray } from 'utils/sanitizeArrays'
+import ArticleIndexing from 'components/article-index'
+import ArticleRender from 'components/article-render'
+import {
+  getPagination,
+  isCategoryCover,
+} from 'utils/article-page/getPagination'
+import { ArticlePageProps } from 'utils/typings/types'
+import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
+import { getMessages } from 'utils/get-messages'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -35,78 +34,9 @@ const docsPathsGLOBAL: Record<
   { locale: string; path: string }[]
 > | null = null
 
-interface TutorialIndexingDataI {
-  name: string
-  children: { name: string; slug: string }[]
-  hidePaginationPrevious: boolean
-  hidePaginationNext: boolean
-}
-
-interface TutorialIndexingProps {
-  tutorialData: TutorialIndexingDataI
-}
-
-interface MarkDownProps {
-  // sectionSelected: string
-  content: string
-  serialized: MDXRemoteSerializeResult
-  contributors: ContributorsType[]
-  path: string
-  headingList: Item[]
-  seeAlsoData: {
-    url: string
-    title: string
-    category: string
-  }[]
-}
-
-type Props =
-  | {
-      sectionSelected: string
-      slug: string
-      parentsArray: string[] | null[]
-      // path: string
-      isListed: boolean
-      branch: string
-      pagination: {
-        previousDoc: {
-          slug: string | null
-          name: string | null
-        }
-        nextDoc: {
-          slug: string | null
-          name: string | null
-        }
-      }
-      breadcrumbList: { slug: string; name: string; type: string }[]
-      mdFileExists: true
-      componentProps: MarkDownProps
-      headingList: Item[]
-    }
-  | {
-      sectionSelected: string
-      slug: string
-      parentsArray: string[] | null[]
-      isListed: boolean
-      branch: string
-      pagination: {
-        previousDoc: {
-          slug: string | null
-          name: string | null
-        }
-        nextDoc: {
-          slug: string | null
-          name: string | null
-        }
-      }
-      breadcrumbList: { slug: string; name: string; type: string }[]
-      mdFileExists: false
-      componentProps: TutorialIndexingProps
-      headingList?: Item[]
-    }
-
-const TutorialPage: NextPage<Props> = ({
+const TutorialPage: NextPage<ArticlePageProps> = ({
   mdFileExists,
+  sectionSelected,
   slug,
   isListed,
   branch,
@@ -122,7 +52,8 @@ const TutorialPage: NextPage<Props> = ({
   }, [componentProps])
 
   return mdFileExists === true ? (
-    <TutorialMarkdownRender
+    <ArticleRender
+      type={sectionSelected}
       breadcrumbList={breadcrumbList}
       pagination={pagination}
       isListed={isListed}
@@ -137,13 +68,13 @@ const TutorialPage: NextPage<Props> = ({
       path={componentProps.path}
     />
   ) : (
-    <TutorialIndexing
+    <ArticleIndexing
       breadcrumbList={breadcrumbList}
-      name={componentProps?.tutorialData?.name ?? ''}
-      children={componentProps?.tutorialData?.children}
-      hidePaginationNext={componentProps?.tutorialData?.hidePaginationNext}
+      name={componentProps?.articleData?.name ?? ''}
+      children={componentProps?.articleData?.children}
+      hidePaginationNext={componentProps?.articleData?.hidePaginationNext}
       hidePaginationPrevious={
-        componentProps?.tutorialData?.hidePaginationPrevious
+        componentProps?.articleData?.hidePaginationPrevious
       }
       isListed={isListed}
       slug={slug}
@@ -196,14 +127,11 @@ export const getStaticProps: GetStaticProps = async ({
 
   const { keyPath, flattenedSidebar, sidebarfallback } =
     await getSidebarMetadata(sectionSelected, slug)
-  const tutorialCategories = jp.query(
-    sidebarfallback,
-    `$..[?(@.type=="category")].slug.*`
-  )
-  const isCategoryCover = tutorialCategories.includes(slug)
+
+  const isTutorialCategory = isCategoryCover(slug, sidebarfallback)
 
   //Se não existe o arquivo md para a slug e não é capa de categoria, retorna 404
-  if (!mdFileExists && !isCategoryCover) {
+  if (!mdFileExists && !isTutorialCategory) {
     logger.warn(
       `Markdown file not found: slug=${slug}, locale=${currentLocale}, branch=${branch}`
     )
@@ -211,7 +139,7 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   //Se existe o arquivo md, mas apenas para outro locale, redireciona
-  if (!mdFileExistsForCurrentLocale && !isCategoryCover) {
+  if (!mdFileExistsForCurrentLocale && !isTutorialCategory) {
     logger.warn(
       `Localized path missing for slug=${slug}, redirecting to available locale`
     )
@@ -226,124 +154,51 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   const isListed = !!keyPath
-  const parentsArray: string[] = []
-  const parentsArrayName: string[] = []
-  const parentsArrayType: string[] = []
+  const breadcrumbList: { slug: string; name: string; type: string }[] = [
+    {
+      slug: `/docs/tutorials`,
+      name: getMessages()[currentLocale]['documentation_tutorials.title'],
+      type: 'markdown',
+    },
+  ]
+  let parentsArray: string[] = []
+  let parentsArrayName: string[] = []
+  let parentsArrayType: string[] = []
   let categoryTitle = ''
-  let breadcrumbList: { slug: string; name: string; type: string }[] = []
-  let pagination = {}
+  let pagination: ReturnType<typeof getPagination>['pagination'] | undefined
 
   if (isListed) {
-    const mainKeyPath = keyPath.split('slug')[0]
-    const localizedKeyPath = `${mainKeyPath}slug.${currentLocale}`
+    const {
+      parentsArray: p,
+      parentsArrayName: pn,
+      parentsArrayType: pt,
+      categoryTitle: c,
+    } = computeParents(keyPath, flattenedSidebar, currentLocale, logger)
+    parentsArray = p
+    parentsArrayName = pn
+    parentsArrayType = pt
+    categoryTitle = c || ''
 
-    getParents(
-      keyPath,
-      'name',
-      flattenedSidebar,
-      currentLocale,
-      parentsArrayName
-    )
-    getParents(
-      localizedKeyPath,
-      'slug',
-      flattenedSidebar,
-      currentLocale,
-      parentsArray
-    )
-    const localizedSlugKey = `${mainKeyPath}slug.${currentLocale}`
-    const localizedSlug = flattenedSidebar[localizedSlugKey]
+    parentsArray = p
+    parentsArrayName = pn
+    parentsArrayType = pt
+    categoryTitle = c || ''
 
-    // Debug logging for localization issues
-    if (localizedSlug === undefined) {
-      logger.warn(
-        `DEBUG: localizedSlug is undefined for keyPath: ${localizedSlugKey}, slug: ${slug}`
-      )
-      // Log available keys that start with mainKeyPath to help debug
-      const availableKeys = Object.keys(flattenedSidebar)
-        .filter((key) => key.startsWith(mainKeyPath))
-        .slice(0, 10) // Limit to first 10 to avoid spam
-      logger.warn(
-        `DEBUG: Available keys starting with ${mainKeyPath}: ${JSON.stringify(
-          availableKeys
-        )}`
-      )
-      // Also log what keyPath was found
-      logger.warn(`DEBUG: Original keyPath found: ${keyPath}`)
-    }
-
-    // Only push if localizedSlug is not undefined to avoid JSON serialization errors
-    if (localizedSlug !== undefined) {
-      parentsArray.push(localizedSlug)
-    } else {
-      logger.warn(
-        `localizedSlug is undefined for keyPath: ${localizedSlugKey}, slug: ${slug}`
-      )
-    }
-
-    const nameKeyPath = `${mainKeyPath}name.${currentLocale}`
-    categoryTitle = flattenedSidebar[nameKeyPath]
-    // Only push if categoryTitle is not undefined
-    if (categoryTitle !== undefined) {
-      parentsArrayName.push(categoryTitle)
-    } else {
-      logger.warn(
-        `categoryTitle is undefined for keyPath: ${nameKeyPath}, slug: ${slug}`
-      )
-    }
-    const typeValue = flattenedSidebar[`${mainKeyPath}type`]
-    // Only push if typeValue is not undefined
-    if (typeValue !== undefined) {
-      parentsArrayType.push(typeValue)
-    } else {
-      logger.warn(
-        `typeValue is undefined for keyPath: ${mainKeyPath}type, slug: ${slug}`
-      )
-    }
-
-    breadcrumbList = getBreadcrumbsList(
+    getBreadcrumbsList(
+      breadcrumbList,
       parentsArray,
       parentsArrayName,
       parentsArrayType,
-      'tutorials'
+      'tracks'
     )
-    breadcrumbList.unshift({
-      slug: '/docs/tutorials',
-      name: 'Tutorials',
-      type: 'markdown',
-    })
-    const docsListSlug = jp
-      .query(sidebarfallback, `$..[?(@.type=='markdown')]..slug`)
-      .map((s) => (typeof s === 'object' ? s[currentLocale] || s.en : s))
-      .filter(Boolean)
+    pagination = getPagination({
+      sidebarfallback,
+      currentLocale,
+      slug,
+      logger,
+    }).pagination
 
-    const docsListName = jp
-      .query(sidebarfallback, `$..[?(@.type=='markdown')]..name`)
-      .map((n) => (typeof n === 'object' ? n : { [currentLocale]: n }))
-
-    const index = docsListSlug.indexOf(slug)
-    pagination = {
-      previousDoc:
-        index > 0
-          ? {
-              slug: docsListSlug[index - 1],
-              name:
-                docsListName[index - 1]?.[currentLocale] ||
-                docsListName[index - 1]?.en,
-            }
-          : { slug: null, name: null },
-      nextDoc:
-        index < docsListSlug.length - 1
-          ? {
-              slug: docsListSlug[index + 1],
-              name:
-                docsListName[index + 1]?.[currentLocale] ||
-                docsListName[index + 1]?.en,
-            }
-          : { slug: null, name: null },
-    }
-
-    if (isCategoryCover && !mdFileExists) {
+    if (isTutorialCategory && !mdFileExists) {
       const childrenArrayName: string[] = []
       const childrenArraySlug: string[] = []
 
@@ -367,12 +222,6 @@ export const getStaticProps: GetStaticProps = async ({
         name,
       }))
 
-      const previousDoc = breadcrumbList[breadcrumbList.length - 2] ?? {
-        slug: null,
-        name: null,
-      }
-      const nextDoc = childrenList[0] ?? { slug: null, name: null }
-
       logger.info(`Generating category cover for: ${slug}`)
 
       // Sanitize arrays to remove any undefined values that might cause JSON serialization errors
@@ -388,12 +237,12 @@ export const getStaticProps: GetStaticProps = async ({
           sectionSelected,
           parentsArray: sanitizedParentsArray,
           slug,
-          pagination: { previousDoc, nextDoc },
+          pagination,
           isListed,
           breadcrumbList,
           branch,
           componentProps: {
-            tutorialData: {
+            articleData: {
               name: categoryTitle || slug,
               children: childrenList,
               hidePaginationPrevious: breadcrumbList.length < 2,
@@ -434,53 +283,11 @@ export const getStaticProps: GetStaticProps = async ({
       return { notFound: true }
     }
 
-    const seeAlsoData = await Promise.all(
-      (Array.isArray(serialized?.frontmatter?.seeAlso)
-        ? serialized?.frontmatter.seeAlso
-        : [serialized?.frontmatter?.seeAlso]
-      )
-        .filter(Boolean)
-        .map(async (url: string) => {
-          const key = url.split('/')[3]
-          const seeAlsoPath = docsPaths[key]?.find(
-            (e) => e.locale === currentLocale
-          )?.path
-
-          if (!seeAlsoPath) {
-            return {
-              url,
-              title: key,
-              category: url.split('/')[2],
-            }
-          }
-
-          try {
-            const seeAlsoContent = await getGithubFile(
-              'vtexdocs',
-              'help-center-content',
-              'main',
-              seeAlsoPath
-            )
-            const seeAlsoSerialized = await serialize(seeAlsoContent, {
-              parseFrontmatter: true,
-            })
-            return {
-              url,
-              title: seeAlsoSerialized.frontmatter?.title || key,
-              category:
-                seeAlsoSerialized.frontmatter?.category || url.split('/')[2],
-            }
-          } catch (error) {
-            logger.error(
-              `Failed to load seeAlso content for ${seeAlsoPath}: ${error}`
-            )
-            return {
-              url,
-              title: key,
-              category: url.split('/')[2],
-            }
-          }
-        })
+    const seeAlsoData = await getSeeAlsoData(
+      serialized?.frontmatter?.seeAlso as string[],
+      docsPaths,
+      currentLocale,
+      logger
     )
 
     logger.info(`Generating markdown file for: ${slug}`)

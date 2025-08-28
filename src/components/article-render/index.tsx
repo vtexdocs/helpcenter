@@ -16,7 +16,7 @@ import { ContributorsType } from 'utils/getFileContributors'
 import CopyLinkButton from 'components/copy-link-button'
 import TimeToRead from 'components/TimeToRead'
 
-interface Props {
+export interface MarkDownProps {
   content: string
   serialized: MDXRemoteSerializeResult
   contributors: ContributorsType[]
@@ -42,9 +42,10 @@ interface Props {
   }
   breadcrumbList: { slug: string; name: string; type: string }[]
   headings: Item[]
+  type: string
 }
 
-const TutorialMarkdownRender = ({
+const ArticleRender = ({
   serialized,
   isListed,
   headings,
@@ -54,11 +55,12 @@ const TutorialMarkdownRender = ({
   seeAlsoData,
   pagination,
   slug,
-}: Props) => {
+  type,
+}: MarkDownProps) => {
   return (
     <>
       <Head>
-        <meta name="docsearch:doctype" content="tutorials" />
+        <meta name="docsearch:doctype" content={type} />
         {serialized?.frontmatter?.title && (
           <>
             <title>{serialized?.frontmatter?.title as string}</title>
@@ -149,4 +151,4 @@ const TutorialMarkdownRender = ({
   )
 }
 
-export default TutorialMarkdownRender
+export default ArticleRender

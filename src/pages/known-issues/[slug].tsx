@@ -13,7 +13,7 @@ import { Item, TableOfContents } from '@vtexdocs/components'
 import Breadcrumb from 'components/breadcrumb'
 import TimeToRead from 'components/TimeToRead'
 
-import replaceHTMLBlocks from 'utils/replaceHTMLBlocks'
+import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 
 import styles from 'styles/documentation-page'
 import { ContributorsType } from 'utils/getFileContributors'
@@ -34,7 +34,7 @@ import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import { resolveSlugFromKiFormat } from 'utils/resolveSlugFromKiFormat'
-import { getSidebarMetadata } from 'utils/getSidebarMetadata'
+import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
