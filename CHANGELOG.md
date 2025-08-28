@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.16](https://github.com/vtexdocs/helpcenter/compare/v0.9.15...v0.9.16) (2025-08-28)
+
+
+### Bug Fixes
+
+* **pages:** pagination ([56847c1](https://github.com/vtexdocs/helpcenter/commit/56847c1cac14a04d8ae6442318e832483c94886f))
+
+
+### Refactoring
+
+* **pages:** reorganize code for better legibility and fix bugs ([f79347a](https://github.com/vtexdocs/helpcenter/commit/f79347a73ad3e4360d9cf7c6bda5e311e39b9e64))
+
 ### [0.9.15](https://github.com/vtexdocs/helpcenter/compare/v0.9.14...v0.9.15) (2025-08-25)
 
 
