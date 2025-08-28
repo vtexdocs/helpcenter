@@ -15,6 +15,8 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { ContributorsType } from 'utils/getFileContributors'
 import CopyLinkButton from 'components/copy-link-button'
 import TimeToRead from 'components/TimeToRead'
+import DateText from 'components/date-text'
+import Author from 'components/author'
 
 export interface MarkDownProps {
   content: string
@@ -30,7 +32,7 @@ export interface MarkDownProps {
   slug: string
   isListed: boolean
   branch: string
-  pagination: {
+  pagination?: {
     previousDoc: {
       slug: string | null
       name: string | null
@@ -47,7 +49,6 @@ export interface MarkDownProps {
 
 const ArticleRender = ({
   serialized,
-  isListed,
   headings,
   breadcrumbList,
   contributors,
@@ -84,47 +85,74 @@ const ArticleRender = ({
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
+              <Breadcrumb breadcrumbList={breadcrumbList} />
               <Box sx={styles.textContainer}>
                 <article>
                   <header>
-                    <Breadcrumb breadcrumbList={breadcrumbList} />
                     <Text sx={styles.documentationTitle} className="title">
                       {serialized.frontmatter?.title}
                     </Text>
-                    <Text sx={styles.documentationExcerpt}>
-                      {serialized.frontmatter?.excerpt}
-                    </Text>
+                    {type == 'announcements' && contributors[0]?.avatar && (
+                      <Author contributor={contributors[0]} />
+                    )}
+                    {serialized.frontmatter?.excerpt && (
+                      <Text sx={styles.documentationExcerpt}>
+                        {serialized.frontmatter?.excerpt}
+                      </Text>
+                    )}
                     <Flex
                       sx={{
-                        display: 'flex',
-                        justifyContent: 'flex-end',
+                        justifyContent: 'space-between',
+                        alignItems: 'self-start',
                         marginBottom: '16px',
+                        marginTop: '4px',
                       }}
                     >
+                      <Box>
+                        {type !== 'tracks' && type !== 'tutorials' && (
+                          <Flex sx={{ alignItems: 'center' }}>
+                            <DateText
+                              createdAt={
+                                new Date(
+                                  String(serialized.frontmatter?.createdAt)
+                                )
+                              }
+                              updatedAt={
+                                new Date(
+                                  String(serialized.frontmatter?.updatedAt)
+                                )
+                              }
+                            />
+                          </Flex>
+                        )}
+                        {serialized?.frontmatter?.readingTime && (
+                          <TimeToRead
+                            minutes={
+                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                              (serialized?.frontmatter?.readingTime as any)
+                                ?.text ||
+                              String(serialized?.frontmatter?.readingTime)
+                            }
+                          />
+                        )}
+                      </Box>
                       <CopyLinkButton />
                     </Flex>
                   </header>
-                  {serialized.frontmatter?.readingTime && (
-                    <TimeToRead
-                      minutes={
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        (serialized.frontmatter.readingTime as any)?.text ||
-                        String(serialized.frontmatter.readingTime)
-                      }
-                    />
-                  )}
                   <MarkdownRenderer serialized={serialized} />
                 </article>
               </Box>
             </Box>
 
-            <Box sx={styles.bottomContributorsContainer}>
-              <Box sx={styles.bottomContributorsDivider} />
-              <Contributors contributors={contributors} />
-            </Box>
+            {type !== 'announcements' && (
+              <Box sx={styles.bottomContributorsContainer}>
+                <Box sx={styles.bottomContributorsDivider} />
+                <Contributors contributors={contributors} />
+              </Box>
+            )}
 
             <FeedbackSection docPath={path} slug={slug} />
-            {isListed && (
+            {pagination && (
               <ArticlePagination
                 hidePaginationNext={
                   Boolean(serialized.frontmatter?.hidePaginationNext) || false
@@ -141,7 +169,9 @@ const ArticleRender = ({
             )}
           </Box>
           <Box sx={styles.rightContainer}>
-            <Contributors contributors={contributors} />
+            {type !== 'announcements' && (
+              <Contributors contributors={contributors} />
+            )}
             <TableOfContents headingList={headings} />
           </Box>
           <OnThisPage />

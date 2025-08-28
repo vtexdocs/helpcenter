@@ -3,7 +3,13 @@ export function getBreadcrumbsList(
   parents: string[],
   parentsNames: string[],
   parentsTypes: string[],
-  docsType: 'tutorials' | 'tracks'
+  docsType:
+    | 'tutorials'
+    | 'tracks'
+    | 'announcements'
+    | 'faq'
+    | 'known-issues'
+    | 'troubleshooting'
 ) {
   parentsNames.forEach((_el: string, idx: number) => {
     breadcrumbList.push({

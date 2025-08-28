@@ -1,31 +1,14 @@
-import Head from 'next/head'
-import { useEffect, useContext, useRef } from 'react'
+import { useEffect, useContext } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
-import { Box, Flex, Text } from '@vtex/brand-ui'
-
-import DocumentContextProvider from 'utils/contexts/documentContext'
-
-import Contributors from 'components/contributors'
-import OnThisPage from 'components/on-this-page'
-import { Item, TableOfContents } from '@vtexdocs/components'
-import FeedbackSection from 'components/feedback-section'
-import Breadcrumb from 'components/breadcrumb'
-import TimeToRead from 'components/TimeToRead'
+import { Item } from '@vtexdocs/components'
 
 import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
-import styles from 'styles/documentation-page'
-import { ContributorsType } from 'utils/getFileContributors'
-
 import { getLogger } from 'utils/logging/log-util'
-import { getParents } from 'utils/navigation-utils'
-import { MarkdownRenderer } from '@vtexdocs/components'
+import { computeParents, getChildren } from 'utils/navigation-utils'
 import { getMessages } from 'utils/get-messages'
-import DateText from 'components/date-text'
-import CopyLinkButton from 'components/copy-link-button'
 import { serializeWithFallback } from 'utils/serializeWithFallback'
 import redirectToLocalizedUrl from 'utils/redirectToLocalizedUrl'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
@@ -33,6 +16,13 @@ import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
+import { isCategoryCover } from 'utils/article-page/getPagination'
+import { sanitizeArray } from 'utils/sanitizeArrays'
+import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
+import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
+import ArticleRender from 'components/article-render'
+import ArticleIndex from 'components/article-index'
+import { ArticlePageProps } from 'utils/typings/types'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -40,127 +30,51 @@ const docsPathsGLOBAL: Record<
   { locale: string; path: string }[]
 > | null = null
 
-interface Props {
-  breadcrumbList: { slug: string; name: string; type: string }[]
-  serialized: MDXRemoteSerializeResult
-  contributors: ContributorsType[]
-  branch: string
-  path: string
-  slug: string
-  headingList: Item[]
-}
-
-const FaqPage: NextPage<Props> = ({
-  serialized,
-  contributors,
-  breadcrumbList,
-  branch,
-  path,
+const FaqPage: NextPage<ArticlePageProps> = ({
+  mdFileExists,
   slug,
+  sectionSelected,
+  isListed,
+  branch,
+  pagination,
+  breadcrumbList,
+  componentProps,
   headingList,
 }) => {
   const { setBranchPreview } = useContext(PreviewContext)
-  const articleRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     setBranchPreview(branch)
   }, [slug])
 
-  const createdAtDate = serialized.frontmatter?.createdAt
-    ? new Date(String(serialized.frontmatter?.createdAt))
-    : undefined
-
-  const updatedAtDate = serialized.frontmatter?.updatedAt
-    ? new Date(String(serialized.frontmatter?.updatedAt))
-    : undefined
-
-  return (
-    <>
-      <Head>
-        <meta name="docsearch:doctype" content="faq" />
-        {serialized.frontmatter?.title && (
-          <>
-            <title>{serialized.frontmatter?.title as string}</title>
-            <meta
-              name="docsearch:doctitle"
-              content={serialized.frontmatter.title as string}
-            />
-          </>
-        )}
-        {serialized.frontmatter?.hidden && (
-          <meta name="robots" content="noindex" />
-        )}
-        {serialized.frontmatter?.excerpt && (
-          <meta
-            property="og:description"
-            content={serialized.frontmatter?.excerpt as string}
-          />
-        )}
-      </Head>
-      <DocumentContextProvider headings={headingList}>
-        <Flex sx={styles.innerContainer}>
-          <Box sx={styles.articleBox}>
-            <Box sx={styles.contentContainer}>
-              <Box sx={styles.textContainer}>
-                <article ref={articleRef}>
-                  <header>
-                    <Breadcrumb breadcrumbList={breadcrumbList} />
-                    <Flex sx={styles.flexContainer}>
-                      <Text sx={styles.documentationTitle} className="title">
-                        {serialized.frontmatter?.title}
-                      </Text>
-                      {serialized.frontmatter?.readingTime && (
-                        <TimeToRead
-                          minutes={
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            (serialized.frontmatter.readingTime as any)?.text ||
-                            String(serialized.frontmatter.readingTime)
-                          }
-                        />
-                      )}
-
-                      {/* Verifica se as datas de criação e atualização estão disponíveis */}
-                      {createdAtDate && updatedAtDate && (
-                        <Flex sx={{ alignItems: 'center' }}>
-                          <DateText
-                            createdAt={createdAtDate}
-                            updatedAt={updatedAtDate}
-                          />
-
-                          {/* Coloca o botão à direita das datas */}
-                          <Flex
-                            sx={{
-                              display: 'flex',
-                              justifyContent: 'flex-end',
-                              alignItems: 'center',
-                              ml: 2,
-                            }}
-                          >
-                            <CopyLinkButton />
-                          </Flex>
-                        </Flex>
-                      )}
-                    </Flex>
-                  </header>
-                  <MarkdownRenderer serialized={serialized} />
-                </article>
-              </Box>
-            </Box>
-            <FeedbackSection docPath={path} slug={slug} />
-
-            <Box sx={styles.bottomContributorsContainer}>
-              <Box sx={styles.bottomContributorsDivider} />
-              <Contributors contributors={contributors} />
-            </Box>
-          </Box>
-          <Box sx={styles.rightContainer}>
-            <Contributors contributors={contributors} />
-            <TableOfContents headingList={headingList} />
-          </Box>
-          <OnThisPage />
-        </Flex>
-      </DocumentContextProvider>
-    </>
+  return mdFileExists === true ? (
+    <ArticleRender
+      type={sectionSelected}
+      breadcrumbList={breadcrumbList}
+      isListed={isListed}
+      branch={branch}
+      headings={headingList}
+      slug={slug}
+      content={componentProps.content}
+      serialized={componentProps.serialized}
+      headingList={componentProps.headingList}
+      contributors={componentProps.contributors}
+      seeAlsoData={componentProps.seeAlsoData}
+      path={componentProps.path}
+    />
+  ) : (
+    <ArticleIndex
+      breadcrumbList={breadcrumbList}
+      name={componentProps?.articleData?.name ?? ''}
+      children={componentProps?.articleData?.children}
+      hidePaginationNext={componentProps?.articleData?.hidePaginationNext}
+      hidePaginationPrevious={
+        componentProps?.articleData?.hidePaginationPrevious
+      }
+      isListed={isListed}
+      slug={slug}
+      pagination={pagination}
+    />
   )
 }
 
@@ -183,7 +97,9 @@ export const getStaticProps: GetStaticProps = async ({
     branch,
     slug,
     currentLocale,
+    docsPaths,
     mdFileExists,
+    mdFileExistsForCurrentLocale,
     mdFilePath,
   } = await extractStaticPropsParams({
     sectionSelected: 'faq',
@@ -194,17 +110,19 @@ export const getStaticProps: GetStaticProps = async ({
     docsPathsGLOBAL,
   })
 
-  if (!mdFileExists) {
+  const { keyPath, flattenedSidebar, sidebarfallback } =
+    await getSidebarMetadata(sectionSelected, slug)
+
+  const isFaqCover = isCategoryCover(slug, sidebarfallback)
+
+  if (!mdFileExists && !isFaqCover) {
     logger.warn(
       `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
     return { notFound: true }
   }
 
-  const { keyPath, flattenedSidebar, sidebarfallback } =
-    await getSidebarMetadata(sectionSelected, slug)
-
-  if (!mdFilePath) {
+  if (!mdFileExistsForCurrentLocale && !isFaqCover) {
     logger.warn(
       `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
     )
@@ -219,14 +137,100 @@ export const getStaticProps: GetStaticProps = async ({
     return { notFound: true }
   }
 
-  if (mdFileExists) {
-    const parentsArray: string[] = []
+  const isListed = !!keyPath
+  const breadcrumbList: { slug: string; name: string; type: string }[] = [
+    {
+      slug: `/faq`,
+      name: getMessages()[currentLocale]['landing_page_faq.title'],
+      type: 'markdown',
+    },
+  ]
+  let parentsArray: string[] = []
+  let parentsArrayName: string[] = []
+  let parentsArrayType: string[] = []
+  let categoryTitle = ''
 
-    if (keyPath) {
-      getParents(keyPath, 'slug', flattenedSidebar, currentLocale, parentsArray)
-      parentsArray.push(slug)
+  if (isListed) {
+    const {
+      parentsArray: p,
+      parentsArrayName: pn,
+      parentsArrayType: pt,
+      categoryTitle: c,
+    } = computeParents(keyPath, flattenedSidebar, currentLocale, logger)
+    parentsArray = p
+    parentsArrayName = pn
+    parentsArrayType = pt
+    categoryTitle = c || ''
+
+    parentsArray = p
+    parentsArrayName = pn
+    parentsArrayType = pt
+    categoryTitle = c || ''
+
+    getBreadcrumbsList(
+      breadcrumbList,
+      parentsArray,
+      parentsArrayName,
+      parentsArrayType,
+      'faq'
+    )
+  }
+
+  if (isFaqCover && !mdFileExists) {
+    const childrenArrayName: string[] = []
+    const childrenArraySlug: string[] = []
+
+    getChildren(
+      keyPath,
+      'name',
+      flattenedSidebar,
+      currentLocale,
+      childrenArrayName
+    )
+    getChildren(
+      keyPath,
+      'slug',
+      flattenedSidebar,
+      currentLocale,
+      childrenArraySlug
+    )
+
+    const childrenList = childrenArrayName.map((name, idx) => ({
+      slug: `/${currentLocale}/faq/${childrenArraySlug[idx]}`,
+      name,
+    }))
+
+    logger.info(`Generating category cover for: ${slug}`)
+
+    // Sanitize arrays to remove any undefined values that might cause JSON serialization errors
+    const sanitizedParentsArray = sanitizeArray(
+      parentsArray,
+      `category cover parentsArray for slug: ${slug}`,
+      logger.warn
+    )
+
+    return {
+      props: {
+        mdFileExists,
+        sectionSelected,
+        parentsArray: sanitizedParentsArray,
+        slug,
+        breadcrumbList,
+        branch,
+        componentProps: {
+          articleData: {
+            name: categoryTitle || slug,
+            children: childrenList,
+            hidePaginationNext: !childrenList.length,
+          },
+        },
+        locale: currentLocale,
+      },
+      revalidate: 3600,
     }
+  }
 
+  if (mdFileExists) {
     const rawContent = await fetchRawMarkdown(
       sectionSelected,
       branch,
@@ -256,38 +260,35 @@ export const getStaticProps: GetStaticProps = async ({
     )
 
     logger.info(`Processing ${slug}`)
-    const seeAlsoData: {
-      url: string
-      title: string
-      category: string
-    }[] = []
 
-    const breadcrumbList: { slug: string; name: string; type: string }[] = [
-      {
-        slug: '/faq/',
-        name: getMessages()[currentLocale]['landing_page_faq.title'],
-        type: 'category',
-      },
-      {
-        slug,
-        name: String(serialized?.frontmatter?.title) ?? '',
-        type: 'markdown',
-      },
-    ]
+    const seeAlsoData = await getSeeAlsoData(
+      serialized?.frontmatter?.seeAlso as string[],
+      docsPaths,
+      currentLocale,
+      logger
+    )
+    const sanitizedParentsArray = parentsArray.map((item) =>
+      item === undefined ? null : item
+    )
 
     return {
       props: {
+        mdFileExists,
         sectionSelected,
-        parentsArray,
+        parentsArray: sanitizedParentsArray,
         slug,
-        serialized: JSON.parse(JSON.stringify(serialized)),
-        sidebarfallback,
-        headingList,
-        contributors,
-        path: mdFilePath,
-        seeAlsoData,
+        isListed,
         breadcrumbList,
         branch,
+        componentProps: {
+          content: documentationContent,
+          serialized: JSON.parse(JSON.stringify(serialized)),
+          headingList,
+          contributors,
+          path: mdFilePath,
+          seeAlsoData,
+        },
+        locale: currentLocale,
       },
       revalidate: 600,
     }

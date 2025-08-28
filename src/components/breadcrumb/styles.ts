@@ -4,7 +4,7 @@ const breadcrumb: SxStyleProp = {
   alignItems: 'center',
   color: '#6b7785',
   mb: '24px',
-  lineHeight: '18px',
+  lineHeight: '24px',
   flexWrap: 'wrap',
 }
 

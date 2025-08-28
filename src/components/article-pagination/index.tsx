@@ -34,18 +34,18 @@ const ArticlePagination = ({
     <Box sx={styles.mainContainer}>
       <Grid sx={styles.flexContainer}>
         {!hidePaginationPrevious &&
-          pagination.previousDoc.slug &&
-          pagination.previousDoc.name && (
+          pagination?.previousDoc?.slug &&
+          pagination?.previousDoc?.name && (
             <Link
               sx={styles.paginationLinkPrevious}
-              href={pagination.previousDoc.slug}
+              href={pagination?.previousDoc?.slug}
               onClick={(e: { preventDefault: () => void }) => {
                 handleClick(e, pagination.previousDoc.slug as string)
               }}
             >
               <Box sx={styles.paginationBox}>
                 <Text sx={styles.paginationText}>
-                  {pagination.previousDoc.name}
+                  {pagination?.previousDoc?.name}
                 </Text>
                 <Text sx={styles.subTitle}>
                   {`« ${intl.formatMessage({
@@ -57,13 +57,13 @@ const ArticlePagination = ({
             </Link>
           )}
         {!hidePaginationNext &&
-          pagination.nextDoc.slug &&
-          pagination.nextDoc.name && (
+          pagination?.nextDoc?.slug &&
+          pagination?.nextDoc?.name && (
             <Link
               sx={styles.paginationLinkNext}
-              href={pagination.nextDoc.slug}
+              href={pagination?.nextDoc?.slug}
               onClick={(e: { preventDefault: () => void }) => {
-                handleClick(e, pagination.nextDoc.slug as string)
+                handleClick(e, pagination?.nextDoc?.slug as string)
               }}
             >
               <Box
@@ -74,7 +74,7 @@ const ArticlePagination = ({
                 }
               >
                 <Text sx={styles.paginationText}>
-                  {pagination.nextDoc.name}
+                  {pagination?.nextDoc?.name}
                 </Text>
                 <Text sx={styles.subTitle}>
                   {`${intl.formatMessage({

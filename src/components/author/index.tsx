@@ -10,15 +10,15 @@ interface Props {
 const Author = ({ contributor }: Props) => {
   return (
     <Flex sx={styles.container}>
-      <Box sx={styles.photo} key={contributor.login}>
+      <Box sx={styles.photo} key={contributor?.login}>
         <Image
-          src={contributor.avatar}
+          src={contributor?.avatar}
           alt="Photo of the author"
           width={32}
           height={32}
         />
       </Box>
-      <Text>{contributor.name}</Text>
+      <Text>{contributor?.name}</Text>
     </Flex>
   )
 }
