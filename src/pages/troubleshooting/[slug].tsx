@@ -192,7 +192,7 @@ export const getStaticProps: GetStaticProps = async ({
     )
 
     const childrenList = childrenArrayName.map((name, idx) => ({
-      slug: `/${currentLocale}/faq/${childrenArraySlug[idx]}`,
+      slug: `/${currentLocale}/troubleshooting/${childrenArraySlug[idx]}`,
       name,
     }))
 
