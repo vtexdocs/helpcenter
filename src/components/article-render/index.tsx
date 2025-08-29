@@ -17,6 +17,7 @@ import CopyLinkButton from 'components/copy-link-button'
 import TimeToRead from 'components/TimeToRead'
 import DateText from 'components/date-text'
 import Author from 'components/author'
+import Tag from 'components/tag'
 
 export interface MarkDownProps {
   content: string
@@ -85,7 +86,10 @@ const ArticleRender = ({
         <Flex sx={styles.innerContainer}>
           <Box sx={styles.articleBox}>
             <Box sx={styles.contentContainer}>
-              <Breadcrumb breadcrumbList={breadcrumbList} />
+              <Flex sx={{ justifyContent: 'space-between' }}>
+                <Breadcrumb breadcrumbList={breadcrumbList} />
+                <CopyLinkButton />
+              </Flex>
               <Box sx={styles.textContainer}>
                 <article>
                   <header>
@@ -100,45 +104,70 @@ const ArticleRender = ({
                         {serialized.frontmatter?.excerpt}
                       </Text>
                     )}
+                  </header>
+
+                  {type == 'known-issues' && (
                     <Flex
                       sx={{
-                        justifyContent: 'space-between',
-                        alignItems: 'self-start',
-                        marginBottom: '16px',
-                        marginTop: '4px',
+                        flexDirection: 'column',
                       }}
                     >
-                      <Box>
-                        {type !== 'tracks' && type !== 'tutorials' && (
-                          <Flex sx={{ alignItems: 'center' }}>
-                            <DateText
-                              createdAt={
-                                new Date(
-                                  String(serialized.frontmatter?.createdAt)
-                                )
-                              }
-                              updatedAt={
-                                new Date(
-                                  String(serialized.frontmatter?.updatedAt)
-                                )
-                              }
-                            />
-                          </Flex>
-                        )}
-                        {serialized?.frontmatter?.readingTime && (
-                          <TimeToRead
-                            minutes={
-                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                              (serialized?.frontmatter?.readingTime as any)
-                                ?.text ||
-                              String(serialized?.frontmatter?.readingTime)
+                      {/* Top row: ID and Tags */}
+                      <Flex
+                        sx={{
+                          alignItems: 'center',
+                          width: '100%',
+                          gap: '12px',
+                        }}
+                      >
+                        <Text>{serialized.frontmatter?.productTeam}</Text>
+                        <Text>•</Text>
+                        <Text>
+                          ID: {serialized.frontmatter?.internalReference}
+                        </Text>
+                        <Tag sx={{ marginLeft: 'auto' }}>
+                          {serialized.frontmatter?.kiStatus}
+                        </Tag>
+                      </Flex>
+                    </Flex>
+                  )}
+                  <Flex
+                    sx={{
+                      justifyContent: 'space-between',
+                      alignItems: 'self-start',
+                      marginBottom: '24px',
+                      marginTop: '4px',
+                    }}
+                  >
+                    <Box>
+                      {type !== 'tracks' && type !== 'tutorials' && (
+                        <Flex sx={{ alignItems: 'center' }}>
+                          <DateText
+                            createdAt={
+                              new Date(
+                                String(serialized.frontmatter?.createdAt)
+                              )
+                            }
+                            updatedAt={
+                              new Date(
+                                String(serialized.frontmatter?.updatedAt)
+                              )
                             }
                           />
-                        )}
-                      </Box>
-                      <CopyLinkButton />
-                    </Flex>
-                  </header>
+                        </Flex>
+                      )}
+                      {serialized?.frontmatter?.readingTime && (
+                        <TimeToRead
+                          minutes={
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            (serialized?.frontmatter?.readingTime as any)
+                              ?.text ||
+                            String(serialized?.frontmatter?.readingTime)
+                          }
+                        />
+                      )}
+                    </Box>
+                  </Flex>
                   <MarkdownRenderer serialized={serialized} />
                 </article>
               </Box>

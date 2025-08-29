@@ -3,17 +3,11 @@ export function getBreadcrumbsList(
   parents: string[],
   parentsNames: string[],
   parentsTypes: string[],
-  docsType:
-    | 'tutorials'
-    | 'tracks'
-    | 'announcements'
-    | 'faq'
-    | 'known-issues'
-    | 'troubleshooting'
+  docsType: string
 ) {
   parentsNames.forEach((_el: string, idx: number) => {
     breadcrumbList.push({
-      slug: `/docs/${docsType}/${parents[idx]}`,
+      slug: `/${docsType}/${parents[idx]}`,
       name: parentsNames[idx],
       type: parentsTypes[idx] || 'defaultType',
     })

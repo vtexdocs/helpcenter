@@ -31,18 +31,18 @@ const ArticleIndexing = ({ ...props }) => {
       <Flex sx={styles.innerContainer}>
         <Box sx={styles.articleBox}>
           <Box sx={styles.contentContainer}>
-            <article>
-              <header style={{ all: 'unset' }}>
-                {props.breadcrumbList.length > 0 ? (
-                  <Breadcrumb breadcrumbList={props.breadcrumbList} />
-                ) : undefined}
-              </header>
-              <Box sx={styles.textContainer}>
-                <Box sx={styles.titleContainer}>
-                  <Text>{props.name || 'Untitled'}</Text>
-                </Box>
-                <Box sx={styles.indexContainer}>
-                  <Text sx={{ fontSize: '22px', pt: '32px' }}>
+            {props.breadcrumbList.length > 0 && (
+              <Breadcrumb breadcrumbList={props.breadcrumbList} />
+            )}
+            <Box sx={styles.textContainer}>
+              <article>
+                <header>
+                  <Text sx={styles.documentationTitle}>
+                    {props.name || 'Untitled'}
+                  </Text>
+                </header>
+                <Box sx={styles.textContainer}>
+                  <Text sx={{ fontSize: '1.375em' }}>
                     {intl.formatMessage({
                       id: 'tutorials.in_this_section',
                       defaultMessage: 'In this section',
@@ -58,8 +58,8 @@ const ArticleIndexing = ({ ...props }) => {
                     )}
                   </Flex>
                 </Box>
-              </Box>
-            </article>
+              </article>
+            </Box>
           </Box>
           <FeedbackSection slug={props.slug} suggestEdits={false} />
         </Box>

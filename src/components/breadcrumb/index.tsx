@@ -8,9 +8,10 @@ interface Props {
 }
 
 const Breadcrumb = ({ breadcrumbList }: Props) => {
+  const visibleBreadcrumbs = breadcrumbList.slice(0, -1)
   return (
     <Flex sx={styles.breadcrumb}>
-      {breadcrumbList.map((item, idx) => (
+      {visibleBreadcrumbs.map((item, idx) => (
         <Flex
           key={`breadcrumb-${idx}-${item.slug}`}
           sx={{ alignItems: 'center' }}
@@ -22,7 +23,7 @@ const Breadcrumb = ({ breadcrumbList }: Props) => {
           ) : (
             <Text>{item.name || 'Untitled'}</Text>
           )}
-          {idx < breadcrumbList.length - 1 ? (
+          {idx < visibleBreadcrumbs.length - 1 ? (
             <IconCaret direction="right" size={16} />
           ) : null}
         </Flex>

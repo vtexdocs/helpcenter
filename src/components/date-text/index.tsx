@@ -14,9 +14,12 @@ const DateText = ({ createdAt, updatedAt }: DateTextProps) => {
   const CreatedAtText = () => {
     return (
       <Text>
-        {`${intl.formatMessage({
-          id: 'date_text.created',
-        })} ${intl.formatDate(createdAt)}`}
+        <span style={{ fontWeight: '600', paddingRight: '4px' }}>
+          {intl.formatMessage({
+            id: 'date_text.created',
+          })}
+        </span>
+        {intl.formatDate(createdAt)}
       </Text>
     )
   }
@@ -24,9 +27,12 @@ const DateText = ({ createdAt, updatedAt }: DateTextProps) => {
   const UpdatedAtText = () => {
     return (
       <Text>
-        {`${intl.formatMessage({
-          id: 'date_text.updated',
-        })} ${intl.formatDate(updatedAt)}`}
+        <span style={{ fontWeight: '600', paddingRight: '4px' }}>
+          {intl.formatMessage({
+            id: 'date_text.updated',
+          })}
+        </span>
+        {intl.formatDate(updatedAt)}
       </Text>
     )
   }

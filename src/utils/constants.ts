@@ -268,6 +268,10 @@ export const knownIssuesStatusFilter = (intl: IntlShape) => {
     }),
     options: [
       {
+        id: 'Unknown',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.unknown' }),
+      },
+      {
         id: 'Closed',
         name: intl.formatMessage({ id: 'known_issues_filter_status.closed' }),
       },

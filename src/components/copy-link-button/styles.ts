@@ -11,7 +11,7 @@ const copyLinkButton: SxStyleProp = {
   fontSize: '12px',
   lineHeight: '18px',
   height: 'none',
-  padding: '8px 8px 8px 8px',
+  padding: '8px 5px 8px 8px',
   border: '1px solid #A1AAB7',
   backgroundColor: 'white',
   ':hover': {
