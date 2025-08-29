@@ -92,18 +92,13 @@ export const getStaticProps: GetStaticProps = async ({
   if (!docsPathsGLOBAL) {
     docsPathsGLOBAL = await getAnnouncementsPaths('announcements')
   }
-  // Consider all slugs and stop once we collect enough items for the homepage
-  const slugs = Object.keys(docsPathsGLOBAL).reverse()
-
-  const batchSize = 5
+  const slugs = Object.keys(docsPathsGLOBAL).sort().reverse().slice(0, 15)
 
   const announcementsData: AnnouncementDataElement[] = []
-  let done = false
 
-  for (let i = 0; i < slugs.length && !done; i += batchSize) {
-    const batch = slugs.slice(i, i + batchSize)
-    const batchResults = await fetchBatch(
-      batch,
+  for (const slug of slugs) {
+    const [result] = await fetchBatch(
+      [slug],
       'help-center-content',
       docsPathsGLOBAL,
       currentLocale,
@@ -111,25 +106,18 @@ export const getStaticProps: GetStaticProps = async ({
       logger
     )
 
-    for (const { content, slug } of batchResults) {
-      if (!content) continue
-      const frontmatter = await parseFrontmatter(content, logger)
-      if (
-        frontmatter &&
-        (frontmatter.status === 'PUBLISHED' || frontmatter.status === 'CHANGED')
-      ) {
-        announcementsData.push({
-          title: String(frontmatter.title),
-          url: `announcements/${slug}`,
-          createdAt: String(frontmatter.createdAt),
-          updatedAt: String(frontmatter.updatedAt),
-          status: String(frontmatter.status),
-        })
-        if (announcementsData.length >= 5) {
-          done = true
-          break
-        }
-      }
+    if (!result?.content) continue
+
+    const frontmatter = await parseFrontmatter(result.content, logger)
+
+    if (frontmatter) {
+      announcementsData.push({
+        title: String(frontmatter.title),
+        url: `announcements/${slug}`,
+        createdAt: String(frontmatter.createdAt),
+        updatedAt: String(frontmatter.updatedAt),
+        status: String(frontmatter.status),
+      })
     }
   }
 
