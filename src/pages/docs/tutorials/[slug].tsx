@@ -189,7 +189,7 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArray,
       parentsArrayName,
       parentsArrayType,
-      'tracks'
+      'docs/tutorials'
     )
     pagination = getPagination({
       sidebarfallback,

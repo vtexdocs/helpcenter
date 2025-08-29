@@ -197,7 +197,7 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArray,
       parentsArrayName,
       parentsArrayType,
-      'tracks'
+      'docs/tracks'
     )
 
     if (isTrackCover && !mdFileExists) {

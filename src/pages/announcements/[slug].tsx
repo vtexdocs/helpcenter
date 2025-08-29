@@ -26,6 +26,7 @@ import {
 import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { sanitizeArray } from 'utils/sanitizeArrays'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
+import { getMessages } from 'utils/get-messages'
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
   string,
@@ -141,7 +142,13 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   const isListed = !!keyPath
-  const breadcrumbList: { slug: string; name: string; type: string }[] = []
+  const breadcrumbList: { slug: string; name: string; type: string }[] = [
+    {
+      slug: `/announcements`,
+      name: getMessages()[currentLocale]['announcements_page.title'],
+      type: 'markdown',
+    },
+  ]
   let parentsArray: string[] = []
   let parentsArrayName: string[] = []
   let parentsArrayType: string[] = []
@@ -170,7 +177,7 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArray,
       parentsArrayName,
       parentsArrayType,
-      'tracks'
+      'announcements'
     )
     pagination = getPagination({
       sidebarfallback,

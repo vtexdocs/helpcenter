@@ -17,11 +17,19 @@ export const flattenJSON = (
   }
   return res
 }
+
+const filterSlugs = (obj: { [key: string]: string }) => {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([key]) => key.includes('.slug'))
+  )
+}
+
 export const getKeyByValue = (
   object: { [x: string]: string },
   value: string
 ) => {
-  return Object.keys(object).find((key) => object[key] === value)
+  const slugsObject = filterSlugs(object)
+  return Object.keys(slugsObject).find((key) => object[key] === value)
 }
 
 export const getKeysByValue = (

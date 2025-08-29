@@ -48,7 +48,8 @@ const articleBox: SxStyleProp = {
   },
   header: {
     borderBottom: '1px solid #E7E9EE',
-    marginBottom: '24px',
+    marginBottom: '18px',
+    pb: '18px',
   },
   h1: {
     fontSize: '1.75em',
@@ -89,7 +90,7 @@ const contentContainer: SxStyleProp = {
 
 const documentationTitle: SxStyleProp = {
   marginTop: '16px',
-  fontSize: ['20px', '28px'],
+  fontSize: '1.75em',
   lineHeight: ['30px', '38px'],
   fontWeight: '400',
 }
