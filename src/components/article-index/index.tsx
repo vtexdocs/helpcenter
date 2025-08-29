@@ -6,6 +6,7 @@ import FeedbackSection from 'components/feedback-section'
 import styles from 'styles/documentation-page'
 import { useIntl } from 'react-intl'
 import Head from 'next/head'
+import CopyLinkButton from 'components/copy-link-button'
 
 interface ArticleIndexingDataI {
   name: string
@@ -31,9 +32,12 @@ const ArticleIndexing = ({ ...props }) => {
       <Flex sx={styles.innerContainer}>
         <Box sx={styles.articleBox}>
           <Box sx={styles.contentContainer}>
-            {props.breadcrumbList.length > 0 && (
-              <Breadcrumb breadcrumbList={props.breadcrumbList} />
-            )}
+            <Flex sx={{ justifyContent: 'space-between' }}>
+              {props.breadcrumbList.length > 0 && (
+                <Breadcrumb breadcrumbList={props.breadcrumbList} />
+              )}
+              <CopyLinkButton />
+            </Flex>
             <Box sx={styles.textContainer}>
               <article>
                 <header>
