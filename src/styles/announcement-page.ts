@@ -22,6 +22,7 @@ const articleBox: SxStyleProp = {
   lineHeight: '1.375em',
   a: {
     color: '#E31C58',
+    textDecoration: 'none',
   },
   header: {
     borderBottom: '1px solid #E7E9EE',

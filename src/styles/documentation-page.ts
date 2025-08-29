@@ -33,6 +33,7 @@ const articleBox: SxStyleProp = {
   width: ['100%', 'auto'],
   a: {
     color: '#E31C58',
+    textDecoration: 'none',
   },
   ul: {
     li: {
