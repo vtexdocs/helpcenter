@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.19](https://github.com/vtexdocs/helpcenter/compare/v0.9.18...v0.9.19) (2025-08-29)
+
+
+### Features
+
+* **article-index:** add copy button and improve styles ([03ea9b0](https://github.com/vtexdocs/helpcenter/commit/03ea9b0fd214620658e85376a7ff3a375d64789a))
+
+
+### Bug Fixes
+
+* **page.tsx:** get latest data for news ([b97cdc8](https://github.com/vtexdocs/helpcenter/commit/b97cdc8716d3c897c4671041d6d1fff76981ee4d))
+* **troubleshooting:** fix article index path ([25e0540](https://github.com/vtexdocs/helpcenter/commit/25e0540cc03bfa14490b1adb44a851476f932d9f))
+
 ### [0.9.18](https://github.com/vtexdocs/helpcenter/compare/v0.9.17...v0.9.18) (2025-08-29)
 
 
