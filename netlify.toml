@@ -6,6 +6,27 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
 [[plugins]]
     package = "@netlify/plugin-nextjs"
 
+# Attach edge function to all legacy routes
 [[edge_functions]]
   path = "/tutorial/*"
-  function = "redirect-from-old-portal"
+  function = "redirects"
+
+[[edge_functions]]
+  path = "/:locale/tutorial/*"
+  function = "redirects"
+
+[[edge_functions]]
+  path = "/tracks/*"
+  function = "redirects"
+
+[[edge_functions]]
+  path = "/:locale/tracks/*"
+  function = "redirects"
+
+[[edge_functions]]
+  path = "/faq/*"
+  function = "redirects"
+
+[[edge_functions]]
+  path = "/:locale/faq/*"
+  function = "redirects"
