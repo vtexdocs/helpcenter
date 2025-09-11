@@ -8,7 +8,7 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
 
 [[edge_functions]]
   path = "/tutorial/*"
-  function = "tutorial-redirect"
+  function = "redirect-from-old-portal"
 
 [[redirects]]
   from = "/:locale/tutorial/:slug"
