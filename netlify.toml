@@ -6,6 +6,10 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
 [[plugins]]
     package = "@netlify/plugin-nextjs"
 
+[[edge_functions]]
+  path = "/tutorial/*"
+  function = "tutorial-redirect"
+
 [[redirects]]
   from = "/:locale/tutorial/:slug"
   to = "/:locale/docs/tutorials/:slug"
