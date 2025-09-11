@@ -30,6 +30,8 @@ export default async (request, context) => {
       destination = `/${locale}/docs/tracks/${slug}`
     } else if (type === 'faq') {
       destination = `/${locale}/faq/${slug}`
+    } else if (type === 'announcements') {
+      destination = `/${locale}/announcements/${slug}`
     }
 
     console.log('destination', destination)

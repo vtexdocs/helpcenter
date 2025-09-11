@@ -9,24 +9,32 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
 # Attach edge function to all legacy routes
 [[edge_functions]]
   path = "/tutorial/*"
-  function = "redirects"
+  function = "redirect-from-old-portal"
 
 [[edge_functions]]
   path = "/:locale/tutorial/*"
-  function = "redirects"
+  function = "redirect-from-old-portal"
 
 [[edge_functions]]
   path = "/tracks/*"
-  function = "redirects"
+  function = "redirect-from-old-portal"
 
 [[edge_functions]]
   path = "/:locale/tracks/*"
-  function = "redirects"
+  function = "redirect-from-old-portal"
 
 [[edge_functions]]
   path = "/faq/*"
-  function = "redirects"
+  function = "redirect-from-old-portal"
 
 [[edge_functions]]
   path = "/:locale/faq/*"
-  function = "redirects"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/announcements/*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/:locale/announcements/*"
+  function = "redirect-from-old-portal"
