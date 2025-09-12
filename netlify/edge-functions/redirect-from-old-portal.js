@@ -31,12 +31,45 @@ export default async (request, context) => {
     } else if (type === 'faq') {
       destination = `/${locale}/faq/${slug}`
     } else if (type === 'announcements') {
-      destination = `/${locale}/announcements/${slug}`
+      const nav = await getNavigation(url)
+      const newSlug = findAnnouncementSlug(nav, slug, finalLocale)
+      if (!newSlug) {
+        // fallback: keep old slug
+        destination = `/${finalLocale}/announcements/${slug}`
+      } else {
+        destination = `/${finalLocale}/announcements/${newSlug}`
+      }
     }
 
     console.log('destination', destination)
 
     return Response.redirect(new URL(destination + search, url.origin), 308)
+  }
+
+  function findAnnouncementSlug(nav, oldSlug, locale) {
+    // Locate announcements block
+    const annSection = nav.navbar.find(
+      (item) => item.documentation === 'announcements'
+    )
+    if (!annSection) return null
+
+    // Traverse recursively
+    function search(children) {
+      for (const child of children) {
+        if (child.type === 'markdown') {
+          // match oldSlug at the *end* of the new slug
+          const newSlug = child.slug[locale] || child.slug.en
+          if (newSlug.endsWith(oldSlug)) {
+            return newSlug
+          }
+        }
+        const found = search(child.children || [])
+        if (found) return found
+      }
+      return null
+    }
+
+    return search(annSection.categories || [])
   }
 
   return context.next()
