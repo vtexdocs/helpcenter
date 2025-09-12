@@ -27,6 +27,10 @@ import {
 import { ArticlePageProps } from 'utils/typings/types'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
 import { getMessages } from 'utils/get-messages'
+import {
+  checkTroubleshootingFallback,
+  createTroubleshootingRedirect,
+} from 'utils/checkTroubleshootingFallback'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -130,11 +134,25 @@ export const getStaticProps: GetStaticProps = async ({
 
   const isTutorialCategory = isCategoryCover(slug, sidebarfallback)
 
-  //Se não existe o arquivo md para a slug e não é capa de categoria, retorna 404
+  //Se não existe o arquivo md para a slug e não é capa de categoria, checa se há arquivo md para troubleshooting com a mesma slug
   if (!mdFileExists && !isTutorialCategory) {
     logger.warn(
       `Markdown file not found: slug=${slug}, locale=${currentLocale}, branch=${branch}`
     )
+
+    // Check if there's a troubleshooting file with the same slug
+    const hasTroubleshootingFallback = await checkTroubleshootingFallback(
+      slug,
+      branch
+    )
+
+    if (hasTroubleshootingFallback) {
+      logger.info(
+        `Redirecting from tutorials to troubleshooting: slug=${slug}, locale=${currentLocale}`
+      )
+      return createTroubleshootingRedirect(slug, currentLocale)
+    }
+
     return { notFound: true }
   }
 
