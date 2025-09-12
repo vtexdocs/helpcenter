@@ -32,12 +32,12 @@ export default async (request, context) => {
       destination = `/${locale}/faq/${slug}`
     } else if (type === 'announcements') {
       const nav = await getNavigation(url)
-      const newSlug = findAnnouncementSlug(nav, slug, finalLocale)
+      const newSlug = findAnnouncementSlug(nav, slug, locale)
       if (!newSlug) {
         // fallback: keep old slug
-        destination = `/${finalLocale}/announcements/${slug}`
+        destination = `/${locale}/announcements/${slug}`
       } else {
-        destination = `/${finalLocale}/announcements/${newSlug}`
+        destination = `/${locale}/announcements/${newSlug}`
       }
     }
 
