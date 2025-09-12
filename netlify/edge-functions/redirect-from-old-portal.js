@@ -46,6 +46,14 @@ export default async (request, context) => {
     return Response.redirect(new URL(destination + search, url.origin), 308)
   }
 
+  async function getNavigation(url) {
+    if (!navigationCache) {
+      const res = await fetch(`${url.origin}/navigation.json`)
+      navigationCache = await res.json()
+    }
+    return navigationCache
+  }
+
   function findAnnouncementSlug(nav, oldSlug, locale) {
     // Locate announcements block
     const annSection = nav.navbar.find(
