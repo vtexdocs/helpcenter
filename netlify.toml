@@ -6,7 +6,12 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
 [[plugins]]
     package = "@netlify/plugin-nextjs"
 
-# Attach edge function to all legacy routes
+# For portal migration purposes, redirects are handled in three categories:
+# 1. Edge functions: for standard legacy routes, we use edge functions to redirect to the new portal standard routes.
+# 2. Redirects: for specific redirects (category pages, subcategories, etc.), we use specific redirects.
+# 3. Hardcoded article redirects: legacy redirects exported from the old portal, processed with the help-center-content/docs-utils/generateRedirects.js script.
+
+# 1. Edge functions: for standard legacy routes, we use edge functions to redirect to the new portal standard routes.
 [[edge_functions]]
   path = "/tutorial/*"
   function = "redirect-from-old-portal"
@@ -39,3 +44,44 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
 [[edge_functions]]
   path = "/:locale/announcements/*--*"
   function = "redirect-from-old-portal"
+
+# 2. Redirects: for specific redirects (category pages, subcategories, etc.), we use specific redirects.
+
+# From any old portal tutorial category page, redirect to the new portal tutorials page.
+[[redirects]]
+  force = true
+  from = "/tutorial/--*"
+  status = 308 
+  to = "en/docs/tutorials"
+
+# From any old portal tutorial subcategory page, redirect to the new portal tutorials page.
+[[redirects]]
+  force = true
+  from = "/subcategory/*"
+  status = 308 
+  to = "en/docs/tutorials"
+
+# This article's URL is assembled differently in the old portal if you click the "Tutorials & Solutions" button in the header of the old portal.
+[[redirects]]
+  force = true
+  from = "/tutorial/--531cHtUCUi3puRXNDmKziw*"
+  status = 308 
+  to = "/en/docs/tutorials/vtex-admin-start-here"
+
+# tracks home
+[[redirects]]
+  force = true
+  from = "/tracks"
+  status = 308 
+  to = "/docs/tracks"
+
+[[redirects]]
+  force = true
+  from = "/:locale/tracks"
+  status = 308 
+  to = "/:locale/docs/tracks"
+
+
+# 3. Hardcoded article redirects: legacy redirects exported from the old portal, processed with the help-center-content/docs-utils/generateRedirects.js script.
+
+
