@@ -7,45 +7,11 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
     package = "@netlify/plugin-nextjs"
 
 # For portal migration purposes, redirects are handled in three categories:
-# 1. Edge functions: for standard legacy routes, we use edge functions to redirect to the new portal standard routes.
-# 2. Redirects: for specific redirects (category pages, subcategories, etc.), we use specific redirects.
-# 3. Hardcoded article redirects: legacy redirects exported from the old portal, processed with the help-center-content/docs-utils/generateRedirects.js script.
+# Redirects: for specific redirects (category pages, subcategories, etc.), we use specific redirects.
+# Hardcoded article redirects: legacy redirects exported from the old portal, processed with the help-center-content/docs-utils/generateRedirects.js script.
+# Edge functions: for standard legacy routes, we use edge functions to redirect to the new portal standard routes.
 
-# 1. Edge functions: for standard legacy routes, we use edge functions to redirect to the new portal standard routes.
-[[edge_functions]]
-  path = "/tutorial/*"
-  function = "redirect-from-old-portal"
-
-[[edge_functions]]
-  path = "/:locale/tutorial/*"
-  function = "redirect-from-old-portal"
-
-[[edge_functions]]
-  path = "/tracks/*"
-  function = "redirect-from-old-portal"
-
-[[edge_functions]]
-  path = "/:locale/tracks/*"
-  function = "redirect-from-old-portal"
-
-[[edge_functions]]
-  path = "/faq/*"
-  function = "redirect-from-old-portal"
-
-[[edge_functions]]
-  path = "/announcements/*"
-  function = "redirect-from-old-portal"
-
-# For announcements and faq, we need to match the --key as well if the path contains the locale. This is needed to prevent a redirect loop. This happens because the new portal path pattern also includes "/:locale/faq|announcements".
-[[edge_functions]]
-  path = "/:locale/faq/*--*"
-  function = "redirect-from-old-portal"
-
-[[edge_functions]]
-  path = "/:locale/announcements/*--*"
-  function = "redirect-from-old-portal"
-
-# 2. Redirects: for specific redirects (category pages, subcategories, etc.), we use specific redirects.
+# Redirects: for specific redirects (category pages, subcategories, etc.), we use specific redirects.
 
 # From any old portal tutorial category page, redirect to the new portal tutorials page.
 [[redirects]]
@@ -82,7 +48,7 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
   to = "/:locale/docs/tracks"
 
 
-# 3. Hardcoded article redirects: legacy redirects exported from the old portal, processed with the help-center-content/docs-utils/generateRedirects.js script.
+# Hardcoded article redirects: legacy redirects exported from the old portal, processed with the help-center-content/docs-utils/generateRedirects.js script.
 
 [[redirects]]
 force = true
@@ -13403,3 +13369,37 @@ force = true
 from = "/faq/donde-veo-la-fecha-de-captura-del-pago"
 status = 308
 to = "/tutorial/donde-veo-la-fecha-de-captura-del-pago"
+
+# Edge functions: for standard legacy routes, we use edge functions to redirect to the new portal standard routes.
+[[edge_functions]]
+  path = "/tutorial/*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/:locale/tutorial/*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/tracks/*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/:locale/tracks/*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/faq/*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/announcements/*"
+  function = "redirect-from-old-portal"
+
+# For announcements and faq, we need to match the --key as well if the path contains the locale. This is needed to prevent a redirect loop. This happens because the new portal path pattern also includes "/:locale/faq|announcements".
+[[edge_functions]]
+  path = "/:locale/faq/*--*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/:locale/announcements/*--*"
+  function = "redirect-from-old-portal"
