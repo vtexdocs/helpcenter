@@ -28,13 +28,14 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
   function = "redirect-from-old-portal"
 
 [[edge_functions]]
-  path = "/:locale/faq/*"
-  function = "redirect-from-old-portal"
-
-[[edge_functions]]
   path = "/announcements/*"
   function = "redirect-from-old-portal"
 
+# For announcements and faq, we need to match the --key as well if the path contains the locale. to prevent  This is needed to prevent a redirect loop. This happens because the new portal path pattern also includes "/:locale/faq|announcements".
 [[edge_functions]]
-  path = "/:locale/announcements/*"
+  path = "/:locale/faq/*--*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/:locale/announcements/*--*"
   function = "redirect-from-old-portal"
