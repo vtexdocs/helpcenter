@@ -438,6 +438,71 @@ Follow the steps below to add new content to the navigation sidebar:
 
 Redirect is the functionality that allows the browser to open a page with an address different from the one entered by the user in the URL field. This type of action is necessary when an old page address has been archived and a new one is created to replace it.
 
+#### Portal Migration Redirect Strategy (SEP2025)
+
+The Help Center implements a comprehensive redirect strategy to handle the migration from the old portal to the new portal structure. This strategy is organized into three categories:
+
+##### Edge functions (dynamic redirects)
+
+Netlify edge functions handle standard legacy routes and dynamically redirect them to the new portal structure. The `redirect-from-old-portal` edge function processes the following URL patterns:
+
+**Supported URL Patterns:**
+- `/{type}/{slug}[--{key}]` - Legacy routes without locale
+- `/{locale}/{type}/{slug}[--{key}]` - Legacy routes with locale
+
+**Supported Types:**
+- `tutorial` → redirects to `/{locale}/docs/tutorials/{slug}`
+- `tracks` → redirects to `/{locale}/docs/tracks/{slug}`
+- `faq` → redirects to `/{locale}/faq/{slug}`
+- `announcements` → redirects to `/{locale}/announcements/{slug}` (with intelligent slug mapping)
+
+**Examples:**
+```
+# Tutorial redirects
+/tutorial/getting-started--jkf654sdg65fasdf → /en/docs/tutorials/getting-started
+/pt/tutorial/configuracao-inicial → /pt/docs/tutorials/configuracao-inicial
+
+# Tracks redirects
+/tracks/advanced-guide → /en/docs/tracks/advanced-guide
+/es/tracks/guia-avanzado → /es/docs/tracks/guia-avanzado
+
+# FAQ redirects
+/faq/common-issues--vcvcv6546987 → /en/faq/common-issues
+/pt/faq/problemas-comuns → /pt/faq/problemas-comuns
+
+# Announcements redirects (with intelligent slug mapping)
+/announcements/new-feature--abc123 → /en/announcements/new-feature-v2
+/pt/announcements/nova-funcionalidade--xyz789 → /pt/announcements/nova-funcionalidade-v2
+```
+
+**Special Features:**
+- **Locale Detection**: Automatically detects locale from URL or defaults to 'en'
+- **Query String Preservation**: Maintains query parameters during redirect
+- **Announcement Slug Mapping**: For announcements, the function intelligently maps old slugs to new slugs by searching the navigation structure
+- **Key Stripping**: Removes legacy `--{key}` suffixes from URLs
+- **308 Status Code**: Uses permanent redirect status for SEO benefits
+
+##### Static redirects (e.g., category pages)
+
+Static redirects handle specific category and subcategory pages that don't follow the standard article pattern. In this case, we are redirecting users to the tutorials home page.
+
+**Examples:**
+```
+# Tutorial category pages
+/tutorial/--category-id → /en/docs/tutorials
+
+# Subcategory pages
+/subcategory/--subcategory-id → /en/docs/tutorials
+```
+
+##### Hardcoded article redirects
+
+Legacy redirects exported from the old portal, processed using the `help-center-content/docs-utils/generateRedirects.js` script. These handle specific article mappings that don't follow the standard patterns.
+
+##### Troubleshooting fallback
+
+Troubleshooting are new content types. In the old help center, they're published as tutorials. So to correctly redirect users, the `getStaticProps()` function of the tutorials page has a fallback flow. If no .md file is found for the requested tutorial slug, this flow checks the navigation data for troubleshooting articles with that slug, redirecting the user if it exists.
+
 #### Creating a redirect
 
 Follow the steps below to create a new redirect:
