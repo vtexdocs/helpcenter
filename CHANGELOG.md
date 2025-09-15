@@ -2,6 +2,55 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.21](https://github.com/vtexdocs/helpcenter/compare/v0.9.20...v0.9.21) (2025-09-15)
+
+
+### Features
+
+* **netlify.toml:** add generic redirect for tutorials ([08f66fa](https://github.com/vtexdocs/helpcenter/commit/08f66fa4de766ec9a10ef75d081dc798a10dd1bb))
+* **netlify.toml:** add generic tutorial redirects with default locale ([c09c8ea](https://github.com/vtexdocs/helpcenter/commit/c09c8eac6482bd4fb73a52a53651a3c2c565a298))
+* **redirect edge function:** add announcements redirect ([68572c4](https://github.com/vtexdocs/helpcenter/commit/68572c4444cd08d51d8e3fe980027f625d149ff4))
+* **redirect edge function:** add announcements to the regex match ([cf23805](https://github.com/vtexdocs/helpcenter/commit/cf2380522aeaf90e21749956e57a2df8672e0f4f))
+* **redirect edge function:** add debugging logs ([977b42d](https://github.com/vtexdocs/helpcenter/commit/977b42da5e6e9b7e5734a1e2f6b92986ff934eef))
+* **redirect edge function:** add function to retrieve navigation data ([46e8b41](https://github.com/vtexdocs/helpcenter/commit/46e8b413d5af2335cc38f40dce94376734af8c6b))
+* **redirect edge function:** add support for dates in announcements slugs ([5bb54cc](https://github.com/vtexdocs/helpcenter/commit/5bb54cc871473ca55c80aac79d56939d3e60d210))
+* **redirect edge function:** implement broader edge function to handle all redirects from oldportal ([788fd3d](https://github.com/vtexdocs/helpcenter/commit/788fd3d75a55a08b3c79308f3f53b600eb190b80))
+* **redirect edge function:** try to fix redirect edge function ([e43fa57](https://github.com/vtexdocs/helpcenter/commit/e43fa57e9be4c824338843982c02da5d07bc9550))
+* **redirect:** add netlify edge function to handle more generic redirects ([082af95](https://github.com/vtexdocs/helpcenter/commit/082af95163f4fb59b5b41e54952eeb141cbdb2f0))
+* **redirects:** add generated redirects for legacy redirects imported from old cms ([ba03386](https://github.com/vtexdocs/helpcenter/commit/ba0338660a362352accdb5cc8abd822ac75c629f))
+* **redirects:** add redirects for special pages ([d52a031](https://github.com/vtexdocs/helpcenter/commit/d52a031426365160be7fe6730593e96c75a83ed3))
+* **tutorials page:** add automatic redirect to troubleshooting ([552aa9d](https://github.com/vtexdocs/helpcenter/commit/552aa9d90f1fa126ed8325c219774a8de06eedb8))
+
+
+### Bug Fixes
+
+* **messages:** fix links ([96505d0](https://github.com/vtexdocs/helpcenter/commit/96505d093f98c81f62979fef245b701d9a520ed3))
+* **netlify.toml:** fix generic tutorial redirects with * ([b1b6628](https://github.com/vtexdocs/helpcenter/commit/b1b662892d16db50044b5baa55c3181310d01750))
+* **netlify.toml:** remove redirects that may polute edge function testing ([43bf626](https://github.com/vtexdocs/helpcenter/commit/43bf626f93cbc256dba56613a85893f3d51c3b67))
+* **redirect edge function:** fix function ([d5b701f](https://github.com/vtexdocs/helpcenter/commit/d5b701f20150752ea882fc9f8fb076d277511870))
+* **redirect edge function:** fix function ([7953144](https://github.com/vtexdocs/helpcenter/commit/79531444be72274e87aa97caf95f5b70708e0e2c))
+* **redirect edge function:** improve redirect function declarations to prevent redirect loop ([f5e6247](https://github.com/vtexdocs/helpcenter/commit/f5e62476576d30ea817590ee976aefb9331d15d5))
+* **redirects:** fix subcategories redirects ([3c8430e](https://github.com/vtexdocs/helpcenter/commit/3c8430eb95522dca59955d09dfa358c22bc91c4e))
+* **redirects:** put redirect edge function last ([4e34953](https://github.com/vtexdocs/helpcenter/commit/4e34953b431c3479ebe7a729a285e77e2fc2fa7f))
+* **troubleshooting fallback check:** fix error logging ([00bbde2](https://github.com/vtexdocs/helpcenter/commit/00bbde293f6e4e087942f211c11ac75a17c211c7))
+
+
+### Refactoring
+
+* **netlify.toml:** reset redirects to test incremental changes in generic redirects ([bc20d79](https://github.com/vtexdocs/helpcenter/commit/bc20d790280971a766716a1e1ac36189569ff430))
+
+
+### Chore
+
+* **messages:** fix tutorials links ([a09d924](https://github.com/vtexdocs/helpcenter/commit/a09d92402ea38f09d2802f99c293cead61fde2d4))
+* **navigation:** update navigation ([32a88f4](https://github.com/vtexdocs/helpcenter/commit/32a88f4e37c26adfc30ab851ea361416f31d20bd))
+
+
+### Docs
+
+* **readme:** document portal migrtion redirect strategy ([f43900a](https://github.com/vtexdocs/helpcenter/commit/f43900aa51e5d2c6a77e5228a2bd04f352cc497f))
+* **readme:** document troubleshooting fallback for tutorial pages ([640d9aa](https://github.com/vtexdocs/helpcenter/commit/640d9aa5dfe931f5a3c34c2136d24b5372180082))
+
 ### [0.9.20](https://github.com/vtexdocs/helpcenter/compare/v0.9.19...v0.9.20) (2025-09-03)
 
 ### [0.9.19](https://github.com/vtexdocs/helpcenter/compare/v0.9.18...v0.9.19) (2025-08-29)
