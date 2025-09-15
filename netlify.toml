@@ -13,6 +13,13 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
 
 # Redirects: for specific redirects (category pages, subcategories, etc.), we use specific redirects.
 
+# This article's URL is assembled differently in the old portal if you click the "Tutorials & Solutions" button in the header of the old portal.
+[[redirects]]
+  force = true
+  from = "/tutorial/--531cHtUCUi3puRXNDmKziw*"
+  status = 308 
+  to = "/en/docs/tutorials/vtex-admin-start-here"
+
 # From any old portal tutorial category page, redirect to the new portal tutorials page.
 [[redirects]]
   force = true
@@ -26,13 +33,6 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
   from = "/subcategory/*"
   status = 308 
   to = "/en/docs/tutorials"
-
-# This article's URL is assembled differently in the old portal if you click the "Tutorials & Solutions" button in the header of the old portal.
-[[redirects]]
-  force = true
-  from = "/tutorial/--531cHtUCUi3puRXNDmKziw*"
-  status = 308 
-  to = "/en/docs/tutorials/vtex-admin-start-here"
 
 # tracks home
 [[redirects]]
