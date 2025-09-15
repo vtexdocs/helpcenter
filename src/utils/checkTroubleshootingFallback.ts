@@ -31,8 +31,9 @@ export async function checkTroubleshootingFallback(
     return exists
   } catch (error) {
     logger.error(
-      `Error checking troubleshooting fallback for slug: ${slug}`,
-      error
+      `Error checking troubleshooting fallback for slug: ${slug} - ${
+        (error as Error).message
+      }`
     )
     return false
   }
