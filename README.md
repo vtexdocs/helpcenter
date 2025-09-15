@@ -499,6 +499,10 @@ Static redirects handle specific category and subcategory pages that don't follo
 
 Legacy redirects exported from the old portal, processed using the `help-center-content/docs-utils/generateRedirects.js` script. These handle specific article mappings that don't follow the standard patterns.
 
+##### Troubleshooting fallback
+
+Troubleshooting are new content types. In the old help center, they're published as tutorials. So to correctly redirect users, the `getStaticProps()` function of the tutorials page has a fallback flow. If no .md file is found for the requested tutorial slug, this flow checks the navigation data for troubleshooting articles with that slug, redirecting the user if it exists.
+
 #### Creating a redirect
 
 Follow the steps below to create a new redirect:
