@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.22](https://github.com/vtexdocs/helpcenter/compare/v0.9.21...v0.9.22) (2025-09-15)
+
+
+### Features
+
+* **announcement bar:** add cookie setting for traffic tests purposes ([8dd463c](https://github.com/vtexdocs/helpcenter/commit/8dd463c48ac7b10d5cc2196f50478fcbce5addeb))
+
+
+### Bug Fixes
+
+* **redirect:** fix redirect order ([6b5aed1](https://github.com/vtexdocs/helpcenter/commit/6b5aed13d995d8ffab94d3995dd5145f0c98ea2a))
+
 ### [0.9.21](https://github.com/vtexdocs/helpcenter/compare/v0.9.20...v0.9.21) (2025-09-15)
 
 
