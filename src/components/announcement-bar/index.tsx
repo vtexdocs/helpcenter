@@ -27,6 +27,16 @@ const AnnouncementBar = ({
     visible: true,
     baseId: 'announcement-bar',
   })
+  const handleActionClick = () => {
+    try {
+      document.cookie =
+        'useNewPortal=false; path=/; domain=.vtex.com; max-age=' +
+        60 * 60 * 24 * 90 +
+        '; secure; samesite=lax'
+    } catch (error) {
+      // noop
+    }
+  }
   const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation()
     state.hide()
@@ -45,7 +55,12 @@ const AnnouncementBar = ({
           <Text sx={styles.text}>{children}</Text>
           <Text sx={styles.text}>{label}</Text>
           {button && (
-            <Link sx={styles.button(type)} target="_blank" href={href}>
+            <Link
+              sx={styles.button(type)}
+              target="_blank"
+              href={href}
+              onClick={handleActionClick}
+            >
               {button}
             </Link>
           )}
