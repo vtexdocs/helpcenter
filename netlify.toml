@@ -18,14 +18,14 @@ included_files = ["node_modules/sharp/**/*", "./github.pem"]
   force = true
   from = "/tutorial/--*"
   status = 308 
-  to = "en/docs/tutorials"
+  to = "/en/docs/tutorials"
 
 # From any old portal tutorial subcategory page, redirect to the new portal tutorials page.
 [[redirects]]
   force = true
   from = "/subcategory/*"
   status = 308 
-  to = "en/docs/tutorials"
+  to = "/en/docs/tutorials"
 
 # This article's URL is assembled differently in the old portal if you click the "Tutorials & Solutions" button in the header of the old portal.
 [[redirects]]
