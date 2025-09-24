@@ -3,7 +3,7 @@ import { Box, Flex, Text } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 import { SectionId } from 'utils/typings/unionTypes'
 import PageHeader from 'components/page-header'
-import startHereImage from '../../../../public/images/start-here.png'
+import startHereImage from '../../../../public/images/tutorials.png'
 import styles from 'styles/documentation-landing-page'
 import Head from 'next/head'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -67,7 +67,7 @@ const TutorialsPage: NextPage<Props> = ({ branch }) => {
           key="title"
         />
         {/* Preload critical LCP image */}
-        <link rel="preload" as="image" href="/images/start-here.png" />
+        <link rel="preload" as="image" href="/images/tutorials.png" />
       </Head>
       <Fragment>
         <PageHeader
