@@ -22,7 +22,7 @@ import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
-import startHereImage from '../../../public/images/start-here.png'
+import startHereImage from '../../../public/images/known-issues.png'
 import KnownIssueCard from 'components/known-issue-card'
 import Pagination from 'components/pagination'
 import { localeType } from 'utils/navigation-utils'
@@ -144,7 +144,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           key="title"
         />
         {/* Preload critical LCP image */}
-        <link rel="preload" as="image" href="/images/start-here.png" />
+        <link rel="preload" as="image" href="/images/known-issues.png" />
       </Head>
       <Fragment>
         <PageHeader
