@@ -99,10 +99,17 @@ export default function Layout({
           onAccept={() => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const window2 = window as any
-            window2.gtag('consent', 'update', {
-              ad_storage: 'granted',
-              analytics_storage: 'granted',
-            })
+            // Check if gtag is available before calling it
+            if (typeof window2.gtag === 'function') {
+              window2.gtag('consent', 'update', {
+                ad_storage: 'granted',
+                analytics_storage: 'granted',
+              })
+            } else {
+              console.warn(
+                'gtag function not available yet, consent update skipped'
+              )
+            }
           }}
         />
         <Header />
