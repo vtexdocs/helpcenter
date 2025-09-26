@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.23](https://github.com/vtexdocs/helpcenter/compare/v0.9.22...v0.9.23) (2025-09-26)
+
+
+### Bug Fixes
+
+* **cookie bar:** fix cookie bar component ([326a11e](https://github.com/vtexdocs/helpcenter/commit/326a11eac7cbfa08f8232c23b30f94875495dc6d))
+* **redirect edge function:** fix redirect edge function ([ce77703](https://github.com/vtexdocs/helpcenter/commit/ce777037cc9e53a1e2c8e23f7810289f7b45daf3))
+
+
+### Docs
+
+* **update images:** changing main sections images ([ec5d43c](https://github.com/vtexdocs/helpcenter/commit/ec5d43c7a62e632f33eac38e7af9d0585a1db1c1))
+* update star-here image ([0cf08a3](https://github.com/vtexdocs/helpcenter/commit/0cf08a324739eac4b46c9e54fcb628df59388452))
+* updating all images to a new proportion ([573255c](https://github.com/vtexdocs/helpcenter/commit/573255c0135f05644e41ddc7ec5e698618b0598f))
+* updating another start-here image ([25049be](https://github.com/vtexdocs/helpcenter/commit/25049be107955bae6f4eed443aed91051a018d63))
+* updating known issues images in index ([e68f657](https://github.com/vtexdocs/helpcenter/commit/e68f6577d0a6b7ed2335792bf5287389cf9241c6))
+* updating tutorials image ([95f8e4d](https://github.com/vtexdocs/helpcenter/commit/95f8e4d229abc7b7b3e62d00ffc0d26f4e2259ad))
+
 ### [0.9.22](https://github.com/vtexdocs/helpcenter/compare/v0.9.21...v0.9.22) (2025-09-15)
 
 
