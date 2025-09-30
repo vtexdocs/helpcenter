@@ -24,6 +24,7 @@ import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { isCategoryCover } from 'utils/article-page/getPagination'
 import { sanitizeArray } from 'utils/sanitizeArrays'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
+import type { SectionId } from 'utils/typings/unionTypes'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -50,7 +51,7 @@ const KnownIssuePage: NextPage<ArticlePageProps> = ({
 
   return mdFileExists === true ? (
     <ArticleRender
-      type={sectionSelected}
+      type={sectionSelected as SectionId}
       breadcrumbList={breadcrumbList}
       isListed={isListed}
       branch={branch}

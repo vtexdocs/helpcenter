@@ -19,6 +19,7 @@ import DateText from 'components/date-text'
 import Author from 'components/author'
 import Tag from 'components/tag'
 import CopyForLLM from 'components/copy-for-llm'
+import type { SectionId } from 'utils/typings/unionTypes'
 
 export interface MarkDownProps {
   content: string
@@ -46,7 +47,7 @@ export interface MarkDownProps {
   }
   breadcrumbList: { slug: string; name: string; type: string }[]
   headings: Item[]
-  type: string
+  type: SectionId
 }
 
 const ArticleRender = ({

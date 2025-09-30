@@ -6,6 +6,7 @@ import { getLogger } from 'utils/logging/log-util'
 import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 import { computeParents, getChildren } from 'utils/navigation-utils'
 import { getMessages } from 'utils/get-messages'
+import type { SectionId } from 'utils/typings/unionTypes'
 import { serializeWithFallback } from 'utils/serializeWithFallback'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
@@ -46,7 +47,7 @@ const TroubleshootingPage: NextPage<ArticlePageProps> = ({
 
   return mdFileExists === true ? (
     <ArticleRender
-      type={sectionSelected}
+      type={sectionSelected as SectionId}
       breadcrumbList={breadcrumbList}
       isListed={isListed}
       branch={branch}
