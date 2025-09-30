@@ -18,6 +18,7 @@ import TimeToRead from 'components/TimeToRead'
 import DateText from 'components/date-text'
 import Author from 'components/author'
 import Tag from 'components/tag'
+import CopyForLLM from 'components/copy-for-llm'
 
 export interface MarkDownProps {
   content: string
@@ -157,14 +158,17 @@ const ArticleRender = ({
                         </Flex>
                       )}
                       {serialized?.frontmatter?.readingTime && (
-                        <TimeToRead
-                          minutes={
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            (serialized?.frontmatter?.readingTime as any)
-                              ?.text ||
-                            String(serialized?.frontmatter?.readingTime)
-                          }
-                        />
+                        <>
+                          <TimeToRead
+                            minutes={
+                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                              (serialized?.frontmatter?.readingTime as any)
+                                ?.text ||
+                              String(serialized?.frontmatter?.readingTime)
+                            }
+                          />
+                          <CopyForLLM section={type} slug={slug} />
+                        </>
                       )}
                     </Box>
                   </Flex>
