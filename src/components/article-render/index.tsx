@@ -158,8 +158,8 @@ const ArticleRender = ({
                           />
                         </Flex>
                       )}
-                      {serialized?.frontmatter?.readingTime && (
-                        <Flex sx={{ alignItems: 'center' }}>
+                      <Flex sx={{ alignItems: 'center' }}>
+                        {serialized?.frontmatter?.readingTime && (
                           <TimeToRead
                             minutes={
                               // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -168,9 +168,9 @@ const ArticleRender = ({
                               String(serialized?.frontmatter?.readingTime)
                             }
                           />
-                          <CopyForLLM section={type} slug={slug} />
-                        </Flex>
-                      )}
+                        )}
+                        <CopyForLLM section={type} slug={slug} />
+                      </Flex>
                     </Box>
                   </Flex>
                   <MarkdownRenderer serialized={serialized} />

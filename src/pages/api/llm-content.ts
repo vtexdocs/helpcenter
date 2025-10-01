@@ -59,7 +59,15 @@ export default async function handler(
     }
 
     const raw = await fetchRawMarkdown(section, branch, entry.path)
-    const content = escapeCurlyBraces(replaceHTMLBlocks(raw))
+
+    // Remove frontmatter (--- ... ---) from the beginning of the content
+    const removeFrontmatter = (markdown: string): string => {
+      const frontmatterRegex = /^---\s*\n[\s\S]*?\n---\s*\n/
+      return markdown.replace(frontmatterRegex, '').trim()
+    }
+
+    const withoutFrontmatter = removeFrontmatter(raw)
+    const content = escapeCurlyBraces(replaceHTMLBlocks(withoutFrontmatter))
 
     // Cache headers: 5m s-maxage, 30m stale-while-revalidate
     res.setHeader(
