@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react'
+import { useEffect, useContext, startTransition } from 'react'
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next'
 import { Item } from '@vtexdocs/components'
 
@@ -53,8 +53,12 @@ const TutorialPage: NextPage<ArticlePageProps> = ({
   const { setBranchPreview } = useContext(PreviewContext)
 
   useEffect(() => {
-    setBranchPreview(branch)
-  }, [componentProps])
+    // Defer parent state update to avoid interrupting hydration of the Suspense boundary.
+    // React recommends wrapping such updates in startTransition.
+    startTransition(() => {
+      setBranchPreview(branch)
+    })
+  }, [branch])
 
   return mdFileExists === true ? (
     <ArticleRender
