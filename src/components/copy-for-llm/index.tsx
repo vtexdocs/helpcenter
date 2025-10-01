@@ -43,9 +43,13 @@ const CopyForLLM = ({ section, slug }: Props) => {
       if (!res.ok) throw new Error('Failed to fetch content')
       const data = await res.json()
       if (data?.content) {
-        copy(data.content)
-        setIsCopied(true)
-        window.setTimeout(() => setIsCopied(false), 2000)
+        const success = copy(data.content)
+        if (success) {
+          setIsCopied(true)
+          window.setTimeout(() => setIsCopied(false), 2000)
+        } else {
+          throw new Error('Failed to copy to clipboard')
+        }
       }
     } catch (err) {
       // eslint-disable-next-line no-console
