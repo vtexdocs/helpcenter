@@ -46,7 +46,7 @@ const CopyForLLM = ({ section, slug }: Props) => {
         const success = copy(data.content)
         if (success) {
           setIsCopied(true)
-          window.setTimeout(() => setIsCopied(false), 2000)
+          window.setTimeout(() => setIsCopied(false), 10000)
         } else {
           throw new Error('Failed to copy to clipboard')
         }
