@@ -3,7 +3,7 @@ import type { SxStyleProp } from '@vtex/brand-ui'
 const container: SxStyleProp = {
   mb: '32px',
   flexDirection: 'column',
-  alignItems: ['initial', 'center', 'center', 'center', 'initial'],
+  alignItems: ['center', 'center', 'center', 'center', 'initial'],
 }
 
 const titleContainer: SxStyleProp = {
@@ -35,7 +35,7 @@ const photosContainer: (rows: number) => SxStyleProp = (rows) => ({
   mt: '16px',
   gap: '8px',
   gridTemplateColumns: [
-    '1fr 1fr 1fr 1fr',
+    '1fr 1fr 1fr 1fr 1fr 1fr',
     '1fr 1fr 1fr 1fr 1fr 1fr',
     '1fr 1fr 1fr 1fr 1fr 1fr',
     '1fr 1fr 1fr 1fr 1fr 1fr',
@@ -43,7 +43,14 @@ const photosContainer: (rows: number) => SxStyleProp = (rows) => ({
     '1fr 1fr 1fr 1fr 1fr',
   ],
   overflow: 'hidden',
-  width: [0, 'min-content', 'min-content', 'min-content', '152px', '192px'],
+  width: [
+    'min-content',
+    'min-content',
+    'min-content',
+    'min-content',
+    '152px',
+    '192px',
+  ],
   maxHeight: `${32 * rows + 8 * (rows - 1)}px`,
   transition: 'max-height 0.3s ease-in-out',
 })
