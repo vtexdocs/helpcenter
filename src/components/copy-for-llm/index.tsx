@@ -16,9 +16,10 @@ interface Props {
     | 'known-issues'
     | 'troubleshooting'
   slug: string
+  path: string
 }
 
-const CopyForLLM = ({ section, slug }: Props) => {
+const CopyForLLM = ({ section, slug, path }: Props) => {
   const intl = useIntl()
   const router = useRouter()
   const [isCopied, setIsCopied] = useState(false)
@@ -50,10 +51,20 @@ const CopyForLLM = ({ section, slug }: Props) => {
     setIsLoading(true)
     try {
       const locale = (router.locale as string) || 'en'
-      const params = new URLSearchParams({ section, slug, locale })
+      const params = new URLSearchParams({
+        section,
+        slug,
+        locale,
+        path,
+      })
 
       // eslint-disable-next-line no-console
-      console.log('CopyForLLM: Fetching content', { section, slug, locale })
+      console.log('CopyForLLM: Fetching content', {
+        section,
+        slug,
+        locale,
+        path,
+      })
 
       const res = await fetch(`/api/llm-content?${params.toString()}`)
       if (!res.ok) {

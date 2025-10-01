@@ -169,7 +169,7 @@ const ArticleRender = ({
                             }
                           />
                         )}
-                        <CopyForLLM section={type} slug={slug} />
+                        <CopyForLLM section={type} slug={slug} path={path} />
                       </Flex>
                     </Box>
                   </Flex>
