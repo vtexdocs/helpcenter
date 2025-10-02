@@ -16,6 +16,8 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           context: netlify/leafy-mooncake-7c2e5e/deploy-preview
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
