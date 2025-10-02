@@ -15,7 +15,7 @@ jobs:
         id: wait-for-netlify
         uses: jakepartusch/wait-for-netlify-action@v1
         with:
-          site_name: 'elated-hoover-5c29bf'
+          site_name: 'leafy-mooncake-7c2e5e'
           max_timeout: 600
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
@@ -23,9 +23,10 @@ jobs:
       - name: Wait for Netlify deploy to finish
         uses: netlify/actions/cli@master
         with:
-          args: watch
+          args: watch --site ${{ secrets.NETLIFY_SITE_ID }} --timeout 900
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       - name: Run Cypress E2E tests
