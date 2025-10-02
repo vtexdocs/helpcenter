@@ -82,10 +82,19 @@ describe('Help Center Navigation Status Test', () => {
       // Verify page loads successfully
       cy.url().should('include', page.url.replace(baseUrl, ''))
 
-      // Verify page has content
+      // Verify page has basic structure
       cy.get('body').should('exist').and('be.visible')
 
-      cy.task('log', `    ✓ Page loaded successfully\n`)
+      // Verify article content exists and contains rendered markdown
+      cy.get('article').should('exist').and('be.visible')
+
+      // Check that article has actual content (headings, paragraphs, etc.)
+      cy.get('article').within(() => {
+        // Should have either headings, paragraphs, or lists (typical markdown elements)
+        cy.get('h1, h2, h3, h4, p, ul, ol, pre, code').should('exist')
+      })
+
+      cy.task('log', `    ✓ Page loaded with rendered markdown content\n`)
     })
 
     // Final summary
