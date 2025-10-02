@@ -14,7 +14,7 @@ jobs:
       - name: Wait for all checks to complete (including Netlify)
         uses: WyriHaximus/github-action-wait-for-status@v1
         with:
-          ignoreActions: E2E Tests
+          ignoreActions: e2e-tests
           checkInterval: 10
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
