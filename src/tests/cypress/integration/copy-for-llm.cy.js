@@ -2,13 +2,54 @@
 import { writeLog } from '../support/functions'
 
 describe('Copy for AI Feature', () => {
-  // Use a known, stable tutorial URL for testing
-  const tutorialUrl = '/docs/tutorials/how-does-vtex-support-work'
+  let tutorialUrl = ''
   const copiedContents = {}
 
   before(() => {
     cy.writeFile('cypress.log', `#Copy for AI Feature Tests#\n`, {
       flag: 'a+',
+    })
+
+    // Fetch a real tutorial from the navigation API
+    const baseUrl = Cypress.config('baseUrl')
+    cy.request(`${baseUrl}/api/navigation`).then((response) => {
+      const navigationData = response.body.navbar
+
+      // Find the tutorials section
+      const tutorialsSection = navigationData.find(
+        (section) => section.documentation === 'tutorials'
+      )
+
+      if (tutorialsSection && tutorialsSection.categories.length > 0) {
+        // Get first markdown page from tutorials
+        const findFirstMarkdownPage = (items) => {
+          for (const item of items) {
+            if (item.type === 'markdown' && item.slug) {
+              const slug =
+                typeof item.slug === 'object' ? item.slug.en : item.slug
+              return slug
+            }
+            if (item.children && item.children.length > 0) {
+              const found = findFirstMarkdownPage(item.children)
+              if (found) return found
+            }
+          }
+          return null
+        }
+
+        const slug = findFirstMarkdownPage(tutorialsSection.categories)
+        if (slug) {
+          const prefix = tutorialsSection.slugPrefix.endsWith('/')
+            ? tutorialsSection.slugPrefix.slice(0, -1)
+            : tutorialsSection.slugPrefix
+          tutorialUrl = `${prefix}/${slug}`
+          cy.log(`Using tutorial: ${tutorialUrl}`)
+        } else {
+          throw new Error('No markdown tutorial found in navigation')
+        }
+      } else {
+        throw new Error('Tutorials section not found in navigation')
+      }
     })
   })
 
