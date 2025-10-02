@@ -17,31 +17,13 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           context: netlify/leafy-mooncake-7c2e5e/deploy-preview
         
-      - name: Wait for Netlify Preview
-        id: wait-for-netlify
-        uses: jakepartusch/wait-for-netlify-action@v1
-        with:
-          site_name: 'leafy-mooncake-7c2e5e'
-          max_timeout: 600
-        env:
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-
-      - name: Wait for Netlify deploy to finish
-        uses: netlify/actions/cli@master
-        with:
-          args: watch
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
         with:
-          wait-on: '${{ steps.wait-for-netlify.outputs.url }}'
-          wait-on-timeout: 60
+          wait-on: 'https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app'
+          wait-on-timeout: 120
         env:
-          CYPRESS_baseUrl: ${{ steps.wait-for-netlify.outputs.url }}
+          CYPRESS_baseUrl: https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app
 
       - name: Upload Cypress screenshots on failure
         if: failure()
@@ -64,7 +46,7 @@ jobs:
         run: |
           echo "## 🧪 Cypress Test Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Deployment URL:** ${{ steps.wait-for-netlify.outputs.url }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployment URL:** https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
           if [[ "${{ job.status }}" == "success" ]]; then
