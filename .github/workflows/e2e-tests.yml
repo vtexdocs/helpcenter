@@ -20,6 +20,14 @@ jobs:
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
+      - name: Wait for Netlify deploy to finish
+        uses: netlify/actions/cli@v4
+        with:
+          args: watch
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
         with:
