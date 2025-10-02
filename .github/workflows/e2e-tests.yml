@@ -16,6 +16,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           context: netlify/leafy-mooncake-7c2e5e/deploy-preview
+          ignoreActions: E2E Tests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
