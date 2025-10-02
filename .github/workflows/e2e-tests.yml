@@ -21,7 +21,7 @@ jobs:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
       - name: Wait for Netlify deploy to finish
-        uses: netlify/actions/cli@v4
+        uses: netlify/actions/cli@master
         with:
           args: watch
         env:
