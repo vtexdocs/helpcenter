@@ -10,7 +10,8 @@ describe('Help Center Navigation Status Test', () => {
 
     // Fetch navigation data from the API
     cy.request(`${baseUrl}/api/navigation`).then((response) => {
-      const navigationData = response.body.navbar
+      // API returns array directly, not {navbar: [...]}
+      const navigationData = response.body
 
       cy.task('log', '\n' + '='.repeat(80))
       cy.task('log', '📋 HELP CENTER NAVIGATION TEST')

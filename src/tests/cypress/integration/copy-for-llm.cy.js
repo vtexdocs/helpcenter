@@ -13,7 +13,8 @@ describe('Copy for AI Feature', () => {
     // Fetch a real tutorial from the navigation API
     const baseUrl = Cypress.config('baseUrl')
     cy.request(`${baseUrl}/api/navigation`).then((response) => {
-      const navigationData = response.body.navbar
+      // API returns array directly, not {navbar: [...]}
+      const navigationData = response.body
 
       // Find the tutorials section
       const tutorialsSection = navigationData.find(
