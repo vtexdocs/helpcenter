@@ -11,14 +11,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Wait for Netlify Deploy Preview status
-        uses: WyriHaximus/github-action-wait-for-status@v1
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          context: netlify/leafy-mooncake-7c2e5e/deploy-preview
-          ignoreActions: E2E Tests
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+      
+      - name: Wait for Netlify Deploy Preview
+        run: |
+          netlify watch --site leafy-mooncake-7c2e5e --timeout 600
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
         
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
