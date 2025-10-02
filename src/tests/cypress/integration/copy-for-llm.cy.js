@@ -13,8 +13,17 @@ describe('Copy for AI Feature', () => {
     // Fetch a real tutorial from the navigation API
     const baseUrl = Cypress.config('baseUrl')
     cy.request(`${baseUrl}/api/navigation`).then((response) => {
-      // API returns array directly, not {navbar: [...]}
-      const navigationData = response.body
+      // Normalize navigation response shape: either an array or an object with navbar array
+      const body = response.body
+      const navigationData = Array.isArray(body)
+        ? body
+        : body && Array.isArray(body.navbar)
+        ? body.navbar
+        : null
+
+      if (!navigationData) {
+        throw new Error('Unexpected navigation response format')
+      }
 
       // Find the Guides section (the main documentation section)
       const guidesSection = navigationData.find(

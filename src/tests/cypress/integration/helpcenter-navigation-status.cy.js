@@ -10,8 +10,24 @@ describe('Help Center Navigation Status Test', () => {
 
     // Fetch navigation data from the API
     cy.request(`${baseUrl}/api/navigation`).then((response) => {
-      // API returns array directly, not {navbar: [...]}
-      const navigationData = response.body
+      // Normalize navigation response shape: either an array or an object with navbar array
+      const body = response.body
+      const navigationData = Array.isArray(body)
+        ? body
+        : body && Array.isArray(body.navbar)
+        ? body.navbar
+        : null
+
+      if (!navigationData) {
+        cy.task(
+          'log',
+          `Unexpected navigation response: ${JSON.stringify(body).slice(
+            0,
+            500
+          )}...`
+        )
+        throw new Error('Unexpected navigation response format')
+      }
 
       cy.task('log', '\n' + '='.repeat(80))
       cy.task('log', '📋 HELP CENTER NAVIGATION TEST')
