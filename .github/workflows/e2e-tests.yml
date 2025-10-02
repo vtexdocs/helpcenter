@@ -11,6 +11,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Wait for Netlify Deploy Preview status
+        uses: WyriHaximus/github-action-wait-for-status@v1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          context: netlify/leafy-mooncake-7c2e5e/deploy-preview
+        
       - name: Wait for Netlify Preview
         id: wait-for-netlify
         uses: jakepartusch/wait-for-netlify-action@v1
