@@ -30,6 +30,7 @@ import ArticleRender from 'components/article-render'
 import { ArticlePageProps } from 'utils/typings/types'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
 import { getMessages } from 'utils/get-messages'
+import type { SectionId } from 'utils/typings/unionTypes'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -56,7 +57,7 @@ const TrackPage: NextPage<ArticlePageProps> = ({
 
   return mdFileExists === true ? (
     <ArticleRender
-      type={sectionSelected}
+      type={sectionSelected as SectionId}
       breadcrumbList={breadcrumbList}
       pagination={pagination}
       isListed={isListed}

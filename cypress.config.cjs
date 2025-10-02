@@ -1,7 +1,6 @@
-import { defineConfig } from 'cypress'
-import nodeEvents from './src/tests/cypress/plugins/index.mjs'
+const { defineConfig } = require('cypress')
 
-export default defineConfig({
+module.exports = defineConfig({
   video: false,
   screenshotOnRunFailure: false,
   fixturesFolder: 'src/tests/cypress/fixtures',
@@ -11,10 +10,11 @@ export default defineConfig({
   experimentalMemoryManagement: true,
   e2e: {
     setupNodeEvents(on, config) {
-      return nodeEvents(on, config)
+      const plugins = require('./src/tests/cypress/plugins/index.js')
+      return plugins(on, config)
     },
     specPattern: 'src/tests/cypress/integration/**/*.cy.{js,jsx,ts,tsx}',
     supportFile: 'src/tests/cypress/support/index.js',
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'http://localhost:3030',
   },
 })

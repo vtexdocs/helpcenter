@@ -22,6 +22,7 @@ import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
 import ArticleRender from 'components/article-render'
 import ArticleIndex from 'components/article-index'
+import type { SectionId } from 'utils/typings/unionTypes'
 import { ArticlePageProps } from 'utils/typings/types'
 
 // Initialize in getStaticProps
@@ -49,7 +50,7 @@ const FaqPage: NextPage<ArticlePageProps> = ({
 
   return mdFileExists === true ? (
     <ArticleRender
-      type={sectionSelected}
+      type={sectionSelected as SectionId}
       breadcrumbList={breadcrumbList}
       isListed={isListed}
       branch={branch}

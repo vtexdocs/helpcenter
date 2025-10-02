@@ -27,6 +27,7 @@ import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { sanitizeArray } from 'utils/sanitizeArrays'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
 import { getMessages } from 'utils/get-messages'
+import type { SectionId } from 'utils/typings/unionTypes'
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
   string,
@@ -52,7 +53,7 @@ const AnnouncementPage: NextPage<ArticlePageProps> = ({
 
   return mdFileExists === true ? (
     <ArticleRender
-      type={sectionSelected}
+      type={sectionSelected as SectionId}
       breadcrumbList={breadcrumbList}
       isListed={isListed}
       branch={branch}

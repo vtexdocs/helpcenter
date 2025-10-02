@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react'
+import { useEffect, useContext, startTransition } from 'react'
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next'
 import { Item } from '@vtexdocs/components'
 
@@ -27,6 +27,7 @@ import {
 import { ArticlePageProps } from 'utils/typings/types'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
 import { getMessages } from 'utils/get-messages'
+import type { SectionId } from 'utils/typings/unionTypes'
 import {
   checkTroubleshootingFallback,
   createTroubleshootingRedirect,
@@ -52,12 +53,16 @@ const TutorialPage: NextPage<ArticlePageProps> = ({
   const { setBranchPreview } = useContext(PreviewContext)
 
   useEffect(() => {
-    setBranchPreview(branch)
-  }, [componentProps])
+    // Defer parent state update to avoid interrupting hydration of the Suspense boundary.
+    // React recommends wrapping such updates in startTransition.
+    startTransition(() => {
+      setBranchPreview(branch)
+    })
+  }, [branch])
 
   return mdFileExists === true ? (
     <ArticleRender
-      type={sectionSelected}
+      type={sectionSelected as SectionId}
       breadcrumbList={breadcrumbList}
       pagination={pagination}
       isListed={isListed}

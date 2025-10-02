@@ -23,6 +23,12 @@ function newTracker(config: {
   getUserId: any
   projectKey: any
 }) {
+  // Disable tracker during Cypress tests to avoid API compatibility issues
+  if (typeof window !== 'undefined' && (window as any).Cypress) {
+    console.log('Cypress detected - skipping OpenReplay tracker initialization')
+    return null
+  }
+
   const getUserId =
     config?.userIdEnabled && config?.getUserId
       ? config.getUserId
@@ -56,7 +62,10 @@ function reducer(state, action) {
     case 'start': {
       if (state.tracker && !state.isStarted) {
         console.log('Starting tracker...')
-        state.tracker.start()
+        // Only start if tracker is not null (e.g., not in Cypress)
+        if (state.tracker) {
+          state.tracker.start()
+        }
         return { ...state, isStarted: true }
       }
       return state

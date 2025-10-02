@@ -18,6 +18,8 @@ import TimeToRead from 'components/TimeToRead'
 import DateText from 'components/date-text'
 import Author from 'components/author'
 import Tag from 'components/tag'
+import CopyForLLM from 'components/copy-for-llm'
+import type { SectionId } from 'utils/typings/unionTypes'
 
 export interface MarkDownProps {
   content: string
@@ -45,7 +47,7 @@ export interface MarkDownProps {
   }
   breadcrumbList: { slug: string; name: string; type: string }[]
   headings: Item[]
-  type: string
+  type: SectionId
 }
 
 const ArticleRender = ({
@@ -156,16 +158,19 @@ const ArticleRender = ({
                           />
                         </Flex>
                       )}
-                      {serialized?.frontmatter?.readingTime && (
-                        <TimeToRead
-                          minutes={
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            (serialized?.frontmatter?.readingTime as any)
-                              ?.text ||
-                            String(serialized?.frontmatter?.readingTime)
-                          }
-                        />
-                      )}
+                      <Flex sx={{ alignItems: 'center' }}>
+                        {serialized?.frontmatter?.readingTime && (
+                          <TimeToRead
+                            minutes={
+                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                              (serialized?.frontmatter?.readingTime as any)
+                                ?.text ||
+                              String(serialized?.frontmatter?.readingTime)
+                            }
+                          />
+                        )}
+                        <CopyForLLM section={type} slug={slug} path={path} />
+                      </Flex>
                     </Box>
                   </Flex>
                   <MarkdownRenderer serialized={serialized} />
