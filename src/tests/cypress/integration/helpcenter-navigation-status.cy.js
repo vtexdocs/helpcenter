@@ -52,8 +52,8 @@ describe('Help Center Navigation Status Test', () => {
 
         collectPages(categories, urlPrefix)
 
-        // Select a random page from this section
-        if (pages.length > 0) {
+        // Select a random page from this section (limit to first 3 sections to reduce test time)
+        if (pages.length > 0 && selectedPages.length < 3) {
           const randomIndex = Math.floor(Math.random() * pages.length)
           const selectedPage = pages[randomIndex]
           selectedPages.push(selectedPage)

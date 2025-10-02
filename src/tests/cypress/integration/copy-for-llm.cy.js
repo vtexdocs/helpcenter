@@ -16,13 +16,13 @@ describe('Copy for AI Feature', () => {
       // API returns array directly, not {navbar: [...]}
       const navigationData = response.body
 
-      // Find the tutorials section
-      const tutorialsSection = navigationData.find(
-        (section) => section.documentation === 'tutorials'
+      // Find the Guides section (the main documentation section)
+      const guidesSection = navigationData.find(
+        (section) => section.documentation === 'Guides'
       )
 
-      if (tutorialsSection && tutorialsSection.categories.length > 0) {
-        // Get first markdown page from tutorials
+      if (guidesSection && guidesSection.categories.length > 0) {
+        // Get first markdown page from guides
         const findFirstMarkdownPage = (items) => {
           for (const item of items) {
             if (item.type === 'markdown' && item.slug) {
@@ -38,18 +38,18 @@ describe('Copy for AI Feature', () => {
           return null
         }
 
-        const slug = findFirstMarkdownPage(tutorialsSection.categories)
+        const slug = findFirstMarkdownPage(guidesSection.categories)
         if (slug) {
-          const prefix = tutorialsSection.slugPrefix.endsWith('/')
-            ? tutorialsSection.slugPrefix.slice(0, -1)
-            : tutorialsSection.slugPrefix
+          const prefix = guidesSection.slugPrefix.endsWith('/')
+            ? guidesSection.slugPrefix.slice(0, -1)
+            : guidesSection.slugPrefix
           tutorialUrl = `${prefix}/${slug}`
-          cy.log(`Using tutorial: ${tutorialUrl}`)
+          cy.log(`Using guide: ${tutorialUrl}`)
         } else {
-          throw new Error('No markdown tutorial found in navigation')
+          throw new Error('No markdown guide found in navigation')
         }
       } else {
-        throw new Error('Tutorials section not found in navigation')
+        throw new Error('Guides section not found in navigation')
       }
     })
   })
