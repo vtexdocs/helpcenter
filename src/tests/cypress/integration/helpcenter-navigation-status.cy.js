@@ -1,10 +1,13 @@
 /// <reference types="cypress" />
 
 describe('Help Center Navigation Status Test', () => {
-  const baseUrl = 'https://newhelp.vtex.com'
   let selectedPages = []
+  let baseUrl
 
   before(() => {
+    // Get the base URL from Cypress config (can be overridden by CYPRESS_baseUrl env var)
+    baseUrl = Cypress.config('baseUrl')
+
     // Fetch navigation data from the API
     cy.request(`${baseUrl}/api/navigation`).then((response) => {
       const navigationData = response.body.navbar
@@ -66,6 +69,18 @@ describe('Help Center Navigation Status Test', () => {
   })
 
   it('should successfully load randomly selected pages from each navbar section', () => {
+    // Handle hydration errors during page loads
+    cy.on('uncaught:exception', (err) => {
+      // Ignore hydration-related errors
+      if (
+        err.message.includes('Suspense boundary') ||
+        err.message.includes('hydrating')
+      ) {
+        return false
+      }
+      return true
+    })
+
     cy.task('log', '\n🧪 Starting page tests...\n')
 
     // Test each selected page

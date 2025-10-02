@@ -1,0 +1,67 @@
+name: E2E Tests
+on: 
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Wait for Netlify Preview
+        id: wait-for-netlify
+        uses: denar90/wait-for-netlify-deploy-action@v1.4
+        with:
+          site_id: 'elated-hoover-5c29bf'
+          max_timeout: 600
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+
+      - name: Run Cypress E2E tests
+        uses: cypress-io/github-action@v6
+        with:
+          wait-on: '${{ steps.wait-for-netlify.outputs.url }}'
+          wait-on-timeout: 60
+        env:
+          CYPRESS_baseUrl: ${{ steps.wait-for-netlify.outputs.url }}
+
+      - name: Upload Cypress screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
+
+      - name: Upload Cypress videos on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          if-no-files-found: ignore
+
+      - name: Generate test summary
+        if: always()
+        run: |
+          echo "## 🧪 Cypress Test Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployment URL:** ${{ steps.wait-for-netlify.outputs.url }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [[ "${{ job.status }}" == "success" ]]; then
+            echo "✅ All tests passed!" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Some tests failed. Check the logs for details." >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ -f "./cypress.log" ]]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Failed Tests" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            cat cypress.log >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi

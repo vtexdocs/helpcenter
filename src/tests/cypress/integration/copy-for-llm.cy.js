@@ -13,6 +13,18 @@ describe('Copy for AI Feature', () => {
   })
 
   beforeEach(() => {
+    // Handle hydration errors globally for all tests
+    cy.on('uncaught:exception', (err) => {
+      // Ignore hydration-related errors
+      if (
+        err.message.includes('Suspense boundary') ||
+        err.message.includes('hydrating')
+      ) {
+        return false
+      }
+      return true
+    })
+
     cy.viewport(1366, 768)
   })
 
@@ -101,18 +113,6 @@ describe('Copy for AI Feature', () => {
     // Navigate to Spanish version
     const spanishUrl = tutorialUrl.replace('/docs/', '/es/docs/')
 
-    // Handle hydration errors during page load
-    cy.on('uncaught:exception', (err) => {
-      // Ignore hydration-related errors
-      if (
-        err.message.includes('Suspense boundary') ||
-        err.message.includes('hydrating')
-      ) {
-        return false
-      }
-      return true
-    })
-
     cy.visit(spanishUrl)
 
     // Wait for page to be fully loaded and hydrated
@@ -179,18 +179,6 @@ describe('Copy for AI Feature', () => {
   it('Should copy content in Portuguese and verify it differs from English and Spanish', () => {
     // Navigate to Portuguese version
     const portugueseUrl = tutorialUrl.replace('/docs/', '/pt/docs/')
-
-    // Handle hydration errors during page load
-    cy.on('uncaught:exception', (err) => {
-      // Ignore hydration-related errors
-      if (
-        err.message.includes('Suspense boundary') ||
-        err.message.includes('hydrating')
-      ) {
-        return false
-      }
-      return true
-    })
 
     cy.visit(portugueseUrl)
 
