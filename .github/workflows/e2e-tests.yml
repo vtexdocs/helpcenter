@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Wait for all checks to complete (including Netlify)
-        uses: WyriHaximus/github-action-wait-for-status@v1
+        uses: WyriHaximus/github-action-wait-for-status@e2c4fd94097b7e270c0ae858e16d80981fcf7d57
         with:
           ignoreActions: e2e-tests
           checkInterval: 10
