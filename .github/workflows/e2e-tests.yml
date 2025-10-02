@@ -13,9 +13,9 @@ jobs:
 
       - name: Wait for Netlify Preview
         id: wait-for-netlify
-        uses: denar90/wait-for-netlify-deploy-action@v1.4
+        uses: jakepartusch/wait-for-netlify-action@v1
         with:
-          site_id: 'elated-hoover-5c29bf'
+          site_name: 'elated-hoover-5c29bf'
           max_timeout: 600
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
