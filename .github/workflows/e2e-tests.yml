@@ -23,7 +23,7 @@ jobs:
       - name: Wait for Netlify deploy to finish
         uses: netlify/actions/cli@master
         with:
-          args: watch --timeout 900
+          args: watch
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
