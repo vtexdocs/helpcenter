@@ -2,13 +2,18 @@
 
 describe('Help Center Navigation Status Test', () => {
   const baseUrl = 'https://newhelp.vtex.com'
-  let navigationData = []
   let selectedPages = []
 
   before(() => {
     // Fetch navigation data from the API
     cy.request(`${baseUrl}/api/navigation`).then((response) => {
-      navigationData = response.body.navbar
+      const navigationData = response.body.navbar
+
+      cy.task('log', '\n' + '='.repeat(80))
+      cy.task('log', '📋 HELP CENTER NAVIGATION TEST')
+      cy.task('log', '='.repeat(80))
+      cy.task('log', `Fetching navigation from: ${baseUrl}/api/navigation`)
+      cy.task('log', `Found ${navigationData.length} navbar sections\n`)
 
       // Select one random page from each navbar section
       navigationData.forEach((section) => {
@@ -46,39 +51,46 @@ describe('Help Center Navigation Status Test', () => {
         // Select a random page from this section
         if (pages.length > 0) {
           const randomIndex = Math.floor(Math.random() * pages.length)
-          selectedPages.push(pages[randomIndex])
+          const selectedPage = pages[randomIndex]
+          selectedPages.push(selectedPage)
+          cy.task(
+            'log',
+            `  ✓ ${documentation.padEnd(20)} → "${selectedPage.name}"`
+          )
         }
       })
 
-      // Log selected pages for visibility
-      cy.log(
-        'Selected pages for testing:',
-        JSON.stringify(selectedPages, null, 2)
-      )
+      cy.task('log', `\n🎯 Selected ${selectedPages.length} pages for testing`)
+      cy.task('log', '='.repeat(80) + '\n')
     })
   })
 
   it('should successfully load randomly selected pages from each navbar section', () => {
+    cy.task('log', '\n🧪 Starting page tests...\n')
+
     // Test each selected page
-    selectedPages.forEach((page) => {
+    selectedPages.forEach((page, index) => {
+      cy.task(
+        'log',
+        `[${index + 1}/${selectedPages.length}] Testing: ${page.section}`
+      )
+      cy.task('log', `    Page: "${page.name}"`)
+      cy.task('log', `    URL: ${page.url}`)
+
       cy.visit(page.url, { failOnStatusCode: false })
 
-      // Verify page loads successfully (status 200)
+      // Verify page loads successfully
       cy.url().should('include', page.url.replace(baseUrl, ''))
 
-      // Verify page has content (basic check)
+      // Verify page has content
       cy.get('body').should('exist').and('be.visible')
 
-      // Log success for this page
-      cy.log(`✓ ${page.section}: ${page.name}`)
+      cy.task('log', `    ✓ Page loaded successfully\n`)
     })
-  })
 
-  it('should display each section name in the test results', () => {
-    // Create individual test assertions for better reporting
-    selectedPages.forEach((page) => {
-      cy.wrap(page).should('have.property', 'url')
-      cy.log(`Section: ${page.section} | Page: ${page.name} | URL: ${page.url}`)
-    })
+    // Final summary
+    cy.task('log', '\n' + '='.repeat(80))
+    cy.task('log', `✅ All ${selectedPages.length} pages tested successfully!`)
+    cy.task('log', '='.repeat(80) + '\n')
   })
 })
