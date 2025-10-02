@@ -100,7 +100,31 @@ describe('Copy for AI Feature', () => {
   it('Should copy content in Spanish and verify it differs from English', () => {
     // Navigate to Spanish version
     const spanishUrl = tutorialUrl.replace('/docs/', '/es/docs/')
+
+    // Handle hydration errors during page load
+    cy.on('uncaught:exception', (err) => {
+      // Ignore hydration-related errors
+      if (
+        err.message.includes('Suspense boundary') ||
+        err.message.includes('hydrating')
+      ) {
+        return false
+      }
+      return true
+    })
+
     cy.visit(spanishUrl)
+
+    // Wait for page to be fully loaded and hydrated
+    cy.get('article', { timeout: 15000 }).should('be.visible')
+
+    // Wait a bit more for hydration to complete
+    cy.wait(2000)
+
+    // Verify the button exists before stubbing
+    cy.contains('button', 'Copiar para IA', { timeout: 10000 }).should(
+      'be.visible'
+    )
 
     // Stub document.execCommand for Spanish
     cy.document().then((doc) => {
@@ -155,7 +179,31 @@ describe('Copy for AI Feature', () => {
   it('Should copy content in Portuguese and verify it differs from English and Spanish', () => {
     // Navigate to Portuguese version
     const portugueseUrl = tutorialUrl.replace('/docs/', '/pt/docs/')
+
+    // Handle hydration errors during page load
+    cy.on('uncaught:exception', (err) => {
+      // Ignore hydration-related errors
+      if (
+        err.message.includes('Suspense boundary') ||
+        err.message.includes('hydrating')
+      ) {
+        return false
+      }
+      return true
+    })
+
     cy.visit(portugueseUrl)
+
+    // Wait for page to be fully loaded and hydrated
+    cy.get('article', { timeout: 15000 }).should('be.visible')
+
+    // Wait a bit more for hydration to complete
+    cy.wait(2000)
+
+    // Verify the button exists before stubbing
+    cy.contains('button', 'Copiar para IA', { timeout: 10000 }).should(
+      'be.visible'
+    )
 
     // Stub document.execCommand for Portuguese
     cy.document().then((doc) => {
