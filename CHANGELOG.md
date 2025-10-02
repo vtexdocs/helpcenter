@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/vtexdocs/helpcenter/compare/v0.9.23...v0.10.0) (2025-10-02)
+
+
+### Features
+
+* **copy-for-llm:** add Copy for LLM button and API endpoint ([e9a49cd](https://github.com/vtexdocs/helpcenter/commit/e9a49cd644114cd49a35a21afe3fd534ce73d1c7))
+* increase copied state timeout to 10 seconds ([4cbccb4](https://github.com/vtexdocs/helpcenter/commit/4cbccb4b260aa156db803c9bbba3d131bca6bdb0))
+
+
+### Bug Fixes
+
+* **article-render:** remove stray JSX artifacts rendering under header ([dca11c8](https://github.com/vtexdocs/helpcenter/commit/dca11c8609628d737bdeb4813565e318b2349dba))
+* check clipboard copy success before showing copied state ([178fadd](https://github.com/vtexdocs/helpcenter/commit/178fadd2be538418c51bf6bd348585cb05364da1))
+* **copy-for-llm:** fetch by path and disable llm-content caching by default (testing) ([d0c7c8a](https://github.com/vtexdocs/helpcenter/commit/d0c7c8adfdeee787f02246794057aeb4da464cd0))
+* **hydration:** defer branch preview update via startTransition ([2c4095a](https://github.com/vtexdocs/helpcenter/commit/2c4095ac70335f13b402d79db5b63b4f6c2e3ef5))
+* improve clipboard copy reliability when changing locales ([84bc236](https://github.com/vtexdocs/helpcenter/commit/84bc2365440b5f54082313c9c16ea94061afcc05))
+* resolve Cypress testing issues and improve Copy for LLM feature ([f0a8cc4](https://github.com/vtexdocs/helpcenter/commit/f0a8cc4d9dd3701bd4f07a451268c1d0dceb8107))
+
+
+### Tests
+
+* add comprehensive Cypress tests for Copy for LLM feature ([619f8bb](https://github.com/vtexdocs/helpcenter/commit/619f8bb4b23ccd697d20ffbfc808e190e3fa3afa))
+
+
+### Chore
+
+* remove test log from repo and add to .gitignore ([2916d8f](https://github.com/vtexdocs/helpcenter/commit/2916d8fed21d347a97ea02b9e841aa7a3ade293a))
+* **types:** narrow ArticleRender.type to SectionId and fix call sites ([8f8359a](https://github.com/vtexdocs/helpcenter/commit/8f8359adb9acee734a26306622a0be77dee011d3))
+* update button text from LLM to AI/IA and fix clipboard tests ([6b4cad0](https://github.com/vtexdocs/helpcenter/commit/6b4cad053f911dc92c0ba17e09416347d5590f57))
+
 ### [0.9.23](https://github.com/vtexdocs/helpcenter/compare/v0.9.22...v0.9.23) (2025-09-26)
 
 

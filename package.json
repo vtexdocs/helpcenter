@@ -1,6 +1,6 @@
 {
   "name": "helpcenter",
-  "version": "0.9.23",
+  "version": "0.10.0",
   "private": true,
   "engines": {
     "npm": "please-use-yarn",
