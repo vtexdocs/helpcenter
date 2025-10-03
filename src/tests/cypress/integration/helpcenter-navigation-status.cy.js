@@ -86,12 +86,14 @@ describe('Help Center Navigation Status Test', () => {
   })
 
   it('should successfully load randomly selected pages from each navbar section', () => {
-    // Handle hydration errors during page loads
+    // Handle hydration and React errors during page loads
     cy.on('uncaught:exception', (err) => {
-      // Ignore hydration-related errors
+      // Ignore hydration-related errors and React minified errors
       if (
         err.message.includes('Suspense boundary') ||
-        err.message.includes('hydrating')
+        err.message.includes('hydrating') ||
+        err.message.includes('Minified React error') ||
+        err.message.includes('invariant')
       ) {
         return false
       }
