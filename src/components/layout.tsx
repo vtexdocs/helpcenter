@@ -1,7 +1,5 @@
 import { Flex, Box } from '@vtex/brand-ui'
 import type { ReactElement } from 'react'
-import { useContext, useEffect } from 'react'
-import { TrackerContext } from 'utils/contexts/trackerContext'
 import { useClientNavigation } from 'utils/useClientNavigation'
 import { ThemeProvider } from '@vtex/brand-ui'
 
@@ -34,11 +32,6 @@ interface Props {
   parentsArray?: string[]
 }
 
-// const tracker = new OpenReplay({
-//   projectKey: "nvlaGLe4ZcfRvJmjqE61",
-//   ingestPoint: "https://openreplay.vtex.com/ingest",
-// });
-
 export default function Layout({
   children,
   hideSidebar,
@@ -46,19 +39,8 @@ export default function Layout({
   sectionSelected,
   parentsArray,
 }: Props) {
-  const { initTracker, startTracking } = useContext(TrackerContext)
   const { navigation } = useClientNavigation() // Load navigation client-side
   const intl = useIntl()
-
-  useEffect(() => {
-    // Lazy load tracker to avoid blocking main thread
-    const timer = setTimeout(() => {
-      initTracker()
-      startTracking()
-    }, 100)
-
-    return () => clearTimeout(timer)
-  }, [])
 
   return (
     <ThemeProvider>
