@@ -32,5 +32,9 @@ export default function plugins(on, config) {
     getClipboard: () => {
       return clipboardy.readSync()
     },
+    log: (message) => {
+      console.log(message)
+      return null
+    },
   })
 }

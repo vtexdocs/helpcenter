@@ -20,6 +20,10 @@
     "release": "standard-version",
     "index": "chmod +x ./algolia/scripts/scraper.sh && ./algolia/scripts/scraper.sh",
     "cypress": "cypress open",
+    "cypress:run": "cypress run",
+    "dev:test": "next dev -p 3030",
+    "test:e2e": "start-server-and-test dev:test http://localhost:3030 cypress:run",
+    "test:e2e:ci": "start-server-and-test dev:test http://localhost:3030 'cypress run --browser chrome'",
     "analyze": "ANALYZE=true yarn build",
     "bundle-report": "node analyze-bundle.js"
   },
@@ -102,6 +106,7 @@
     "lint-staged": "^12.3.5",
     "prettier": "^2.5.1",
     "standard-version": "^9.3.2",
+    "start-server-and-test": "^2.1.2",
     "typescript": "^4.6.2"
   },
   "overrides": {
