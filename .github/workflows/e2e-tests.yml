@@ -18,6 +18,9 @@ jobs:
           checkInterval: 10
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Delay for Netlify checks to appear
+        run: sleep 120
         
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
