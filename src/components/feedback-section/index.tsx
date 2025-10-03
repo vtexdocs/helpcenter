@@ -4,9 +4,15 @@ interface DocPath {
   slug?: string
   docPath?: string
   suggestEdits?: boolean
+  small?: boolean
 }
 
-const FeedbackSection = ({ slug, docPath, suggestEdits = true }: DocPath) => {
+const FeedbackSection = ({
+  slug,
+  docPath,
+  suggestEdits = true,
+  small = false,
+}: DocPath) => {
   const sendFeedback = async (comment: string, liked: boolean) => {
     const feedback = {
       data: [
@@ -31,6 +37,7 @@ const FeedbackSection = ({ slug, docPath, suggestEdits = true }: DocPath) => {
       urlToEdit={urlToEdit}
       suggestEdits={suggestEdits}
       slug={slug}
+      small={small}
     />
   )
 }

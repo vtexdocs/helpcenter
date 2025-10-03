@@ -182,10 +182,10 @@ const ArticleRender = ({
               <Box sx={styles.bottomContributorsContainer}>
                 <Box sx={styles.bottomContributorsDivider} />
                 <Contributors contributors={contributors} />
+                <FeedbackSection docPath={path} slug={slug} />
               </Box>
             )}
 
-            <FeedbackSection docPath={path} slug={slug} />
             {pagination && (
               <ArticlePagination
                 hidePaginationNext={
@@ -206,7 +206,10 @@ const ArticleRender = ({
             {type !== 'announcements' && (
               <Contributors contributors={contributors} />
             )}
-            <TableOfContents headingList={headings} />
+
+            <TableOfContents headingList={headings}>
+              <FeedbackSection docPath={path} slug={slug} small={true} />
+            </TableOfContents>
           </Box>
           <OnThisPage />
         </Flex>
