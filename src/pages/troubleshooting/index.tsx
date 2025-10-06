@@ -123,6 +123,7 @@ const TroubleshootingPage: NextPage<Props> = ({
             <Filter
               checkBoxFilter={createDynamicTroubleshootingFilter(availableTags)}
               onApply={(newFilters) => setFilters(newFilters.checklist)}
+              selectedCheckboxes={filters}
             />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
