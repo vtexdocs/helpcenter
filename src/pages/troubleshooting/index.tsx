@@ -16,7 +16,7 @@ import usePagination from 'utils/hooks/usePagination'
 import { sortBy } from 'utils/constants'
 import TroubleshootingCard from 'components/troubleshooting-card'
 import Pagination from 'components/pagination'
-import { TroubleshootingFilters } from 'utils/constants'
+
 import Filter from 'components/filter'
 import searchIcon from '../../components/icons/search-icon'
 import Input from 'components/input'
@@ -27,11 +27,13 @@ import { parseFrontmatter } from 'utils/fetchBatchGithubData'
 interface Props {
   branch: string
   troubleshootingData: TroubleshootingDataElement[]
+  availableTags: string[]
 }
 
 const TroubleshootingPage: NextPage<Props> = ({
   troubleshootingData,
   branch,
+  availableTags,
 }) => {
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
@@ -45,6 +47,15 @@ const TroubleshootingPage: NextPage<Props> = ({
   const [filters, setFilters] = useState<string[]>([])
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const [search, setSearch] = useState<string>('')
+
+  // Create dynamic filter function
+  const createDynamicTroubleshootingFilter = (tags: string[]) => ({
+    name: intl.formatMessage({ id: 'troubleshooting_filter_tags.title' }),
+    options: tags.map((tag) => ({
+      id: tag,
+      name: tag,
+    })),
+  })
 
   const filteredResult = useMemo(() => {
     const data = troubleshootingData.filter((troubleshoot) => {
@@ -110,7 +121,7 @@ const TroubleshootingPage: NextPage<Props> = ({
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
-              checkBoxFilter={TroubleshootingFilters(intl)}
+              checkBoxFilter={createDynamicTroubleshootingFilter(availableTags)}
               onApply={(newFilters) => setFilters(newFilters.checklist)}
             />
             <Select
@@ -173,6 +184,7 @@ export async function getStaticProps({
   const batchSize = 100
 
   const troubleshootingData: TroubleshootingDataElement[] = []
+  const allTags = new Set<string>() // Track all unique tags
 
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
@@ -189,22 +201,36 @@ export async function getStaticProps({
       if (!content) continue
       const frontmatter = await parseFrontmatter(content, logger)
       if (frontmatter) {
+        const tags = String(frontmatter.tags ?? '')
+          .split(',')
+          .map((tag) => {
+            const trimmed = tag.trim()
+            // Only capitalize first letter if it's lowercase
+            return trimmed.charAt(0).toUpperCase() + trimmed.slice(1)
+          })
+          .filter(Boolean)
+        // Add tags to our set
+        tags.forEach((tag) => allTags.add(tag))
         troubleshootingData.push({
           title: String(frontmatter.title),
           slug,
           createdAt: String(frontmatter.createdAt),
           updatedAt: String(frontmatter.updatedAt),
-          tags: String(frontmatter.tags ?? '').split(','),
+          tags,
           status: String(frontmatter.status),
         })
       }
     }
   }
 
+  // Convert Set to sorted array
+  const availableTags = Array.from(allTags).sort()
+
   return {
     props: {
       sectionSelected,
       troubleshootingData,
+      availableTags,
       branch,
     },
     revalidate: getISRRevalidateTime(),
