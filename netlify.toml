@@ -18,9 +18,9 @@ NODE_VERSION = "20"
 
 [[redirects]]
   force = true
-  from = "/pt/tutorial/algoritmo-de-selecao-de-sellers-white-label--3MemNQ4pKkWCpMdzI27AHa"
+  from = "/:locale/tutorial/algoritmo-de-selecao-de-sellers-white-label--3MemNQ4pKkWCpMdzI27AHa"
   status = 308 
-  to = "/pt/tutorial/selecao-de-sellers-white-label--3MemNQ4pKkWCpMdzI27AHa"
+  to = "/:locale/tutorial/selecao-de-sellers-white-label--3MemNQ4pKkWCpMdzI27AHa"
 
 # This article's URL is assembled differently in the old portal if you click the "Tutorials & Solutions" button in the header of the old portal.
 [[redirects]]
