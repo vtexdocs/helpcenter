@@ -11,10 +11,16 @@ NODE_VERSION = "20"
 
 # For portal migration purposes, redirects are handled in three categories:
 # Redirects: for specific redirects (category pages, subcategories, etc.), we use specific redirects.
-# Hardcoded article redirects: legacy redirects exported from the old portal, processed with the help-center-content/docs-utils/generateRedirects.js script.
+# Legacy redirects: exported from the old portal, processed with the help-center-content/docs-utils/generateRedirects.js script.
 # Edge functions: for standard legacy routes, we use edge functions to redirect to the new portal standard routes.
 
 # Redirects: for specific redirects (category pages, subcategories, etc.), we use specific redirects.
+
+[[redirects]]
+  force = true
+  from = "/pt/tutorial/algoritmo-de-selecao-de-sellers-white-label--3MemNQ4pKkWCpMdzI27AHa"
+  status = 308 
+  to = "/pt/tutorial/selecao-de-sellers-white-label--3MemNQ4pKkWCpMdzI27AHa"
 
 # This article's URL is assembled differently in the old portal if you click the "Tutorials & Solutions" button in the header of the old portal.
 [[redirects]]
@@ -52,6 +58,10 @@ NODE_VERSION = "20"
 
 
 # Hardcoded article redirects: legacy redirects exported from the old portal, processed with the help-center-content/docs-utils/generateRedirects.js script.
+
+# ==========================================
+# REDIRECTS FROM CSV FILE (redirects.csv)
+# ==========================================
 
 [[redirects]]
 force = true
@@ -13372,6 +13382,5368 @@ force = true
 from = "/faq/donde-veo-la-fecha-de-captura-del-pago"
 status = 308
 to = "/tutorial/donde-veo-la-fecha-de-captura-del-pago"
+
+# ==========================================
+# REDIRECTS FROM LEGACY SLUGS (markdown files)
+# ==========================================
+
+[[redirects]]
+force = true
+from = "/announcements/new-master-data-api-improves-setup-flexibility"
+status = 308
+to = "/en/docs/announcements/new-master-data-api-increases-configuration-flexibility"
+
+[[redirects]]
+force = true
+from = "/announcements/feature-removal-discontinuing-the-use-of-maximun-price-per-item-feature"
+status = 308
+to = "/en/docs/announcements/feature-removal-discontinuing-the-use-of-maximum-price-per-item-feature"
+
+[[redirects]]
+force = true
+from = "/announcements/New-returned-object-in-API-Get-Order-itemMetadata"
+status = 308
+to = "/en/docs/announcements/new-returned-object-in-api-get-order-itemmetadata"
+
+[[redirects]]
+force = true
+from = "/announcements/garanta-mais-seguranca-e-controle-na-tela-de-autorizacao-de-pedidos"
+status = 308
+to = "/en/docs/announcements/ensure-more-safety-and-control-on-your-order-authorization-screen"
+
+[[redirects]]
+force = true
+from = "/announcements/now-it's-easier-to-sell-the-products-from-your-physical-stores-in"
+status = 308
+to = "/en/docs/announcements/now-its-easier-to-sell-the-products-from-your-physical-stores-in"
+
+[[redirects]]
+force = true
+from = "/announcements/Get-Order-Json-now-delivers-new-variables-in-order-calculations"
+status = 308
+to = "/en/docs/announcements/get-order-json-now-delivers-new-variables-in-order-calculations"
+
+[[redirects]]
+force = true
+from = "/announcements/mais-tempo-para-adaptar-as-requisicoes-de-front-end-da-sua-loja-ao-master"
+status = 308
+to = "/en/docs/announcements/more-time-to-adapt-your-store-s-front-end-requests-to-master-data"
+
+[[redirects]]
+force = true
+from = "/announcements/changes-in-via-varejo-product-integration"
+status = 308
+to = "/en/docs/announcements/category-mapping-now-required-for-via-varejo-marketplace"
+
+[[redirects]]
+force = true
+from = "/announcements/customer-credit-optimize-processes-with-bulk-updates"
+status = 308
+to = "/en/docs/announcements/customer-credit-optimize-processes-with-bulk-operations"
+
+[[redirects]]
+force = true
+from = "/announcements/indexador-melhorias-de-desempenho-para-o-catalogo"
+status = 308
+to = "/en/docs/announcements/catalog-indexer-performance-improvements"
+
+[[redirects]]
+force = true
+from = "/announcements/3ds2-authentication-flow-accept-online-payments-more-securely"
+status = 308
+to = "/en/docs/announcements/3ds2-authentication-flow-accept-online-payments-more-securely-1"
+
+[[redirects]]
+force = true
+from = "/announcements/integration-guide-for-erps-orders, integration-guide-for-erps-express-catalog, integration-guide-for-erps-full-catalog, integration-guide-for-erps-catalog-architecture, integration-interfaces"
+status = 308
+to = "/en/docs/announcements/erp-integration-guides-have-a-new-home"
+
+[[redirects]]
+force = true
+from = "/announcements/limite-de-itens-com-promocao-no-carrinho"
+status = 308
+to = "/en/docs/announcements/cart-restrictions-on-item-prmotions"
+
+[[redirects]]
+force = true
+from = "/announcements/ip-and-geolocation-info-is-now-provided-in-emails-containing-login-access"
+status = 308
+to = "/en/docs/announcements/ip-and-geolocation-info-is-now-provided-in-emails-containing-access-code-requests"
+
+[[redirects]]
+force = true
+from = "/announcements/new-vtex-log-performance-page"
+status = 308
+to = "/en/docs/announcements/new-vtex-shipping-network-performance-page"
+
+[[redirects]]
+force = true
+from = "/announcements/double-check-promotion-settings"
+status = 308
+to = "/en/docs/announcements/double-check-promotion-settings-before-activating-it-to-ensure-security"
+
+[[redirects]]
+force = true
+from = "/announcements/lendico-boleto-installments-expand-your-payment-options-with-this-brand-new"
+status = 308
+to = "/en/docs/announcements/lendico-installment-loans-expand-your-payment-options"
+
+[[redirects]]
+force = true
+from = "/announcements/new-appkeys-will-not-have-a-predefined-access-profile"
+status = 308
+to = "/en/docs/announcements/new-appkeys-will-not-have-a-predefined-role"
+
+[[redirects]]
+force = true
+from = "/announcements/catalog-api-new-restrictions-to-activate-a-sku"
+status = 308
+to = "/en/docs/announcements/catalog-api-new-restrictions-to-activate-an-sku"
+
+[[redirects]]
+force = true
+from = "/announcements/konnichiwa-the-admin-is-now-available-in-japanese"
+status = 308
+to = "/en/docs/announcements/admin-disponivel-em-japones"
+
+[[redirects]]
+force = true
+from = "/announcements/ada-and-wcag-compliance-in-vtex"
+status = 308
+to = "/en/docs/announcements/ada-and-wcag-compliance-with-accessibe"
+
+[[redirects]]
+force = true
+from = "/announcements/the-new-orders-module-interface-will-be-official"
+status = 308
+to = "/en/docs/announcements/new-orders-module-interface-official"
+
+[[redirects]]
+force = true
+from = "/announcements/marketplace-network-and-integrations-are-now-a-single-page"
+status = 308
+to = "/en/docs/announcements/marketplacenetwork-and-integrations-are-now-a-single-page"
+
+[[redirects]]
+force = true
+from = "/announcements/de-as-boas-vindas-ao-novo-admin-vtex"
+status = 308
+to = "/en/docs/announcements/welcome-to-the-redesigned-vtex-admin-new"
+
+[[redirects]]
+force = true
+from = "/announcements/store-framework-cms-new-permission-required-to-manage-redirects"
+status = 308
+to = "/en/docs/announcements/new-permission-required-to-manage-redirects-in-store-framework-cms"
+
+[[redirects]]
+force = true
+from = "/announcements/amazon-offer-matching"
+status = 308
+to = "/en/docs/announcements/amazon-integration-amazon-offer-matching"
+
+[[redirects]]
+force = true
+from = "/announcements/recaptcha-validation-will-now-follow-orderform-configuration-for-all"
+status = 308
+to = "/en/docs/announcements/recaptcha-validation-will-now-follow-orderform-configuration-for-all-requests"
+
+[[redirects]]
+force = true
+from = "/announcements/la-barra-de-busqueda-global-del-admin-vtex-ahora-permite-buscar-pedidos"
+status = 308
+to = "/en/docs/announcements/search-for-orders-in-the-vtex-admin-global-search-bar"
+
+[[redirects]]
+force = true
+from = "/announcements/web-page-performance-module-discontinuation"
+status = 308
+to = "/en/docs/announcements/web-page-performance-deprecation"
+
+[[redirects]]
+force = true
+from = "/announcements/amazon-the-current-product-mapping-model-will-be-discontinued"
+status = 308
+to = "/en/docs/announcements/current-amazon-mapping-model-will-be-discontinued"
+
+[[redirects]]
+force = true
+from = "/announcements/amazon-exportation-of-fba-order-invoices"
+status = 308
+to = "/en/docs/announcements/amazon-fba-order-invoices"
+
+[[redirects]]
+force = true
+from = "/announcements/vtex-io-apps-end-of-technical-support-for-legacy-applications"
+status = 308
+to = "/en/docs/announcements/vtex-io-apps-end-of-technical-support-for-legacy-apps"
+
+[[redirects]]
+force = true
+from = "/announcements/amazon-listing-new-product-listing-model"
+status = 308
+to = "/en/docs/announcements/amazon-product-listing"
+
+[[redirects]]
+force = true
+from = "/announcements/conversation-tracker-new-email-expiration"
+status = 308
+to = "/en/docs/announcements/new-conversation-tracker-email-expiration"
+
+[[redirects]]
+force = true
+from = "/announcements/weni-by-vtex-documentation-in-the-help-center"
+status = 308
+to = "/en/docs/announcements/weni-by-vtex-documentation-in-help-center"
+
+[[redirects]]
+force = true
+from = "/announcements/mercado-libre-holidays"
+status = 308
+to = "/en/docs/announcements/mercado-libre-holidays-announcement-en"
+
+[[redirects]]
+force = true
+from = "/announcements/mercado-libre-smart-pricing"
+status = 308
+to = "/en/docs/announcements/mercado-libre-smart-pricing-en"
+
+[[redirects]]
+force = true
+from = "/announcements/mercado-libre-warehouse-assignment"
+status = 308
+to = "/en/docs/announcements/warehouse-assignment"
+
+[[redirects]]
+force = true
+from = "/faq/untitled-entry-2019-03-26-at-07-10-38"
+status = 308
+to = "/en/docs/faq/why-are-my-orders-not-integrating-with-mercado-livre"
+
+[[redirects]]
+force = true
+from = "/faq/how-does-the-scheduled-capture-flow-work-for-purchases-made-with-two-payment"
+status = 308
+to = "/en/docs/faq/how-does-the-scheduled-settlement-flow-work-for-purchases-made-with-two-payment"
+
+[[redirects]]
+force = true
+from = "/faq/why-doesnt-the-pci-gateway-finalize-the-cancellation-of-a-transaction"
+status = 308
+to = "/en/docs/faq/why-doesnt-the-payments-finalize-the-cancellation-of-a-transaction"
+
+[[redirects]]
+force = true
+from = "/faq/why-has-a-transaction-been-successfully-captured-but-not-finalized-in-the-pci-gateway"
+status = 308
+to = "/en/docs/faq/why-has-a-transaction-been-successfully-settled-but-not-finalized-in-the-pci-gateway"
+
+[[redirects]]
+force = true
+from = "/faq/why-i-am-getting-emails-telling-me-to-revise-the-capturing-of-payment"
+status = 308
+to = "/en/docs/faq/why-i-am-getting-emails-telling-me-to-revise-the-settlement-of-payment"
+
+[[redirects]]
+force = true
+from = "/faq/error-accessing-oms"
+status = 308
+to = "/en/docs/faq/what-to-do-with-error-when-accessing-orders-module"
+
+[[redirects]]
+force = true
+from = "/faq/untitled-entry-2019-03-12-at-09-06-30"
+status = 308
+to = "/en/docs/faq/why-doesnt-authentication-with-appkey-and-apptoken-work"
+
+[[redirects]]
+force = true
+from = "/faq/how-to-sync-two-benefits-to-the-same-coupon"
+status = 308
+to = "/en/docs/faq/how-to-associate-two-promotions-to-the-same-coupon"
+
+[[redirects]]
+force = true
+from = "/faq/i-ve-activated-a-product-recurrence-but-it-doesnt-appear-on-the-site"
+status = 308
+to = "/en/docs/faq/i-ve-activated-a-product-subscription-but-it-doesnt-appear-on-the-site"
+
+[[redirects]]
+force = true
+from = "/faq/untitled-entry-2019-02-20-at-05-47-19"
+status = 308
+to = "/en/docs/faq/kitlook-is-not-displayed-in-the-shop-window"
+
+[[redirects]]
+force = true
+from = "/faq/images-with-poor-quality"
+status = 308
+to = "/en/docs/faq/why-are-my-store-images-being-displayed-in-poor-quality"
+
+[[redirects]]
+force = true
+from = "/faq/why-is-the-product-not-shown-on-the-website"
+status = 308
+to = "/en/docs/faq/why-is-the-product-not-visible-on-the-website"
+
+[[redirects]]
+force = true
+from = "/faq/untitled-entry-2019-03-25-at-08-41-57"
+status = 308
+to = "/en/docs/faq/why-the-price-list-does-not-appear-on-my-store-fron-end"
+
+[[redirects]]
+force = true
+from = "/faq/what-to-do-when-the-avise-me-doesnt-show"
+status = 308
+to = "/en/docs/faq/what-to-do-when-the-notify-me-option-is-not-displayed"
+
+[[redirects]]
+force = true
+from = "/faq/why-are-my-meta tags-not-used-by-google"
+status = 308
+to = "/en/docs/faq/why-are-my-meta-tags-not-used-by-google"
+
+[[redirects]]
+force = true
+from = "/faq/faq-vtex-log"
+status = 308
+to = "/en/docs/faq/faq-vtex-shipping-network"
+
+[[redirects]]
+force = true
+from = "/faq/when-trying-to-approve-payment-oms-returns-authorize-fulfillment-error-what-to-do"
+status = 308
+to = "/en/docs/faq/when-trying-to-approve-payment-orders-managment-returns-authorize-fulfillment-error-what-to-do"
+
+[[redirects]]
+force = true
+from = "/faq/why-do-i-see-several-transactional-emails-repeated-in-an-order-on-the-oms"
+status = 308
+to = "/en/docs/faq/why-do-i-see-several-transactional-emails-repeated-in-an-order"
+
+[[redirects]]
+force = true
+from = "/faq/why-does-the-hostName-in-the-message-center-JSON-display-different-information-from-the-license-manager"
+status = 308
+to = "/en/docs/faq/why-does-the-hostname-in-the-message-center-json-display-different-information-from-the-license-manager"
+
+[[redirects]]
+force = true
+from = "/faq/why-is-my-order-with-available-stock-failing-in-oms"
+status = 308
+to = "/en/docs/faq/why-is-my-order-with-available-stock-failing-in-orders-module"
+
+[[redirects]]
+force = true
+from = "/faq/why-was-my-cancelled-order-charged-in-the-client-invoice"
+status = 308
+to = "/en/docs/faq/why-was-my-canceled-order-charged-in-the-client-invoice"
+
+[[redirects]]
+force = true
+from = "/faq/como-bloquear-customizacoes-para-investigar-problemas-no-front-end-da-loja"
+status = 308
+to = "/en/docs/faq/blocking-customizations-to-troubleshoot-front-end-issues"
+
+[[redirects]]
+force = true
+from = "/tutorials/creating-customer-and-address-forms-in-new-stores"
+status = 308
+to = "/en/docs/troubleshooting/customer-and-address-forms-do-not-exist-in-multistores"
+
+[[redirects]]
+force = true
+from = "/tutorials/error-installing-custom-ssl-certificate"
+status = 308
+to = "/en/docs/troubleshooting/error-installing-custom-ssl-certificates"
+
+[[redirects]]
+force = true
+from = "/tutorials/what-to-do-when-my-report-does-not-reach-my-inbox"
+status = 308
+to = "/en/docs/troubleshooting/i-havent-received-the-email-with-the-report-exported-from-master-data-v1"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-create-a-financial-access-profile"
+status = 308
+to = "/en/docs/tutorial/creating-a-financial-access-profile"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-access-profiles, access-profiles"
+status = 308
+to = "/en/docs/tutorial/roles"
+
+[[redirects]]
+force = true
+from = "/tutorial/account-details-page"
+status = 308
+to = "/en/docs/tutorial/account-management"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-can-i-change-the-domain-of-my-store"
+status = 308
+to = "/en/docs/tutorial/change-the-store-domain"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-do-i-change-the-logo-on-the-payment-slip"
+status = 308
+to = "/en/docs/tutorial/changing-the-logo-on-the-bank-slip"
+
+[[redirects]]
+force = true
+from = "/tutorial/choosing-between-a-multi-store-architecture-or-an-additional-environment"
+status = 308
+to = "/en/docs/tutorial/choosing-between-a-multistore-architecture-or-an-additional-environment"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-domains-in-license-manager"
+status = 308
+to = "/en/docs/tutorial/configuring-the-store-domain"
+
+[[redirects]]
+force = true
+from = "/tutorial/api-keys-beta"
+status = 308
+to = "/en/docs/tutorial/api-keys"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-the-duration-of-api-keys-beta"
+status = 308
+to = "/en/docs/tutorial/configuring-alerts-to-renew-api-tokens"
+
+[[redirects]]
+force = true
+from = "/tutorial/external-keys-beta"
+status = 308
+to = "/en/docs/tutorial/external-keys"
+
+[[redirects]]
+force = true
+from = "/tutorial/generated-keys-beta"
+status = 308
+to = "/en/docs/tutorial/generated-keys"
+
+[[redirects]]
+force = true
+from = "/tutorial/renewing-api-tokens-beta"
+status = 308
+to = "/en/docs/tutorial/renewing-api-tokens"
+
+[[redirects]]
+force = true
+from = "/tutorial/untitled-entry-2019-02-21-at-02-36-12"
+status = 308
+to = "/en/docs/tutorial/accessing-a-client-abandoned-cart"
+
+[[redirects]]
+force = true
+from = "/tutorial/understanding-how-to-maintain-a-database"
+status = 308
+to = "/en/docs/tutorial/database-maintenance-full-cleanup"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-can-i-create-call-center-user"
+status = 308
+to = "/en/docs/tutorial/how-can-i-create-callcenter-user"
+
+[[redirects]]
+force = true
+from = "/tutorial/creating-users"
+status = 308
+to = "/en/docs/tutorial/managing-users"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-retrieve-the-access-password"
+status = 308
+to = "/en/docs/tutorial/resetting-vtex-admin-password"
+
+[[redirects]]
+force = true
+from = "/tutorial/changing-the-accounts-master-user"
+status = 308
+to = "/en/docs/tutorial/transferring-store-ownership"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-is-the-master-user"
+status = 308
+to = "/en/docs/tutorial/what-is-the-sponsor-user"
+
+[[redirects]]
+force = true
+from = "/tutorial/untitled-entry-2019-01-30-at-09-21-20"
+status = 308
+to = "/en/docs/tutorial/canceling-payment-for-the-service-of-an-app-installed-in-my-store"
+
+[[redirects]]
+force = true
+from = "/tutorial/credit-control-overview"
+status = 308
+to = "/en/docs/tutorial/customer-credit-overview"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-does-my-account-work"
+status = 308
+to = "/en/docs/tutorial/how-my-account-works"
+
+[[redirects]]
+force = true
+from = "/tutorial/registering-a-client-id-and-a-client-secret-for-login-with-facebook"
+status = 308
+to = "/en/docs/tutorial/adding-a-client-id-and-a-client-secret-to-log-in-with-facebook"
+
+[[redirects]]
+force = true
+from = "/tutorial/registering-a-client-id-and-a-client-secret-for-login-with-google"
+status = 308
+to = "/en/docs/tutorial/adding-a-client-id-and-a-client-secret-to-log-in-with-google"
+
+[[redirects]]
+force = true
+from = "/tutorial/authentication-page"
+status = 308
+to = "/en/docs/tutorial/authentication"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-user-id-with-facebook-and-google"
+status = 308
+to = "/en/docs/tutorial/configuring-login-with-facebook-and-google"
+
+[[redirects]]
+force = true
+from = "/tutorial/overview"
+status = 308
+to = "/en/docs/tutorial/b2b-overview"
+
+[[redirects]]
+force = true
+from = "/tutorial/import-and-export-product-and-sku-images-via-spreadsheet-beta"
+status = 308
+to = "/en/docs/tutorial/importing-and-exporting-product-and-sku-images-using-a-spreadsheet-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/import-and-export-product-specifications-via-spreadsheet-beta"
+status = 308
+to = "/en/docs/tutorial/importing-and-exporting-product-specifications-using-a-spreadsheet-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/import-and-export-of-products-and-skus-via-spreadsheet-beta"
+status = 308
+to = "/en/docs/tutorial/importing-and-exporting-products-and-skus-using-a-spreadsheet-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/import-and-export-sku-specifications-via-spreadsheet-beta"
+status = 308
+to = "/en/docs/tutorial/importing-and-exporting-sku-specifications-using-a-spreadsheet-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/data-insights-assistant"
+status = 308
+to = "/en/docs/tutorial/data-insights-agent"
+
+[[redirects]]
+force = true
+from = "/tutorial/locations-module"
+status = 308
+to = "/en/docs/tutorial/operational-capacity-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/vtex-data-pipeline-catalog-beta"
+status = 308
+to = "/en/docs/tutorial/data-dictionary-vtex-data-pipeline-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/inventory"
+status = 308
+to = "/en/docs/tutorial/inventory-data-pipeline-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/orders"
+status = 308
+to = "/en/docs/tutorial/orders-data-pipeline-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/change-seller-of-an-instore-order-beta"
+status = 308
+to = "/en/docs/tutorial/change-seller-of-an-vtex-sales-app-order-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/accounts-payable-procedures"
+status = 308
+to = "/en/docs/tutorial/accounts-payable-brazil"
+
+[[redirects]]
+force = true
+from = "/tutorial/accounts-payable-procedures-international"
+status = 308
+to = "/en/docs/tutorial/accounts-payable-international"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-request-your-contractual-termination-brazil"
+status = 308
+to = "/en/docs/tutorial/how-to-request-your-contract-termination-in-brazil"
+
+[[redirects]]
+force = true
+from = "/tutorial/purchasing-and-accessing-your-environment"
+status = 308
+to = "/en/docs/tutorial/requesting-a-new-environment"
+
+[[redirects]]
+force = true
+from = "/tutorial/why-didnt-i-receive-the-signed-contract-from-vtex"
+status = 308
+to = "/en/docs/tutorial/vtex-agreement"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-download-vtex-payment-slips-and-tax-invoices"
+status = 308
+to = "/en/docs/tutorial/how-to-download-the-vtex-invoices"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-does-vtex-consider-as-revenue-in-the-billing-calculations"
+status = 308
+to = "/en/docs/tutorial/what-does-vtex-consider-as-revenue-in-the-billing-calculation"
+
+[[redirects]]
+force = true
+from = "/tutorial/kit-registration"
+status = 308
+to = "/en/docs/tutorial/bundle-registration"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-assemble-a-look-kit"
+status = 308
+to = "/en/docs/tutorial/how-to-assemble-an-outfit"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-define-the-order-of-lookkit"
+status = 308
+to = "/en/docs/tutorial/how-to-define-the-order-of-outfit-products"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-manage-the-kit-stock"
+status = 308
+to = "/en/docs/tutorial/how-to-manage-the-bundle-stock"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-is-a-kit"
+status = 308
+to = "/en/docs/tutorial/what-is-a-bundle"
+
+[[redirects]]
+force = true
+from = "/tutorial/creating-category-groups"
+status = 308
+to = "/en/docs/tutorial/creating-a-specification-group-in-a-category"
+
+[[redirects]]
+force = true
+from = "/tutorial/disabling-and-reorganizing-categories"
+status = 308
+to = "/en/docs/tutorial/deactivating-and-reorganizing-categories"
+
+[[redirects]]
+force = true
+from = "/tutorial/cadastrar-colecoes-beta"
+status = 308
+to = "/en/docs/tutorial/creating-collections-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/registering-a-commercial-conditioin"
+status = 308
+to = "/en/docs/tutorial/registering-a-commercial-condition"
+
+[[redirects]]
+force = true
+from = "/tutorial/registering-an-attachment"
+status = 308
+to = "/en/docs/tutorial/adding-an-attachment"
+
+[[redirects]]
+force = true
+from = "/tutorial/assembly-options-en"
+status = 308
+to = "/en/docs/tutorial/assembly-options"
+
+[[redirects]]
+force = true
+from = "/tutorial/creating-a-service-for-a-sku"
+status = 308
+to = "/en/docs/tutorial/creating-service-for-a-sku"
+
+[[redirects]]
+force = true
+from = "/tutorial/setting-up-a-gift-card-with-a-personal-message"
+status = 308
+to = "/en/docs/tutorial/setting-up-a-personal-gift-message"
+
+[[redirects]]
+force = true
+from = "/tutorial/importing-and-exporting-product-and-sku-specifications"
+status = 308
+to = "/en/docs/tutorial/exporting-and-importing-product-and-sku-specifications"
+
+[[redirects]]
+force = true
+from = "/tutorial/importing-images-via-a-worksheet"
+status = 308
+to = "/en/docs/tutorial/importing-images-from-a-spreadsheet"
+
+[[redirects]]
+force = true
+from = "/tutorial/activating-bulk-skus"
+status = 308
+to = "/en/docs/tutorial/activating-skus-in-bulk"
+
+[[redirects]]
+force = true
+from = "/tutorial/adding-products-beta"
+status = 308
+to = "/en/docs/tutorial/adding-or-editing-products"
+
+[[redirects]]
+force = true
+from = "/tutorial/adding-skus-beta"
+status = 308
+to = "/en/docs/tutorial/adding-or-editing-skus"
+
+[[redirects]]
+force = true
+from = "/tutorial/creating-sku-fields"
+status = 308
+to = "/en/docs/tutorial/adding-sku-specifications-or-fields"
+
+[[redirects]]
+force = true
+from = "/tutorial/creating-a-product-field"
+status = 308
+to = "/en/docs/tutorial/adding-specifications-or-product-fields"
+
+[[redirects]]
+force = true
+from = "/tutorial/good-practices-for-using-images-in-the-catalog"
+status = 308
+to = "/en/docs/tutorial/best-practices-for-using-images-in-the-catalog"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-find-an-sku-id"
+status = 308
+to = "/en/docs/tutorial/finding-a-sku-id"
+
+[[redirects]]
+force = true
+from = "/tutorial/untitled-entry-2017-07-04-at-05-56-33"
+status = 308
+to = "/en/docs/tutorial/how-to-change-the-sku-and-product-relationship"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-is-a-product-url-set-up"
+status = 308
+to = "/en/docs/tutorial/how-to-define-the-url-for-a-product-page"
+
+[[redirects]]
+force = true
+from = "/tutorial/untitled-entry-2019-02-21-at-07-52-16"
+status = 308
+to = "/en/docs/tutorial/inserting-images-into-let-me-know-email"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-change-the-product-of-an-sku"
+status = 308
+to = "/en/docs/tutorial/moving-a-sku-to-another-product"
+
+[[redirects]]
+force = true
+from = "/tutorial/products-and-skus-beta"
+status = 308
+to = "/en/docs/tutorial/products-and-skus"
+
+[[redirects]]
+force = true
+from = "/tutorial/registering-the-skus-barcode-for-instore"
+status = 308
+to = "/en/docs/tutorial/registering-the-skus-barcode-for-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/exporting-clients-registered-in-the-availability-notification"
+status = 308
+to = "/en/docs/tutorial/exporting-customers-who-signed-up-for-the-availability-notification-notify-me"
+
+[[redirects]]
+force = true
+from = "/tutorial/uploading-a-product-xml"
+status = 308
+to = "/en/docs/tutorial/configuring-xml"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-make-freight-apportionment"
+status = 308
+to = "/en/docs/tutorial/how-proportional-shipping-costs-are-calculated"
+
+[[redirects]]
+force = true
+from = "/tutorial/migrating-to-the-new-version-of-smart-checkout"
+status = 308
+to = "/en/docs/tutorial/smartcheckout-v5-general-characteristics"
+
+[[redirects]]
+force = true
+from = "/tutorial/analyze"
+status = 308
+to = "/en/docs/tutorial/analyze-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/anapro"
+status = 308
+to = "/en/docs/tutorial/anapro-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/call-to-action"
+status = 308
+to = "/en/docs/tutorial/call-to-action-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/capture-form"
+status = 308
+to = "/en/docs/tutorial/capture-form-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/customize"
+status = 308
+to = "/en/docs/tutorial/customize-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/facebook-liberacao-de-dominio"
+status = 308
+to = "/en/docs/tutorial/facebook-liberacao-de-dominio-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/geolocalizado"
+status = 308
+to = "/en/docs/tutorial/geolocalizado-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/installing-the-widget-with-gtm"
+status = 308
+to = "/en/docs/tutorial/installing-the-widget-with-gtm-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/links"
+status = 308
+to = "/en/docs/tutorial/links-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/pipedrive"
+status = 308
+to = "/en/docs/tutorial/pipedrive-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/rdstation-crm"
+status = 308
+to = "/en/docs/tutorial/rdstation-crm-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/rdstation"
+status = 308
+to = "/en/docs/tutorial/rdstation-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/sequencial"
+status = 308
+to = "/en/docs/tutorial/sequencial-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/wordpress"
+status = 308
+to = "/en/docs/tutorial/wordpress-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/zapier"
+status = 308
+to = "/en/docs/tutorial/zapier-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-access-without-www"
+status = 308
+to = "/en/docs/tutorial/best-practices-for-accessing-the-store-without-www"
+
+[[redirects]]
+force = true
+from = "/tutorial/why-we-do-not-recommend-inserting-a-reverse-proxy-in-front-of-vtex-services"
+status = 308
+to = "/en/docs/tutorial/insert-reverse-proxy-in-front-of-vtex-services"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-the-platform-s-operation-sla-is"
+status = 308
+to = "/en/docs/tutorial/vtex-operation-service-level-agreement-sla"
+
+[[redirects]]
+force = true
+from = "/tutorial/untitled-entry-2019-01-14-at-07-58-58, vtex-status-understand-how-the-platform-status-works, platform-status-page"
+status = 308
+to = "/en/docs/tutorial/vtex-status-page"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-physical-stores-integration-with-b2w-skyhub"
+status = 308
+to = "/en/docs/tutorial/configuring-physical-stores-integration-with-b2w"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-the-integration-with-carrefour-works"
+status = 308
+to = "/en/docs/tutorial/how-the-carrefour-integration-works"
+
+[[redirects]]
+force = true
+from = "/tutorial/importing-amazon-fba-classic-orders"
+status = 308
+to = "/en/docs/tutorial/importing-amazon-classic-fba-orders"
+
+[[redirects]]
+force = true
+from = "/tutorial/integrating-with-marketplace"
+status = 308
+to = "/en/docs/tutorial/marketplace-strategies-at-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/become-a-certified-vtex-partner"
+status = 308
+to = "/en/docs/tutorial/become-a-certified-connector-partner"
+
+[[redirects]]
+force = true
+from = "/tutorial/offer-status-beta"
+status = 308
+to = "/en/docs/tutorial/offer-status"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-use-the-change-seller"
+status = 308
+to = "/en/docs/tutorial/change-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-the-freight-fob-works-when-mercado-envios-is-used"
+status = 308
+to = "/en/docs/tutorial/how-shipping-works-when-delivery-is-done-by-the-marketplace"
+
+[[redirects]]
+force = true
+from = "/tutorial/b2w-integration-orders-erros"
+status = 308
+to = "/en/docs/tutorial/order-errors-in-the-b2w-integration"
+
+[[redirects]]
+force = true
+from = "/tutorial/carrefour-integration-orders-erros"
+status = 308
+to = "/en/docs/tutorial/order-errors-in-the-carrefour-integration"
+
+[[redirects]]
+force = true
+from = "/tutorial/magazine-luiza-integration-orders-erros"
+status = 308
+to = "/en/docs/tutorial/order-errors-in-the-magazine-luiza-integration"
+
+[[redirects]]
+force = true
+from = "/tutorial/mercado-livre-integration-orders-erros"
+status = 308
+to = "/en/docs/tutorial/order-errors-in-the-mercado-livre-integration"
+
+[[redirects]]
+force = true
+from = "/tutorial/netshoes-integration-orders-erros"
+status = 308
+to = "/en/docs/tutorial/order-errors-in-the-netshoes-integration"
+
+[[redirects]]
+force = true
+from = "/tutorial/via-integration-orders-erros"
+status = 308
+to = "/en/docs/tutorial/order-errors-in-the-via-integration"
+
+[[redirects]]
+force = true
+from = "/tutorial/resolution-of-price-divergence-errors-in-marketplace-integration-orders"
+status = 308
+to = "/en/docs/tutorial/troubleshooting-price-divergence-errors-in-marketplace-orders"
+
+[[redirects]]
+force = true
+from = "/tutorial/prices-v2"
+status = 308
+to = "/en/docs/tutorial/prices"
+
+[[redirects]]
+force = true
+from = "/tutorial/received-offers"
+status = 308
+to = "/en/docs/tutorial/received-skus-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/regionalization-beta"
+status = 308
+to = "/en/docs/tutorial/regionalization"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-synonyms"
+status = 308
+to = "/en/docs/tutorial/creating-synonyms"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-include-a-registration-on-a-master-data-form"
+status = 308
+to = "/en/docs/tutorial/adding-a-record-on-a-master-data-form"
+
+[[redirects]]
+force = true
+from = "/tutorial/import-customer-data-brazil"
+status = 308
+to = "/en/docs/tutorial/import-customer-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/limiting-access-to-the-store-by-means-of-the-sales-policy"
+status = 308
+to = "/en/docs/tutorial/limiting-access-to-the-store-by-means-of-the-trade-policy"
+
+[[redirects]]
+force = true
+from = "/tutorial/creating-data-entity"
+status = 308
+to = "/en/docs/tutorial/data-entity"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-is-master-data"
+status = 308
+to = "/en/docs/tutorial/master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/creating-a-personalized-master-data-query"
+status = 308
+to = "/en/docs/tutorial/creating-custom-queries-in-master-data-v1"
+
+[[redirects]]
+force = true
+from = "/tutorial/importing-data-into-master-data"
+status = 308
+to = "/en/docs/tutorial/importing-data-into-master-data-v1"
+
+[[redirects]]
+force = true
+from = "/tutorial/i-can-not-edit-a-required-field-on-master-data"
+status = 308
+to = "/en/docs/tutorial/defining-mandatory-fields-in-master-data-v1-forms"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-can-i-create-field-in-master-data"
+status = 308
+to = "/en/docs/tutorial/how-can-i-create-a-field-in-master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/setting-up-an-index-on-master-data"
+status = 308
+to = "/en/docs/tutorial/indexes-in-master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-can-i-make-master-data-field-editable"
+status = 308
+to = "/en/docs/tutorial/making-a-master-data-field-editable"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-product-visited"
+status = 308
+to = "/en/docs/tutorial/configuring-viewed-product-email"
+
+[[redirects]]
+force = true
+from = "/tutorial/list-of-e-mail-templates-in-the-message-center"
+status = 308
+to = "/en/docs/tutorial/order-transactional-email-templates"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-are-franchise-account-and-seller-white-label"
+status = 308
+to = "/en/docs/tutorial/white-label-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/algorithm-for-selecting-white-label-sellers"
+status = 308
+to = "/en/docs/tutorial/white-label-sellers-selection"
+
+[[redirects]]
+force = true
+from = "/tutorial/untitled-entry-2018-09-27-at-08-35-08"
+status = 308
+to = "/en/docs/tutorial/send-the-seller-white-label-payment-methods-to-the-marketplace"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-do-i-change-my-cnpj"
+status = 308
+to = "/en/docs/tutorial/how-do-i-change-my-cnpj-new"
+
+[[redirects]]
+force = true
+from = "/tutorial/find-here-all-the-answers-you-need"
+status = 308
+to = "/en/docs/tutorial/vtex-admin-start-here"
+
+[[redirects]]
+force = true
+from = "/tutorial/adapting-your-integration-for-change-order-beta"
+status = 308
+to = "/en/docs/tutorial/adapting-your-integration-for-order-modifications"
+
+[[redirects]]
+force = true
+from = "/tutorial/calculating-revenue-through-oms-worksheet"
+status = 308
+to = "/en/docs/tutorial/calculating-revenue-through-the-worksheet-exported-from-orders-module"
+
+[[redirects]]
+force = true
+from = "/tutorial/altering-items-skus-in-the-order, changing-completed-orders"
+status = 308
+to = "/en/docs/tutorial/changing-items-from-a-complete-order"
+
+[[redirects]]
+force = true
+from = "/tutorial/order-cancellation-denial"
+status = 308
+to = "/en/docs/tutorial/declining-order-cancellation"
+
+[[redirects]]
+force = true
+from = "/tutorial/enter-tracking-number-on-orders-already-billed"
+status = 308
+to = "/en/docs/tutorial/enter-tracking-number-on-orders-already-invoiced"
+
+[[redirects]]
+force = true
+from = "/tutorial/exporting-orders-with-oms"
+status = 308
+to = "/en/docs/tutorial/exporting-orders-in-orders-module"
+
+[[redirects]]
+force = true
+from = "/tutorial/filtering-orders-in-oms, filtering-orders-on-the-oms"
+status = 308
+to = "/en/docs/tutorial/filtering-all-orders"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-change-order-works-beta"
+status = 308
+to = "/en/docs/tutorial/how-order-modification-works"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-change-orders-beta"
+status = 308
+to = "/en/docs/tutorial/how-to-modify-orders"
+
+[[redirects]]
+force = true
+from = "/tutorial/moving-order-to-start-handling-status"
+status = 308
+to = "/en/docs/tutorial/moving-order-to-start-handling-shipping"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-does-cancellation-work-when-requested-by-the-customer"
+status = 308
+to = "/en/docs/tutorial/order-cancellation-requested-by-the-customer"
+
+[[redirects]]
+force = true
+from = "/tutorial/order-flow-on-the-oms"
+status = 308
+to = "/en/docs/tutorial/order-flow-and-status"
+
+[[redirects]]
+force = true
+from = "/tutorial/orders-worksheet"
+status = 308
+to = "/en/docs/tutorial/order-report"
+
+[[redirects]]
+force = true
+from = "/tutorial/understanding-the-order-time-line"
+status = 308
+to = "/en/docs/tutorial/understanding-the-order-history-section"
+
+[[redirects]]
+force = true
+from = "/tutorial/viewing-marketplace-orders-on-oms"
+status = 308
+to = "/en/docs/tutorial/viewing-marketplace-orders-on-orders-managment"
+
+[[redirects]]
+force = true
+from = "/tutorial/viewing-the-detailed-order-log-in-the-oms-flow"
+status = 308
+to = "/en/docs/tutorial/viewing-the-detailed-order-log"
+
+[[redirects]]
+force = true
+from = "/tutorial/Learn-how-to-create-flows-for-order-release-or-approval"
+status = 308
+to = "/en/docs/tutorial/how-order-authorization-works"
+
+[[redirects]]
+force = true
+from = "/tutorial/allow-to-change-already-closed-orders, how-the-order-replacement-works"
+status = 308
+to = "/en/docs/tutorial/order-replacement"
+
+[[redirects]]
+force = true
+from = "/tutorial/set-up-the-notify-me"
+status = 308
+to = "/en/docs/tutorial/setting-up-the-notify-me-option"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-is-affiliate"
+status = 308
+to = "/en/docs/tutorial/what-is-an-affiliate"
+
+[[redirects]]
+force = true
+from = "/tutorial/order-listing-beta"
+status = 308
+to = "/en/docs/tutorial/all-orders"
+
+[[redirects]]
+force = true
+from = "/tutorial/changing-the-total-cost-of-the-order-beta"
+status = 308
+to = "/en/docs/tutorial/changing-the-total-cost-of-the-order"
+
+[[redirects]]
+force = true
+from = "/tutorial/changing-tracking-data-beta"
+status = 308
+to = "/en/docs/tutorial/changing-tracking-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/frequently-asked-questions-about-the-new-orders-module-interface"
+status = 308
+to = "/en/docs/tutorial/frequently-asked-questions-new-orders-module-interface"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-manually-invoice-an-order-beta"
+status = 308
+to = "/en/docs/tutorial/how-to-manually-invoice-an-order"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-return-order-items-beta"
+status = 308
+to = "/en/docs/tutorial/how-to-return-order-items"
+
+[[redirects]]
+force = true
+from = "/tutorial/order-details-page-beta"
+status = 308
+to = "/en/docs/tutorial/order-details-page"
+
+[[redirects]]
+force = true
+from = "/tutorial/oms-overview"
+status = 308
+to = "/en/docs/tutorial/orders-overview"
+
+[[redirects]]
+force = true
+from = "/tutorial/vtex-do-beta"
+status = 308
+to = "/en/docs/tutorial/vtex-do-interface"
+
+[[redirects]]
+force = true
+from = "/tutorial/using-and-customizing-the-callcenter-toolbar"
+status = 308
+to = "/en/docs/tutorial/telesales-toolbar"
+
+[[redirects]]
+force = true
+from = "/tutorial/setting-up-kushki-gateway"
+status = 308
+to = "/en/docs/tutorial/configuring-kushki-gateway"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-maximum-payment-capture-time-frame"
+status = 308
+to = "/en/docs/tutorial/configuring-maximum-automatic-payment-settlement-time-frame"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-payment-with-adyenv3-in-instore"
+status = 308
+to = "/en/docs/tutorial/configuring-payment-with-adyenv3-in-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/setting-up-mercado-pago-pro-as-a-payment-method"
+status = 308
+to = "/en/docs/tutorial/how-to-configure-mercado-pago-pro-as-a-payment-method"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-integrate-with-a-gift-card"
+status = 308
+to = "/en/docs/tutorial/how-to-integrate-an-external-gift-card-provider-with-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-set-up-the-device-fingerprint-for-braspagcybersource"
+status = 308
+to = "/en/docs/tutorial/how-to-set-up-the-device-fingerprint-for-braspag"
+
+[[redirects]]
+force = true
+from = "/tutorial/setting-up-device-fingerprint-for-niubz"
+status = 308
+to = "/en/docs/tutorial/setting-up-device-fingerprint-for-niubiz"
+
+[[redirects]]
+force = true
+from = "/tutorial/setting-up-payments-with-seller"
+status = 308
+to = "/en/docs/tutorial/setting-up-payments-with-easypay-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-do-you-calculate-payments-in-installments-with-interest"
+status = 308
+to = "/en/docs/tutorial/how-do-you-calculate-payments-in-installments-with-compound-interest"
+
+[[redirects]]
+force = true
+from = "/tutorial/transaction-flow-in-pci-gateway"
+status = 308
+to = "/en/docs/tutorial/transaction-flow-in-payments"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-long-does-it-take-to-cancel-an-order-with-an-unpaid-bank-payment-slip"
+status = 308
+to = "/en/docs/tutorial/how-long-does-it-take-to-cancel-an-order-with-an-unpaid-boleto"
+
+[[redirects]]
+force = true
+from = "/tutorial/searching-for-transactions-on-pci-gateway"
+status = 308
+to = "/en/docs/tutorial/searching-for-transactions-on-payments"
+
+[[redirects]]
+force = true
+from = "/tutorial/update-price-table"
+status = 308
+to = "/en/docs/tutorial/editing-price-tables"
+
+[[redirects]]
+force = true
+from = "/tutorial/scheduling-price-on-pricing-v2"
+status = 308
+to = "/en/docs/tutorial/scheduling-prices"
+
+[[redirects]]
+force = true
+from = "/tutorial/setting-up-price-tables-for-specific-users-using-session"
+status = 308
+to = "/en/docs/tutorial/setting-up-price-tables-for-specific-users"
+
+[[redirects]]
+force = true
+from = "/tutorial/updating-prices-for-marketplace"
+status = 308
+to = "/en/docs/tutorial/updating-prices-in-marketplaces"
+
+[[redirects]]
+force = true
+from = "/tutorial/setting-a-pricing-rule-for-a-sales-policy"
+status = 308
+to = "/en/docs/tutorial/configuring-a-pricing-rule-for-a-sales-policy"
+
+[[redirects]]
+force = true
+from = "/tutorial/price-configuration"
+status = 308
+to = "/en/docs/tutorial/prices-settings"
+
+[[redirects]]
+force = true
+from = "/tutorial/filling-out-base-price-import-spreadsheet-fields"
+status = 308
+to = "/en/docs/tutorial/table-of-base-prices"
+
+[[redirects]]
+force = true
+from = "/tutorial/psychological-price-v2"
+status = 308
+to = "/en/docs/tutorial/rounding-rules"
+
+[[redirects]]
+force = true
+from = "/tutorial/creating-campaigns"
+status = 308
+to = "/en/docs/tutorial/creating-a-campaign-audience"
+
+[[redirects]]
+force = true
+from = "/tutorial/buy-win"
+status = 308
+to = "/en/docs/tutorial/buy-one-get-one"
+
+[[redirects]]
+force = true
+from = "/tutorial/configure-a-promotion-for-a-marketplace"
+status = 308
+to = "/en/docs/tutorial/configuring-promotions-for-marketplaces"
+
+[[redirects]]
+force = true
+from = "/tutorial/creating-more-for-less-promotion"
+status = 308
+to = "/en/docs/tutorial/creating-a-more-for-less-promotion"
+
+[[redirects]]
+force = true
+from = "/tutorial/creating-promotions-for-a-cluster-of-customers"
+status = 308
+to = "/en/docs/tutorial/creating-promotion-for-a-customer-cluster"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-does-apportionment-of-promotions-work"
+status = 308
+to = "/en/docs/tutorial/how-does-promotion-proration-work"
+
+[[redirects]]
+force = true
+from = "/tutorial/understanding-competition-of-promotions"
+status = 308
+to = "/en/docs/tutorial/how-promotion-competition-works"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-configure-a-promotion-for-a-sku"
+status = 308
+to = "/en/docs/tutorial/how-to-configure-a-promotion-for-an-sku"
+
+[[redirects]]
+force = true
+from = "/tutorial/promotions-list-beta"
+status = 308
+to = "/en/docs/tutorial/promotion-list-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-does -it-mean-to-activate-a-gift-multiplier-on-a-promotion"
+status = 308
+to = "/en/docs/tutorial/what-does-it-mean-to-activate-a-gift-multiplier-on-a-promotion"
+
+[[redirects]]
+force = true
+from = "/tutorial/penetration-testing-and-vulnerability-notice"
+status = 308
+to = "/en/docs/tutorial/penetration-tests"
+
+[[redirects]]
+force = true
+from = "/tutorial/reportar-vulnerabilidade"
+status = 308
+to = "/en/docs/tutorial/reporting-vulnerabilities"
+
+[[redirects]]
+force = true
+from = "/tutorial/the-risk-assessment-process"
+status = 308
+to = "/en/docs/tutorial/risk-assessment"
+
+[[redirects]]
+force = true
+from = "/tutorial/searching-for-events-on-audit"
+status = 308
+to = "/en/docs/tutorial/audit"
+
+[[redirects]]
+force = true
+from = "/tutorial/hiring-the-security-certificate-sll"
+status = 308
+to = "/en/docs/tutorial/security-certificate-ssl"
+
+[[redirects]]
+force = true
+from = "/tutorial/best-practices-for-using-application-keys"
+status = 308
+to = "/en/docs/tutorial/best-practices-api-keys"
+
+[[redirects]]
+force = true
+from = "/tutorial/deleting-customer-data"
+status = 308
+to = "/en/docs/tutorial/erasing-customer-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-the-seller"
+status = 308
+to = "/en/docs/tutorial/adding-a-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/seller-management-beta"
+status = 308
+to = "/en/docs/tutorial/seller-management"
+
+[[redirects]]
+force = true
+from = "/tutorial/approving-suggestions-for-skus"
+status = 308
+to = "/en/docs/tutorial/manual-sku-cataloging"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-create-a-product-beta"
+status = 308
+to = "/en/docs/tutorial/how-to-create-a-product"
+
+[[redirects]]
+force = true
+from = "/tutorial/marketplace-invited-sellers-beta"
+status = 308
+to = "/en/docs/tutorial/marketplace-invited-sellers"
+
+[[redirects]]
+force = true
+from = "/tutorial/product-list-beta"
+status = 308
+to = "/en/docs/tutorial/product-list"
+
+[[redirects]]
+force = true
+from = "/tutorial/seller-creating-an-account-in-the-seller-portal-beta"
+status = 308
+to = "/en/docs/tutorial/seller-creating-an-account-in-the-seller-portal"
+
+[[redirects]]
+force = true
+from = "/tutorial/brands-beta"
+status = 308
+to = "/en/docs/tutorial/seller-portal-brands"
+
+[[redirects]]
+force = true
+from = "/tutorial/categories-beta"
+status = 308
+to = "/en/docs/tutorial/seller-portal-categories"
+
+[[redirects]]
+force = true
+from = "/tutorial/setting-up-vtex-marketplace"
+status = 308
+to = "/en/docs/tutorial/configuring-vtex-marketplace"
+
+[[redirects]]
+force = true
+from = "/tutorial/product-shipping-architecture-between-vtex-marketplaces-and-sellers"
+status = 308
+to = "/en/docs/tutorial/offers-sent-from-the-same-vtex-sellers-and-marketplaces"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-is-the-difference-between-delinking-and-deleting-seller-sku"
+status = 308
+to = "/en/docs/tutorial/what-is-the-difference-between-unbinding-and-removing-seller-sku"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-does-reservation-work, analyze-a-products-reservations"
+status = 308
+to = "/en/docs/tutorial/how-does-reservation-work"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-analyze-the-stock-movement-history"
+status = 308
+to = "/en/docs/tutorial/inventory-update-history"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-update-stock, updating-quantity-of-skus-in-inventory"
+status = 308
+to = "/en/docs/tutorial/updating-the-quantity-of-items-in-inventory"
+
+[[redirects]]
+force = true
+from = "/tutorial/scheduled-delivery, configuring-the-scheduled-delivery"
+status = 308
+to = "/en/docs/tutorial/scheduled-delivery"
+
+[[redirects]]
+force = true
+from = "/tutorial/logistics"
+status = 308
+to = "/en/docs/tutorial/fulfillment-logistics-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-import-pickup-points-using-spreadsheets, adding-pickup-points"
+status = 308
+to = "/en/docs/tutorial/creating-pickup-points"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-pickup-points-work"
+status = 308
+to = "/en/docs/tutorial/pickup-points"
+
+[[redirects]]
+force = true
+from = "/tutorial/additional-shipping-costs, understanding-the-additional-shipping-cost"
+status = 308
+to = "/en/docs/tutorial/additional-shipping-costs"
+
+[[redirects]]
+force = true
+from = "/tutorial/editing-freight-values"
+status = 308
+to = "/en/docs/tutorial/managing-shipping-rates"
+
+[[redirects]]
+force = true
+from = "/tutorial/freight-simulation"
+status = 308
+to = "/en/docs/tutorial/shipping-simulation"
+
+[[redirects]]
+force = true
+from = "/tutorial/setting-up-business-hours-for-carriers, configuring-carriers-cut-off-time"
+status = 308
+to = "/en/docs/tutorial/carrier-working-hours"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-is-a-carrier"
+status = 308
+to = "/en/docs/tutorial/carries-on-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/understanding-the-rule-of-priority-on-freight-calculation"
+status = 308
+to = "/en/docs/tutorial/how-shipping-calculation-works"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-register-a-dock"
+status = 308
+to = "/en/docs/tutorial/managing-loading-docks"
+
+[[redirects]]
+force = true
+from = "/tutorial/registering-a-stock, managing-warehouses"
+status = 308
+to = "/en/docs/tutorial/managing-warehouses"
+
+[[redirects]]
+force = true
+from = "/tutorial/adding-a-carrier, manage-carrier"
+status = 308
+to = "/en/docs/tutorial/shipping-policy"
+
+[[redirects]]
+force = true
+from = "/tutorial/building-a-freight-spreadsheet, importing-the-shipping-spreadsheet"
+status = 308
+to = "/en/docs/tutorial/shipping-rate-template"
+
+[[redirects]]
+force = true
+from = "/tutorial/shipping-strategy, what-is-the-difference-between-inventory-and-warehouse-dock"
+status = 308
+to = "/en/docs/tutorial/shipping-strategy"
+
+[[redirects]]
+force = true
+from = "/tutorial/which-transport-companies-enable-make-it-possible-to-track-delivery"
+status = 308
+to = "/en/docs/tutorial/which-carriers-allow-delivery-tracking"
+
+[[redirects]]
+force = true
+from = "/tutorial/deliveries-progress-vtex-log"
+status = 308
+to = "/en/docs/tutorial/deliveries-progress-vtex-shipping-network"
+
+[[redirects]]
+force = true
+from = "/tutorial/vtex-log-dashboard"
+status = 308
+to = "/en/docs/tutorial/vtex-shipping-network-dashboard"
+
+[[redirects]]
+force = true
+from = "/tutorial/recursive-marketplace-v2"
+status = 308
+to = "/en/docs/tutorial/multilevel-omnichannel-inventory"
+
+[[redirects]]
+force = true
+from = "/tutorial/managing-pages-beta"
+status = 308
+to = "/en/docs/tutorial/managing-pages"
+
+[[redirects]]
+force = true
+from = "/tutorial/adding-collections"
+status = 308
+to = "/en/docs/tutorial/adding-collections-cms"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-configure-the-favicon"
+status = 308
+to = "/en/docs/tutorial/configuring-favicon-in-your-store"
+
+[[redirects]]
+force = true
+from = "/tutorial/filling-out-Collection-registration-fields"
+status = 308
+to = "/en/docs/tutorial/filling-out-collection-registration-fields"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-does-the-search-context-work"
+status = 308
+to = "/en/docs/tutorial/how-to-create-landing-pages-with-customized-urls"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-the-automatic-compacting-of-images-works"
+status = 308
+to = "/en/docs/tutorial/image-compression"
+
+[[redirects]]
+force = true
+from = "/tutorial/tornar-colecao-de-produtos-encontravel-pela-busca"
+status = 308
+to = "/en/docs/tutorial/making-product-collections-searchable"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-is-cms"
+status = 308
+to = "/en/docs/tutorial/what-is-cms-layout"
+
+[[redirects]]
+force = true
+from = "/tutorial/creating-a-subscription-plan-beta"
+status = 308
+to = "/en/docs/tutorial/creating-a-subscription-plan"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-a-subscription-works"
+status = 308
+to = "/en/docs/tutorial/how-subscriptions-work"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-configure-subscription-v2"
+status = 308
+to = "/en/docs/tutorial/how-to-configure-subscriptions"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-create-a-subscription-attachment"
+status = 308
+to = "/en/docs/tutorial/how-to-create-a-subscription-attachment-via-the-catalog-module"
+
+[[redirects]]
+force = true
+from = "/tutorial/pickup-points-for-subscription-orders-beta"
+status = 308
+to = "/en/docs/tutorial/pickup-points-for-subscription-orders"
+
+[[redirects]]
+force = true
+from = "/tutorial/subscription-plans-beta"
+status = 308
+to = "/en/docs/tutorial/subscription-plans"
+
+[[redirects]]
+force = true
+from = "/tutorial/transactional-emails-for-subscription-orders"
+status = 308
+to = "/en/docs/tutorial/transactional-emails-for-subscriptions-orders"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-to-troubleshoot-subscription-orders-with-errors"
+status = 308
+to = "/en/docs/tutorial/troubleshooting-errors-in-subscription-orders"
+
+[[redirects]]
+force = true
+from = "/tutorial/what-is-a-sales-policy"
+status = 308
+to = "/en/docs/tutorial/creating-a-trade-policy"
+
+[[redirects]]
+force = true
+from = "/tutorial/how-does-a-trade-policy-work"
+status = 308
+to = "/en/docs/tutorial/how-trade-policies-work"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuring-a-marketplace-sales-policy"
+status = 308
+to = "/en/docs/tutorial/configuring-a-marketplace-trade-policy"
+
+[[redirects]]
+force = true
+from = "/tutorial/enabling-on-hands-in-vtex-sales-app"
+status = 308
+to = "/en/docs/tutorial/enabling-local-stock-sale-in-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/guide-to-integration-of-oms-with-electronic-tax-coupon-for-vtex-instore,guide-to-integration-of-orders-managment-with-electronic-tax-coupon-for-vtex-instore"
+status = 308
+to = "/en/docs/tutorial/guide-to-integration-of-orders-managment-with-electronic-tax-coupon-for-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/sales-app-card-entry"
+status = 308
+to = "/en/docs/tutorial/sales-app-card-entry-without-payment-terminal"
+
+[[redirects]]
+force = true
+from = "/tutorial/attribute-and-test-agents-on-agent-builder"
+status = 308
+to = "/en/docs/tutorial/assigning-and-testing-agents"
+
+[[redirects]]
+force = true
+from = "/tutorial/weni-by-vtexs-official-agents"
+status = 308
+to = "/en/docs/tutorial/official-agents-from-weni-by-vtex"
+
+[[redirects]]
+force = true
+from = "/announcements/nova-api-do-master-data-aumenta-flexibilidade-de-configuracao"
+status = 308
+to = "/es/docs/announcements/la-nueva-api-del-master-data-aumenta-la-flexibilidad-de-configuracion"
+
+[[redirects]]
+force = true
+from = "/announcements/nueva-versión-de-smartcheckout-tm-ha-sido-lanzada-para-todas-las-tiendas"
+status = 308
+to = "/es/docs/announcements/nueva-version-de-smartcheckout-tm-ha-sido-lanzada-para-todas-las-tiendas"
+
+[[redirects]]
+force = true
+from = "/announcements/Nuevo-objeto-devuelto-en-API-Get-Order-itemMetadata"
+status = 308
+to = "/es/docs/announcements/nuevo-objeto-devuelto-en-api-get-order-itemmetadata"
+
+[[redirects]]
+force = true
+from = "/announcements/garanta-mais-seguranca-e-controle-na-tela-de-autorizacao-de-pedidos"
+status = 308
+to = "/es/docs/announcements/garantice-mas-seguridad-y-control-en-la-pantalla-de-autorizacion-de-pedidos"
+
+[[redirects]]
+force = true
+from = "/announcements/descontinuacion-del-status-del-pedido-de-fulfillment-order-completed-order"
+status = 308
+to = "/es/docs/announcements/descontinuacao-dos-status-dos-pedidos-de-fulfillment-order-completed-order"
+
+[[redirects]]
+force = true
+from = "/announcements/Json-de-Get-Order-entrega-ahora-nuevas-variables-de-calculos-de-pedido"
+status = 308
+to = "/es/docs/announcements/json-de-get-order-entrega-ahora-nuevas-variables-de-calculos-de-pedido"
+
+[[redirects]]
+force = true
+from = "/announcements/cambio-en-el-formato-del-campo-authorized-date-de-la-plantilla-de"
+status = 308
+to = "/es/docs/announcements/cambio-en-el-formato-del-campo-authorized-date"
+
+[[redirects]]
+force = true
+from = "/announcements/obtenga-mas-practicidad-para-registrar-precios-por-plantilla-utilizando-metadatos-de-skus"
+status = 308
+to = "/es/docs/announcements/obtenga-mas-practicidad-para-registrar-precios-por-plantilla-utilizando-metadatos-de-skus."
+
+[[redirects]]
+force = true
+from = "/announcements/mais-tempo-para-adaptar-as-requisicoes-de-front-end-da-sua-loja-ao-master"
+status = 308
+to = "/es/docs/announcements/mas-tiempo-para-adaptar-las-solicitudes-de-front-end-de-su-tienda-al-master-data"
+
+[[redirects]]
+force = true
+from = "/announcements/cambio-en-el-envio-de-productos-a-via-varejo"
+status = 308
+to = "/es/docs/announcements/mapeo-de-categorias-ahora-obligatorio-para-via-varejo-marketplace"
+
+[[redirects]]
+force = true
+from = "/announcements/el-modulo-pricing-v1-sera-descontinuado-actualice-su-tienda-hasta-el-fin-de, el-modulo-pricing-v1-sera-descontinuado-actualice-su-tienda"
+status = 308
+to = "/es/docs/announcements/el-modulo-pricing-v1-sera-descontinuado-actualice-su-tienda"
+
+[[redirects]]
+force = true
+from = "/announcements/flujo-de-autenticacion-3ds2-acepte-pagos-en-linea-de-forma-mas-segura"
+status = 308
+to = "/es/docs/announcements/flujo-de-autenticacion-3ds2-acepte-pagos-en-linea-de-forma-mas-segura-1"
+
+[[redirects]]
+force = true
+from = "/announcements/guia-de-integracion-de-erps-pedidos, guia-de-integracion-de-erps-catalogo-expreso, guia-de-integracion-de-erps-catalogo-completo, guia-de-integracion-de-erps-arquitectura-del-catalogo, interfaces-de-integracion"
+status = 308
+to = "/es/docs/announcements/guias-de-integracion-con-erp-tienen-una-nueva-casa"
+
+[[redirects]]
+force = true
+from = "/announcements/la-informacion-de-ip-y-geolocalizacion-ahora-esta-disponible-en-codigos-de"
+status = 308
+to = "/es/docs/announcements/la-informacion-de-ip-y-geolocalizacion-ahora-esta-disponible-en-los-emails-que-contienen-el-codigo-de-acceso-al-admin"
+
+[[redirects]]
+force = true
+from = "/announcements/novedades-sobre-como-configurar-los-proveedores-de-login-para-su-tienda, novedad-sobre-como-configurar-proveedores-de-inicio-de-sesion-para-su-tienda"
+status = 308
+to = "/es/docs/announcements/novedad-sobre-como-configurar-proveedores-de-inicio-de-sesion-para-su-tienda"
+
+[[redirects]]
+force = true
+from = "/announcements/inventario-y-envio-entienda-lo-que-cambio-en-la-pestana-gestion-del"
+status = 308
+to = "/es/docs/announcements/inventario-y-envio-entienda-lo-que-cambio-en-la-pestana-gestion-del-inventario"
+
+[[redirects]]
+force = true
+from = "/announcements/restriccion-de-sellers-cree-promociones-con-un-mayor-control-de-los-sellers-impactados"
+status = 308
+to = "/es/docs/announcements/restriccion-de-sellers-cree-promociones-con-un-mayor-control-de-los-sellers"
+
+[[redirects]]
+force = true
+from = "/announcements/nueva-pantalla-performance-de-vtex-log"
+status = 308
+to = "/es/docs/announcements/nueva-pantalla-performance-de-vtex-shipping-network"
+
+[[redirects]]
+force = true
+from = "/announcements/seguridad-de-tus-promociones"
+status = 308
+to = "/es/docs/announcements/seguridad-de-tus-promociones-revisa-la-configuracion-antes-de-activarlas"
+
+[[redirects]]
+force = true
+from = "/announcements/nuevo-modulo-de-suscripciones"
+status = 308
+to = "/es/docs/announcements/nuevo-modulo-suscripciones"
+
+[[redirects]]
+force = true
+from = "/announcements/konnichiwa-admin-ahora-disponible-en-japones"
+status = 308
+to = "/es/docs/announcements/admin-disponivel-em-japones"
+
+[[redirects]]
+force = true
+from = "/announcements/conformidad-con-ada-y-wcag-en-vtex"
+status = 308
+to = "/es/docs/announcements/conformidad-ada-y-wcag-con-accessibe"
+
+[[redirects]]
+force = true
+from = "/announcements/la-nueva-interfaz-del-modulo-de-pedidos-sera-oficial"
+status = 308
+to = "/es/docs/announcements/nueva-interfaz-modulo-pedidos-oficial"
+
+[[redirects]]
+force = true
+from = "/announcements/assembly-options-nueva-aplicacion-para-facilitar-la-personalizacion-de"
+status = 308
+to = "/es/docs/announcements/assembly-options-nueva-aplicacion-para-facilitar-la-personalizacion-de-productos"
+
+[[redirects]]
+force = true
+from = "/announcements/marketplace-network-e-integraciones-ahora-en-una-sola-pagina"
+status = 308
+to = "/es/docs/announcements/marketplacenetwork-e-integraciones-ahora-en-una-sola-pagina"
+
+[[redirects]]
+force = true
+from = "/announcements/de-as-boas-vindas-ao-novo-admin-vtex"
+status = 308
+to = "/es/docs/announcements/bienvenido-al-nuevo-admin-vtex-new"
+
+[[redirects]]
+force = true
+from = "/announcements/store-framework-cms-nuevo-permiso-necesario-para-gestionar-redirecciones"
+status = 308
+to = "/es/docs/announcements/store-framework-cms-nuevo-permiso-para-gestionar-redirecciones"
+
+[[redirects]]
+force = true
+from = "/announcements/match-de-anuncios-amazon"
+status = 308
+to = "/es/docs/announcements/integracion-con-amazon-match-de-anuncios-amazon"
+
+[[redirects]]
+force = true
+from = "/announcements/la-validacion-con-recaptcha-ahora-seguira-la-configuracion-del-orderform-en"
+status = 308
+to = "/es/docs/announcements/validacion-con-recaptcha-seguira-la-configuracion-del-orderform-en-todos-los-requests"
+
+[[redirects]]
+force = true
+from = "/announcements/now-you-can-search-for-orders-in-the-vtex-admin-global-search-bar"
+status = 308
+to = "/es/docs/announcements/barra-de-busqueda-global-del-admin-vtex-ahora-permite-buscar-pedidos"
+
+[[redirects]]
+force = true
+from = "/announcements/discontinuacion-del-modulo-rendimiento-de-paginas-web"
+status = 308
+to = "/es/docs/announcements/discontinuacion-rendimiento-de-paginas-web"
+
+[[redirects]]
+force = true
+from = "/announcements/amazon-el-modelo-de-mapeo-de-productos-actual-sera-descontinuado"
+status = 308
+to = "/es/docs/announcements/amazon-modelo-de-mapeo-actual-sera-descontinuado"
+
+[[redirects]]
+force = true
+from = "/announcements/vtex-shield-nuevas-capas-de-proteccion-con-certificados-ssl-personalizados-y"
+status = 308
+to = "/es/docs/announcements/vtex-shield-nuevas-capas-de-proteccion-con-certificados-ssl-personalizados-y-mtls"
+
+[[redirects]]
+force = true
+from = "/announcements/amazon-exportacion-de-facturas-de-pedidos-fba"
+status = 308
+to = "/es/docs/announcements/facturas-amazon-fba"
+
+[[redirects]]
+force = true
+from = "/announcements/vtex-io-apps-fin-del-soporte-tecnico-para-aplicaciones-heredadas"
+status = 308
+to = "/es/docs/announcements/aplicaciones-vtex-io-descontinuacion-del-soporte-tecnico-para-aplicaciones-heredadas"
+
+[[redirects]]
+force = true
+from = "/announcements/amazon-listing-nuevo-modelo-de-registro-de-productos"
+status = 308
+to = "/es/docs/announcements/amazon-listing-registro-de-productos"
+
+[[redirects]]
+force = true
+from = "/announcements/conversation-tracker-nueva-validez-de-email"
+status = 308
+to = "/es/docs/announcements/nueva-validez-de-email-de-conversation-tracker"
+
+[[redirects]]
+force = true
+from = "/announcements/documentacion-de-weni-by-vtex-en-el-help-center"
+status = 308
+to = "/es/docs/announcements/documentacion-weni-by-vtex-en-el-help-center"
+
+[[redirects]]
+force = true
+from = "/announcements/mercado-libre-asignacion-de-almacen"
+status = 308
+to = "/es/docs/announcements/asignacion-de-almacen"
+
+[[redirects]]
+force = true
+from = "/announcements/mercado-libre-feriados"
+status = 308
+to = "/es/docs/announcements/mercado-libre-feriados-announcement-es"
+
+[[redirects]]
+force = true
+from = "/announcements/mercado-libre-smart-pricing"
+status = 308
+to = "/es/docs/announcements/mercado-libre-smart-pricing-es"
+
+[[redirects]]
+force = true
+from = "/faq/untitled-entry-2019-03-26-at-07-10-38"
+status = 308
+to = "/es/docs/faq/por-que-mis-pedidos-no-integran-con-el-mercado-libre"
+
+[[redirects]]
+force = true
+from = "/faq/como-funciona-el-flujo-de-captura-programada-para-las-compras-realizadas-con"
+status = 308
+to = "/es/docs/faq/como-funciona-el-flujo-de-liquidacion-programada-para-las-compras-realizadas-con"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-el-pci-gateway-no-finaliza-la-cancelacion-de-la-transaccion"
+status = 308
+to = "/es/docs/faq/por-que-el-pagos-no-finaliza-la-cancelacion-de-la-transaccion"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-estoy-recibiendo-mails-para-revisar-la-captura-de-un-pago"
+status = 308
+to = "/es/docs/faq/por-que-estoy-recibiendo-mails-para-revisar-la-liquidacion-de-un-pago"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-una-transaccion-fue-capturada-con-exito-pero-no-fue-finalizada-en-el-pci-gateway"
+status = 308
+to = "/es/docs/faq/por-que-una-transaccion-fue-liquidada-con-exito-pero-no-fue-finalizada-en-el-pci-gateway"
+
+[[redirects]]
+force = true
+from = "/faq/untitled-entry-2019-03-12-at-09-06-30"
+status = 308
+to = "/es/docs/faq/por-que-no-funciona-la-autentificacion-con-appkey-y-apptoken"
+
+[[redirects]]
+force = true
+from = "/faq/error-de-acceso-al-oms-que-hacer"
+status = 308
+to = "/es/docs/faq/que-hacer-cuando-hay-un-error-de-acceso-en-el-modulo-pedidos"
+
+[[redirects]]
+force = true
+from = "/faq/como-sincronizar-dos-promociones-al-mismo-cupon"
+status = 308
+to = "/es/docs/faq/como-vincular-dos-promociones-al-mismo-cupon"
+
+[[redirects]]
+force = true
+from = "/faq/he-activado-la-recurrencia-de-un-producto-pero-no-aparece-en-el-sitio"
+status = 308
+to = "/es/docs/faq/he-activado-la-suscripcion-de-un-producto-pero-no-aparece-en-el-sitio"
+
+[[redirects]]
+force = true
+from = "/faq/untitled-entry-2019-02-20-at-05-47-19"
+status = 308
+to = "/es/docs/faq/kitlook-no-se-muestra-en-la-vitrina"
+
+[[redirects]]
+force = true
+from = "/faq/untitled-entry-2019-03-25-at-08-41-57"
+status = 308
+to = "/es/docs/faq/por-que-el-precio-de-lista-no-aparece-en-el-front-end-de-mi-tienda"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-o-produto-nao-aparece-no-site"
+status = 308
+to = "/es/docs/faq/por-que-el-producto-no-aparece-en-el-sitio-web"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-la-price-table-no-aparece-para-el-cliente"
+status = 308
+to = "/es/docs/faq/por-que-la-tabla-de-precios-no-aparece-para-el-cliente"
+
+[[redirects]]
+force = true
+from = "/faq/imagenes-con-baja-calidad"
+status = 308
+to = "/es/docs/faq/por-que-las-imagenes-de-mi-tienda-se-muestran-con-baja-calidad"
+
+[[redirects]]
+force = true
+from = "/faq/que-hacer-cuando-el-aviseme-no-es-exhibido"
+status = 308
+to = "/es/docs/faq/que-hacer-cuando-no-aparece-la-opcion-avisame"
+
+[[redirects]]
+force = true
+from = "/faq/al-intentar-aprobar-el-pago-oms-devuelve-el-error-de-authorize-fulfillment-que-hacer"
+status = 308
+to = "/es/docs/faq/al-intentar-aprobar-el-pago-gestion-de-pedidos-devuelve-el-error-de-authorize-fulfillment-que-hacer"
+
+[[redirects]]
+force = true
+from = "/faq/faq-vtex-log"
+status = 308
+to = "/es/docs/faq/faq-vtex-shipping-network"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-mi-pedido-con-stock-disponible-esta-dando-error-en-oms"
+status = 308
+to = "/es/docs/faq/por-que-mi-pedido-con-stock-disponible-esta-dando-error-en-el-modulo-pedidos"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-veo-varios-emails-transaccionales-repetidos-en-un-pedido-en-el-oms"
+status = 308
+to = "/es/docs/faq/por-que-veo-varios-emails-transaccionales-repetidos-en-un-pedido"
+
+[[redirects]]
+force = true
+from = "/faq/como-bloquear-customizacoes-para-investigar-problemas-no-front-end-da-loja, como-bloquear-personalizaciones-para-investigar-problemas-en-el-front-end-de-la-tienda"
+status = 308
+to = "/es/docs/faq/como-bloquear-personalizaciones-para-investigar-problemas-en-el-front-end-de-la-tienda"
+
+[[redirects]]
+force = true
+from = "/tutorials/no-se-enviaron-los-precios-de-los-productos-al-marketplace"
+status = 308
+to = "/es/docs/troubleshooting/por-que-no-se-enviaron-los-precios-de-los-productos-de-mi-tienda-al"
+
+[[redirects]]
+force = true
+from = "/tutorials/nao-consigo-visualizar-o-produto-na-busca-do-site"
+status = 308
+to = "/es/docs/troubleshooting/el-producto-no-se-muestra-en-la-busqueda-del-sitio-web"
+
+[[redirects]]
+force = true
+from = "/tutorials/error-al-instalar-el-certificado-ssl-personalizado"
+status = 308
+to = "/es/docs/troubleshooting/error-al-instalar-certificado-ssl-personalizado"
+
+[[redirects]]
+force = true
+from = "/tutorials/crear-formularios-de-cliente-y-dirección-en-nuevas-tiendas"
+status = 308
+to = "/es/docs/troubleshooting/formularios-cliente-y-direccion-no-existen-en-multitienda"
+
+[[redirects]]
+force = true
+from = "/tutorials/que-hacer-cuando-mi-informe-de-exportaciones-no-llega-al-email"
+status = 308
+to = "/es/docs/troubleshooting/no-recibi-el-email-con-el-informe-exportado-de-master-data-v1"
+
+[[redirects]]
+force = true
+from = "/tutorial/credit-control-vision-general"
+status = 308
+to = "/es/docs/tutorial/customer-credit-vision-general"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-el-my-account"
+status = 308
+to = "/es/docs/tutorial/como-funciona-mi-cuenta"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuración-de-my-account"
+status = 308
+to = "/es/docs/tutorial/configuracion-de-my-account"
+
+[[redirects]]
+force = true
+from = "/tutorial/untitled-entry-2019-01-30-at-09-21-20"
+status = 308
+to = "/es/docs/tutorial/cancelar-el-pago-por-el-servicio-de-una-app-instalada-en-mi-tienda"
+
+[[redirects]]
+force = true
+from = "/tutorial/pagina-de-autenticacion"
+status = 308
+to = "/es/docs/tutorial/autenticacion"
+
+[[redirects]]
+force = true
+from = "/tutorial/integracion-google-y-facebook-en-smartcheckout, configurar-login-con-facebook-y-google"
+status = 308
+to = "/es/docs/tutorial/configurar-inicio-de-sesion-con-facebook-y-google"
+
+[[redirects]]
+force = true
+from = "/tutorial/registrar-client-id-y-client-secret-para-login-con-google, registrar-client-id-y-client-secret-para-inicio-de-sesion-con-google"
+status = 308
+to = "/es/docs/tutorial/registrar-client-id-y-client-secret-para-inicio-de-sesion-con-google"
+
+[[redirects]]
+force = true
+from = "/tutorial/vision-general"
+status = 308
+to = "/es/docs/tutorial/b2b-vision-general"
+
+[[redirects]]
+force = true
+from = "/tutorial/importacion-y-exportacion-de-especificaciones-de-producto-mediante-plantilla"
+status = 308
+to = "/es/docs/tutorial/importar-y-exportar-especificaciones-de-productos-mediante-plantilla-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/importacion-y-exportacion-de-especificaciones-de-sku-mediante-plantilla-beta"
+status = 308
+to = "/es/docs/tutorial/importar-y-exportar-especificaciones-de-skus-mediante-plantilla-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/importacion-y-exportacion-de-imagenes-de-productos-y-skus-mediante-plantilla"
+status = 308
+to = "/es/docs/tutorial/importar-y-exportar-imagenes-de-productos-y-skus-mediante-plantilla-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/importacion-y-exportacion-de-productos-y-skus-mediante-plantilla-beta"
+status = 308
+to = "/es/docs/tutorial/importar-y-exportar-productos-y-skus-mediante-plantilla-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/data-insights-assistant"
+status = 308
+to = "/es/docs/tutorial/data-insights-agent"
+
+[[redirects]]
+force = true
+from = "/tutorial/modulo-localidades"
+status = 308
+to = "/es/docs/tutorial/capacidad-operacional-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/planner-acciones-en-los-lanzamientos-beta"
+status = 308
+to = "/es/docs/tutorial/planner-acciones-en-releases-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/planner-concepto-de-lanzamiento-beta"
+status = 308
+to = "/es/docs/tutorial/planner-concepto-de-release-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/planner-pagina-de-lanzamientos-beta"
+status = 308
+to = "/es/docs/tutorial/planner-pagina-de-releases-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/catalogo-vtex-data-pipeline-beta"
+status = 308
+to = "/es/docs/tutorial/diccionario-de-datos-de-vtex-data-pipeline-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/pedidos"
+status = 308
+to = "/es/docs/tutorial/pedidos-data-pipeline-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/inventario"
+status = 308
+to = "/es/docs/tutorial/stock-data-pipeline-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/cambiar-el-seller-de-un-pedido-instore-beta"
+status = 308
+to = "/es/docs/tutorial/cambiar-el-seller-de-un-pedido-vtex-sales-app-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/assembly-options-es"
+status = 308
+to = "/es/docs/tutorial/assembly-options"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurando-cartao-de-presente-com-mensagem-personalizada"
+status = 308
+to = "/es/docs/tutorial/configurar-mensaje-personalizado-de-regalo"
+
+[[redirects]]
+force = true
+from = "/tutorial/criando-grupo-de-categoria"
+status = 308
+to = "/es/docs/tutorial/crear-grupo-de-especificaciones-en-una-categoria"
+
+[[redirects]]
+force = true
+from = "/tutorial/desactivando-y-reorganizando-categorias"
+status = 308
+to = "/es/docs/tutorial/desactivar-y-reorganizar-categorias"
+
+[[redirects]]
+force = true
+from = "/tutorial/registrando-categoria"
+status = 308
+to = "/es/docs/tutorial/registrar-categoria"
+
+[[redirects]]
+force = true
+from = "/tutorial/importar-y-exportar-especificacion-de-producto-y-sku"
+status = 308
+to = "/es/docs/tutorial/exportar-y-importar-especificaciones-de-producto-y-sku"
+
+[[redirects]]
+force = true
+from = "/tutorial/subiendo-un-xml-de-productos"
+status = 308
+to = "/es/docs/tutorial/como-configurar-xml"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-montar-um-kit-look"
+status = 308
+to = "/es/docs/tutorial/como-montar-un-kit-de-look"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-ordenar-los-productos-del-kitlook"
+status = 308
+to = "/es/docs/tutorial/como-ordenar-los-productos-del-kit-de-look"
+
+[[redirects]]
+force = true
+from = "/tutorial/cadastrando-kit"
+status = 308
+to = "/es/docs/tutorial/registrar-kit"
+
+[[redirects]]
+force = true
+from = "/tutorial/agregar-productos-beta"
+status = 308
+to = "/es/docs/tutorial/agregar-o-editar-productos"
+
+[[redirects]]
+force = true
+from = "/tutorial/agregar-skus-beta"
+status = 308
+to = "/es/docs/tutorial/agregar-o-editar-skus"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-cambiar-la-relacion-sku-x-product, como-cambiar-la-relacion-entre-sku-y-producto"
+status = 308
+to = "/es/docs/tutorial/como-cambiar-la-relacion-entre-sku-y-producto"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-es-montada-la-url-de-producto"
+status = 308
+to = "/es/docs/tutorial/como-definir-la-url-de-un-producto"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurando-produto-similar-sugestoes-acessorios-e-genericos"
+status = 308
+to = "/es/docs/tutorial/configurar-producto-similar-sugerencias-accesorios-y-genericos"
+
+[[redirects]]
+force = true
+from = "/tutorial/descubrir-el-id-de-un-sku"
+status = 308
+to = "/es/docs/tutorial/identificar-el-id-de-un-sku"
+
+[[redirects]]
+force = true
+from = "/tutorial/untitled-entry-2019-02-21-at-07-52-16"
+status = 308
+to = "/es/docs/tutorial/insertar-imagenes-en-el-email-de-avisame"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-cambiar-el-producto-de-un-sku"
+status = 308
+to = "/es/docs/tutorial/mover-un-sku-a-otro-producto"
+
+[[redirects]]
+force = true
+from = "/tutorial/productos-y-skus-beta"
+status = 308
+to = "/es/docs/tutorial/productos-y-skus"
+
+[[redirects]]
+force = true
+from = "/tutorial/creando-un-campo-de-producto"
+status = 308
+to = "/es/docs/tutorial/registrar-especificaciones-o-campos-de-producto"
+
+[[redirects]]
+force = true
+from = "/tutorial/criando-campo-de-sku"
+status = 308
+to = "/es/docs/tutorial/registrar-especificaciones-o-campos-de-sku"
+
+[[redirects]]
+force = true
+from = "/tutorial/registrar-los-codigos-de-barras-de-los-skus-para-el-instore"
+status = 308
+to = "/es/docs/tutorial/registrar-los-codigos-de-barras-de-los-skus-para-el-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/lista-de-templates-de-correo-eletronico-en-el-message-center"
+status = 308
+to = "/es/docs/tutorial/plantillas-de-emails-transaccionales-del-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/ativar-o-checkout-v6"
+status = 308
+to = "/es/docs/tutorial/activar-el-checkout-v6"
+
+[[redirects]]
+force = true
+from = "/tutorial/cambio-la-nueva-version-de-smart-checkout"
+status = 308
+to = "/es/docs/tutorial/caracteristicas-generales-smartcheckout-v5"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-se-realiza-el-rateo-de-flete"
+status = 308
+to = "/es/docs/tutorial/como-se-realiza-el-prorrateo-del-flete"
+
+[[redirects]]
+force = true
+from = "/tutorial/guia-de-integracion-del-oms-con-cupon-fiscal-electronico-para-el-vtex-instore,guia-de-integracion-del-gerenciamento-de-pedidos-con-cupon-fiscal-electronico-para-el-vtex-instore"
+status = 308
+to = "/es/docs/tutorial/guia-de-integracion-del-gerenciamento-de-pedidos-con-cupon-fiscal-electronico-para-el-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/habilitar-venta-en-mano-en-vtex-sales-app"
+status = 308
+to = "/es/docs/tutorial/habilitar-venta-de-inventario-local-en-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/pago-con-tarjeta-via-vtex-sales-app"
+status = 308
+to = "/es/docs/tutorial/pago-con-tarjeta-via-vtex-sales-app-sin-terminal"
+
+[[redirects]]
+force = true
+from = "/tutorial/marketplace-recursivo-v2"
+status = 308
+to = "/es/docs/tutorial/multilevel-omnichannel-inventory"
+
+[[redirects]]
+force = true
+from = "/tutorial/analizar"
+status = 308
+to = "/es/docs/tutorial/analizar-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/anapro"
+status = 308
+to = "/es/docs/tutorial/anapro-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/call-to-action"
+status = 308
+to = "/es/docs/tutorial/call-to-action-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/facebook-liberacion-del-dominio"
+status = 308
+to = "/es/docs/tutorial/facebook-liberacao-de-dominio-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/formulario-de-captura"
+status = 308
+to = "/es/docs/tutorial/formulario-de-captura-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/geolocalizado"
+status = 308
+to = "/es/docs/tutorial/geolocalizado-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/instalando-el-widget-con-gtm"
+status = 308
+to = "/es/docs/tutorial/instalando-el-widget-con-gtm-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/links"
+status = 308
+to = "/es/docs/tutorial/links-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/personalice"
+status = 308
+to = "/es/docs/tutorial/personalice-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/pipedrive"
+status = 308
+to = "/es/docs/tutorial/pipedrive-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/rdstation-crm"
+status = 308
+to = "/es/docs/tutorial/rdstation-crm-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/rdstation"
+status = 308
+to = "/es/docs/tutorial/rdstation-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/sequencial"
+status = 308
+to = "/es/docs/tutorial/sequencial-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/wordpress"
+status = 308
+to = "/es/docs/tutorial/wordpress-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/zapier"
+status = 308
+to = "/es/docs/tutorial/zapier-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-la-alerta de Stock Crítico"
+status = 308
+to = "/es/docs/tutorial/configurar-la-alerta-de-stock-critico"
+
+[[redirects]]
+force = true
+from = "/tutorial/entrega-programada, como-se-maneja-la-entrega-programada"
+status = 308
+to = "/es/docs/tutorial/entrega-programada"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-el-calculo-del-flete"
+status = 308
+to = "/es/docs/tutorial/como-funciona-el-calculo-del-envio"
+
+[[redirects]]
+force = true
+from = "/tutorial/estrategia-de-envio, cual-es-la-diferencia-entre-inventario-y-muelle"
+status = 308
+to = "/es/docs/tutorial/estrategia-de-envio"
+
+[[redirects]]
+force = true
+from = "/tutorial/gerenciar-inventario, gestionar-almacenes"
+status = 308
+to = "/es/docs/tutorial/gestionar-almacenes"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-crear-muelle"
+status = 308
+to = "/es/docs/tutorial/gestionar-el-muelle"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-horario-de-funcionamiento-para-transportistas, configurar-los-horarios-de-la-transportadora"
+status = 308
+to = "/es/docs/tutorial/horario-de-atencion-de-las-transportadoras"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-montar-la-plantilla-de-flete, importar-planilla-de-envio"
+status = 308
+to = "/es/docs/tutorial/plantilla-de-flete"
+
+[[redirects]]
+force = true
+from = "/tutorial/registrar-una-transportadora, administrar-operador"
+status = 308
+to = "/es/docs/tutorial/politica-de-envio"
+
+[[redirects]]
+force = true
+from = "/tutorial/cuales-transportistas-ponen-a-disposicion-el-rastreo-de-flete, que-transportadoras-ponen-a-disposicion-el-rastreo-de-pedido"
+status = 308
+to = "/es/docs/tutorial/que-transportadoras-ponen-a-disposicion-el-rastreo-de-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/que-es-una-transportadora"
+status = 308
+to = "/es/docs/tutorial/transportadoras-en-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-actualizar-inventario, actualizar-la-cantidad-de-skus-en-inventario"
+status = 308
+to = "/es/docs/tutorial/actualization-de-la-cantidad-de-items-en-stock"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-se-maneja-la-reserva, analizar-las-reservas-de-un-producto"
+status = 308
+to = "/es/docs/tutorial/como-se-maneja-la-reserva"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-analizar-el-historico-de-movimiento-de-inventario"
+status = 308
+to = "/es/docs/tutorial/historial-de-movimientos-del-stock"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-el-punto-de-recogida"
+status = 308
+to = "/es/docs/tutorial/puntos-de-recogida"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-importar-puntos-de-recogida-pickup-points-por-planilla, configurar-puntos-de-recogida-pickup-points"
+status = 308
+to = "/es/docs/tutorial/registro-de-puntos-de-recogida"
+
+[[redirects]]
+force = true
+from = "/tutorial/simulacion-de-flete"
+status = 308
+to = "/es/docs/tutorial/simulador-de-envio"
+
+[[redirects]]
+force = true
+from = "/tutorial/adicionales-de-flete, como-funciona-el-valor-adicional-en-el-flete"
+status = 308
+to = "/es/docs/tutorial/adicionales-de-flete"
+
+[[redirects]]
+force = true
+from = "/tutorial/gestionar-valores-de-flete"
+status = 308
+to = "/es/docs/tutorial/gestionar-las-tarifas-de-envio"
+
+[[redirects]]
+force = true
+from = "/tutorial/logistica"
+status = 308
+to = "/es/docs/tutorial/fulfillment-logistica-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/panel-vtex-log"
+status = 308
+to = "/es/docs/tutorial/panel-vtex-shipping-network"
+
+[[redirects]]
+force = true
+from = "/tutorial/progreso-de-las-entregas-vtex-log"
+status = 308
+to = "/es/docs/tutorial/progreso-de-las-entregas-vtex-shipping-network"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-solicitar-su-rescision-contractual-brasil"
+status = 308
+to = "/es/docs/tutorial/como-solicitar-su-rescision-contractual-en-brasil"
+
+[[redirects]]
+force = true
+from = "/tutorial/comprar-y-acceder-su-ambiente"
+status = 308
+to = "/es/docs/tutorial/contratar-nuevo-entorno"
+
+[[redirects]]
+force = true
+from = "/tutorial/por-que-no-recibi-el-contrato-firmado-de-vtex"
+status = 308
+to = "/es/docs/tutorial/contrato-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/procedimientos-de-cuentas-a-pagar"
+status = 308
+to = "/es/docs/tutorial/cuentas-a-pagar-brasil"
+
+[[redirects]]
+force = true
+from = "/tutorial/procedimiento-de-cuentas-a-pagar-internacional"
+status = 308
+to = "/es/docs/tutorial/cuentas-por-pagar-internacional"
+
+[[redirects]]
+force = true
+from = "/tutorial/vision-general-del-modulo-facturas"
+status = 308
+to = "/es/docs/tutorial/vision-general-facturacion"
+
+[[redirects]]
+force = true
+from = "/tutorial/cómo-descargar-las-facturas-de-vtex"
+status = 308
+to = "/es/docs/tutorial/como-descargar-las-facturas-de-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-solicitar-una-copia-de-mi-boleto"
+status = 308
+to = "/es/docs/tutorial/como-solicitar-una-copia-de-mi-boleto-de-cobro"
+
+[[redirects]]
+force = true
+from = "/tutorial/claves-de-api-beta"
+status = 308
+to = "/es/docs/tutorial/claves-de-api"
+
+[[redirects]]
+force = true
+from = "/tutorial/claves-externas-beta"
+status = 308
+to = "/es/docs/tutorial/claves-externas"
+
+[[redirects]]
+force = true
+from = "/tutorial/claves-generadas-beta"
+status = 308
+to = "/es/docs/tutorial/claves-generadas"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-la-duracion-de-las-claves-de-api-beta"
+status = 308
+to = "/es/docs/tutorial/configurar-alerta-para-renovar-tokens-de-api"
+
+[[redirects]]
+force = true
+from = "/tutorial/renovar-token-de-api-beta"
+status = 308
+to = "/es/docs/tutorial/renovar-token-de-api"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-crear-un-perfil-de-acceso-financiero"
+status = 308
+to = "/es/docs/tutorial/crear-un-rol-financiero"
+
+[[redirects]]
+force = true
+from = "/tutorial/perfiles-de-acceso-predefinidos"
+status = 308
+to = "/es/docs/tutorial/roles-de-usuario-predefinidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-crear-perfil-de-acceso, perfiles-de-acceso"
+status = 308
+to = "/es/docs/tutorial/roles"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-cambiar-el-dominio-de-la-tienda"
+status = 308
+to = "/es/docs/tutorial/cambiar-el-dominio-de-la-tienda"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-alterar-el-logo-del-boleto"
+status = 308
+to = "/es/docs/tutorial/cambiar-el-logotipo-del-boleto"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuracion-de-dominios-del-license-manager"
+status = 308
+to = "/es/docs/tutorial/configurar-dominio-de-la-tienda"
+
+[[redirects]]
+force = true
+from = "/tutorial/pagina-de-detalles-de-la-cuenta"
+status = 308
+to = "/es/docs/tutorial/gestion-de-la-cuenta"
+
+[[redirects]]
+force = true
+from = "/tutorial/untitled-entry-2019-02-21-at-02-36-12"
+status = 308
+to = "/es/docs/tutorial/acceda-al-carrito-abandonado-de-los-clientes"
+
+[[redirects]]
+force = true
+from = "/tutorial/creando-usuarios, gestionar-usuarios"
+status = 308
+to = "/es/docs/tutorial/gestionar-usuarios"
+
+[[redirects]]
+force = true
+from = "/tutorial/limpiar-base-de-datos-de-la-tienda"
+status = 308
+to = "/es/docs/tutorial/mantenimiento-de-base-de-datos-full-cleanup"
+
+[[redirects]]
+force = true
+from = "/tutorial/que-es-el-usuario-patrocinador"
+status = 308
+to = "/es/docs/tutorial/que-es-el-usuario-titular"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-recuperar-la-contrasena"
+status = 308
+to = "/es/docs/tutorial/restablecer-contrasena-de-acceso-al-admin-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/cambiar-el-usuario-master-de-la-cuenta"
+status = 308
+to = "/es/docs/tutorial/transferir-la-propiedad-de-la-tienda"
+
+[[redirects]]
+force = true
+from = "/tutorial/registrar-gerente-plataforma-indeva"
+status = 308
+to = "/es/docs/tutorial/untitled"
+
+[[redirects]]
+force = true
+from = "/tutorial/division-del-ciclo-de-la-meta-en-periodosv"
+status = 308
+to = "/es/docs/tutorial/division-del-ciclo-de-la-meta-en-periodos-indeva"
+
+[[redirects]]
+force = true
+from = "/tutorial/por-que-no-recomendamos-insertar-un-proxy-inverso-en-los-servicios-vtex"
+status = 308
+to = "/es/docs/tutorial/insertar-proxy-inverso-frente-a-los-servicios-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurando-acceso-sin-www"
+status = 308
+to = "/es/docs/tutorial/mejores-practicas-para-acceder-a-tienda-sin-www"
+
+[[redirects]]
+force = true
+from = "/tutorial/que-es-el-sla-de-operacion-de-la-plataforma"
+status = 308
+to = "/es/docs/tutorial/acuerdo-de-nivel-de-servicio-sla-para-la-operacion-de-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/untitled-entry-2019-01-14-at-07-58-58, status-vtex-entienda-como-funciona-el-status-de-la-plataforma, pagina-de-status-de-la-plataforma"
+status = 308
+to = "/es/docs/tutorial/pagina-vtex-status"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-la-integracion-con-carrefour"
+status = 308
+to = "/es/docs/tutorial/como-funciona-la-integracion-de-carrefour"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-la-integracion-de-tiendas-fisicas-con-b2w-skyhub"
+status = 308
+to = "/es/docs/tutorial/configurar-la-integracion-de-tiendas-fisicas-con-b2w"
+
+[[redirects]]
+force = true
+from = "/tutorial/integrando-con-marketplace"
+status = 308
+to = "/es/docs/tutorial/estrategias-de-marketplace-en-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/importacion-de-pedidos-de-amazon-fba-classic"
+status = 308
+to = "/es/docs/tutorial/importacion-de-pedidos-classic-de-amazon-fba"
+
+[[redirects]]
+force = true
+from = "/tutorial/estado-del-anuncio-beta"
+status = 308
+to = "/es/docs/tutorial/status-de-los-anuncios"
+
+[[redirects]]
+force = true
+from = "/tutorial/vea-como-utilizar-change-seller"
+status = 308
+to = "/es/docs/tutorial/change-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-el-flete-fob-cuando-la-entrega-es-hecha-por-el-marketplace"
+status = 308
+to = "/es/docs/tutorial/como-funciona-el-flete-cuando-la-entrega-es-hecha-por-el-marketplace"
+
+[[redirects]]
+force = true
+from = "/tutorial/precios-v2"
+status = 308
+to = "/es/docs/tutorial/precios"
+
+[[redirects]]
+force = true
+from = "/tutorial/anuncios-recebidos"
+status = 308
+to = "/es/docs/tutorial/skus-recebidos-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/errores-de-falta-de-stock-en-pedidos-de-la-integracion-con-el-marketplace"
+status = 308
+to = "/es/docs/tutorial/errores-de-falta-de-stock-en-la-integracion-de-pedidos-de-marketplace"
+
+[[redirects]]
+force = true
+from = "/tutorial/regionalizacion-beta"
+status = 308
+to = "/es/docs/tutorial/regionalizacion"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-redireccionamientos"
+status = 308
+to = "/es/docs/tutorial/configurar-redirecciones"
+
+[[redirects]]
+force = true
+from = "/tutorial/redireccionamientos"
+status = 308
+to = "/es/docs/tutorial/redirecciones"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-sinonimos"
+status = 308
+to = "/es/docs/tutorial/crear-sinonimos"
+
+[[redirects]]
+force = true
+from = "/tutorial/creando-una-cconsulta-customizada-en-el-vtex-master-data"
+status = 308
+to = "/es/docs/tutorial/crear-consulta-personalizada-en-master-data-v1"
+
+[[redirects]]
+force = true
+from = "/tutorial/crear-relacion-con-entidades-y-documentos-de-master-data-utilizando-el-admin"
+status = 308
+to = "/es/docs/tutorial/crear-relaciones-entre-entidades-de-master-data-utilizando-el-admin"
+
+[[redirects]]
+force = true
+from = "/tutorial/importar-datos-en-el-master-data"
+status = 308
+to = "/es/docs/tutorial/importar-datos-en-master-data-v1"
+
+[[redirects]]
+force = true
+from = "/tutorial/entidades-de-datos-creacion-y-mantenimiento"
+status = 308
+to = "/es/docs/tutorial/entidade-de-datos"
+
+[[redirects]]
+force = true
+from = "/tutorial/que-es-el-master-data"
+status = 308
+to = "/es/docs/tutorial/master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/no-puedo-editar-un-campo-obligatorio-en-master-data"
+status = 308
+to = "/es/docs/tutorial/definir-campos-obligatorios-en-los-formularios-de-master-data-v1"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-dejar-editable-un-campo-del-master-data"
+status = 308
+to = "/es/docs/tutorial/dejar-editable-un-campo-del-master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurando-indice-en-el-vtex-master-data"
+status = 308
+to = "/es/docs/tutorial/indices-en-master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-incluir-un-registro-en-un-formulario-del-master-data"
+status = 308
+to = "/es/docs/tutorial/agregar-un-registro-en-un-formulario-de-master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/aceptacion-clientes, aprobacion-clientes"
+status = 308
+to = "/es/docs/tutorial/aprobacion-de-clientes"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-las-promociones-para-empleados-usando-clusters-de-master-data, configurar-los-beneficios-para-empleados-usando-clusters-de-master-data"
+status = 308
+to = "/es/docs/tutorial/configurar-los-beneficios-para-empleados-usando-clusters-de-master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/importar-datos-de-clientes-brasil"
+status = 308
+to = "/es/docs/tutorial/importar-datos-de-clientes"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-producto-visitado"
+status = 308
+to = "/es/docs/tutorial/configurar-automatizacion-de-email-de-producto-visitado"
+
+[[redirects]]
+force = true
+from = "/tutorial/untitled-entry-2018-09-27-at-08-35-08"
+status = 308
+to = "/es/docs/tutorial/enviar-los-medios-de-pago-del-seller-white-label-al-marketplace"
+
+[[redirects]]
+force = true
+from = "/tutorial/algoritmo-de-selecao-de-white-label-sellers"
+status = 308
+to = "/es/docs/tutorial/seleccion-de-sellers-white-label"
+
+[[redirects]]
+force = true
+from = "/tutorial/que-son-cuenta-franquicia-y-seller-white-label"
+status = 308
+to = "/es/docs/tutorial/seller-white-label"
+
+[[redirects]]
+force = true
+from = "/tutorial/encuentra-aqui-todas-las-respuestas-que-necesitas"
+status = 308
+to = "/es/docs/tutorial/admin-vtex-comience-aqui"
+
+[[redirects]]
+force = true
+from = "/tutorial/abrir-tikets-para-el-soporte-vtex"
+status = 308
+to = "/es/docs/tutorial/abrir-tickets-para-el-soporte-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-cambiar-mi-cnpj"
+status = 308
+to = "/es/docs/tutorial/como-cambiar-mi-cnpj-nuevo"
+
+[[redirects]]
+force = true
+from = "/tutorial/conectandose-a-comerciantes-y-marketplaces-por-el-vtex-Network"
+status = 308
+to = "/es/docs/tutorial/conectandose-a-comerciantes-y-marketplaces-por-el-vtex-network"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-configurar-el-device-finger-print-para-braspag-cybersource"
+status = 308
+to = "/es/docs/tutorial/como-configurar-el-device-finger-print-para-braspag"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-mercado-pago-pro-como-medio-de-pago"
+status = 308
+to = "/es/docs/tutorial/como-configurar-mercado-pago-pro-como-medio-de-pago"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-integrar-un-proveedor-externo-de-tarjeta-de-regalo-a-vtex"
+status = 308
+to = "/es/docs/tutorial/como-configurar-pago-con-gift-card"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-device-fingerprint-para-niubz"
+status = 308
+to = "/es/docs/tutorial/configurar-device-fingerprint-para-niubiz"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-pago-con-seller"
+status = 308
+to = "/es/docs/tutorial/configurar-pago-con-easypay-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-pagos-con-adyenv3-en-instore"
+status = 308
+to = "/es/docs/tutorial/configurar-pagos-con-adyenv3-en-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-pagamento-com-tino"
+status = 308
+to = "/es/docs/tutorial/configurar-pagos-con-tino"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-tiempo-maximo-para-la-captura-automatica"
+status = 308
+to = "/es/docs/tutorial/configurar-tiempo-maximo-para-la-liquidacion-automatica"
+
+[[redirects]]
+force = true
+from = "/tutorial/en-cuanto-tiempo-se-cancela-un-pedido-de-boleta-sin-pago"
+status = 308
+to = "/es/docs/tutorial/en-cuanto-tiempo-un-pedido-de-boleto-sin-pago-se-cancela"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-se-hace-el-calculo-del-pago-en-plazos-con-intereses"
+status = 308
+to = "/es/docs/tutorial/como-se-hace-el-calculo-del-pago-en-plazos-con-intereses-compuesto"
+
+[[redirects]]
+force = true
+from = "/tutorial/flujo-de-la-transaccion-en-pci-gateway"
+status = 308
+to = "/es/docs/tutorial/flujo-de-la-transaccion-en-pagos"
+
+[[redirects]]
+force = true
+from = "/tutorial/permitir-cambios-de-pedidos-ya-cerrados, como-funciona-la-sustitucion-de-pedidos"
+status = 308
+to = "/es/docs/tutorial/cambio-de-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/Aprenda-como-crear-flujos-para-la-liberación-o-aprobación-de-pedidos"
+status = 308
+to = "/es/docs/tutorial/como-funciona-la-autorizacion-de-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-el-aviseme"
+status = 308
+to = "/es/docs/tutorial/configurar-la-opcion-avisame"
+
+[[redirects]]
+force = true
+from = "/tutorial/regla-de-divergencia-de-valores"
+status = 308
+to = "/es/docs/tutorial/regla-de-divergencia-de-precios"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-utilizar-y-personalizar-la-toolbar-de-televentas"
+status = 308
+to = "/es/docs/tutorial/barra-de-herramientas-de-televentas"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-activar-la-app-carrito-compartible"
+status = 308
+to = "/es/docs/tutorial/como-activar-la-app-carrito-compartido"
+
+[[redirects]]
+force = true
+from = "/tutorial/adaptando-tu-integracion-para-modificar-pedido-beta"
+status = 308
+to = "/es/docs/tutorial/adaptando-tu-integracion-para-modificar-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/calcular--ingresos-a-partir-de-la-planilla-del-oms"
+status = 308
+to = "/es/docs/tutorial/calcular-ingresos-a-partir-de-la-planilla-exportada-del-modulo-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-hacer-la-alteracion-de-items, modificar-pedidos-completados"
+status = 308
+to = "/es/docs/tutorial/cambiar-items-de-un-pedido-finalizado"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-la-cancelacion-de-pedido-solicitada-por-el-cliente"
+status = 308
+to = "/es/docs/tutorial/cancelacion-de-pedido-solicitada-por-el-cliente"
+
+[[redirects]]
+force = true
+from = "/tutorial/linea-del-tiempo"
+status = 308
+to = "/es/docs/tutorial/como-funciona-la-seccion-historial-de-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-modificar-pedido-beta"
+status = 308
+to = "/es/docs/tutorial/como-funciona-modificar-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-modificar-pedidos-beta"
+status = 308
+to = "/es/docs/tutorial/como-modificar-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/negacion-de-cancelacion-de-pedido"
+status = 308
+to = "/es/docs/tutorial/denegar-solicitud-de-cancelacion-del-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/enviar-pedido-al-status-listo-para-manejo"
+status = 308
+to = "/es/docs/tutorial/enviar-pedido-al-status-a-preparar-la-entrega"
+
+[[redirects]]
+force = true
+from = "/tutorial/exportacion-de-pedidos-en-oms"
+status = 308
+to = "/es/docs/tutorial/exportacion-de-pedidos-en-el-modulo-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-filtrar-pedidos"
+status = 308
+to = "/es/docs/tutorial/filtrar-todos-los-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/flujo-de-pedido-en-el-oms"
+status = 308
+to = "/es/docs/tutorial/flujo-y-status-de-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/planilla-de-pedidos"
+status = 308
+to = "/es/docs/tutorial/informe-de-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/insertar-número-de-seguimiento-en-pedidos-ya-facturados"
+status = 308
+to = "/es/docs/tutorial/insertar-numero-de-seguimiento-en-pedidos-ya-facturados"
+
+[[redirects]]
+force = true
+from = "/tutorial/ver-el-log-detallado-del-pedido-en-el-flujo-del-oms"
+status = 308
+to = "/es/docs/tutorial/ver-el-log-detallado-del-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/visualizando-pedidos-marketplace-oms"
+status = 308
+to = "/es/docs/tutorial/visualizando-pedidos-marketplace-en-todos-los-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/cambiar-el-valor-final-del-pedido-beta"
+status = 308
+to = "/es/docs/tutorial/cambiar-el-valor-total-del-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/cambiar-los-datos-de-seguimiento-beta"
+status = 308
+to = "/es/docs/tutorial/cambiar-los-datos-de-seguimiento"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-devolver-items-del-pedido-beta"
+status = 308
+to = "/es/docs/tutorial/como-devolver-items-del-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/facturar-manualmente-un-pedido-beta"
+status = 308
+to = "/es/docs/tutorial/como-facturar-manualmente-un-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/pagina-de-detalles-del-pedido-beta"
+status = 308
+to = "/es/docs/tutorial/pagina-de-detalles-del-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/oms-vision-general"
+status = 308
+to = "/es/docs/tutorial/pedidos-vision-general"
+
+[[redirects]]
+force = true
+from = "/tutorial/preguntas-frecuentes-sobre-la-nueva-interfaz-del-modulo-de-pedidos"
+status = 308
+to = "/es/docs/tutorial/preguntas-frecuentes-nueva-interfaz-modulo-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/lista-de-pedidos-beta"
+status = 308
+to = "/es/docs/tutorial/todos-los-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/vtex-do-beta"
+status = 308
+to = "/es/docs/tutorial/vtex-do-interface"
+
+[[redirects]]
+force = true
+from = "/tutorial/que-es-una-politica-comercial"
+status = 308
+to = "/es/docs/tutorial/crear-una-politica-comercial"
+
+[[redirects]]
+force = true
+from = "/tutorial/rellenar-campos-de-la-plantilla-de-importacion-de-precios-base"
+status = 308
+to = "/es/docs/tutorial/tabla-de-precios-base"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-incluir-metadados-ao-exportar-planilha-de-precos"
+status = 308
+to = "/es/docs/tutorial/como-incluir-metadatos-al-exportar-plantilla-de-precios"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuracion-de-tablas-de-precios-para-usuarios-especificos-con-session"
+status = 308
+to = "/es/docs/tutorial/configuracion-de-tablas-de-precios-para-usuarios-especificos"
+
+[[redirects]]
+force = true
+from = "/tutorial/creación-de-tablas-de-precios"
+status = 308
+to = "/es/docs/tutorial/creacion-de-tablas-de-precios"
+
+[[redirects]]
+force = true
+from = "/tutorial/programar-precio-en-pricing-v2"
+status = 308
+to = "/es/docs/tutorial/programar-precio"
+
+[[redirects]]
+force = true
+from = "/tutorial/precio-psicologico-v2"
+status = 308
+to = "/es/docs/tutorial/redondeo-de-precios"
+
+[[redirects]]
+force = true
+from = "/tutorial/el-proceso-de-risk-assessment"
+status = 308
+to = "/es/docs/tutorial/evaluacion-de-riesgos"
+
+[[redirects]]
+force = true
+from = "/tutorial/reportar-vulnerabilidade"
+status = 308
+to = "/es/docs/tutorial/informar-vulnerabilidad"
+
+[[redirects]]
+force = true
+from = "/tutorial/pruebas-de-penetracion-y-advertencia-de-vulnerabilidad"
+status = 308
+to = "/es/docs/tutorial/pruebas-de-penetracion"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-encontrar-eventos-en-audit"
+status = 308
+to = "/es/docs/tutorial/audit"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-contratar-el-certificado-de-seguridad"
+status = 308
+to = "/es/docs/tutorial/certificado-de-seguridad-ssl"
+
+[[redirects]]
+force = true
+from = "/tutorial/buenas-practicas-para-el-uso-de-claves-de-aplicacion"
+status = 308
+to = "/es/docs/tutorial/buenas-practicas-claves-de-api"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuracion-de-seller"
+status = 308
+to = "/es/docs/tutorial/agregar-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/gestion-de-sellers-beta"
+status = 308
+to = "/es/docs/tutorial/gestion-de-sellers"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-crear-un-producto-beta"
+status = 308
+to = "/es/docs/tutorial/como-crear-un-producto"
+
+[[redirects]]
+force = true
+from = "/tutorial/lista-de-productos-beta"
+status = 308
+to = "/es/docs/tutorial/lista-de-productos"
+
+[[redirects]]
+force = true
+from = "/tutorial/marketplace-sellers-invitados-beta"
+status = 308
+to = "/es/docs/tutorial/marketplace-sellers-invitados"
+
+[[redirects]]
+force = true
+from = "/tutorial/categorias-beta"
+status = 308
+to = "/es/docs/tutorial/seller-portal-categorias"
+
+[[redirects]]
+force = true
+from = "/tutorial/marcas-beta"
+status = 308
+to = "/es/docs/tutorial/seller-portal-marcas"
+
+[[redirects]]
+force = true
+from = "/tutorial/sellers-crear-una-cuenta-en-el-seller-portal-beta"
+status = 308
+to = "/es/docs/tutorial/sellers-crear-una-cuenta-en-el-seller-portal"
+
+[[redirects]]
+force = true
+from = "/tutorial/aprobacion-de-sugerencias-de-skus"
+status = 308
+to = "/es/docs/tutorial/catalogacion-manual-de-skus"
+
+[[redirects]]
+force = true
+from = "/tutorial/arquitectura-de-envio-de-productos-entre-sellers-y-marketplaces-vtex"
+status = 308
+to = "/es/docs/tutorial/anuncios-enviados-entre-los-mismos-sellers-y-marketplaces-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuraciones-para-marketplace-vtex"
+status = 308
+to = "/es/docs/tutorial/configurar-marketplaces-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/cual-es-la-diferencia-entre-desvincular-y-excluir-un-sku-seller"
+status = 308
+to = "/es/docs/tutorial/cual-es-la-diferencia-entre-desvincular-y-remover-un-sku-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/gestion-de-paginas-beta"
+status = 308
+to = "/es/docs/tutorial/gestion-de-paginas"
+
+[[redirects]]
+force = true
+from = "/tutorial/headless-cms-visao-geral"
+status = 308
+to = "/es/docs/tutorial/headless-cms-vision-general"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-el-contexto-de-busqueda, como-crear-landing-pages-con-urls-personalizadas"
+status = 308
+to = "/es/docs/tutorial/como-crear-landing-pages-con-urls-personalizadas"
+
+[[redirects]]
+force = true
+from = "/tutorial/crear-un-template-de-pagina"
+status = 308
+to = "/es/docs/tutorial/como-crear-un-template-de-pagina"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-borrar-coleccion; como-eliminar-una-coleccion"
+status = 308
+to = "/es/docs/tutorial/como-eliminar-una-coleccion"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-el-campo-score"
+status = 308
+to = "/es/docs/tutorial/como-funciona-el-campo-puntuacion"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-la-compactacion-automatica-de-imagenes"
+status = 308
+to = "/es/docs/tutorial/compresion-de-imagenes"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-configurar-el-favicon"
+status = 308
+to = "/es/docs/tutorial/configurar-el-favicono-de-tu-tienda"
+
+[[redirects]]
+force = true
+from = "/tutorial/desarrollar-el-front-end-para-la feature-de-listas-en-su-tienda"
+status = 308
+to = "/es/docs/tutorial/desarrollar-el-front-end-para-la-feature-de-listas-en-su-tienda"
+
+[[redirects]]
+force = true
+from = "/tutorial/tornar-colecao-de-produtos-encontravel-pela-busca"
+status = 308
+to = "/es/docs/tutorial/hacer-que-la-coleccion-de-productos-pueda-buscarse"
+
+[[redirects]]
+force = true
+from = "/tutorial/que-es-el-cms"
+status = 308
+to = "/es/docs/tutorial/que-es-el-cms-layout"
+
+[[redirects]]
+force = true
+from = "/tutorial/registrar-una-coleccion"
+status = 308
+to = "/es/docs/tutorial/registrar-una-coleccion-cms"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-configurar-suscripcion-v2"
+status = 308
+to = "/es/docs/tutorial/como-configurar-suscripciones"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-crear-un-anexo-de-suscripcion"
+status = 308
+to = "/es/docs/tutorial/como-crear-un-anexo-de-suscripcion-en-el-modulo-catalogo"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-crear-un-plan-de-suscripcion-beta"
+status = 308
+to = "/es/docs/tutorial/como-crear-un-plan-de-suscripcion"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-resolver-pedidos-de-suscripcion-con-errores"
+status = 308
+to = "/es/docs/tutorial/como-solucionar-errores-en-pedidos-de-suscripcion"
+
+[[redirects]]
+force = true
+from = "/tutorial/correos-electronicos-transaccionales-para-pedidos-de-suscripcion"
+status = 308
+to = "/es/docs/tutorial/correos-electronicos-transaccionales-para-pedidos-de-suscripciones"
+
+[[redirects]]
+force = true
+from = "/tutorial/planes-de-suscripcion-beta"
+status = 308
+to = "/es/docs/tutorial/planes-de-suscripcion"
+
+[[redirects]]
+force = true
+from = "/tutorial/puntos-de-recogida-para-pedidos-de-suscripcion-beta"
+status = 308
+to = "/es/docs/tutorial/puntos-de-recogida-para-pedidos-de-suscripcion"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-crear-campanas"
+status = 308
+to = "/es/docs/tutorial/crear-audiencias-de-campana"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-crear-promoción-con-limitacion-de-uso"
+status = 308
+to = "/es/docs/tutorial/como-crear-promocion-con-limitacion-de-uso"
+
+[[redirects]]
+force = true
+from = "/tutorial/entendiendo-la-competencia-de-las-promociones-2"
+status = 308
+to = "/es/docs/tutorial/como-funciona-la-competencia-de-promociones"
+
+[[redirects]]
+force = true
+from = "/tutorial/promocion-para-marketplace"
+status = 308
+to = "/es/docs/tutorial/configurar-promocion-para-marketplace"
+
+[[redirects]]
+force = true
+from = "/tutorial/cual-es-el-limite-máximo-de-promociones"
+status = 308
+to = "/es/docs/tutorial/cual-es-el-limite-maximo-de-promociones"
+
+[[redirects]]
+force = true
+from = "/tutorial/registrar-promociones-de-envio"
+status = 308
+to = "/es/docs/tutorial/registrar-promociones-de-flete"
+
+[[redirects]]
+force = true
+from = "/tutorial/asignar-y-testar-agentes-en-el-agent-builder"
+status = 308
+to = "/es/docs/tutorial/asignar-y-probar-agentes"
+
+[[redirects]]
+force = true
+from = "/tutorial/vision-de-conjunto-del-agent-builder"
+status = 308
+to = "/es/docs/tutorial/informacion-general-de-agent-builder"
+
+[[redirects]]
+force = true
+from = "/announcements/mudanca-no-formato-do-campo-authorized-date-da-planilha-de-exportacao-de"
+status = 308
+to = "/pt/docs/announcements/mudanca-no-formato-do-campo-authorized-date"
+
+[[redirects]]
+force = true
+from = "/announcements/tenha-mais-praticidade-para-cadastrar-precos-por-planilha-utilizando-metadados-dos-SKUs"
+status = 308
+to = "/pt/docs/announcements/tenha-mais-praticidade-para-cadastrar-precos-por-planilha-utilizando"
+
+[[redirects]]
+force = true
+from = "/announcements/mais-tempo-para-adaptar-as-requisicoes-de-front-end-da-sua-loja"
+status = 308
+to = "/pt/docs/announcements/mais-tempo-para-adaptar-as-requisicoes-de-front-end-da-sua-loja-ao-master"
+
+[[redirects]]
+force = true
+from = "/announcements/mudanca-no-envio-de-produtos-para-a-via-varejo"
+status = 308
+to = "/pt/docs/announcements/mapeamento-de-categorias-agora-obrigatorio-para-via-varejo-marketplace"
+
+[[redirects]]
+force = true
+from = "/announcements/indexador-melhorias-de-desempenho-para-o-catalogo"
+status = 308
+to = "/pt/docs/announcements/indexador-melhorias-desempenho-catalogo"
+
+[[redirects]]
+force = true
+from = "/announcements/novo-modulo-de-colecoes-beta"
+status = 308
+to = "/pt/docs/announcements/novo-modulo-de-colecoes-beta-crie-e-gerencie-colecoes-de-produto-com"
+
+[[redirects]]
+force = true
+from = "/announcements/guia-de-integracao-de-erps-pedidos, guia-de-integracao-de-erps-catalogo-expresso, guia-de-integracao-de-erps-catalogo-completo, guia-de-integracao-de-erps-arquitetura-do-catalogo, interfaces-de-integracao"
+status = 308
+to = "/pt/docs/announcements/guias-de-integracao-com-erp-tem-uma-nova-casa"
+
+[[redirects]]
+force = true
+from = "/announcements/vtex-intelligent-search-exporte-relatorios-mais-completos-sobre-os"
+status = 308
+to = "/pt/docs/announcements/vtex-intelligent-search-exporte-relatorios-mais-completos-sobre-os-resultados-de-pesquisa"
+
+[[redirects]]
+force = true
+from = "/announcements/nova-tela-de-performance-vtex-log"
+status = 308
+to = "/pt/docs/announcements/nova-tela-de-performance-vtex-shipping-network"
+
+[[redirects]]
+force = true
+from = "/announcements/seguranca-nas-suas-promocoes"
+status = 308
+to = "/pt/docs/announcements/seguranca-nas-suas-promocoes-revise-suas-configuracoes-antes-de-ativa-las"
+
+[[redirects]]
+force = true
+from = "/announcements/novo-modulo-de-assinaturas"
+status = 308
+to = "/pt/docs/announcements/novo-modulo-assinaturas"
+
+[[redirects]]
+force = true
+from = "/announcements/codigo-do-vendedor-evolucoes-na-customizacao-do-instore"
+status = 308
+to = "/pt/docs/announcements/codigo-vendedor-evolucoes-customizacao-instore"
+
+[[redirects]]
+force = true
+from = "/announcements/a-navegacao-no-admin-agora-e-restrita-de-acordo-com-o-perfil-de-acesso-do"
+status = 308
+to = "/pt/docs/announcements/navegacao-no-admin-agora-e-restrita-de-acordo-com-o-perfil-de-acesso-do-usuario"
+
+[[redirects]]
+force = true
+from = "/announcements/konnichiwa-admin-agora-disponivel-em-japones"
+status = 308
+to = "/pt/docs/announcements/admin-disponivel-em-japones"
+
+[[redirects]]
+force = true
+from = "/announcements/a-nova-interface-do-modulo-de-pedidos-sera-oficial"
+status = 308
+to = "/pt/docs/announcements/nova-interface-modulo-pedidos-oficial"
+
+[[redirects]]
+force = true
+from = "/announcements/match-de-anuncios-amazon"
+status = 308
+to = "/pt/docs/announcements/integracao-amazon-match-de-anuncios-amazon"
+
+[[redirects]]
+force = true
+from = "/announcements/a-validacao-do-recaptcha-agora-seguira-a-configuracao-do-orderform-para"
+status = 308
+to = "/pt/docs/announcements/validacao-recaptcha-agora-seguira-a-configuracao-do-orderform-para-todas-as-solicitacoes"
+
+[[redirects]]
+force = true
+from = "/announcements/descontinuacao-do-modulo-performance-de-paginas-web"
+status = 308
+to = "/pt/docs/announcements/descontinuacao-performance-de-paginas-web"
+
+[[redirects]]
+force = true
+from = "/announcements/amazon-atual-modelo-de-mapeamento-de-produtos-sera-descontinuado"
+status = 308
+to = "/pt/docs/announcements/amazon-atual-modelo-de-mapeamento-sera-descontinuado"
+
+[[redirects]]
+force = true
+from = "/announcements/vtex-shield-novas-camadas-de-protecao-com-certificados-ssl-customizados-e"
+status = 308
+to = "/pt/docs/announcements/vtex-shield-novas-camadas-de-protecao-com-certificados-ssl-customizados-e-mtls"
+
+[[redirects]]
+force = true
+from = "/announcements/amazon-exportacao-de-notas-fiscais-de-pedidos-fba"
+status = 308
+to = "/pt/docs/announcements/amazon-notas-fiscais-fba"
+
+[[redirects]]
+force = true
+from = "/announcements/amazon-listing-novo-modelo-de-cadastro-de-produtos"
+status = 308
+to = "/pt/docs/announcements/amazon-listing-cadastro-de-produtos"
+
+[[redirects]]
+force = true
+from = "/announcements/conversation-tracker-nova-validade-de-email"
+status = 308
+to = "/pt/docs/announcements/nova-validade-de-email-do-conversation-tracker"
+
+[[redirects]]
+force = true
+from = "/announcements/documentacao-da-weni-by-vtex-no-help-center"
+status = 308
+to = "/pt/docs/announcements/documentacao-weni-by-vtex-no-help-center"
+
+[[redirects]]
+force = true
+from = "/announcements/mercado-livre-atribuicao-de-estoque"
+status = 308
+to = "/pt/docs/announcements/atribuicao-de-estoque"
+
+[[redirects]]
+force = true
+from = "/announcements/mercado-livre-feriados"
+status = 308
+to = "/pt/docs/announcements/mercado-livre-feriados-announcement-pt"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-meus-pedidos-não-integram-com-o-mercado-livre"
+status = 308
+to = "/pt/docs/faq/por-que-meus-pedidos-nao-integram-com-o-mercado-livre"
+
+[[redirects]]
+force = true
+from = "/faq/como-funciona-o-fluxo-de-captura-agendada-para-compras-realizadas-com-duas"
+status = 308
+to = "/pt/docs/faq/como-funciona-o-fluxo-de-liquidacao-agendada-para-compras-realizadas-com-duas"
+
+[[redirects]]
+force = true
+from = "/faq/o-que-fazer-quando-a-nsu-do-produto-e-duplicada-em-transacoes-realizadas"
+status = 308
+to = "/pt/docs/faq/o-que-fazer-quando-o-nsu-do-produto-e-duplicada-em-transacoes-realizadas"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-estou-recebendo-e-mails-para-revisar-a-captura-de-um-pagamento"
+status = 308
+to = "/pt/docs/faq/por-que-estou-recebendo-e-mails-para-revisar-a-liquidacao-de-um-pagamento"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-o-pci-gateway-nao-finaliza-o-cancelamento-da-transacao"
+status = 308
+to = "/pt/docs/faq/por-que-o-pagamentos-nao-finaliza-o-cancelamento-da-transacao"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-uma-transacao-foi-capturada-com-sucesso-mas-nao-foi-finalizada-no-pci"
+status = 308
+to = "/pt/docs/faq/por-que-uma-transacao-foi-liquidada-com-sucesso-mas-nao-foi-finalizada-no-pci"
+
+[[redirects]]
+force = true
+from = "/faq/erro-de-acesso-ao-oms"
+status = 308
+to = "/pt/docs/faq/o-que-fazer-em-caso-de-erro-de-acesso-ao-modulo-pedidos"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-a-autenticacao-do-request-utilizando-appkey-e-apptoken-nao-funciona"
+status = 308
+to = "/pt/docs/faq/por-que-a-autenticacao-utilizando-appkey-e-apptoken-nao-funciona"
+
+[[redirects]]
+force = true
+from = "/faq/ativei-a-recorrencia-de-um-produto-mas-ele-nao-aparece-no-site"
+status = 308
+to = "/pt/docs/faq/ativei-a-assinatura-de-um-produto-mas-ele-nao-aparece-no-site"
+
+[[redirects]]
+force = true
+from = "/faq/como-sincronizar-duas-promocoes-ao-mesmo-cupom"
+status = 308
+to = "/pt/docs/faq/como-vincular-duas-promocoes-ao-mesmo-cupom"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-a-price-table-nao-aparece-para-o-cliente"
+status = 308
+to = "/pt/docs/faq/por-que-a-tabela-de-precos-nao-aparece-para-o-cliente"
+
+[[redirects]]
+force = true
+from = "/faq/aprovar-pagamento-oms-erro-authorize-fulfillment"
+status = 308
+to = "/pt/docs/faq/ao-tentar-aprovar-pagamento-gerenciamento-de-pedidos-retorna-erro"
+
+[[redirects]]
+force = true
+from = "/faq/faq-vtex-log"
+status = 308
+to = "/pt/docs/faq/faq-vtex-shipping-network"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-meu-pedido-com-estoque-disponivel-esta-dando-erro-no-oms"
+status = 308
+to = "/pt/docs/faq/por-que-meu-pedido-com-estoque-disponivel-esta-dando-erro-no-modulo-pedidos"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-vejo-inumeros-e-mails-transacionais-repetidos-em-um-pedido-no-oms"
+status = 308
+to = "/pt/docs/faq/por-que-vejo-inumeros-e-mails-transacionais-repetidos-em-um-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorials/criando-formularios-de-cliente-e-endereco-em-novas-lojas"
+status = 308
+to = "/pt/docs/troubleshooting/formularios-de-cliente-e-endereco-nao-existem-em-multiloja"
+
+[[redirects]]
+force = true
+from = "/tutorials/o-que-fazer-quando-o-relatorio-de-exportacoes-nao-chega-no-email"
+status = 308
+to = "/pt/docs/troubleshooting/nao-recebi-o-email-com-o-relatorio-exportado-do-master-data-v1"
+
+[[redirects]]
+force = true
+from = "/tutorial/credit-control-visao-geral"
+status = 308
+to = "/pt/docs/tutorial/customer-credit-visao-geral"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-o-my-account"
+status = 308
+to = "/pt/docs/tutorial/como-funciona-a-minha-conta"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-configurar-assinatura-v2"
+status = 308
+to = "/pt/docs/tutorial/como-configurar-assinaturas"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-criar-um-anexo-de-assinatura"
+status = 308
+to = "/pt/docs/tutorial/como-criar-um-anexo-de-assinatura-pelo-modulo-catalogo"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-criar-um-plano-de-assinatura-beta"
+status = 308
+to = "/pt/docs/tutorial/como-criar-um-plano-de-assinatura"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-solucionar-pedidos-de-assinatura-com-erros"
+status = 308
+to = "/pt/docs/tutorial/como-solucionar-erros-em-pedidos-de-assinaturas"
+
+[[redirects]]
+force = true
+from = "/tutorial/e-mails-transacionais-para-pedidos-de-assinatura"
+status = 308
+to = "/pt/docs/tutorial/emails-transacionais-para-pedidos-de-assinaturas"
+
+[[redirects]]
+force = true
+from = "/tutorial/planos-de-assinatura-beta"
+status = 308
+to = "/pt/docs/tutorial/planos-de-assinatura"
+
+[[redirects]]
+force = true
+from = "/tutorial/pontos-de-retirada-para-pedidos-de-assinatura-beta"
+status = 308
+to = "/pt/docs/tutorial/pontos-de-retirada-para-pedidos-de-assinatura"
+
+[[redirects]]
+force = true
+from = "/tutorial/redefinindo-sua-configuracao-de-aplicativo-de-autenticacao-de-dois-fatores"
+status = 308
+to = "/pt/docs/tutorial/redefinir-sua-configuracao-de-aplicativo-de-autenticacao-de-dois-fatores"
+
+[[redirects]]
+force = true
+from = "/tutorial/pagina-de-autenticacao"
+status = 308
+to = "/pt/docs/tutorial/autenticacao"
+
+[[redirects]]
+force = true
+from = "/tutorial/cadastrar-client-id-e-client-secret-para-login-com-facebook"
+status = 308
+to = "/pt/docs/tutorial/cadastrar-client-id-e-segredo-do-cliente-para-login-com-facebook"
+
+[[redirects]]
+force = true
+from = "/tutorial/integracao-google-e-facebook-para-login"
+status = 308
+to = "/pt/docs/tutorial/configurar-login-com-facebook-e-google"
+
+[[redirects]]
+force = true
+from = "/tutorial/visao-geral"
+status = 308
+to = "/pt/docs/tutorial/b2b-visao-geral"
+
+[[redirects]]
+force = true
+from = "/tutorial/importacao-e-exportacao-de-imagens-de-produtos-e-skus-via-planilha-beta"
+status = 308
+to = "/pt/docs/tutorial/importar-e-exportar-dimagens-de-produtos-e-skus-via-planilha-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/importacao-e-exportacao-de-especificacoes-de-produtos-via-planilha-beta"
+status = 308
+to = "/pt/docs/tutorial/importar-e-exportar-especificacoes-de-produtos-via-planilha-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/importacao-e-exportacao-de-especificacoes-de-skus-via-planilha-beta"
+status = 308
+to = "/pt/docs/tutorial/importar-e-exportar-especificacoes-de-skus-via-planilha-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/importacao-e-exportacao-de-produtos-e-skus-via-planilha-beta"
+status = 308
+to = "/pt/docs/tutorial/importar-e-exportar-produtos-e-skus-via-planilha-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/data-insights-assistant"
+status = 308
+to = "/pt/docs/tutorial/data-insights-agent"
+
+[[redirects]]
+force = true
+from = "/tutorial/modulo-localidades"
+status = 308
+to = "/pt/docs/tutorial/capacidade-operacional-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/catalogo-vtex-data-pipeline-beta"
+status = 308
+to = "/pt/docs/tutorial/dicionario-vtex-data-pipeline-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/trocar-seller-de-um-pedido-do-instore-beta"
+status = 308
+to = "/pt/docs/tutorial/trocar-seller-de-um-pedido-do-vtex-sales-app-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/assembly-options-pt"
+status = 308
+to = "/pt/docs/tutorial/assembly-options"
+
+[[redirects]]
+force = true
+from = "/tutorial/cadastrando-categoria"
+status = 308
+to = "/pt/docs/tutorial/cadastrar-uma-categoria"
+
+[[redirects]]
+force = true
+from = "/tutorial/criando-grupo-de-categoria"
+status = 308
+to = "/pt/docs/tutorial/criando-grupo-de-especificacoes-em-uma-categoria"
+
+[[redirects]]
+force = true
+from = "/tutorial/inativando-e-reorganizando-categorias"
+status = 308
+to = "/pt/docs/tutorial/inativar-e-reorganizar-categorias"
+
+[[redirects]]
+force = true
+from = "/tutorial/importando-e-exportando-especificacao-de-produto-e-sku"
+status = 308
+to = "/pt/docs/tutorial/exportar-e-importar-especificacoes-de-produto-e-de-sku"
+
+[[redirects]]
+force = true
+from = "/tutorial/xml-de-produtos"
+status = 308
+to = "/pt/docs/tutorial/configurando-xml"
+
+[[redirects]]
+force = true
+from = "/tutorial/cadastrando-kit"
+status = 308
+to = "/pt/docs/tutorial/cadastrar-kit"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-ordenar-os-produtos-do-kitlook"
+status = 308
+to = "/pt/docs/tutorial/como-ordenar-os-produtos-do-kit-look"
+
+[[redirects]]
+force = true
+from = "/tutorial/cadastro-de-produtos-beta"
+status = 308
+to = "/pt/docs/tutorial/adicionar-ou-editar-produto"
+
+[[redirects]]
+force = true
+from = "/tutorial/cadastro-de-skus-beta"
+status = 308
+to = "/pt/docs/tutorial/adicionar-ou-editar-sku"
+
+[[redirects]]
+force = true
+from = "/tutorial/criando-um-campo-de-produto"
+status = 308
+to = "/pt/docs/tutorial/cadastrar-especificacoes-ou-campos-de-produto"
+
+[[redirects]]
+force = true
+from = "/tutorial/criando-campo-de-sku"
+status = 308
+to = "/pt/docs/tutorial/cadastrar-especificacoes-ou-campos-de-sku"
+
+[[redirects]]
+force = true
+from = "/tutorial/cadastrar-o-codigo-de-barra-dos-skus-para-o-instore"
+status = 308
+to = "/pt/docs/tutorial/cadastrar-o-codigo-de-barra-dos-skus-para-o-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-alterar-a-relacao-sku-x-produto"
+status = 308
+to = "/pt/docs/tutorial/como-alterar-a-relacao-sku-e-produto"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-a-url-de-produto-e-montada"
+status = 308
+to = "/pt/docs/tutorial/como-definir-a-url-de-um-produto"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-trocar-o-produto-de-um-sku"
+status = 308
+to = "/pt/docs/tutorial/como-mover-o-sku-para-outro-produto"
+
+[[redirects]]
+force = true
+from = "/tutorial/inativar-skus-e-produtos-da-loja"
+status = 308
+to = "/pt/docs/tutorial/desativar-skus-e-produtos-da-loja"
+
+[[redirects]]
+force = true
+from = "/tutorial/produtos-e-skus-beta"
+status = 308
+to = "/pt/docs/tutorial/produtos-e-skus"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-exportar-os-clientes-cadastrados-no-avise-me"
+status = 308
+to = "/pt/docs/tutorial/exportar-os-clientes-cadastrados-no-avise-me"
+
+[[redirects]]
+force = true
+from = "/tutorial/lista-de-templates-de-e-mail-no-message-center"
+status = 308
+to = "/pt/docs/tutorial/templates-de-emails-transacionais"
+
+[[redirects]]
+force = true
+from = "/tutorial/mudando-para-nova-versao-do-smart-checkout"
+status = 308
+to = "/pt/docs/tutorial/caracteristicas-gerais-smartcheckout-v5"
+
+[[redirects]]
+force = true
+from = "/tutorial/guia-de-integracao-do-oms-com-cf-e-para-o-vtex-instore,guia-de-integracao-do-gerenciamento-de-pedidos-com-cf-e-para-o-vtex-instore"
+status = 308
+to = "/pt/docs/tutorial/guia-de-integracao-do-gerenciamento-de-pedidos-com-cf-e-para-o-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/habilitar-venda-em-maos-do-vtex-sales-app"
+status = 308
+to = "/pt/docs/tutorial/habilitar-venda-de-estoque-local-do-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/pagamento-com-cartao-via-sales-app"
+status = 308
+to = "/pt/docs/tutorial/pagamento-com-cartao-via-sales-app-sem-maquininha"
+
+[[redirects]]
+force = true
+from = "/tutorial/marketplace-recursivo-v2"
+status = 308
+to = "/pt/docs/tutorial/multilevel-omnichannel-inventory"
+
+[[redirects]]
+force = true
+from = "/tutorial/analisar"
+status = 308
+to = "/pt/docs/tutorial/analisar-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/anapro"
+status = 308
+to = "/pt/docs/tutorial/anapro-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/call-to-action"
+status = 308
+to = "/pt/docs/tutorial/call-to-action-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/facebook-liberacao-de-dominio"
+status = 308
+to = "/pt/docs/tutorial/facebook-liberacao-de-dominio-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/formulario-de-captura"
+status = 308
+to = "/pt/docs/tutorial/formulario-de-captura-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/geolocalizado"
+status = 308
+to = "/pt/docs/tutorial/geolocalizado-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/instalando-o-widget-com-o-gtm"
+status = 308
+to = "/pt/docs/tutorial/instalando-o-widget-com-o-gtm-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/links"
+status = 308
+to = "/pt/docs/tutorial/links-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/personalizar"
+status = 308
+to = "/pt/docs/tutorial/personalizar-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/pipedrive"
+status = 308
+to = "/pt/docs/tutorial/pipedrive-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/rdstation-crm"
+status = 308
+to = "/pt/docs/tutorial/rdstation-crm-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/rdstation"
+status = 308
+to = "/pt/docs/tutorial/rdstation-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/sequencial"
+status = 308
+to = "/pt/docs/tutorial/sequencial-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/wordpress"
+status = 308
+to = "/pt/docs/tutorial/wordpress-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/zapier"
+status = 308
+to = "/pt/docs/tutorial/zapier-suiteshare"
+
+[[redirects]]
+force = true
+from = "/tutorial/entrega-agendada, como-funciona-a-entrega-agendada"
+status = 308
+to = "/pt/docs/tutorial/entrega-agendada"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-a-regra-de-prioridade-no-calculo-do-frete, teste-legacy-slug"
+status = 308
+to = "/pt/docs/tutorial/como-funciona-o-calculo-de-envio"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-o-tipo-de-entrega"
+status = 308
+to = "/pt/docs/tutorial/como-funciona-o-tipo-de-envio"
+
+[[redirects]]
+force = true
+from = "/tutorial/estrategia-de-envio, qual-a-diferenca-entre-estoque-e-doca"
+status = 308
+to = "/pt/docs/tutorial/estrategia-de-envio"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-cadastrar-doca"
+status = 308
+to = "/pt/docs/tutorial/gerenciar-doca"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-horario-de-funcionamento-para-transportadoras, configurar-o-horario-de-corte-da-transportadora"
+status = 308
+to = "/pt/docs/tutorial/horario-de-funcionamento-das-transportadoras"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-montar-a-planilha-de-frete, importar-planilha-de-frete"
+status = 308
+to = "/pt/docs/tutorial/planilha-de-frete"
+
+[[redirects]]
+force = true
+from = "/tutorial/cadastrar-transportadora, gerenciar-transportadora"
+status = 308
+to = "/pt/docs/tutorial/politica-de-envio"
+
+[[redirects]]
+force = true
+from = "/tutorial/o-que-e-uma-transportadora"
+status = 308
+to = "/pt/docs/tutorial/transportadoras-na-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-atualizar-estoque, atualizar-quantidade-de-skus-em-estoque"
+status = 308
+to = "/pt/docs/tutorial/atualizacao-da-quantidade-de-itens-em-estoque"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-a-reserva-funciona, como-analisar-as-reservas-de-um-produto"
+status = 308
+to = "/pt/docs/tutorial/como-a-reserva-funciona"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-analisar-o-historico-de-movimentacoes-do-estoque"
+status = 308
+to = "/pt/docs/tutorial/historico-de-movimentacoes-do-inventario"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-importar-pontos-de-retirada-pickup-points-por-planilha, configurar-pontos-de-retirada-pickup-points"
+status = 308
+to = "/pt/docs/tutorial/cadastro-de-pontos-de-retirada"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-o-ponto-de-retirada"
+status = 308
+to = "/pt/docs/tutorial/pontos-de-retirada"
+
+[[redirects]]
+force = true
+from = "/tutorial/simulacao-de-frete"
+status = 308
+to = "/pt/docs/tutorial/simulador-de-envio"
+
+[[redirects]]
+force = true
+from = "/tutorial/adicionais-de-frete, como-funciona-o-adicional-de-frete"
+status = 308
+to = "/pt/docs/tutorial/adicionais-de-frete"
+
+[[redirects]]
+force = true
+from = "/tutorial/gerenciar-valores-de-frete"
+status = 308
+to = "/pt/docs/tutorial/gerenciar-tarifas-de-envio"
+
+[[redirects]]
+force = true
+from = "/tutorial/logistica"
+status = 308
+to = "/pt/docs/tutorial/fulfillment-logistica-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/entregas-correios-vtex-log"
+status = 308
+to = "/pt/docs/tutorial/entregas-correios-vtex-shipping-network"
+
+[[redirects]]
+force = true
+from = "/tutorial/painel-vtex-log"
+status = 308
+to = "/pt/docs/tutorial/painel-vtex-shipping-network"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-solicitar-sua-rescisao-contratual-brasil"
+status = 308
+to = "/pt/docs/tutorial/como-solicitar-sua-rescisao-contratual-no-brasil"
+
+[[redirects]]
+force = true
+from = "/tutorial/procedimentos-de-contas-a-pagar"
+status = 308
+to = "/pt/docs/tutorial/contas-a-pagar-brasil"
+
+[[redirects]]
+force = true
+from = "/tutorial/procedimento-de-contas-a-pagar-internacional"
+status = 308
+to = "/pt/docs/tutorial/contas-a-pagar-internacional"
+
+[[redirects]]
+force = true
+from = "/tutorial/comprando-e-acessando-seu-ambiente"
+status = 308
+to = "/pt/docs/tutorial/contratar-novo-ambiente"
+
+[[redirects]]
+force = true
+from = "/tutorial/por-que-nao-recebi-o-contrato-assinado-da-vtex"
+status = 308
+to = "/pt/docs/tutorial/contrato-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/visao-geral-do-modulo-faturas"
+status = 308
+to = "/pt/docs/tutorial/visao-geral-faturas"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-fazer-download-das-faturas-boleto-da-vtex"
+status = 308
+to = "/pt/docs/tutorial/como-fazer-download-faturas-da-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/chaves-de-api-beta"
+status = 308
+to = "/pt/docs/tutorial/chaves-de-api"
+
+[[redirects]]
+force = true
+from = "/tutorial/chaves-terceiras"
+status = 308
+to = "/pt/docs/tutorial/chaves-externas"
+
+[[redirects]]
+force = true
+from = "/tutorial/chaves-geradas-beta"
+status = 308
+to = "/pt/docs/tutorial/chaves-geradas"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-a-duracao-de-chaves-de-api-beta"
+status = 308
+to = "/pt/docs/tutorial/configurar-alerta-para-renovar-tokens-de-api"
+
+[[redirects]]
+force = true
+from = "/tutorial/renovar-token-de-api-beta"
+status = 308
+to = "/pt/docs/tutorial/renovar-token-de-api"
+
+[[redirects]]
+force = true
+from = "/tutorial/o-que-preciso-fazer-para-mudar-o-dominio-da-minha-loja"
+status = 308
+to = "/pt/docs/tutorial/alterar-o-dominio-da-loja"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-alterar-a-logo-do-boleto"
+status = 308
+to = "/pt/docs/tutorial/alterar-o-logotipo-do-boleto"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurando-dominios-no-license-manager"
+status = 308
+to = "/pt/docs/tutorial/configurar-o-dominio-da-loja"
+
+[[redirects]]
+force = true
+from = "/tutorial/escolhendo-entre-arquitetura-multi-loja-ou-ambiente-adicional"
+status = 308
+to = "/pt/docs/tutorial/escolher-entre-arquitetura-multiloja-ou-ambiente-adicional"
+
+[[redirects]]
+force = true
+from = "/tutorial/pagina-de-detalhes-da-conta"
+status = 308
+to = "/pt/docs/tutorial/gerenciamento-da-conta"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-criar-multiloja-multidominio"
+status = 308
+to = "/pt/docs/tutorial/gerenciando-uma-multiloja"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-criar-um-perfil-de-acesso-financeiro"
+status = 308
+to = "/pt/docs/tutorial/criar-um-perfil-de-acesso-financeiro"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-criar-perfil-de-acesso"
+status = 308
+to = "/pt/docs/tutorial/perfis-de-acesso"
+
+[[redirects]]
+force = true
+from = "/tutorial/criando-usuarios"
+status = 308
+to = "/pt/docs/tutorial/gerenciando-usuarios"
+
+[[redirects]]
+force = true
+from = "/tutorial/entendendo-a-manutencao-da-base-de-dados"
+status = 308
+to = "/pt/docs/tutorial/manutencao-de-base-full-cleanup"
+
+[[redirects]]
+force = true
+from = "/tutorial/o-que-e-o-usuario-master"
+status = 308
+to = "/pt/docs/tutorial/o-que-e-o-usuario-titular"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-recuperar-senha-de-acesso"
+status = 308
+to = "/pt/docs/tutorial/redefinir-senha-de-acesso-ao-admin-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/alterar-o-usuario-master-da-conta"
+status = 308
+to = "/pt/docs/tutorial/transferencia-de-propriedade-da-loja"
+
+[[redirects]]
+force = true
+from = "/tutorial/criar-e-enviar-formularios-na-plataforma-indeva-indeva"
+status = 308
+to = "/pt/docs/tutorial/criar-e-enviar-formularios-na-plataforma-indeva"
+
+[[redirects]]
+force = true
+from = "/tutorial/por-que-nao-recomendamos-inserir-um-proxy-reverso-em-frente-aos-servicos-da"
+status = 308
+to = "/pt/docs/tutorial/inserir-proxy-reverso-em-frente-aos-servicos-da-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurando-acesso-sem-www"
+status = 308
+to = "/pt/docs/tutorial/melhores-praticas-para-acessar-a-loja-sem-www"
+
+[[redirects]]
+force = true
+from = "/tutorial/o-que-e-o-sla-de-operacao-da-plataforma"
+status = 308
+to = "/pt/docs/tutorial/acordo-de-nivel-de-servico-sla-de-operacao-da-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/status-vtex-entenda-como-funciona-o-status-da-plataforma, pagina-de-status-da-plataforma"
+status = 308
+to = "/pt/docs/tutorial/pagina-de-status-da-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-integracao-de-lojas-fisicas-com-a-b2w-skyhub"
+status = 308
+to = "/pt/docs/tutorial/configurar-integracao-de-lojas-fisicas-com-a-b2w"
+
+[[redirects]]
+force = true
+from = "/tutorial/integrando-com-marketplace"
+status = 308
+to = "/pt/docs/tutorial/estrategias-de-marketplace-na-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/erros-de-falta-de-estoque-em-pedidos-de-integracao-com-marketplace"
+status = 308
+to = "/pt/docs/tutorial/erros-de-falta-de-estoque-na-integracao-de-pedidos-de-marketplace"
+
+[[redirects]]
+force = true
+from = "/tutorial/status-de-anuncios-beta"
+status = 308
+to = "/pt/docs/tutorial/status-dos-anuncios"
+
+[[redirects]]
+force = true
+from = "/tutorial/veja-como-utilizar-o-change-seller"
+status = 308
+to = "/pt/docs/tutorial/change-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-o-frete-fob-mercado-livre-quando-o-mercado-envios-e-usado"
+status = 308
+to = "/pt/docs/tutorial/como-funciona-o-frete-quando-o-marketplace-faz-a-entrega"
+
+[[redirects]]
+force = true
+from = "/tutorial/precos-v2"
+status = 308
+to = "/pt/docs/tutorial/precos"
+
+[[redirects]]
+force = true
+from = "/tutorial/anuncios-recebidos"
+status = 308
+to = "/pt/docs/tutorial/skus-recebidos-beta"
+
+[[redirects]]
+force = true
+from = "/tutorial/regionalizacao-beta"
+status = 308
+to = "/pt/docs/tutorial/regionalizacao"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-sinonimos"
+status = 308
+to = "/pt/docs/tutorial/criar-sinonimos"
+
+[[redirects]]
+force = true
+from = "/tutorial/criando-aplicacao-no-master-data"
+status = 308
+to = "/pt/docs/tutorial/criar-aplicacao-no-master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/criando-uma-consulta-personalizada-no-master-data"
+status = 308
+to = "/pt/docs/tutorial/criar-consulta-personalizada-no-master-data-v1"
+
+[[redirects]]
+force = true
+from = "/tutorial/criar-relacionamento-com-entidades-e-documentos-do-master-data-usando-o"
+status = 308
+to = "/pt/docs/tutorial/criar-relacionamentos-entre-entidades-do-master-data-usando-o-admin"
+
+[[redirects]]
+force = true
+from = "/tutorial/importando-dados-no-master-data"
+status = 308
+to = "/pt/docs/tutorial/importar-dados-no-master-data-v1"
+
+[[redirects]]
+force = true
+from = "/tutorial/criando-entidade-de-dados"
+status = 308
+to = "/pt/docs/tutorial/entidade-de-dados"
+
+[[redirects]]
+force = true
+from = "/tutorial/o-que-e-o-master-data"
+status = 308
+to = "/pt/docs/tutorial/master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/nao-consigo-editar-um-campo-obrigatorio-do-master-data"
+status = 308
+to = "/pt/docs/tutorial/definir-campos-obrigatorios-em-formularios-do-master-data-v1"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurando-indice-no-master-data"
+status = 308
+to = "/pt/docs/tutorial/indices-no-master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-deixar-um-campo-do-master-data-editavel"
+status = 308
+to = "/pt/docs/tutorial/tornar-um-campo-editavel-no-master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/aprovacao-clientes"
+status = 308
+to = "/pt/docs/tutorial/aprovacao-de-clientes"
+
+[[redirects]]
+force = true
+from = "/tutorial/importando-dados-de-clientes-brasil"
+status = 308
+to = "/pt/docs/tutorial/importando-dados-de-clientes"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-incluir-um-registro-em-um-formulario-do-master-data"
+status = 308
+to = "/pt/docs/tutorial/incluir-um-registro-em-um-formulario-do-master-data"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurando-produto-visitado"
+status = 308
+to = "/pt/docs/tutorial/configurar-email-sobre-produto-visitado"
+
+[[redirects]]
+force = true
+from = "/tutorial/algoritmo-de-selecao-de-white-label-sellers"
+status = 308
+to = "/pt/docs/tutorial/selecao-de-sellers-white-label"
+
+[[redirects]]
+force = true
+from = "/tutorial/o-que-e-whitelabel"
+status = 308
+to = "/pt/docs/tutorial/seller-white-label"
+
+[[redirects]]
+force = true
+from = "/tutorial/encontre-aqui-todas-as-respostas-que-voce-precisa"
+status = 308
+to = "/pt/docs/tutorial/admin-vtex-comece-aqui"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-fazer-a-alteracao-do-meu-cnpj"
+status = 308
+to = "/pt/docs/tutorial/como-fazer-a-alteracao-do-meu-cnpj-novo"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-escrever-um-ticket-completo-para-o-suporte-vtex"
+status = 308
+to = "/pt/docs/tutorial/boas-praticas-para-a-abertura-de-um-ticket-para-o-suporte-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-configurar-o-device-finger-print-para-braspag-cybersource"
+status = 308
+to = "/pt/docs/tutorial/como-configurar-o-device-finger-print-para-braspag"
+
+[[redirects]]
+force = true
+from = "/tutorial/integrando-com-gift-card"
+status = 308
+to = "/pt/docs/tutorial/como-integrar-um-provedor-de-gift-card-externo-a-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-device-fingerprint-para-niubz"
+status = 308
+to = "/pt/docs/tutorial/configurar-device-fingerprint-para-niubiz"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-pagamento-com-a-addi"
+status = 308
+to = "/pt/docs/tutorial/configurar-pagamento-com-addi"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-pagamento-com-adyenv3-no-instore"
+status = 308
+to = "/pt/docs/tutorial/configurar-pagamento-com-adyenv3-no-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-pagamento-com-dcrecoscorp"
+status = 308
+to = "/pt/docs/tutorial/configurar-pagamento-com-crecoscorp"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-pagamento-com-seller"
+status = 308
+to = "/pt/docs/tutorial/configurar-pagamento-com-easypay-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-prazo-maximo-para-captura"
+status = 308
+to = "/pt/docs/tutorial/configurar-tempo-maximo-para-liquidacao-automatica"
+
+[[redirects]]
+force = true
+from = "/tutorial/detalhes-de-reembolso-da-payu-romênia"
+status = 308
+to = "/pt/docs/tutorial/detalhes-de-reembolso-da-payu-romenia"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-e-feito-o-calculo-do-parcelado-com-juros"
+status = 308
+to = "/pt/docs/tutorial/como-e-feito-o-calculo-do-parcelado-com-juros-compostos"
+
+[[redirects]]
+force = true
+from = "/tutorial/fluxo-da-transacao-no-pci-gateway"
+status = 308
+to = "/pt/docs/tutorial/fluxo-da-transacao-no-pagamentos"
+
+[[redirects]]
+force = true
+from = "/tutorial/Saiba-como-criar-fluxos-para-a-liberação-ou-aprovação-de-pedidos-dos-canais"
+status = 308
+to = "/pt/docs/tutorial/como-funciona-a-autorizacao-de-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-o-avise-me"
+status = 308
+to = "/pt/docs/tutorial/configurar-a-opcao-avise-me"
+
+[[redirects]]
+force = true
+from = "/tutorial/permitir-alteracao-de-pedidos-ja-fechados, como-funciona-a-substituicao-de-pedidos"
+status = 308
+to = "/pt/docs/tutorial/substituicao-de-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/usando-e-customizando-toolbar-de-televendas"
+status = 308
+to = "/pt/docs/tutorial/toolbar-de-televendas"
+
+[[redirects]]
+force = true
+from = "/tutorial/adaptando-sua-integracao-para-a-alterar-pedido-beta"
+status = 308
+to = "/pt/docs/tutorial/adaptando-sua-integracao-para-a-alterar-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-fazer-a-alteracao-de-itens, alterar-pedidos-finalizados"
+status = 308
+to = "/pt/docs/tutorial/alteracao-de-itens-de-um-pedido-finalizado"
+
+[[redirects]]
+force = true
+from = "/tutorial/calcular-receita-a-partir-da-planilha-exportada-do-oms"
+status = 308
+to = "/pt/docs/tutorial/calcular-receita-a-partir-da-planilha-exportada-do-modulo-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-o-cancelamento-de-pedido-por-parte-do-cliente"
+status = 308
+to = "/pt/docs/tutorial/cancelamento-de-pedido-por-parte-do-cliente"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-alterar-pedidos-beta"
+status = 308
+to = "/pt/docs/tutorial/como-alterar-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-a-alterar-pedido-beta"
+status = 308
+to = "/pt/docs/tutorial/como-funciona-a-alterar-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/linha-do-tempo"
+status = 308
+to = "/pt/docs/tutorial/como-funciona-a-secao-historico-do-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/exportando-pedidos-no-gerenciamento-de-pedidos"
+status = 308
+to = "/pt/docs/tutorial/exportacao-de-pedidos-no-modulo-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-filtrar-pedidos"
+status = 308
+to = "/pt/docs/tutorial/filtrar-todos-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/fluxo-de-pedido"
+status = 308
+to = "/pt/docs/tutorial/fluxo-e-status-de-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/iniciar-manuseio"
+status = 308
+to = "/pt/docs/tutorial/passar-pedido-para-o-status-preparando-entrega"
+
+[[redirects]]
+force = true
+from = "/tutorial/negacao-de-cancelamento-de-pedido"
+status = 308
+to = "/pt/docs/tutorial/recusar-solicitacao-de-cancelamento-do-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/visualizando-pedidos-de-marketplace-no-oms"
+status = 308
+to = "/pt/docs/tutorial/visualizando-pedidos-de-marketplace-em-todos-os-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/visualizar-no-fluxo-do-oms-log-detalhado-do-pedido"
+status = 308
+to = "/pt/docs/tutorial/visualizar-o-log-detalhado-do-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/alterar-dados-de-rastreio-beta"
+status = 308
+to = "/pt/docs/tutorial/alterar-dados-de-rastreio"
+
+[[redirects]]
+force = true
+from = "/tutorial/alterar-valor-final-do-pedido-beta"
+status = 308
+to = "/pt/docs/tutorial/alterar-valor-total-do-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-devolver-itens-do-pedido-beta"
+status = 308
+to = "/pt/docs/tutorial/como-devolver-itens-do-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-faturar-um-pedido-manualmente-beta"
+status = 308
+to = "/pt/docs/tutorial/faturar-um-pedido-manualmente"
+
+[[redirects]]
+force = true
+from = "/tutorial/oms-visao-geral"
+status = 308
+to = "/pt/docs/tutorial/gerenciamento-de-pedidos-visao-geral"
+
+[[redirects]]
+force = true
+from = "/tutorial/pagina-de-detalhes-do-pedido-beta"
+status = 308
+to = "/pt/docs/tutorial/pagina-de-detalhes-do-pedido"
+
+[[redirects]]
+force = true
+from = "/tutorial/perguntas-frequentes-sobre-a-nova-interface-do-modulo-de-pedidos"
+status = 308
+to = "/pt/docs/tutorial/perguntas-frequentes-nova-interface-modulo-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/lista-de-pedidos-beta"
+status = 308
+to = "/pt/docs/tutorial/todos-os-pedidos"
+
+[[redirects]]
+force = true
+from = "/tutorial/vtex-do-beta"
+status = 308
+to = "/pt/docs/tutorial/vtex-do-interface"
+
+[[redirects]]
+force = true
+from = "/tutorial/o-que-e-uma-politica-comercial"
+status = 308
+to = "/pt/docs/tutorial/criar-uma-politica-comercial"
+
+[[redirects]]
+force = true
+from = "/tutorial/preco-psicologico-v2"
+status = 308
+to = "/pt/docs/tutorial/arredondamento-de-precos"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuracao-de-precos"
+status = 308
+to = "/pt/docs/tutorial/configuracoes-de-precos"
+
+[[redirects]]
+force = true
+from = "/tutorial/preencher-campos-da-planilha-de-importacao-de-precos-base"
+status = 308
+to = "/pt/docs/tutorial/tabela-de-precos-base"
+
+[[redirects]]
+force = true
+from = "/tutorial/agendar-preco-no-pricing-v2"
+status = 308
+to = "/pt/docs/tutorial/agendar-preco"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurar-price-tables-especificas-com-o-session"
+status = 308
+to = "/pt/docs/tutorial/configurar-price-tables-especificas"
+
+[[redirects]]
+force = true
+from = "/tutorial/preencher-campos-da-planilha-de-importacao-de-precos-fixo"
+status = 308
+to = "/pt/docs/tutorial/preencher-campos-da-planilha-de-importacao-de-precos-fixos"
+
+[[redirects]]
+force = true
+from = "/tutorial/configuração-funil-de-vendas-no-google-analytics"
+status = 308
+to = "/pt/docs/tutorial/configurar-funil-de-vendas-no-google-analytics"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-criar-campanhas"
+status = 308
+to = "/pt/docs/tutorial/criar-audiencia-de-campanha"
+
+[[redirects]]
+force = true
+from = "/tutorial/entendendo-a-concorrencia-de-promocoes"
+status = 308
+to = "/pt/docs/tutorial/como-funciona-a-concorrencia-de-promocoes"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurando-promocao-para-marketplace"
+status = 308
+to = "/pt/docs/tutorial/configurar-promocao-para-marketplace"
+
+[[redirects]]
+force = true
+from = "/tutorial/o-que-sao-utm_source-utm_campaign-e-utm_medium"
+status = 308
+to = "/pt/docs/tutorial/o-que-sao-utm-source-utm-campaign-e-utm-medium"
+
+[[redirects]]
+force = true
+from = "/tutorial/promocao-regular"
+status = 308
+to = "/pt/docs/tutorial/promocao-regular-pt"
+
+[[redirects]]
+force = true
+from = "/tutorial/enviar-preço-com-imposto-separado"
+status = 308
+to = "/pt/docs/tutorial/enviar-preco-com-imposto-separado"
+
+[[redirects]]
+force = true
+from = "/tutorial/o-processo-de-risk-assessment"
+status = 308
+to = "/pt/docs/tutorial/risk-assessment"
+
+[[redirects]]
+force = true
+from = "/tutorial/testes-de-penetracao-e-aviso-de-vulnerabilidade"
+status = 308
+to = "/pt/docs/tutorial/testes-de-penetracao"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-encontrar-eventos-no-audit"
+status = 308
+to = "/pt/docs/tutorial/audit"
+
+[[redirects]]
+force = true
+from = "/tutorial/certificado-de-seguranca-ssl-a-que-se-refere-e-como-contratar"
+status = 308
+to = "/pt/docs/tutorial/certificado-de-seguranca-ssl"
+
+[[redirects]]
+force = true
+from = "/tutorial/boas-praticas-na-utilizacao-de-chaves-de-aplicacao"
+status = 308
+to = "/pt/docs/tutorial/boas-praticas-chaves-de-api"
+
+[[redirects]]
+force = true
+from = "/tutorial/configurando-seller"
+status = 308
+to = "/pt/docs/tutorial/adicionar-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/gerenciamento-de-sellers-beta"
+status = 308
+to = "/pt/docs/tutorial/gerenciamento-de-sellers"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-criar-um-produto-beta"
+status = 308
+to = "/pt/docs/tutorial/como-criar-um-produto"
+
+[[redirects]]
+force = true
+from = "/tutorial/lista-de-produtos-beta"
+status = 308
+to = "/pt/docs/tutorial/lista-de-produtos"
+
+[[redirects]]
+force = true
+from = "/tutorial/marketplace-convite-de-sellers-beta"
+status = 308
+to = "/pt/docs/tutorial/marketplace-convite-de-sellers"
+
+[[redirects]]
+force = true
+from = "/tutorial/seller-criar-conta-no-seller-portal-beta"
+status = 308
+to = "/pt/docs/tutorial/seller-criar-conta-no-seller-portal"
+
+[[redirects]]
+force = true
+from = "/tutorial/categorias-beta"
+status = 308
+to = "/pt/docs/tutorial/seller-portal-categorias"
+
+[[redirects]]
+force = true
+from = "/tutorial/marcas-beta"
+status = 308
+to = "/pt/docs/tutorial/seller-portal-marcas"
+
+[[redirects]]
+force = true
+from = "/tutorial/arquitetura-de-envio-de-produtos-entre-sellers-e-marketplaces-vtex"
+status = 308
+to = "/pt/docs/tutorial/anuncios-enviados-entre-os-mesmos-sellers-e-marketplaces-vtex"
+
+[[redirects]]
+force = true
+from = "/tutorial/qual-a-diferenca-entre-desvincular-e-excluir-um-sku-seller"
+status = 308
+to = "/pt/docs/tutorial/qual-a-diferenca-entre-desvincular-e-remover-um-sku-seller"
+
+[[redirects]]
+force = true
+from = "/tutorial/o-que-sao-as-utms-internas-utmi_cp-utmi_pc-e-utmi-p"
+status = 308
+to = "/pt/docs/tutorial/o-que-sao-as-utms-internas-utmi-cp-utmi-pc-e-utmi-p"
+
+[[redirects]]
+force = true
+from = "/tutorial/gerenciando-paginas-beta"
+status = 308
+to = "/pt/docs/tutorial/gerenciando-paginas"
+
+[[redirects]]
+force = true
+from = "/tutorial/cadastrar-colecoes"
+status = 308
+to = "/pt/docs/tutorial/cadastro-de-colecoes-cms"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-funciona-o-contexto-de-busca, como-funciona-o-contexto-de-busca-das-pastas-do-website"
+status = 308
+to = "/pt/docs/tutorial/como-criar-landing-pages-com-urls-customizadas"
+
+[[redirects]]
+force = true
+from = "/tutorial/compactacao-automatica-de-imagens"
+status = 308
+to = "/pt/docs/tutorial/compactacao-de-imagens"
+
+[[redirects]]
+force = true
+from = "/tutorial/como-configurar-o-favicon-em-meu-site"
+status = 308
+to = "/pt/docs/tutorial/configurar-o-favicon-em-sua-loja"
+
+[[redirects]]
+force = true
+from = "/tutorial/adicionar-ou-editar-um-mapeamento-de-url-manualmente"
+status = 308
+to = "/pt/docs/tutorial/mapeamento-de-urls-redirecionamento-301"
+
+[[redirects]]
+force = true
+from = "/tutorial/o-que-e-o-cms"
+status = 308
+to = "/pt/docs/tutorial/o-que-e-o-cms-layout"
+
+[[redirects]]
+force = true
+from = "/tutorial/atribuir-e-testar-agentes-no-agent-builder"
+status = 308
+to = "/pt/docs/tutorial/atribuir-e-testar-agentes"
 
 # Edge functions: for standard legacy routes, we use edge functions to redirect to the new portal standard routes.
 [[edge_functions]]
