@@ -801,7 +801,7 @@ Static redirects handle specific category and subcategory pages that don't follo
 
 ### Migrated hardcoded article redirects
 
-Legacy redirects exported from the old portal, processed using the `help-center-content/docs-utils/generateRedirects.js` script. These handle specific article mappings that don't follow the standard patterns.
+Legacy redirects exported from the old portal, processed using the `help-center-content/docs-utils/generateRedirects.js` script. These handle specific article mappings that don't follow the standard patterns. These also include legacy slugs.
 
 ### Troubleshooting fallback
 
