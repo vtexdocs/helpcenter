@@ -18748,10 +18748,12 @@ to = "/pt/docs/tutorial/atribuir-e-testar-agentes"
 # Edge functions: for standard legacy routes, we use edge functions to redirect to the new portal standard routes.
 [[edge_functions]]
   path = "/tutorial/*"
+  excludedPath = "/tutorial/quais-os-tipos-de-split-de-pagamento-entre-sellers--frequentlyAskedQuestions_5174"
   function = "redirect-from-old-portal"
 
 [[edge_functions]]
   path = "/:locale/tutorial/*"
+  excludedPath = "/:locale/tutorial/quais-os-tipos-de-split-de-pagamento-entre-sellers--frequentlyAskedQuestions_5174"
   function = "redirect-from-old-portal"
 
 [[edge_functions]]
