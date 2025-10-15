@@ -105,7 +105,7 @@ async function checkRedirects(url) {
 
       if (!redirect) {
         // No more redirects found, currentPath is the final destination
-        console.log('No redirects found')
+        console.log('No match in legacy redirects')
         break
       }
 
