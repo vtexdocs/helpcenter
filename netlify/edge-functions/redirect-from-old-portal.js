@@ -71,9 +71,7 @@ async function getNavigation(url) {
 
 async function getRedirects(url) {
   if (!redirectsCache) {
-    const res = await fetch(
-      `${url.origin}/netlify/edge-functions/redirects.json`
-    )
+    const res = await fetch(`${url.origin}/public/redirects.json`)
     redirectsCache = await res.json()
   }
   return redirectsCache
