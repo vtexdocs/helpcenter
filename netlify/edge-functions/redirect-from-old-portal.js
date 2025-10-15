@@ -4,6 +4,13 @@ export default async (request, context) => {
 
   const url = new URL(request.url)
 
+  // First, check for hardcoded redirects in redirects.json
+  const redirectResult = await checkRedirects(url)
+  if (redirectResult) {
+    console.log('legacy redirect found:', redirectResult)
+    return redirectResult
+  }
+
   // Match patterns:
   // /<locale>/{type}/{slug}[--<key>]
   // /{type}/{slug}[--<key>]
@@ -52,6 +59,7 @@ export default async (request, context) => {
 }
 
 let navigationCache = null
+let redirectsCache = null
 
 async function getNavigation(url) {
   if (!navigationCache) {
@@ -59,6 +67,68 @@ async function getNavigation(url) {
     navigationCache = await res.json()
   }
   return navigationCache
+}
+
+async function getRedirects(url) {
+  if (!redirectsCache) {
+    const res = await fetch(
+      `${url.origin}/netlify/edge-functions/redirects.json`
+    )
+    redirectsCache = await res.json()
+  }
+  return redirectsCache
+}
+
+async function checkRedirects(url) {
+  try {
+    const redirectsData = await getRedirects(url)
+    const redirects = redirectsData.redirects?.fromCsvExport || []
+
+    let currentPath = url.pathname
+    const visitedPaths = new Set() // Prevent infinite loops
+    const maxRedirects = 10 // Safety limit
+
+    for (let i = 0; i < maxRedirects; i++) {
+      if (visitedPaths.has(currentPath)) {
+        console.log('Circular redirect detected, breaking loop')
+        break
+      }
+      visitedPaths.add(currentPath)
+
+      // Find redirect for current path
+      const redirect = redirects.find((r) => r.from === currentPath)
+
+      if (!redirect) {
+        // No more redirects found, currentPath is the final destination
+        break
+      }
+
+      console.log(`Redirect found: ${redirect.from} -> ${redirect.to}`)
+
+      // Check if the 'to' value is an external URL
+      if (
+        redirect.to.startsWith('http://') ||
+        redirect.to.startsWith('https://')
+      ) {
+        // External redirect - return immediately
+        return Response.redirect(redirect.to, 308)
+      }
+
+      // Internal path - continue the loop with the new path
+      currentPath = redirect.to
+    }
+
+    // If we have a different final path, redirect to it
+    if (currentPath !== url.pathname) {
+      const finalUrl = new URL(currentPath + url.search, url.origin)
+      return Response.redirect(finalUrl, 308)
+    }
+
+    return null // No redirect found
+  } catch (error) {
+    console.error('Error checking redirects:', error)
+    return null
+  }
 }
 
 function findAnnouncementSlug(nav, oldSlug, locale) {
