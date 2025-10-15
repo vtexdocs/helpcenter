@@ -73,6 +73,9 @@ async function getRedirects(url) {
   if (!redirectsCache) {
     const res = await fetch(`${url.origin}/public/redirects.json`)
     redirectsCache = await res.json()
+
+    console.log('url', `${url.origin}/public/redirects.json`)
+    console.log('redirectsCache', redirectsCache)
   }
   return redirectsCache
 }
