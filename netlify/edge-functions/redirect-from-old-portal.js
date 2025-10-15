@@ -71,12 +71,8 @@ async function getNavigation(url) {
 
 async function getRedirects(url) {
   if (!redirectsCache) {
-    console.log('url', `${url.origin}/redirects.json`)
-
     const res = await fetch(`${url.origin}/redirects.json`)
     redirectsCache = await res.json()
-
-    console.log('redirectsCache', redirectsCache)
   }
   return redirectsCache
 }
@@ -84,7 +80,14 @@ async function getRedirects(url) {
 async function checkRedirects(url) {
   try {
     const redirectsData = await getRedirects(url)
-    const redirects = redirectsData.redirects?.fromCsvExport || []
+    const redirects = []
+    if (redirectsData.redirects) {
+      for (const redirectArray of Object.values(redirectsData.redirects)) {
+        if (Array.isArray(redirectArray)) {
+          redirects.push(...redirectArray)
+        }
+      }
+    }
 
     let currentPath = url.pathname
     const visitedPaths = new Set() // Prevent infinite loops
@@ -102,6 +105,7 @@ async function checkRedirects(url) {
 
       if (!redirect) {
         // No more redirects found, currentPath is the final destination
+        console.log('No redirects found')
         break
       }
 
