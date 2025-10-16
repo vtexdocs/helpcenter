@@ -77,6 +77,27 @@ async function getRedirects(url) {
   return redirectsCache
 }
 
+// Helper function to detect locale from path
+function detectLocale(path) {
+  const match = path.match(/^\/([a-z]{2})\//)
+  return match ? match[1] : null
+}
+
+// Helper function to replace locale in path
+function replaceLocale(path, newLocale) {
+  if (newLocale === null) {
+    // Remove locale from path
+    return path.replace(/^\/[a-z]{2}\//, '/')
+  } else {
+    // Add or replace locale in path
+    if (path.match(/^\/[a-z]{2}\//)) {
+      return path.replace(/^\/[a-z]{2}\//, `/${newLocale}/`)
+    } else {
+      return `/${newLocale}${path}`
+    }
+  }
+}
+
 async function checkRedirects(url) {
   try {
     const redirectsData = await getRedirects(url)
@@ -92,6 +113,9 @@ async function checkRedirects(url) {
     let currentPath = url.pathname
     const visitedPaths = new Set() // Prevent infinite loops
     const maxRedirects = 10 // Safety limit
+    const availableLocales = ['pt', 'en', 'es', null] // null means no locale
+    let currentLocale = detectLocale(currentPath)
+    let localeIndex = availableLocales.indexOf(currentLocale)
 
     for (let i = 0; i < maxRedirects; i++) {
       if (visitedPaths.has(currentPath)) {
@@ -104,9 +128,22 @@ async function checkRedirects(url) {
       const redirect = redirects.find((r) => r.from === currentPath)
 
       if (!redirect) {
-        // No more redirects found, currentPath is the final destination
-        console.log('No match in legacy redirects')
-        break
+        // No redirect found for current path, try different locales
+        if (localeIndex < availableLocales.length - 1) {
+          localeIndex++
+          const newLocale = availableLocales[localeIndex]
+          const newPath = replaceLocale(url.pathname, newLocale)
+
+          console.log(
+            `No match found for ${currentPath}, trying locale ${newLocale}: ${newPath}`
+          )
+          currentPath = newPath
+          continue
+        } else {
+          // All locales tried, no match found
+          console.log('No match in legacy redirects after trying all locales')
+          break
+        }
       }
 
       console.log(`Redirect found: ${redirect.from} -> ${redirect.to}`)
