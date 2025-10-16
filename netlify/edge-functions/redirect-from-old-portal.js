@@ -4,7 +4,8 @@ export default async (request, context) => {
 
   const url = new URL(request.url)
 
-  // First, check for hardcoded redirects in redirects.json
+  // First, check for legacy redirects in redirects.json
+  console.log('1.Running legacy redirects check')
   const redirectResult = await checkRedirects(url)
   if (redirectResult) {
     // If it's a Response object, it's an external redirect - return it
@@ -16,6 +17,8 @@ export default async (request, context) => {
     console.log('Legacy redirect found, updating path to:', redirectResult)
     url.pathname = redirectResult
   }
+
+  console.log('2.Running path pattern adjustment logic')
 
   // Match patterns:
   // /<locale>/{type}/{slug}[--<key>]
