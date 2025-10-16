@@ -12478,16 +12478,12 @@
         "to": "/en/docs/tutorials/vtex-admin-start-here"
       },
       {
-        "from": "/tutorial/--*",
-        "to": "/en/docs/tutorials"
-      },
-      {
-        "from": "/subcategory/*",
-        "to": "/en/docs/tutorials"
-      },
-      {
         "from": "/tracks",
         "to": "/docs/tracks"
+      },
+      {
+        "from": "/subcategory/assinaturas--1rA9wuuskW3PpjvMrhatAM",
+        "to": "/en/docs/tutorials/subscriptions"
       }
     ]
   }
