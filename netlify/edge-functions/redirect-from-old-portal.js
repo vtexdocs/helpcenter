@@ -6,7 +6,7 @@ export default async (request, context) => {
 
   // First, check for legacy redirects in redirects.json
   console.log('1.Running legacy redirects check')
-  const redirectResult = await checkRedirects(url)
+  const redirectResult = await checkLegacyRedirects(url)
   if (redirectResult) {
     // If it's a Response object, it's an external redirect - return it
     if (redirectResult instanceof Response) {
@@ -107,7 +107,7 @@ function replaceLocale(path, newLocale) {
   }
 }
 
-async function checkRedirects(url) {
+async function checkLegacyRedirects(url) {
   try {
     const redirectsData = await getRedirects(url)
     const redirects = []
@@ -137,7 +137,42 @@ async function checkRedirects(url) {
       const redirect = redirects.find((r) => r.from === currentPath)
 
       if (!redirect) {
-        // No redirect found for current path, try different locales
+        // Try with/without article key before trying different locales
+        const articleKeyMatch = currentPath.match(/^(.+)--([a-zA-Z0-9]+)$/)
+        let alternativeRedirect = null
+
+        if (articleKeyMatch) {
+          // Path has key, try without it
+          const pathWithoutKey = articleKeyMatch[1]
+          alternativeRedirect = redirects.find((r) => r.from === pathWithoutKey)
+          console.log(`No match for ${currentPath}, trying without key`)
+        } else {
+          // Path has no key, try with any key
+          alternativeRedirect = redirects.find((r) =>
+            r.from.startsWith(currentPath + '--')
+          )
+          console.log(`No match for ${currentPath}, trying with key wildcard`)
+        }
+
+        if (alternativeRedirect) {
+          console.log(
+            `Article key variant found: ${alternativeRedirect.from} -> ${alternativeRedirect.to}`
+          )
+
+          // Check if external redirect
+          if (
+            alternativeRedirect.to.startsWith('http://') ||
+            alternativeRedirect.to.startsWith('https://')
+          ) {
+            return Response.redirect(alternativeRedirect.to, 308)
+          }
+
+          // Update path and continue loop
+          currentPath = alternativeRedirect.to
+          continue
+        }
+
+        // No redirect found with key variations, try different locales
         if (localeIndex < availableLocales.length - 1) {
           localeIndex++
           const newLocale = availableLocales[localeIndex]
