@@ -7,8 +7,14 @@ export default async (request, context) => {
   // First, check for hardcoded redirects in redirects.json
   const redirectResult = await checkRedirects(url)
   if (redirectResult) {
-    console.log('legacy redirect found:', redirectResult)
-    return redirectResult
+    // If it's a Response object, it's an external redirect - return it
+    if (redirectResult instanceof Response) {
+      console.log('Legacy external redirect found:', redirectResult.url)
+      return redirectResult
+    }
+    // If it's a string, it's an internal redirect - update the path
+    console.log('Legacy redirect found, updating path to:', redirectResult)
+    url.pathname = redirectResult
   }
 
   // Match patterns:
@@ -141,19 +147,19 @@ async function checkRedirects(url) {
           continue
         } else {
           // All locales tried, no match found
-          console.log('No match in legacy redirects after trying all locales')
+          console.log('No further redirects found after trying all locales')
           break
         }
       }
 
-      console.log(`Redirect found: ${redirect.from} -> ${redirect.to}`)
+      console.log(`Redirect chain found: ${redirect.from} -> ${redirect.to}`)
 
       // Check if the 'to' value is an external URL
       if (
         redirect.to.startsWith('http://') ||
         redirect.to.startsWith('https://')
       ) {
-        // External redirect - return immediately
+        // External redirect - return Response object
         return Response.redirect(redirect.to, 308)
       }
 
@@ -161,10 +167,9 @@ async function checkRedirects(url) {
       currentPath = redirect.to
     }
 
-    // If we have a different final path, redirect to it
+    // If we have a different final path, return it
     if (currentPath !== url.pathname) {
-      const finalUrl = new URL(currentPath + url.search, url.origin)
-      return Response.redirect(finalUrl, 308)
+      return currentPath
     }
 
     return null // No redirect found
