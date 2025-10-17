@@ -4,38 +4,18 @@ export default async (request, context) => {
 
   const url = new URL(request.url)
 
-  // Check for infinite loop protection header
-  if (request.headers.get('x-pattern-matching-attempted')) {
-    console.log(
-      'Pattern matching already attempted, skipping to avoid infinite loop'
-    )
-    return context.next()
-  }
-
-  // First, check for legacy redirects in redirects.json
-  console.log('1.Running legacy redirects check')
-  const redirectResult = await checkLegacyRedirects(url)
+  // First, check for hardcoded redirects in redirects.json
+  const redirectResult = await checkRedirects(url)
   if (redirectResult) {
-    // If it's a Response object, it's an external redirect - return it
-    if (redirectResult instanceof Response) {
-      console.log('Legacy external redirect found:', redirectResult.url)
-      return redirectResult
-    }
-    // If it's a string, it's an internal redirect - update the path
-    console.log('Legacy redirect found, updating path to:', redirectResult)
-    url.pathname = redirectResult
-    // Continue to pattern matching to avoid double redirects
+    console.log('legacy redirect found:', redirectResult)
+    return redirectResult
   }
-
-  console.log('2.Running path pattern adjustment logic')
 
   // Match patterns:
-  // /<locale>/docs/{type}s/{slug}[--<key>]
   // /<locale>/{type}/{slug}[--<key>]
   // /{type}/{slug}[--<key>]
-  const currentPath = url.pathname
-  const match = currentPath.match(
-    /^(?:\/(?<locale>[a-z]{2}))?(?:\/docs)?\/(?<type>tutorial|announcements|known-issues|tracks|faq)s?\/(?<slug>[^/]+?)(?:--[^/]+)?(?:\/[^/]+)?$/
+  const match = url.pathname.match(
+    /^(?:\/(?<locale>[a-z]{2}))?\/(?<type>tutorial|announcements|known-issues|tracks|faq)\/(?<slug>[^/]+?)(?:--[^/]+)?(?:\/[^/]+)?$/
   )
 
   if (match && match.groups) {
@@ -72,19 +52,7 @@ export default async (request, context) => {
 
     console.log('destination', destination)
 
-    // Check if the current path already matches the destination to avoid redundant redirects
-    if (currentPath === destination) {
-      console.log('Path already matches destination, no redirect needed')
-      return context.next()
-    }
-
-    // Add header to prevent infinite loops on subsequent requests
-    const response = Response.redirect(
-      new URL(destination + search, url.origin),
-      308
-    )
-    response.headers.set('x-pattern-matching-attempted', 'true')
-    return response
+    return Response.redirect(new URL(destination + search, url.origin), 308)
   }
 
   return context.next()
@@ -130,7 +98,7 @@ function replaceLocale(path, newLocale) {
   }
 }
 
-async function checkLegacyRedirects(url) {
+async function checkRedirects(url) {
   try {
     const redirectsData = await getRedirects(url)
     const redirects = []
@@ -160,46 +128,11 @@ async function checkLegacyRedirects(url) {
       const redirect = redirects.find((r) => r.from === currentPath)
 
       if (!redirect) {
-        // Try with/without article key before trying different locales
-        const articleKeyMatch = currentPath.match(/^(.+)--([a-zA-Z0-9]+)$/)
-        let alternativeRedirect = null
-
-        if (articleKeyMatch) {
-          // Path has key, try without it
-          const pathWithoutKey = articleKeyMatch[1]
-          alternativeRedirect = redirects.find((r) => r.from === pathWithoutKey)
-          console.log(`No match for ${currentPath}, trying without key`)
-        } else {
-          // Path has no key, try with any key
-          alternativeRedirect = redirects.find((r) =>
-            r.from.startsWith(currentPath + '--')
-          )
-          console.log(`No match for ${currentPath}, trying with key wildcard`)
-        }
-
-        if (alternativeRedirect) {
-          console.log(
-            `Article key variant found: ${alternativeRedirect.from} -> ${alternativeRedirect.to}`
-          )
-
-          // Check if external redirect
-          if (
-            alternativeRedirect.to.startsWith('http://') ||
-            alternativeRedirect.to.startsWith('https://')
-          ) {
-            return Response.redirect(alternativeRedirect.to, 308)
-          }
-
-          // Update path and continue loop
-          currentPath = alternativeRedirect.to
-          continue
-        }
-
-        // No redirect found with key variations, try different locales
+        // No redirect found for current path, try different locales
         if (localeIndex < availableLocales.length - 1) {
           localeIndex++
           const newLocale = availableLocales[localeIndex]
-          const newPath = replaceLocale(currentPath, newLocale)
+          const newPath = replaceLocale(url.pathname, newLocale)
 
           console.log(
             `No match found for ${currentPath}, trying locale ${newLocale}: ${newPath}`
@@ -208,19 +141,19 @@ async function checkLegacyRedirects(url) {
           continue
         } else {
           // All locales tried, no match found
-          console.log('No further redirects found after trying all locales')
+          console.log('No match in legacy redirects after trying all locales')
           break
         }
       }
 
-      console.log(`Redirect chain found: ${redirect.from} -> ${redirect.to}`)
+      console.log(`Redirect found: ${redirect.from} -> ${redirect.to}`)
 
       // Check if the 'to' value is an external URL
       if (
         redirect.to.startsWith('http://') ||
         redirect.to.startsWith('https://')
       ) {
-        // External redirect - return Response object
+        // External redirect - return immediately
         return Response.redirect(redirect.to, 308)
       }
 
@@ -228,9 +161,10 @@ async function checkLegacyRedirects(url) {
       currentPath = redirect.to
     }
 
-    // If we have a different final path, return it
+    // If we have a different final path, redirect to it
     if (currentPath !== url.pathname) {
-      return currentPath
+      const finalUrl = new URL(currentPath + url.search, url.origin)
+      return Response.redirect(finalUrl, 308)
     }
 
     return null // No redirect found
