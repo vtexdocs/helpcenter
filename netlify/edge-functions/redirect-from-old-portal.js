@@ -21,10 +21,12 @@ export default async (request, context) => {
   console.log('2.Running path pattern adjustment logic')
 
   // Match patterns:
+  // /<locale>/docs/{type}s/{slug}[--<key>]
   // /<locale>/{type}/{slug}[--<key>]
   // /{type}/{slug}[--<key>]
-  const match = url.pathname.match(
-    /^(?:\/(?<locale>[a-z]{2}))?\/(?<type>tutorial|announcements|known-issues|tracks|faq)\/(?<slug>[^/]+?)(?:--[^/]+)?(?:\/[^/]+)?$/
+  const currentPath = url.pathname
+  const match = currentPath.match(
+    /^(?:\/(?<locale>[a-z]{2}))?(?:\/docs)?\/(?<type>tutorial|announcements|known-issues|tracks|faq)s?\/(?<slug>[^/]+?)(?:--[^/]+)?(?:\/[^/]+)?$/
   )
 
   if (match && match.groups) {
@@ -39,6 +41,13 @@ export default async (request, context) => {
     console.log('search', search)
 
     let destination
+
+    // Check if the path already has the correct structure (already redirected)
+    if (currentPath.includes('/docs/')) {
+      // Path is already in the new format, no need to redirect again
+      console.log('Path already in correct format, no redirect needed')
+      return context.next()
+    }
 
     if (type === 'tutorial') {
       destination = `/${locale}/docs/tutorials/${slug}`
