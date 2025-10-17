@@ -4,11 +4,21 @@ export default async (request, context) => {
 
   const url = new URL(request.url)
 
+  let destination
+
   // First, check for hardcoded redirects in redirects.json
   const redirectResult = await checkRedirects(url)
   if (redirectResult) {
-    console.log('legacy redirect found:', redirectResult)
-    return redirectResult
+    if (
+      redirectResult.startsWith('http://') ||
+      redirectResult.startsWith('https://')
+    ) {
+      return Response.redirect(redirectResult, 308)
+    } else {
+      console.log('legacy redirect found:', redirectResult)
+      url.pathname = redirectResult
+      destination = redirectResult
+    }
   }
 
   // Match patterns:
@@ -29,8 +39,6 @@ export default async (request, context) => {
     console.log('slug', slug)
     console.log('search', search)
 
-    let destination
-
     if (type === 'tutorial') {
       destination = `/${locale}/docs/tutorials/${slug}`
     } else if (type === 'tracks') {
@@ -49,7 +57,9 @@ export default async (request, context) => {
         destination = `/${locale}/announcements/${newSlug}`
       }
     }
+  }
 
+  if (destination) {
     console.log('destination', destination)
 
     return Response.redirect(new URL(destination + search, url.origin), 308)
@@ -148,23 +158,7 @@ async function checkRedirects(url) {
 
       console.log(`Redirect found: ${redirect.from} -> ${redirect.to}`)
 
-      // Check if the 'to' value is an external URL
-      if (
-        redirect.to.startsWith('http://') ||
-        redirect.to.startsWith('https://')
-      ) {
-        // External redirect - return immediately
-        return Response.redirect(redirect.to, 308)
-      }
-
-      // Internal path - continue the loop with the new path
-      currentPath = redirect.to
-    }
-
-    // If we have a different final path, redirect to it
-    if (currentPath !== url.pathname) {
-      const finalUrl = new URL(currentPath + url.search, url.origin)
-      return Response.redirect(finalUrl, 308)
+      return redirect.to
     }
 
     return null // No redirect found
