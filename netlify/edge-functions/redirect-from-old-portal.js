@@ -4,6 +4,14 @@ export default async (request, context) => {
 
   const url = new URL(request.url)
 
+  // Check for infinite loop protection header
+  if (request.headers.get('x-pattern-matching-attempted')) {
+    console.log(
+      'Pattern matching already attempted, skipping to avoid infinite loop'
+    )
+    return context.next()
+  }
+
   // First, check for legacy redirects in redirects.json
   console.log('1.Running legacy redirects check')
   const redirectResult = await checkLegacyRedirects(url)
@@ -16,6 +24,7 @@ export default async (request, context) => {
     // If it's a string, it's an internal redirect - update the path
     console.log('Legacy redirect found, updating path to:', redirectResult)
     url.pathname = redirectResult
+    // Continue to pattern matching to avoid double redirects
   }
 
   console.log('2.Running path pattern adjustment logic')
@@ -42,13 +51,6 @@ export default async (request, context) => {
 
     let destination
 
-    // Check if the path already has the correct structure (already redirected)
-    if (currentPath.includes('/docs/')) {
-      // Path is already in the new format, no need to redirect again
-      console.log('Path already in correct format, no redirect needed')
-      return context.next()
-    }
-
     if (type === 'tutorial') {
       destination = `/${locale}/docs/tutorials/${slug}`
     } else if (type === 'tracks') {
@@ -70,7 +72,19 @@ export default async (request, context) => {
 
     console.log('destination', destination)
 
-    return Response.redirect(new URL(destination + search, url.origin), 308)
+    // Check if the current path already matches the destination to avoid redundant redirects
+    if (currentPath === destination) {
+      console.log('Path already matches destination, no redirect needed')
+      return context.next()
+    }
+
+    // Add header to prevent infinite loops on subsequent requests
+    const response = Response.redirect(
+      new URL(destination + search, url.origin),
+      308
+    )
+    response.headers.set('x-pattern-matching-attempted', 'true')
+    return response
   }
 
   return context.next()
