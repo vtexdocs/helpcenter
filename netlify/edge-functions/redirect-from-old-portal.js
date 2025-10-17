@@ -185,7 +185,7 @@ async function checkLegacyRedirects(url) {
         if (localeIndex < availableLocales.length - 1) {
           localeIndex++
           const newLocale = availableLocales[localeIndex]
-          const newPath = replaceLocale(url.pathname, newLocale)
+          const newPath = replaceLocale(currentPath, newLocale)
 
           console.log(
             `No match found for ${currentPath}, trying locale ${newLocale}: ${newPath}`
