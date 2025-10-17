@@ -799,9 +799,23 @@ Static redirects handle specific category and subcategory pages that don't follo
 /subcategory/--subcategory-id → /en/docs/tutorials
 ```
 
-### Migrated hardcoded article redirects
+### Legacy and hardcoded redirects
 
-Legacy redirects exported from the old portal, processed using the `help-center-content/docs-utils/generateRedirects.js` script. These handle specific article mappings that don't follow the standard patterns.
+Generated via the `docs-utils/generateRedirects.js` script.
+
+#### Generate Redirects Script
+
+The `generateRedirects.js` script automatically generates redirect configurations from two sources: CSV exports from the old help portal and legacy slugs found in markdown files. It supports both JSON and Netlify TOML output formats, with JSON being the default. The script preserves existing manual redirects when regenerating output, ensuring that custom redirects added to the `fromManualInput` array are maintained across script runs.
+
+The script processes redirects from CSV files (exported from the old portal) and legacy slugs in markdown frontmatter, then outputs them in a structured format. It includes CLI parameter support for format selection and help documentation, making it easy to generate the appropriate redirect configuration for different deployment scenarios.
+
+#### How to Update Hardcoded Redirects
+
+1. **Add manual redirects**: Edit `redirects.json` and add entries to the `fromManualInput` array
+2. **Update CSV redirects**: Modify `redirects.csv` with new redirect mappings from the old portal
+3. **Update legacy slugs**: Edit the `legacySlug` field in markdown frontmatter files
+4. **Regenerate output**: Run `node docs-utils/generateRedirects.js --format json` to generate updated `redirects.json`
+5. **Deploy changes**: Commit and push the updated `redirects.json` file to deploy the new redirects
 
 ### Troubleshooting fallback
 

@@ -4,6 +4,13 @@ export default async (request, context) => {
 
   const url = new URL(request.url)
 
+  // First, check for hardcoded redirects in redirects.json
+  const redirectResult = await checkRedirects(url)
+  if (redirectResult) {
+    console.log('legacy redirect found:', redirectResult)
+    return redirectResult
+  }
+
   // Match patterns:
   // /<locale>/{type}/{slug}[--<key>]
   // /{type}/{slug}[--<key>]
@@ -52,6 +59,7 @@ export default async (request, context) => {
 }
 
 let navigationCache = null
+let redirectsCache = null
 
 async function getNavigation(url) {
   if (!navigationCache) {
@@ -59,6 +67,111 @@ async function getNavigation(url) {
     navigationCache = await res.json()
   }
   return navigationCache
+}
+
+async function getRedirects(url) {
+  if (!redirectsCache) {
+    const res = await fetch(`${url.origin}/redirects.json`)
+    redirectsCache = await res.json()
+  }
+  return redirectsCache
+}
+
+// Helper function to detect locale from path
+function detectLocale(path) {
+  const match = path.match(/^\/([a-z]{2})\//)
+  return match ? match[1] : null
+}
+
+// Helper function to replace locale in path
+function replaceLocale(path, newLocale) {
+  if (newLocale === null) {
+    // Remove locale from path
+    return path.replace(/^\/[a-z]{2}\//, '/')
+  } else {
+    // Add or replace locale in path
+    if (path.match(/^\/[a-z]{2}\//)) {
+      return path.replace(/^\/[a-z]{2}\//, `/${newLocale}/`)
+    } else {
+      return `/${newLocale}${path}`
+    }
+  }
+}
+
+async function checkRedirects(url) {
+  try {
+    const redirectsData = await getRedirects(url)
+    const redirects = []
+    if (redirectsData.redirects) {
+      for (const redirectArray of Object.values(redirectsData.redirects)) {
+        if (Array.isArray(redirectArray)) {
+          redirects.push(...redirectArray)
+        }
+      }
+    }
+
+    let currentPath = url.pathname
+    const visitedPaths = new Set() // Prevent infinite loops
+    const maxRedirects = 10 // Safety limit
+    const availableLocales = ['pt', 'en', 'es', null] // null means no locale
+    let currentLocale = detectLocale(currentPath)
+    let localeIndex = availableLocales.indexOf(currentLocale)
+
+    for (let i = 0; i < maxRedirects; i++) {
+      if (visitedPaths.has(currentPath)) {
+        console.log('Circular redirect detected, breaking loop')
+        break
+      }
+      visitedPaths.add(currentPath)
+
+      // Find redirect for current path
+      const redirect = redirects.find((r) => r.from === currentPath)
+
+      if (!redirect) {
+        // No redirect found for current path, try different locales
+        if (localeIndex < availableLocales.length - 1) {
+          localeIndex++
+          const newLocale = availableLocales[localeIndex]
+          const newPath = replaceLocale(url.pathname, newLocale)
+
+          console.log(
+            `No match found for ${currentPath}, trying locale ${newLocale}: ${newPath}`
+          )
+          currentPath = newPath
+          continue
+        } else {
+          // All locales tried, no match found
+          console.log('No match in legacy redirects after trying all locales')
+          break
+        }
+      }
+
+      console.log(`Redirect found: ${redirect.from} -> ${redirect.to}`)
+
+      // Check if the 'to' value is an external URL
+      if (
+        redirect.to.startsWith('http://') ||
+        redirect.to.startsWith('https://')
+      ) {
+        // External redirect - return immediately
+        return Response.redirect(redirect.to, 308)
+      }
+
+      // Internal path - continue the loop with the new path
+      currentPath = redirect.to
+    }
+
+    // If we have a different final path, redirect to it
+    if (currentPath !== url.pathname) {
+      const finalUrl = new URL(currentPath + url.search, url.origin)
+      return Response.redirect(finalUrl, 308)
+    }
+
+    return null // No redirect found
+  } catch (error) {
+    console.error('Error checking redirects:', error)
+    return null
+  }
 }
 
 function findAnnouncementSlug(nav, oldSlug, locale) {
