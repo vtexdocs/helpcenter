@@ -3,6 +3,7 @@ export default async (request, context) => {
   console.log('request.url', request.url)
 
   const url = new URL(request.url)
+  const search = url.search ? url.search : '' // preserve query string
 
   let destination
 
@@ -33,7 +34,6 @@ export default async (request, context) => {
     const locale = match.groups.locale || 'en' // default if no locale
     const type = match.groups.type // "tutorial", "tracks", "faq"
     const slug = match.groups.slug // clean slug without --key
-    const search = url.search || '' // preserve query string
     console.log('locale', locale)
     console.log('type', type)
     console.log('slug', slug)
