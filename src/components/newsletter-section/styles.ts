@@ -12,6 +12,8 @@ const section: SxStyleProp = {
   position: 'relative',
   overflow: 'hidden',
   minHeight: ['auto', 'auto', '100vh'], // Full height for image
+  margin: 0,
+  padding: 0,
 }
 
 const imageContainer: SxStyleProp = {
@@ -23,7 +25,7 @@ const imageContainer: SxStyleProp = {
   maxWidth: '100%',
   width: '100%',
   height: ['auto', 'auto', '100%'], // Full height on desktop
-  overflow: 'hidden',
+  overflow: 'visible', // Allow image to resize without being cut
   pt: ['0px', '0px', '0px'],
   pr: ['16px', '24px', '0px'],
   pb: ['16px', '24px', '0px'],
@@ -34,6 +36,8 @@ const imageContainer: SxStyleProp = {
   justifyContent: 'flex-end', // Align image to the right
   transform: ['none', 'none', 'scale(1.0)'], // Normal size on desktop
   transformOrigin: 'right center', // Scale from the right side
+  margin: 0,
+  padding: 0,
 }
 
 const newsletterBox: SxStyleProp = {
