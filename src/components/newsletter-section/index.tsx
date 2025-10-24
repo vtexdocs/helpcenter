@@ -17,19 +17,26 @@ const NewsletterSection = () => {
         </Text>
       </Flex>
       <Box sx={styles.imageContainer}>
-        <Image
-          src={'/images/landing.png'}
-          alt="Image of the VTEX store environment"
-          fill
-          priority
-          sizes="100vw"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'right center',
-          }}
-        />
+        {/* Desktop Image */}
+        <Box sx={styles.desktopImageContainer}>
+          <Image
+            src={'/images/landing.png'}
+            alt="Image of the VTEX store environment"
+            priority
+            fill
+            objectFit="cover"
+          />
+        </Box>
+        {/* Mobile Image */}
+        <Box sx={styles.mobileImageContainer}>
+          <Image
+            src={'/images/landing_mobile.png'}
+            alt="Image of the VTEX store environment"
+            priority
+            fill
+            objectFit="cover"
+          />
+        </Box>
       </Box>
     </Box>
   )
