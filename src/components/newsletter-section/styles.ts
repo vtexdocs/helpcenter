@@ -9,7 +9,7 @@ const section: SxStyleProp = {
   position: 'relative',
   overflow: 'hidden',
   height: ['76vh', '80vh', '40vh', '50vh', '60vh'],
-  minHeight: ['600px', 'auto', 'auto', 'auto', 'auto'],
+  minHeight: ['600px', '400px', '400px', '400px', '400px'],
 }
 
 const imageContainer: SxStyleProp = {
