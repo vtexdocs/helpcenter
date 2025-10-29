@@ -63,14 +63,6 @@ const nextConfig = {
     // this will just update topLevelAwait property of config.experiments
     // config.experiments.topLevelAwait = true
 
-    // Add alias to handle next/image imports from ESM modules
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'next/image.js': require.resolve('next/image.js'),
-      'next/router.js': require.resolve('next/router.js'),
-      'next/compat/router.js': require.resolve('next/compat/router.js'),
-    }
-
     config.module.rules.push({
       test: /\.pem/,
       use: [

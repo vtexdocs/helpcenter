@@ -1,4 +1,4 @@
-import { NextPage, GetServerSideProps } from 'next'
+import { NextPage } from 'next'
 import { Search } from '@vtexdocs/components'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
@@ -24,12 +24,6 @@ const SearchPage: NextPage = () => {
       <Search />
     </>
   )
-}
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  return {
-    props: {},
-  }
 }
 
 export default SearchPage
