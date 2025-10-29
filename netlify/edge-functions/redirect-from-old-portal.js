@@ -44,7 +44,18 @@ export default async (request, context) => {
     } else if (type === 'tracks') {
       destination = `/${locale}/docs/tracks/${slug}`
     } else if (type === 'known-issues') {
-      destination = `/${locale}/known-issues/${slug}`
+      // Handle ki-- format (internal reference format)
+      if (url.pathname.includes('/known-issues/ki--')) {
+        // Extract the full slug (ki--1186137) from pathname since regex truncates it
+        const fullSlugMatch = url.pathname.match(/\/known-issues\/(ki--\d+)/)
+        const fullSlug = fullSlugMatch ? fullSlugMatch[1] : slug
+        const resolvedSlug = await resolveKiSlug(fullSlug, locale)
+        if (resolvedSlug) {
+          destination = `/${locale}/known-issues/${resolvedSlug}`
+        }
+      } else {
+        destination = `/${locale}/known-issues/${slug}`
+      }
     } else if (type === 'faq') {
       destination = `/${locale}/faq/${slug}`
     } else if (type === 'announcements') {
@@ -192,4 +203,69 @@ function findAnnouncementSlug(nav, oldSlug, locale) {
   }
 
   return search(annSection.categories || [])
+}
+
+/**
+ * Resolve ki-- format slug to actual slug
+ */
+async function resolveKiSlug(originalSlug, locale) {
+  const internalReference = Number(originalSlug.replace('ki--', ''))
+  if (isNaN(internalReference)) {
+    console.error(`Invalid ki-- format: ${originalSlug}`)
+    return null
+  }
+
+  try {
+    const cdnUrls = [
+      `https://cdn.jsdelivr.net/gh/vtexdocs/known-issues@main/.github/ki-slugs-and-zendesk-ids.json`,
+      `https://cdn.statically.io/gh/vtexdocs/known-issues/main/.github/ki-slugs-and-zendesk-ids.json`,
+      `https://raw.githubusercontent.com/vtexdocs/known-issues/main/.github/ki-slugs-and-zendesk-ids.json`,
+    ]
+
+    let content = null
+    let lastError = null
+
+    for (const cdnUrl of cdnUrls) {
+      try {
+        const response = await fetch(cdnUrl)
+        if (response.ok) {
+          content = await response.text()
+          break
+        }
+      } catch (error) {
+        lastError = error
+        continue
+      }
+    }
+
+    if (!content) {
+      console.error(
+        `Failed to fetch ki mapping from all CDNs: ${
+          lastError?.message || 'Unknown error'
+        }`
+      )
+      return null
+    }
+
+    const mapping = JSON.parse(content)
+    const entry = mapping.find(
+      (item) =>
+        item.locale === locale && item.internalReference === internalReference
+    )
+
+    if (entry) {
+      console.log(`Mapped ki--${internalReference} to slug: ${entry.slug}`)
+      return entry.slug
+    } else {
+      console.warn(
+        `No mapping found for ki--${internalReference} in locale ${locale}`
+      )
+      return null
+    }
+  } catch (error) {
+    console.error(
+      `Error fetching mapping for ki--${internalReference}: ${error.message}`
+    )
+    return null
+  }
 }
