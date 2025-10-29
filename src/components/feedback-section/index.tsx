@@ -7,13 +7,13 @@ interface DocPath {
 }
 
 const FeedbackSection = ({ slug, docPath, suggestEdits = true }: DocPath) => {
-  const sendFeedback = async (comment: string, liked: boolean) => {
+  const sendFeedback = async (liked: boolean) => {
     const feedback = {
       data: [
         new Date().toISOString(),
         `https://help.vtex.com/docs/tutorials/${slug}`,
         liked ? 'positive' : 'negative',
-        comment,
+        '',
       ],
     }
 

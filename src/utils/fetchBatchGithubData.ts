@@ -2,6 +2,7 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { LoggerType } from './logging/log-util'
 import { localeType } from './navigation-utils'
 import { DocsPaths } from './getDocsPaths'
+import { fetchGitHubFileWithFallback } from './githubCdnFallback'
 
 export const parseFrontmatter = async (content: string, logger: LoggerType) => {
   try {
@@ -24,10 +25,17 @@ export const fetchFromGithub = async (
   logger: LoggerType
 ) => {
   try {
-    const url = `https://raw.githubusercontent.com/vtexdocs/${repo}/${branch}/${path}`
-    const response = await fetch(url)
-    const data = await response.text()
-    return { content: data, slug }
+    const content = await fetchGitHubFileWithFallback(
+      'vtexdocs',
+      repo,
+      branch,
+      path,
+      {
+        cdnFallbackEnabled: true,
+        preferredCdn: 'jsdelivr',
+      }
+    )
+    return { content, slug }
   } catch (error) {
     logger.error(`Error fetching data for path ${path}: ${error}`)
     return { content: '', slug }

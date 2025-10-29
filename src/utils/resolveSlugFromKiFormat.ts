@@ -1,4 +1,5 @@
 import { LoggerType } from './logging/log-util'
+import { fetchGitHubFileWithFallback } from './githubCdnFallback'
 
 export async function resolveSlugFromKiFormat(
   originalSlug: string,
@@ -10,16 +11,22 @@ export async function resolveSlugFromKiFormat(
   const internalReference = Number(originalSlug.replace('ki--', ''))
 
   try {
-    const res = await fetch(
-      'https://raw.githubusercontent.com/vtexdocs/known-issues/refs/heads/main/.github/ki-slugs-and-zendesk-ids.json'
+    const content = await fetchGitHubFileWithFallback(
+      'vtexdocs',
+      'known-issues',
+      'main',
+      '.github/ki-slugs-and-zendesk-ids.json',
+      {
+        cdnFallbackEnabled: true,
+        preferredCdn: 'jsdelivr',
+      }
     )
-    if (!res.ok) throw new Error('Failed to fetch mapping')
 
     const mapping: Array<{
       locale: string
       slug: string
       internalReference: number
-    }> = await res.json()
+    }> = JSON.parse(content)
     const entry = mapping.find(
       (item) =>
         item.locale === locale && item.internalReference === internalReference

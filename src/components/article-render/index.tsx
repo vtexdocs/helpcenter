@@ -64,25 +64,27 @@ const ArticleRender = ({
   return (
     <>
       <Head>
-        <meta name="docsearch:doctype" content={type} />
-        {serialized?.frontmatter?.title && (
-          <>
+        <>
+          <meta name="docsearch:doctype" content={type} />
+          {serialized?.frontmatter?.title && (
             <title>{serialized?.frontmatter?.title as string}</title>
+          )}
+          {serialized?.frontmatter?.title && (
             <meta
               name="docsearch:doctitle"
               content={serialized?.frontmatter?.title as string}
             />
-          </>
-        )}
-        {serialized.frontmatter?.hidden && (
-          <meta name="robots" content="noindex" />
-        )}
-        {serialized.frontmatter?.excerpt && (
-          <meta
-            property="og:description"
-            content={serialized.frontmatter?.excerpt as string}
-          />
-        )}
+          )}
+          {serialized.frontmatter?.hidden && (
+            <meta name="robots" content="noindex" />
+          )}
+          {serialized.frontmatter?.excerpt && (
+            <meta
+              property="og:description"
+              content={serialized.frontmatter?.excerpt as string}
+            />
+          )}
+        </>
       </Head>
       <DocumentContextProvider headings={headings}>
         <Flex sx={styles.innerContainer}>
@@ -95,17 +97,19 @@ const ArticleRender = ({
               <Box sx={styles.textContainer}>
                 <article>
                   <header>
-                    <Text sx={styles.documentationTitle} className="title">
-                      {serialized.frontmatter?.title}
-                    </Text>
-                    {type == 'announcements' && contributors[0]?.avatar && (
-                      <Author contributor={contributors[0]} />
-                    )}
-                    {serialized.frontmatter?.excerpt && (
-                      <Text sx={styles.documentationExcerpt}>
-                        {serialized.frontmatter?.excerpt}
+                    <>
+                      <Text sx={styles.documentationTitle} className="title">
+                        {serialized.frontmatter?.title}
                       </Text>
-                    )}
+                      {type == 'announcements' && contributors[0]?.avatar && (
+                        <Author contributor={contributors[0]} />
+                      )}
+                      {serialized.frontmatter?.excerpt && (
+                        <Text sx={styles.documentationExcerpt}>
+                          {serialized.frontmatter?.excerpt}
+                        </Text>
+                      )}
+                    </>
                   </header>
 
                   {type == 'known-issues' && (
@@ -128,7 +132,7 @@ const ArticleRender = ({
                           ID: {serialized.frontmatter?.internalReference}
                         </Text>
                         <Tag sx={{ marginLeft: 'auto' }}>
-                          {serialized.frontmatter?.kiStatus}
+                          {serialized.frontmatter?.kiStatus as string}
                         </Tag>
                       </Flex>
                     </Flex>

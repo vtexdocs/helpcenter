@@ -1,3 +1,5 @@
+import { fetchGitHubFileWithFallback } from './githubCdnFallback'
+
 export const fetchRawMarkdown = async (
   category: string,
   branch: string,
@@ -6,10 +8,20 @@ export const fetchRawMarkdown = async (
   try {
     const repo =
       category === 'known-issues' ? 'known-issues' : 'help-center-content'
-    const res = await fetch(
-      `https://raw.githubusercontent.com/vtexdocs/${repo}/${branch}/${path}`
+
+    // Use CDN fallback system for automatic rate limit handling
+    const content = await fetchGitHubFileWithFallback(
+      'vtexdocs',
+      repo,
+      branch,
+      path,
+      {
+        cdnFallbackEnabled: true,
+        preferredCdn: 'jsdelivr',
+      }
     )
-    return await res.text()
+
+    return content
   } catch (err) {
     console.error('Error fetching markdown:', err)
     return ''
