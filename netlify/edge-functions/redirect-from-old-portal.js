@@ -64,13 +64,24 @@ export default async (request, context) => {
     } else if (type === 'faq') {
       destination = `/${locale}/faq/${slug}`
     } else if (type === 'announcements') {
-      const nav = await getNavigation(url)
-      const newSlug = findAnnouncementSlug(nav, slug, locale)
-      if (!newSlug) {
-        // fallback: keep old slug
-        destination = `/${locale}/announcements/${slug}`
+      // Only fetch navigation.json if the announcement wasn't already handled
+      // by redirects.json. This avoids fetching the 2.8MB file for most requests
+      // since 290+ announcements are already in redirects.json
+      if (!destination) {
+        console.log(
+          'announcement not in redirects.json, checking navigation.json'
+        )
+        const nav = await getNavigation(url)
+        const newSlug = findAnnouncementSlug(nav, slug, locale)
+        if (!newSlug) {
+          // fallback: keep old slug with simple path transformation
+          destination = `/${locale}/announcements/${slug}`
+        } else {
+          destination = `/${locale}/announcements/${newSlug}`
+        }
       } else {
-        destination = `/${locale}/announcements/${newSlug}`
+        // Already handled by redirects.json, skip navigation.json fetch
+        console.log('announcement already redirected via redirects.json')
       }
     }
   }
