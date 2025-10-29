@@ -33,7 +33,6 @@ export const fetchFromGithub = async (
       {
         cdnFallbackEnabled: true,
         preferredCdn: 'jsdelivr',
-        logger,
       }
     )
     return { content, slug }

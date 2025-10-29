@@ -15,31 +15,45 @@ const nextConfig = {
   reactStrictMode: true,
   staticPageGenerationTimeout: 3600,
   images: {
+    // Fallback to domains for Next.js 13.0.5 compatibility
+    domains: [
+      'raw.githubusercontent.com',
+      'cdn.jsdelivr.net',
+      'cdn.statically.io',
+      'github.com',
+      'avatars.githubusercontent.com',
+    ],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'cdn.jsdelivr.net',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'cdn.statically.io',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'github.com',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'avatars.githubusercontent.com',
+        pathname: '/**',
       },
       // Allow all other HTTPS domains for backward compatibility
       {
         protocol: 'https',
         hostname: '**',
+        pathname: '/**',
       },
     ],
   },
@@ -48,6 +62,15 @@ const nextConfig = {
     config.experiments = { ...config.experiments, ...{ topLevelAwait: true } }
     // this will just update topLevelAwait property of config.experiments
     // config.experiments.topLevelAwait = true
+
+    // Add alias to handle next/image imports from ESM modules
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'next/image.js': require.resolve('next/image.js'),
+      'next/router.js': require.resolve('next/router.js'),
+      'next/compat/router.js': require.resolve('next/compat/router.js'),
+    }
+
     config.module.rules.push({
       test: /\.pem/,
       use: [

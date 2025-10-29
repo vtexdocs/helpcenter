@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react'
 import { TrackerContext } from 'utils/contexts/trackerContext'
 import { useClientNavigation } from 'utils/useClientNavigation'
 import { ThemeProvider } from '@vtex/brand-ui'
+import dynamic from 'next/dynamic'
 
 import styles from 'styles/documentation-page'
 import Header from 'components/header'
@@ -11,11 +12,12 @@ import Footer from 'components/footer'
 
 import { SectionId } from 'utils/typings/unionTypes'
 import Script from 'next/script'
-import {
-  CookieBar,
-  LibraryContextProvider,
-  Sidebar,
-} from '@vtexdocs/components'
+import { CookieBar, LibraryContextProvider } from '@vtexdocs/components'
+
+const Sidebar = dynamic(
+  () => import('@vtexdocs/components').then((mod) => mod.Sidebar),
+  { ssr: false }
+)
 import {
   menuDocumentationData,
   feedbackSectionData,

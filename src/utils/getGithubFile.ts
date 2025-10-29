@@ -21,7 +21,6 @@ export default async function getGithubFile(
       return await fetchGitHubFileWithFallback(owner, repo, ref, path, {
         cdnFallbackEnabled: true,
         preferredCdn: 'jsdelivr',
-        logger,
       })
     } catch (err) {
       const error = err as Error
@@ -97,7 +96,6 @@ export default async function getGithubFile(
       return await fetchGitHubFileWithFallback(owner, repo, ref, path, {
         cdnFallbackEnabled: true,
         preferredCdn: 'jsdelivr',
-        logger,
       })
     }
     throw err

@@ -19,7 +19,6 @@ export async function resolveSlugFromKiFormat(
       {
         cdnFallbackEnabled: true,
         preferredCdn: 'jsdelivr',
-        logger,
       }
     )
 
