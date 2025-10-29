@@ -105,6 +105,7 @@ export default async (request, context) => {
 
 let navigationCache = null
 let redirectsCache = null
+let redirectsMapCache = null
 
 async function getNavigation(url) {
   if (!navigationCache) {
@@ -120,6 +121,26 @@ async function getRedirects(url) {
     redirectsCache = await res.json()
   }
   return redirectsCache
+}
+
+async function getRedirectsMap(url) {
+  if (!redirectsMapCache) {
+    const redirectsData = await getRedirects(url)
+    const redirectsMap = new Map()
+
+    if (redirectsData.redirects) {
+      for (const redirectArray of Object.values(redirectsData.redirects)) {
+        if (Array.isArray(redirectArray)) {
+          for (const redirect of redirectArray) {
+            redirectsMap.set(redirect.from, redirect.to)
+          }
+        }
+      }
+    }
+
+    redirectsMapCache = redirectsMap
+  }
+  return redirectsMapCache
 }
 
 // Helper function to detect locale from path
@@ -145,15 +166,7 @@ function replaceLocale(path, newLocale) {
 
 async function checkRedirects(url) {
   try {
-    const redirectsData = await getRedirects(url)
-    const redirects = []
-    if (redirectsData.redirects) {
-      for (const redirectArray of Object.values(redirectsData.redirects)) {
-        if (Array.isArray(redirectArray)) {
-          redirects.push(...redirectArray)
-        }
-      }
-    }
+    const redirectsMap = await getRedirectsMap(url)
 
     let currentPath = url.pathname
     const visitedPaths = new Set() // Prevent infinite loops
@@ -169,10 +182,10 @@ async function checkRedirects(url) {
       }
       visitedPaths.add(currentPath)
 
-      // Find redirect for current path
-      const redirect = redirects.find((r) => r.from === currentPath)
+      // O(1) Map lookup instead of O(n) array search
+      const redirectTo = redirectsMap.get(currentPath)
 
-      if (!redirect) {
+      if (!redirectTo) {
         // No redirect found for current path, try different locales
         if (localeIndex < availableLocales.length - 1) {
           localeIndex++
@@ -189,11 +202,10 @@ async function checkRedirects(url) {
           console.log('No match in legacy redirects after trying all locales')
           break
         }
+      } else {
+        console.log(`Redirect found: ${currentPath} -> ${redirectTo}`)
+        return redirectTo
       }
-
-      console.log(`Redirect found: ${redirect.from} -> ${redirect.to}`)
-
-      return redirect.to
     }
 
     return null // No redirect found
