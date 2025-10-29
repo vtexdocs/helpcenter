@@ -17,7 +17,7 @@ import { CookieBar, LibraryContextProvider } from '@vtexdocs/components'
 const Sidebar = dynamic(
   () => import('@vtexdocs/components').then((mod) => mod.Sidebar),
   { ssr: false }
-)
+) as React.FC<{ parentsArray?: string[] }>
 import {
   menuDocumentationData,
   feedbackSectionData,

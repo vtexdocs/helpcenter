@@ -12,12 +12,12 @@ import dynamic from 'next/dynamic'
 const SearchInput = dynamic(
   () => import('@vtexdocs/components').then((mod) => mod.SearchInput),
   { ssr: false }
-)
+) as React.FC<Record<string, never>>
 
 const HamburgerMenu = dynamic(
   () => import('@vtexdocs/components').then((mod) => mod.HamburgerMenu),
   { ssr: false }
-)
+) as React.FC<{ parentsArray?: string[] }>
 
 import DropdownMenu from 'components/dropdown-menu'
 import VTEXHelpCenterIcon from 'components/icons/vtex-helpcenter-icon'

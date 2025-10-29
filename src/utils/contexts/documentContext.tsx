@@ -32,6 +32,7 @@ export const DocumentContext = createContext<ContextType>({
 
 interface Props {
   headings: Item[]
+  children?: React.ReactNode
 }
 
 const DocumentContextProvider: React.FC<Props> = ({ children, headings }) => {
