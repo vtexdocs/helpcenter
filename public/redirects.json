@@ -12484,6 +12484,10 @@
       {
         "from": "/subcategory/assinaturas--1rA9wuuskW3PpjvMrhatAM",
         "to": "/en/docs/tutorials/subscriptions"
+      },
+      {
+        "from": "/en/tutorial/como-montar-a-planilha-de-frete--tutorials_127",
+        "to": "/en/docs/tutorials/planilha-de-frete"
       }
     ]
   }
