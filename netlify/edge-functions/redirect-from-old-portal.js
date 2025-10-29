@@ -14,7 +14,12 @@ export default async (request, context) => {
       redirectResult.startsWith('http://') ||
       redirectResult.startsWith('https://')
     ) {
-      return Response.redirect(redirectResult, 308)
+      const response = Response.redirect(redirectResult, 308)
+      response.headers.set(
+        'Cache-Control',
+        'public, max-age=3600, s-maxage=3600, stale-while-revalidate=7200, immutable'
+      )
+      return response
     } else {
       console.log('legacy redirect found:', redirectResult)
       url.pathname = redirectResult
@@ -73,7 +78,15 @@ export default async (request, context) => {
   if (destination) {
     console.log('destination', destination)
 
-    return Response.redirect(new URL(destination + search, url.origin), 308)
+    const response = Response.redirect(
+      new URL(destination + search, url.origin),
+      308
+    )
+    response.headers.set(
+      'Cache-Control',
+      'public, max-age=3600, s-maxage=3600, stale-while-revalidate=7200, immutable'
+    )
+    return response
   }
 
   return context.next()
