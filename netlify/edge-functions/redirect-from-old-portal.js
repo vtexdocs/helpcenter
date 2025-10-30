@@ -14,7 +14,14 @@ export default async (request, context) => {
       redirectResult.startsWith('http://') ||
       redirectResult.startsWith('https://')
     ) {
-      return Response.redirect(redirectResult, 308)
+      return new Response(null, {
+        status: 308,
+        headers: {
+          Location: redirectResult,
+          'Cache-Control':
+            'public, max-age=3600, s-maxage=3600, stale-while-revalidate=7200, immutable',
+        },
+      })
     } else {
       console.log('legacy redirect found:', redirectResult)
       url.pathname = redirectResult
@@ -59,11 +66,21 @@ export default async (request, context) => {
     } else if (type === 'faq') {
       destination = `/${locale}/faq/${slug}`
     } else if (type === 'announcements') {
+      // Always check navigation.json for announcements to find the modern slug.
+      // Even if redirects.json set a destination, we need navigation.json to
+      // resolve the final date-prefixed slug (e.g., 2020-10-29-...).
+      // This handles redirect cascades: redirects.json → navigation.json
+      console.log('checking navigation.json for announcement slug')
       const nav = await getNavigation(url)
       const newSlug = findAnnouncementSlug(nav, slug, locale)
       if (!newSlug) {
-        // fallback: keep old slug
-        destination = `/${locale}/announcements/${slug}`
+        // fallback: if navigation.json doesn't have it, use destination from
+        // redirects.json or simple path transformation
+        if (destination) {
+          console.log('using destination from redirects.json:', destination)
+        } else {
+          destination = `/${locale}/announcements/${slug}`
+        }
       } else {
         destination = `/${locale}/announcements/${newSlug}`
       }
@@ -73,7 +90,14 @@ export default async (request, context) => {
   if (destination) {
     console.log('destination', destination)
 
-    return Response.redirect(new URL(destination + search, url.origin), 308)
+    return new Response(null, {
+      status: 308,
+      headers: {
+        Location: new URL(destination + search, url.origin).toString(),
+        'Cache-Control':
+          'public, max-age=3600, s-maxage=3600, stale-while-revalidate=7200, immutable',
+      },
+    })
   }
 
   return context.next()
@@ -81,11 +105,21 @@ export default async (request, context) => {
 
 let navigationCache = null
 let redirectsCache = null
+let redirectsMapCache = null
 
 async function getNavigation(url) {
   if (!navigationCache) {
-    const res = await fetch(`${url.origin}/navigation.json`)
-    navigationCache = await res.json()
+    const res = await fetch(`${url.origin}/api/navigation`)
+    if (!res.ok) {
+      console.error(
+        `Failed to fetch navigation API: ${res.status} ${res.statusText}`
+      )
+      // Fallback to direct navigation.json fetch
+      const fallbackRes = await fetch(`${url.origin}/navigation.json`)
+      navigationCache = await fallbackRes.json()
+    } else {
+      navigationCache = await res.json()
+    }
   }
   return navigationCache
 }
@@ -93,9 +127,34 @@ async function getNavigation(url) {
 async function getRedirects(url) {
   if (!redirectsCache) {
     const res = await fetch(`${url.origin}/redirects.json`)
+    if (!res.ok) {
+      throw new Error(
+        `Failed to fetch redirects.json: ${res.status} ${res.statusText}`
+      )
+    }
     redirectsCache = await res.json()
   }
   return redirectsCache
+}
+
+async function getRedirectsMap(url) {
+  if (!redirectsMapCache) {
+    const redirectsData = await getRedirects(url)
+    const redirectsMap = new Map()
+
+    if (redirectsData.redirects) {
+      for (const redirectArray of Object.values(redirectsData.redirects)) {
+        if (Array.isArray(redirectArray)) {
+          for (const redirect of redirectArray) {
+            redirectsMap.set(redirect.from, redirect.to)
+          }
+        }
+      }
+    }
+
+    redirectsMapCache = redirectsMap
+  }
+  return redirectsMapCache
 }
 
 // Helper function to detect locale from path
@@ -121,15 +180,7 @@ function replaceLocale(path, newLocale) {
 
 async function checkRedirects(url) {
   try {
-    const redirectsData = await getRedirects(url)
-    const redirects = []
-    if (redirectsData.redirects) {
-      for (const redirectArray of Object.values(redirectsData.redirects)) {
-        if (Array.isArray(redirectArray)) {
-          redirects.push(...redirectArray)
-        }
-      }
-    }
+    const redirectsMap = await getRedirectsMap(url)
 
     let currentPath = url.pathname
     const visitedPaths = new Set() // Prevent infinite loops
@@ -145,10 +196,10 @@ async function checkRedirects(url) {
       }
       visitedPaths.add(currentPath)
 
-      // Find redirect for current path
-      const redirect = redirects.find((r) => r.from === currentPath)
+      // O(1) Map lookup instead of O(n) array search
+      const redirectTo = redirectsMap.get(currentPath)
 
-      if (!redirect) {
+      if (!redirectTo) {
         // No redirect found for current path, try different locales
         if (localeIndex < availableLocales.length - 1) {
           localeIndex++
@@ -165,11 +216,10 @@ async function checkRedirects(url) {
           console.log('No match in legacy redirects after trying all locales')
           break
         }
+      } else {
+        console.log(`Redirect found: ${currentPath} -> ${redirectTo}`)
+        return redirectTo
       }
-
-      console.log(`Redirect found: ${redirect.from} -> ${redirect.to}`)
-
-      return redirect.to
     }
 
     return null // No redirect found
