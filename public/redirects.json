@@ -5426,6 +5426,10 @@
         "to": "/pt/tutorial/como-criar-um-produto--671zAWe0B9eCikzDu7kB1G"
       },
       {
+        "from": "/tutorial/adicionar-imagem-a-descricao-do-produto--2hQGTAAiyUSoISGSyOK8Y4",
+        "to": "/pt/tutorial/adicionar-ou-editar-produto--29IkdEu6GofCFlltsZh2H8"
+      },
+      {
         "from": "/tutorial/recursos-del-license-manager-vtex-io--5aWXJJXnuqqPlqBYdHqMdG",
         "to": "/es/tutorial/recursos-del-license-manager--3q6ztrC8YynQf6rdc6euk3#"
       },
@@ -5854,6 +5858,10 @@
         "to": "/tracks/integracao-com-a-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/2oxPVeYpVgA8IrhaDqKon6"
       },
       {
+        "from": "/tutorial/add-image-to-product-description--2hQGTAAiyUSoISGSyOK8Y4",
+        "to": "/en/tutorial/adding-or-editing-products--29IkdEu6GofCFlltsZh2H8"
+      },
+      {
         "from": "/tutorial/configurando-o-apontamento-de-dns-para-a-vtex--tutorials_4280",
         "to": "/tracks/realizando-o-go-live-da-sua-loja--4Ns5FxIiksmjsdX2yOTduM/1iP90RcJvlrfQhnlxM54wo#"
       },
@@ -6238,6 +6246,10 @@
         "to": "/tutorial/how-do-reversals-work-when-an-item-is-returned"
       },
       {
+        "from": "/tutorial/anadir-imagen-a-la-descripcion-del-producto--2hQGTAAiyUSoISGSyOK8Y4",
+        "to": "/es/tutorial/agregar-o-editar-productos--29IkdEu6GofCFlltsZh2H8"
+      },
+      {
         "from": "/tutorial/adding-products--tutorials_2567",
         "to": "/en/tutorial/adding-or-editing-products--29IkdEu6GofCFlltsZh2H8"
       },
@@ -6436,6 +6448,10 @@
       {
         "from": "/en/tutorial/order-status-table-oms--frequentlyAskedQuestions_773",
         "to": "/en/tutorial/fluxo-e-status-de-pedidos--tutorials_196#order-status-details"
+      },
+      {
+        "from": "/tutorial/como-atualizar-a-imagem-de-um-sku--5PMb54FnvUuWOq2qGyAosu",
+        "to": "/pt/tutorial/adicionar-ou-editar-sku--4ryZ6J45kwn3jDiQBxGiiN"
       },
       {
         "from": "/tutorial/selecionando-estoque-para-pedidos-do-mercado-envios-full--7M4HCsV16LmWXpp20DEpAd",
@@ -6810,6 +6826,10 @@
         "to": "/tutorial/what-is-the-period-considered-for-calculating-my-billing"
       },
       {
+        "from": "/tutorial/how-to-update-the-image-of-an-sku--5PMb54FnvUuWOq2qGyAosu",
+        "to": "/en/tutorial/adding-or-editing-skus--4ryZ6J45kwn3jDiQBxGiiN"
+      },
+      {
         "from": "/tutorial/how-to-configure-rating-and-review-controls--frequentlyAskedQuestions_585",
         "to": "/en/tutorial/list-of-controls-for-templates--tutorials_563#deprecated-controls"
       },
@@ -7036,6 +7056,10 @@
       {
         "from": "https://developers.vtex.com/vtex-rest-api/docs/identifying-whether-marketing-utms-are-being-sent-to-checkout",
         "to": "https://developers.vtex.com/vtex-rest-api/docs/check-marketing-utms-used-at-checkout"
+      },
+      {
+        "from": "/tutorial/como-actualizar-la-imagen-de-un-sku--5PMb54FnvUuWOq2qGyAosu",
+        "to": "/es/tutorial/agregar-o-editar-skus--4ryZ6J45kwn3jDiQBxGiiN"
       },
       {
         "from": "/faq/change-a-placeholder-title",
@@ -7716,6 +7740,10 @@
       {
         "from": "/tutorial/configurar-pagos-con-adyenv3",
         "to": "https://developers.vtex.com/docs/apps/adyen.payment-provider-v3"
+      },
+      {
+        "from": "/pt/tutorial/compre-junto--5lSqsW9vQQmyAGeacqcCIs",
+        "to": "/pt/tutorial/compre-junto--tutorials_323"
       },
       {
         "from": "/faq/what-offline-payment-conditions-are-available-in-latin-america",
@@ -8897,155 +8925,171 @@
     "fromLegacySlugs": [
       {
         "from": "/announcements/new-master-data-api-improves-setup-flexibility",
-        "to": "/en/announcements/new-master-data-api-increases-configuration-flexibility"
+        "to": "/en/announcements/2017-12-22-new-master-data-api-increases-configuration-flexibility"
       },
       {
         "from": "/announcements/feature-removal-discontinuing-the-use-of-maximun-price-per-item-feature",
-        "to": "/en/announcements/feature-removal-discontinuing-the-use-of-maximum-price-per-item-feature"
+        "to": "/en/announcements/2019-04-05-feature-removal-discontinuing-the-use-of-maximum-price-per-item-feature"
       },
       {
         "from": "/announcements/New-returned-object-in-API-Get-Order-itemMetadata",
-        "to": "/en/announcements/new-returned-object-in-api-get-order-itemmetadata"
+        "to": "/en/announcements/2019-04-08-new-returned-object-in-api-get-order-itemmetadata"
       },
       {
         "from": "/announcements/garanta-mais-seguranca-e-controle-na-tela-de-autorizacao-de-pedidos",
-        "to": "/en/announcements/ensure-more-safety-and-control-on-your-order-authorization-screen"
+        "to": "/en/announcements/2019-06-06-ensure-more-safety-and-control-on-your-order-authorization-screen"
       },
       {
         "from": "/announcements/now-it's-easier-to-sell-the-products-from-your-physical-stores-in",
-        "to": "/en/announcements/now-its-easier-to-sell-the-products-from-your-physical-stores-in"
+        "to": "/en/announcements/2019-03-12-now-its-easier-to-sell-the-products-from-your-physical-stores-in"
       },
       {
         "from": "/announcements/Get-Order-Json-now-delivers-new-variables-in-order-calculations",
-        "to": "/en/announcements/get-order-json-now-delivers-new-variables-in-order-calculations"
+        "to": "/en/announcements/2019-03-20-get-order-json-now-delivers-new-variables-in-order-calculations"
       },
       {
         "from": "/announcements/mais-tempo-para-adaptar-as-requisicoes-de-front-end-da-sua-loja-ao-master",
-        "to": "/en/announcements/more-time-to-adapt-your-store-s-front-end-requests-to-master-data"
+        "to": "/en/announcements/2019-09-24-more-time-to-adapt-your-store-s-front-end-requests-to-master-data"
       },
       {
         "from": "/announcements/changes-in-via-varejo-product-integration",
-        "to": "/en/announcements/category-mapping-now-required-for-via-varejo-marketplace"
+        "to": "/en/announcements/2020-04-06-category-mapping-now-required-for-via-varejo-marketplace"
       },
       {
         "from": "/announcements/customer-credit-optimize-processes-with-bulk-updates",
-        "to": "/en/announcements/customer-credit-optimize-processes-with-bulk-operations"
+        "to": "/en/announcements/2020-04-09-customer-credit-optimize-processes-with-bulk-operations"
       },
       {
         "from": "/announcements/indexador-melhorias-de-desempenho-para-o-catalogo",
-        "to": "/en/announcements/catalog-indexer-performance-improvements"
+        "to": "/en/announcements/2020-08-04-catalog-indexer-performance-improvements"
       },
       {
         "from": "/announcements/3ds2-authentication-flow-accept-online-payments-more-securely",
-        "to": "/en/announcements/3ds2-authentication-flow-accept-online-payments-more-securely-1"
+        "to": "/en/announcements/2020-12-21-3ds2-authentication-flow-accept-online-payments-more-securely-1"
       },
       {
-        "from": "/announcements/integration-guide-for-erps-orders, integration-guide-for-erps-express-catalog, integration-guide-for-erps-full-catalog, integration-guide-for-erps-catalog-architecture, integration-interfaces",
-        "to": "/en/announcements/erp-integration-guides-have-a-new-home"
+        "from": "/announcements/integration-guide-for-erps-orders",
+        "to": "/en/announcements/2020-06-03-erp-integration-guides-have-a-new-home"
+      },
+      {
+        "from": "/announcements/integration-guide-for-erps-express-catalog",
+        "to": "/en/announcements/2020-06-03-erp-integration-guides-have-a-new-home"
+      },
+      {
+        "from": "/announcements/integration-guide-for-erps-full-catalog",
+        "to": "/en/announcements/2020-06-03-erp-integration-guides-have-a-new-home"
+      },
+      {
+        "from": "/announcements/integration-guide-for-erps-catalog-architecture",
+        "to": "/en/announcements/2020-06-03-erp-integration-guides-have-a-new-home"
+      },
+      {
+        "from": "/announcements/integration-interfaces",
+        "to": "/en/announcements/2020-06-03-erp-integration-guides-have-a-new-home"
       },
       {
         "from": "/announcements/limite-de-itens-com-promocao-no-carrinho",
-        "to": "/en/announcements/cart-restrictions-on-item-prmotions"
+        "to": "/en/announcements/2020-06-18-cart-restrictions-on-item-prmotions"
       },
       {
         "from": "/announcements/ip-and-geolocation-info-is-now-provided-in-emails-containing-login-access",
-        "to": "/en/announcements/ip-and-geolocation-info-is-now-provided-in-emails-containing-access-code-requests"
+        "to": "/en/announcements/2020-11-12-ip-and-geolocation-info-is-now-provided-in-emails-containing-access-code-requests"
       },
       {
         "from": "/announcements/new-vtex-log-performance-page",
-        "to": "/en/announcements/new-vtex-shipping-network-performance-page"
+        "to": "/en/announcements/2021-04-07-new-vtex-shipping-network-performance-page"
       },
       {
         "from": "/announcements/double-check-promotion-settings",
-        "to": "/en/announcements/double-check-promotion-settings-before-activating-it-to-ensure-security"
+        "to": "/en/announcements/2021-12-13-double-check-promotion-settings-before-activating-it-to-ensure-security"
       },
       {
         "from": "/announcements/lendico-boleto-installments-expand-your-payment-options-with-this-brand-new",
-        "to": "/en/announcements/lendico-installment-loans-expand-your-payment-options"
+        "to": "/en/announcements/2021-01-06-lendico-installment-loans-expand-your-payment-options"
       },
       {
         "from": "/announcements/new-appkeys-will-not-have-a-predefined-access-profile",
-        "to": "/en/announcements/new-appkeys-will-not-have-a-predefined-role"
+        "to": "/en/announcements/2021-01-06-new-appkeys-will-not-have-a-predefined-role"
       },
       {
         "from": "/announcements/catalog-api-new-restrictions-to-activate-a-sku",
-        "to": "/en/announcements/catalog-api-new-restrictions-to-activate-an-sku"
+        "to": "/en/announcements/2021-01-28-catalog-api-new-restrictions-to-activate-an-sku"
       },
       {
         "from": "/announcements/konnichiwa-the-admin-is-now-available-in-japanese",
-        "to": "/en/announcements/admin-disponivel-em-japones"
+        "to": "/en/announcements/2021-03-02-admin-disponivel-em-japones"
       },
       {
         "from": "/announcements/ada-and-wcag-compliance-in-vtex",
-        "to": "/en/announcements/ada-and-wcag-compliance-with-accessibe"
+        "to": "/en/announcements/2021-03-09-ada-and-wcag-compliance-with-accessibe"
       },
       {
         "from": "/announcements/the-new-orders-module-interface-will-be-official",
-        "to": "/en/announcements/new-orders-module-interface-official"
+        "to": "/en/announcements/2022-12-08-new-orders-module-interface-official"
       },
       {
         "from": "/announcements/marketplace-network-and-integrations-are-now-a-single-page",
-        "to": "/en/announcements/marketplacenetwork-and-integrations-are-now-a-single-page"
+        "to": "/en/announcements/2023-04-18-marketplacenetwork-and-integrations-are-now-a-single-page"
       },
       {
         "from": "/announcements/de-as-boas-vindas-ao-novo-admin-vtex",
-        "to": "/en/announcements/welcome-to-the-redesigned-vtex-admin-new"
+        "to": "/en/announcements/2023-04-20-welcome-to-the-redesigned-vtex-admin-new"
       },
       {
         "from": "/announcements/store-framework-cms-new-permission-required-to-manage-redirects",
-        "to": "/en/announcements/new-permission-required-to-manage-redirects-in-store-framework-cms"
+        "to": "/en/announcements/2023-08-31-new-permission-required-to-manage-redirects-in-store-framework-cms"
       },
       {
         "from": "/announcements/amazon-offer-matching",
-        "to": "/en/announcements/amazon-integration-amazon-offer-matching"
+        "to": "/en/announcements/2023-07-04-amazon-integration-amazon-offer-matching"
       },
       {
         "from": "/announcements/recaptcha-validation-will-now-follow-orderform-configuration-for-all",
-        "to": "/en/announcements/recaptcha-validation-will-now-follow-orderform-configuration-for-all-requests"
+        "to": "/en/announcements/2023-07-04-recaptcha-validation-will-now-follow-orderform-configuration-for-all-requests"
       },
       {
         "from": "/announcements/la-barra-de-busqueda-global-del-admin-vtex-ahora-permite-buscar-pedidos",
-        "to": "/en/announcements/search-for-orders-in-the-vtex-admin-global-search-bar"
+        "to": "/en/announcements/2023-10-17-search-for-orders-in-the-vtex-admin-global-search-bar"
       },
       {
         "from": "/announcements/web-page-performance-module-discontinuation",
-        "to": "/en/announcements/web-page-performance-deprecation"
+        "to": "/en/announcements/2024-05-29-web-page-performance-deprecation"
       },
       {
         "from": "/announcements/amazon-the-current-product-mapping-model-will-be-discontinued",
-        "to": "/en/announcements/current-amazon-mapping-model-will-be-discontinued"
+        "to": "/en/announcements/2025-02-19-current-amazon-mapping-model-will-be-discontinued"
       },
       {
         "from": "/announcements/amazon-exportation-of-fba-order-invoices",
-        "to": "/en/announcements/amazon-fba-order-invoices"
+        "to": "/en/announcements/2025-07-29-amazon-fba-order-invoices"
       },
       {
         "from": "/announcements/vtex-io-apps-end-of-technical-support-for-legacy-applications",
-        "to": "/en/announcements/vtex-io-apps-end-of-technical-support-for-legacy-apps"
+        "to": "/en/announcements/2025-06-06-vtex-io-apps-end-of-technical-support-for-legacy-apps"
       },
       {
         "from": "/announcements/amazon-listing-new-product-listing-model",
-        "to": "/en/announcements/amazon-product-listing"
+        "to": "/en/announcements/2025-03-31-amazon-product-listing"
       },
       {
         "from": "/announcements/conversation-tracker-new-email-expiration",
-        "to": "/en/announcements/new-conversation-tracker-email-expiration"
+        "to": "/en/announcements/2025-03-31-new-conversation-tracker-email-expiration"
       },
       {
         "from": "/announcements/weni-by-vtex-documentation-in-the-help-center",
-        "to": "/en/announcements/weni-by-vtex-documentation-in-help-center"
+        "to": "/en/announcements/2025-10-01-weni-by-vtex-documentation-in-help-center"
       },
       {
         "from": "/announcements/mercado-libre-holidays",
-        "to": "/en/announcements/mercado-libre-holidays-announcement-en"
+        "to": "/en/announcements/2025-10-02-mercado-libre-holidays-announcement-en"
       },
       {
         "from": "/announcements/mercado-libre-smart-pricing",
-        "to": "/en/announcements/mercado-libre-smart-pricing-en"
+        "to": "/en/announcements/2025-10-02-mercado-libre-smart-pricing-en"
       },
       {
         "from": "/announcements/mercado-libre-warehouse-assignment",
-        "to": "/en/announcements/warehouse-assignment"
+        "to": "/en/announcements/2025-10-02-warehouse-assignment"
       },
       {
         "from": "/faq/untitled-entry-2019-03-26-at-07-10-38",
@@ -9152,7 +9196,11 @@
         "to": "/en/tutorial/creating-a-financial-access-profile"
       },
       {
-        "from": "/tutorial/configuring-access-profiles, access-profiles",
+        "from": "/tutorial/configuring-access-profiles",
+        "to": "/en/tutorial/roles"
+      },
+      {
+        "from": "/tutorial/access-profiles",
         "to": "/en/tutorial/roles"
       },
       {
@@ -9274,6 +9322,10 @@
       {
         "from": "/tutorial/data-insights-assistant",
         "to": "/en/tutorial/data-insights-agent"
+      },
+      {
+        "from": "/tutorial/intelligent-search-hybrid-search-beta",
+        "to": "/en/tutorial/intelligent-search-semantic-search-beta"
       },
       {
         "from": "/tutorial/locations-module",
@@ -9512,6 +9564,10 @@
         "to": "/en/tutorial/zapier-suiteshare"
       },
       {
+        "from": "/tutorial/unlock-user-in-vtex-sales-app-indeva",
+        "to": "/en/tutorial/unlock-user-in-vtex-sales-app"
+      },
+      {
         "from": "/tutorial/configuring-access-without-www",
         "to": "/en/tutorial/best-practices-for-accessing-the-store-without-www"
       },
@@ -9524,7 +9580,15 @@
         "to": "/en/tutorial/vtex-operation-service-level-agreement-sla"
       },
       {
-        "from": "/tutorial/untitled-entry-2019-01-14-at-07-58-58, vtex-status-understand-how-the-platform-status-works, platform-status-page",
+        "from": "/tutorial/untitled-entry-2019-01-14-at-07-58-58",
+        "to": "/en/tutorial/vtex-status-page"
+      },
+      {
+        "from": "/tutorial/vtex-status-understand-how-the-platform-status-works",
+        "to": "/en/tutorial/vtex-status-page"
+      },
+      {
+        "from": "/tutorial/platform-status-page",
         "to": "/en/tutorial/vtex-status-page"
       },
       {
@@ -9684,7 +9748,11 @@
         "to": "/en/tutorial/calculating-revenue-through-the-worksheet-exported-from-orders-module"
       },
       {
-        "from": "/tutorial/altering-items-skus-in-the-order, changing-completed-orders",
+        "from": "/tutorial/altering-items-skus-in-the-order",
+        "to": "/en/tutorial/changing-items-from-a-complete-order"
+      },
+      {
+        "from": "/tutorial/changing-completed-orders",
         "to": "/en/tutorial/changing-items-from-a-complete-order"
       },
       {
@@ -9700,7 +9768,11 @@
         "to": "/en/tutorial/exporting-orders-in-orders-module"
       },
       {
-        "from": "/tutorial/filtering-orders-in-oms, filtering-orders-on-the-oms",
+        "from": "/tutorial/filtering-orders-in-oms",
+        "to": "/en/tutorial/filtering-all-orders"
+      },
+      {
+        "from": "/tutorial/filtering-orders-on-the-oms",
         "to": "/en/tutorial/filtering-all-orders"
       },
       {
@@ -9744,7 +9816,11 @@
         "to": "/en/tutorial/how-order-authorization-works"
       },
       {
-        "from": "/tutorial/allow-to-change-already-closed-orders, how-the-order-replacement-works",
+        "from": "/tutorial/allow-to-change-already-closed-orders",
+        "to": "/en/tutorial/order-replacement"
+      },
+      {
+        "from": "/tutorial/how-the-order-replacement-works",
         "to": "/en/tutorial/order-replacement"
       },
       {
@@ -9992,7 +10068,7 @@
         "to": "/en/tutorial/what-is-the-difference-between-unbinding-and-removing-seller-sku"
       },
       {
-        "from": "/tutorial/how-does-reservation-work, analyze-a-products-reservations",
+        "from": "/tutorial/analyze-a-products-reservations",
         "to": "/en/tutorial/how-does-reservation-work"
       },
       {
@@ -10000,11 +10076,15 @@
         "to": "/en/tutorial/inventory-update-history"
       },
       {
-        "from": "/tutorial/how-to-update-stock, updating-quantity-of-skus-in-inventory",
+        "from": "/tutorial/how-to-update-stock",
         "to": "/en/tutorial/updating-the-quantity-of-items-in-inventory"
       },
       {
-        "from": "/tutorial/scheduled-delivery, configuring-the-scheduled-delivery",
+        "from": "/tutorial/updating-quantity-of-skus-in-inventory",
+        "to": "/en/tutorial/updating-the-quantity-of-items-in-inventory"
+      },
+      {
+        "from": "/tutorial/configuring-the-scheduled-delivery",
         "to": "/en/tutorial/scheduled-delivery"
       },
       {
@@ -10012,7 +10092,11 @@
         "to": "/en/tutorial/fulfillment-logistics-vtex"
       },
       {
-        "from": "/tutorial/how-to-import-pickup-points-using-spreadsheets, adding-pickup-points",
+        "from": "/tutorial/how-to-import-pickup-points-using-spreadsheets",
+        "to": "/en/tutorial/creating-pickup-points"
+      },
+      {
+        "from": "/tutorial/adding-pickup-points",
         "to": "/en/tutorial/creating-pickup-points"
       },
       {
@@ -10020,7 +10104,7 @@
         "to": "/en/tutorial/pickup-points"
       },
       {
-        "from": "/tutorial/additional-shipping-costs, understanding-the-additional-shipping-cost",
+        "from": "/tutorial/understanding-the-additional-shipping-cost",
         "to": "/en/tutorial/additional-shipping-costs"
       },
       {
@@ -10032,7 +10116,11 @@
         "to": "/en/tutorial/shipping-simulation"
       },
       {
-        "from": "/tutorial/setting-up-business-hours-for-carriers, configuring-carriers-cut-off-time",
+        "from": "/tutorial/setting-up-business-hours-for-carriers",
+        "to": "/en/tutorial/carrier-working-hours"
+      },
+      {
+        "from": "/tutorial/configuring-carriers-cut-off-time",
         "to": "/en/tutorial/carrier-working-hours"
       },
       {
@@ -10048,19 +10136,27 @@
         "to": "/en/tutorial/managing-loading-docks"
       },
       {
-        "from": "/tutorial/registering-a-stock, managing-warehouses",
+        "from": "/tutorial/registering-a-stock",
         "to": "/en/tutorial/managing-warehouses"
       },
       {
-        "from": "/tutorial/adding-a-carrier, manage-carrier",
+        "from": "/tutorial/adding-a-carrier",
         "to": "/en/tutorial/shipping-policy"
       },
       {
-        "from": "/tutorial/building-a-freight-spreadsheet, importing-the-shipping-spreadsheet",
+        "from": "/tutorial/manage-carrier",
+        "to": "/en/tutorial/shipping-policy"
+      },
+      {
+        "from": "/tutorial/building-a-freight-spreadsheet",
         "to": "/en/tutorial/shipping-rate-template"
       },
       {
-        "from": "/tutorial/shipping-strategy, what-is-the-difference-between-inventory-and-warehouse-dock",
+        "from": "/tutorial/importing-the-shipping-spreadsheet",
+        "to": "/en/tutorial/shipping-rate-template"
+      },
+      {
+        "from": "/tutorial/what-is-the-difference-between-inventory-and-warehouse-dock",
         "to": "/en/tutorial/shipping-strategy"
       },
       {
@@ -10160,7 +10256,11 @@
         "to": "/en/tutorial/enabling-local-stock-sale-in-vtex-sales-app"
       },
       {
-        "from": "/tutorial/guide-to-integration-of-oms-with-electronic-tax-coupon-for-vtex-instore,guide-to-integration-of-orders-managment-with-electronic-tax-coupon-for-vtex-instore",
+        "from": "/tutorial/guide-to-integration-of-oms-with-electronic-tax-coupon-for-vtex-instore",
+        "to": "/en/tutorial/guide-to-integration-of-orders-managment-with-electronic-tax-coupon-for-vtex-sales-app"
+      },
+      {
+        "from": "/tutorial/guide-to-integration-of-orders-managment-with-electronic-tax-coupon-for-vtex-instore",
         "to": "/en/tutorial/guide-to-integration-of-orders-managment-with-electronic-tax-coupon-for-vtex-sales-app"
       },
       {
@@ -10177,167 +10277,183 @@
       },
       {
         "from": "/announcements/nova-api-do-master-data-aumenta-flexibilidade-de-configuracao",
-        "to": "/es/announcements/la-nueva-api-del-master-data-aumenta-la-flexibilidad-de-configuracion"
+        "to": "/es/announcements/2017-12-22-la-nueva-api-del-master-data-aumenta-la-flexibilidad-de-configuracion"
       },
       {
         "from": "/announcements/nueva-versión-de-smartcheckout-tm-ha-sido-lanzada-para-todas-las-tiendas",
-        "to": "/es/announcements/nueva-version-de-smartcheckout-tm-ha-sido-lanzada-para-todas-las-tiendas"
+        "to": "/es/announcements/2018-01-12-nueva-version-de-smartcheckout-tm-ha-sido-lanzada-para-todas-las-tiendas"
       },
       {
         "from": "/announcements/Nuevo-objeto-devuelto-en-API-Get-Order-itemMetadata",
-        "to": "/es/announcements/nuevo-objeto-devuelto-en-api-get-order-itemmetadata"
+        "to": "/es/announcements/2019-04-08-nuevo-objeto-devuelto-en-api-get-order-itemmetadata"
       },
       {
         "from": "/announcements/garanta-mais-seguranca-e-controle-na-tela-de-autorizacao-de-pedidos",
-        "to": "/es/announcements/garantice-mas-seguridad-y-control-en-la-pantalla-de-autorizacion-de-pedidos"
+        "to": "/es/announcements/2019-06-06-garantice-mas-seguridad-y-control-en-la-pantalla-de-autorizacion-de-pedidos"
       },
       {
         "from": "/announcements/descontinuacion-del-status-del-pedido-de-fulfillment-order-completed-order",
-        "to": "/es/announcements/descontinuacao-dos-status-dos-pedidos-de-fulfillment-order-completed-order"
+        "to": "/es/announcements/2019-06-12-descontinuacao-dos-status-dos-pedidos-de-fulfillment-order-completed-order"
       },
       {
         "from": "/announcements/Json-de-Get-Order-entrega-ahora-nuevas-variables-de-calculos-de-pedido",
-        "to": "/es/announcements/json-de-get-order-entrega-ahora-nuevas-variables-de-calculos-de-pedido"
+        "to": "/es/announcements/2019-03-20-json-de-get-order-entrega-ahora-nuevas-variables-de-calculos-de-pedido"
       },
       {
         "from": "/announcements/cambio-en-el-formato-del-campo-authorized-date-de-la-plantilla-de",
-        "to": "/es/announcements/cambio-en-el-formato-del-campo-authorized-date"
+        "to": "/es/announcements/2019-05-23-cambio-en-el-formato-del-campo-authorized-date"
       },
       {
         "from": "/announcements/obtenga-mas-practicidad-para-registrar-precios-por-plantilla-utilizando-metadatos-de-skus",
-        "to": "/es/announcements/obtenga-mas-practicidad-para-registrar-precios-por-plantilla-utilizando-metadatos-de-skus."
+        "to": "/es/announcements/2019-05-27-obtenga-mas-practicidad-para-registrar-precios-por-plantilla-utilizando-metadatos-de-skus."
       },
       {
         "from": "/announcements/mais-tempo-para-adaptar-as-requisicoes-de-front-end-da-sua-loja-ao-master",
-        "to": "/es/announcements/mas-tiempo-para-adaptar-las-solicitudes-de-front-end-de-su-tienda-al-master-data"
+        "to": "/es/announcements/2019-09-24-mas-tiempo-para-adaptar-las-solicitudes-de-front-end-de-su-tienda-al-master-data"
       },
       {
         "from": "/announcements/cambio-en-el-envio-de-productos-a-via-varejo",
-        "to": "/es/announcements/mapeo-de-categorias-ahora-obligatorio-para-via-varejo-marketplace"
+        "to": "/es/announcements/2020-04-06-mapeo-de-categorias-ahora-obligatorio-para-via-varejo-marketplace"
       },
       {
-        "from": "/announcements/el-modulo-pricing-v1-sera-descontinuado-actualice-su-tienda-hasta-el-fin-de, el-modulo-pricing-v1-sera-descontinuado-actualice-su-tienda",
-        "to": "/es/announcements/el-modulo-pricing-v1-sera-descontinuado-actualice-su-tienda"
+        "from": "/announcements/el-modulo-pricing-v1-sera-descontinuado-actualice-su-tienda-hasta-el-fin-de",
+        "to": "/es/announcements/2020-08-14-el-modulo-pricing-v1-sera-descontinuado-actualice-su-tienda"
       },
       {
         "from": "/announcements/flujo-de-autenticacion-3ds2-acepte-pagos-en-linea-de-forma-mas-segura",
-        "to": "/es/announcements/flujo-de-autenticacion-3ds2-acepte-pagos-en-linea-de-forma-mas-segura-1"
+        "to": "/es/announcements/2020-12-21-flujo-de-autenticacion-3ds2-acepte-pagos-en-linea-de-forma-mas-segura-1"
       },
       {
-        "from": "/announcements/guia-de-integracion-de-erps-pedidos, guia-de-integracion-de-erps-catalogo-expreso, guia-de-integracion-de-erps-catalogo-completo, guia-de-integracion-de-erps-arquitectura-del-catalogo, interfaces-de-integracion",
-        "to": "/es/announcements/guias-de-integracion-con-erp-tienen-una-nueva-casa"
+        "from": "/announcements/guia-de-integracion-de-erps-pedidos",
+        "to": "/es/announcements/2020-06-03-guias-de-integracion-con-erp-tienen-una-nueva-casa"
+      },
+      {
+        "from": "/announcements/guia-de-integracion-de-erps-catalogo-expreso",
+        "to": "/es/announcements/2020-06-03-guias-de-integracion-con-erp-tienen-una-nueva-casa"
+      },
+      {
+        "from": "/announcements/guia-de-integracion-de-erps-catalogo-completo",
+        "to": "/es/announcements/2020-06-03-guias-de-integracion-con-erp-tienen-una-nueva-casa"
+      },
+      {
+        "from": "/announcements/guia-de-integracion-de-erps-arquitectura-del-catalogo",
+        "to": "/es/announcements/2020-06-03-guias-de-integracion-con-erp-tienen-una-nueva-casa"
+      },
+      {
+        "from": "/announcements/interfaces-de-integracion",
+        "to": "/es/announcements/2020-06-03-guias-de-integracion-con-erp-tienen-una-nueva-casa"
       },
       {
         "from": "/announcements/la-informacion-de-ip-y-geolocalizacion-ahora-esta-disponible-en-codigos-de",
-        "to": "/es/announcements/la-informacion-de-ip-y-geolocalizacion-ahora-esta-disponible-en-los-emails-que-contienen-el-codigo-de-acceso-al-admin"
+        "to": "/es/announcements/2020-11-12-la-informacion-de-ip-y-geolocalizacion-ahora-esta-disponible-en-los-emails-que-contienen-el-codigo-de-acceso-al-admin"
       },
       {
-        "from": "/announcements/novedades-sobre-como-configurar-los-proveedores-de-login-para-su-tienda, novedad-sobre-como-configurar-proveedores-de-inicio-de-sesion-para-su-tienda",
-        "to": "/es/announcements/novedad-sobre-como-configurar-proveedores-de-inicio-de-sesion-para-su-tienda"
+        "from": "/announcements/novedades-sobre-como-configurar-los-proveedores-de-login-para-su-tienda",
+        "to": "/es/announcements/2020-10-06-novedad-sobre-como-configurar-proveedores-de-inicio-de-sesion-para-su-tienda"
       },
       {
         "from": "/announcements/inventario-y-envio-entienda-lo-que-cambio-en-la-pestana-gestion-del",
-        "to": "/es/announcements/inventario-y-envio-entienda-lo-que-cambio-en-la-pestana-gestion-del-inventario"
+        "to": "/es/announcements/2020-10-29-inventario-y-envio-entienda-lo-que-cambio-en-la-pestana-gestion-del-inventario"
       },
       {
         "from": "/announcements/restriccion-de-sellers-cree-promociones-con-un-mayor-control-de-los-sellers-impactados",
-        "to": "/es/announcements/restriccion-de-sellers-cree-promociones-con-un-mayor-control-de-los-sellers"
+        "to": "/es/announcements/2020-10-29-restriccion-de-sellers-cree-promociones-con-un-mayor-control-de-los-sellers"
       },
       {
         "from": "/announcements/nueva-pantalla-performance-de-vtex-log",
-        "to": "/es/announcements/nueva-pantalla-performance-de-vtex-shipping-network"
+        "to": "/es/announcements/2021-04-07-nueva-pantalla-performance-de-vtex-shipping-network"
       },
       {
         "from": "/announcements/seguridad-de-tus-promociones",
-        "to": "/es/announcements/seguridad-de-tus-promociones-revisa-la-configuracion-antes-de-activarlas"
+        "to": "/es/announcements/2021-12-13-seguridad-de-tus-promociones-revisa-la-configuracion-antes-de-activarlas"
       },
       {
         "from": "/announcements/nuevo-modulo-de-suscripciones",
-        "to": "/es/announcements/nuevo-modulo-suscripciones"
+        "to": "/es/announcements/2021-02-02-nuevo-modulo-suscripciones"
       },
       {
         "from": "/announcements/konnichiwa-admin-ahora-disponible-en-japones",
-        "to": "/es/announcements/admin-disponivel-em-japones"
+        "to": "/es/announcements/2021-03-02-admin-disponivel-em-japones"
       },
       {
         "from": "/announcements/conformidad-con-ada-y-wcag-en-vtex",
-        "to": "/es/announcements/conformidad-ada-y-wcag-con-accessibe"
+        "to": "/es/announcements/2021-03-09-conformidad-ada-y-wcag-con-accessibe"
       },
       {
         "from": "/announcements/la-nueva-interfaz-del-modulo-de-pedidos-sera-oficial",
-        "to": "/es/announcements/nueva-interfaz-modulo-pedidos-oficial"
+        "to": "/es/announcements/2022-12-08-nueva-interfaz-modulo-pedidos-oficial"
       },
       {
         "from": "/announcements/assembly-options-nueva-aplicacion-para-facilitar-la-personalizacion-de",
-        "to": "/es/announcements/assembly-options-nueva-aplicacion-para-facilitar-la-personalizacion-de-productos"
+        "to": "/es/announcements/2022-06-22-assembly-options-nueva-aplicacion-para-facilitar-la-personalizacion-de-productos"
       },
       {
         "from": "/announcements/marketplace-network-e-integraciones-ahora-en-una-sola-pagina",
-        "to": "/es/announcements/marketplacenetwork-e-integraciones-ahora-en-una-sola-pagina"
+        "to": "/es/announcements/2023-04-18-marketplacenetwork-e-integraciones-ahora-en-una-sola-pagina"
       },
       {
         "from": "/announcements/de-as-boas-vindas-ao-novo-admin-vtex",
-        "to": "/es/announcements/bienvenido-al-nuevo-admin-vtex-new"
+        "to": "/es/announcements/2023-04-20-bienvenido-al-nuevo-admin-vtex-new"
       },
       {
         "from": "/announcements/store-framework-cms-nuevo-permiso-necesario-para-gestionar-redirecciones",
-        "to": "/es/announcements/store-framework-cms-nuevo-permiso-para-gestionar-redirecciones"
+        "to": "/es/announcements/2023-08-31-store-framework-cms-nuevo-permiso-para-gestionar-redirecciones"
       },
       {
         "from": "/announcements/match-de-anuncios-amazon",
-        "to": "/es/announcements/integracion-con-amazon-match-de-anuncios-amazon"
+        "to": "/es/announcements/2023-07-04-integracion-con-amazon-match-de-anuncios-amazon"
       },
       {
         "from": "/announcements/la-validacion-con-recaptcha-ahora-seguira-la-configuracion-del-orderform-en",
-        "to": "/es/announcements/validacion-con-recaptcha-seguira-la-configuracion-del-orderform-en-todos-los-requests"
+        "to": "/es/announcements/2023-07-04-validacion-con-recaptcha-seguira-la-configuracion-del-orderform-en-todos-los-requests"
       },
       {
         "from": "/announcements/now-you-can-search-for-orders-in-the-vtex-admin-global-search-bar",
-        "to": "/es/announcements/barra-de-busqueda-global-del-admin-vtex-ahora-permite-buscar-pedidos"
+        "to": "/es/announcements/2023-10-17-barra-de-busqueda-global-del-admin-vtex-ahora-permite-buscar-pedidos"
       },
       {
         "from": "/announcements/discontinuacion-del-modulo-rendimiento-de-paginas-web",
-        "to": "/es/announcements/discontinuacion-rendimiento-de-paginas-web"
+        "to": "/es/announcements/2024-05-29-discontinuacion-rendimiento-de-paginas-web"
       },
       {
         "from": "/announcements/amazon-el-modelo-de-mapeo-de-productos-actual-sera-descontinuado",
-        "to": "/es/announcements/amazon-modelo-de-mapeo-actual-sera-descontinuado"
+        "to": "/es/announcements/2025-02-19-amazon-modelo-de-mapeo-actual-sera-descontinuado"
       },
       {
         "from": "/announcements/vtex-shield-nuevas-capas-de-proteccion-con-certificados-ssl-personalizados-y",
-        "to": "/es/announcements/vtex-shield-nuevas-capas-de-proteccion-con-certificados-ssl-personalizados-y-mtls"
+        "to": "/es/announcements/2025-07-22-vtex-shield-nuevas-capas-de-proteccion-con-certificados-ssl-personalizados-y-mtls"
       },
       {
         "from": "/announcements/amazon-exportacion-de-facturas-de-pedidos-fba",
-        "to": "/es/announcements/facturas-amazon-fba"
+        "to": "/es/announcements/2025-07-29-facturas-amazon-fba"
       },
       {
         "from": "/announcements/vtex-io-apps-fin-del-soporte-tecnico-para-aplicaciones-heredadas",
-        "to": "/es/announcements/aplicaciones-vtex-io-descontinuacion-del-soporte-tecnico-para-aplicaciones-heredadas"
+        "to": "/es/announcements/2025-06-06-aplicaciones-vtex-io-descontinuacion-del-soporte-tecnico-para-aplicaciones-heredadas"
       },
       {
         "from": "/announcements/amazon-listing-nuevo-modelo-de-registro-de-productos",
-        "to": "/es/announcements/amazon-listing-registro-de-productos"
+        "to": "/es/announcements/2025-03-31-amazon-listing-registro-de-productos"
       },
       {
         "from": "/announcements/conversation-tracker-nueva-validez-de-email",
-        "to": "/es/announcements/nueva-validez-de-email-de-conversation-tracker"
+        "to": "/es/announcements/2025-03-31-nueva-validez-de-email-de-conversation-tracker"
       },
       {
         "from": "/announcements/documentacion-de-weni-by-vtex-en-el-help-center",
-        "to": "/es/announcements/documentacion-weni-by-vtex-en-el-help-center"
+        "to": "/es/announcements/2025-10-01-documentacion-weni-by-vtex-en-el-help-center"
       },
       {
         "from": "/announcements/mercado-libre-asignacion-de-almacen",
-        "to": "/es/announcements/asignacion-de-almacen"
+        "to": "/es/announcements/2025-10-02-asignacion-de-almacen"
       },
       {
         "from": "/announcements/mercado-libre-feriados",
-        "to": "/es/announcements/mercado-libre-feriados-announcement-es"
+        "to": "/es/announcements/2025-10-02-mercado-libre-feriados-announcement-es"
       },
       {
         "from": "/announcements/mercado-libre-smart-pricing",
-        "to": "/es/announcements/mercado-libre-smart-pricing-es"
+        "to": "/es/announcements/2025-10-02-mercado-libre-precios-inteligentes"
       },
       {
         "from": "/faq/untitled-entry-2019-03-26-at-07-10-38",
@@ -10416,7 +10532,7 @@
         "to": "/es/faq/por-que-veo-varios-emails-transaccionales-repetidos-en-un-pedido"
       },
       {
-        "from": "/faq/como-bloquear-customizacoes-para-investigar-problemas-no-front-end-da-loja, como-bloquear-personalizaciones-para-investigar-problemas-en-el-front-end-de-la-tienda",
+        "from": "/faq/como-bloquear-customizacoes-para-investigar-problemas-no-front-end-da-loja",
         "to": "/es/faq/como-bloquear-personalizaciones-para-investigar-problemas-en-el-front-end-de-la-tienda"
       },
       {
@@ -10460,11 +10576,15 @@
         "to": "/es/tutorial/autenticacion"
       },
       {
-        "from": "/tutorial/integracion-google-y-facebook-en-smartcheckout, configurar-login-con-facebook-y-google",
+        "from": "/tutorial/integracion-google-y-facebook-en-smartcheckout",
         "to": "/es/tutorial/configurar-inicio-de-sesion-con-facebook-y-google"
       },
       {
-        "from": "/tutorial/registrar-client-id-y-client-secret-para-login-con-google, registrar-client-id-y-client-secret-para-inicio-de-sesion-con-google",
+        "from": "/tutorial/configurar-login-con-facebook-y-google",
+        "to": "/es/tutorial/configurar-inicio-de-sesion-con-facebook-y-google"
+      },
+      {
+        "from": "/tutorial/registrar-client-id-y-client-secret-para-login-con-google",
         "to": "/es/tutorial/registrar-client-id-y-client-secret-para-inicio-de-sesion-con-google"
       },
       {
@@ -10494,6 +10614,10 @@
       {
         "from": "/tutorial/modulo-localidades",
         "to": "/es/tutorial/capacidad-operacional-beta"
+      },
+      {
+        "from": "/tutorial/intelligent-search-busca-hibrida-beta",
+        "to": "/es/tutorial/intelligent-search-busca-semantica-beta"
       },
       {
         "from": "/tutorial/planner-acciones-en-los-lanzamientos-beta",
@@ -10572,7 +10696,7 @@
         "to": "/es/tutorial/agregar-o-editar-skus"
       },
       {
-        "from": "/tutorial/como-cambiar-la-relacion-sku-x-product, como-cambiar-la-relacion-entre-sku-y-producto",
+        "from": "/tutorial/como-cambiar-la-relacion-sku-x-product",
         "to": "/es/tutorial/como-cambiar-la-relacion-entre-sku-y-producto"
       },
       {
@@ -10628,7 +10752,11 @@
         "to": "/es/tutorial/como-se-realiza-el-prorrateo-del-flete"
       },
       {
-        "from": "/tutorial/guia-de-integracion-del-oms-con-cupon-fiscal-electronico-para-el-vtex-instore,guia-de-integracion-del-gerenciamento-de-pedidos-con-cupon-fiscal-electronico-para-el-vtex-instore",
+        "from": "/tutorial/guia-de-integracion-del-oms-con-cupon-fiscal-electronico-para-el-vtex-instore",
+        "to": "/es/tutorial/guia-de-integracion-del-gerenciamento-de-pedidos-con-cupon-fiscal-electronico-para-el-vtex-sales-app"
+      },
+      {
+        "from": "/tutorial/guia-de-integracion-del-gerenciamento-de-pedidos-con-cupon-fiscal-electronico-para-el-vtex-instore",
         "to": "/es/tutorial/guia-de-integracion-del-gerenciamento-de-pedidos-con-cupon-fiscal-electronico-para-el-vtex-sales-app"
       },
       {
@@ -10708,7 +10836,7 @@
         "to": "/es/tutorial/configurar-la-alerta-de-stock-critico"
       },
       {
-        "from": "/tutorial/entrega-programada, como-se-maneja-la-entrega-programada",
+        "from": "/tutorial/como-se-maneja-la-entrega-programada",
         "to": "/es/tutorial/entrega-programada"
       },
       {
@@ -10716,11 +10844,11 @@
         "to": "/es/tutorial/como-funciona-el-calculo-del-envio"
       },
       {
-        "from": "/tutorial/estrategia-de-envio, cual-es-la-diferencia-entre-inventario-y-muelle",
+        "from": "/tutorial/cual-es-la-diferencia-entre-inventario-y-muelle",
         "to": "/es/tutorial/estrategia-de-envio"
       },
       {
-        "from": "/tutorial/gerenciar-inventario, gestionar-almacenes",
+        "from": "/tutorial/gerenciar-inventario",
         "to": "/es/tutorial/gestionar-almacenes"
       },
       {
@@ -10728,19 +10856,31 @@
         "to": "/es/tutorial/gestionar-el-muelle"
       },
       {
-        "from": "/tutorial/configurar-horario-de-funcionamiento-para-transportistas, configurar-los-horarios-de-la-transportadora",
+        "from": "/tutorial/configurar-horario-de-funcionamiento-para-transportistas",
         "to": "/es/tutorial/horario-de-atencion-de-las-transportadoras"
       },
       {
-        "from": "/tutorial/como-montar-la-plantilla-de-flete, importar-planilla-de-envio",
+        "from": "/tutorial/configurar-los-horarios-de-la-transportadora",
+        "to": "/es/tutorial/horario-de-atencion-de-las-transportadoras"
+      },
+      {
+        "from": "/tutorial/como-montar-la-plantilla-de-flete",
         "to": "/es/tutorial/plantilla-de-flete"
       },
       {
-        "from": "/tutorial/registrar-una-transportadora, administrar-operador",
+        "from": "/tutorial/importar-planilla-de-envio",
+        "to": "/es/tutorial/plantilla-de-flete"
+      },
+      {
+        "from": "/tutorial/registrar-una-transportadora",
         "to": "/es/tutorial/politica-de-envio"
       },
       {
-        "from": "/tutorial/cuales-transportistas-ponen-a-disposicion-el-rastreo-de-flete, que-transportadoras-ponen-a-disposicion-el-rastreo-de-pedido",
+        "from": "/tutorial/administrar-operador",
+        "to": "/es/tutorial/politica-de-envio"
+      },
+      {
+        "from": "/tutorial/cuales-transportistas-ponen-a-disposicion-el-rastreo-de-flete",
         "to": "/es/tutorial/que-transportadoras-ponen-a-disposicion-el-rastreo-de-pedido"
       },
       {
@@ -10748,11 +10888,15 @@
         "to": "/es/tutorial/transportadoras-en-vtex"
       },
       {
-        "from": "/tutorial/como-actualizar-inventario, actualizar-la-cantidad-de-skus-en-inventario",
+        "from": "/tutorial/como-actualizar-inventario",
         "to": "/es/tutorial/actualization-de-la-cantidad-de-items-en-stock"
       },
       {
-        "from": "/tutorial/como-se-maneja-la-reserva, analizar-las-reservas-de-un-producto",
+        "from": "/tutorial/actualizar-la-cantidad-de-skus-en-inventario",
+        "to": "/es/tutorial/actualization-de-la-cantidad-de-items-en-stock"
+      },
+      {
+        "from": "/tutorial/analizar-las-reservas-de-un-producto",
         "to": "/es/tutorial/como-se-maneja-la-reserva"
       },
       {
@@ -10764,7 +10908,11 @@
         "to": "/es/tutorial/puntos-de-recogida"
       },
       {
-        "from": "/tutorial/como-importar-puntos-de-recogida-pickup-points-por-planilla, configurar-puntos-de-recogida-pickup-points",
+        "from": "/tutorial/como-importar-puntos-de-recogida-pickup-points-por-planilla",
+        "to": "/es/tutorial/registro-de-puntos-de-recogida"
+      },
+      {
+        "from": "/tutorial/configurar-puntos-de-recogida-pickup-points",
         "to": "/es/tutorial/registro-de-puntos-de-recogida"
       },
       {
@@ -10772,7 +10920,7 @@
         "to": "/es/tutorial/simulador-de-envio"
       },
       {
-        "from": "/tutorial/adicionales-de-flete, como-funciona-el-valor-adicional-en-el-flete",
+        "from": "/tutorial/como-funciona-el-valor-adicional-en-el-flete",
         "to": "/es/tutorial/adicionales-de-flete"
       },
       {
@@ -10852,7 +11000,11 @@
         "to": "/es/tutorial/roles-de-usuario-predefinidos"
       },
       {
-        "from": "/tutorial/como-crear-perfil-de-acceso, perfiles-de-acceso",
+        "from": "/tutorial/como-crear-perfil-de-acceso",
+        "to": "/es/tutorial/roles"
+      },
+      {
+        "from": "/tutorial/perfiles-de-acceso",
         "to": "/es/tutorial/roles"
       },
       {
@@ -10876,7 +11028,7 @@
         "to": "/es/tutorial/acceda-al-carrito-abandonado-de-los-clientes"
       },
       {
-        "from": "/tutorial/creando-usuarios, gestionar-usuarios",
+        "from": "/tutorial/creando-usuarios",
         "to": "/es/tutorial/gestionar-usuarios"
       },
       {
@@ -10916,7 +11068,15 @@
         "to": "/es/tutorial/acuerdo-de-nivel-de-servicio-sla-para-la-operacion-de-vtex"
       },
       {
-        "from": "/tutorial/untitled-entry-2019-01-14-at-07-58-58, status-vtex-entienda-como-funciona-el-status-de-la-plataforma, pagina-de-status-de-la-plataforma",
+        "from": "/tutorial/untitled-entry-2019-01-14-at-07-58-58",
+        "to": "/es/tutorial/pagina-vtex-status"
+      },
+      {
+        "from": "/tutorial/status-vtex-entienda-como-funciona-el-status-de-la-plataforma",
+        "to": "/es/tutorial/pagina-vtex-status"
+      },
+      {
+        "from": "/tutorial/pagina-de-status-de-la-plataforma",
         "to": "/es/tutorial/pagina-vtex-status"
       },
       {
@@ -11012,11 +11172,15 @@
         "to": "/es/tutorial/agregar-un-registro-en-un-formulario-de-master-data"
       },
       {
-        "from": "/tutorial/aceptacion-clientes, aprobacion-clientes",
+        "from": "/tutorial/aceptacion-clientes",
         "to": "/es/tutorial/aprobacion-de-clientes"
       },
       {
-        "from": "/tutorial/configurar-las-promociones-para-empleados-usando-clusters-de-master-data, configurar-los-beneficios-para-empleados-usando-clusters-de-master-data",
+        "from": "/tutorial/aprobacion-clientes",
+        "to": "/es/tutorial/aprobacion-de-clientes"
+      },
+      {
+        "from": "/tutorial/configurar-las-promociones-para-empleados-usando-clusters-de-master-data",
         "to": "/es/tutorial/configurar-los-beneficios-para-empleados-usando-clusters-de-master-data"
       },
       {
@@ -11100,7 +11264,11 @@
         "to": "/es/tutorial/flujo-de-la-transaccion-en-pagos"
       },
       {
-        "from": "/tutorial/permitir-cambios-de-pedidos-ya-cerrados, como-funciona-la-sustitucion-de-pedidos",
+        "from": "/tutorial/permitir-cambios-de-pedidos-ya-cerrados",
+        "to": "/es/tutorial/cambio-de-pedido"
+      },
+      {
+        "from": "/tutorial/como-funciona-la-sustitucion-de-pedidos",
         "to": "/es/tutorial/cambio-de-pedido"
       },
       {
@@ -11132,7 +11300,11 @@
         "to": "/es/tutorial/calcular-ingresos-a-partir-de-la-planilla-exportada-del-modulo-pedidos"
       },
       {
-        "from": "/tutorial/como-hacer-la-alteracion-de-items, modificar-pedidos-completados",
+        "from": "/tutorial/como-hacer-la-alteracion-de-items",
+        "to": "/es/tutorial/cambiar-items-de-un-pedido-finalizado"
+      },
+      {
+        "from": "/tutorial/modificar-pedidos-completados",
         "to": "/es/tutorial/cambiar-items-de-un-pedido-finalizado"
       },
       {
@@ -11332,7 +11504,7 @@
         "to": "/es/tutorial/headless-cms-vision-general"
       },
       {
-        "from": "/tutorial/como-funciona-el-contexto-de-busqueda, como-crear-landing-pages-con-urls-personalizadas",
+        "from": "/tutorial/como-funciona-el-contexto-de-busqueda",
         "to": "/es/tutorial/como-crear-landing-pages-con-urls-personalizadas"
       },
       {
@@ -11433,107 +11605,123 @@
       },
       {
         "from": "/announcements/mudanca-no-formato-do-campo-authorized-date-da-planilha-de-exportacao-de",
-        "to": "/pt/announcements/mudanca-no-formato-do-campo-authorized-date"
+        "to": "/pt/announcements/2019-05-23-mudanca-no-formato-do-campo-authorized-date"
       },
       {
         "from": "/announcements/tenha-mais-praticidade-para-cadastrar-precos-por-planilha-utilizando-metadados-dos-SKUs",
-        "to": "/pt/announcements/tenha-mais-praticidade-para-cadastrar-precos-por-planilha-utilizando"
+        "to": "/pt/announcements/2019-05-27-tenha-mais-praticidade-para-cadastrar-precos-por-planilha-utilizando"
       },
       {
         "from": "/announcements/mais-tempo-para-adaptar-as-requisicoes-de-front-end-da-sua-loja",
-        "to": "/pt/announcements/mais-tempo-para-adaptar-as-requisicoes-de-front-end-da-sua-loja-ao-master"
+        "to": "/pt/announcements/2019-09-24-mais-tempo-para-adaptar-as-requisicoes-de-front-end-da-sua-loja-ao-master"
       },
       {
         "from": "/announcements/mudanca-no-envio-de-produtos-para-a-via-varejo",
-        "to": "/pt/announcements/mapeamento-de-categorias-agora-obrigatorio-para-via-varejo-marketplace"
+        "to": "/pt/announcements/2020-04-06-mapeamento-de-categorias-agora-obrigatorio-para-via-varejo-marketplace"
       },
       {
         "from": "/announcements/indexador-melhorias-de-desempenho-para-o-catalogo",
-        "to": "/pt/announcements/indexador-melhorias-desempenho-catalogo"
+        "to": "/pt/announcements/2020-08-04-indexador-melhorias-desempenho-catalogo"
       },
       {
         "from": "/announcements/novo-modulo-de-colecoes-beta",
-        "to": "/pt/announcements/novo-modulo-de-colecoes-beta-crie-e-gerencie-colecoes-de-produto-com"
+        "to": "/pt/announcements/2020-12-15-novo-modulo-de-colecoes-beta-crie-e-gerencie-colecoes-de-produto-com"
       },
       {
-        "from": "/announcements/guia-de-integracao-de-erps-pedidos, guia-de-integracao-de-erps-catalogo-expresso, guia-de-integracao-de-erps-catalogo-completo, guia-de-integracao-de-erps-arquitetura-do-catalogo, interfaces-de-integracao",
-        "to": "/pt/announcements/guias-de-integracao-com-erp-tem-uma-nova-casa"
+        "from": "/announcements/guia-de-integracao-de-erps-pedidos",
+        "to": "/pt/announcements/2020-06-03-guias-de-integracao-com-erp-tem-uma-nova-casa"
+      },
+      {
+        "from": "/announcements/guia-de-integracao-de-erps-catalogo-expresso",
+        "to": "/pt/announcements/2020-06-03-guias-de-integracao-com-erp-tem-uma-nova-casa"
+      },
+      {
+        "from": "/announcements/guia-de-integracao-de-erps-catalogo-completo",
+        "to": "/pt/announcements/2020-06-03-guias-de-integracao-com-erp-tem-uma-nova-casa"
+      },
+      {
+        "from": "/announcements/guia-de-integracao-de-erps-arquitetura-do-catalogo",
+        "to": "/pt/announcements/2020-06-03-guias-de-integracao-com-erp-tem-uma-nova-casa"
+      },
+      {
+        "from": "/announcements/interfaces-de-integracao",
+        "to": "/pt/announcements/2020-06-03-guias-de-integracao-com-erp-tem-uma-nova-casa"
       },
       {
         "from": "/announcements/vtex-intelligent-search-exporte-relatorios-mais-completos-sobre-os",
-        "to": "/pt/announcements/vtex-intelligent-search-exporte-relatorios-mais-completos-sobre-os-resultados-de-pesquisa"
+        "to": "/pt/announcements/2020-06-30-vtex-intelligent-search-exporte-relatorios-mais-completos-sobre-os-resultados-de-pesquisa"
       },
       {
         "from": "/announcements/nova-tela-de-performance-vtex-log",
-        "to": "/pt/announcements/nova-tela-de-performance-vtex-shipping-network"
+        "to": "/pt/announcements/2021-04-07-nova-tela-de-performance-vtex-shipping-network"
       },
       {
         "from": "/announcements/seguranca-nas-suas-promocoes",
-        "to": "/pt/announcements/seguranca-nas-suas-promocoes-revise-suas-configuracoes-antes-de-ativa-las"
+        "to": "/pt/announcements/2021-12-13-seguranca-nas-suas-promocoes-revise-suas-configuracoes-antes-de-ativa-las"
       },
       {
         "from": "/announcements/novo-modulo-de-assinaturas",
-        "to": "/pt/announcements/novo-modulo-assinaturas"
+        "to": "/pt/announcements/2021-02-02-novo-modulo-assinaturas"
       },
       {
         "from": "/announcements/codigo-do-vendedor-evolucoes-na-customizacao-do-instore",
-        "to": "/pt/announcements/codigo-vendedor-evolucoes-customizacao-instore"
+        "to": "/pt/announcements/2021-02-04-codigo-vendedor-evolucoes-customizacao-instore"
       },
       {
         "from": "/announcements/a-navegacao-no-admin-agora-e-restrita-de-acordo-com-o-perfil-de-acesso-do",
-        "to": "/pt/announcements/navegacao-no-admin-agora-e-restrita-de-acordo-com-o-perfil-de-acesso-do-usuario"
+        "to": "/pt/announcements/2021-05-03-navegacao-no-admin-agora-e-restrita-de-acordo-com-o-perfil-de-acesso-do-usuario"
       },
       {
         "from": "/announcements/konnichiwa-admin-agora-disponivel-em-japones",
-        "to": "/pt/announcements/admin-disponivel-em-japones"
+        "to": "/pt/announcements/2021-03-02-admin-disponivel-em-japones"
       },
       {
         "from": "/announcements/a-nova-interface-do-modulo-de-pedidos-sera-oficial",
-        "to": "/pt/announcements/nova-interface-modulo-pedidos-oficial"
+        "to": "/pt/announcements/2022-12-08-nova-interface-modulo-pedidos-oficial"
       },
       {
         "from": "/announcements/match-de-anuncios-amazon",
-        "to": "/pt/announcements/integracao-amazon-match-de-anuncios-amazon"
+        "to": "/pt/announcements/2023-07-04-integracao-amazon-match-de-anuncios-amazon"
       },
       {
         "from": "/announcements/a-validacao-do-recaptcha-agora-seguira-a-configuracao-do-orderform-para",
-        "to": "/pt/announcements/validacao-recaptcha-agora-seguira-a-configuracao-do-orderform-para-todas-as-solicitacoes"
+        "to": "/pt/announcements/2023-07-04-validacao-recaptcha-agora-seguira-a-configuracao-do-orderform-para-todas-as-solicitacoes"
       },
       {
         "from": "/announcements/descontinuacao-do-modulo-performance-de-paginas-web",
-        "to": "/pt/announcements/descontinuacao-performance-de-paginas-web"
+        "to": "/pt/announcements/2024-05-29-descontinuacao-performance-de-paginas-web"
       },
       {
         "from": "/announcements/amazon-atual-modelo-de-mapeamento-de-produtos-sera-descontinuado",
-        "to": "/pt/announcements/amazon-atual-modelo-de-mapeamento-sera-descontinuado"
+        "to": "/pt/announcements/2025-02-19-amazon-atual-modelo-de-mapeamento-sera-descontinuado"
       },
       {
         "from": "/announcements/vtex-shield-novas-camadas-de-protecao-com-certificados-ssl-customizados-e",
-        "to": "/pt/announcements/vtex-shield-novas-camadas-de-protecao-com-certificados-ssl-customizados-e-mtls"
+        "to": "/pt/announcements/2025-07-22-vtex-shield-novas-camadas-de-protecao-com-certificados-ssl-customizados-e-mtls"
       },
       {
         "from": "/announcements/amazon-exportacao-de-notas-fiscais-de-pedidos-fba",
-        "to": "/pt/announcements/amazon-notas-fiscais-fba"
+        "to": "/pt/announcements/2025-07-29-amazon-notas-fiscais-fba"
       },
       {
         "from": "/announcements/amazon-listing-novo-modelo-de-cadastro-de-produtos",
-        "to": "/pt/announcements/amazon-listing-cadastro-de-produtos"
+        "to": "/pt/announcements/2025-03-31-amazon-listing-cadastro-de-produtos"
       },
       {
         "from": "/announcements/conversation-tracker-nova-validade-de-email",
-        "to": "/pt/announcements/nova-validade-de-email-do-conversation-tracker"
+        "to": "/pt/announcements/2025-03-31-nova-validade-de-email-do-conversation-tracker"
       },
       {
         "from": "/announcements/documentacao-da-weni-by-vtex-no-help-center",
-        "to": "/pt/announcements/documentacao-weni-by-vtex-no-help-center"
+        "to": "/pt/announcements/2025-10-01-documentacao-weni-by-vtex-no-help-center"
       },
       {
         "from": "/announcements/mercado-livre-atribuicao-de-estoque",
-        "to": "/pt/announcements/atribuicao-de-estoque"
+        "to": "/pt/announcements/2025-10-02-atribuicao-de-estoque"
       },
       {
         "from": "/announcements/mercado-livre-feriados",
-        "to": "/pt/announcements/mercado-livre-feriados-announcement-pt"
+        "to": "/pt/announcements/2025-10-02-mercado-livre-feriados-announcement-pt"
       },
       {
         "from": "/faq/por-que-meus-pedidos-não-integram-com-o-mercado-livre",
@@ -11684,6 +11872,10 @@
         "to": "/pt/tutorial/capacidade-operacional-beta"
       },
       {
+        "from": "/tutorial/intelligent-search-busca-hibrida-beta",
+        "to": "/pt/tutorial/intelligent-search-busca-semantica-beta"
+      },
+      {
         "from": "/tutorial/catalogo-vtex-data-pipeline-beta",
         "to": "/pt/tutorial/dicionario-vtex-data-pipeline-beta"
       },
@@ -11776,7 +11968,11 @@
         "to": "/pt/tutorial/caracteristicas-gerais-smartcheckout-v5"
       },
       {
-        "from": "/tutorial/guia-de-integracao-do-oms-com-cf-e-para-o-vtex-instore,guia-de-integracao-do-gerenciamento-de-pedidos-com-cf-e-para-o-vtex-instore",
+        "from": "/tutorial/guia-de-integracao-do-oms-com-cf-e-para-o-vtex-instore",
+        "to": "/pt/tutorial/guia-de-integracao-do-gerenciamento-de-pedidos-com-cf-e-para-o-vtex-sales-app"
+      },
+      {
+        "from": "/tutorial/guia-de-integracao-do-gerenciamento-de-pedidos-com-cf-e-para-o-vtex-instore",
         "to": "/pt/tutorial/guia-de-integracao-do-gerenciamento-de-pedidos-com-cf-e-para-o-vtex-sales-app"
       },
       {
@@ -11852,11 +12048,15 @@
         "to": "/pt/tutorial/zapier-suiteshare"
       },
       {
-        "from": "/tutorial/entrega-agendada, como-funciona-a-entrega-agendada",
+        "from": "/tutorial/como-funciona-a-entrega-agendada",
         "to": "/pt/tutorial/entrega-agendada"
       },
       {
-        "from": "/tutorial/como-funciona-a-regra-de-prioridade-no-calculo-do-frete, teste-legacy-slug",
+        "from": "/tutorial/como-funciona-a-regra-de-prioridade-no-calculo-do-frete",
+        "to": "/pt/tutorial/como-funciona-o-calculo-de-envio"
+      },
+      {
+        "from": "/tutorial/teste-legacy-slug",
         "to": "/pt/tutorial/como-funciona-o-calculo-de-envio"
       },
       {
@@ -11864,7 +12064,7 @@
         "to": "/pt/tutorial/como-funciona-o-tipo-de-envio"
       },
       {
-        "from": "/tutorial/estrategia-de-envio, qual-a-diferenca-entre-estoque-e-doca",
+        "from": "/tutorial/qual-a-diferenca-entre-estoque-e-doca",
         "to": "/pt/tutorial/estrategia-de-envio"
       },
       {
@@ -11872,15 +12072,27 @@
         "to": "/pt/tutorial/gerenciar-doca"
       },
       {
-        "from": "/tutorial/configurar-horario-de-funcionamento-para-transportadoras, configurar-o-horario-de-corte-da-transportadora",
+        "from": "/tutorial/configurar-horario-de-funcionamento-para-transportadoras",
         "to": "/pt/tutorial/horario-de-funcionamento-das-transportadoras"
       },
       {
-        "from": "/tutorial/como-montar-a-planilha-de-frete, importar-planilha-de-frete",
+        "from": "/tutorial/configurar-o-horario-de-corte-da-transportadora",
+        "to": "/pt/tutorial/horario-de-funcionamento-das-transportadoras"
+      },
+      {
+        "from": "/tutorial/como-montar-a-planilha-de-frete",
         "to": "/pt/tutorial/planilha-de-frete"
       },
       {
-        "from": "/tutorial/cadastrar-transportadora, gerenciar-transportadora",
+        "from": "/tutorial/importar-planilha-de-frete",
+        "to": "/pt/tutorial/planilha-de-frete"
+      },
+      {
+        "from": "/tutorial/cadastrar-transportadora",
+        "to": "/pt/tutorial/politica-de-envio"
+      },
+      {
+        "from": "/tutorial/gerenciar-transportadora",
         "to": "/pt/tutorial/politica-de-envio"
       },
       {
@@ -11888,11 +12100,15 @@
         "to": "/pt/tutorial/transportadoras-na-vtex"
       },
       {
-        "from": "/tutorial/como-atualizar-estoque, atualizar-quantidade-de-skus-em-estoque",
+        "from": "/tutorial/como-atualizar-estoque",
         "to": "/pt/tutorial/atualizacao-da-quantidade-de-itens-em-estoque"
       },
       {
-        "from": "/tutorial/como-a-reserva-funciona, como-analisar-as-reservas-de-um-produto",
+        "from": "/tutorial/atualizar-quantidade-de-skus-em-estoque",
+        "to": "/pt/tutorial/atualizacao-da-quantidade-de-itens-em-estoque"
+      },
+      {
+        "from": "/tutorial/como-analisar-as-reservas-de-um-produto",
         "to": "/pt/tutorial/como-a-reserva-funciona"
       },
       {
@@ -11900,7 +12116,11 @@
         "to": "/pt/tutorial/historico-de-movimentacoes-do-inventario"
       },
       {
-        "from": "/tutorial/como-importar-pontos-de-retirada-pickup-points-por-planilha, configurar-pontos-de-retirada-pickup-points",
+        "from": "/tutorial/como-importar-pontos-de-retirada-pickup-points-por-planilha",
+        "to": "/pt/tutorial/cadastro-de-pontos-de-retirada"
+      },
+      {
+        "from": "/tutorial/configurar-pontos-de-retirada-pickup-points",
         "to": "/pt/tutorial/cadastro-de-pontos-de-retirada"
       },
       {
@@ -11912,7 +12132,7 @@
         "to": "/pt/tutorial/simulador-de-envio"
       },
       {
-        "from": "/tutorial/adicionais-de-frete, como-funciona-o-adicional-de-frete",
+        "from": "/tutorial/como-funciona-o-adicional-de-frete",
         "to": "/pt/tutorial/adicionais-de-frete"
       },
       {
@@ -12032,10 +12252,6 @@
         "to": "/pt/tutorial/transferencia-de-propriedade-da-loja"
       },
       {
-        "from": "/tutorial/criar-e-enviar-formularios-na-plataforma-indeva-indeva",
-        "to": "/pt/tutorial/criar-e-enviar-formularios-na-plataforma-indeva"
-      },
-      {
         "from": "/tutorial/por-que-nao-recomendamos-inserir-um-proxy-reverso-em-frente-aos-servicos-da",
         "to": "/pt/tutorial/inserir-proxy-reverso-em-frente-aos-servicos-da-vtex"
       },
@@ -12048,7 +12264,11 @@
         "to": "/pt/tutorial/acordo-de-nivel-de-servico-sla-de-operacao-da-vtex"
       },
       {
-        "from": "/tutorial/status-vtex-entenda-como-funciona-o-status-da-plataforma, pagina-de-status-da-plataforma",
+        "from": "/tutorial/status-vtex-entenda-como-funciona-o-status-da-plataforma",
+        "to": "/pt/tutorial/pagina-de-status-da-vtex"
+      },
+      {
+        "from": "/tutorial/pagina-de-status-da-plataforma",
         "to": "/pt/tutorial/pagina-de-status-da-vtex"
       },
       {
@@ -12216,7 +12436,11 @@
         "to": "/pt/tutorial/configurar-a-opcao-avise-me"
       },
       {
-        "from": "/tutorial/permitir-alteracao-de-pedidos-ja-fechados, como-funciona-a-substituicao-de-pedidos",
+        "from": "/tutorial/permitir-alteracao-de-pedidos-ja-fechados",
+        "to": "/pt/tutorial/substituicao-de-pedidos"
+      },
+      {
+        "from": "/tutorial/como-funciona-a-substituicao-de-pedidos",
         "to": "/pt/tutorial/substituicao-de-pedidos"
       },
       {
@@ -12228,7 +12452,11 @@
         "to": "/pt/tutorial/adaptando-sua-integracao-para-a-alterar-pedido"
       },
       {
-        "from": "/tutorial/como-fazer-a-alteracao-de-itens, alterar-pedidos-finalizados",
+        "from": "/tutorial/como-fazer-a-alteracao-de-itens",
+        "to": "/pt/tutorial/alteracao-de-itens-de-um-pedido-finalizado"
+      },
+      {
+        "from": "/tutorial/alterar-pedidos-finalizados",
         "to": "/pt/tutorial/alteracao-de-itens-de-um-pedido-finalizado"
       },
       {
@@ -12444,7 +12672,11 @@
         "to": "/pt/tutorial/cadastro-de-colecoes-cms"
       },
       {
-        "from": "/tutorial/como-funciona-o-contexto-de-busca, como-funciona-o-contexto-de-busca-das-pastas-do-website",
+        "from": "/tutorial/como-funciona-o-contexto-de-busca",
+        "to": "/pt/tutorial/como-criar-landing-pages-com-urls-customizadas"
+      },
+      {
+        "from": "/tutorial/como-funciona-o-contexto-de-busca-das-pastas-do-website",
         "to": "/pt/tutorial/como-criar-landing-pages-com-urls-customizadas"
       },
       {
