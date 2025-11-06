@@ -33,7 +33,7 @@ export default async (request, context) => {
   // /<locale>/{type}/{slug}[--<key>]
   // /{type}/{slug}[--<key>]
   const match = url.pathname.match(
-    /^(?:\/(?<locale>[a-z]{2}))?\/(?<type>tutorial|announcements|known-issues|tracks|faq)\/(?<slug>[^/]+?)(?:--[^/]+)?(?:\/[^/]+)?$/
+    /^(?:\/(?<locale>[a-z]{2}))?\/(?<type>tutorial|announcements|known-issues|tracks|faq|subcategory|category)\/(?<slug>[^/]+?)(?:--[^/]+)?(?:\/[^/]+)?$/
   )
 
   if (match && match.groups) {
@@ -47,6 +47,10 @@ export default async (request, context) => {
     console.log('search', search)
 
     if (type === 'tutorial') {
+      destination = `/${locale}/docs/tutorials/${slug}`
+    } else if (type === 'subcategory') {
+      destination = `/${locale}/docs/tutorials/${slug}`
+    } else if (type === 'category') {
       destination = `/${locale}/docs/tutorials/${slug}`
     } else if (type === 'tracks') {
       destination = `/${locale}/docs/tracks/${slug}`
