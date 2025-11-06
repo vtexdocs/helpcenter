@@ -25,6 +25,52 @@
           "children": [
             {
               "name": {
+                "en": "November",
+                "es": "Noviembre",
+                "pt": "Novembro"
+              },
+              "slug": {
+                "en": "november",
+                "es": "noviembre",
+                "pt": "novembro"
+              },
+              "origin": "",
+              "type": "category",
+              "children": [
+                {
+                  "name": {
+                    "en": "New contextual help in the Admin: Simplified access to documentation",
+                    "es": "Acceso rápido a la documentación con la nueva ayuda contextual en el Admin",
+                    "pt": "Nova ajuda contextual no Admin: acesso simplificado à documentação"
+                  },
+                  "slug": {
+                    "en": "2025-11-05-new-contextual-help-in-the-admin-simplified-access-to-documentation",
+                    "es": "2025-11-05-acceso-rapido-a-la-documentacion-con-la-nueva-ayuda-contextual-en-el-admin",
+                    "pt": "2025-11-05-nova-ajuda-contextual-no-admin-acesso-simplificado-a-documentacao"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "New access control (ACL) in B2B Suite",
+                    "es": "Nuevo control de acceso (ACL) en B2B Suite",
+                    "pt": "Novo controle de acesso (ACL) no B2B Suite"
+                  },
+                  "slug": {
+                    "en": "2025-11-03-new-access-control-acl-in-b2b-suite",
+                    "es": "2025-11-03-nuevo-control-de-acceso-acl-en-b2b-suite",
+                    "pt": "2025-11-03-novo-controle-de-acesso-acl-no-b2b-suite"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": {
                 "en": "October",
                 "es": "Octubre",
                 "pt": "Outubro"
@@ -836,52 +882,6 @@
                     "en": "2025-01-21-optimize-logistics-with-operational-capacity-beta",
                     "es": "2025-01-21-optimiza-logistica-con-capacidad-operativa-beta",
                     "pt": "2025-01-21-otimize-logistica-com-capacidade-operacional-beta"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": {
-                "en": "November",
-                "es": "Noviembre",
-                "pt": "Novembro"
-              },
-              "slug": {
-                "en": "november",
-                "es": "noviembre",
-                "pt": "novembro"
-              },
-              "origin": "",
-              "type": "category",
-              "children": [
-                {
-                  "name": {
-                    "en": "New contextual help in the Admin: Simplified access to documentation",
-                    "es": "Acceso rápido a la documentación con la nueva ayuda contextual en el Admin",
-                    "pt": "Nova ajuda contextual no Admin: acesso simplificado à documentação"
-                  },
-                  "slug": {
-                    "en": "2025-11-05-new-contextual-help-in-the-admin-simplified-access-to-documentation",
-                    "es": "2025-11-05-acceso-rapido-a-la-documentacion-con-la-nueva-ayuda-contextual-en-el-admin",
-                    "pt": "2025-11-05-nova-ajuda-contextual-no-admin-acesso-simplificado-a-documentacao"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "New access control (ACL) in B2B Suite",
-                    "es": "Nuevo control de acceso (ACL) en B2B Suite",
-                    "pt": "Novo controle de acesso (ACL) no B2B Suite"
-                  },
-                  "slug": {
-                    "en": "2025-11-03-new-access-control-acl-in-b2b-suite",
-                    "es": "2025-11-03-nuevo-control-de-acceso-acl-en-b2b-suite",
-                    "pt": "2025-11-03-novo-controle-de-acesso-acl-no-b2b-suite"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -35843,7 +35843,7 @@
                 {
                   "name": {
                     "en": "Setting up the standard size for the zoom image",
-                    "es": "Configurar el tamaño estándar de la imagen de zoom",
+                    "es": "Configurar el tamaño estándar de la imagen de zoom",
                     "pt": "Configurar o tamanho padrão da imagem de zoom"
                   },
                   "slug": {
