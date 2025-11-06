@@ -182,6 +182,36 @@ function replaceLocale(path, newLocale) {
   }
 }
 
+// Helper function to check if path has article key
+function hasArticleKey(path) {
+  return /--[^/]+$/.test(path)
+}
+
+// Helper function to remove article key from path
+function removeArticleKey(path) {
+  return path.replace(/--[^/]+$/, '')
+}
+
+// Helper function to extract base path (everything before the article key)
+function getBasePath(path) {
+  return hasArticleKey(path) ? removeArticleKey(path) : path
+}
+
+// Helper function to find matching redirect entry by base path
+function findRedirectByBasePath(redirectsMap, basePath) {
+  // Look for any key in the map that:
+  // 1. Matches the base path exactly, OR
+  // 2. Starts with base path followed by "--"
+  for (const [key, value] of redirectsMap.entries()) {
+    const keyBasePath = getBasePath(key)
+    if (keyBasePath === basePath) {
+      console.log(`Fuzzy match found: ${key} matches base path ${basePath}`)
+      return value
+    }
+  }
+  return null
+}
+
 async function checkRedirects(url) {
   try {
     const redirectsMap = await getRedirectsMap(url)
@@ -200,8 +230,17 @@ async function checkRedirects(url) {
       }
       visitedPaths.add(currentPath)
 
-      // O(1) Map lookup instead of O(n) array search
-      const redirectTo = redirectsMap.get(currentPath)
+      // First try exact O(1) Map lookup
+      let redirectTo = redirectsMap.get(currentPath)
+
+      // If no exact match, try fuzzy match by base path
+      if (!redirectTo) {
+        const basePath = getBasePath(currentPath)
+        if (basePath !== currentPath) {
+          console.log(`Trying fuzzy match for base path: ${basePath}`)
+        }
+        redirectTo = findRedirectByBasePath(redirectsMap, basePath)
+      }
 
       if (!redirectTo) {
         // No redirect found for current path, try different locales
