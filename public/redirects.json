@@ -12872,6 +12872,10 @@
       {
         "from": "/pt/category/cms--2I0KMdRlAkcwwiK4YeaiUi",
         "to": "/pt/docs/tutorials/storefront"
+      },
+      {
+        "from": "/es/tutorial/como-funcionan-los-pedidos-incompletos--tutorials_294",
+        "to": "/es/docs/tutorials/como-encontrar-un-pedido"
       }
     ]
   }
