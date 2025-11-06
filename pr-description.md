@@ -13,7 +13,7 @@ This PR:
 
 Previously, navigation could come from different places:
 - Local `public/navigation.json` during build.
-- A hardcoded URL (`newhelp.vtex.com/navigation.json`) or other sources at runtime.
+- A hardcoded URL (`help.vtex.com/navigation.json`) or other sources at runtime.
 - Client-side code sometimes dynamically imported the local JSON.
 
 This led to divergence between build and runtime sources and risked bundling a

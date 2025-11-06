@@ -1,8 +1,8 @@
 {
   "index_name": "helpcenter-docs",
-  "start_urls": ["https://newhelp.vtex.com/"],
+  "start_urls": ["https://help.vtex.com/"],
   "stop_urls": [],
-  "sitemap_urls": ["https://newhelp.vtex.com/server-sitemap.xml"],
+  "sitemap_urls": ["https://help.vtex.com/server-sitemap.xml"],
   "sitemap_alternate_links": true,
   "selectors": {
     "lvl0": "article .title, article h1",
