@@ -9193,1087 +9193,1087 @@
       },
       {
         "from": "/tutorial/how-to-create-a-financial-access-profile",
-        "to": "/en/tutorial/creating-a-financial-access-profile"
+        "to": "/en/docs/tutorials/creating-a-financial-access-profile"
       },
       {
         "from": "/tutorial/configuring-access-profiles",
-        "to": "/en/tutorial/roles"
+        "to": "/en/docs/tutorials/roles"
       },
       {
         "from": "/tutorial/access-profiles",
-        "to": "/en/tutorial/roles"
+        "to": "/en/docs/tutorials/roles"
       },
       {
         "from": "/tutorial/account-details-page",
-        "to": "/en/tutorial/account-management"
+        "to": "/en/docs/tutorials/account-management"
       },
       {
         "from": "/tutorial/how-can-i-change-the-domain-of-my-store",
-        "to": "/en/tutorial/change-the-store-domain"
+        "to": "/en/docs/tutorials/change-the-store-domain"
       },
       {
         "from": "/tutorial/how-do-i-change-the-logo-on-the-payment-slip",
-        "to": "/en/tutorial/changing-the-logo-on-the-bank-slip"
+        "to": "/en/docs/tutorials/changing-the-logo-on-the-bank-slip"
       },
       {
         "from": "/tutorial/choosing-between-a-multi-store-architecture-or-an-additional-environment",
-        "to": "/en/tutorial/choosing-between-a-multistore-architecture-or-an-additional-environment"
+        "to": "/en/docs/tutorials/choosing-between-a-multistore-architecture-or-an-additional-environment"
       },
       {
         "from": "/tutorial/configuring-domains-in-license-manager",
-        "to": "/en/tutorial/configuring-the-store-domain"
+        "to": "/en/docs/tutorials/configuring-the-store-domain"
       },
       {
         "from": "/tutorial/api-keys-beta",
-        "to": "/en/tutorial/api-keys"
+        "to": "/en/docs/tutorials/api-keys"
       },
       {
         "from": "/tutorial/configuring-the-duration-of-api-keys-beta",
-        "to": "/en/tutorial/configuring-alerts-to-renew-api-tokens"
+        "to": "/en/docs/tutorials/configuring-alerts-to-renew-api-tokens"
       },
       {
         "from": "/tutorial/external-keys-beta",
-        "to": "/en/tutorial/external-keys"
+        "to": "/en/docs/tutorials/external-keys"
       },
       {
         "from": "/tutorial/generated-keys-beta",
-        "to": "/en/tutorial/generated-keys"
+        "to": "/en/docs/tutorials/generated-keys"
       },
       {
         "from": "/tutorial/renewing-api-tokens-beta",
-        "to": "/en/tutorial/renewing-api-tokens"
+        "to": "/en/docs/tutorials/renewing-api-tokens"
       },
       {
         "from": "/tutorial/untitled-entry-2019-02-21-at-02-36-12",
-        "to": "/en/tutorial/accessing-a-client-abandoned-cart"
+        "to": "/en/docs/tutorials/accessing-a-client-abandoned-cart"
       },
       {
         "from": "/tutorial/understanding-how-to-maintain-a-database",
-        "to": "/en/tutorial/database-maintenance-full-cleanup"
+        "to": "/en/docs/tutorials/database-maintenance-full-cleanup"
       },
       {
         "from": "/tutorial/how-can-i-create-call-center-user",
-        "to": "/en/tutorial/how-can-i-create-callcenter-user"
+        "to": "/en/docs/tutorials/how-can-i-create-callcenter-user"
       },
       {
         "from": "/tutorial/creating-users",
-        "to": "/en/tutorial/managing-users"
+        "to": "/en/docs/tutorials/managing-users"
       },
       {
         "from": "/tutorial/how-to-retrieve-the-access-password",
-        "to": "/en/tutorial/resetting-vtex-admin-password"
+        "to": "/en/docs/tutorials/resetting-vtex-admin-password"
       },
       {
         "from": "/tutorial/changing-the-accounts-master-user",
-        "to": "/en/tutorial/transferring-store-ownership"
+        "to": "/en/docs/tutorials/transferring-store-ownership"
       },
       {
         "from": "/tutorial/what-is-the-master-user",
-        "to": "/en/tutorial/what-is-the-sponsor-user"
+        "to": "/en/docs/tutorials/what-is-the-sponsor-user"
       },
       {
         "from": "/tutorial/untitled-entry-2019-01-30-at-09-21-20",
-        "to": "/en/tutorial/canceling-payment-for-the-service-of-an-app-installed-in-my-store"
+        "to": "/en/docs/tutorials/canceling-payment-for-the-service-of-an-app-installed-in-my-store"
       },
       {
         "from": "/tutorial/credit-control-overview",
-        "to": "/en/tutorial/customer-credit-overview"
+        "to": "/en/docs/tutorials/customer-credit-overview"
       },
       {
         "from": "/tutorial/how-does-my-account-work",
-        "to": "/en/tutorial/how-my-account-works"
+        "to": "/en/docs/tutorials/how-my-account-works"
       },
       {
         "from": "/tutorial/registering-a-client-id-and-a-client-secret-for-login-with-facebook",
-        "to": "/en/tutorial/adding-a-client-id-and-a-client-secret-to-log-in-with-facebook"
+        "to": "/en/docs/tutorials/adding-a-client-id-and-a-client-secret-to-log-in-with-facebook"
       },
       {
         "from": "/tutorial/registering-a-client-id-and-a-client-secret-for-login-with-google",
-        "to": "/en/tutorial/adding-a-client-id-and-a-client-secret-to-log-in-with-google"
+        "to": "/en/docs/tutorials/adding-a-client-id-and-a-client-secret-to-log-in-with-google"
       },
       {
         "from": "/tutorial/authentication-page",
-        "to": "/en/tutorial/authentication"
+        "to": "/en/docs/tutorials/authentication"
       },
       {
         "from": "/tutorial/configuring-user-id-with-facebook-and-google",
-        "to": "/en/tutorial/configuring-login-with-facebook-and-google"
+        "to": "/en/docs/tutorials/configuring-login-with-facebook-and-google"
       },
       {
         "from": "/tutorial/overview",
-        "to": "/en/tutorial/b2b-overview"
+        "to": "/en/docs/tutorials/b2b-overview"
       },
       {
         "from": "/tutorial/import-and-export-product-and-sku-images-via-spreadsheet-beta",
-        "to": "/en/tutorial/importing-and-exporting-product-and-sku-images-using-a-spreadsheet-beta"
+        "to": "/en/docs/tutorials/importing-and-exporting-product-and-sku-images-using-a-spreadsheet-beta"
       },
       {
         "from": "/tutorial/import-and-export-product-specifications-via-spreadsheet-beta",
-        "to": "/en/tutorial/importing-and-exporting-product-specifications-using-a-spreadsheet-beta"
+        "to": "/en/docs/tutorials/importing-and-exporting-product-specifications-using-a-spreadsheet-beta"
       },
       {
         "from": "/tutorial/import-and-export-of-products-and-skus-via-spreadsheet-beta",
-        "to": "/en/tutorial/importing-and-exporting-products-and-skus-using-a-spreadsheet-beta"
+        "to": "/en/docs/tutorials/importing-and-exporting-products-and-skus-using-a-spreadsheet-beta"
       },
       {
         "from": "/tutorial/import-and-export-sku-specifications-via-spreadsheet-beta",
-        "to": "/en/tutorial/importing-and-exporting-sku-specifications-using-a-spreadsheet-beta"
+        "to": "/en/docs/tutorials/importing-and-exporting-sku-specifications-using-a-spreadsheet-beta"
       },
       {
         "from": "/tutorial/data-insights-assistant",
-        "to": "/en/tutorial/data-insights-agent"
+        "to": "/en/docs/tutorials/data-insights-agent"
       },
       {
         "from": "/tutorial/intelligent-search-hybrid-search-beta",
-        "to": "/en/tutorial/intelligent-search-semantic-search-beta"
+        "to": "/en/docs/tutorials/intelligent-search-semantic-search-beta"
       },
       {
         "from": "/tutorial/locations-module",
-        "to": "/en/tutorial/operational-capacity-beta"
+        "to": "/en/docs/tutorials/operational-capacity-beta"
       },
       {
         "from": "/tutorial/vtex-data-pipeline-catalog-beta",
-        "to": "/en/tutorial/data-dictionary-vtex-data-pipeline-beta"
+        "to": "/en/docs/tutorials/data-dictionary-vtex-data-pipeline-beta"
       },
       {
         "from": "/tutorial/inventory",
-        "to": "/en/tutorial/inventory-data-pipeline-beta"
+        "to": "/en/docs/tutorials/inventory-data-pipeline-beta"
       },
       {
         "from": "/tutorial/orders",
-        "to": "/en/tutorial/orders-data-pipeline-beta"
+        "to": "/en/docs/tutorials/orders-data-pipeline-beta"
       },
       {
         "from": "/tutorial/change-seller-of-an-instore-order-beta",
-        "to": "/en/tutorial/change-seller-of-an-vtex-sales-app-order-beta"
+        "to": "/en/docs/tutorials/change-seller-of-an-vtex-sales-app-order-beta"
       },
       {
         "from": "/tutorial/accounts-payable-procedures",
-        "to": "/en/tutorial/accounts-payable-brazil"
+        "to": "/en/docs/tutorials/accounts-payable-brazil"
       },
       {
         "from": "/tutorial/accounts-payable-procedures-international",
-        "to": "/en/tutorial/accounts-payable-international"
+        "to": "/en/docs/tutorials/accounts-payable-international"
       },
       {
         "from": "/tutorial/how-to-request-your-contractual-termination-brazil",
-        "to": "/en/tutorial/how-to-request-your-contract-termination-in-brazil"
+        "to": "/en/docs/tutorials/how-to-request-your-contract-termination-in-brazil"
       },
       {
         "from": "/tutorial/purchasing-and-accessing-your-environment",
-        "to": "/en/tutorial/requesting-a-new-environment"
+        "to": "/en/docs/tutorials/requesting-a-new-environment"
       },
       {
         "from": "/tutorial/why-didnt-i-receive-the-signed-contract-from-vtex",
-        "to": "/en/tutorial/vtex-agreement"
+        "to": "/en/docs/tutorials/vtex-agreement"
       },
       {
         "from": "/tutorial/how-to-download-vtex-payment-slips-and-tax-invoices",
-        "to": "/en/tutorial/how-to-download-the-vtex-invoices"
+        "to": "/en/docs/tutorials/how-to-download-the-vtex-invoices"
       },
       {
         "from": "/tutorial/what-does-vtex-consider-as-revenue-in-the-billing-calculations",
-        "to": "/en/tutorial/what-does-vtex-consider-as-revenue-in-the-billing-calculation"
+        "to": "/en/docs/tutorials/what-does-vtex-consider-as-revenue-in-the-billing-calculation"
       },
       {
         "from": "/tutorial/kit-registration",
-        "to": "/en/tutorial/bundle-registration"
+        "to": "/en/docs/tutorials/bundle-registration"
       },
       {
         "from": "/tutorial/how-to-assemble-a-look-kit",
-        "to": "/en/tutorial/how-to-assemble-an-outfit"
+        "to": "/en/docs/tutorials/how-to-assemble-an-outfit"
       },
       {
         "from": "/tutorial/how-to-define-the-order-of-lookkit",
-        "to": "/en/tutorial/how-to-define-the-order-of-outfit-products"
+        "to": "/en/docs/tutorials/how-to-define-the-order-of-outfit-products"
       },
       {
         "from": "/tutorial/how-to-manage-the-kit-stock",
-        "to": "/en/tutorial/how-to-manage-the-bundle-stock"
+        "to": "/en/docs/tutorials/how-to-manage-the-bundle-stock"
       },
       {
         "from": "/tutorial/what-is-a-kit",
-        "to": "/en/tutorial/what-is-a-bundle"
+        "to": "/en/docs/tutorials/what-is-a-bundle"
       },
       {
         "from": "/tutorial/creating-category-groups",
-        "to": "/en/tutorial/creating-a-specification-group-in-a-category"
+        "to": "/en/docs/tutorials/creating-a-specification-group-in-a-category"
       },
       {
         "from": "/tutorial/disabling-and-reorganizing-categories",
-        "to": "/en/tutorial/deactivating-and-reorganizing-categories"
+        "to": "/en/docs/tutorials/deactivating-and-reorganizing-categories"
       },
       {
         "from": "/tutorial/cadastrar-colecoes-beta",
-        "to": "/en/tutorial/creating-collections-beta"
+        "to": "/en/docs/tutorials/creating-collections-beta"
       },
       {
         "from": "/tutorial/registering-a-commercial-conditioin",
-        "to": "/en/tutorial/registering-a-commercial-condition"
+        "to": "/en/docs/tutorials/registering-a-commercial-condition"
       },
       {
         "from": "/tutorial/registering-an-attachment",
-        "to": "/en/tutorial/adding-an-attachment"
+        "to": "/en/docs/tutorials/adding-an-attachment"
       },
       {
         "from": "/tutorial/assembly-options-en",
-        "to": "/en/tutorial/assembly-options"
+        "to": "/en/docs/tutorials/assembly-options"
       },
       {
         "from": "/tutorial/creating-a-service-for-a-sku",
-        "to": "/en/tutorial/creating-service-for-a-sku"
+        "to": "/en/docs/tutorials/creating-service-for-a-sku"
       },
       {
         "from": "/tutorial/setting-up-a-gift-card-with-a-personal-message",
-        "to": "/en/tutorial/setting-up-a-personal-gift-message"
+        "to": "/en/docs/tutorials/setting-up-a-personal-gift-message"
       },
       {
         "from": "/tutorial/importing-and-exporting-product-and-sku-specifications",
-        "to": "/en/tutorial/exporting-and-importing-product-and-sku-specifications"
+        "to": "/en/docs/tutorials/exporting-and-importing-product-and-sku-specifications"
       },
       {
         "from": "/tutorial/importing-images-via-a-worksheet",
-        "to": "/en/tutorial/importing-images-from-a-spreadsheet"
+        "to": "/en/docs/tutorials/importing-images-from-a-spreadsheet"
       },
       {
         "from": "/tutorial/activating-bulk-skus",
-        "to": "/en/tutorial/activating-skus-in-bulk"
+        "to": "/en/docs/tutorials/activating-skus-in-bulk"
       },
       {
         "from": "/tutorial/adding-products-beta",
-        "to": "/en/tutorial/adding-or-editing-products"
+        "to": "/en/docs/tutorials/adding-or-editing-products"
       },
       {
         "from": "/tutorial/adding-skus-beta",
-        "to": "/en/tutorial/adding-or-editing-skus"
+        "to": "/en/docs/tutorials/adding-or-editing-skus"
       },
       {
         "from": "/tutorial/creating-sku-fields",
-        "to": "/en/tutorial/adding-sku-specifications-or-fields"
+        "to": "/en/docs/tutorials/adding-sku-specifications-or-fields"
       },
       {
         "from": "/tutorial/creating-a-product-field",
-        "to": "/en/tutorial/adding-specifications-or-product-fields"
+        "to": "/en/docs/tutorials/adding-specifications-or-product-fields"
       },
       {
         "from": "/tutorial/good-practices-for-using-images-in-the-catalog",
-        "to": "/en/tutorial/best-practices-for-using-images-in-the-catalog"
+        "to": "/en/docs/tutorials/best-practices-for-using-images-in-the-catalog"
       },
       {
         "from": "/tutorial/how-to-find-an-sku-id",
-        "to": "/en/tutorial/finding-a-sku-id"
+        "to": "/en/docs/tutorials/finding-a-sku-id"
       },
       {
         "from": "/tutorial/untitled-entry-2017-07-04-at-05-56-33",
-        "to": "/en/tutorial/how-to-change-the-sku-and-product-relationship"
+        "to": "/en/docs/tutorials/how-to-change-the-sku-and-product-relationship"
       },
       {
         "from": "/tutorial/how-is-a-product-url-set-up",
-        "to": "/en/tutorial/how-to-define-the-url-for-a-product-page"
+        "to": "/en/docs/tutorials/how-to-define-the-url-for-a-product-page"
       },
       {
         "from": "/tutorial/untitled-entry-2019-02-21-at-07-52-16",
-        "to": "/en/tutorial/inserting-images-into-let-me-know-email"
+        "to": "/en/docs/tutorials/inserting-images-into-let-me-know-email"
       },
       {
         "from": "/tutorial/how-to-change-the-product-of-an-sku",
-        "to": "/en/tutorial/moving-a-sku-to-another-product"
+        "to": "/en/docs/tutorials/moving-a-sku-to-another-product"
       },
       {
         "from": "/tutorial/products-and-skus-beta",
-        "to": "/en/tutorial/products-and-skus"
+        "to": "/en/docs/tutorials/products-and-skus"
       },
       {
         "from": "/tutorial/registering-the-skus-barcode-for-instore",
-        "to": "/en/tutorial/registering-the-skus-barcode-for-vtex-sales-app"
+        "to": "/en/docs/tutorials/registering-the-skus-barcode-for-vtex-sales-app"
       },
       {
         "from": "/tutorial/exporting-clients-registered-in-the-availability-notification",
-        "to": "/en/tutorial/exporting-customers-who-signed-up-for-the-availability-notification-notify-me"
+        "to": "/en/docs/tutorials/exporting-customers-who-signed-up-for-the-availability-notification-notify-me"
       },
       {
         "from": "/tutorial/uploading-a-product-xml",
-        "to": "/en/tutorial/configuring-xml"
+        "to": "/en/docs/tutorials/configuring-xml"
       },
       {
         "from": "/tutorial/how-to-make-freight-apportionment",
-        "to": "/en/tutorial/how-proportional-shipping-costs-are-calculated"
+        "to": "/en/docs/tutorials/how-proportional-shipping-costs-are-calculated"
       },
       {
         "from": "/tutorial/migrating-to-the-new-version-of-smart-checkout",
-        "to": "/en/tutorial/smartcheckout-v5-general-characteristics"
+        "to": "/en/docs/tutorials/smartcheckout-v5-general-characteristics"
       },
       {
         "from": "/tutorial/analyze",
-        "to": "/en/tutorial/analyze-suiteshare"
+        "to": "/en/docs/tutorials/analyze-suiteshare"
       },
       {
         "from": "/tutorial/anapro",
-        "to": "/en/tutorial/anapro-suiteshare"
+        "to": "/en/docs/tutorials/anapro-suiteshare"
       },
       {
         "from": "/tutorial/call-to-action",
-        "to": "/en/tutorial/call-to-action-suiteshare"
+        "to": "/en/docs/tutorials/call-to-action-suiteshare"
       },
       {
         "from": "/tutorial/capture-form",
-        "to": "/en/tutorial/capture-form-suiteshare"
+        "to": "/en/docs/tutorials/capture-form-suiteshare"
       },
       {
         "from": "/tutorial/customize",
-        "to": "/en/tutorial/customize-suiteshare"
+        "to": "/en/docs/tutorials/customize-suiteshare"
       },
       {
         "from": "/tutorial/facebook-liberacao-de-dominio",
-        "to": "/en/tutorial/facebook-liberacao-de-dominio-suiteshare"
+        "to": "/en/docs/tutorials/facebook-liberacao-de-dominio-suiteshare"
       },
       {
         "from": "/tutorial/geolocalizado",
-        "to": "/en/tutorial/geolocalizado-suiteshare"
+        "to": "/en/docs/tutorials/geolocalizado-suiteshare"
       },
       {
         "from": "/tutorial/installing-the-widget-with-gtm",
-        "to": "/en/tutorial/installing-the-widget-with-gtm-suiteshare"
+        "to": "/en/docs/tutorials/installing-the-widget-with-gtm-suiteshare"
       },
       {
         "from": "/tutorial/links",
-        "to": "/en/tutorial/links-suiteshare"
+        "to": "/en/docs/tutorials/links-suiteshare"
       },
       {
         "from": "/tutorial/pipedrive",
-        "to": "/en/tutorial/pipedrive-suiteshare"
+        "to": "/en/docs/tutorials/pipedrive-suiteshare"
       },
       {
         "from": "/tutorial/rdstation-crm",
-        "to": "/en/tutorial/rdstation-crm-suiteshare"
+        "to": "/en/docs/tutorials/rdstation-crm-suiteshare"
       },
       {
         "from": "/tutorial/rdstation",
-        "to": "/en/tutorial/rdstation-suiteshare"
+        "to": "/en/docs/tutorials/rdstation-suiteshare"
       },
       {
         "from": "/tutorial/sequencial",
-        "to": "/en/tutorial/sequencial-suiteshare"
+        "to": "/en/docs/tutorials/sequencial-suiteshare"
       },
       {
         "from": "/tutorial/wordpress",
-        "to": "/en/tutorial/wordpress-suiteshare"
+        "to": "/en/docs/tutorials/wordpress-suiteshare"
       },
       {
         "from": "/tutorial/zapier",
-        "to": "/en/tutorial/zapier-suiteshare"
+        "to": "/en/docs/tutorials/zapier-suiteshare"
       },
       {
         "from": "/tutorial/unlock-user-in-vtex-sales-app-indeva",
-        "to": "/en/tutorial/unlock-user-in-vtex-sales-app"
+        "to": "/en/docs/tutorials/unlock-user-in-vtex-sales-app"
       },
       {
         "from": "/tutorial/configuring-access-without-www",
-        "to": "/en/tutorial/best-practices-for-accessing-the-store-without-www"
+        "to": "/en/docs/tutorials/best-practices-for-accessing-the-store-without-www"
       },
       {
         "from": "/tutorial/why-we-do-not-recommend-inserting-a-reverse-proxy-in-front-of-vtex-services",
-        "to": "/en/tutorial/insert-reverse-proxy-in-front-of-vtex-services"
+        "to": "/en/docs/tutorials/insert-reverse-proxy-in-front-of-vtex-services"
       },
       {
         "from": "/tutorial/what-the-platform-s-operation-sla-is",
-        "to": "/en/tutorial/vtex-operation-service-level-agreement-sla"
+        "to": "/en/docs/tutorials/vtex-operation-service-level-agreement-sla"
       },
       {
         "from": "/tutorial/untitled-entry-2019-01-14-at-07-58-58",
-        "to": "/en/tutorial/vtex-status-page"
+        "to": "/en/docs/tutorials/vtex-status-page"
       },
       {
         "from": "/tutorial/vtex-status-understand-how-the-platform-status-works",
-        "to": "/en/tutorial/vtex-status-page"
+        "to": "/en/docs/tutorials/vtex-status-page"
       },
       {
         "from": "/tutorial/platform-status-page",
-        "to": "/en/tutorial/vtex-status-page"
+        "to": "/en/docs/tutorials/vtex-status-page"
       },
       {
         "from": "/tutorial/configuring-physical-stores-integration-with-b2w-skyhub",
-        "to": "/en/tutorial/configuring-physical-stores-integration-with-b2w"
+        "to": "/en/docs/tutorials/configuring-physical-stores-integration-with-b2w"
       },
       {
         "from": "/tutorial/how-the-integration-with-carrefour-works",
-        "to": "/en/tutorial/how-the-carrefour-integration-works"
+        "to": "/en/docs/tutorials/how-the-carrefour-integration-works"
       },
       {
         "from": "/tutorial/importing-amazon-fba-classic-orders",
-        "to": "/en/tutorial/importing-amazon-classic-fba-orders"
+        "to": "/en/docs/tutorials/importing-amazon-classic-fba-orders"
       },
       {
         "from": "/tutorial/integrating-with-marketplace",
-        "to": "/en/tutorial/marketplace-strategies-at-vtex"
+        "to": "/en/docs/tutorials/marketplace-strategies-at-vtex"
       },
       {
         "from": "/tutorial/become-a-certified-vtex-partner",
-        "to": "/en/tutorial/become-a-certified-connector-partner"
+        "to": "/en/docs/tutorials/become-a-certified-connector-partner"
       },
       {
         "from": "/tutorial/offer-status-beta",
-        "to": "/en/tutorial/offer-status"
+        "to": "/en/docs/tutorials/offer-status"
       },
       {
         "from": "/tutorial/how-to-use-the-change-seller",
-        "to": "/en/tutorial/change-seller"
+        "to": "/en/docs/tutorials/change-seller"
       },
       {
         "from": "/tutorial/how-the-freight-fob-works-when-mercado-envios-is-used",
-        "to": "/en/tutorial/how-shipping-works-when-delivery-is-done-by-the-marketplace"
+        "to": "/en/docs/tutorials/how-shipping-works-when-delivery-is-done-by-the-marketplace"
       },
       {
         "from": "/tutorial/b2w-integration-orders-erros",
-        "to": "/en/tutorial/order-errors-in-the-b2w-integration"
+        "to": "/en/docs/tutorials/order-errors-in-the-b2w-integration"
       },
       {
         "from": "/tutorial/carrefour-integration-orders-erros",
-        "to": "/en/tutorial/order-errors-in-the-carrefour-integration"
+        "to": "/en/docs/tutorials/order-errors-in-the-carrefour-integration"
       },
       {
         "from": "/tutorial/magazine-luiza-integration-orders-erros",
-        "to": "/en/tutorial/order-errors-in-the-magazine-luiza-integration"
+        "to": "/en/docs/tutorials/order-errors-in-the-magazine-luiza-integration"
       },
       {
         "from": "/tutorial/mercado-livre-integration-orders-erros",
-        "to": "/en/tutorial/order-errors-in-the-mercado-livre-integration"
+        "to": "/en/docs/tutorials/order-errors-in-the-mercado-livre-integration"
       },
       {
         "from": "/tutorial/netshoes-integration-orders-erros",
-        "to": "/en/tutorial/order-errors-in-the-netshoes-integration"
+        "to": "/en/docs/tutorials/order-errors-in-the-netshoes-integration"
       },
       {
         "from": "/tutorial/via-integration-orders-erros",
-        "to": "/en/tutorial/order-errors-in-the-via-integration"
+        "to": "/en/docs/tutorials/order-errors-in-the-via-integration"
       },
       {
         "from": "/tutorial/resolution-of-price-divergence-errors-in-marketplace-integration-orders",
-        "to": "/en/tutorial/troubleshooting-price-divergence-errors-in-marketplace-orders"
+        "to": "/en/docs/tutorials/troubleshooting-price-divergence-errors-in-marketplace-orders"
       },
       {
         "from": "/tutorial/prices-v2",
-        "to": "/en/tutorial/prices"
+        "to": "/en/docs/tutorials/prices"
       },
       {
         "from": "/tutorial/received-offers",
-        "to": "/en/tutorial/received-skus-beta"
+        "to": "/en/docs/tutorials/received-skus-beta"
       },
       {
         "from": "/tutorial/regionalization-beta",
-        "to": "/en/tutorial/regionalization"
+        "to": "/en/docs/tutorials/regionalization"
       },
       {
         "from": "/tutorial/configuring-synonyms",
-        "to": "/en/tutorial/creating-synonyms"
+        "to": "/en/docs/tutorials/creating-synonyms"
       },
       {
         "from": "/tutorial/how-to-include-a-registration-on-a-master-data-form",
-        "to": "/en/tutorial/adding-a-record-on-a-master-data-form"
+        "to": "/en/docs/tutorials/adding-a-record-on-a-master-data-form"
       },
       {
         "from": "/tutorial/import-customer-data-brazil",
-        "to": "/en/tutorial/import-customer-data"
+        "to": "/en/docs/tutorials/import-customer-data"
       },
       {
         "from": "/tutorial/limiting-access-to-the-store-by-means-of-the-sales-policy",
-        "to": "/en/tutorial/limiting-access-to-the-store-by-means-of-the-trade-policy"
+        "to": "/en/docs/tutorials/limiting-access-to-the-store-by-means-of-the-trade-policy"
       },
       {
         "from": "/tutorial/creating-data-entity",
-        "to": "/en/tutorial/data-entity"
+        "to": "/en/docs/tutorials/data-entity"
       },
       {
         "from": "/tutorial/what-is-master-data",
-        "to": "/en/tutorial/master-data"
+        "to": "/en/docs/tutorials/master-data"
       },
       {
         "from": "/tutorial/creating-a-personalized-master-data-query",
-        "to": "/en/tutorial/creating-custom-queries-in-master-data-v1"
+        "to": "/en/docs/tutorials/creating-custom-queries-in-master-data-v1"
       },
       {
         "from": "/tutorial/importing-data-into-master-data",
-        "to": "/en/tutorial/importing-data-into-master-data-v1"
+        "to": "/en/docs/tutorials/importing-data-into-master-data-v1"
       },
       {
         "from": "/tutorial/i-can-not-edit-a-required-field-on-master-data",
-        "to": "/en/tutorial/defining-mandatory-fields-in-master-data-v1-forms"
+        "to": "/en/docs/tutorials/defining-mandatory-fields-in-master-data-v1-forms"
       },
       {
         "from": "/tutorial/how-can-i-create-field-in-master-data",
-        "to": "/en/tutorial/how-can-i-create-a-field-in-master-data"
+        "to": "/en/docs/tutorials/how-can-i-create-a-field-in-master-data"
       },
       {
         "from": "/tutorial/setting-up-an-index-on-master-data",
-        "to": "/en/tutorial/indexes-in-master-data"
+        "to": "/en/docs/tutorials/indexes-in-master-data"
       },
       {
         "from": "/tutorial/how-can-i-make-master-data-field-editable",
-        "to": "/en/tutorial/making-a-master-data-field-editable"
+        "to": "/en/docs/tutorials/making-a-master-data-field-editable"
       },
       {
         "from": "/tutorial/configuring-product-visited",
-        "to": "/en/tutorial/configuring-viewed-product-email"
+        "to": "/en/docs/tutorials/configuring-viewed-product-email"
       },
       {
         "from": "/tutorial/list-of-e-mail-templates-in-the-message-center",
-        "to": "/en/tutorial/order-transactional-email-templates"
+        "to": "/en/docs/tutorials/order-transactional-email-templates"
       },
       {
         "from": "/tutorial/what-are-franchise-account-and-seller-white-label",
-        "to": "/en/tutorial/white-label-seller"
+        "to": "/en/docs/tutorials/white-label-seller"
       },
       {
         "from": "/tutorial/algorithm-for-selecting-white-label-sellers",
-        "to": "/en/tutorial/white-label-sellers-selection"
+        "to": "/en/docs/tutorials/white-label-sellers-selection"
       },
       {
         "from": "/tutorial/untitled-entry-2018-09-27-at-08-35-08",
-        "to": "/en/tutorial/send-the-seller-white-label-payment-methods-to-the-marketplace"
+        "to": "/en/docs/tutorials/send-the-seller-white-label-payment-methods-to-the-marketplace"
       },
       {
         "from": "/tutorial/how-do-i-change-my-cnpj",
-        "to": "/en/tutorial/how-do-i-change-my-cnpj-new"
+        "to": "/en/docs/tutorials/how-do-i-change-my-cnpj-new"
       },
       {
         "from": "/tutorial/find-here-all-the-answers-you-need",
-        "to": "/en/tutorial/vtex-admin-start-here"
+        "to": "/en/docs/tutorials/vtex-admin-start-here"
       },
       {
         "from": "/tutorial/adapting-your-integration-for-change-order-beta",
-        "to": "/en/tutorial/adapting-your-integration-for-order-modifications"
+        "to": "/en/docs/tutorials/adapting-your-integration-for-order-modifications"
       },
       {
         "from": "/tutorial/calculating-revenue-through-oms-worksheet",
-        "to": "/en/tutorial/calculating-revenue-through-the-worksheet-exported-from-orders-module"
+        "to": "/en/docs/tutorials/calculating-revenue-through-the-worksheet-exported-from-orders-module"
       },
       {
         "from": "/tutorial/altering-items-skus-in-the-order",
-        "to": "/en/tutorial/changing-items-from-a-complete-order"
+        "to": "/en/docs/tutorials/changing-items-from-a-complete-order"
       },
       {
         "from": "/tutorial/changing-completed-orders",
-        "to": "/en/tutorial/changing-items-from-a-complete-order"
+        "to": "/en/docs/tutorials/changing-items-from-a-complete-order"
       },
       {
         "from": "/tutorial/order-cancellation-denial",
-        "to": "/en/tutorial/declining-order-cancellation"
+        "to": "/en/docs/tutorials/declining-order-cancellation"
       },
       {
         "from": "/tutorial/enter-tracking-number-on-orders-already-billed",
-        "to": "/en/tutorial/enter-tracking-number-on-orders-already-invoiced"
+        "to": "/en/docs/tutorials/enter-tracking-number-on-orders-already-invoiced"
       },
       {
         "from": "/tutorial/exporting-orders-with-oms",
-        "to": "/en/tutorial/exporting-orders-in-orders-module"
+        "to": "/en/docs/tutorials/exporting-orders-in-orders-module"
       },
       {
         "from": "/tutorial/filtering-orders-in-oms",
-        "to": "/en/tutorial/filtering-all-orders"
+        "to": "/en/docs/tutorials/filtering-all-orders"
       },
       {
         "from": "/tutorial/filtering-orders-on-the-oms",
-        "to": "/en/tutorial/filtering-all-orders"
+        "to": "/en/docs/tutorials/filtering-all-orders"
       },
       {
         "from": "/tutorial/how-change-order-works-beta",
-        "to": "/en/tutorial/how-order-modification-works"
+        "to": "/en/docs/tutorials/how-order-modification-works"
       },
       {
         "from": "/tutorial/how-to-change-orders-beta",
-        "to": "/en/tutorial/how-to-modify-orders"
+        "to": "/en/docs/tutorials/how-to-modify-orders"
       },
       {
         "from": "/tutorial/moving-order-to-start-handling-status",
-        "to": "/en/tutorial/moving-order-to-start-handling-shipping"
+        "to": "/en/docs/tutorials/moving-order-to-start-handling-shipping"
       },
       {
         "from": "/tutorial/how-does-cancellation-work-when-requested-by-the-customer",
-        "to": "/en/tutorial/order-cancellation-requested-by-the-customer"
+        "to": "/en/docs/tutorials/order-cancellation-requested-by-the-customer"
       },
       {
         "from": "/tutorial/order-flow-on-the-oms",
-        "to": "/en/tutorial/order-flow-and-status"
+        "to": "/en/docs/tutorials/order-flow-and-status"
       },
       {
         "from": "/tutorial/orders-worksheet",
-        "to": "/en/tutorial/order-report"
+        "to": "/en/docs/tutorials/order-report"
       },
       {
         "from": "/tutorial/understanding-the-order-time-line",
-        "to": "/en/tutorial/understanding-the-order-history-section"
+        "to": "/en/docs/tutorials/understanding-the-order-history-section"
       },
       {
         "from": "/tutorial/viewing-marketplace-orders-on-oms",
-        "to": "/en/tutorial/viewing-marketplace-orders-on-orders-managment"
+        "to": "/en/docs/tutorials/viewing-marketplace-orders-on-orders-managment"
       },
       {
         "from": "/tutorial/viewing-the-detailed-order-log-in-the-oms-flow",
-        "to": "/en/tutorial/viewing-the-detailed-order-log"
+        "to": "/en/docs/tutorials/viewing-the-detailed-order-log"
       },
       {
         "from": "/tutorial/Learn-how-to-create-flows-for-order-release-or-approval",
-        "to": "/en/tutorial/how-order-authorization-works"
+        "to": "/en/docs/tutorials/how-order-authorization-works"
       },
       {
         "from": "/tutorial/allow-to-change-already-closed-orders",
-        "to": "/en/tutorial/order-replacement"
+        "to": "/en/docs/tutorials/order-replacement"
       },
       {
         "from": "/tutorial/how-the-order-replacement-works",
-        "to": "/en/tutorial/order-replacement"
+        "to": "/en/docs/tutorials/order-replacement"
       },
       {
         "from": "/tutorial/set-up-the-notify-me",
-        "to": "/en/tutorial/setting-up-the-notify-me-option"
+        "to": "/en/docs/tutorials/setting-up-the-notify-me-option"
       },
       {
         "from": "/tutorial/what-is-affiliate",
-        "to": "/en/tutorial/what-is-an-affiliate"
+        "to": "/en/docs/tutorials/what-is-an-affiliate"
       },
       {
         "from": "/tutorial/order-listing-beta",
-        "to": "/en/tutorial/all-orders"
+        "to": "/en/docs/tutorials/all-orders"
       },
       {
         "from": "/tutorial/changing-the-total-cost-of-the-order-beta",
-        "to": "/en/tutorial/changing-the-total-cost-of-the-order"
+        "to": "/en/docs/tutorials/changing-the-total-cost-of-the-order"
       },
       {
         "from": "/tutorial/changing-tracking-data-beta",
-        "to": "/en/tutorial/changing-tracking-data"
+        "to": "/en/docs/tutorials/changing-tracking-data"
       },
       {
         "from": "/tutorial/frequently-asked-questions-about-the-new-orders-module-interface",
-        "to": "/en/tutorial/frequently-asked-questions-new-orders-module-interface"
+        "to": "/en/docs/tutorials/frequently-asked-questions-new-orders-module-interface"
       },
       {
         "from": "/tutorial/how-to-manually-invoice-an-order-beta",
-        "to": "/en/tutorial/how-to-manually-invoice-an-order"
+        "to": "/en/docs/tutorials/how-to-manually-invoice-an-order"
       },
       {
         "from": "/tutorial/how-to-return-order-items-beta",
-        "to": "/en/tutorial/how-to-return-order-items"
+        "to": "/en/docs/tutorials/how-to-return-order-items"
       },
       {
         "from": "/tutorial/order-details-page-beta",
-        "to": "/en/tutorial/order-details-page"
+        "to": "/en/docs/tutorials/order-details-page"
       },
       {
         "from": "/tutorial/oms-overview",
-        "to": "/en/tutorial/orders-overview"
+        "to": "/en/docs/tutorials/orders-overview"
       },
       {
         "from": "/tutorial/vtex-do-beta",
-        "to": "/en/tutorial/vtex-do-interface"
+        "to": "/en/docs/tutorials/vtex-do-interface"
       },
       {
         "from": "/tutorial/using-and-customizing-the-callcenter-toolbar",
-        "to": "/en/tutorial/telesales-toolbar"
+        "to": "/en/docs/tutorials/telesales-toolbar"
       },
       {
         "from": "/tutorial/setting-up-kushki-gateway",
-        "to": "/en/tutorial/configuring-kushki-gateway"
+        "to": "/en/docs/tutorials/configuring-kushki-gateway"
       },
       {
         "from": "/tutorial/configuring-maximum-payment-capture-time-frame",
-        "to": "/en/tutorial/configuring-maximum-automatic-payment-settlement-time-frame"
+        "to": "/en/docs/tutorials/configuring-maximum-automatic-payment-settlement-time-frame"
       },
       {
         "from": "/tutorial/configuring-payment-with-adyenv3-in-instore",
-        "to": "/en/tutorial/configuring-payment-with-adyenv3-in-vtex-sales-app"
+        "to": "/en/docs/tutorials/configuring-payment-with-adyenv3-in-vtex-sales-app"
       },
       {
         "from": "/tutorial/setting-up-mercado-pago-pro-as-a-payment-method",
-        "to": "/en/tutorial/how-to-configure-mercado-pago-pro-as-a-payment-method"
+        "to": "/en/docs/tutorials/how-to-configure-mercado-pago-pro-as-a-payment-method"
       },
       {
         "from": "/tutorial/how-to-integrate-with-a-gift-card",
-        "to": "/en/tutorial/how-to-integrate-an-external-gift-card-provider-with-vtex"
+        "to": "/en/docs/tutorials/how-to-integrate-an-external-gift-card-provider-with-vtex"
       },
       {
         "from": "/tutorial/how-to-set-up-the-device-fingerprint-for-braspagcybersource",
-        "to": "/en/tutorial/how-to-set-up-the-device-fingerprint-for-braspag"
+        "to": "/en/docs/tutorials/how-to-set-up-the-device-fingerprint-for-braspag"
       },
       {
         "from": "/tutorial/setting-up-device-fingerprint-for-niubz",
-        "to": "/en/tutorial/setting-up-device-fingerprint-for-niubiz"
+        "to": "/en/docs/tutorials/setting-up-device-fingerprint-for-niubiz"
       },
       {
         "from": "/tutorial/setting-up-payments-with-seller",
-        "to": "/en/tutorial/setting-up-payments-with-easypay-seller"
+        "to": "/en/docs/tutorials/setting-up-payments-with-easypay-seller"
       },
       {
         "from": "/tutorial/how-do-you-calculate-payments-in-installments-with-interest",
-        "to": "/en/tutorial/how-do-you-calculate-payments-in-installments-with-compound-interest"
+        "to": "/en/docs/tutorials/how-do-you-calculate-payments-in-installments-with-compound-interest"
       },
       {
         "from": "/tutorial/transaction-flow-in-pci-gateway",
-        "to": "/en/tutorial/transaction-flow-in-payments"
+        "to": "/en/docs/tutorials/transaction-flow-in-payments"
       },
       {
         "from": "/tutorial/how-long-does-it-take-to-cancel-an-order-with-an-unpaid-bank-payment-slip",
-        "to": "/en/tutorial/how-long-does-it-take-to-cancel-an-order-with-an-unpaid-boleto"
+        "to": "/en/docs/tutorials/how-long-does-it-take-to-cancel-an-order-with-an-unpaid-boleto"
       },
       {
         "from": "/tutorial/searching-for-transactions-on-pci-gateway",
-        "to": "/en/tutorial/searching-for-transactions-on-payments"
+        "to": "/en/docs/tutorials/searching-for-transactions-on-payments"
       },
       {
         "from": "/tutorial/update-price-table",
-        "to": "/en/tutorial/editing-price-tables"
+        "to": "/en/docs/tutorials/editing-price-tables"
       },
       {
         "from": "/tutorial/scheduling-price-on-pricing-v2",
-        "to": "/en/tutorial/scheduling-prices"
+        "to": "/en/docs/tutorials/scheduling-prices"
       },
       {
         "from": "/tutorial/setting-up-price-tables-for-specific-users-using-session",
-        "to": "/en/tutorial/setting-up-price-tables-for-specific-users"
+        "to": "/en/docs/tutorials/setting-up-price-tables-for-specific-users"
       },
       {
         "from": "/tutorial/updating-prices-for-marketplace",
-        "to": "/en/tutorial/updating-prices-in-marketplaces"
+        "to": "/en/docs/tutorials/updating-prices-in-marketplaces"
       },
       {
         "from": "/tutorial/setting-a-pricing-rule-for-a-sales-policy",
-        "to": "/en/tutorial/configuring-a-pricing-rule-for-a-sales-policy"
+        "to": "/en/docs/tutorials/configuring-a-pricing-rule-for-a-sales-policy"
       },
       {
         "from": "/tutorial/price-configuration",
-        "to": "/en/tutorial/prices-settings"
+        "to": "/en/docs/tutorials/prices-settings"
       },
       {
         "from": "/tutorial/filling-out-base-price-import-spreadsheet-fields",
-        "to": "/en/tutorial/table-of-base-prices"
+        "to": "/en/docs/tutorials/table-of-base-prices"
       },
       {
         "from": "/tutorial/psychological-price-v2",
-        "to": "/en/tutorial/rounding-rules"
+        "to": "/en/docs/tutorials/rounding-rules"
       },
       {
         "from": "/tutorial/creating-campaigns",
-        "to": "/en/tutorial/creating-a-campaign-audience"
+        "to": "/en/docs/tutorials/creating-a-campaign-audience"
       },
       {
         "from": "/tutorial/buy-win",
-        "to": "/en/tutorial/buy-one-get-one"
+        "to": "/en/docs/tutorials/buy-one-get-one"
       },
       {
         "from": "/tutorial/configure-a-promotion-for-a-marketplace",
-        "to": "/en/tutorial/configuring-promotions-for-marketplaces"
+        "to": "/en/docs/tutorials/configuring-promotions-for-marketplaces"
       },
       {
         "from": "/tutorial/creating-more-for-less-promotion",
-        "to": "/en/tutorial/creating-a-more-for-less-promotion"
+        "to": "/en/docs/tutorials/creating-a-more-for-less-promotion"
       },
       {
         "from": "/tutorial/creating-promotions-for-a-cluster-of-customers",
-        "to": "/en/tutorial/creating-promotion-for-a-customer-cluster"
+        "to": "/en/docs/tutorials/creating-promotion-for-a-customer-cluster"
       },
       {
         "from": "/tutorial/how-does-apportionment-of-promotions-work",
-        "to": "/en/tutorial/how-does-promotion-proration-work"
+        "to": "/en/docs/tutorials/how-does-promotion-proration-work"
       },
       {
         "from": "/tutorial/understanding-competition-of-promotions",
-        "to": "/en/tutorial/how-promotion-competition-works"
+        "to": "/en/docs/tutorials/how-promotion-competition-works"
       },
       {
         "from": "/tutorial/how-to-configure-a-promotion-for-a-sku",
-        "to": "/en/tutorial/how-to-configure-a-promotion-for-an-sku"
+        "to": "/en/docs/tutorials/how-to-configure-a-promotion-for-an-sku"
       },
       {
         "from": "/tutorial/promotions-list-beta",
-        "to": "/en/tutorial/promotion-list-beta"
+        "to": "/en/docs/tutorials/promotion-list-beta"
       },
       {
         "from": "/tutorial/what-does -it-mean-to-activate-a-gift-multiplier-on-a-promotion",
-        "to": "/en/tutorial/what-does-it-mean-to-activate-a-gift-multiplier-on-a-promotion"
+        "to": "/en/docs/tutorials/what-does-it-mean-to-activate-a-gift-multiplier-on-a-promotion"
       },
       {
         "from": "/tutorial/penetration-testing-and-vulnerability-notice",
-        "to": "/en/tutorial/penetration-tests"
+        "to": "/en/docs/tutorials/penetration-tests"
       },
       {
         "from": "/tutorial/reportar-vulnerabilidade",
-        "to": "/en/tutorial/reporting-vulnerabilities"
+        "to": "/en/docs/tutorials/reporting-vulnerabilities"
       },
       {
         "from": "/tutorial/the-risk-assessment-process",
-        "to": "/en/tutorial/risk-assessment"
+        "to": "/en/docs/tutorials/risk-assessment"
       },
       {
         "from": "/tutorial/searching-for-events-on-audit",
-        "to": "/en/tutorial/audit"
+        "to": "/en/docs/tutorials/audit"
       },
       {
         "from": "/tutorial/hiring-the-security-certificate-sll",
-        "to": "/en/tutorial/security-certificate-ssl"
+        "to": "/en/docs/tutorials/security-certificate-ssl"
       },
       {
         "from": "/tutorial/best-practices-for-using-application-keys",
-        "to": "/en/tutorial/best-practices-api-keys"
+        "to": "/en/docs/tutorials/best-practices-api-keys"
       },
       {
         "from": "/tutorial/deleting-customer-data",
-        "to": "/en/tutorial/erasing-customer-data"
+        "to": "/en/docs/tutorials/erasing-customer-data"
       },
       {
         "from": "/tutorial/configuring-the-seller",
-        "to": "/en/tutorial/adding-a-seller"
+        "to": "/en/docs/tutorials/adding-a-seller"
       },
       {
         "from": "/tutorial/seller-management-beta",
-        "to": "/en/tutorial/seller-management"
+        "to": "/en/docs/tutorials/seller-management"
       },
       {
         "from": "/tutorial/approving-suggestions-for-skus",
-        "to": "/en/tutorial/manual-sku-cataloging"
+        "to": "/en/docs/tutorials/manual-sku-cataloging"
       },
       {
         "from": "/tutorial/how-to-create-a-product-beta",
-        "to": "/en/tutorial/how-to-create-a-product"
+        "to": "/en/docs/tutorials/how-to-create-a-product"
       },
       {
         "from": "/tutorial/marketplace-invited-sellers-beta",
-        "to": "/en/tutorial/marketplace-invited-sellers"
+        "to": "/en/docs/tutorials/marketplace-invited-sellers"
       },
       {
         "from": "/tutorial/product-list-beta",
-        "to": "/en/tutorial/product-list"
+        "to": "/en/docs/tutorials/product-list"
       },
       {
         "from": "/tutorial/seller-creating-an-account-in-the-seller-portal-beta",
-        "to": "/en/tutorial/seller-creating-an-account-in-the-seller-portal"
+        "to": "/en/docs/tutorials/seller-creating-an-account-in-the-seller-portal"
       },
       {
         "from": "/tutorial/brands-beta",
-        "to": "/en/tutorial/seller-portal-brands"
+        "to": "/en/docs/tutorials/seller-portal-brands"
       },
       {
         "from": "/tutorial/categories-beta",
-        "to": "/en/tutorial/seller-portal-categories"
+        "to": "/en/docs/tutorials/seller-portal-categories"
       },
       {
         "from": "/tutorial/setting-up-vtex-marketplace",
-        "to": "/en/tutorial/configuring-vtex-marketplace"
+        "to": "/en/docs/tutorials/configuring-vtex-marketplace"
       },
       {
         "from": "/tutorial/product-shipping-architecture-between-vtex-marketplaces-and-sellers",
-        "to": "/en/tutorial/offers-sent-from-the-same-vtex-sellers-and-marketplaces"
+        "to": "/en/docs/tutorials/offers-sent-from-the-same-vtex-sellers-and-marketplaces"
       },
       {
         "from": "/tutorial/what-is-the-difference-between-delinking-and-deleting-seller-sku",
-        "to": "/en/tutorial/what-is-the-difference-between-unbinding-and-removing-seller-sku"
+        "to": "/en/docs/tutorials/what-is-the-difference-between-unbinding-and-removing-seller-sku"
       },
       {
         "from": "/tutorial/analyze-a-products-reservations",
-        "to": "/en/tutorial/how-does-reservation-work"
+        "to": "/en/docs/tutorials/how-does-reservation-work"
       },
       {
         "from": "/tutorial/how-to-analyze-the-stock-movement-history",
-        "to": "/en/tutorial/inventory-update-history"
+        "to": "/en/docs/tutorials/inventory-update-history"
       },
       {
         "from": "/tutorial/how-to-update-stock",
-        "to": "/en/tutorial/updating-the-quantity-of-items-in-inventory"
+        "to": "/en/docs/tutorials/updating-the-quantity-of-items-in-inventory"
       },
       {
         "from": "/tutorial/updating-quantity-of-skus-in-inventory",
-        "to": "/en/tutorial/updating-the-quantity-of-items-in-inventory"
+        "to": "/en/docs/tutorials/updating-the-quantity-of-items-in-inventory"
       },
       {
         "from": "/tutorial/configuring-the-scheduled-delivery",
-        "to": "/en/tutorial/scheduled-delivery"
+        "to": "/en/docs/tutorials/scheduled-delivery"
       },
       {
         "from": "/tutorial/logistics",
-        "to": "/en/tutorial/fulfillment-logistics-vtex"
+        "to": "/en/docs/tutorials/fulfillment-logistics-vtex"
       },
       {
         "from": "/tutorial/how-to-import-pickup-points-using-spreadsheets",
-        "to": "/en/tutorial/creating-pickup-points"
+        "to": "/en/docs/tutorials/creating-pickup-points"
       },
       {
         "from": "/tutorial/adding-pickup-points",
-        "to": "/en/tutorial/creating-pickup-points"
+        "to": "/en/docs/tutorials/creating-pickup-points"
       },
       {
         "from": "/tutorial/how-pickup-points-work",
-        "to": "/en/tutorial/pickup-points"
+        "to": "/en/docs/tutorials/pickup-points"
       },
       {
         "from": "/tutorial/understanding-the-additional-shipping-cost",
-        "to": "/en/tutorial/additional-shipping-costs"
+        "to": "/en/docs/tutorials/additional-shipping-costs"
       },
       {
         "from": "/tutorial/editing-freight-values",
-        "to": "/en/tutorial/managing-shipping-rates"
+        "to": "/en/docs/tutorials/managing-shipping-rates"
       },
       {
         "from": "/tutorial/freight-simulation",
-        "to": "/en/tutorial/shipping-simulation"
+        "to": "/en/docs/tutorials/shipping-simulation"
       },
       {
         "from": "/tutorial/setting-up-business-hours-for-carriers",
-        "to": "/en/tutorial/carrier-working-hours"
+        "to": "/en/docs/tutorials/carrier-working-hours"
       },
       {
         "from": "/tutorial/configuring-carriers-cut-off-time",
-        "to": "/en/tutorial/carrier-working-hours"
+        "to": "/en/docs/tutorials/carrier-working-hours"
       },
       {
         "from": "/tutorial/what-is-a-carrier",
-        "to": "/en/tutorial/carries-on-vtex"
+        "to": "/en/docs/tutorials/carriers-on-vtex"
       },
       {
         "from": "/tutorial/understanding-the-rule-of-priority-on-freight-calculation",
-        "to": "/en/tutorial/how-shipping-calculation-works"
+        "to": "/en/docs/tutorials/how-shipping-calculation-works"
       },
       {
         "from": "/tutorial/how-to-register-a-dock",
-        "to": "/en/tutorial/managing-loading-docks"
+        "to": "/en/docs/tutorials/managing-loading-docks"
       },
       {
         "from": "/tutorial/registering-a-stock",
-        "to": "/en/tutorial/managing-warehouses"
+        "to": "/en/docs/tutorials/managing-warehouses"
       },
       {
         "from": "/tutorial/adding-a-carrier",
-        "to": "/en/tutorial/shipping-policy"
+        "to": "/en/docs/tutorials/shipping-policy"
       },
       {
         "from": "/tutorial/manage-carrier",
-        "to": "/en/tutorial/shipping-policy"
+        "to": "/en/docs/tutorials/shipping-policy"
       },
       {
         "from": "/tutorial/building-a-freight-spreadsheet",
-        "to": "/en/tutorial/shipping-rate-template"
+        "to": "/en/docs/tutorials/shipping-rate-template"
       },
       {
         "from": "/tutorial/importing-the-shipping-spreadsheet",
-        "to": "/en/tutorial/shipping-rate-template"
+        "to": "/en/docs/tutorials/shipping-rate-template"
       },
       {
         "from": "/tutorial/what-is-the-difference-between-inventory-and-warehouse-dock",
-        "to": "/en/tutorial/shipping-strategy"
+        "to": "/en/docs/tutorials/shipping-strategy"
       },
       {
         "from": "/tutorial/which-transport-companies-enable-make-it-possible-to-track-delivery",
-        "to": "/en/tutorial/which-carriers-allow-delivery-tracking"
+        "to": "/en/docs/tutorials/which-carriers-allow-delivery-tracking"
       },
       {
         "from": "/tutorial/deliveries-progress-vtex-log",
-        "to": "/en/tutorial/deliveries-progress-vtex-shipping-network"
+        "to": "/en/docs/tutorials/deliveries-progress-vtex-shipping-network"
       },
       {
         "from": "/tutorial/vtex-log-dashboard",
-        "to": "/en/tutorial/vtex-shipping-network-dashboard"
+        "to": "/en/docs/tutorials/vtex-shipping-network-dashboard"
       },
       {
         "from": "/tutorial/recursive-marketplace-v2",
-        "to": "/en/tutorial/multilevel-omnichannel-inventory"
+        "to": "/en/docs/tutorials/multilevel-omnichannel-inventory"
       },
       {
         "from": "/tutorial/managing-pages-beta",
-        "to": "/en/tutorial/managing-pages"
+        "to": "/en/docs/tutorials/managing-pages"
       },
       {
         "from": "/tutorial/adding-collections",
-        "to": "/en/tutorial/adding-collections-cms"
+        "to": "/en/docs/tutorials/adding-collections-cms"
       },
       {
         "from": "/tutorial/how-to-configure-the-favicon",
-        "to": "/en/tutorial/configuring-favicon-in-your-store"
+        "to": "/en/docs/tutorials/configuring-favicon-in-your-store"
       },
       {
         "from": "/tutorial/filling-out-Collection-registration-fields",
-        "to": "/en/tutorial/filling-out-collection-registration-fields"
+        "to": "/en/docs/tutorials/filling-out-collection-registration-fields"
       },
       {
         "from": "/tutorial/how-does-the-search-context-work",
-        "to": "/en/tutorial/how-to-create-landing-pages-with-customized-urls"
+        "to": "/en/docs/tutorials/how-to-create-landing-pages-with-customized-urls"
       },
       {
         "from": "/tutorial/how-the-automatic-compacting-of-images-works",
-        "to": "/en/tutorial/image-compression"
+        "to": "/en/docs/tutorials/image-compression"
       },
       {
         "from": "/tutorial/tornar-colecao-de-produtos-encontravel-pela-busca",
-        "to": "/en/tutorial/making-product-collections-searchable"
+        "to": "/en/docs/tutorials/making-product-collections-searchable"
       },
       {
         "from": "/tutorial/what-is-cms",
-        "to": "/en/tutorial/what-is-cms-layout"
+        "to": "/en/docs/tutorials/what-is-cms-layout"
       },
       {
         "from": "/tutorial/creating-a-subscription-plan-beta",
-        "to": "/en/tutorial/creating-a-subscription-plan"
+        "to": "/en/docs/tutorials/creating-a-subscription-plan"
       },
       {
         "from": "/tutorial/how-a-subscription-works",
-        "to": "/en/tutorial/how-subscriptions-work"
+        "to": "/en/docs/tutorials/how-subscriptions-work"
       },
       {
         "from": "/tutorial/how-to-configure-subscription-v2",
-        "to": "/en/tutorial/how-to-configure-subscriptions"
+        "to": "/en/docs/tutorials/how-to-configure-subscriptions"
       },
       {
         "from": "/tutorial/how-to-create-a-subscription-attachment",
-        "to": "/en/tutorial/how-to-create-a-subscription-attachment-via-the-catalog-module"
+        "to": "/en/docs/tutorials/how-to-create-a-subscription-attachment-via-the-catalog-module"
       },
       {
         "from": "/tutorial/pickup-points-for-subscription-orders-beta",
-        "to": "/en/tutorial/pickup-points-for-subscription-orders"
+        "to": "/en/docs/tutorials/pickup-points-for-subscription-orders"
       },
       {
         "from": "/tutorial/subscription-plans-beta",
-        "to": "/en/tutorial/subscription-plans"
+        "to": "/en/docs/tutorials/subscription-plans"
       },
       {
         "from": "/tutorial/transactional-emails-for-subscription-orders",
-        "to": "/en/tutorial/transactional-emails-for-subscriptions-orders"
+        "to": "/en/docs/tutorials/transactional-emails-for-subscriptions-orders"
       },
       {
         "from": "/tutorial/how-to-troubleshoot-subscription-orders-with-errors",
-        "to": "/en/tutorial/troubleshooting-errors-in-subscription-orders"
+        "to": "/en/docs/tutorials/troubleshooting-errors-in-subscription-orders"
       },
       {
         "from": "/tutorial/what-is-a-sales-policy",
-        "to": "/en/tutorial/creating-a-trade-policy"
+        "to": "/en/docs/tutorials/creating-a-trade-policy"
       },
       {
         "from": "/tutorial/how-does-a-trade-policy-work",
-        "to": "/en/tutorial/how-trade-policies-work"
+        "to": "/en/docs/tutorials/how-trade-policies-work"
       },
       {
         "from": "/tutorial/configuring-a-marketplace-sales-policy",
-        "to": "/en/tutorial/configuring-a-marketplace-trade-policy"
+        "to": "/en/docs/tutorials/configuring-a-marketplace-trade-policy"
       },
       {
         "from": "/tutorial/enabling-on-hands-in-vtex-sales-app",
-        "to": "/en/tutorial/enabling-local-stock-sale-in-vtex-sales-app"
+        "to": "/en/docs/tutorials/enabling-local-stock-sale-in-vtex-sales-app"
       },
       {
         "from": "/tutorial/guide-to-integration-of-oms-with-electronic-tax-coupon-for-vtex-instore",
-        "to": "/en/tutorial/guide-to-integration-of-orders-managment-with-electronic-tax-coupon-for-vtex-sales-app"
+        "to": "/en/docs/tutorials/guide-to-integration-of-orders-managment-with-electronic-tax-coupon-for-vtex-sales-app"
       },
       {
         "from": "/tutorial/guide-to-integration-of-orders-managment-with-electronic-tax-coupon-for-vtex-instore",
-        "to": "/en/tutorial/guide-to-integration-of-orders-managment-with-electronic-tax-coupon-for-vtex-sales-app"
+        "to": "/en/docs/tutorials/guide-to-integration-of-orders-managment-with-electronic-tax-coupon-for-vtex-sales-app"
       },
       {
         "from": "/tutorial/sales-app-card-entry",
-        "to": "/en/tutorial/sales-app-card-entry-without-payment-terminal"
+        "to": "/en/docs/tutorials/sales-app-card-entry-without-payment-terminal"
       },
       {
         "from": "/tutorial/attribute-and-test-agents-on-agent-builder",
-        "to": "/en/tutorial/assigning-and-testing-agents"
+        "to": "/en/docs/tutorials/assigning-and-testing-agents"
       },
       {
         "from": "/tutorial/weni-by-vtexs-official-agents",
-        "to": "/en/tutorial/official-agents-from-weni-by-vtex"
+        "to": "/en/docs/tutorials/official-agents-from-weni-by-vtex"
       },
       {
         "from": "/announcements/nova-api-do-master-data-aumenta-flexibilidade-de-configuracao",
@@ -10557,1051 +10557,1051 @@
       },
       {
         "from": "/tutorial/credit-control-vision-general",
-        "to": "/es/tutorial/customer-credit-vision-general"
+        "to": "/es/docs/tutorials/customer-credit-vision-general"
       },
       {
         "from": "/tutorial/como-funciona-el-my-account",
-        "to": "/es/tutorial/como-funciona-mi-cuenta"
+        "to": "/es/docs/tutorials/como-funciona-mi-cuenta"
       },
       {
         "from": "/tutorial/configuración-de-my-account",
-        "to": "/es/tutorial/configuracion-de-my-account"
+        "to": "/es/docs/tutorials/configuracion-de-my-account"
       },
       {
         "from": "/tutorial/untitled-entry-2019-01-30-at-09-21-20",
-        "to": "/es/tutorial/cancelar-el-pago-por-el-servicio-de-una-app-instalada-en-mi-tienda"
+        "to": "/es/docs/tutorials/cancelar-el-pago-por-el-servicio-de-una-app-instalada-en-mi-tienda"
       },
       {
         "from": "/tutorial/pagina-de-autenticacion",
-        "to": "/es/tutorial/autenticacion"
+        "to": "/es/docs/tutorials/autenticacion"
       },
       {
         "from": "/tutorial/integracion-google-y-facebook-en-smartcheckout",
-        "to": "/es/tutorial/configurar-inicio-de-sesion-con-facebook-y-google"
+        "to": "/es/docs/tutorials/configurar-inicio-de-sesion-con-facebook-y-google"
       },
       {
         "from": "/tutorial/configurar-login-con-facebook-y-google",
-        "to": "/es/tutorial/configurar-inicio-de-sesion-con-facebook-y-google"
+        "to": "/es/docs/tutorials/configurar-inicio-de-sesion-con-facebook-y-google"
       },
       {
         "from": "/tutorial/registrar-client-id-y-client-secret-para-login-con-google",
-        "to": "/es/tutorial/registrar-client-id-y-client-secret-para-inicio-de-sesion-con-google"
+        "to": "/es/docs/tutorials/registrar-client-id-y-client-secret-para-inicio-de-sesion-con-google"
       },
       {
         "from": "/tutorial/vision-general",
-        "to": "/es/tutorial/b2b-vision-general"
+        "to": "/es/docs/tutorials/b2b-vision-general"
       },
       {
         "from": "/tutorial/importacion-y-exportacion-de-especificaciones-de-producto-mediante-plantilla",
-        "to": "/es/tutorial/importar-y-exportar-especificaciones-de-productos-mediante-plantilla-beta"
+        "to": "/es/docs/tutorials/importar-y-exportar-especificaciones-de-productos-mediante-plantilla-beta"
       },
       {
         "from": "/tutorial/importacion-y-exportacion-de-especificaciones-de-sku-mediante-plantilla-beta",
-        "to": "/es/tutorial/importar-y-exportar-especificaciones-de-skus-mediante-plantilla-beta"
+        "to": "/es/docs/tutorials/importar-y-exportar-especificaciones-de-skus-mediante-plantilla-beta"
       },
       {
         "from": "/tutorial/importacion-y-exportacion-de-imagenes-de-productos-y-skus-mediante-plantilla",
-        "to": "/es/tutorial/importar-y-exportar-imagenes-de-productos-y-skus-mediante-plantilla-beta"
+        "to": "/es/docs/tutorials/importar-y-exportar-imagenes-de-productos-y-skus-mediante-plantilla-beta"
       },
       {
         "from": "/tutorial/importacion-y-exportacion-de-productos-y-skus-mediante-plantilla-beta",
-        "to": "/es/tutorial/importar-y-exportar-productos-y-skus-mediante-plantilla-beta"
+        "to": "/es/docs/tutorials/importar-y-exportar-productos-y-skus-mediante-plantilla-beta"
       },
       {
         "from": "/tutorial/data-insights-assistant",
-        "to": "/es/tutorial/data-insights-agent"
+        "to": "/es/docs/tutorials/data-insights-agent"
       },
       {
         "from": "/tutorial/modulo-localidades",
-        "to": "/es/tutorial/capacidad-operacional-beta"
+        "to": "/es/docs/tutorials/capacidad-operacional-beta"
       },
       {
         "from": "/tutorial/intelligent-search-busca-hibrida-beta",
-        "to": "/es/tutorial/intelligent-search-busca-semantica-beta"
+        "to": "/es/docs/tutorials/intelligent-search-busca-semantica-beta"
       },
       {
         "from": "/tutorial/planner-acciones-en-los-lanzamientos-beta",
-        "to": "/es/tutorial/planner-acciones-en-releases-beta"
+        "to": "/es/docs/tutorials/planner-acciones-en-releases-beta"
       },
       {
         "from": "/tutorial/planner-concepto-de-lanzamiento-beta",
-        "to": "/es/tutorial/planner-concepto-de-release-beta"
+        "to": "/es/docs/tutorials/planner-concepto-de-release-beta"
       },
       {
         "from": "/tutorial/planner-pagina-de-lanzamientos-beta",
-        "to": "/es/tutorial/planner-pagina-de-releases-beta"
+        "to": "/es/docs/tutorials/planner-pagina-de-releases-beta"
       },
       {
         "from": "/tutorial/catalogo-vtex-data-pipeline-beta",
-        "to": "/es/tutorial/diccionario-de-datos-de-vtex-data-pipeline-beta"
+        "to": "/es/docs/tutorials/diccionario-de-datos-de-vtex-data-pipeline-beta"
       },
       {
         "from": "/tutorial/pedidos",
-        "to": "/es/tutorial/pedidos-data-pipeline-beta"
+        "to": "/es/docs/tutorials/pedidos-data-pipeline-beta"
       },
       {
         "from": "/tutorial/inventario",
-        "to": "/es/tutorial/stock-data-pipeline-beta"
+        "to": "/es/docs/tutorials/stock-data-pipeline-beta"
       },
       {
         "from": "/tutorial/cambiar-el-seller-de-un-pedido-instore-beta",
-        "to": "/es/tutorial/cambiar-el-seller-de-un-pedido-vtex-sales-app-beta"
+        "to": "/es/docs/tutorials/cambiar-el-seller-de-un-pedido-vtex-sales-app-beta"
       },
       {
         "from": "/tutorial/assembly-options-es",
-        "to": "/es/tutorial/assembly-options"
+        "to": "/es/docs/tutorials/assembly-options"
       },
       {
         "from": "/tutorial/configurando-cartao-de-presente-com-mensagem-personalizada",
-        "to": "/es/tutorial/configurar-mensaje-personalizado-de-regalo"
+        "to": "/es/docs/tutorials/configurar-mensaje-personalizado-de-regalo"
       },
       {
         "from": "/tutorial/criando-grupo-de-categoria",
-        "to": "/es/tutorial/crear-grupo-de-especificaciones-en-una-categoria"
+        "to": "/es/docs/tutorials/crear-grupo-de-especificaciones-en-una-categoria"
       },
       {
         "from": "/tutorial/desactivando-y-reorganizando-categorias",
-        "to": "/es/tutorial/desactivar-y-reorganizar-categorias"
+        "to": "/es/docs/tutorials/desactivar-y-reorganizar-categorias"
       },
       {
         "from": "/tutorial/registrando-categoria",
-        "to": "/es/tutorial/registrar-categoria"
+        "to": "/es/docs/tutorials/registrar-categoria"
       },
       {
         "from": "/tutorial/importar-y-exportar-especificacion-de-producto-y-sku",
-        "to": "/es/tutorial/exportar-y-importar-especificaciones-de-producto-y-sku"
+        "to": "/es/docs/tutorials/exportar-y-importar-especificaciones-de-producto-y-sku"
       },
       {
         "from": "/tutorial/subiendo-un-xml-de-productos",
-        "to": "/es/tutorial/como-configurar-xml"
+        "to": "/es/docs/tutorials/como-configurar-xml"
       },
       {
         "from": "/tutorial/como-montar-um-kit-look",
-        "to": "/es/tutorial/como-montar-un-kit-de-look"
+        "to": "/es/docs/tutorials/como-montar-un-kit-de-look"
       },
       {
         "from": "/tutorial/como-ordenar-los-productos-del-kitlook",
-        "to": "/es/tutorial/como-ordenar-los-productos-del-kit-de-look"
+        "to": "/es/docs/tutorials/como-ordenar-los-productos-del-kit-de-look"
       },
       {
         "from": "/tutorial/cadastrando-kit",
-        "to": "/es/tutorial/registrar-kit"
+        "to": "/es/docs/tutorials/registrar-kit"
       },
       {
         "from": "/tutorial/agregar-productos-beta",
-        "to": "/es/tutorial/agregar-o-editar-productos"
+        "to": "/es/docs/tutorials/agregar-o-editar-productos"
       },
       {
         "from": "/tutorial/agregar-skus-beta",
-        "to": "/es/tutorial/agregar-o-editar-skus"
+        "to": "/es/docs/tutorials/agregar-o-editar-skus"
       },
       {
         "from": "/tutorial/como-cambiar-la-relacion-sku-x-product",
-        "to": "/es/tutorial/como-cambiar-la-relacion-entre-sku-y-producto"
+        "to": "/es/docs/tutorials/como-cambiar-la-relacion-entre-sku-y-producto"
       },
       {
         "from": "/tutorial/como-es-montada-la-url-de-producto",
-        "to": "/es/tutorial/como-definir-la-url-de-un-producto"
+        "to": "/es/docs/tutorials/como-definir-la-url-de-un-producto"
       },
       {
         "from": "/tutorial/configurando-produto-similar-sugestoes-acessorios-e-genericos",
-        "to": "/es/tutorial/configurar-producto-similar-sugerencias-accesorios-y-genericos"
+        "to": "/es/docs/tutorials/configurar-producto-similar-sugerencias-accesorios-y-genericos"
       },
       {
         "from": "/tutorial/descubrir-el-id-de-un-sku",
-        "to": "/es/tutorial/identificar-el-id-de-un-sku"
+        "to": "/es/docs/tutorials/identificar-el-id-de-un-sku"
       },
       {
         "from": "/tutorial/untitled-entry-2019-02-21-at-07-52-16",
-        "to": "/es/tutorial/insertar-imagenes-en-el-email-de-avisame"
+        "to": "/es/docs/tutorials/insertar-imagenes-en-el-email-de-avisame"
       },
       {
         "from": "/tutorial/como-cambiar-el-producto-de-un-sku",
-        "to": "/es/tutorial/mover-un-sku-a-otro-producto"
+        "to": "/es/docs/tutorials/mover-un-sku-a-otro-producto"
       },
       {
         "from": "/tutorial/productos-y-skus-beta",
-        "to": "/es/tutorial/productos-y-skus"
+        "to": "/es/docs/tutorials/productos-y-skus"
       },
       {
         "from": "/tutorial/creando-un-campo-de-producto",
-        "to": "/es/tutorial/registrar-especificaciones-o-campos-de-producto"
+        "to": "/es/docs/tutorials/registrar-especificaciones-o-campos-de-producto"
       },
       {
         "from": "/tutorial/criando-campo-de-sku",
-        "to": "/es/tutorial/registrar-especificaciones-o-campos-de-sku"
+        "to": "/es/docs/tutorials/registrar-especificaciones-o-campos-de-sku"
       },
       {
         "from": "/tutorial/registrar-los-codigos-de-barras-de-los-skus-para-el-instore",
-        "to": "/es/tutorial/registrar-los-codigos-de-barras-de-los-skus-para-el-vtex-sales-app"
+        "to": "/es/docs/tutorials/registrar-los-codigos-de-barras-de-los-skus-para-el-vtex-sales-app"
       },
       {
         "from": "/tutorial/lista-de-templates-de-correo-eletronico-en-el-message-center",
-        "to": "/es/tutorial/plantillas-de-emails-transaccionales-del-pedido"
+        "to": "/es/docs/tutorials/plantillas-de-emails-transaccionales-del-pedido"
       },
       {
         "from": "/tutorial/ativar-o-checkout-v6",
-        "to": "/es/tutorial/activar-el-checkout-v6"
+        "to": "/es/docs/tutorials/activar-el-checkout-v6"
       },
       {
         "from": "/tutorial/cambio-la-nueva-version-de-smart-checkout",
-        "to": "/es/tutorial/caracteristicas-generales-smartcheckout-v5"
+        "to": "/es/docs/tutorials/caracteristicas-generales-smartcheckout-v5"
       },
       {
         "from": "/tutorial/como-se-realiza-el-rateo-de-flete",
-        "to": "/es/tutorial/como-se-realiza-el-prorrateo-del-flete"
+        "to": "/es/docs/tutorials/como-se-realiza-el-prorrateo-del-flete"
       },
       {
         "from": "/tutorial/guia-de-integracion-del-oms-con-cupon-fiscal-electronico-para-el-vtex-instore",
-        "to": "/es/tutorial/guia-de-integracion-del-gerenciamento-de-pedidos-con-cupon-fiscal-electronico-para-el-vtex-sales-app"
+        "to": "/es/docs/tutorials/guia-de-integracion-del-gerenciamento-de-pedidos-con-cupon-fiscal-electronico-para-el-vtex-sales-app"
       },
       {
         "from": "/tutorial/guia-de-integracion-del-gerenciamento-de-pedidos-con-cupon-fiscal-electronico-para-el-vtex-instore",
-        "to": "/es/tutorial/guia-de-integracion-del-gerenciamento-de-pedidos-con-cupon-fiscal-electronico-para-el-vtex-sales-app"
+        "to": "/es/docs/tutorials/guia-de-integracion-del-gerenciamento-de-pedidos-con-cupon-fiscal-electronico-para-el-vtex-sales-app"
       },
       {
         "from": "/tutorial/habilitar-venta-en-mano-en-vtex-sales-app",
-        "to": "/es/tutorial/habilitar-venta-de-inventario-local-en-vtex-sales-app"
+        "to": "/es/docs/tutorials/habilitar-venta-de-inventario-local-en-vtex-sales-app"
       },
       {
         "from": "/tutorial/pago-con-tarjeta-via-vtex-sales-app",
-        "to": "/es/tutorial/pago-con-tarjeta-via-vtex-sales-app-sin-terminal"
+        "to": "/es/docs/tutorials/pago-con-tarjeta-via-vtex-sales-app-sin-terminal"
       },
       {
         "from": "/tutorial/marketplace-recursivo-v2",
-        "to": "/es/tutorial/multilevel-omnichannel-inventory"
+        "to": "/es/docs/tutorials/multilevel-omnichannel-inventory"
       },
       {
         "from": "/tutorial/analizar",
-        "to": "/es/tutorial/analizar-suiteshare"
+        "to": "/es/docs/tutorials/analizar-suiteshare"
       },
       {
         "from": "/tutorial/anapro",
-        "to": "/es/tutorial/anapro-suiteshare"
+        "to": "/es/docs/tutorials/anapro-suiteshare"
       },
       {
         "from": "/tutorial/call-to-action",
-        "to": "/es/tutorial/call-to-action-suiteshare"
+        "to": "/es/docs/tutorials/call-to-action-suiteshare"
       },
       {
         "from": "/tutorial/facebook-liberacion-del-dominio",
-        "to": "/es/tutorial/facebook-liberacao-de-dominio-suiteshare"
+        "to": "/es/docs/tutorials/facebook-liberacao-de-dominio-suiteshare"
       },
       {
         "from": "/tutorial/formulario-de-captura",
-        "to": "/es/tutorial/formulario-de-captura-suiteshare"
+        "to": "/es/docs/tutorials/formulario-de-captura-suiteshare"
       },
       {
         "from": "/tutorial/geolocalizado",
-        "to": "/es/tutorial/geolocalizado-suiteshare"
+        "to": "/es/docs/tutorials/geolocalizado-suiteshare"
       },
       {
         "from": "/tutorial/instalando-el-widget-con-gtm",
-        "to": "/es/tutorial/instalando-el-widget-con-gtm-suiteshare"
+        "to": "/es/docs/tutorials/instalando-el-widget-con-gtm-suiteshare"
       },
       {
         "from": "/tutorial/links",
-        "to": "/es/tutorial/links-suiteshare"
+        "to": "/es/docs/tutorials/links-suiteshare"
       },
       {
         "from": "/tutorial/personalice",
-        "to": "/es/tutorial/personalice-suiteshare"
+        "to": "/es/docs/tutorials/personalice-suiteshare"
       },
       {
         "from": "/tutorial/pipedrive",
-        "to": "/es/tutorial/pipedrive-suiteshare"
+        "to": "/es/docs/tutorials/pipedrive-suiteshare"
       },
       {
         "from": "/tutorial/rdstation-crm",
-        "to": "/es/tutorial/rdstation-crm-suiteshare"
+        "to": "/es/docs/tutorials/rdstation-crm-suiteshare"
       },
       {
         "from": "/tutorial/rdstation",
-        "to": "/es/tutorial/rdstation-suiteshare"
+        "to": "/es/docs/tutorials/rdstation-suiteshare"
       },
       {
         "from": "/tutorial/sequencial",
-        "to": "/es/tutorial/sequencial-suiteshare"
+        "to": "/es/docs/tutorials/sequencial-suiteshare"
       },
       {
         "from": "/tutorial/wordpress",
-        "to": "/es/tutorial/wordpress-suiteshare"
+        "to": "/es/docs/tutorials/wordpress-suiteshare"
       },
       {
         "from": "/tutorial/zapier",
-        "to": "/es/tutorial/zapier-suiteshare"
+        "to": "/es/docs/tutorials/zapier-suiteshare"
       },
       {
         "from": "/tutorial/configurar-la-alerta de Stock Crítico",
-        "to": "/es/tutorial/configurar-la-alerta-de-stock-critico"
+        "to": "/es/docs/tutorials/configurar-la-alerta-de-stock-critico"
       },
       {
         "from": "/tutorial/como-se-maneja-la-entrega-programada",
-        "to": "/es/tutorial/entrega-programada"
+        "to": "/es/docs/tutorials/entrega-programada"
       },
       {
         "from": "/tutorial/como-funciona-el-calculo-del-flete",
-        "to": "/es/tutorial/como-funciona-el-calculo-del-envio"
+        "to": "/es/docs/tutorials/como-funciona-el-calculo-del-envio"
       },
       {
         "from": "/tutorial/cual-es-la-diferencia-entre-inventario-y-muelle",
-        "to": "/es/tutorial/estrategia-de-envio"
+        "to": "/es/docs/tutorials/estrategia-de-envio"
       },
       {
         "from": "/tutorial/gerenciar-inventario",
-        "to": "/es/tutorial/gestionar-almacenes"
+        "to": "/es/docs/tutorials/gestionar-almacenes"
       },
       {
         "from": "/tutorial/como-crear-muelle",
-        "to": "/es/tutorial/gestionar-el-muelle"
+        "to": "/es/docs/tutorials/gestionar-el-muelle"
       },
       {
         "from": "/tutorial/configurar-horario-de-funcionamiento-para-transportistas",
-        "to": "/es/tutorial/horario-de-atencion-de-las-transportadoras"
+        "to": "/es/docs/tutorials/horario-de-atencion-de-las-transportadoras"
       },
       {
         "from": "/tutorial/configurar-los-horarios-de-la-transportadora",
-        "to": "/es/tutorial/horario-de-atencion-de-las-transportadoras"
+        "to": "/es/docs/tutorials/horario-de-atencion-de-las-transportadoras"
       },
       {
         "from": "/tutorial/como-montar-la-plantilla-de-flete",
-        "to": "/es/tutorial/plantilla-de-flete"
+        "to": "/es/docs/tutorials/plantilla-de-flete"
       },
       {
         "from": "/tutorial/importar-planilla-de-envio",
-        "to": "/es/tutorial/plantilla-de-flete"
+        "to": "/es/docs/tutorials/plantilla-de-flete"
       },
       {
         "from": "/tutorial/registrar-una-transportadora",
-        "to": "/es/tutorial/politica-de-envio"
+        "to": "/es/docs/tutorials/politica-de-envio"
       },
       {
         "from": "/tutorial/administrar-operador",
-        "to": "/es/tutorial/politica-de-envio"
+        "to": "/es/docs/tutorials/politica-de-envio"
       },
       {
         "from": "/tutorial/cuales-transportistas-ponen-a-disposicion-el-rastreo-de-flete",
-        "to": "/es/tutorial/que-transportadoras-ponen-a-disposicion-el-rastreo-de-pedido"
+        "to": "/es/docs/tutorials/que-transportadoras-ponen-a-disposicion-el-rastreo-de-pedido"
       },
       {
         "from": "/tutorial/que-es-una-transportadora",
-        "to": "/es/tutorial/transportadoras-en-vtex"
+        "to": "/es/docs/tutorials/transportadoras-en-vtex"
       },
       {
         "from": "/tutorial/como-actualizar-inventario",
-        "to": "/es/tutorial/actualization-de-la-cantidad-de-items-en-stock"
+        "to": "/es/docs/tutorials/actualization-de-la-cantidad-de-items-en-stock"
       },
       {
         "from": "/tutorial/actualizar-la-cantidad-de-skus-en-inventario",
-        "to": "/es/tutorial/actualization-de-la-cantidad-de-items-en-stock"
+        "to": "/es/docs/tutorials/actualization-de-la-cantidad-de-items-en-stock"
       },
       {
         "from": "/tutorial/analizar-las-reservas-de-un-producto",
-        "to": "/es/tutorial/como-se-maneja-la-reserva"
+        "to": "/es/docs/tutorials/como-se-maneja-la-reserva"
       },
       {
         "from": "/tutorial/como-analizar-el-historico-de-movimiento-de-inventario",
-        "to": "/es/tutorial/historial-de-movimientos-del-stock"
+        "to": "/es/docs/tutorials/historial-de-movimientos-del-stock"
       },
       {
         "from": "/tutorial/como-funciona-el-punto-de-recogida",
-        "to": "/es/tutorial/puntos-de-recogida"
+        "to": "/es/docs/tutorials/puntos-de-recogida"
       },
       {
         "from": "/tutorial/como-importar-puntos-de-recogida-pickup-points-por-planilla",
-        "to": "/es/tutorial/registro-de-puntos-de-recogida"
+        "to": "/es/docs/tutorials/registro-de-puntos-de-recogida"
       },
       {
         "from": "/tutorial/configurar-puntos-de-recogida-pickup-points",
-        "to": "/es/tutorial/registro-de-puntos-de-recogida"
+        "to": "/es/docs/tutorials/registro-de-puntos-de-recogida"
       },
       {
         "from": "/tutorial/simulacion-de-flete",
-        "to": "/es/tutorial/simulador-de-envio"
+        "to": "/es/docs/tutorials/simulador-de-envio"
       },
       {
         "from": "/tutorial/como-funciona-el-valor-adicional-en-el-flete",
-        "to": "/es/tutorial/adicionales-de-flete"
+        "to": "/es/docs/tutorials/adicionales-de-flete"
       },
       {
         "from": "/tutorial/gestionar-valores-de-flete",
-        "to": "/es/tutorial/gestionar-las-tarifas-de-envio"
+        "to": "/es/docs/tutorials/gestionar-las-tarifas-de-envio"
       },
       {
         "from": "/tutorial/logistica",
-        "to": "/es/tutorial/fulfillment-logistica-vtex"
+        "to": "/es/docs/tutorials/fulfillment-logistica-vtex"
       },
       {
         "from": "/tutorial/panel-vtex-log",
-        "to": "/es/tutorial/panel-vtex-shipping-network"
+        "to": "/es/docs/tutorials/panel-vtex-shipping-network"
       },
       {
         "from": "/tutorial/progreso-de-las-entregas-vtex-log",
-        "to": "/es/tutorial/progreso-de-las-entregas-vtex-shipping-network"
+        "to": "/es/docs/tutorials/progreso-de-las-entregas-vtex-shipping-network"
       },
       {
         "from": "/tutorial/como-solicitar-su-rescision-contractual-brasil",
-        "to": "/es/tutorial/como-solicitar-su-rescision-contractual-en-brasil"
+        "to": "/es/docs/tutorials/como-solicitar-su-rescision-contractual-en-brasil"
       },
       {
         "from": "/tutorial/comprar-y-acceder-su-ambiente",
-        "to": "/es/tutorial/contratar-nuevo-entorno"
+        "to": "/es/docs/tutorials/contratar-nuevo-entorno"
       },
       {
         "from": "/tutorial/por-que-no-recibi-el-contrato-firmado-de-vtex",
-        "to": "/es/tutorial/contrato-vtex"
+        "to": "/es/docs/tutorials/contrato-vtex"
       },
       {
         "from": "/tutorial/procedimientos-de-cuentas-a-pagar",
-        "to": "/es/tutorial/cuentas-a-pagar-brasil"
+        "to": "/es/docs/tutorials/cuentas-a-pagar-brasil"
       },
       {
         "from": "/tutorial/procedimiento-de-cuentas-a-pagar-internacional",
-        "to": "/es/tutorial/cuentas-por-pagar-internacional"
+        "to": "/es/docs/tutorials/cuentas-por-pagar-internacional"
       },
       {
         "from": "/tutorial/vision-general-del-modulo-facturas",
-        "to": "/es/tutorial/vision-general-facturacion"
+        "to": "/es/docs/tutorials/vision-general-facturacion"
       },
       {
         "from": "/tutorial/cómo-descargar-las-facturas-de-vtex",
-        "to": "/es/tutorial/como-descargar-las-facturas-de-vtex"
+        "to": "/es/docs/tutorials/como-descargar-las-facturas-de-vtex"
       },
       {
         "from": "/tutorial/como-solicitar-una-copia-de-mi-boleto",
-        "to": "/es/tutorial/como-solicitar-una-copia-de-mi-boleto-de-cobro"
+        "to": "/es/docs/tutorials/como-solicitar-una-copia-de-mi-boleto-de-cobro"
       },
       {
         "from": "/tutorial/claves-de-api-beta",
-        "to": "/es/tutorial/claves-de-api"
+        "to": "/es/docs/tutorials/claves-de-api"
       },
       {
         "from": "/tutorial/claves-externas-beta",
-        "to": "/es/tutorial/claves-externas"
+        "to": "/es/docs/tutorials/claves-externas"
       },
       {
         "from": "/tutorial/claves-generadas-beta",
-        "to": "/es/tutorial/claves-generadas"
+        "to": "/es/docs/tutorials/claves-generadas"
       },
       {
         "from": "/tutorial/configurar-la-duracion-de-las-claves-de-api-beta",
-        "to": "/es/tutorial/configurar-alerta-para-renovar-tokens-de-api"
+        "to": "/es/docs/tutorials/configurar-alerta-para-renovar-tokens-de-api"
       },
       {
         "from": "/tutorial/renovar-token-de-api-beta",
-        "to": "/es/tutorial/renovar-token-de-api"
+        "to": "/es/docs/tutorials/renovar-token-de-api"
       },
       {
         "from": "/tutorial/como-crear-un-perfil-de-acceso-financiero",
-        "to": "/es/tutorial/crear-un-rol-financiero"
+        "to": "/es/docs/tutorials/crear-un-rol-financiero"
       },
       {
         "from": "/tutorial/perfiles-de-acceso-predefinidos",
-        "to": "/es/tutorial/roles-de-usuario-predefinidos"
+        "to": "/es/docs/tutorials/roles-de-usuario-predefinidos"
       },
       {
         "from": "/tutorial/como-crear-perfil-de-acceso",
-        "to": "/es/tutorial/roles"
+        "to": "/es/docs/tutorials/roles"
       },
       {
         "from": "/tutorial/perfiles-de-acceso",
-        "to": "/es/tutorial/roles"
+        "to": "/es/docs/tutorials/roles"
       },
       {
         "from": "/tutorial/como-cambiar-el-dominio-de-la-tienda",
-        "to": "/es/tutorial/cambiar-el-dominio-de-la-tienda"
+        "to": "/es/docs/tutorials/cambiar-el-dominio-de-la-tienda"
       },
       {
         "from": "/tutorial/como-alterar-el-logo-del-boleto",
-        "to": "/es/tutorial/cambiar-el-logotipo-del-boleto"
+        "to": "/es/docs/tutorials/cambiar-el-logotipo-del-boleto"
       },
       {
         "from": "/tutorial/configuracion-de-dominios-del-license-manager",
-        "to": "/es/tutorial/configurar-dominio-de-la-tienda"
+        "to": "/es/docs/tutorials/configurar-dominio-de-la-tienda"
       },
       {
         "from": "/tutorial/pagina-de-detalles-de-la-cuenta",
-        "to": "/es/tutorial/gestion-de-la-cuenta"
+        "to": "/es/docs/tutorials/gestion-de-la-cuenta"
       },
       {
         "from": "/tutorial/untitled-entry-2019-02-21-at-02-36-12",
-        "to": "/es/tutorial/acceda-al-carrito-abandonado-de-los-clientes"
+        "to": "/es/docs/tutorials/acceda-al-carrito-abandonado-de-los-clientes"
       },
       {
         "from": "/tutorial/creando-usuarios",
-        "to": "/es/tutorial/gestionar-usuarios"
+        "to": "/es/docs/tutorials/gestionar-usuarios"
       },
       {
         "from": "/tutorial/limpiar-base-de-datos-de-la-tienda",
-        "to": "/es/tutorial/mantenimiento-de-base-de-datos-full-cleanup"
+        "to": "/es/docs/tutorials/mantenimiento-de-base-de-datos-full-cleanup"
       },
       {
         "from": "/tutorial/que-es-el-usuario-patrocinador",
-        "to": "/es/tutorial/que-es-el-usuario-titular"
+        "to": "/es/docs/tutorials/que-es-el-usuario-titular"
       },
       {
         "from": "/tutorial/como-recuperar-la-contrasena",
-        "to": "/es/tutorial/restablecer-contrasena-de-acceso-al-admin-vtex"
+        "to": "/es/docs/tutorials/restablecer-contrasena-de-acceso-al-admin-vtex"
       },
       {
         "from": "/tutorial/cambiar-el-usuario-master-de-la-cuenta",
-        "to": "/es/tutorial/transferir-la-propiedad-de-la-tienda"
+        "to": "/es/docs/tutorials/transferir-la-propiedad-de-la-tienda"
       },
       {
         "from": "/tutorial/registrar-gerente-plataforma-indeva",
-        "to": "/es/tutorial/untitled"
+        "to": "/es/docs/tutorials/untitled"
       },
       {
         "from": "/tutorial/division-del-ciclo-de-la-meta-en-periodosv",
-        "to": "/es/tutorial/division-del-ciclo-de-la-meta-en-periodos-indeva"
+        "to": "/es/docs/tutorials/division-del-ciclo-de-la-meta-en-periodos-indeva"
       },
       {
         "from": "/tutorial/por-que-no-recomendamos-insertar-un-proxy-inverso-en-los-servicios-vtex",
-        "to": "/es/tutorial/insertar-proxy-inverso-frente-a-los-servicios-vtex"
+        "to": "/es/docs/tutorials/insertar-proxy-inverso-frente-a-los-servicios-vtex"
       },
       {
         "from": "/tutorial/configurando-acceso-sin-www",
-        "to": "/es/tutorial/mejores-practicas-para-acceder-a-tienda-sin-www"
+        "to": "/es/docs/tutorials/mejores-practicas-para-acceder-a-tienda-sin-www"
       },
       {
         "from": "/tutorial/que-es-el-sla-de-operacion-de-la-plataforma",
-        "to": "/es/tutorial/acuerdo-de-nivel-de-servicio-sla-para-la-operacion-de-vtex"
+        "to": "/es/docs/tutorials/acuerdo-de-nivel-de-servicio-sla-para-la-operacion-de-vtex"
       },
       {
         "from": "/tutorial/untitled-entry-2019-01-14-at-07-58-58",
-        "to": "/es/tutorial/pagina-vtex-status"
+        "to": "/es/docs/tutorials/pagina-vtex-status"
       },
       {
         "from": "/tutorial/status-vtex-entienda-como-funciona-el-status-de-la-plataforma",
-        "to": "/es/tutorial/pagina-vtex-status"
+        "to": "/es/docs/tutorials/pagina-vtex-status"
       },
       {
         "from": "/tutorial/pagina-de-status-de-la-plataforma",
-        "to": "/es/tutorial/pagina-vtex-status"
+        "to": "/es/docs/tutorials/pagina-vtex-status"
       },
       {
         "from": "/tutorial/como-funciona-la-integracion-con-carrefour",
-        "to": "/es/tutorial/como-funciona-la-integracion-de-carrefour"
+        "to": "/es/docs/tutorials/como-funciona-la-integracion-de-carrefour"
       },
       {
         "from": "/tutorial/configurar-la-integracion-de-tiendas-fisicas-con-b2w-skyhub",
-        "to": "/es/tutorial/configurar-la-integracion-de-tiendas-fisicas-con-b2w"
+        "to": "/es/docs/tutorials/configurar-la-integracion-de-tiendas-fisicas-con-b2w"
       },
       {
         "from": "/tutorial/integrando-con-marketplace",
-        "to": "/es/tutorial/estrategias-de-marketplace-en-vtex"
+        "to": "/es/docs/tutorials/estrategias-de-marketplace-en-vtex"
       },
       {
         "from": "/tutorial/importacion-de-pedidos-de-amazon-fba-classic",
-        "to": "/es/tutorial/importacion-de-pedidos-classic-de-amazon-fba"
+        "to": "/es/docs/tutorials/importacion-de-pedidos-classic-de-amazon-fba"
       },
       {
         "from": "/tutorial/estado-del-anuncio-beta",
-        "to": "/es/tutorial/status-de-los-anuncios"
+        "to": "/es/docs/tutorials/status-de-los-anuncios"
       },
       {
         "from": "/tutorial/vea-como-utilizar-change-seller",
-        "to": "/es/tutorial/change-seller"
+        "to": "/es/docs/tutorials/change-seller"
       },
       {
         "from": "/tutorial/como-funciona-el-flete-fob-cuando-la-entrega-es-hecha-por-el-marketplace",
-        "to": "/es/tutorial/como-funciona-el-flete-cuando-la-entrega-es-hecha-por-el-marketplace"
+        "to": "/es/docs/tutorials/como-funciona-el-flete-cuando-la-entrega-es-hecha-por-el-marketplace"
       },
       {
         "from": "/tutorial/precios-v2",
-        "to": "/es/tutorial/precios"
+        "to": "/es/docs/tutorials/precios"
       },
       {
         "from": "/tutorial/anuncios-recebidos",
-        "to": "/es/tutorial/skus-recebidos-beta"
+        "to": "/es/docs/tutorials/skus-recebidos-beta"
       },
       {
         "from": "/tutorial/errores-de-falta-de-stock-en-pedidos-de-la-integracion-con-el-marketplace",
-        "to": "/es/tutorial/errores-de-falta-de-stock-en-la-integracion-de-pedidos-de-marketplace"
+        "to": "/es/docs/tutorials/errores-de-falta-de-stock-en-la-integracion-de-pedidos-de-marketplace"
       },
       {
         "from": "/tutorial/regionalizacion-beta",
-        "to": "/es/tutorial/regionalizacion"
+        "to": "/es/docs/tutorials/regionalizacion"
       },
       {
         "from": "/tutorial/configurar-redireccionamientos",
-        "to": "/es/tutorial/configurar-redirecciones"
+        "to": "/es/docs/tutorials/configurar-redirecciones"
       },
       {
         "from": "/tutorial/redireccionamientos",
-        "to": "/es/tutorial/redirecciones"
+        "to": "/es/docs/tutorials/redirecciones"
       },
       {
         "from": "/tutorial/configurar-sinonimos",
-        "to": "/es/tutorial/crear-sinonimos"
+        "to": "/es/docs/tutorials/crear-sinonimos"
       },
       {
         "from": "/tutorial/creando-una-cconsulta-customizada-en-el-vtex-master-data",
-        "to": "/es/tutorial/crear-consulta-personalizada-en-master-data-v1"
+        "to": "/es/docs/tutorials/crear-consulta-personalizada-en-master-data-v1"
       },
       {
         "from": "/tutorial/crear-relacion-con-entidades-y-documentos-de-master-data-utilizando-el-admin",
-        "to": "/es/tutorial/crear-relaciones-entre-entidades-de-master-data-utilizando-el-admin"
+        "to": "/es/docs/tutorials/crear-relaciones-entre-entidades-de-master-data-utilizando-el-admin"
       },
       {
         "from": "/tutorial/importar-datos-en-el-master-data",
-        "to": "/es/tutorial/importar-datos-en-master-data-v1"
+        "to": "/es/docs/tutorials/importar-datos-en-master-data-v1"
       },
       {
         "from": "/tutorial/entidades-de-datos-creacion-y-mantenimiento",
-        "to": "/es/tutorial/entidade-de-datos"
+        "to": "/es/docs/tutorials/entidade-de-datos"
       },
       {
         "from": "/tutorial/que-es-el-master-data",
-        "to": "/es/tutorial/master-data"
+        "to": "/es/docs/tutorials/master-data"
       },
       {
         "from": "/tutorial/no-puedo-editar-un-campo-obligatorio-en-master-data",
-        "to": "/es/tutorial/definir-campos-obligatorios-en-los-formularios-de-master-data-v1"
+        "to": "/es/docs/tutorials/definir-campos-obligatorios-en-los-formularios-de-master-data-v1"
       },
       {
         "from": "/tutorial/como-dejar-editable-un-campo-del-master-data",
-        "to": "/es/tutorial/dejar-editable-un-campo-del-master-data"
+        "to": "/es/docs/tutorials/dejar-editable-un-campo-del-master-data"
       },
       {
         "from": "/tutorial/configurando-indice-en-el-vtex-master-data",
-        "to": "/es/tutorial/indices-en-master-data"
+        "to": "/es/docs/tutorials/indices-en-master-data"
       },
       {
         "from": "/tutorial/como-incluir-un-registro-en-un-formulario-del-master-data",
-        "to": "/es/tutorial/agregar-un-registro-en-un-formulario-de-master-data"
+        "to": "/es/docs/tutorials/agregar-un-registro-en-un-formulario-de-master-data"
       },
       {
         "from": "/tutorial/aceptacion-clientes",
-        "to": "/es/tutorial/aprobacion-de-clientes"
+        "to": "/es/docs/tutorials/aprobacion-de-clientes"
       },
       {
         "from": "/tutorial/aprobacion-clientes",
-        "to": "/es/tutorial/aprobacion-de-clientes"
+        "to": "/es/docs/tutorials/aprobacion-de-clientes"
       },
       {
         "from": "/tutorial/configurar-las-promociones-para-empleados-usando-clusters-de-master-data",
-        "to": "/es/tutorial/configurar-los-beneficios-para-empleados-usando-clusters-de-master-data"
+        "to": "/es/docs/tutorials/configurar-los-beneficios-para-empleados-usando-clusters-de-master-data"
       },
       {
         "from": "/tutorial/importar-datos-de-clientes-brasil",
-        "to": "/es/tutorial/importar-datos-de-clientes"
+        "to": "/es/docs/tutorials/importar-datos-de-clientes"
       },
       {
         "from": "/tutorial/configurar-producto-visitado",
-        "to": "/es/tutorial/configurar-automatizacion-de-email-de-producto-visitado"
+        "to": "/es/docs/tutorials/configurar-automatizacion-de-email-de-producto-visitado"
       },
       {
         "from": "/tutorial/untitled-entry-2018-09-27-at-08-35-08",
-        "to": "/es/tutorial/enviar-los-medios-de-pago-del-seller-white-label-al-marketplace"
+        "to": "/es/docs/tutorials/enviar-los-medios-de-pago-del-seller-white-label-al-marketplace"
       },
       {
         "from": "/tutorial/algoritmo-de-selecao-de-white-label-sellers",
-        "to": "/es/tutorial/seleccion-de-sellers-white-label"
+        "to": "/es/docs/tutorials/seleccion-de-sellers-white-label"
       },
       {
         "from": "/tutorial/que-son-cuenta-franquicia-y-seller-white-label",
-        "to": "/es/tutorial/seller-white-label"
+        "to": "/es/docs/tutorials/seller-white-label"
       },
       {
         "from": "/tutorial/encuentra-aqui-todas-las-respuestas-que-necesitas",
-        "to": "/es/tutorial/admin-vtex-comience-aqui"
+        "to": "/es/docs/tutorials/admin-vtex-comience-aqui"
       },
       {
         "from": "/tutorial/abrir-tikets-para-el-soporte-vtex",
-        "to": "/es/tutorial/abrir-tickets-para-el-soporte-vtex"
+        "to": "/es/docs/tutorials/abrir-tickets-para-el-soporte-vtex"
       },
       {
         "from": "/tutorial/como-cambiar-mi-cnpj",
-        "to": "/es/tutorial/como-cambiar-mi-cnpj-nuevo"
+        "to": "/es/docs/tutorials/como-cambiar-mi-cnpj-nuevo"
       },
       {
         "from": "/tutorial/conectandose-a-comerciantes-y-marketplaces-por-el-vtex-Network",
-        "to": "/es/tutorial/conectandose-a-comerciantes-y-marketplaces-por-el-vtex-network"
+        "to": "/es/docs/tutorials/conectandose-a-comerciantes-y-marketplaces-por-el-vtex-network"
       },
       {
         "from": "/tutorial/como-configurar-el-device-finger-print-para-braspag-cybersource",
-        "to": "/es/tutorial/como-configurar-el-device-finger-print-para-braspag"
+        "to": "/es/docs/tutorials/como-configurar-el-device-finger-print-para-braspag"
       },
       {
         "from": "/tutorial/configurar-mercado-pago-pro-como-medio-de-pago",
-        "to": "/es/tutorial/como-configurar-mercado-pago-pro-como-medio-de-pago"
+        "to": "/es/docs/tutorials/como-configurar-mercado-pago-pro-como-medio-de-pago"
       },
       {
         "from": "/tutorial/como-integrar-un-proveedor-externo-de-tarjeta-de-regalo-a-vtex",
-        "to": "/es/tutorial/como-configurar-pago-con-gift-card"
+        "to": "/es/docs/tutorials/como-configurar-pago-con-gift-card"
       },
       {
         "from": "/tutorial/configurar-device-fingerprint-para-niubz",
-        "to": "/es/tutorial/configurar-device-fingerprint-para-niubiz"
+        "to": "/es/docs/tutorials/configurar-device-fingerprint-para-niubiz"
       },
       {
         "from": "/tutorial/configurar-pago-con-seller",
-        "to": "/es/tutorial/configurar-pago-con-easypay-seller"
+        "to": "/es/docs/tutorials/configurar-pago-con-easypay-seller"
       },
       {
         "from": "/tutorial/configurar-pagos-con-adyenv3-en-instore",
-        "to": "/es/tutorial/configurar-pagos-con-adyenv3-en-vtex-sales-app"
+        "to": "/es/docs/tutorials/configurar-pagos-con-adyenv3-en-vtex-sales-app"
       },
       {
         "from": "/tutorial/configurar-pagamento-com-tino",
-        "to": "/es/tutorial/configurar-pagos-con-tino"
+        "to": "/es/docs/tutorials/configurar-pagos-con-tino"
       },
       {
         "from": "/tutorial/configurar-tiempo-maximo-para-la-captura-automatica",
-        "to": "/es/tutorial/configurar-tiempo-maximo-para-la-liquidacion-automatica"
+        "to": "/es/docs/tutorials/configurar-tiempo-maximo-para-la-liquidacion-automatica"
       },
       {
         "from": "/tutorial/en-cuanto-tiempo-se-cancela-un-pedido-de-boleta-sin-pago",
-        "to": "/es/tutorial/en-cuanto-tiempo-un-pedido-de-boleto-sin-pago-se-cancela"
+        "to": "/es/docs/tutorials/en-cuanto-tiempo-un-pedido-de-boleto-sin-pago-se-cancela"
       },
       {
         "from": "/tutorial/como-se-hace-el-calculo-del-pago-en-plazos-con-intereses",
-        "to": "/es/tutorial/como-se-hace-el-calculo-del-pago-en-plazos-con-intereses-compuesto"
+        "to": "/es/docs/tutorials/como-se-hace-el-calculo-del-pago-en-plazos-con-intereses-compuesto"
       },
       {
         "from": "/tutorial/flujo-de-la-transaccion-en-pci-gateway",
-        "to": "/es/tutorial/flujo-de-la-transaccion-en-pagos"
+        "to": "/es/docs/tutorials/flujo-de-la-transaccion-en-pagos"
       },
       {
         "from": "/tutorial/permitir-cambios-de-pedidos-ya-cerrados",
-        "to": "/es/tutorial/cambio-de-pedido"
+        "to": "/es/docs/tutorials/cambio-de-pedido"
       },
       {
         "from": "/tutorial/como-funciona-la-sustitucion-de-pedidos",
-        "to": "/es/tutorial/cambio-de-pedido"
+        "to": "/es/docs/tutorials/cambio-de-pedido"
       },
       {
         "from": "/tutorial/Aprenda-como-crear-flujos-para-la-liberación-o-aprobación-de-pedidos",
-        "to": "/es/tutorial/como-funciona-la-autorizacion-de-pedidos"
+        "to": "/es/docs/tutorials/como-funciona-la-autorizacion-de-pedidos"
       },
       {
         "from": "/tutorial/configurar-el-aviseme",
-        "to": "/es/tutorial/configurar-la-opcion-avisame"
+        "to": "/es/docs/tutorials/configurar-la-opcion-avisame"
       },
       {
         "from": "/tutorial/regla-de-divergencia-de-valores",
-        "to": "/es/tutorial/regla-de-divergencia-de-precios"
+        "to": "/es/docs/tutorials/regla-de-divergencia-de-precios"
       },
       {
         "from": "/tutorial/como-utilizar-y-personalizar-la-toolbar-de-televentas",
-        "to": "/es/tutorial/barra-de-herramientas-de-televentas"
+        "to": "/es/docs/tutorials/barra-de-herramientas-de-televentas"
       },
       {
         "from": "/tutorial/como-activar-la-app-carrito-compartible",
-        "to": "/es/tutorial/como-activar-la-app-carrito-compartido"
+        "to": "/es/docs/tutorials/como-activar-la-app-carrito-compartido"
       },
       {
         "from": "/tutorial/adaptando-tu-integracion-para-modificar-pedido-beta",
-        "to": "/es/tutorial/adaptando-tu-integracion-para-modificar-pedido"
+        "to": "/es/docs/tutorials/adaptando-tu-integracion-para-modificar-pedido"
       },
       {
         "from": "/tutorial/calcular--ingresos-a-partir-de-la-planilla-del-oms",
-        "to": "/es/tutorial/calcular-ingresos-a-partir-de-la-planilla-exportada-del-modulo-pedidos"
+        "to": "/es/docs/tutorials/calcular-ingresos-a-partir-de-la-planilla-exportada-del-modulo-pedidos"
       },
       {
         "from": "/tutorial/como-hacer-la-alteracion-de-items",
-        "to": "/es/tutorial/cambiar-items-de-un-pedido-finalizado"
+        "to": "/es/docs/tutorials/cambiar-items-de-un-pedido-finalizado"
       },
       {
         "from": "/tutorial/modificar-pedidos-completados",
-        "to": "/es/tutorial/cambiar-items-de-un-pedido-finalizado"
+        "to": "/es/docs/tutorials/cambiar-items-de-un-pedido-finalizado"
       },
       {
         "from": "/tutorial/como-funciona-la-cancelacion-de-pedido-solicitada-por-el-cliente",
-        "to": "/es/tutorial/cancelacion-de-pedido-solicitada-por-el-cliente"
+        "to": "/es/docs/tutorials/cancelacion-de-pedido-solicitada-por-el-cliente"
       },
       {
         "from": "/tutorial/linea-del-tiempo",
-        "to": "/es/tutorial/como-funciona-la-seccion-historial-de-pedidos"
+        "to": "/es/docs/tutorials/como-funciona-la-seccion-historial-de-pedidos"
       },
       {
         "from": "/tutorial/como-funciona-modificar-pedido-beta",
-        "to": "/es/tutorial/como-funciona-modificar-pedido"
+        "to": "/es/docs/tutorials/como-funciona-modificar-pedido"
       },
       {
         "from": "/tutorial/como-modificar-pedidos-beta",
-        "to": "/es/tutorial/como-modificar-pedidos"
+        "to": "/es/docs/tutorials/como-modificar-pedidos"
       },
       {
         "from": "/tutorial/negacion-de-cancelacion-de-pedido",
-        "to": "/es/tutorial/denegar-solicitud-de-cancelacion-del-pedido"
+        "to": "/es/docs/tutorials/denegar-solicitud-de-cancelacion-del-pedido"
       },
       {
         "from": "/tutorial/enviar-pedido-al-status-listo-para-manejo",
-        "to": "/es/tutorial/enviar-pedido-al-status-a-preparar-la-entrega"
+        "to": "/es/docs/tutorials/enviar-pedido-al-status-a-preparar-la-entrega"
       },
       {
         "from": "/tutorial/exportacion-de-pedidos-en-oms",
-        "to": "/es/tutorial/exportacion-de-pedidos-en-el-modulo-pedidos"
+        "to": "/es/docs/tutorials/exportacion-de-pedidos-en-el-modulo-pedidos"
       },
       {
         "from": "/tutorial/como-filtrar-pedidos",
-        "to": "/es/tutorial/filtrar-todos-los-pedidos"
+        "to": "/es/docs/tutorials/filtrar-todos-los-pedidos"
       },
       {
         "from": "/tutorial/flujo-de-pedido-en-el-oms",
-        "to": "/es/tutorial/flujo-y-status-de-pedidos"
+        "to": "/es/docs/tutorials/flujo-y-status-de-pedidos"
       },
       {
         "from": "/tutorial/planilla-de-pedidos",
-        "to": "/es/tutorial/informe-de-pedidos"
+        "to": "/es/docs/tutorials/informe-de-pedidos"
       },
       {
         "from": "/tutorial/insertar-número-de-seguimiento-en-pedidos-ya-facturados",
-        "to": "/es/tutorial/insertar-numero-de-seguimiento-en-pedidos-ya-facturados"
+        "to": "/es/docs/tutorials/insertar-numero-de-seguimiento-en-pedidos-ya-facturados"
       },
       {
         "from": "/tutorial/ver-el-log-detallado-del-pedido-en-el-flujo-del-oms",
-        "to": "/es/tutorial/ver-el-log-detallado-del-pedido"
+        "to": "/es/docs/tutorials/ver-el-log-detallado-del-pedido"
       },
       {
         "from": "/tutorial/visualizando-pedidos-marketplace-oms",
-        "to": "/es/tutorial/visualizando-pedidos-marketplace-en-todos-los-pedidos"
+        "to": "/es/docs/tutorials/visualizando-pedidos-marketplace-en-todos-los-pedidos"
       },
       {
         "from": "/tutorial/cambiar-el-valor-final-del-pedido-beta",
-        "to": "/es/tutorial/cambiar-el-valor-total-del-pedido"
+        "to": "/es/docs/tutorials/cambiar-el-valor-total-del-pedido"
       },
       {
         "from": "/tutorial/cambiar-los-datos-de-seguimiento-beta",
-        "to": "/es/tutorial/cambiar-los-datos-de-seguimiento"
+        "to": "/es/docs/tutorials/cambiar-los-datos-de-seguimiento"
       },
       {
         "from": "/tutorial/como-devolver-items-del-pedido-beta",
-        "to": "/es/tutorial/como-devolver-items-del-pedido"
+        "to": "/es/docs/tutorials/como-devolver-items-del-pedido"
       },
       {
         "from": "/tutorial/facturar-manualmente-un-pedido-beta",
-        "to": "/es/tutorial/como-facturar-manualmente-un-pedido"
+        "to": "/es/docs/tutorials/como-facturar-manualmente-un-pedido"
       },
       {
         "from": "/tutorial/pagina-de-detalles-del-pedido-beta",
-        "to": "/es/tutorial/pagina-de-detalles-del-pedido"
+        "to": "/es/docs/tutorials/pagina-de-detalles-del-pedido"
       },
       {
         "from": "/tutorial/oms-vision-general",
-        "to": "/es/tutorial/pedidos-vision-general"
+        "to": "/es/docs/tutorials/pedidos-vision-general"
       },
       {
         "from": "/tutorial/preguntas-frecuentes-sobre-la-nueva-interfaz-del-modulo-de-pedidos",
-        "to": "/es/tutorial/preguntas-frecuentes-nueva-interfaz-modulo-pedidos"
+        "to": "/es/docs/tutorials/preguntas-frecuentes-nueva-interfaz-modulo-pedidos"
       },
       {
         "from": "/tutorial/lista-de-pedidos-beta",
-        "to": "/es/tutorial/todos-los-pedidos"
+        "to": "/es/docs/tutorials/todos-los-pedidos"
       },
       {
         "from": "/tutorial/vtex-do-beta",
-        "to": "/es/tutorial/vtex-do-interface"
+        "to": "/es/docs/tutorials/vtex-do-interface"
       },
       {
         "from": "/tutorial/que-es-una-politica-comercial",
-        "to": "/es/tutorial/crear-una-politica-comercial"
+        "to": "/es/docs/tutorials/crear-una-politica-comercial"
       },
       {
         "from": "/tutorial/rellenar-campos-de-la-plantilla-de-importacion-de-precios-base",
-        "to": "/es/tutorial/tabla-de-precios-base"
+        "to": "/es/docs/tutorials/tabla-de-precios-base"
       },
       {
         "from": "/tutorial/como-incluir-metadados-ao-exportar-planilha-de-precos",
-        "to": "/es/tutorial/como-incluir-metadatos-al-exportar-plantilla-de-precios"
+        "to": "/es/docs/tutorials/como-incluir-metadatos-al-exportar-plantilla-de-precios"
       },
       {
         "from": "/tutorial/configuracion-de-tablas-de-precios-para-usuarios-especificos-con-session",
-        "to": "/es/tutorial/configuracion-de-tablas-de-precios-para-usuarios-especificos"
+        "to": "/es/docs/tutorials/configuracion-de-tablas-de-precios-para-usuarios-especificos"
       },
       {
         "from": "/tutorial/creación-de-tablas-de-precios",
-        "to": "/es/tutorial/creacion-de-tablas-de-precios"
+        "to": "/es/docs/tutorials/creacion-de-tablas-de-precios"
       },
       {
         "from": "/tutorial/programar-precio-en-pricing-v2",
-        "to": "/es/tutorial/programar-precio"
+        "to": "/es/docs/tutorials/programar-precio"
       },
       {
         "from": "/tutorial/precio-psicologico-v2",
-        "to": "/es/tutorial/redondeo-de-precios"
+        "to": "/es/docs/tutorials/redondeo-de-precios"
       },
       {
         "from": "/tutorial/el-proceso-de-risk-assessment",
-        "to": "/es/tutorial/evaluacion-de-riesgos"
+        "to": "/es/docs/tutorials/evaluacion-de-riesgos"
       },
       {
         "from": "/tutorial/reportar-vulnerabilidade",
-        "to": "/es/tutorial/informar-vulnerabilidad"
+        "to": "/es/docs/tutorials/informar-vulnerabilidad"
       },
       {
         "from": "/tutorial/pruebas-de-penetracion-y-advertencia-de-vulnerabilidad",
-        "to": "/es/tutorial/pruebas-de-penetracion"
+        "to": "/es/docs/tutorials/pruebas-de-penetracion"
       },
       {
         "from": "/tutorial/como-encontrar-eventos-en-audit",
-        "to": "/es/tutorial/audit"
+        "to": "/es/docs/tutorials/audit"
       },
       {
         "from": "/tutorial/como-contratar-el-certificado-de-seguridad",
-        "to": "/es/tutorial/certificado-de-seguridad-ssl"
+        "to": "/es/docs/tutorials/certificado-de-seguridad-ssl"
       },
       {
         "from": "/tutorial/buenas-practicas-para-el-uso-de-claves-de-aplicacion",
-        "to": "/es/tutorial/buenas-practicas-claves-de-api"
+        "to": "/es/docs/tutorials/buenas-practicas-claves-de-api"
       },
       {
         "from": "/tutorial/configuracion-de-seller",
-        "to": "/es/tutorial/agregar-seller"
+        "to": "/es/docs/tutorials/agregar-seller"
       },
       {
         "from": "/tutorial/gestion-de-sellers-beta",
-        "to": "/es/tutorial/gestion-de-sellers"
+        "to": "/es/docs/tutorials/gestion-de-sellers"
       },
       {
         "from": "/tutorial/como-crear-un-producto-beta",
-        "to": "/es/tutorial/como-crear-un-producto"
+        "to": "/es/docs/tutorials/como-crear-un-producto"
       },
       {
         "from": "/tutorial/lista-de-productos-beta",
-        "to": "/es/tutorial/lista-de-productos"
+        "to": "/es/docs/tutorials/lista-de-productos"
       },
       {
         "from": "/tutorial/marketplace-sellers-invitados-beta",
-        "to": "/es/tutorial/marketplace-sellers-invitados"
+        "to": "/es/docs/tutorials/marketplace-sellers-invitados"
       },
       {
         "from": "/tutorial/categorias-beta",
-        "to": "/es/tutorial/seller-portal-categorias"
+        "to": "/es/docs/tutorials/seller-portal-categorias"
       },
       {
         "from": "/tutorial/marcas-beta",
-        "to": "/es/tutorial/seller-portal-marcas"
+        "to": "/es/docs/tutorials/seller-portal-marcas"
       },
       {
         "from": "/tutorial/sellers-crear-una-cuenta-en-el-seller-portal-beta",
-        "to": "/es/tutorial/sellers-crear-una-cuenta-en-el-seller-portal"
+        "to": "/es/docs/tutorials/sellers-crear-una-cuenta-en-el-seller-portal"
       },
       {
         "from": "/tutorial/aprobacion-de-sugerencias-de-skus",
-        "to": "/es/tutorial/catalogacion-manual-de-skus"
+        "to": "/es/docs/tutorials/catalogacion-manual-de-skus"
       },
       {
         "from": "/tutorial/arquitectura-de-envio-de-productos-entre-sellers-y-marketplaces-vtex",
-        "to": "/es/tutorial/anuncios-enviados-entre-los-mismos-sellers-y-marketplaces-vtex"
+        "to": "/es/docs/tutorials/anuncios-enviados-entre-los-mismos-sellers-y-marketplaces-vtex"
       },
       {
         "from": "/tutorial/configuraciones-para-marketplace-vtex",
-        "to": "/es/tutorial/configurar-marketplaces-vtex"
+        "to": "/es/docs/tutorials/configurar-marketplaces-vtex"
       },
       {
         "from": "/tutorial/cual-es-la-diferencia-entre-desvincular-y-excluir-un-sku-seller",
-        "to": "/es/tutorial/cual-es-la-diferencia-entre-desvincular-y-remover-un-sku-seller"
+        "to": "/es/docs/tutorials/cual-es-la-diferencia-entre-desvincular-y-remover-un-sku-seller"
       },
       {
         "from": "/tutorial/gestion-de-paginas-beta",
-        "to": "/es/tutorial/gestion-de-paginas"
+        "to": "/es/docs/tutorials/gestion-de-paginas"
       },
       {
         "from": "/tutorial/headless-cms-visao-geral",
-        "to": "/es/tutorial/headless-cms-vision-general"
+        "to": "/es/docs/tutorials/headless-cms-vision-general"
       },
       {
         "from": "/tutorial/como-funciona-el-contexto-de-busqueda",
-        "to": "/es/tutorial/como-crear-landing-pages-con-urls-personalizadas"
+        "to": "/es/docs/tutorials/como-crear-landing-pages-con-urls-personalizadas"
       },
       {
         "from": "/tutorial/crear-un-template-de-pagina",
-        "to": "/es/tutorial/como-crear-un-template-de-pagina"
+        "to": "/es/docs/tutorials/como-crear-un-template-de-pagina"
       },
       {
         "from": "/tutorial/como-borrar-coleccion; como-eliminar-una-coleccion",
-        "to": "/es/tutorial/como-eliminar-una-coleccion"
+        "to": "/es/docs/tutorials/como-eliminar-una-coleccion"
       },
       {
         "from": "/tutorial/como-funciona-el-campo-score",
-        "to": "/es/tutorial/como-funciona-el-campo-puntuacion"
+        "to": "/es/docs/tutorials/como-funciona-el-campo-puntuacion"
       },
       {
         "from": "/tutorial/como-funciona-la-compactacion-automatica-de-imagenes",
-        "to": "/es/tutorial/compresion-de-imagenes"
+        "to": "/es/docs/tutorials/compresion-de-imagenes"
       },
       {
         "from": "/tutorial/como-configurar-el-favicon",
-        "to": "/es/tutorial/configurar-el-favicono-de-tu-tienda"
+        "to": "/es/docs/tutorials/configurar-el-favicono-de-tu-tienda"
       },
       {
         "from": "/tutorial/desarrollar-el-front-end-para-la feature-de-listas-en-su-tienda",
-        "to": "/es/tutorial/desarrollar-el-front-end-para-la-feature-de-listas-en-su-tienda"
+        "to": "/es/docs/tutorials/desarrollar-el-front-end-para-la-feature-de-listas-en-su-tienda"
       },
       {
         "from": "/tutorial/tornar-colecao-de-produtos-encontravel-pela-busca",
-        "to": "/es/tutorial/hacer-que-la-coleccion-de-productos-pueda-buscarse"
+        "to": "/es/docs/tutorials/hacer-que-la-coleccion-de-productos-pueda-buscarse"
       },
       {
         "from": "/tutorial/que-es-el-cms",
-        "to": "/es/tutorial/que-es-el-cms-layout"
+        "to": "/es/docs/tutorials/que-es-el-cms-layout"
       },
       {
         "from": "/tutorial/registrar-una-coleccion",
-        "to": "/es/tutorial/registrar-una-coleccion-cms"
+        "to": "/es/docs/tutorials/registrar-una-coleccion-cms"
       },
       {
         "from": "/tutorial/como-configurar-suscripcion-v2",
-        "to": "/es/tutorial/como-configurar-suscripciones"
+        "to": "/es/docs/tutorials/como-configurar-suscripciones"
       },
       {
         "from": "/tutorial/como-crear-un-anexo-de-suscripcion",
-        "to": "/es/tutorial/como-crear-un-anexo-de-suscripcion-en-el-modulo-catalogo"
+        "to": "/es/docs/tutorials/como-crear-un-anexo-de-suscripcion-en-el-modulo-catalogo"
       },
       {
         "from": "/tutorial/como-crear-un-plan-de-suscripcion-beta",
-        "to": "/es/tutorial/como-crear-un-plan-de-suscripcion"
+        "to": "/es/docs/tutorials/como-crear-un-plan-de-suscripcion"
       },
       {
         "from": "/tutorial/como-resolver-pedidos-de-suscripcion-con-errores",
-        "to": "/es/tutorial/como-solucionar-errores-en-pedidos-de-suscripcion"
+        "to": "/es/docs/tutorials/como-solucionar-errores-en-pedidos-de-suscripcion"
       },
       {
         "from": "/tutorial/correos-electronicos-transaccionales-para-pedidos-de-suscripcion",
-        "to": "/es/tutorial/correos-electronicos-transaccionales-para-pedidos-de-suscripciones"
+        "to": "/es/docs/tutorials/correos-electronicos-transaccionales-para-pedidos-de-suscripciones"
       },
       {
         "from": "/tutorial/planes-de-suscripcion-beta",
-        "to": "/es/tutorial/planes-de-suscripcion"
+        "to": "/es/docs/tutorials/planes-de-suscripcion"
       },
       {
         "from": "/tutorial/puntos-de-recogida-para-pedidos-de-suscripcion-beta",
-        "to": "/es/tutorial/puntos-de-recogida-para-pedidos-de-suscripcion"
+        "to": "/es/docs/tutorials/puntos-de-recogida-para-pedidos-de-suscripcion"
       },
       {
         "from": "/tutorial/como-crear-campanas",
-        "to": "/es/tutorial/crear-audiencias-de-campana"
+        "to": "/es/docs/tutorials/crear-audiencias-de-campana"
       },
       {
         "from": "/tutorial/como-crear-promoción-con-limitacion-de-uso",
-        "to": "/es/tutorial/como-crear-promocion-con-limitacion-de-uso"
+        "to": "/es/docs/tutorials/como-crear-promocion-con-limitacion-de-uso"
       },
       {
         "from": "/tutorial/entendiendo-la-competencia-de-las-promociones-2",
-        "to": "/es/tutorial/como-funciona-la-competencia-de-promociones"
+        "to": "/es/docs/tutorials/como-funciona-la-competencia-de-promociones"
       },
       {
         "from": "/tutorial/promocion-para-marketplace",
-        "to": "/es/tutorial/configurar-promocion-para-marketplace"
+        "to": "/es/docs/tutorials/configurar-promocion-para-marketplace"
       },
       {
         "from": "/tutorial/cual-es-el-limite-máximo-de-promociones",
-        "to": "/es/tutorial/cual-es-el-limite-maximo-de-promociones"
+        "to": "/es/docs/tutorials/cual-es-el-limite-maximo-de-promociones"
       },
       {
         "from": "/tutorial/registrar-promociones-de-envio",
-        "to": "/es/tutorial/registrar-promociones-de-flete"
+        "to": "/es/docs/tutorials/registrar-promociones-de-flete"
       },
       {
         "from": "/tutorial/asignar-y-testar-agentes-en-el-agent-builder",
-        "to": "/es/tutorial/asignar-y-probar-agentes"
+        "to": "/es/docs/tutorials/asignar-y-probar-agentes"
       },
       {
         "from": "/tutorial/vision-de-conjunto-del-agent-builder",
-        "to": "/es/tutorial/informacion-general-de-agent-builder"
+        "to": "/es/docs/tutorials/informacion-general-de-agent-builder"
       },
       {
         "from": "/announcements/mudanca-no-formato-do-campo-authorized-date-da-planilha-de-exportacao-de",
@@ -11793,911 +11793,911 @@
       },
       {
         "from": "/tutorial/credit-control-visao-geral",
-        "to": "/pt/tutorial/customer-credit-visao-geral"
+        "to": "/pt/docs/tutorials/customer-credit-visao-geral"
       },
       {
         "from": "/tutorial/como-funciona-o-my-account",
-        "to": "/pt/tutorial/como-funciona-a-minha-conta"
+        "to": "/pt/docs/tutorials/como-funciona-a-minha-conta"
       },
       {
         "from": "/tutorial/como-configurar-assinatura-v2",
-        "to": "/pt/tutorial/como-configurar-assinaturas"
+        "to": "/pt/docs/tutorials/como-configurar-assinaturas"
       },
       {
         "from": "/tutorial/como-criar-um-anexo-de-assinatura",
-        "to": "/pt/tutorial/como-criar-um-anexo-de-assinatura-pelo-modulo-catalogo"
+        "to": "/pt/docs/tutorials/como-criar-um-anexo-de-assinatura-pelo-modulo-catalogo"
       },
       {
         "from": "/tutorial/como-criar-um-plano-de-assinatura-beta",
-        "to": "/pt/tutorial/como-criar-um-plano-de-assinatura"
+        "to": "/pt/docs/tutorials/como-criar-um-plano-de-assinatura"
       },
       {
         "from": "/tutorial/como-solucionar-pedidos-de-assinatura-com-erros",
-        "to": "/pt/tutorial/como-solucionar-erros-em-pedidos-de-assinaturas"
+        "to": "/pt/docs/tutorials/como-solucionar-erros-em-pedidos-de-assinaturas"
       },
       {
         "from": "/tutorial/e-mails-transacionais-para-pedidos-de-assinatura",
-        "to": "/pt/tutorial/emails-transacionais-para-pedidos-de-assinaturas"
+        "to": "/pt/docs/tutorials/emails-transacionais-para-pedidos-de-assinaturas"
       },
       {
         "from": "/tutorial/planos-de-assinatura-beta",
-        "to": "/pt/tutorial/planos-de-assinatura"
+        "to": "/pt/docs/tutorials/planos-de-assinatura"
       },
       {
         "from": "/tutorial/pontos-de-retirada-para-pedidos-de-assinatura-beta",
-        "to": "/pt/tutorial/pontos-de-retirada-para-pedidos-de-assinatura"
+        "to": "/pt/docs/tutorials/pontos-de-retirada-para-pedidos-de-assinatura"
       },
       {
         "from": "/tutorial/redefinindo-sua-configuracao-de-aplicativo-de-autenticacao-de-dois-fatores",
-        "to": "/pt/tutorial/redefinir-sua-configuracao-de-aplicativo-de-autenticacao-de-dois-fatores"
+        "to": "/pt/docs/tutorials/redefinir-sua-configuracao-de-aplicativo-de-autenticacao-de-dois-fatores"
       },
       {
         "from": "/tutorial/pagina-de-autenticacao",
-        "to": "/pt/tutorial/autenticacao"
+        "to": "/pt/docs/tutorials/autenticacao"
       },
       {
         "from": "/tutorial/cadastrar-client-id-e-client-secret-para-login-com-facebook",
-        "to": "/pt/tutorial/cadastrar-client-id-e-segredo-do-cliente-para-login-com-facebook"
+        "to": "/pt/docs/tutorials/cadastrar-client-id-e-segredo-do-cliente-para-login-com-facebook"
       },
       {
         "from": "/tutorial/integracao-google-e-facebook-para-login",
-        "to": "/pt/tutorial/configurar-login-com-facebook-e-google"
+        "to": "/pt/docs/tutorials/configurar-login-com-facebook-e-google"
       },
       {
         "from": "/tutorial/visao-geral",
-        "to": "/pt/tutorial/b2b-visao-geral"
+        "to": "/pt/docs/tutorials/b2b-visao-geral"
       },
       {
         "from": "/tutorial/importacao-e-exportacao-de-imagens-de-produtos-e-skus-via-planilha-beta",
-        "to": "/pt/tutorial/importar-e-exportar-dimagens-de-produtos-e-skus-via-planilha-beta"
+        "to": "/pt/docs/tutorials/importar-e-exportar-dimagens-de-produtos-e-skus-via-planilha-beta"
       },
       {
         "from": "/tutorial/importacao-e-exportacao-de-especificacoes-de-produtos-via-planilha-beta",
-        "to": "/pt/tutorial/importar-e-exportar-especificacoes-de-produtos-via-planilha-beta"
+        "to": "/pt/docs/tutorials/importar-e-exportar-especificacoes-de-produtos-via-planilha-beta"
       },
       {
         "from": "/tutorial/importacao-e-exportacao-de-especificacoes-de-skus-via-planilha-beta",
-        "to": "/pt/tutorial/importar-e-exportar-especificacoes-de-skus-via-planilha-beta"
+        "to": "/pt/docs/tutorials/importar-e-exportar-especificacoes-de-skus-via-planilha-beta"
       },
       {
         "from": "/tutorial/importacao-e-exportacao-de-produtos-e-skus-via-planilha-beta",
-        "to": "/pt/tutorial/importar-e-exportar-produtos-e-skus-via-planilha-beta"
+        "to": "/pt/docs/tutorials/importar-e-exportar-produtos-e-skus-via-planilha-beta"
       },
       {
         "from": "/tutorial/data-insights-assistant",
-        "to": "/pt/tutorial/data-insights-agent"
+        "to": "/pt/docs/tutorials/data-insights-agent"
       },
       {
         "from": "/tutorial/modulo-localidades",
-        "to": "/pt/tutorial/capacidade-operacional-beta"
+        "to": "/pt/docs/tutorials/capacidade-operacional-beta"
       },
       {
         "from": "/tutorial/intelligent-search-busca-hibrida-beta",
-        "to": "/pt/tutorial/intelligent-search-busca-semantica-beta"
+        "to": "/pt/docs/tutorials/intelligent-search-busca-semantica-beta"
       },
       {
         "from": "/tutorial/catalogo-vtex-data-pipeline-beta",
-        "to": "/pt/tutorial/dicionario-vtex-data-pipeline-beta"
+        "to": "/pt/docs/tutorials/dicionario-vtex-data-pipeline-beta"
       },
       {
         "from": "/tutorial/trocar-seller-de-um-pedido-do-instore-beta",
-        "to": "/pt/tutorial/trocar-seller-de-um-pedido-do-vtex-sales-app-beta"
+        "to": "/pt/docs/tutorials/trocar-seller-de-um-pedido-do-vtex-sales-app-beta"
       },
       {
         "from": "/tutorial/assembly-options-pt",
-        "to": "/pt/tutorial/assembly-options"
+        "to": "/pt/docs/tutorials/assembly-options"
       },
       {
         "from": "/tutorial/cadastrando-categoria",
-        "to": "/pt/tutorial/cadastrar-uma-categoria"
+        "to": "/pt/docs/tutorials/cadastrar-uma-categoria"
       },
       {
         "from": "/tutorial/criando-grupo-de-categoria",
-        "to": "/pt/tutorial/criando-grupo-de-especificacoes-em-uma-categoria"
+        "to": "/pt/docs/tutorials/criando-grupo-de-especificacoes-em-uma-categoria"
       },
       {
         "from": "/tutorial/inativando-e-reorganizando-categorias",
-        "to": "/pt/tutorial/inativar-e-reorganizar-categorias"
+        "to": "/pt/docs/tutorials/inativar-e-reorganizar-categorias"
       },
       {
         "from": "/tutorial/importando-e-exportando-especificacao-de-produto-e-sku",
-        "to": "/pt/tutorial/exportar-e-importar-especificacoes-de-produto-e-de-sku"
+        "to": "/pt/docs/tutorials/exportar-e-importar-especificacoes-de-produto-e-de-sku"
       },
       {
         "from": "/tutorial/xml-de-produtos",
-        "to": "/pt/tutorial/configurando-xml"
+        "to": "/pt/docs/tutorials/configurando-xml"
       },
       {
         "from": "/tutorial/cadastrando-kit",
-        "to": "/pt/tutorial/cadastrar-kit"
+        "to": "/pt/docs/tutorials/cadastrar-kit"
       },
       {
         "from": "/tutorial/como-ordenar-os-produtos-do-kitlook",
-        "to": "/pt/tutorial/como-ordenar-os-produtos-do-kit-look"
+        "to": "/pt/docs/tutorials/como-ordenar-os-produtos-do-kit-look"
       },
       {
         "from": "/tutorial/cadastro-de-produtos-beta",
-        "to": "/pt/tutorial/adicionar-ou-editar-produto"
+        "to": "/pt/docs/tutorials/adicionar-ou-editar-produto"
       },
       {
         "from": "/tutorial/cadastro-de-skus-beta",
-        "to": "/pt/tutorial/adicionar-ou-editar-sku"
+        "to": "/pt/docs/tutorials/adicionar-ou-editar-sku"
       },
       {
         "from": "/tutorial/criando-um-campo-de-produto",
-        "to": "/pt/tutorial/cadastrar-especificacoes-ou-campos-de-produto"
+        "to": "/pt/docs/tutorials/cadastrar-especificacoes-ou-campos-de-produto"
       },
       {
         "from": "/tutorial/criando-campo-de-sku",
-        "to": "/pt/tutorial/cadastrar-especificacoes-ou-campos-de-sku"
+        "to": "/pt/docs/tutorials/cadastrar-especificacoes-ou-campos-de-sku"
       },
       {
         "from": "/tutorial/cadastrar-o-codigo-de-barra-dos-skus-para-o-instore",
-        "to": "/pt/tutorial/cadastrar-o-codigo-de-barra-dos-skus-para-o-vtex-sales-app"
+        "to": "/pt/docs/tutorials/cadastrar-o-codigo-de-barra-dos-skus-para-o-vtex-sales-app"
       },
       {
         "from": "/tutorial/como-alterar-a-relacao-sku-x-produto",
-        "to": "/pt/tutorial/como-alterar-a-relacao-sku-e-produto"
+        "to": "/pt/docs/tutorials/como-alterar-a-relacao-sku-e-produto"
       },
       {
         "from": "/tutorial/como-a-url-de-produto-e-montada",
-        "to": "/pt/tutorial/como-definir-a-url-de-um-produto"
+        "to": "/pt/docs/tutorials/como-definir-a-url-de-um-produto"
       },
       {
         "from": "/tutorial/como-trocar-o-produto-de-um-sku",
-        "to": "/pt/tutorial/como-mover-o-sku-para-outro-produto"
+        "to": "/pt/docs/tutorials/como-mover-o-sku-para-outro-produto"
       },
       {
         "from": "/tutorial/inativar-skus-e-produtos-da-loja",
-        "to": "/pt/tutorial/desativar-skus-e-produtos-da-loja"
+        "to": "/pt/docs/tutorials/desativar-skus-e-produtos-da-loja"
       },
       {
         "from": "/tutorial/produtos-e-skus-beta",
-        "to": "/pt/tutorial/produtos-e-skus"
+        "to": "/pt/docs/tutorials/produtos-e-skus"
       },
       {
         "from": "/tutorial/como-exportar-os-clientes-cadastrados-no-avise-me",
-        "to": "/pt/tutorial/exportar-os-clientes-cadastrados-no-avise-me"
+        "to": "/pt/docs/tutorials/exportar-os-clientes-cadastrados-no-avise-me"
       },
       {
         "from": "/tutorial/lista-de-templates-de-e-mail-no-message-center",
-        "to": "/pt/tutorial/templates-de-emails-transacionais"
+        "to": "/pt/docs/tutorials/templates-de-emails-transacionais"
       },
       {
         "from": "/tutorial/mudando-para-nova-versao-do-smart-checkout",
-        "to": "/pt/tutorial/caracteristicas-gerais-smartcheckout-v5"
+        "to": "/pt/docs/tutorials/caracteristicas-gerais-smartcheckout-v5"
       },
       {
         "from": "/tutorial/guia-de-integracao-do-oms-com-cf-e-para-o-vtex-instore",
-        "to": "/pt/tutorial/guia-de-integracao-do-gerenciamento-de-pedidos-com-cf-e-para-o-vtex-sales-app"
+        "to": "/pt/docs/tutorials/guia-de-integracao-do-gerenciamento-de-pedidos-com-cf-e-para-o-vtex-sales-app"
       },
       {
         "from": "/tutorial/guia-de-integracao-do-gerenciamento-de-pedidos-com-cf-e-para-o-vtex-instore",
-        "to": "/pt/tutorial/guia-de-integracao-do-gerenciamento-de-pedidos-com-cf-e-para-o-vtex-sales-app"
+        "to": "/pt/docs/tutorials/guia-de-integracao-do-gerenciamento-de-pedidos-com-cf-e-para-o-vtex-sales-app"
       },
       {
         "from": "/tutorial/habilitar-venda-em-maos-do-vtex-sales-app",
-        "to": "/pt/tutorial/habilitar-venda-de-estoque-local-do-vtex-sales-app"
+        "to": "/pt/docs/tutorials/habilitar-venda-de-estoque-local-do-vtex-sales-app"
       },
       {
         "from": "/tutorial/pagamento-com-cartao-via-sales-app",
-        "to": "/pt/tutorial/pagamento-com-cartao-via-sales-app-sem-maquininha"
+        "to": "/pt/docs/tutorials/pagamento-com-cartao-via-sales-app-sem-maquininha"
       },
       {
         "from": "/tutorial/marketplace-recursivo-v2",
-        "to": "/pt/tutorial/multilevel-omnichannel-inventory"
+        "to": "/pt/docs/tutorials/multilevel-omnichannel-inventory"
       },
       {
         "from": "/tutorial/analisar",
-        "to": "/pt/tutorial/analisar-suiteshare"
+        "to": "/pt/docs/tutorials/analisar-suiteshare"
       },
       {
         "from": "/tutorial/anapro",
-        "to": "/pt/tutorial/anapro-suiteshare"
+        "to": "/pt/docs/tutorials/anapro-suiteshare"
       },
       {
         "from": "/tutorial/call-to-action",
-        "to": "/pt/tutorial/call-to-action-suiteshare"
+        "to": "/pt/docs/tutorials/call-to-action-suiteshare"
       },
       {
         "from": "/tutorial/facebook-liberacao-de-dominio",
-        "to": "/pt/tutorial/facebook-liberacao-de-dominio-suiteshare"
+        "to": "/pt/docs/tutorials/facebook-liberacao-de-dominio-suiteshare"
       },
       {
         "from": "/tutorial/formulario-de-captura",
-        "to": "/pt/tutorial/formulario-de-captura-suiteshare"
+        "to": "/pt/docs/tutorials/formulario-de-captura-suiteshare"
       },
       {
         "from": "/tutorial/geolocalizado",
-        "to": "/pt/tutorial/geolocalizado-suiteshare"
+        "to": "/pt/docs/tutorials/geolocalizado-suiteshare"
       },
       {
         "from": "/tutorial/instalando-o-widget-com-o-gtm",
-        "to": "/pt/tutorial/instalando-o-widget-com-o-gtm-suiteshare"
+        "to": "/pt/docs/tutorials/instalando-o-widget-com-o-gtm-suiteshare"
       },
       {
         "from": "/tutorial/links",
-        "to": "/pt/tutorial/links-suiteshare"
+        "to": "/pt/docs/tutorials/links-suiteshare"
       },
       {
         "from": "/tutorial/personalizar",
-        "to": "/pt/tutorial/personalizar-suiteshare"
+        "to": "/pt/docs/tutorials/personalizar-suiteshare"
       },
       {
         "from": "/tutorial/pipedrive",
-        "to": "/pt/tutorial/pipedrive-suiteshare"
+        "to": "/pt/docs/tutorials/pipedrive-suiteshare"
       },
       {
         "from": "/tutorial/rdstation-crm",
-        "to": "/pt/tutorial/rdstation-crm-suiteshare"
+        "to": "/pt/docs/tutorials/rdstation-crm-suiteshare"
       },
       {
         "from": "/tutorial/rdstation",
-        "to": "/pt/tutorial/rdstation-suiteshare"
+        "to": "/pt/docs/tutorials/rdstation-suiteshare"
       },
       {
         "from": "/tutorial/sequencial",
-        "to": "/pt/tutorial/sequencial-suiteshare"
+        "to": "/pt/docs/tutorials/sequencial-suiteshare"
       },
       {
         "from": "/tutorial/wordpress",
-        "to": "/pt/tutorial/wordpress-suiteshare"
+        "to": "/pt/docs/tutorials/wordpress-suiteshare"
       },
       {
         "from": "/tutorial/zapier",
-        "to": "/pt/tutorial/zapier-suiteshare"
+        "to": "/pt/docs/tutorials/zapier-suiteshare"
       },
       {
         "from": "/tutorial/como-funciona-a-entrega-agendada",
-        "to": "/pt/tutorial/entrega-agendada"
+        "to": "/pt/docs/tutorials/entrega-agendada"
       },
       {
         "from": "/tutorial/como-funciona-a-regra-de-prioridade-no-calculo-do-frete",
-        "to": "/pt/tutorial/como-funciona-o-calculo-de-envio"
+        "to": "/pt/docs/tutorials/como-funciona-o-calculo-de-envio"
       },
       {
         "from": "/tutorial/teste-legacy-slug",
-        "to": "/pt/tutorial/como-funciona-o-calculo-de-envio"
+        "to": "/pt/docs/tutorials/como-funciona-o-calculo-de-envio"
       },
       {
         "from": "/tutorial/como-funciona-o-tipo-de-entrega",
-        "to": "/pt/tutorial/como-funciona-o-tipo-de-envio"
+        "to": "/pt/docs/tutorials/como-funciona-o-tipo-de-envio"
       },
       {
         "from": "/tutorial/qual-a-diferenca-entre-estoque-e-doca",
-        "to": "/pt/tutorial/estrategia-de-envio"
+        "to": "/pt/docs/tutorials/estrategia-de-envio"
       },
       {
         "from": "/tutorial/como-cadastrar-doca",
-        "to": "/pt/tutorial/gerenciar-doca"
+        "to": "/pt/docs/tutorials/gerenciar-doca"
       },
       {
         "from": "/tutorial/configurar-horario-de-funcionamento-para-transportadoras",
-        "to": "/pt/tutorial/horario-de-funcionamento-das-transportadoras"
+        "to": "/pt/docs/tutorials/horario-de-funcionamento-das-transportadoras"
       },
       {
         "from": "/tutorial/configurar-o-horario-de-corte-da-transportadora",
-        "to": "/pt/tutorial/horario-de-funcionamento-das-transportadoras"
+        "to": "/pt/docs/tutorials/horario-de-funcionamento-das-transportadoras"
       },
       {
         "from": "/tutorial/como-montar-a-planilha-de-frete",
-        "to": "/pt/tutorial/planilha-de-frete"
+        "to": "/pt/docs/tutorials/planilha-de-frete"
       },
       {
         "from": "/tutorial/importar-planilha-de-frete",
-        "to": "/pt/tutorial/planilha-de-frete"
+        "to": "/pt/docs/tutorials/planilha-de-frete"
       },
       {
         "from": "/tutorial/cadastrar-transportadora",
-        "to": "/pt/tutorial/politica-de-envio"
+        "to": "/pt/docs/tutorials/politica-de-envio"
       },
       {
         "from": "/tutorial/gerenciar-transportadora",
-        "to": "/pt/tutorial/politica-de-envio"
+        "to": "/pt/docs/tutorials/politica-de-envio"
       },
       {
         "from": "/tutorial/o-que-e-uma-transportadora",
-        "to": "/pt/tutorial/transportadoras-na-vtex"
+        "to": "/pt/docs/tutorials/transportadoras-na-vtex"
       },
       {
         "from": "/tutorial/como-atualizar-estoque",
-        "to": "/pt/tutorial/atualizacao-da-quantidade-de-itens-em-estoque"
+        "to": "/pt/docs/tutorials/atualizacao-da-quantidade-de-itens-em-estoque"
       },
       {
         "from": "/tutorial/atualizar-quantidade-de-skus-em-estoque",
-        "to": "/pt/tutorial/atualizacao-da-quantidade-de-itens-em-estoque"
+        "to": "/pt/docs/tutorials/atualizacao-da-quantidade-de-itens-em-estoque"
       },
       {
         "from": "/tutorial/como-analisar-as-reservas-de-um-produto",
-        "to": "/pt/tutorial/como-a-reserva-funciona"
+        "to": "/pt/docs/tutorials/como-a-reserva-funciona"
       },
       {
         "from": "/tutorial/como-analisar-o-historico-de-movimentacoes-do-estoque",
-        "to": "/pt/tutorial/historico-de-movimentacoes-do-inventario"
+        "to": "/pt/docs/tutorials/historico-de-movimentacoes-do-inventario"
       },
       {
         "from": "/tutorial/como-importar-pontos-de-retirada-pickup-points-por-planilha",
-        "to": "/pt/tutorial/cadastro-de-pontos-de-retirada"
+        "to": "/pt/docs/tutorials/cadastro-de-pontos-de-retirada"
       },
       {
         "from": "/tutorial/configurar-pontos-de-retirada-pickup-points",
-        "to": "/pt/tutorial/cadastro-de-pontos-de-retirada"
+        "to": "/pt/docs/tutorials/cadastro-de-pontos-de-retirada"
       },
       {
         "from": "/tutorial/como-funciona-o-ponto-de-retirada",
-        "to": "/pt/tutorial/pontos-de-retirada"
+        "to": "/pt/docs/tutorials/pontos-de-retirada"
       },
       {
         "from": "/tutorial/simulacao-de-frete",
-        "to": "/pt/tutorial/simulador-de-envio"
+        "to": "/pt/docs/tutorials/simulador-de-envio"
       },
       {
         "from": "/tutorial/como-funciona-o-adicional-de-frete",
-        "to": "/pt/tutorial/adicionais-de-frete"
+        "to": "/pt/docs/tutorials/adicionais-de-frete"
       },
       {
         "from": "/tutorial/gerenciar-valores-de-frete",
-        "to": "/pt/tutorial/gerenciar-tarifas-de-envio"
+        "to": "/pt/docs/tutorials/gerenciar-tarifas-de-envio"
       },
       {
         "from": "/tutorial/logistica",
-        "to": "/pt/tutorial/fulfillment-logistica-vtex"
+        "to": "/pt/docs/tutorials/fulfillment-logistica-vtex"
       },
       {
         "from": "/tutorial/entregas-correios-vtex-log",
-        "to": "/pt/tutorial/entregas-correios-vtex-shipping-network"
+        "to": "/pt/docs/tutorials/entregas-correios-vtex-shipping-network"
       },
       {
         "from": "/tutorial/painel-vtex-log",
-        "to": "/pt/tutorial/painel-vtex-shipping-network"
+        "to": "/pt/docs/tutorials/painel-vtex-shipping-network"
       },
       {
         "from": "/tutorial/como-solicitar-sua-rescisao-contratual-brasil",
-        "to": "/pt/tutorial/como-solicitar-sua-rescisao-contratual-no-brasil"
+        "to": "/pt/docs/tutorials/como-solicitar-sua-rescisao-contratual-no-brasil"
       },
       {
         "from": "/tutorial/procedimentos-de-contas-a-pagar",
-        "to": "/pt/tutorial/contas-a-pagar-brasil"
+        "to": "/pt/docs/tutorials/contas-a-pagar-brasil"
       },
       {
         "from": "/tutorial/procedimento-de-contas-a-pagar-internacional",
-        "to": "/pt/tutorial/contas-a-pagar-internacional"
+        "to": "/pt/docs/tutorials/contas-a-pagar-internacional"
       },
       {
         "from": "/tutorial/comprando-e-acessando-seu-ambiente",
-        "to": "/pt/tutorial/contratar-novo-ambiente"
+        "to": "/pt/docs/tutorials/contratar-novo-ambiente"
       },
       {
         "from": "/tutorial/por-que-nao-recebi-o-contrato-assinado-da-vtex",
-        "to": "/pt/tutorial/contrato-vtex"
+        "to": "/pt/docs/tutorials/contrato-vtex"
       },
       {
         "from": "/tutorial/visao-geral-do-modulo-faturas",
-        "to": "/pt/tutorial/visao-geral-faturas"
+        "to": "/pt/docs/tutorials/visao-geral-faturas"
       },
       {
         "from": "/tutorial/como-fazer-download-das-faturas-boleto-da-vtex",
-        "to": "/pt/tutorial/como-fazer-download-faturas-da-vtex"
+        "to": "/pt/docs/tutorials/como-fazer-download-faturas-da-vtex"
       },
       {
         "from": "/tutorial/chaves-de-api-beta",
-        "to": "/pt/tutorial/chaves-de-api"
+        "to": "/pt/docs/tutorials/chaves-de-api"
       },
       {
         "from": "/tutorial/chaves-terceiras",
-        "to": "/pt/tutorial/chaves-externas"
+        "to": "/pt/docs/tutorials/chaves-externas"
       },
       {
         "from": "/tutorial/chaves-geradas-beta",
-        "to": "/pt/tutorial/chaves-geradas"
+        "to": "/pt/docs/tutorials/chaves-geradas"
       },
       {
         "from": "/tutorial/configurar-a-duracao-de-chaves-de-api-beta",
-        "to": "/pt/tutorial/configurar-alerta-para-renovar-tokens-de-api"
+        "to": "/pt/docs/tutorials/configurar-alerta-para-renovar-tokens-de-api"
       },
       {
         "from": "/tutorial/renovar-token-de-api-beta",
-        "to": "/pt/tutorial/renovar-token-de-api"
+        "to": "/pt/docs/tutorials/renovar-token-de-api"
       },
       {
         "from": "/tutorial/o-que-preciso-fazer-para-mudar-o-dominio-da-minha-loja",
-        "to": "/pt/tutorial/alterar-o-dominio-da-loja"
+        "to": "/pt/docs/tutorials/alterar-o-dominio-da-loja"
       },
       {
         "from": "/tutorial/como-alterar-a-logo-do-boleto",
-        "to": "/pt/tutorial/alterar-o-logotipo-do-boleto"
+        "to": "/pt/docs/tutorials/alterar-o-logotipo-do-boleto"
       },
       {
         "from": "/tutorial/configurando-dominios-no-license-manager",
-        "to": "/pt/tutorial/configurar-o-dominio-da-loja"
+        "to": "/pt/docs/tutorials/configurar-o-dominio-da-loja"
       },
       {
         "from": "/tutorial/escolhendo-entre-arquitetura-multi-loja-ou-ambiente-adicional",
-        "to": "/pt/tutorial/escolher-entre-arquitetura-multiloja-ou-ambiente-adicional"
+        "to": "/pt/docs/tutorials/escolher-entre-arquitetura-multiloja-ou-ambiente-adicional"
       },
       {
         "from": "/tutorial/pagina-de-detalhes-da-conta",
-        "to": "/pt/tutorial/gerenciamento-da-conta"
+        "to": "/pt/docs/tutorials/gerenciamento-da-conta"
       },
       {
         "from": "/tutorial/como-criar-multiloja-multidominio",
-        "to": "/pt/tutorial/gerenciando-uma-multiloja"
+        "to": "/pt/docs/tutorials/gerenciando-uma-multiloja"
       },
       {
         "from": "/tutorial/como-criar-um-perfil-de-acesso-financeiro",
-        "to": "/pt/tutorial/criar-um-perfil-de-acesso-financeiro"
+        "to": "/pt/docs/tutorials/criar-um-perfil-de-acesso-financeiro"
       },
       {
         "from": "/tutorial/como-criar-perfil-de-acesso",
-        "to": "/pt/tutorial/perfis-de-acesso"
+        "to": "/pt/docs/tutorials/perfis-de-acesso"
       },
       {
         "from": "/tutorial/criando-usuarios",
-        "to": "/pt/tutorial/gerenciando-usuarios"
+        "to": "/pt/docs/tutorials/gerenciando-usuarios"
       },
       {
         "from": "/tutorial/entendendo-a-manutencao-da-base-de-dados",
-        "to": "/pt/tutorial/manutencao-de-base-full-cleanup"
+        "to": "/pt/docs/tutorials/manutencao-de-base-full-cleanup"
       },
       {
         "from": "/tutorial/o-que-e-o-usuario-master",
-        "to": "/pt/tutorial/o-que-e-o-usuario-titular"
+        "to": "/pt/docs/tutorials/o-que-e-o-usuario-titular"
       },
       {
         "from": "/tutorial/como-recuperar-senha-de-acesso",
-        "to": "/pt/tutorial/redefinir-senha-de-acesso-ao-admin-vtex"
+        "to": "/pt/docs/tutorials/redefinir-senha-de-acesso-ao-admin-vtex"
       },
       {
         "from": "/tutorial/alterar-o-usuario-master-da-conta",
-        "to": "/pt/tutorial/transferencia-de-propriedade-da-loja"
+        "to": "/pt/docs/tutorials/transferencia-de-propriedade-da-loja"
       },
       {
         "from": "/tutorial/por-que-nao-recomendamos-inserir-um-proxy-reverso-em-frente-aos-servicos-da",
-        "to": "/pt/tutorial/inserir-proxy-reverso-em-frente-aos-servicos-da-vtex"
+        "to": "/pt/docs/tutorials/inserir-proxy-reverso-em-frente-aos-servicos-da-vtex"
       },
       {
         "from": "/tutorial/configurando-acesso-sem-www",
-        "to": "/pt/tutorial/melhores-praticas-para-acessar-a-loja-sem-www"
+        "to": "/pt/docs/tutorials/melhores-praticas-para-acessar-a-loja-sem-www"
       },
       {
         "from": "/tutorial/o-que-e-o-sla-de-operacao-da-plataforma",
-        "to": "/pt/tutorial/acordo-de-nivel-de-servico-sla-de-operacao-da-vtex"
+        "to": "/pt/docs/tutorials/acordo-de-nivel-de-servico-sla-de-operacao-da-vtex"
       },
       {
         "from": "/tutorial/status-vtex-entenda-como-funciona-o-status-da-plataforma",
-        "to": "/pt/tutorial/pagina-de-status-da-vtex"
+        "to": "/pt/docs/tutorials/pagina-de-status-da-vtex"
       },
       {
         "from": "/tutorial/pagina-de-status-da-plataforma",
-        "to": "/pt/tutorial/pagina-de-status-da-vtex"
+        "to": "/pt/docs/tutorials/pagina-de-status-da-vtex"
       },
       {
         "from": "/tutorial/configurar-integracao-de-lojas-fisicas-com-a-b2w-skyhub",
-        "to": "/pt/tutorial/configurar-integracao-de-lojas-fisicas-com-a-b2w"
+        "to": "/pt/docs/tutorials/configurar-integracao-de-lojas-fisicas-com-a-b2w"
       },
       {
         "from": "/tutorial/integrando-com-marketplace",
-        "to": "/pt/tutorial/estrategias-de-marketplace-na-vtex"
+        "to": "/pt/docs/tutorials/estrategias-de-marketplace-na-vtex"
       },
       {
         "from": "/tutorial/erros-de-falta-de-estoque-em-pedidos-de-integracao-com-marketplace",
-        "to": "/pt/tutorial/erros-de-falta-de-estoque-na-integracao-de-pedidos-de-marketplace"
+        "to": "/pt/docs/tutorials/erros-de-falta-de-estoque-na-integracao-de-pedidos-de-marketplace"
       },
       {
         "from": "/tutorial/status-de-anuncios-beta",
-        "to": "/pt/tutorial/status-dos-anuncios"
+        "to": "/pt/docs/tutorials/status-dos-anuncios"
       },
       {
         "from": "/tutorial/veja-como-utilizar-o-change-seller",
-        "to": "/pt/tutorial/change-seller"
+        "to": "/pt/docs/tutorials/change-seller"
       },
       {
         "from": "/tutorial/como-funciona-o-frete-fob-mercado-livre-quando-o-mercado-envios-e-usado",
-        "to": "/pt/tutorial/como-funciona-o-frete-quando-o-marketplace-faz-a-entrega"
+        "to": "/pt/docs/tutorials/como-funciona-o-frete-quando-o-marketplace-faz-a-entrega"
       },
       {
         "from": "/tutorial/precos-v2",
-        "to": "/pt/tutorial/precos"
+        "to": "/pt/docs/tutorials/precos"
       },
       {
         "from": "/tutorial/anuncios-recebidos",
-        "to": "/pt/tutorial/skus-recebidos-beta"
+        "to": "/pt/docs/tutorials/skus-recebidos-beta"
       },
       {
         "from": "/tutorial/regionalizacao-beta",
-        "to": "/pt/tutorial/regionalizacao"
+        "to": "/pt/docs/tutorials/regionalizacao"
       },
       {
         "from": "/tutorial/configurar-sinonimos",
-        "to": "/pt/tutorial/criar-sinonimos"
+        "to": "/pt/docs/tutorials/criar-sinonimos"
       },
       {
         "from": "/tutorial/criando-aplicacao-no-master-data",
-        "to": "/pt/tutorial/criar-aplicacao-no-master-data"
+        "to": "/pt/docs/tutorials/criar-aplicacao-no-master-data"
       },
       {
         "from": "/tutorial/criando-uma-consulta-personalizada-no-master-data",
-        "to": "/pt/tutorial/criar-consulta-personalizada-no-master-data-v1"
+        "to": "/pt/docs/tutorials/criar-consulta-personalizada-no-master-data-v1"
       },
       {
         "from": "/tutorial/criar-relacionamento-com-entidades-e-documentos-do-master-data-usando-o",
-        "to": "/pt/tutorial/criar-relacionamentos-entre-entidades-do-master-data-usando-o-admin"
+        "to": "/pt/docs/tutorials/criar-relacionamentos-entre-entidades-do-master-data-usando-o-admin"
       },
       {
         "from": "/tutorial/importando-dados-no-master-data",
-        "to": "/pt/tutorial/importar-dados-no-master-data-v1"
+        "to": "/pt/docs/tutorials/importar-dados-no-master-data-v1"
       },
       {
         "from": "/tutorial/criando-entidade-de-dados",
-        "to": "/pt/tutorial/entidade-de-dados"
+        "to": "/pt/docs/tutorials/entidade-de-dados"
       },
       {
         "from": "/tutorial/o-que-e-o-master-data",
-        "to": "/pt/tutorial/master-data"
+        "to": "/pt/docs/tutorials/master-data"
       },
       {
         "from": "/tutorial/nao-consigo-editar-um-campo-obrigatorio-do-master-data",
-        "to": "/pt/tutorial/definir-campos-obrigatorios-em-formularios-do-master-data-v1"
+        "to": "/pt/docs/tutorials/definir-campos-obrigatorios-em-formularios-do-master-data-v1"
       },
       {
         "from": "/tutorial/configurando-indice-no-master-data",
-        "to": "/pt/tutorial/indices-no-master-data"
+        "to": "/pt/docs/tutorials/indices-no-master-data"
       },
       {
         "from": "/tutorial/como-deixar-um-campo-do-master-data-editavel",
-        "to": "/pt/tutorial/tornar-um-campo-editavel-no-master-data"
+        "to": "/pt/docs/tutorials/tornar-um-campo-editavel-no-master-data"
       },
       {
         "from": "/tutorial/aprovacao-clientes",
-        "to": "/pt/tutorial/aprovacao-de-clientes"
+        "to": "/pt/docs/tutorials/aprovacao-de-clientes"
       },
       {
         "from": "/tutorial/importando-dados-de-clientes-brasil",
-        "to": "/pt/tutorial/importando-dados-de-clientes"
+        "to": "/pt/docs/tutorials/importando-dados-de-clientes"
       },
       {
         "from": "/tutorial/como-incluir-um-registro-em-um-formulario-do-master-data",
-        "to": "/pt/tutorial/incluir-um-registro-em-um-formulario-do-master-data"
+        "to": "/pt/docs/tutorials/incluir-um-registro-em-um-formulario-do-master-data"
       },
       {
         "from": "/tutorial/configurando-produto-visitado",
-        "to": "/pt/tutorial/configurar-email-sobre-produto-visitado"
+        "to": "/pt/docs/tutorials/configurar-email-sobre-produto-visitado"
       },
       {
         "from": "/tutorial/algoritmo-de-selecao-de-white-label-sellers",
-        "to": "/pt/tutorial/selecao-de-sellers-white-label"
+        "to": "/pt/docs/tutorials/selecao-de-sellers-white-label"
       },
       {
         "from": "/tutorial/o-que-e-whitelabel",
-        "to": "/pt/tutorial/seller-white-label"
+        "to": "/pt/docs/tutorials/seller-white-label"
       },
       {
         "from": "/tutorial/encontre-aqui-todas-as-respostas-que-voce-precisa",
-        "to": "/pt/tutorial/admin-vtex-comece-aqui"
+        "to": "/pt/docs/tutorials/admin-vtex-comece-aqui"
       },
       {
         "from": "/tutorial/como-fazer-a-alteracao-do-meu-cnpj",
-        "to": "/pt/tutorial/como-fazer-a-alteracao-do-meu-cnpj-novo"
+        "to": "/pt/docs/tutorials/como-fazer-a-alteracao-do-meu-cnpj-novo"
       },
       {
         "from": "/tutorial/como-escrever-um-ticket-completo-para-o-suporte-vtex",
-        "to": "/pt/tutorial/boas-praticas-para-a-abertura-de-um-ticket-para-o-suporte-vtex"
+        "to": "/pt/docs/tutorials/boas-praticas-para-a-abertura-de-um-ticket-para-o-suporte-vtex"
       },
       {
         "from": "/tutorial/como-configurar-o-device-finger-print-para-braspag-cybersource",
-        "to": "/pt/tutorial/como-configurar-o-device-finger-print-para-braspag"
+        "to": "/pt/docs/tutorials/como-configurar-o-device-finger-print-para-braspag"
       },
       {
         "from": "/tutorial/integrando-com-gift-card",
-        "to": "/pt/tutorial/como-integrar-um-provedor-de-gift-card-externo-a-vtex"
+        "to": "/pt/docs/tutorials/como-integrar-um-provedor-de-gift-card-externo-a-vtex"
       },
       {
         "from": "/tutorial/configurar-device-fingerprint-para-niubz",
-        "to": "/pt/tutorial/configurar-device-fingerprint-para-niubiz"
+        "to": "/pt/docs/tutorials/configurar-device-fingerprint-para-niubiz"
       },
       {
         "from": "/tutorial/configurar-pagamento-com-a-addi",
-        "to": "/pt/tutorial/configurar-pagamento-com-addi"
+        "to": "/pt/docs/tutorials/configurar-pagamento-com-addi"
       },
       {
         "from": "/tutorial/configurar-pagamento-com-adyenv3-no-instore",
-        "to": "/pt/tutorial/configurar-pagamento-com-adyenv3-no-vtex-sales-app"
+        "to": "/pt/docs/tutorials/configurar-pagamento-com-adyenv3-no-vtex-sales-app"
       },
       {
         "from": "/tutorial/configurar-pagamento-com-dcrecoscorp",
-        "to": "/pt/tutorial/configurar-pagamento-com-crecoscorp"
+        "to": "/pt/docs/tutorials/configurar-pagamento-com-crecoscorp"
       },
       {
         "from": "/tutorial/configurar-pagamento-com-seller",
-        "to": "/pt/tutorial/configurar-pagamento-com-easypay-seller"
+        "to": "/pt/docs/tutorials/configurar-pagamento-com-easypay-seller"
       },
       {
         "from": "/tutorial/configurar-prazo-maximo-para-captura",
-        "to": "/pt/tutorial/configurar-tempo-maximo-para-liquidacao-automatica"
+        "to": "/pt/docs/tutorials/configurar-tempo-maximo-para-liquidacao-automatica"
       },
       {
         "from": "/tutorial/detalhes-de-reembolso-da-payu-romênia",
-        "to": "/pt/tutorial/detalhes-de-reembolso-da-payu-romenia"
+        "to": "/pt/docs/tutorials/detalhes-de-reembolso-da-payu-romenia"
       },
       {
         "from": "/tutorial/como-e-feito-o-calculo-do-parcelado-com-juros",
-        "to": "/pt/tutorial/como-e-feito-o-calculo-do-parcelado-com-juros-compostos"
+        "to": "/pt/docs/tutorials/como-e-feito-o-calculo-do-parcelado-com-juros-compostos"
       },
       {
         "from": "/tutorial/fluxo-da-transacao-no-pci-gateway",
-        "to": "/pt/tutorial/fluxo-da-transacao-no-pagamentos"
+        "to": "/pt/docs/tutorials/fluxo-da-transacao-no-pagamentos"
       },
       {
         "from": "/tutorial/Saiba-como-criar-fluxos-para-a-liberação-ou-aprovação-de-pedidos-dos-canais",
-        "to": "/pt/tutorial/como-funciona-a-autorizacao-de-pedidos"
+        "to": "/pt/docs/tutorials/como-funciona-a-autorizacao-de-pedidos"
       },
       {
         "from": "/tutorial/configurar-o-avise-me",
-        "to": "/pt/tutorial/configurar-a-opcao-avise-me"
+        "to": "/pt/docs/tutorials/configurar-a-opcao-avise-me"
       },
       {
         "from": "/tutorial/permitir-alteracao-de-pedidos-ja-fechados",
-        "to": "/pt/tutorial/substituicao-de-pedidos"
+        "to": "/pt/docs/tutorials/substituicao-de-pedidos"
       },
       {
         "from": "/tutorial/como-funciona-a-substituicao-de-pedidos",
-        "to": "/pt/tutorial/substituicao-de-pedidos"
+        "to": "/pt/docs/tutorials/substituicao-de-pedidos"
       },
       {
         "from": "/tutorial/usando-e-customizando-toolbar-de-televendas",
-        "to": "/pt/tutorial/toolbar-de-televendas"
+        "to": "/pt/docs/tutorials/toolbar-de-televendas"
       },
       {
         "from": "/tutorial/adaptando-sua-integracao-para-a-alterar-pedido-beta",
-        "to": "/pt/tutorial/adaptando-sua-integracao-para-a-alterar-pedido"
+        "to": "/pt/docs/tutorials/adaptando-sua-integracao-para-a-alterar-pedido"
       },
       {
         "from": "/tutorial/como-fazer-a-alteracao-de-itens",
-        "to": "/pt/tutorial/alteracao-de-itens-de-um-pedido-finalizado"
+        "to": "/pt/docs/tutorials/alteracao-de-itens-de-um-pedido-finalizado"
       },
       {
         "from": "/tutorial/alterar-pedidos-finalizados",
-        "to": "/pt/tutorial/alteracao-de-itens-de-um-pedido-finalizado"
+        "to": "/pt/docs/tutorials/alteracao-de-itens-de-um-pedido-finalizado"
       },
       {
         "from": "/tutorial/calcular-receita-a-partir-da-planilha-exportada-do-oms",
-        "to": "/pt/tutorial/calcular-receita-a-partir-da-planilha-exportada-do-modulo-pedidos"
+        "to": "/pt/docs/tutorials/calcular-receita-a-partir-da-planilha-exportada-do-modulo-pedidos"
       },
       {
         "from": "/tutorial/como-funciona-o-cancelamento-de-pedido-por-parte-do-cliente",
-        "to": "/pt/tutorial/cancelamento-de-pedido-por-parte-do-cliente"
+        "to": "/pt/docs/tutorials/cancelamento-de-pedido-por-parte-do-cliente"
       },
       {
         "from": "/tutorial/como-alterar-pedidos-beta",
-        "to": "/pt/tutorial/como-alterar-pedidos"
+        "to": "/pt/docs/tutorials/como-alterar-pedidos"
       },
       {
         "from": "/tutorial/como-funciona-a-alterar-pedido-beta",
-        "to": "/pt/tutorial/como-funciona-a-alterar-pedido"
+        "to": "/pt/docs/tutorials/como-funciona-a-alterar-pedido"
       },
       {
         "from": "/tutorial/linha-do-tempo",
-        "to": "/pt/tutorial/como-funciona-a-secao-historico-do-pedido"
+        "to": "/pt/docs/tutorials/como-funciona-a-secao-historico-do-pedido"
       },
       {
         "from": "/tutorial/exportando-pedidos-no-gerenciamento-de-pedidos",
-        "to": "/pt/tutorial/exportacao-de-pedidos-no-modulo-pedidos"
+        "to": "/pt/docs/tutorials/exportacao-de-pedidos-no-modulo-pedidos"
       },
       {
         "from": "/tutorial/como-filtrar-pedidos",
-        "to": "/pt/tutorial/filtrar-todos-pedidos"
+        "to": "/pt/docs/tutorials/filtrar-todos-pedidos"
       },
       {
         "from": "/tutorial/fluxo-de-pedido",
-        "to": "/pt/tutorial/fluxo-e-status-de-pedidos"
+        "to": "/pt/docs/tutorials/fluxo-e-status-de-pedidos"
       },
       {
         "from": "/tutorial/iniciar-manuseio",
-        "to": "/pt/tutorial/passar-pedido-para-o-status-preparando-entrega"
+        "to": "/pt/docs/tutorials/passar-pedido-para-o-status-preparando-entrega"
       },
       {
         "from": "/tutorial/negacao-de-cancelamento-de-pedido",
-        "to": "/pt/tutorial/recusar-solicitacao-de-cancelamento-do-pedido"
+        "to": "/pt/docs/tutorials/recusar-solicitacao-de-cancelamento-do-pedido"
       },
       {
         "from": "/tutorial/visualizando-pedidos-de-marketplace-no-oms",
-        "to": "/pt/tutorial/visualizando-pedidos-de-marketplace-em-todos-os-pedidos"
+        "to": "/pt/docs/tutorials/visualizando-pedidos-de-marketplace-em-todos-os-pedidos"
       },
       {
         "from": "/tutorial/visualizar-no-fluxo-do-oms-log-detalhado-do-pedido",
-        "to": "/pt/tutorial/visualizar-o-log-detalhado-do-pedido"
+        "to": "/pt/docs/tutorials/visualizar-o-log-detalhado-do-pedido"
       },
       {
         "from": "/tutorial/alterar-dados-de-rastreio-beta",
-        "to": "/pt/tutorial/alterar-dados-de-rastreio"
+        "to": "/pt/docs/tutorials/alterar-dados-de-rastreio"
       },
       {
         "from": "/tutorial/alterar-valor-final-do-pedido-beta",
-        "to": "/pt/tutorial/alterar-valor-total-do-pedido"
+        "to": "/pt/docs/tutorials/alterar-valor-total-do-pedido"
       },
       {
         "from": "/tutorial/como-devolver-itens-do-pedido-beta",
-        "to": "/pt/tutorial/como-devolver-itens-do-pedido"
+        "to": "/pt/docs/tutorials/como-devolver-itens-do-pedido"
       },
       {
         "from": "/tutorial/como-faturar-um-pedido-manualmente-beta",
-        "to": "/pt/tutorial/faturar-um-pedido-manualmente"
+        "to": "/pt/docs/tutorials/faturar-um-pedido-manualmente"
       },
       {
         "from": "/tutorial/oms-visao-geral",
-        "to": "/pt/tutorial/gerenciamento-de-pedidos-visao-geral"
+        "to": "/pt/docs/tutorials/gerenciamento-de-pedidos-visao-geral"
       },
       {
         "from": "/tutorial/pagina-de-detalhes-do-pedido-beta",
-        "to": "/pt/tutorial/pagina-de-detalhes-do-pedido"
+        "to": "/pt/docs/tutorials/pagina-de-detalhes-do-pedido"
       },
       {
         "from": "/tutorial/perguntas-frequentes-sobre-a-nova-interface-do-modulo-de-pedidos",
-        "to": "/pt/tutorial/perguntas-frequentes-nova-interface-modulo-pedidos"
+        "to": "/pt/docs/tutorials/perguntas-frequentes-nova-interface-modulo-pedidos"
       },
       {
         "from": "/tutorial/lista-de-pedidos-beta",
-        "to": "/pt/tutorial/todos-os-pedidos"
+        "to": "/pt/docs/tutorials/todos-os-pedidos"
       },
       {
         "from": "/tutorial/vtex-do-beta",
-        "to": "/pt/tutorial/vtex-do-interface"
+        "to": "/pt/docs/tutorials/vtex-do-interface"
       },
       {
         "from": "/tutorial/o-que-e-uma-politica-comercial",
-        "to": "/pt/tutorial/criar-uma-politica-comercial"
+        "to": "/pt/docs/tutorials/criar-uma-politica-comercial"
       },
       {
         "from": "/tutorial/preco-psicologico-v2",
-        "to": "/pt/tutorial/arredondamento-de-precos"
+        "to": "/pt/docs/tutorials/arredondamento-de-precos"
       },
       {
         "from": "/tutorial/configuracao-de-precos",
-        "to": "/pt/tutorial/configuracoes-de-precos"
+        "to": "/pt/docs/tutorials/configuracoes-de-precos"
       },
       {
         "from": "/tutorial/preencher-campos-da-planilha-de-importacao-de-precos-base",
-        "to": "/pt/tutorial/tabela-de-precos-base"
+        "to": "/pt/docs/tutorials/tabela-de-precos-base"
       },
       {
         "from": "/tutorial/agendar-preco-no-pricing-v2",
-        "to": "/pt/tutorial/agendar-preco"
+        "to": "/pt/docs/tutorials/agendar-preco"
       },
       {
         "from": "/tutorial/configurar-price-tables-especificas-com-o-session",
-        "to": "/pt/tutorial/configurar-price-tables-especificas"
+        "to": "/pt/docs/tutorials/configurar-price-tables-especificas"
       },
       {
         "from": "/tutorial/preencher-campos-da-planilha-de-importacao-de-precos-fixo",
-        "to": "/pt/tutorial/preencher-campos-da-planilha-de-importacao-de-precos-fixos"
+        "to": "/pt/docs/tutorials/preencher-campos-da-planilha-de-importacao-de-precos-fixos"
       },
       {
         "from": "/tutorial/configuração-funil-de-vendas-no-google-analytics",
-        "to": "/pt/tutorial/configurar-funil-de-vendas-no-google-analytics"
+        "to": "/pt/docs/tutorials/configurar-funil-de-vendas-no-google-analytics"
       },
       {
         "from": "/tutorial/como-criar-campanhas",
-        "to": "/pt/tutorial/criar-audiencia-de-campanha"
+        "to": "/pt/docs/tutorials/criar-audiencia-de-campanha"
       },
       {
         "from": "/tutorial/entendendo-a-concorrencia-de-promocoes",
-        "to": "/pt/tutorial/como-funciona-a-concorrencia-de-promocoes"
+        "to": "/pt/docs/tutorials/como-funciona-a-concorrencia-de-promocoes"
       },
       {
         "from": "/tutorial/configurando-promocao-para-marketplace",
-        "to": "/pt/tutorial/configurar-promocao-para-marketplace"
+        "to": "/pt/docs/tutorials/configurar-promocao-para-marketplace"
       },
       {
         "from": "/tutorial/o-que-sao-utm_source-utm_campaign-e-utm_medium",
-        "to": "/pt/tutorial/o-que-sao-utm-source-utm-campaign-e-utm-medium"
+        "to": "/pt/docs/tutorials/o-que-sao-utm-source-utm-campaign-e-utm-medium"
       },
       {
         "from": "/tutorial/promocao-regular",
-        "to": "/pt/tutorial/promocao-regular-pt"
+        "to": "/pt/docs/tutorials/promocao-regular-pt"
       },
       {
         "from": "/tutorial/enviar-preço-com-imposto-separado",
-        "to": "/pt/tutorial/enviar-preco-com-imposto-separado"
+        "to": "/pt/docs/tutorials/enviar-preco-com-imposto-separado"
       },
       {
         "from": "/tutorial/o-processo-de-risk-assessment",
-        "to": "/pt/tutorial/risk-assessment"
+        "to": "/pt/docs/tutorials/risk-assessment"
       },
       {
         "from": "/tutorial/testes-de-penetracao-e-aviso-de-vulnerabilidade",
-        "to": "/pt/tutorial/testes-de-penetracao"
+        "to": "/pt/docs/tutorials/testes-de-penetracao"
       },
       {
         "from": "/tutorial/como-encontrar-eventos-no-audit",
-        "to": "/pt/tutorial/audit"
+        "to": "/pt/docs/tutorials/audit"
       },
       {
         "from": "/tutorial/certificado-de-seguranca-ssl-a-que-se-refere-e-como-contratar",
-        "to": "/pt/tutorial/certificado-de-seguranca-ssl"
+        "to": "/pt/docs/tutorials/certificado-de-seguranca-ssl"
       },
       {
         "from": "/tutorial/boas-praticas-na-utilizacao-de-chaves-de-aplicacao",
-        "to": "/pt/tutorial/boas-praticas-chaves-de-api"
+        "to": "/pt/docs/tutorials/boas-praticas-chaves-de-api"
       },
       {
         "from": "/tutorial/configurando-seller",
-        "to": "/pt/tutorial/adicionar-seller"
+        "to": "/pt/docs/tutorials/adicionar-seller"
       },
       {
         "from": "/tutorial/gerenciamento-de-sellers-beta",
-        "to": "/pt/tutorial/gerenciamento-de-sellers"
+        "to": "/pt/docs/tutorials/gerenciamento-de-sellers"
       },
       {
         "from": "/tutorial/como-criar-um-produto-beta",
-        "to": "/pt/tutorial/como-criar-um-produto"
+        "to": "/pt/docs/tutorials/como-criar-um-produto"
       },
       {
         "from": "/tutorial/lista-de-produtos-beta",
-        "to": "/pt/tutorial/lista-de-produtos"
+        "to": "/pt/docs/tutorials/lista-de-produtos"
       },
       {
         "from": "/tutorial/marketplace-convite-de-sellers-beta",
-        "to": "/pt/tutorial/marketplace-convite-de-sellers"
+        "to": "/pt/docs/tutorials/marketplace-convite-de-sellers"
       },
       {
         "from": "/tutorial/seller-criar-conta-no-seller-portal-beta",
-        "to": "/pt/tutorial/seller-criar-conta-no-seller-portal"
+        "to": "/pt/docs/tutorials/seller-criar-conta-no-seller-portal"
       },
       {
         "from": "/tutorial/categorias-beta",
-        "to": "/pt/tutorial/seller-portal-categorias"
+        "to": "/pt/docs/tutorials/seller-portal-categorias"
       },
       {
         "from": "/tutorial/marcas-beta",
-        "to": "/pt/tutorial/seller-portal-marcas"
+        "to": "/pt/docs/tutorials/seller-portal-marcas"
       },
       {
         "from": "/tutorial/arquitetura-de-envio-de-produtos-entre-sellers-e-marketplaces-vtex",
-        "to": "/pt/tutorial/anuncios-enviados-entre-os-mesmos-sellers-e-marketplaces-vtex"
+        "to": "/pt/docs/tutorials/anuncios-enviados-entre-os-mesmos-sellers-e-marketplaces-vtex"
       },
       {
         "from": "/tutorial/qual-a-diferenca-entre-desvincular-e-excluir-um-sku-seller",
-        "to": "/pt/tutorial/qual-a-diferenca-entre-desvincular-e-remover-um-sku-seller"
+        "to": "/pt/docs/tutorials/qual-a-diferenca-entre-desvincular-e-remover-um-sku-seller"
       },
       {
         "from": "/tutorial/o-que-sao-as-utms-internas-utmi_cp-utmi_pc-e-utmi-p",
-        "to": "/pt/tutorial/o-que-sao-as-utms-internas-utmi-cp-utmi-pc-e-utmi-p"
+        "to": "/pt/docs/tutorials/o-que-sao-as-utms-internas-utmi-cp-utmi-pc-e-utmi-p"
       },
       {
         "from": "/tutorial/gerenciando-paginas-beta",
-        "to": "/pt/tutorial/gerenciando-paginas"
+        "to": "/pt/docs/tutorials/gerenciando-paginas"
       },
       {
         "from": "/tutorial/cadastrar-colecoes",
-        "to": "/pt/tutorial/cadastro-de-colecoes-cms"
+        "to": "/pt/docs/tutorials/cadastro-de-colecoes-cms"
       },
       {
         "from": "/tutorial/como-funciona-o-contexto-de-busca",
-        "to": "/pt/tutorial/como-criar-landing-pages-com-urls-customizadas"
+        "to": "/pt/docs/tutorials/como-criar-landing-pages-com-urls-customizadas"
       },
       {
         "from": "/tutorial/como-funciona-o-contexto-de-busca-das-pastas-do-website",
-        "to": "/pt/tutorial/como-criar-landing-pages-com-urls-customizadas"
+        "to": "/pt/docs/tutorials/como-criar-landing-pages-com-urls-customizadas"
       },
       {
         "from": "/tutorial/compactacao-automatica-de-imagens",
-        "to": "/pt/tutorial/compactacao-de-imagens"
+        "to": "/pt/docs/tutorials/compactacao-de-imagens"
       },
       {
         "from": "/tutorial/como-configurar-o-favicon-em-meu-site",
-        "to": "/pt/tutorial/configurar-o-favicon-em-sua-loja"
+        "to": "/pt/docs/tutorials/configurar-o-favicon-em-sua-loja"
       },
       {
         "from": "/tutorial/adicionar-ou-editar-um-mapeamento-de-url-manualmente",
-        "to": "/pt/tutorial/mapeamento-de-urls-redirecionamento-301"
+        "to": "/pt/docs/tutorials/mapeamento-de-urls-redirecionamento-301"
       },
       {
         "from": "/tutorial/o-que-e-o-cms",
-        "to": "/pt/tutorial/o-que-e-o-cms-layout"
+        "to": "/pt/docs/tutorials/o-que-e-o-cms-layout"
       },
       {
         "from": "/tutorial/atribuir-e-testar-agentes-no-agent-builder",
-        "to": "/pt/tutorial/atribuir-e-testar-agentes"
+        "to": "/pt/docs/tutorials/atribuir-e-testar-agentes"
       }
     ],
     "fromManualInput": [
@@ -12728,6 +12728,150 @@
       {
         "from": "/en/tutorial/algoritmo-de-selecao-de-white-label-sellers--3MemNQ4pKkWCpMdzI27AHa",
         "to": "/en/tutorial/selecao-de-sellers-white-label"
+      },
+      {
+        "from": "/support",
+        "to": "https://supporticket.vtex.com/support"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/P99EjtrlRHk92Q8qDPq29",
+        "to": "/en/docs/tracks/cadastrar-preco-base"
+      },
+      {
+        "from": "/en/subcategory/settings--4uqMnZjwBO04uWgCom8QiA",
+        "to": "/en/docs/tutorials/integration-settings"
+      },
+      {
+        "from": "/en/tutorial/shopee-integration--5OV9idUY6fHu3P8grnCnqj",
+        "to": "/en/docs/tracks/integracao-shopee"
+      },
+      {
+        "from": "/en/tracks/logistics-101--13TFDwDttPl9ki9OXQhyjx",
+        "to": "/en/docs/tracks/getting-started-with-logistics"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ",
+        "to": "/en/docs/tracks/catalog-concept-definition"
+      },
+      {
+        "from": "/en/tracks/cms--2YcpgIljVaLVQYMzxQbc3z",
+        "to": "/en/docs/tracks/what-is-the-cms"
+      },
+      {
+        "from": "/es/tutorial/campos-de-registro-de-categoria--5Z7RrvW41yumyQCmk2iqoG",
+        "to": "/es//docs/tutorials/registering-a-category#filling-in-the-category-registration-fields"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/P99EjtrlRHk92Q8qDPq29",
+        "to": "/es/docs/tracks/registrar-precio-base"
+      },
+      {
+        "from": "/es/tutorial/como-montar-un-kit-look--tutorials_266",
+        "to": "/es/docs/tutorials/como-montar-un-kit-de-look"
+      },
+      {
+        "from": "/es/tutorial/integracion-con-shopee--5OV9idUY6fHu3P8grnCnqj",
+        "to": "/es/docs/tracks/integracion-con-shopee"
+      },
+      {
+        "from": "/es/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx",
+        "to": "/es/docs/tracks/logistica-primeros-pasos"
+      },
+      {
+        "from": "/es/tutorial/como-crear-un-rol-financiero--717qPtxW3Cy9n5KrReHeVv",
+        "to": "/es/docs/tutorials/crear-un-rol-financiero"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ",
+        "to": "/es/docs/tracks/catalogo-definicion-de-concepto"
+      },
+      {
+        "from": "/es/tutorial/configurar-producto-similar-sugerencias-acessorios-y-genericos--tutorials_280",
+        "to": "/es/docs/tutorials/configurar-producto-similar-sugerencias-accesorios-y-genericos"
+      },
+      {
+        "from": "/es/tracks/cms--2YcpgIljVaLVQYMzxQbc3z",
+        "to": "/es/docs/tracks/o-que-e-o-cms"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/P99EjtrlRHk92Q8qDPq29",
+        "to": "/pt/docs/tracks/cadastrar-preco-base"
+      },
+      {
+        "from": "/pt/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx",
+        "to": "/pt/docs/tracks/primeiros-passos-da-logistica"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ",
+        "to": "/pt/docs/tracks/catalogo-definicao-de-conceito"
+      },
+      {
+        "from": "/pt/tracks/cms--2YcpgIljVaLVQYMzxQbc3z",
+        "to": "/pt/docs/tracks/o-que-e-o-cms"
+      },
+      {
+        "from": "/en/subcategory/insights-overview--1TIJqw8kV2Yok4iQe4SAkq",
+        "to": "en/docs/tutorials/dashboards-in-the-vtex-admin"
+      },
+      {
+        "from": "/en/subcategory/benefits--1yTYB5p4b6iwMsUg8uieyq",
+        "to": "/en/docs/tutorials/promotions"
+      },
+      {
+        "from": "/en/subcategory/access-profiles--1HSqkejwuYcQSMC400uY84",
+        "to": "/en/docs/tutorials/access-control"
+      },
+      {
+        "from": "/en/category/authentications--2DvfvQ5Mwc8mWIgaCWcEyo",
+        "to": "/en/docs/tutorials/authentication"
+      },
+      {
+        "from": "/en/subcategory/application-keys--5GYFjiMQg0qIKpnnQY2qjh",
+        "to": "/en/docs/tutorials/api-keys-category"
+      },
+      {
+        "from": "/en/category/cms--2I0KMdRlAkcwwiK4YeaiUi",
+        "to": "/en/docs/tutorials/storefront"
+      },
+      {
+        "from": "/es/subcategory/vision-de-conjunto-de-insights--1TIJqw8kV2Yok4iQe4SAkq",
+        "to": "/es/docs/tutorials/dashboards-en-el-admin-vtex"
+      },
+      {
+        "from": "/es/subcategory/configuracion-de-integraciones--4uqMnZjwBO04uWgCom8QiA",
+        "to": "/es/docs/tutorials/configuracion-de-las-integraciones"
+      },
+      {
+        "from": "/es/subcategory/vision-de-general-de-pagos--2Xay1NOZKE2CSqKMwckOm8",
+        "to": "/es/docs/tutorials/vision-de-conjunto-de-pagos"
+      },
+      {
+        "from": "/es/category/autenticaciones--2DvfvQ5Mwc8mWIgaCWcEyo",
+        "to": "/es/docs/tutorials/autenticacion"
+      },
+      {
+        "from": "/es/subcategory/claves--21NfLcKOibBom7QOhU9yjP",
+        "to": "/es/docs/tutorials/claves-de-api-category"
+      },
+      {
+        "from": "/es/category/cms--2I0KMdRlAkcwwiK4YeaiUi",
+        "to": "/es/docs/tutorials/storefront"
+      },
+      {
+        "from": "/pt/subcategory/visao-geral-do-insights--1TIJqw8kV2Yok4iQe4SAkq",
+        "to": "/pt/docs/tutorials/dashboards-no-admin-vtex"
+      },
+      {
+        "from": "/pt/category/autenticacoes--2DvfvQ5Mwc8mWIgaCWcEyo",
+        "to": "/pt/docs/tutorials/autenticacao"
+      },
+      {
+        "from": "/pt/subcategory/chaves-de-aplicacao--5GYFjiMQg0qIKpnnQY2qjh",
+        "to": "/pt/docs/tutorials/chaves-de-api-category"
+      },
+      {
+        "from": "/pt/category/cms--2I0KMdRlAkcwwiK4YeaiUi",
+        "to": "/pt/docs/tutorials/storefront"
       }
     ]
   }
