@@ -39,6 +39,21 @@
               "children": [
                 {
                   "name": {
+                    "en": "Limit of BINs in promotions",
+                    "es": "Límite de BINs en promociones",
+                    "pt": "Limite de BINs em promoções"
+                  },
+                  "slug": {
+                    "en": "2025-11-06-limite-de-bins-en-promociones",
+                    "es": "2025-11-06-limit-of-bins-in-promotions",
+                    "pt": "2025-11-06-limite-de-bins-em-promocoes"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "New contextual help in the Admin: Simplified access to documentation",
                     "es": "Acceso rápido a la documentación con la nueva ayuda contextual en el Admin",
                     "pt": "Nova ajuda contextual no Admin: acesso simplificado à documentação"
@@ -33751,7 +33766,7 @@
                     "pt": "Transportadoras na VTEX"
                   },
                   "slug": {
-                    "en": "carries-on-vtex",
+                    "en": "carriers-on-vtex",
                     "es": "transportadoras-en-vtex",
                     "pt": "transportadoras-na-vtex"
                   },
@@ -35843,7 +35858,7 @@
                 {
                   "name": {
                     "en": "Setting up the standard size for the zoom image",
-                    "es": "Configurar el tamaño estándar de la imagen de zoom",
+                    "es": "Configurar el tamaño estándar de la imagen de zoom",
                     "pt": "Configurar o tamanho padrão da imagem de zoom"
                   },
                   "slug": {
