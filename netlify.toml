@@ -19,6 +19,22 @@ NODE_VERSION = "20"
   function = "redirect-from-old-portal"
 
 [[edge_functions]]
+  path = "/subcategory/*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/:locale/subcategory/*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/category/*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/:locale/category/*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
   path = "/tracks/*"
   function = "redirect-from-old-portal"
 
