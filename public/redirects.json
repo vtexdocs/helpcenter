@@ -12734,6 +12734,18 @@
         "to": "https://supporticket.vtex.com/support"
       },
       {
+        "from": "/es/support",
+        "to": "https://supporticket.vtex.com/support"
+      },
+      {
+        "from": "/en/support",
+        "to": "https://supporticket.vtex.com/support"
+      },
+      {
+        "from": "/pt/support",
+        "to": "https://supporticket.vtex.com/support"
+      },
+      {
         "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/P99EjtrlRHk92Q8qDPq29",
         "to": "/en/docs/tracks/cadastrar-preco-base"
       },
