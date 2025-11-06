@@ -54,6 +54,10 @@ function = "redirect-from-old-portal"
   path = "/announcements/*"
   function = "redirect-from-old-portal"
 
+[[edge_functions]]
+  path = "/support"
+  function = "redirect-from-old-portal"
+
 # For announcements and faq, we need to match the --key as well if the path contains the locale. This is needed to prevent a redirect loop. This happens because the new portal path pattern also includes "/:locale/faq|announcements".
 [[edge_functions]]
   path = "/:locale/faq/*--*"
