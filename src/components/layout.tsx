@@ -82,7 +82,7 @@ export default function Layout({
         locale={intl.locale as 'en' | 'pt' | 'es'}
       >
         <iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-KZ58QQP5"
+          src="https://www.googletagmanager.com/ns.html?id=GTM-K2NM75K"
           height="0"
           width="0"
           style={{ display: 'none', visibility: 'hidden' }}

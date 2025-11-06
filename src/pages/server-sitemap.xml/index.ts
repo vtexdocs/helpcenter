@@ -4,7 +4,7 @@ import { ISitemapField, getServerSideSitemapLegacy } from 'next-sitemap'
 import getNavigation from 'utils/getNavigation'
 
 function getURLs(category: any, slugPrefix: string): ISitemapField[] {
-  const DOMAIN_URL = 'https://newhelp.vtex.com'
+  const DOMAIN_URL = 'https://help.vtex.com'
   if (!category.children?.length) {
     return []
   }
