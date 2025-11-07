@@ -36,15 +36,6 @@ export default async (request, context) => {
     return context.next()
   }
 
-  // Early return for paths that typically don't need legacy redirects
-  // This is for performance - you can remove these if you need to redirect these paths
-  if (
-    url.pathname === '/' ||
-    url.pathname.match(/^\/[a-z]{2}\/?$/)
-  ) {
-    return context.next()
-  }
-
   const search = url.search ? url.search : '' // preserve query string
 
   let destination
