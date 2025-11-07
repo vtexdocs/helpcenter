@@ -3,18 +3,37 @@ let redirectsData = null
 
 async function loadRedirectsData() {
   if (!redirectsData) {
-    try {
-      const response = await fetch(
-        'https://raw.githubusercontent.com/vtexdocs/helpcenter/main/public/redirects.json'
-      )
-      if (!response.ok) {
-        throw new Error(`Failed to fetch redirects: ${response.status}`)
+    // CDN fallback chain: jsDelivr → raw.githubusercontent.com → Statically
+    const urls = [
+      'https://cdn.jsdelivr.net/gh/vtexdocs/helpcenter@main/public/redirects.json',
+      'https://raw.githubusercontent.com/vtexdocs/helpcenter/main/public/redirects.json',
+      'https://cdn.statically.io/gh/vtexdocs/helpcenter/main/public/redirects.json',
+    ]
+
+    let lastError = null
+
+    for (const url of urls) {
+      try {
+        console.log(`Attempting to load redirects from: ${url}`)
+        const response = await fetch(url)
+        if (!response.ok) {
+          console.warn(`Failed to fetch from ${url}: ${response.status}`)
+          lastError = new Error(`HTTP ${response.status}`)
+          continue
+        }
+        redirectsData = await response.json()
+        console.log('Successfully loaded redirects data')
+        return redirectsData
+      } catch (error) {
+        console.warn(`Error fetching from ${url}: ${error.message}`)
+        lastError = error
+        continue
       }
-      redirectsData = await response.json()
-    } catch (error) {
-      console.error('Error loading redirects data:', error)
-      redirectsData = { redirects: {} } // Fallback to empty redirects
     }
+
+    // All URLs failed, use fallback
+    console.error('Failed to load redirects from all sources:', lastError)
+    redirectsData = { redirects: {} } // Fallback to empty redirects
   }
   return redirectsData
 }
