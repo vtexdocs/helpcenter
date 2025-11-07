@@ -26,22 +26,12 @@ export default async (request, context) => {
     return context.next()
   }
 
-  // Yield for static files and assets
+  // Yield for static files and Next.js internals
   if (
     url.pathname.startsWith('/_next/') ||
     url.pathname.startsWith('/images/') ||
     url.pathname.startsWith('/fonts/') ||
     url.pathname.match(/\.(json|ico|png|jpg|jpeg|gif|svg|css|js|woff|woff2|ttf|eot)$/)
-  ) {
-    return context.next()
-  }
-
-  // Yield for modern portal paths (paths that don't need redirecting)
-  if (
-    url.pathname.match(/^\/(en|pt|es)\/docs\//) ||
-    url.pathname.match(/^\/(en|pt|es)\/(faq|known-issues|announcements)\/[^/]+$/) ||
-    url.pathname === '/' ||
-    url.pathname.match(/^\/[a-z]{2}\/?$/)
   ) {
     return context.next()
   }
