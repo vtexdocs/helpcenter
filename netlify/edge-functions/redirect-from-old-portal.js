@@ -1,4 +1,5 @@
-import redirectsData from '../../public/redirects.json' assert { type: 'json' }
+// Import redirects data at build time using Deno's JSON import
+import redirectsData from '../../public/redirects.json' with { type: 'json' }
 
 export default async (request, context) => {
   console.log('running edge function: redirect-from-old-portal')
