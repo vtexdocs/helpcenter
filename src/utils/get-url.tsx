@@ -19,7 +19,7 @@ export const getLearningCenterURL = () => {
 }
 
 export const getSupportURL = () => {
-  return 'https://help.vtex.com/support'
+  return 'https://help.vtex.com/en/support'
 }
 
 export const getLinkedinURL = () => {
