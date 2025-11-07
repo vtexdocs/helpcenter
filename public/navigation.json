@@ -39,6 +39,21 @@
               "children": [
                 {
                   "name": {
+                    "en": "VTEX Help Center: Now with enhanced interface and new features",
+                    "es": "Help Center VTEX: interfaz optimizada y nuevas funcionalidades",
+                    "pt": "Help Center VTEX: agora com interface aprimorada e novas funcionalidades"
+                  },
+                  "slug": {
+                    "en": "2025-11-07-vtex-help-center-now-with-enhanced-interface-and-new-features",
+                    "es": "2025-11-07-help-center-vtex-interfaz-optimizada-y-nuevas-funcionalidades",
+                    "pt": "2025-11-07-help-center-vtex-agora-com-interface-aprimorada-e-novas-funcionalidades"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Limit of BINs in promotions",
                     "es": "Límite de BINs en promociones",
                     "pt": "Limite de BINs em promoções"
