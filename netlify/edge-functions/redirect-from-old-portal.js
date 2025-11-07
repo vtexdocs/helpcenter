@@ -3,21 +3,6 @@ export default async (request, context) => {
   console.log('request.url', request.url)
 
   const url = new URL(request.url)
-
-  // Redirect from old hostname to new hostname
-  if (url.hostname === 'newhelp.vtex.com') {
-    const newUrl = new URL(request.url)
-    newUrl.hostname = 'help.vtex.com'
-    return new Response(null, {
-      status: 308,
-      headers: {
-        Location: newUrl.toString(),
-        'Cache-Control':
-          'public, max-age=3600, s-maxage=3600, stale-while-revalidate=7200, immutable',
-      },
-    })
-  }
-
   const search = url.search ? url.search : '' // preserve query string
 
   let destination
