@@ -71,6 +71,11 @@ function = "redirect-from-old-portal"
   path = "/:locale/announcements/*--*"
   function = "redirect-from-old-portal"
 
+# Catch-all to handle hostname redirects for all paths
+[[edge_functions]]
+  path = "/*"
+  function = "redirect-from-old-portal"
+
 [[redirects]]
 force = true
 from = "/:locale/docs/tutorials/creating-multi-store-multi-domain"
