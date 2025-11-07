@@ -1,8 +1,30 @@
+import redirectsData from '../../public/redirects.json' assert { type: 'json' }
+
 export default async (request, context) => {
   console.log('running edge function: redirect-from-old-portal')
   console.log('request.url', request.url)
 
   const url = new URL(request.url)
+
+  // Yield for API calls - they should pass through without interception
+  if (url.pathname.startsWith('/api/')) {
+    return context.next()
+  }
+
+  // Redirect from old hostname to new hostname
+  if (url.hostname === 'newhelp.vtex.com') {
+    const newUrl = new URL(request.url)
+    newUrl.hostname = 'help.vtex.com'
+    return new Response(null, {
+      status: 308,
+      headers: {
+        Location: newUrl.toString(),
+        'Cache-Control':
+          'public, max-age=3600, s-maxage=3600, stale-while-revalidate=7200, immutable',
+      },
+    })
+  }
+
   const search = url.search ? url.search : '' // preserve query string
 
   let destination
@@ -108,7 +130,6 @@ export default async (request, context) => {
 }
 
 let navigationCache = null
-let redirectsCache = null
 let redirectsMapCache = null
 
 async function getNavigation(url) {
@@ -128,22 +149,8 @@ async function getNavigation(url) {
   return navigationCache
 }
 
-async function getRedirects(url) {
-  if (!redirectsCache) {
-    const res = await fetch(`${url.origin}/redirects.json`)
-    if (!res.ok) {
-      throw new Error(
-        `Failed to fetch redirects.json: ${res.status} ${res.statusText}`
-      )
-    }
-    redirectsCache = await res.json()
-  }
-  return redirectsCache
-}
-
-async function getRedirectsMap(url) {
+function getRedirectsMap() {
   if (!redirectsMapCache) {
-    const redirectsData = await getRedirects(url)
     const redirectsMap = new Map()
 
     if (redirectsData.redirects) {
@@ -214,7 +221,7 @@ function findRedirectByBasePath(redirectsMap, basePath) {
 
 async function checkRedirects(url) {
   try {
-    const redirectsMap = await getRedirectsMap(url)
+    const redirectsMap = getRedirectsMap()
 
     let currentPath = url.pathname
     const visitedPaths = new Set() // Prevent infinite loops
