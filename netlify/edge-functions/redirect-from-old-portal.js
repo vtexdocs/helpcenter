@@ -1,42 +1,5 @@
-// Load redirects data at module initialization time (once per edge function instance)
-let redirectsData = null
-
-async function loadRedirectsData() {
-  if (!redirectsData) {
-    // CDN fallback chain: jsDelivr → raw.githubusercontent.com → Statically
-    const urls = [
-      'https://cdn.jsdelivr.net/gh/vtexdocs/helpcenter@main/public/redirects.json',
-      'https://raw.githubusercontent.com/vtexdocs/helpcenter/main/public/redirects.json',
-      'https://cdn.statically.io/gh/vtexdocs/helpcenter/main/public/redirects.json',
-    ]
-
-    let lastError = null
-
-    for (const url of urls) {
-      try {
-        console.log(`Attempting to load redirects from: ${url}`)
-        const response = await fetch(url)
-        if (!response.ok) {
-          console.warn(`Failed to fetch from ${url}: ${response.status}`)
-          lastError = new Error(`HTTP ${response.status}`)
-          continue
-        }
-        redirectsData = await response.json()
-        console.log('Successfully loaded redirects data')
-        return redirectsData
-      } catch (error) {
-        console.warn(`Error fetching from ${url}: ${error.message}`)
-        lastError = error
-        continue
-      }
-    }
-
-    // All URLs failed, use fallback
-    console.error('Failed to load redirects from all sources:', lastError)
-    redirectsData = { redirects: {} } // Fallback to empty redirects
-  }
-  return redirectsData
-}
+// Import redirects data at build time using Deno's JSON import
+import redirectsData from '../../public/redirects.json' with { type: 'json' }
 
 export default async (request, context) => {
   console.log('running edge function: redirect-from-old-portal')
@@ -187,13 +150,12 @@ async function getNavigation(url) {
   return navigationCache
 }
 
-async function getRedirectsMap() {
+function getRedirectsMap() {
   if (!redirectsMapCache) {
-    const data = await loadRedirectsData()
     const redirectsMap = new Map()
 
-    if (data.redirects) {
-      for (const redirectArray of Object.values(data.redirects)) {
+    if (redirectsData.redirects) {
+      for (const redirectArray of Object.values(redirectsData.redirects)) {
         if (Array.isArray(redirectArray)) {
           for (const redirect of redirectArray) {
             redirectsMap.set(redirect.from, redirect.to)
@@ -260,7 +222,7 @@ function findRedirectByBasePath(redirectsMap, basePath) {
 
 async function checkRedirects(url) {
   try {
-    const redirectsMap = await getRedirectsMap()
+    const redirectsMap = getRedirectsMap()
 
     let currentPath = url.pathname
     const visitedPaths = new Set() // Prevent infinite loops
