@@ -1,4 +1,23 @@
-import redirectsData from '../../public/redirects.json' assert { type: 'json' }
+// Load redirects data at module initialization time (once per edge function instance)
+let redirectsData = null
+
+async function loadRedirectsData() {
+  if (!redirectsData) {
+    try {
+      const response = await fetch(
+        'https://raw.githubusercontent.com/vtexdocs/helpcenter/main/public/redirects.json'
+      )
+      if (!response.ok) {
+        throw new Error(`Failed to fetch redirects: ${response.status}`)
+      }
+      redirectsData = await response.json()
+    } catch (error) {
+      console.error('Error loading redirects data:', error)
+      redirectsData = { redirects: {} } // Fallback to empty redirects
+    }
+  }
+  return redirectsData
+}
 
 export default async (request, context) => {
   console.log('running edge function: redirect-from-old-portal')
@@ -149,12 +168,13 @@ async function getNavigation(url) {
   return navigationCache
 }
 
-function getRedirectsMap() {
+async function getRedirectsMap() {
   if (!redirectsMapCache) {
+    const data = await loadRedirectsData()
     const redirectsMap = new Map()
 
-    if (redirectsData.redirects) {
-      for (const redirectArray of Object.values(redirectsData.redirects)) {
+    if (data.redirects) {
+      for (const redirectArray of Object.values(data.redirects)) {
         if (Array.isArray(redirectArray)) {
           for (const redirect of redirectArray) {
             redirectsMap.set(redirect.from, redirect.to)
@@ -221,7 +241,7 @@ function findRedirectByBasePath(redirectsMap, basePath) {
 
 async function checkRedirects(url) {
   try {
-    const redirectsMap = getRedirectsMap()
+    const redirectsMap = await getRedirectsMap()
 
     let currentPath = url.pathname
     const visitedPaths = new Set() // Prevent infinite loops
