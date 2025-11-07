@@ -12888,6 +12888,10 @@
       {
         "from": "/es/tutorial/como-funcionan-los-pedidos-incompletos--tutorials_294",
         "to": "/es/docs/tutorials/como-encontrar-un-pedido"
+      },
+      {
+        "from": "/en/tutorial/account-management--2vhUVOKfCaswqLguT2F9xq",
+        "to": "/en/docs/tutorials/account-settings-overview"
       }
     ]
   }
