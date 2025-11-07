@@ -7,12 +7,7 @@ export default async (request, context) => {
 
   const url = new URL(request.url)
 
-  // Yield for API calls - they should pass through without interception
-  if (url.pathname.startsWith('/api/')) {
-    return context.next()
-  }
-
-  // Redirect from old hostname to new hostname
+  // Redirect from old hostname to new hostname FIRST (before any other checks)
   if (url.hostname === 'newhelp.vtex.com') {
     const newUrl = new URL(request.url)
     newUrl.hostname = 'help.vtex.com'
@@ -24,6 +19,31 @@ export default async (request, context) => {
           'public, max-age=3600, s-maxage=3600, stale-while-revalidate=7200, immutable',
       },
     })
+  }
+
+  // Yield for API calls - they should pass through without interception
+  if (url.pathname.startsWith('/api/')) {
+    return context.next()
+  }
+
+  // Yield for static files and assets
+  if (
+    url.pathname.startsWith('/_next/') ||
+    url.pathname.startsWith('/images/') ||
+    url.pathname.startsWith('/fonts/') ||
+    url.pathname.match(/\.(json|ico|png|jpg|jpeg|gif|svg|css|js|woff|woff2|ttf|eot)$/)
+  ) {
+    return context.next()
+  }
+
+  // Yield for modern portal paths (paths that don't need redirecting)
+  if (
+    url.pathname.match(/^\/(en|pt|es)\/docs\//) ||
+    url.pathname.match(/^\/(en|pt|es)\/(faq|known-issues|announcements)\/[^/]+$/) ||
+    url.pathname === '/' ||
+    url.pathname.match(/^\/[a-z]{2}\/?$/)
+  ) {
+    return context.next()
   }
 
   const search = url.search ? url.search : '' // preserve query string

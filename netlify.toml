@@ -10,6 +10,11 @@ NODE_VERSION = "20"
     package = "@netlify/plugin-nextjs"
 
 # All redirect cases are handled by the redirect-from-old-portal edge function.
+# Catch-all for hostname redirects (must be first to handle newhelp.vtex.com -> help.vtex.com)
+[[edge_functions]]
+  path = "/*"
+  function = "redirect-from-old-portal"
+
 [[edge_functions]]
   path = "/tutorial/*"
   function = "redirect-from-old-portal"
