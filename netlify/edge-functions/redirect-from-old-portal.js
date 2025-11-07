@@ -4,7 +4,6 @@ export default async (request, context) => {
 
   const url = new URL(request.url)
   const search = url.search ? url.search : '' // preserve query string
-  const originalPathname = url.pathname // Save original pathname before modifications
 
   let destination
 
@@ -94,13 +93,6 @@ export default async (request, context) => {
 
   if (destination) {
     console.log('destination', destination)
-
-    // Prevent infinite redirect: compare against original pathname
-    const destinationPath = new URL(destination + search, url.origin).pathname
-    if (destinationPath === originalPathname) {
-      console.log('destination equals original path, skipping redirect')
-      return context.next()
-    }
 
     return new Response(null, {
       status: 308,
