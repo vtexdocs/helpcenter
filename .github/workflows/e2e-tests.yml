@@ -1,12 +1,12 @@
 name: E2E Tests
-on: 
+on:
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
   e2e-tests:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,12 +21,13 @@ jobs:
           checkInterval: 10
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
         with:
           wait-on: 'https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app'
           wait-on-timeout: 120
+          build: echo "Skipping build - testing against Netlify preview"
         env:
           CYPRESS_baseUrl: https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app
 
@@ -53,13 +54,13 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Deployment URL:** https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           if [[ "${{ job.status }}" == "success" ]]; then
             echo "✅ All tests passed!" >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ Some tests failed. Check the logs for details." >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           if [[ -f "./cypress.log" ]]; then
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### Failed Tests" >> $GITHUB_STEP_SUMMARY
