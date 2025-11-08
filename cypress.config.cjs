@@ -18,5 +18,11 @@ module.exports = defineConfig({
     baseUrl: 'http://localhost:3030',
     pageLoadTimeout: 30000, // Fail fast - max 30 seconds for page load
     defaultCommandTimeout: 10000, // 10 seconds for commands
+    requestTimeout: 10000, // 10 seconds for resource requests - fail faster on network issues
+    responseTimeout: 10000, // 10 seconds for response - fail faster
+    retries: {
+      runMode: 2, // Retry failed tests 2 times in CI
+      openMode: 0, // No retries in interactive mode
+    },
   },
 })
