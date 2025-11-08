@@ -79,6 +79,20 @@ export default async (request, context) => {
     console.log('slug', slug)
     console.log('search', search)
 
+    // Skip modern paths that don't need redirecting
+    if (type === 'announcements' && slug.match(/^\d{4}-\d{2}-\d{2}-/)) {
+      console.log('Modern announcement detected (date-prefixed), skipping redirect')
+      return context.next()
+    }
+    if (type === 'faq' && !slug.match(/--[^/]+$/)) {
+      console.log('Modern FAQ detected (no article key), skipping redirect')
+      return context.next()
+    }
+    if (type === 'known-issues' && !slug.match(/--[^/]+$/) && !slug.startsWith('ki--')) {
+      console.log('Modern known-issue detected (no article key, not ki-- format), skipping redirect')
+      return context.next()
+    }
+
     if (type === 'tutorial') {
       destination = `/${locale}/docs/tutorials/${slug}`
     } else if (type === 'subcategory') {
