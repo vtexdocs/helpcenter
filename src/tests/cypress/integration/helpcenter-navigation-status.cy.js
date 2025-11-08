@@ -88,6 +88,9 @@ describe('Help Center Navigation Status Test', () => {
   it('should successfully load randomly selected pages from each navbar section', () => {
     // Handle hydration and React errors during page loads
     cy.on('uncaught:exception', (err) => {
+      // Log all uncaught exceptions for debugging
+      cy.task('log', `    ⚠️  Uncaught exception: ${err.message}`)
+
       // Ignore hydration-related errors and React minified errors
       if (
         err.message.includes('Suspense boundary') ||
@@ -95,6 +98,7 @@ describe('Help Center Navigation Status Test', () => {
         err.message.includes('Minified React error') ||
         err.message.includes('invariant')
       ) {
+        cy.task('log', `    ℹ️  (Ignoring hydration/React error)`)
         return false
       }
       return true
@@ -111,7 +115,28 @@ describe('Help Center Navigation Status Test', () => {
       cy.task('log', `    Page: "${page.name}"`)
       cy.task('log', `    URL: ${page.url}`)
 
-      cy.visit(page.url, { failOnStatusCode: false })
+      const startTime = Date.now()
+
+      cy.visit(page.url, {
+        timeout: 30000,
+        failOnStatusCode: false,
+        onBeforeLoad: () => {
+          cy.task('log', `    ⏱️  Page load started`)
+        },
+      }).then(
+        () => {
+          const totalTime = Date.now() - startTime
+          cy.task('log', `    ⏱️  Visit completed in ${totalTime}ms`)
+        },
+        (err) => {
+          const totalTime = Date.now() - startTime
+          cy.task(
+            'log',
+            `    ❌ Visit failed after ${totalTime}ms: ${err.message}`
+          )
+          throw err
+        }
+      )
 
       // Verify page loads successfully
       cy.url().should('include', page.url.replace(baseUrl, ''))

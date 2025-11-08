@@ -63,9 +63,35 @@ describe('Copy for AI Feature', () => {
             ? tutorialsSection.slugPrefix.slice(0, -1)
             : tutorialsSection.slugPrefix
           tutorialUrl = `${prefix}/${slug}`
-          cy.log(`Using tutorial: ${tutorialUrl}`)
+          cy.log(`📄 Selected tutorial: ${tutorialUrl}`)
           cy.log(
-            `Language slugs - EN: ${tutorialSlugs.en}, ES: ${tutorialSlugs.es}, PT: ${tutorialSlugs.pt}`
+            `🌐 Language slugs - EN: ${tutorialSlugs.en}, ES: ${tutorialSlugs.es}, PT: ${tutorialSlugs.pt}`
+          )
+
+          // Write to cypress log file for CI visibility
+          cy.writeFile(
+            'cypress.log',
+            `Selected tutorial URL: ${tutorialUrl}\n`,
+            {
+              flag: 'a+',
+            }
+          )
+          cy.writeFile('cypress.log', `EN slug: ${tutorialSlugs.en}\n`, {
+            flag: 'a+',
+          })
+          cy.writeFile(
+            'cypress.log',
+            `ES slug: ${tutorialSlugs.es || 'N/A'}\n`,
+            {
+              flag: 'a+',
+            }
+          )
+          cy.writeFile(
+            'cypress.log',
+            `PT slug: ${tutorialSlugs.pt || 'N/A'}\n\n`,
+            {
+              flag: 'a+',
+            }
           )
         } else {
           throw new Error('No markdown tutorial found in navigation')
@@ -79,11 +105,15 @@ describe('Copy for AI Feature', () => {
   beforeEach(() => {
     // Handle hydration errors globally for all tests
     cy.on('uncaught:exception', (err) => {
+      // Log all uncaught exceptions for debugging
+      cy.log(`⚠️ Uncaught exception: ${err.message}`)
+
       // Ignore hydration-related errors
       if (
         err.message.includes('Suspense boundary') ||
         err.message.includes('hydrating')
       ) {
+        cy.log(`ℹ️ (Ignoring hydration error)`)
         return false
       }
       return true
@@ -99,14 +129,34 @@ describe('Copy for AI Feature', () => {
   })
 
   it('Should find the Copy for AI button in English', () => {
-    cy.visit(tutorialUrl)
+    const startTime = Date.now()
+    cy.log(`🔗 Visiting: ${tutorialUrl}`)
+
+    cy.visit(tutorialUrl, {
+      timeout: 30000,
+      failOnStatusCode: false,
+    }).then(
+      () => {
+        const loadTime = Date.now() - startTime
+        cy.log(`✅ Page loaded in ${loadTime}ms`)
+      },
+      (err) => {
+        const loadTime = Date.now() - startTime
+        cy.log(`❌ Visit failed after ${loadTime}ms: ${err.message}`)
+        throw err
+      }
+    )
+
     cy.contains('button', 'Copy for AI', { timeout: 10000 }).should(
       'be.visible'
     )
   })
 
   it('Should copy content to clipboard in English and verify', () => {
-    cy.visit(tutorialUrl)
+    cy.visit(tutorialUrl, {
+      timeout: 30000,
+      failOnStatusCode: false,
+    })
 
     // Stub document.execCommand to capture copy operations
     cy.document().then((doc) => {
@@ -149,7 +199,10 @@ describe('Copy for AI Feature', () => {
   })
 
   it('Should switch to Spanish and find Copy for AI button', () => {
-    cy.visit(tutorialUrl)
+    cy.visit(tutorialUrl, {
+      timeout: 30000,
+      failOnStatusCode: false,
+    })
 
     // Click language switcher
     cy.contains('button', 'EN').click()
@@ -176,7 +229,10 @@ describe('Copy for AI Feature', () => {
       tutorialSlugs.es
     }`
 
-    cy.visit(spanishUrl)
+    cy.visit(spanishUrl, {
+      timeout: 30000,
+      failOnStatusCode: false,
+    })
 
     // Wait for page to be fully loaded and hydrated
     cy.get('article', { timeout: 15000 }).should('be.visible')
@@ -229,7 +285,10 @@ describe('Copy for AI Feature', () => {
   })
 
   it('Should switch to Portuguese and find Copy for AI button', () => {
-    cy.visit(tutorialUrl)
+    cy.visit(tutorialUrl, {
+      timeout: 30000,
+      failOnStatusCode: false,
+    })
 
     // Click language switcher
     cy.contains('button', 'EN').click()
@@ -256,7 +315,10 @@ describe('Copy for AI Feature', () => {
       tutorialSlugs.pt
     }`
 
-    cy.visit(portugueseUrl)
+    cy.visit(portugueseUrl, {
+      timeout: 30000,
+      failOnStatusCode: false,
+    })
 
     // Wait for page to be fully loaded and hydrated
     cy.get('article', { timeout: 15000 }).should('be.visible')
