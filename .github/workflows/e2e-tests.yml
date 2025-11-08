@@ -22,14 +22,50 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Network diagnostics for deploy preview
+        run: |
+          echo "## 🌐 Network Diagnostics" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Testing connectivity to Netlify deploy preview..." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          DEPLOY_URL="https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app"
+
+          echo "### Deploy Preview URL" >> $GITHUB_STEP_SUMMARY
+          echo "\`$DEPLOY_URL\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          # Test DNS resolution
+          echo "### DNS Resolution" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          nslookup deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app || echo "DNS lookup failed" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          # Test HTTP response time and headers
+          echo "### HTTP Response Test" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          time curl -I -L -s -w "\nHTTP Code: %{http_code}\nTime Total: %{time_total}s\nTime Connect: %{time_connect}s\nTime Start Transfer: %{time_starttransfer}s\n" "$DEPLOY_URL" || echo "HTTP request failed"
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          # Test navigation API endpoint
+          echo "### Navigation API Test" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          time curl -s -w "\nHTTP Code: %{http_code}\nTime Total: %{time_total}s\n" "$DEPLOY_URL/api/navigation" | head -20
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
         with:
           wait-on: 'https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app'
           wait-on-timeout: 120
           build: echo "Skipping build - testing against Netlify preview"
+          command-prefix: 'time'
         env:
           CYPRESS_baseUrl: https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app
+          DEBUG: 'cypress:server:*'
+          ELECTRON_ENABLE_LOGGING: 1
 
       - name: Upload Cypress screenshots on failure
         if: failure()
