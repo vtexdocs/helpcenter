@@ -82,34 +82,4 @@ from = "/:locale/docs/tutorials/creating-multi-store-multi-domain"
 status = 308
 to = "/docs/tutorials/managing-a-multistore"
 
-[[redirects]]
-force = true
-from = "/tracks/go-live-your-store--4Ns5FxIiksmjsdX2yOTduM/1iP90RcJvlrfQhnlxM54wo"
-status = 308
-to = "/docs/tracks/go-live-process"
-
-[[redirects]]
-force = true
-from = "/tracks/go-live-your-store--4Ns5FxIiksmjsdX2yOTduM/7wFsbWgN4rnZsbjhv8IItX"
-status = 308
-to = "/docs/tracks/settings"
-
-[[redirects]]
-force = true
-from = "/tracks/go-live-your-store--4Ns5FxIiksmjsdX2yOTduM/7sM5IMx02zaHvAFTm0OxiJ"
-status = 308
-to = "/docs/tracks/pre-go-live
-
-[[redirects]]
-force = true
-from = "/tracks/go-live-your-store--4Ns5FxIiksmjsdX2yOTduM/12bQlMbJ68Ot0LIaO6Btkj"
-status = 308
-to = "/docs/tracks/go-live"
-
-[[redirects]]
-force = true
-from = "/tracks/go-live-your-store--4Ns5FxIiksmjsdX2yOTduM/K8UQ6W7MhH1ovp91kJxBJ"
-status = 308
-to = "/docs/tracks/post-go-live"
-
 
