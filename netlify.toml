@@ -81,3 +81,10 @@ force = true
 from = "/:locale/docs/tutorials/creating-multi-store-multi-domain"
 status = 308
 to = "/docs/tutorials/managing-a-multistore"
+
+[[redirects]]
+force = true
+from = "/docs/tracks/go-live-your-store"
+status = 308
+to = "/docs/tracks/go-live-category"
+
