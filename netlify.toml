@@ -81,5 +81,3 @@ force = true
 from = "/:locale/docs/tutorials/creating-multi-store-multi-domain"
 status = 308
 to = "/docs/tutorials/managing-a-multistore"
-
-
