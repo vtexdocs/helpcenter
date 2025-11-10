@@ -443,93 +443,40 @@ Redirect is the functionality that allows the browser to open a page with an add
 
 #### Creating a redirect
 
-Follow the steps below to create a new redirect:
+This portal uses a [Netlify edge function](https://docs.netlify.com/build/edge-functions/overview/) to handle the complexity of redirecting users fdrom our legacy portal. Therefore, to create a new redirect, you must use edit the `public/redirects.json` file:
 
 1. Open a [feature branch](#feature-branches) in the repository.
-2. In the [netlify.toml](https://github.com/vtexdocs/helpcenter/blob/main/netlify.toml) file, you will find an array of redirects. Add the one you want to create following the format below, replacing `from` and `to` with the desired slugs:
+2. Open the [redirects.json](https://github.com/vtexdocs/helpcenter/blob/main/public/redirects.json) file located in the `public` folder.
+3. Locate the `fromManualInput` array within the JSON structure.
+4. Add a new redirect object to the array following this format:
 
-   ```toml
-       [[redirects]]
-       force = true
-       from = "/es/topic/master-data"
-       status = 308
-       to = "/tutorial/what-is-master-data--4otjBnR27u4WUIciQsmkAw"
+   ```json
+   {
+     "from": "/old-path",
+     "to": "/new-path"
+   }
    ```
 
-   > ℹ️ Make sure you add specific redirects before more global redirects, otherwise they will have no effect. For now, hashlinks (`#`) are not supported in the source slug.
-3. Save the file.
-4. Commit the modifications as follows:
+   **Example:**
 
-   - **Step 1:** Stage the desired changes.
-
-   ```bash
-   git add netlify.toml
+   ```json
+   {
+     "from": "/en/tutorial/legacy-article",
+     "to": "/en/docs/tutorials/new-article"
+   }
    ```
+   > ℹ️ If no Contentful article ID is provided, the function will match the article slug.
+   > ℹ️ If no locale is provided, the redirect function may default to EN.
 
-   - **Step 2:** Commit the file.
-
-   ```bash
-   yarn cz-commit
-   ```
-
-   - **Step 3:** Move the cursor to the `docs: Documentation only changes` option and click enter.
-
-   ```bash
-   > docs: Documentation only changes
-   ```
-
-   - **Step 4:** Describe the purpose of this modification. This step can be skipped if desired.
-
-   ```bash
-   ? What is the scope of this change (e.g. component or file name): (press enter to skip)
-   ```
-
-   - **Step 5:** Briefly describe the changes made.
-
-   ```bash
-   ? Write a short, imperative tense description of the change (max 94 chars): Create redirect to article "How to edit a trade policy".
-   ```
-
-   - **Step 7:** Describe in detail the changes made. This step can be skipped if desired.
-
-   ```bash
-   ? Provide a longer description of the change: (press enter to skip)
-   ```
-
-   - **Step 8:** Enter **N** to indicate that the modification is not a breaking change.
-
-   ```bash
-   ? Are there any breaking changes? (y/N) 
-   ```
-
-   - **Step 9:** Enter **N** to indicate that the modification does not affect any open issues.
-
-   ```bash
-   ? Does this change affect any open issues? (y/N)
-   ```
-
-   - **Step 10:** Wait for the commit verification process to complete.
-
-   ```bash
-      ✔ Preparing lint-staged...
-      ✔ Running tasks for staged files...
-      ✔ Applying modifications from tasks...
-      ✔ Cleaning up temporary files...
-      [Test-navigation ec02017] docs: only test
-      1 file changed, 15 insertions(+)
-      Done in 1237.38s.
-   ```
-
-   - **Step 11:** Add a comment of your choice and push the commit.
-
-   ```bash
-    git commit -m "redirect created"
-   ```
-5. Open a PR on GitHub.
+5. Save the file.
+6. Commit the modifications.
+7. Push your changes to the remote repository.
+8. Open a PR on GitHub.
 
    > **Important note:** You should select the `release-no` option in the `Labels` field of the PR.
-6. Send the PR link in the `#dev-portal-pr` Slack channel to be approved.
-7. Once PR is approved, apply the merge to update the navigation sidebar.
+
+9. Send the PR link in the `#dev-portal-pr` Slack channel to be approved.
+10. Once PR is approved, apply the merge to update the redirects.
 
 ## GitHub Actions
 
