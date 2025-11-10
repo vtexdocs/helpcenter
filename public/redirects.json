@@ -102,6 +102,66 @@
         "to": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/7fyZaYe1IGzL0qVC28tOBO"
       },
       {
+        "from": "/tracks/realizando-o-go-live-da-sua-loja--4Ns5FxIiksmjsdX2yOTduM",
+        "to": "/pt/docs/tracks/processo-de-go-live"
+      },
+      {
+        "from": "/tracks/realizando-o-go-live-da-sua-loja--4Ns5FxIiksmjsdX2yOTduM/7wFsbWgN4rnZsbjhv8IItX",
+        "to": "/pt/docs/tracks/configuracoes"
+      },
+      {
+        "from": "/tracks/realizando-o-go-live-da-sua-loja--4Ns5FxIiksmjsdX2yOTduM/7sM5IMx02zaHvAFTm0OxiJ",
+        "to": "/pt/docs/tracks/pre-go-live"
+      },
+      {
+        "from": "/tracks/realizando-o-go-live-da-sua-loja--4Ns5FxIiksmjsdX2yOTduM/12bQlMbJ68Ot0LIaO6Btkj",
+        "to": "/pt/docs/tracks/go-live"
+      },
+      {
+        "from": "/tracks/realizando-o-go-live-da-sua-loja--4Ns5FxIiksmjsdX2yOTduM/K8UQ6W7MhH1ovp91kJxBJ",
+        "to": "/pt/docs/tracks/pos-go-live"
+      },
+      {
+        "from": "/tracks/como-realizar-el-go-live-de-tu-tienda--4Ns5FxIiksmjsdX2yOTduM",
+        "to": "/es/docs/tracks/processo-de-go-live"
+      },
+      {
+        "from": "/tracks/como-realizar-el-go-live-de-tu-tienda--4Ns5FxIiksmjsdX2yOTduM/7wFsbWgN4rnZsbjhv8IItX",
+        "to": "/es/docs/tracks/configuracion"
+      },
+      {
+        "from": "/tracks/como-realizar-el-go-live-de-tu-tienda--4Ns5FxIiksmjsdX2yOTduM/7sM5IMx02zaHvAFTm0OxiJ",
+        "to": "/es/docs/tracks/antes-del-go-live"
+      },
+      {
+        "from": "/tracks/como-realizar-el-go-live-de-tu-tienda--4Ns5FxIiksmjsdX2yOTduM/12bQlMbJ68Ot0LIaO6Btkj",
+        "to": "/es/docs/tracks/go-live"
+      },
+      {
+        "from": "/tracks/como-realizar-el-go-live-de-tu-tienda--4Ns5FxIiksmjsdX2yOTduM/K8UQ6W7MhH1ovp91kJxBJ",
+        "to": "/es/docs/tracks/despues-del-go-live"
+      },
+      {
+        "from": "/tracks/go-live-your-store--4Ns5FxIiksmjsdX2yOTduM",
+        "to": "/en/docs/tracks/go-live-process"
+      },
+      {
+        "from": "/tracks/go-live-your-store--4Ns5FxIiksmjsdX2yOTduM/7wFsbWgN4rnZsbjhv8IItX",
+        "to": "/en/docs/tracks/settings"
+      },
+      {
+        "from": "/tracks/go-live-your-store--4Ns5FxIiksmjsdX2yOTduM/7sM5IMx02zaHvAFTm0OxiJ",
+        "to": "/en/docs/tracks/pre-go-live"
+      },
+      {
+        "from": "/tracks/go-live-your-store--4Ns5FxIiksmjsdX2yOTduM/12bQlMbJ68Ot0LIaO6Btkj",
+        "to": "/en/docs/tracks/go-live"
+      },
+      {
+        "from": "/tracks/go-live-your-store--4Ns5FxIiksmjsdX2yOTduM/K8UQ6W7MhH1ovp91kJxBJ",
+        "to": "/en/docs/tracks/pos-go-live"
+      },
+      {
         "from": "/tutorial/quando-o-dinheiro-referente-a-uma-venda-entra-na-minha-conta--7GNnDHohqi3Tj6qytgq4Ce",
         "to": "/pt/announcements/descontinuacao-do-vtex-payment--6BkEnyzVDHfoKwPnGdqBRs"
       },
