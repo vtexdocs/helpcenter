@@ -12760,6 +12760,4400 @@
         "to": "/pt/docs/tutorials/atribuir-e-testar-agentes"
       }
     ],
+    "fromTrackArticles": [
+      {
+        "from": "/tracks/suiteshare",
+        "to": "/en/docs/tracks/what-is-suiteshare"
+      },
+      {
+        "from": "/tracks/adaptador-vtex",
+        "to": "/en/docs/tracks/como-funciona-o-adaptador-vtex"
+      },
+      {
+        "from": "/tracks/amazon-integration",
+        "to": "/en/docs/tracks/amazon"
+      },
+      {
+        "from": "/tracks/b2w-integration-set-up",
+        "to": "/en/docs/tracks/integration-overview-b2w"
+      },
+      {
+        "from": "/tracks/carrefour-integration-set-up",
+        "to": "/en/docs/tracks/carrefour-marketplace"
+      },
+      {
+        "from": "/tracks/casas-bahia-marketplace-integration",
+        "to": "/en/docs/tracks/casas-bahia-marketplace"
+      },
+      {
+        "from": "/tracks/centauro-integration",
+        "to": "/en/docs/tracks/centauro-marketplace"
+      },
+      {
+        "from": "/tracks/dafiti-integration-setup",
+        "to": "/en/docs/tracks/dafiti-marketplace"
+      },
+      {
+        "from": "/tracks/facebook-integration",
+        "to": "/en/docs/tracks/facebook"
+      },
+      {
+        "from": "/tracks/how-to-campaign-through-google-ads",
+        "to": "/en/docs/tracks/google-shopping-ads-install"
+      },
+      {
+        "from": "/tracks/integrating-with-google-shopping",
+        "to": "/en/docs/tracks/google-shopping-marketplace"
+      },
+      {
+        "from": "/tracks/integration-with-facebook-business-extension",
+        "to": "/en/docs/tracks/facebook-business-extension"
+      },
+      {
+        "from": "/tracks/lengow-integration",
+        "to": "/en/docs/tracks/what-is-lengow"
+      },
+      {
+        "from": "/tracks/livelo-integration",
+        "to": "/en/docs/tracks/livelo-integration-overview"
+      },
+      {
+        "from": "/tracks/magazine-luiza-integration-set-up",
+        "to": "/en/docs/tracks/magazine-luiza-marketplace"
+      },
+      {
+        "from": "/tracks/mercado-libre-integration-set-up",
+        "to": "/en/docs/tracks/mercado-libre-marketplace"
+      },
+      {
+        "from": "/tracks/netshoes-integration-set-up",
+        "to": "/en/docs/tracks/netshoes-marketplace"
+      },
+      {
+        "from": "/tracks/posthaus-integration",
+        "to": "/en/docs/tracks/posthaus-integration-overview"
+      },
+      {
+        "from": "/tracks/tiktok-integration",
+        "to": "/en/docs/tracks/tiktok-for-business"
+      },
+      {
+        "from": "/tracks/wish-integration",
+        "to": "/en/docs/tracks/what-to-configure-in-wish-prior-to-the-integration"
+      },
+      {
+        "from": "/tracks/what-is-instore",
+        "to": "/en/docs/tracks/what-is-instore"
+      },
+      {
+        "from": "/tracks/instore-payments",
+        "to": "/en/docs/tracks/setting-up-payment-methods-for-instore"
+      },
+      {
+        "from": "/tracks/instore-product-overview",
+        "to": "/en/docs/tracks/instore-using-the-app"
+      },
+      {
+        "from": "/tracks/unified-commerce-strategies",
+        "to": "/en/docs/tracks/unified-commerce-101"
+      },
+      {
+        "from": "/tracks/vtex-live-shopping-getting-started",
+        "to": "/en/docs/tracks/vtex-live-shopping"
+      },
+      {
+        "from": "/tracks/next-steps-after-the-go-live",
+        "to": "/en/docs/tracks/next-steps"
+      },
+      {
+        "from": "/tracks/support-at-vtex",
+        "to": "/en/docs/tracks/vtex-support"
+      },
+      {
+        "from": "/tracks/vtex-store-overview",
+        "to": "/en/docs/tracks/introduction-to-vtex"
+      },
+      {
+        "from": "/tracks/clustered-payment-conditions",
+        "to": "/en/docs/tracks/what-are-clustered-payment-conditions"
+      },
+      {
+        "from": "/tracks/customer-credit-getting-started",
+        "to": "/en/docs/tracks/installing-customer-credit"
+      },
+      {
+        "from": "/tracks/digital-wallet-e-wallet",
+        "to": "/en/docs/tracks/digital-wallet-e-wallet"
+      },
+      {
+        "from": "/tracks/rappi-integration",
+        "to": "/en/docs/tracks/rappi-integration-overview"
+      },
+      {
+        "from": "/tracks/vtex-ads",
+        "to": "/en/docs/tracks/retail-media"
+      },
+      {
+        "from": "/tracks/shopee-integration",
+        "to": "/en/docs/tracks/integration-overview-shopee"
+      },
+      {
+        "from": "/tracks/extensions-hub",
+        "to": "/en/docs/tracks/extensions-hub-1"
+      },
+      {
+        "from": "/tracks/vtex-intelligent-search",
+        "to": "/en/docs/tracks/overview-intelligent-search"
+      },
+      {
+        "from": "/tracks/contas-e-permissoes",
+        "to": "/en/docs/tracks/understanding-your-account"
+      },
+      {
+        "from": "/tracks/catalog-101",
+        "to": "/en/docs/tracks/catalog-concept-definition"
+      },
+      {
+        "from": "/tracks/cms",
+        "to": "/en/docs/tracks/what-is-the-cms"
+      },
+      {
+        "from": "/tracks/data-and-privacy",
+        "to": "/en/docs/tracks/personal-data"
+      },
+      {
+        "from": "/tracks/go-live",
+        "to": "/en/docs/tracks/go-live-process"
+      },
+      {
+        "from": "/tracks/logistics-101",
+        "to": "/en/docs/tracks/getting-started-with-logistics"
+      },
+      {
+        "from": "/tracks/orders",
+        "to": "/en/docs/tracks/o-que-e-um-pedido-na-vtex"
+      },
+      {
+        "from": "/tracks/payments",
+        "to": "/en/docs/tracks/how-the-payments-module-works"
+      },
+      {
+        "from": "/tracks/prices-101",
+        "to": "/en/docs/tracks/prices-module-overview"
+      },
+      {
+        "from": "/tracks/promotions",
+        "to": "/en/docs/tracks/how-promotions-work"
+      },
+      {
+        "from": "/tracks/store-development",
+        "to": "/en/docs/tracks/store-development"
+      },
+      {
+        "from": "/tracks/transactional-emails",
+        "to": "/en/docs/tracks/how-message-center-works"
+      },
+      {
+        "from": "/tracks/proximos-passos-apos-o-go-live",
+        "to": "/pt/docs/tracks/proximos-passos"
+      },
+      {
+        "from": "/tracks/suporte-na-vtex",
+        "to": "/pt/docs/tracks/suporte-na-vtex"
+      },
+      {
+        "from": "/tracks/trilha-da-loja-vtex",
+        "to": "/pt/docs/tracks/introducao-a-vtex"
+      },
+      {
+        "from": "/tracks/integracao-rappi",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-a-rappi"
+      },
+      {
+        "from": "/tracks/integracao-shopee",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-shopee"
+      },
+      {
+        "from": "/tracks/integracao-com-a-centauro",
+        "to": "/pt/docs/tracks/centauro-marketplace"
+      },
+      {
+        "from": "/tracks/como-fazer-campanhas-atraves-do-google-ads",
+        "to": "/pt/docs/tracks/instalacao-do-google-shopping-ads"
+      },
+      {
+        "from": "/tracks/integracao-com-a-amazon",
+        "to": "/pt/docs/tracks/amazon"
+      },
+      {
+        "from": "/tracks/configurar-integracao-do-carrefour",
+        "to": "/pt/docs/tracks/carrefour-marketplace"
+      },
+      {
+        "from": "/tracks/configurar-integracao-com-o-google-shopping",
+        "to": "/pt/docs/tracks/google-shopping-marketplace"
+      },
+      {
+        "from": "/tracks/configurar-integracao-com-o-magazine-luiza",
+        "to": "/pt/docs/tracks/magazine-luiza-marketplace"
+      },
+      {
+        "from": "/tracks/configurar-integracao-da-b2w",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-b2w"
+      },
+      {
+        "from": "/tracks/configurar-integracao-da-dafiti",
+        "to": "/pt/docs/tracks/dafiti-marketplace"
+      },
+      {
+        "from": "/tracks/configurar-integracao-da-netshoes",
+        "to": "/pt/docs/tracks/netshoes-marketplace"
+      },
+      {
+        "from": "/tracks/configurar-integracao-do-mercado-livre",
+        "to": "/pt/docs/tracks/mercado-livre-marketplace"
+      },
+      {
+        "from": "/tracks/integracao-com-a-casas-bahia-marketplace",
+        "to": "/pt/docs/tracks/casas-bahia-marketplace"
+      },
+      {
+        "from": "/tracks/integracao-com-a-lengow",
+        "to": "/pt/docs/tracks/o-que-e-lengow"
+      },
+      {
+        "from": "/tracks/integracao-com-a-wish",
+        "to": "/pt/docs/tracks/o-que-configurar-na-wish-antes-de-iniciar-a-integracao"
+      },
+      {
+        "from": "/tracks/integracao-com-o-facebook",
+        "to": "/pt/docs/tracks/facebook"
+      },
+      {
+        "from": "/tracks/integracao-com-o-facebook-business-extension",
+        "to": "/pt/docs/tracks/facebook-business-extension"
+      },
+      {
+        "from": "/tracks/integracao-com-o-tiktok",
+        "to": "/pt/docs/tracks/tiktok-for-business"
+      },
+      {
+        "from": "/tracks/integracao-livelo",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-a-livelo"
+      },
+      {
+        "from": "/tracks/integracao-posthaus",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-a-posthaus"
+      },
+      {
+        "from": "/tracks/catalogo-101",
+        "to": "/pt/docs/tracks/catalogo-definicao-de-conceito"
+      },
+      {
+        "from": "/tracks/dados-e-privacidade",
+        "to": "/pt/docs/tracks/dados-pessoais"
+      },
+      {
+        "from": "/tracks/desenvolvimento-de-loja",
+        "to": "/pt/docs/tracks/desenvolvimento-de-loja"
+      },
+      {
+        "from": "/tracks/e-mails-transacionais",
+        "to": "/pt/docs/tracks/como-funciona-o-message-center"
+      },
+      {
+        "from": "/tracks/logistica-101",
+        "to": "/pt/docs/tracks/primeiros-passos-da-logistica"
+      },
+      {
+        "from": "/tracks/pagamentos",
+        "to": "/pt/docs/tracks/como-funciona-o-modulo-de-pagamentos"
+      },
+      {
+        "from": "/tracks/pedidos",
+        "to": "/pt/docs/tracks/o-que-e-um-pedido-na-vtex"
+      },
+      {
+        "from": "/tracks/precos-101",
+        "to": "/pt/docs/tracks/modulo-de-precos-visao-geral"
+      },
+      {
+        "from": "/tracks/promocoes",
+        "to": "/pt/docs/tracks/como-funcionam-as-promocoes"
+      },
+      {
+        "from": "/tracks/o-que-e-o-instore",
+        "to": "/pt/docs/tracks/o-que-e-o-instore"
+      },
+      {
+        "from": "/tracks/estrategias-de-comercio-unificado",
+        "to": "/pt/docs/tracks/comercio-unificado-101"
+      },
+      {
+        "from": "/tracks/instore-pagamentos",
+        "to": "/pt/docs/tracks/configurar-metodos-de-pagamento-para-o-instore"
+      },
+      {
+        "from": "/tracks/instore-visao-geral-do-produto",
+        "to": "/pt/docs/tracks/instore-usando-o-app"
+      },
+      {
+        "from": "/tracks/vtex-live-shopping-primeiros-passos",
+        "to": "/pt/docs/tracks/vtex-live-shopping"
+      },
+      {
+        "from": "/tracks/carteira-digital-e-wallet",
+        "to": "/pt/docs/tracks/carteira-digital-e-wallet"
+      },
+      {
+        "from": "/tracks/condicoes-de-pagamento-clusterizadas",
+        "to": "/pt/docs/tracks/o-que-e-o-condicoes-de-pagamento-clusterizadas"
+      },
+      {
+        "from": "/tracks/customer-credit-como-comecar",
+        "to": "/pt/docs/tracks/instalar-customer-credit"
+      },
+      {
+        "from": "/tracks/hub-de-extensoes",
+        "to": "/pt/docs/tracks/hub-de-extensoes-1"
+      },
+      {
+        "from": "/tracks/proximos-pasos-tras-el-go-live",
+        "to": "/es/docs/tracks/proximos-pasos"
+      },
+      {
+        "from": "/tracks/serie-de-la-tienda-vtex",
+        "to": "/es/docs/tracks/introduccion-a-vtex"
+      },
+      {
+        "from": "/tracks/soporte-en-vtex",
+        "to": "/es/docs/tracks/soporte-vtex"
+      },
+      {
+        "from": "/tracks/integracion-con-shopee",
+        "to": "/es/docs/tracks/resumen-de-integracion-shopee"
+      },
+      {
+        "from": "/tracks/integracion-rappi",
+        "to": "/es/docs/tracks/vision-general-de-la-rappi-integracion"
+      },
+      {
+        "from": "/tracks/como-hacer-campanas-a-traves-de-google-ads",
+        "to": "/es/docs/tracks/instalacion-de-google-shopping-ads"
+      },
+      {
+        "from": "/tracks/configurar-integracion-b2w",
+        "to": "/es/docs/tracks/vision-general-de-la-integracion-b2w"
+      },
+      {
+        "from": "/tracks/configurar-integracion-carrefour",
+        "to": "/es/docs/tracks/carrefour-marketplace"
+      },
+      {
+        "from": "/tracks/configurar-integracion-con-mercado-libre",
+        "to": "/es/docs/tracks/mercado-libre-marketplace"
+      },
+      {
+        "from": "/tracks/configurar-integracion-netshoes",
+        "to": "/es/docs/tracks/netshoes-marketplace"
+      },
+      {
+        "from": "/tracks/configurar-la-integracion-de-magazine-luiza",
+        "to": "/es/docs/tracks/marketplace-magazine-luiza"
+      },
+      {
+        "from": "/tracks/integracion-de-amazon",
+        "to": "/es/docs/tracks/amazon"
+      },
+      {
+        "from": "/tracks/configurar-la-integracion-de-dafiti",
+        "to": "/es/docs/tracks/dafiti-marketplace"
+      },
+      {
+        "from": "/tracks/integracion-con-centauro",
+        "to": "/es/docs/tracks/centauro-marketplace"
+      },
+      {
+        "from": "/tracks/integracion-con-facebook-business-extension",
+        "to": "/es/docs/tracks/facebook-business-extension"
+      },
+      {
+        "from": "/tracks/integracion-con-google-shopping",
+        "to": "/es/docs/tracks/marketplace-de-google-shopping"
+      },
+      {
+        "from": "/tracks/integracion-con-wish",
+        "to": "/es/docs/tracks/que-configurar-en-wish-antes-de-iniciar-la-integracion"
+      },
+      {
+        "from": "/tracks/integracion-de-casas-bahia-marketplace",
+        "to": "/es/docs/tracks/casas-bahia-marketplace"
+      },
+      {
+        "from": "/tracks/integracion-de-facebook",
+        "to": "/es/docs/tracks/facebook"
+      },
+      {
+        "from": "/tracks/integracion-de-lengow",
+        "to": "/es/docs/tracks/que-es-lengow"
+      },
+      {
+        "from": "/tracks/integracion-de-livelo",
+        "to": "/es/docs/tracks/vision-general-de-la-livelo-integracion"
+      },
+      {
+        "from": "/tracks/integracion-de-tiktok",
+        "to": "/es/docs/tracks/tiktok-for-business"
+      },
+      {
+        "from": "/tracks/integracion-posthaus",
+        "to": "/es/docs/tracks/descripcion-general-de-la-integracion-de-posthaus"
+      },
+      {
+        "from": "/tracks/datos-y-privacidad",
+        "to": "/es/docs/tracks/datos-personales"
+      },
+      {
+        "from": "/tracks/desarrollo-de-la-tienda",
+        "to": "/es/docs/tracks/desarrollo-de-la-tienda"
+      },
+      {
+        "from": "/tracks/e-mails-transaccionales",
+        "to": "/es/docs/tracks/como-funciona-el-message-center"
+      },
+      {
+        "from": "/tracks/pagos",
+        "to": "/es/docs/tracks/como-funciona-el-modulo-de-pagos"
+      },
+      {
+        "from": "/tracks/precios-101",
+        "to": "/es/docs/tracks/modulo-de-precios-vision-general"
+      },
+      {
+        "from": "/tracks/promociones",
+        "to": "/es/docs/tracks/como-funcionan-las-promociones"
+      },
+      {
+        "from": "/tracks/que-es-instore",
+        "to": "/es/docs/tracks/que-es-instore"
+      },
+      {
+        "from": "/tracks/inStore - Descripción del producto",
+        "to": "/es/docs/tracks/instore-usando-el-app"
+      },
+      {
+        "from": "/tracks/instore-pagos",
+        "to": "/es/docs/tracks/configuracion-de-metodos-de-pago-para-instore"
+      },
+      {
+        "from": "/tracks/vtex-live-shopping-primeros-pasos",
+        "to": "/es/docs/tracks/vtex-live-shopping"
+      },
+      {
+        "from": "/tracks/cartera-digital-e-wallet",
+        "to": "/es/docs/tracks/cartera-digital-e-wallet"
+      },
+      {
+        "from": "/tracks/condiciones-de-pago-clusterizadas",
+        "to": "/es/docs/tracks/que-son-las-condiciones-de-pago-clusterizadas"
+      },
+      {
+        "from": "/tracks/customer-credit-como-empezar",
+        "to": "/es/docs/tracks/instalar-customer-credit"
+      },
+      {
+        "from": "/tracks/hub-de-extensiones",
+        "to": "/es/docs/tracks/hub-de-extensiones-1"
+      },
+      {
+        "from": "/en/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/5dcakrZEc8aOTG7OshTPWp",
+        "to": "/en/docs/tracks/capturar-dados-do-lead-antes-de-iniciar-uma-conversa-no-whatsapp"
+      },
+      {
+        "from": "/pt/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/5dcakrZEc8aOTG7OshTPWp",
+        "to": "/pt/docs/tracks/capturar-dados-do-lead-antes-de-iniciar-uma-conversa-no-whatsapp"
+      },
+      {
+        "from": "/es/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/5dcakrZEc8aOTG7OshTPWp",
+        "to": "/es/docs/tracks/capturar-dados-do-lead-antes-de-iniciar-uma-conversa-no-whatsapp"
+      },
+      {
+        "from": "/en/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/4Xgqw105OM7zRdKmdY6avV",
+        "to": "/en/docs/tracks/como-distribuir-o-atendimento-no-whatsapp-para-mais-de-um-numero"
+      },
+      {
+        "from": "/pt/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/4Xgqw105OM7zRdKmdY6avV",
+        "to": "/pt/docs/tracks/como-distribuir-o-atendimento-no-whatsapp-para-mais-de-um-numero"
+      },
+      {
+        "from": "/es/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/4Xgqw105OM7zRdKmdY6avV",
+        "to": "/es/docs/tracks/como-distribuir-o-atendimento-no-whatsapp-para-mais-de-um-numero"
+      },
+      {
+        "from": "/en/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/5dA25l9g68S9RzXrq1rEsq",
+        "to": "/en/docs/tracks/get-visitors-from-my-website-and-social-networks-to-whatsapp"
+      },
+      {
+        "from": "/pt/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/5dA25l9g68S9RzXrq1rEsq",
+        "to": "/pt/docs/tracks/levar-os-visitantes-do-meu-site-e-redes-sociais-para-o-whatsapp"
+      },
+      {
+        "from": "/es/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/5dA25l9g68S9RzXrq1rEsq",
+        "to": "/es/docs/tracks/conseguir-que-los-visitantes-de-mi-sitio-web-y-de-las-redes-sociales-lleguen"
+      },
+      {
+        "from": "/en/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/2JIhYGumvHRHI1WY5iMYN0",
+        "to": "/en/docs/tracks/how-to-get-started"
+      },
+      {
+        "from": "/pt/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/2JIhYGumvHRHI1WY5iMYN0",
+        "to": "/pt/docs/tracks/como-comecar"
+      },
+      {
+        "from": "/es/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/2JIhYGumvHRHI1WY5iMYN0",
+        "to": "/es/docs/tracks/como-comenzar"
+      },
+      {
+        "from": "/en/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/5d9MKRl47mVpMZVedhltwC",
+        "to": "/en/docs/tracks/levar-os-contatos-do-whatsapp-para-um-crm"
+      },
+      {
+        "from": "/pt/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/5d9MKRl47mVpMZVedhltwC",
+        "to": "/pt/docs/tracks/levar-os-contatos-do-whatsapp-para-um-crm"
+      },
+      {
+        "from": "/es/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/5d9MKRl47mVpMZVedhltwC",
+        "to": "/es/docs/tracks/levar-os-contatos-do-whatsapp-para-um-crm"
+      },
+      {
+        "from": "/en/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/onWmyS8j4Thhde67UBBsB",
+        "to": "/en/docs/tracks/what-is-suiteshare"
+      },
+      {
+        "from": "/pt/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/onWmyS8j4Thhde67UBBsB",
+        "to": "/pt/docs/tracks/o-que-e-suiteshare"
+      },
+      {
+        "from": "/es/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/onWmyS8j4Thhde67UBBsB",
+        "to": "/es/docs/tracks/que-es-suiteshare"
+      },
+      {
+        "from": "/en/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/5hXbbNSbB115TRtmOeOC2Z",
+        "to": "/en/docs/tracks/como-funciona-o-adaptador-vtex"
+      },
+      {
+        "from": "/pt/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/5hXbbNSbB115TRtmOeOC2Z",
+        "to": "/pt/docs/tracks/como-funciona-o-adaptador-vtex"
+      },
+      {
+        "from": "/es/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/5hXbbNSbB115TRtmOeOC2Z",
+        "to": "/es/docs/tracks/como-funciona-o-adaptador-vtex"
+      },
+      {
+        "from": "/en/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/5ICnxFovDDDGPWmt8aj9yy",
+        "to": "/en/docs/tracks/configurar-adaptador"
+      },
+      {
+        "from": "/pt/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/5ICnxFovDDDGPWmt8aj9yy",
+        "to": "/pt/docs/tracks/configurar-adaptador"
+      },
+      {
+        "from": "/es/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/5ICnxFovDDDGPWmt8aj9yy",
+        "to": "/es/docs/tracks/configurar-adaptador"
+      },
+      {
+        "from": "/en/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/RwC5htApuQeFoX0FQiaaY",
+        "to": "/en/docs/tracks/configurar-erps"
+      },
+      {
+        "from": "/pt/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/RwC5htApuQeFoX0FQiaaY",
+        "to": "/pt/docs/tracks/configurar-erps"
+      },
+      {
+        "from": "/es/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/RwC5htApuQeFoX0FQiaaY",
+        "to": "/es/docs/tracks/configurar-erps"
+      },
+      {
+        "from": "/en/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/4KchxUBPoKwy9xJ6ZTESFK",
+        "to": "/en/docs/tracks/login-e-senha"
+      },
+      {
+        "from": "/pt/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/4KchxUBPoKwy9xJ6ZTESFK",
+        "to": "/pt/docs/tracks/login-e-senha"
+      },
+      {
+        "from": "/es/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/4KchxUBPoKwy9xJ6ZTESFK",
+        "to": "/es/docs/tracks/login-e-senha"
+      },
+      {
+        "from": "/en/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/1QFvNlIx1qaxSGX1gg9sP5",
+        "to": "/en/docs/tracks/monitor-da-integracao"
+      },
+      {
+        "from": "/pt/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/1QFvNlIx1qaxSGX1gg9sP5",
+        "to": "/pt/docs/tracks/monitor-da-integracao"
+      },
+      {
+        "from": "/es/tracks/adaptador-vtex--132YFN170Jvs6ZUBGh8w2e/1QFvNlIx1qaxSGX1gg9sP5",
+        "to": "/es/docs/tracks/monitor-da-integracao"
+      },
+      {
+        "from": "/en/tracks/amazon-integration--6sgd4Pagy3wNsWKBvmIFrP/43L0dpbjLBz6tcim1BbTzf",
+        "to": "/en/docs/tracks/amazon-account-settings"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-amazon--6sgd4Pagy3wNsWKBvmIFrP/43L0dpbjLBz6tcim1BbTzf",
+        "to": "/pt/docs/tracks/configuracoes-na-conta-amazon"
+      },
+      {
+        "from": "/es/tracks/integracion-de-amazon--6sgd4Pagy3wNsWKBvmIFrP/43L0dpbjLBz6tcim1BbTzf",
+        "to": "/es/docs/tracks/configuracion-de-la-cuenta-amazon"
+      },
+      {
+        "from": "/en/tracks/amazon-integration--6sgd4Pagy3wNsWKBvmIFrP/1LyC9esKs7KKo4if6VpquN",
+        "to": "/en/docs/tracks/amazon-integration-overview"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-amazon--6sgd4Pagy3wNsWKBvmIFrP/1LyC9esKs7KKo4if6VpquN",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-da-amazon"
+      },
+      {
+        "from": "/es/tracks/integracion-de-amazon--6sgd4Pagy3wNsWKBvmIFrP/1LyC9esKs7KKo4if6VpquN",
+        "to": "/es/docs/tracks/vision-general-de-la-amazon-integracion"
+      },
+      {
+        "from": "/en/tracks/amazon-integration--6sgd4Pagy3wNsWKBvmIFrP/5sYA9MlRo92jJIxKF1MTXb",
+        "to": "/en/docs/tracks/amazon"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-amazon--6sgd4Pagy3wNsWKBvmIFrP/5sYA9MlRo92jJIxKF1MTXb",
+        "to": "/pt/docs/tracks/amazon"
+      },
+      {
+        "from": "/es/tracks/integracion-de-amazon--6sgd4Pagy3wNsWKBvmIFrP/5sYA9MlRo92jJIxKF1MTXb",
+        "to": "/es/docs/tracks/amazon"
+      },
+      {
+        "from": "/en/tracks/amazon-integration--6sgd4Pagy3wNsWKBvmIFrP/5J9CWPIbYQdAegJJWGsxan",
+        "to": "/en/docs/tracks/configuring-the-amazon-integration"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-amazon--6sgd4Pagy3wNsWKBvmIFrP/5J9CWPIbYQdAegJJWGsxan",
+        "to": "/pt/docs/tracks/configurar-a-integracao-da-amazon"
+      },
+      {
+        "from": "/es/tracks/integracion-de-amazon--6sgd4Pagy3wNsWKBvmIFrP/5J9CWPIbYQdAegJJWGsxan",
+        "to": "/es/docs/tracks/configurar-la-integracion-de-amazon"
+      },
+      {
+        "from": "/en/tracks/amazon-integration--6sgd4Pagy3wNsWKBvmIFrP/5xklf2wSdeztQh4iy5kJvD",
+        "to": "/en/docs/tracks/sending-products-to-amazon"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-amazon--6sgd4Pagy3wNsWKBvmIFrP/5xklf2wSdeztQh4iy5kJvD",
+        "to": "/pt/docs/tracks/envio-de-produtos-para-amazon"
+      },
+      {
+        "from": "/es/tracks/integracion-de-amazon--6sgd4Pagy3wNsWKBvmIFrP/5xklf2wSdeztQh4iy5kJvD",
+        "to": "/es/docs/tracks/envio-de-productos-a-amazon"
+      },
+      {
+        "from": "/en/tracks/amazon-integration--6sgd4Pagy3wNsWKBvmIFrP/37hdzaRUhJqRfXH1bIRXAa",
+        "to": "/en/docs/tracks/vtex-platform-settings"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-amazon--6sgd4Pagy3wNsWKBvmIFrP/37hdzaRUhJqRfXH1bIRXAa",
+        "to": "/pt/docs/tracks/configuracoes-na-plataforma-vtex"
+      },
+      {
+        "from": "/es/tracks/integracion-de-amazon--6sgd4Pagy3wNsWKBvmIFrP/37hdzaRUhJqRfXH1bIRXAa",
+        "to": "/es/docs/tracks/configuracion-de-la-plataforma-vtex"
+      },
+      {
+        "from": "/en/tracks/amazon-integration-setup--6sgd4Pagy3wNsWKBvmIFrP/4iQ0d6wkLzCqhMXBKFWgI7",
+        "to": "/en/docs/tracks/configuring-price-divergence-rule-amazon"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-a-amazon--6sgd4Pagy3wNsWKBvmIFrP/4iQ0d6wkLzCqhMXBKFWgI7",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-amazon"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-amazon--6sgd4Pagy3wNsWKBvmIFrP/4iQ0d6wkLzCqhMXBKFWgI7",
+        "to": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios-amazon"
+      },
+      {
+        "from": "/en/tracks/b2w-integration-set-up--6w07SJBVqE020KIOOS8ygk/5hHCiAMHih2lc5xb3A5Ohp",
+        "to": "/en/docs/tracks/about-b2w-integration"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-b2w--6w07SJBVqE020KIOOS8ygk/5hHCiAMHih2lc5xb3A5Ohp",
+        "to": "/pt/docs/tracks/sobre-a-integracao-com-a-b2w"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-b2w--6w07SJBVqE020KIOOS8ygk/5hHCiAMHih2lc5xb3A5Ohp",
+        "to": "/es/docs/tracks/sobre-la-integracion-con-b2w"
+      },
+      {
+        "from": "/en/tracks/b2w-integration-set-up--6w07SJBVqE020KIOOS8ygk/3W7OqhHUl2CQKIsAc0SS4g",
+        "to": "/en/docs/tracks/apis-registration"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-b2w--6w07SJBVqE020KIOOS8ygk/3W7OqhHUl2CQKIsAc0SS4g",
+        "to": "/pt/docs/tracks/cadastrar-api-de-frete"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-b2w--6w07SJBVqE020KIOOS8ygk/3W7OqhHUl2CQKIsAc0SS4g",
+        "to": "/es/docs/tracks/registro-de-api"
+      },
+      {
+        "from": "/en/tracks/b2w-integration-set-up--6w07SJBVqE020KIOOS8ygk/1AfMKDQWtC7iDDV6reEDog",
+        "to": "/en/docs/tracks/configuring-price-divergence-rule"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-b2w--6w07SJBVqE020KIOOS8ygk/1AfMKDQWtC7iDDV6reEDog",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-b2w--6w07SJBVqE020KIOOS8ygk/1AfMKDQWtC7iDDV6reEDog",
+        "to": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios"
+      },
+      {
+        "from": "/en/tracks/b2w-integration-set-up--6w07SJBVqE020KIOOS8ygk/40eYElt1qwIqGeIeum2W4M",
+        "to": "/en/docs/tracks/configuring-the-connector-b2w"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-b2w--6w07SJBVqE020KIOOS8ygk/40eYElt1qwIqGeIeum2W4M",
+        "to": "/pt/docs/tracks/configurar-conector-b2w"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-b2w--6w07SJBVqE020KIOOS8ygk/40eYElt1qwIqGeIeum2W4M",
+        "to": "/es/docs/tracks/configuracion-del-conector-b2w"
+      },
+      {
+        "from": "/en/tracks/b2w-integration-set-up--6w07SJBVqE020KIOOS8ygk/5C5Jb5kSZKjl8NyPLWTJBO",
+        "to": "/en/docs/tracks/defining-the-shipping-strategy-b2w"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-b2w--6w07SJBVqE020KIOOS8ygk/5C5Jb5kSZKjl8NyPLWTJBO",
+        "to": "/pt/docs/tracks/definir-estrategia-de-envio-b2w"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-b2w--6w07SJBVqE020KIOOS8ygk/5C5Jb5kSZKjl8NyPLWTJBO",
+        "to": "/es/docs/tracks/definir-la-estrategia-de-envio-b2w"
+      },
+      {
+        "from": "/en/tracks/b2w-integration-set-up--6w07SJBVqE020KIOOS8ygk/5qetRRLNCgDTfhz2PUUO9v",
+        "to": "/en/docs/tracks/integration-overview-b2w"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-b2w--6w07SJBVqE020KIOOS8ygk/5qetRRLNCgDTfhz2PUUO9v",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-b2w"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-b2w--6w07SJBVqE020KIOOS8ygk/5qetRRLNCgDTfhz2PUUO9v",
+        "to": "/es/docs/tracks/vision-general-de-la-integracion-b2w"
+      },
+      {
+        "from": "/en/tracks/carrefour-integration-set-up--2wYlj07cNuA8k8mmwY86K2/4ixukTWxz7PsN2fdNOZUue",
+        "to": "/en/docs/tracks/carrefour-integration-overview"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-carrefour--2wYlj07cNuA8k8mmwY86K2/4ixukTWxz7PsN2fdNOZUue",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-carrefour"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-carrefour--2wYlj07cNuA8k8mmwY86K2/4ixukTWxz7PsN2fdNOZUue",
+        "to": "/es/docs/tracks/vision-general-del-carrefour"
+      },
+      {
+        "from": "/en/tracks/carrefour-integration-set-up--2wYlj07cNuA8k8mmwY86K2/3OK8ykSkmUKNFpdGP8wRTR",
+        "to": "/en/docs/tracks/carrefour-marketplace"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-carrefour--2wYlj07cNuA8k8mmwY86K2/3OK8ykSkmUKNFpdGP8wRTR",
+        "to": "/pt/docs/tracks/carrefour-marketplace"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-carrefour--2wYlj07cNuA8k8mmwY86K2/3OK8ykSkmUKNFpdGP8wRTR",
+        "to": "/es/docs/tracks/carrefour-marketplace"
+      },
+      {
+        "from": "/en/tracks/carrefour-integration-set-up--2wYlj07cNuA8k8mmwY86K2/1JeKk6dQUfhZfh4XlggCJ9",
+        "to": "/en/docs/tracks/configuring-price-divergence-rule-carrefour"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-carrefour--2wYlj07cNuA8k8mmwY86K2/1JeKk6dQUfhZfh4XlggCJ9",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-carrefour"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-carrefour--2wYlj07cNuA8k8mmwY86K2/1JeKk6dQUfhZfh4XlggCJ9",
+        "to": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios-carrefour"
+      },
+      {
+        "from": "/en/tracks/carrefour-integration-set-up--2wYlj07cNuA8k8mmwY86K2/4WKC9WpPyZHpb7ZoyPlCbV",
+        "to": "/en/docs/tracks/defining-the-shipping-strategy-carrefour"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-carrefour--2wYlj07cNuA8k8mmwY86K2/4WKC9WpPyZHpb7ZoyPlCbV",
+        "to": "/pt/docs/tracks/definir-a-estrategia-de-envio"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-carrefour--2wYlj07cNuA8k8mmwY86K2/4WKC9WpPyZHpb7ZoyPlCbV",
+        "to": "/es/docs/tracks/definir-la-estrategia-de-envio-carrefour"
+      },
+      {
+        "from": "/en/tracks/carrefour-integration-set-up--2wYlj07cNuA8k8mmwY86K2/2AhqcmRN1mseCsGuGIe6GK",
+        "to": "/en/docs/tracks/registering-the-carrefour-integration"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-carrefour--2wYlj07cNuA8k8mmwY86K2/2AhqcmRN1mseCsGuGIe6GK",
+        "to": "/pt/docs/tracks/configurar-cadastro-da-integracao-do-carrefour"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-carrefour--2wYlj07cNuA8k8mmwY86K2/2AhqcmRN1mseCsGuGIe6GK",
+        "to": "/es/docs/tracks/registro-de-la-integracion-de-carrefour"
+      },
+      {
+        "from": "/en/tracks/carrefour-integration-set-up--2wYlj07cNuA8k8mmwY86K2/6FacWWJszKw0Um42uYcQai",
+        "to": "/en/docs/tracks/sending-products-to-carrefour"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-carrefour--2wYlj07cNuA8k8mmwY86K2/6FacWWJszKw0Um42uYcQai",
+        "to": "/pt/docs/tracks/enviar-produtos-para-carrefour"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-carrefour--2wYlj07cNuA8k8mmwY86K2/6FacWWJszKw0Um42uYcQai",
+        "to": "/es/docs/tracks/envio-de-lo-productos-a-carrefour"
+      },
+      {
+        "from": "/en/tracks/carrefour-integration-set-up--2wYlj07cNuA8k8mmwY86K2/2s7YE2VK7LBx4Mvokj3gc",
+        "to": "/en/docs/tracks/setting-up-a-marketplace-trade-policy-carrefour"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-carrefour--2wYlj07cNuA8k8mmwY86K2/2s7YE2VK7LBx4Mvokj3gc",
+        "to": "/pt/docs/tracks/configurar-politica-comercial-para-marketplace-carrefour"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-carrefour--2wYlj07cNuA8k8mmwY86K2/2s7YE2VK7LBx4Mvokj3gc",
+        "to": "/es/docs/tracks/configurar-la-politica-comercial-para-marketplace-carrefour"
+      },
+      {
+        "from": "/en/tracks/casas-bahia-marketplace-integration--3E9XylGaJ2wqwISGyw4GuY/3rymwJDuc5Z6lQtsyTINim",
+        "to": "/en/docs/tracks/casas-bahia-marketplace"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/3rymwJDuc5Z6lQtsyTINim",
+        "to": "/pt/docs/tracks/casas-bahia-marketplace"
+      },
+      {
+        "from": "/es/tracks/integracion-de-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/3rymwJDuc5Z6lQtsyTINim",
+        "to": "/es/docs/tracks/casas-bahia-marketplace"
+      },
+      {
+        "from": "/en/tracks/casas-bahia-marketplace-integration--3E9XylGaJ2wqwISGyw4GuY/3FFcVmL5Aod6tkFIz9vJmX",
+        "to": "/en/docs/tracks/configure-warranty-in-via-varejo"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/3FFcVmL5Aod6tkFIz9vJmX",
+        "to": "/pt/docs/tracks/configurar-garantia-da-via-varejo"
+      },
+      {
+        "from": "/es/tracks/integracion-de-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/3FFcVmL5Aod6tkFIz9vJmX",
+        "to": "/es/docs/tracks/configurar-la-garantia-de-via-varejo"
+      },
+      {
+        "from": "/en/tracks/casas-bahia-marketplace-integration--3E9XylGaJ2wqwISGyw4GuY/6MeJhODLMCnYwUCe18QjzP",
+        "to": "/en/docs/tracks/configuring-price-divergence-rule-via"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/6MeJhODLMCnYwUCe18QjzP",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-via"
+      },
+      {
+        "from": "/es/tracks/integracion-de-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/6MeJhODLMCnYwUCe18QjzP",
+        "to": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios-via"
+      },
+      {
+        "from": "/en/tracks/casas-bahia-marketplace-integration--3E9XylGaJ2wqwISGyw4GuY/69cLhDK7PGOqgSs2EyqMke",
+        "to": "/en/docs/tracks/defining-the-shipping-strategy-via"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/69cLhDK7PGOqgSs2EyqMke",
+        "to": "/pt/docs/tracks/definir-estrategia-de-envio-via"
+      },
+      {
+        "from": "/es/tracks/integracion-de-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/69cLhDK7PGOqgSs2EyqMke",
+        "to": "/es/docs/tracks/definir-la-estrategia-de-envio-via"
+      },
+      {
+        "from": "/en/tracks/casas-bahia-marketplace-integration--3E9XylGaJ2wqwISGyw4GuY/1okse2MybWk04AQoueu88O",
+        "to": "/en/docs/tracks/registering-the-integration"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/1okse2MybWk04AQoueu88O",
+        "to": "/pt/docs/tracks/cadastro-da-integracao-da-via-varejo"
+      },
+      {
+        "from": "/es/tracks/integracion-de-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/1okse2MybWk04AQoueu88O",
+        "to": "/es/docs/tracks/registro-de-la-integracion"
+      },
+      {
+        "from": "/en/tracks/casas-bahia-marketplace-integration--3E9XylGaJ2wqwISGyw4GuY/5QVZFYNfuRIQKdq34MbTxz",
+        "to": "/en/docs/tracks/sending-products-to-via"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/5QVZFYNfuRIQKdq34MbTxz",
+        "to": "/pt/docs/tracks/envio-de-produtos-para-a-via-marketplace"
+      },
+      {
+        "from": "/es/tracks/integracion-de-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/5QVZFYNfuRIQKdq34MbTxz",
+        "to": "/es/docs/tracks/envio-de-los-productos-a-via"
+      },
+      {
+        "from": "/en/tracks/casas-bahia-marketplace-integration--3E9XylGaJ2wqwISGyw4GuY/D63aTOOoQXd6NYq1f5rhc",
+        "to": "/en/docs/tracks/setting-up-a-marketplace-trade-policy-viavarejo"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/D63aTOOoQXd6NYq1f5rhc",
+        "to": "/pt/docs/tracks/configurar-politica-comercial-para-marketplace-viavarejo"
+      },
+      {
+        "from": "/es/tracks/integracion-de-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/D63aTOOoQXd6NYq1f5rhc",
+        "to": "/es/docs/tracks/configurar-la-politica-comercial-para-marketplace-viavarejo"
+      },
+      {
+        "from": "/en/tracks/casas-bahia-marketplace-integration--3E9XylGaJ2wqwISGyw4GuY/2oxPVeYpVgA8IrhaDqKon6",
+        "to": "/en/docs/tracks/settings-on-via-marketplace"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/2oxPVeYpVgA8IrhaDqKon6",
+        "to": "/pt/docs/tracks/configuracoes-na-via-marketplace"
+      },
+      {
+        "from": "/es/tracks/integracion-de-casas-bahia-marketplace--3E9XylGaJ2wqwISGyw4GuY/2oxPVeYpVgA8IrhaDqKon6",
+        "to": "/es/docs/tracks/configuracion-en-via-marketplace"
+      },
+      {
+        "from": "/en/tracks/centauro-integration--D8Qnjbr5lfLkUfMRhsfbj/5HXEYuDGxv7hNVUma3PKPC",
+        "to": "/en/docs/tracks/centauro-marketplace"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-centauro--D8Qnjbr5lfLkUfMRhsfbj/5HXEYuDGxv7hNVUma3PKPC",
+        "to": "/pt/docs/tracks/centauro-marketplace"
+      },
+      {
+        "from": "/es/tracks/integracion-con-centauro--D8Qnjbr5lfLkUfMRhsfbj/5HXEYuDGxv7hNVUma3PKPC",
+        "to": "/es/docs/tracks/centauro-marketplace"
+      },
+      {
+        "from": "/en/tracks/centauro-integration--D8Qnjbr5lfLkUfMRhsfbj/7wPUgeKAXnXSTt3YPizuSp",
+        "to": "/en/docs/tracks/configuring-price-divergence-rule-centauro"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-centauro--D8Qnjbr5lfLkUfMRhsfbj/7wPUgeKAXnXSTt3YPizuSp",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-centauro"
+      },
+      {
+        "from": "/es/tracks/integracion-con-centauro--D8Qnjbr5lfLkUfMRhsfbj/7wPUgeKAXnXSTt3YPizuSp",
+        "to": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios-centauro"
+      },
+      {
+        "from": "/en/tracks/centauro-integration--D8Qnjbr5lfLkUfMRhsfbj/2wFjrUoLI3q85r3QZA0Tp",
+        "to": "/en/docs/tracks/defining-centauro-trade-policy"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-centauro--D8Qnjbr5lfLkUfMRhsfbj/2wFjrUoLI3q85r3QZA0Tp",
+        "to": "/pt/docs/tracks/definicao-da-politica-comercial-para-centauro"
+      },
+      {
+        "from": "/es/tracks/integracion-con-centauro--D8Qnjbr5lfLkUfMRhsfbj/2wFjrUoLI3q85r3QZA0Tp",
+        "to": "/es/docs/tracks/definir-la-politica-comercial-para-centauro"
+      },
+      {
+        "from": "/en/tracks/dafiti-integration-setup--4wF4RBx9ygEkimW6SsKw8i/3PV2OACP2E4O4uOKKW2sMg",
+        "to": "/en/docs/tracks/configuring-dafiti-connector"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-dafiti--4wF4RBx9ygEkimW6SsKw8i/3PV2OACP2E4O4uOKKW2sMg",
+        "to": "/pt/docs/tracks/configuracao-do-conector-dafiti"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-dafiti--4wF4RBx9ygEkimW6SsKw8i/3PV2OACP2E4O4uOKKW2sMg",
+        "to": "/es/docs/tracks/configuracion-del-conector-dafiti"
+      },
+      {
+        "from": "/en/tracks/dafiti-integration-setup--4wF4RBx9ygEkimW6SsKw8i/4rGMP9mEVOKCZCM71yzxnj",
+        "to": "/en/docs/tracks/configuring-price-divergence-rule-dafiti"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-dafiti--4wF4RBx9ygEkimW6SsKw8i/4rGMP9mEVOKCZCM71yzxnj",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-dafiti"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-dafiti--4wF4RBx9ygEkimW6SsKw8i/4rGMP9mEVOKCZCM71yzxnj",
+        "to": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios-dafiti"
+      },
+      {
+        "from": "/en/tracks/dafiti-integration-setup--4wF4RBx9ygEkimW6SsKw8i/2UBJwHXCYKh5pHFHqZ09E8",
+        "to": "/en/docs/tracks/configuring-the-integration-dafiti"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-dafiti--4wF4RBx9ygEkimW6SsKw8i/2UBJwHXCYKh5pHFHqZ09E8",
+        "to": "/pt/docs/tracks/configuracao-da-integracao-dafiti"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-dafiti--4wF4RBx9ygEkimW6SsKw8i/2UBJwHXCYKh5pHFHqZ09E8",
+        "to": "/es/docs/tracks/configuracion-de-la-integracion-con-dafiti"
+      },
+      {
+        "from": "/en/tracks/dafiti-integration-setup--4wF4RBx9ygEkimW6SsKw8i/5lAIj7OCqizD5EisLJvatx",
+        "to": "/en/docs/tracks/dafiti-marketplace"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-dafiti--4wF4RBx9ygEkimW6SsKw8i/5lAIj7OCqizD5EisLJvatx",
+        "to": "/pt/docs/tracks/dafiti-marketplace"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-dafiti--4wF4RBx9ygEkimW6SsKw8i/5lAIj7OCqizD5EisLJvatx",
+        "to": "/es/docs/tracks/dafiti-marketplace"
+      },
+      {
+        "from": "/en/tracks/dafiti-integration-setup--4wF4RBx9ygEkimW6SsKw8i/54cBCKrJgqdrm61vxihY1g",
+        "to": "/en/docs/tracks/defining-dafiti-trade-policy"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-dafiti--4wF4RBx9ygEkimW6SsKw8i/54cBCKrJgqdrm61vxihY1g",
+        "to": "/pt/docs/tracks/definicao-da-politica-comercial-para-dafiti"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-dafiti--4wF4RBx9ygEkimW6SsKw8i/54cBCKrJgqdrm61vxihY1g",
+        "to": "/es/docs/tracks/definicion-de-la-politica-comercial-de-dafiti"
+      },
+      {
+        "from": "/en/tracks/dafiti-integration-setup--4wF4RBx9ygEkimW6SsKw8i/3b8BZfB1BC8G8SCe0ao46m",
+        "to": "/en/docs/tracks/sending-product-data-to-dafiti"
+      },
+      {
+        "from": "/pt/tracks/envio-dos-produtos-para-dafiti--4wF4RBx9ygEkimW6SsKw8i/3b8BZfB1BC8G8SCe0ao46m",
+        "to": "/pt/docs/tracks/envio-dos-produtos-para-a-dafiti"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-dafiti--4wF4RBx9ygEkimW6SsKw8i/3b8BZfB1BC8G8SCe0ao46m",
+        "to": "/es/docs/tracks/envio-de-los-productos-a-dafiti"
+      },
+      {
+        "from": "/en/tracks/facebook-integration--7h8KvIC4DbRRc8VlyJ8PFc/5OP69kHWKca01wLH0w10jX",
+        "to": "/en/docs/tracks/configuring-the-connector-facebook"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-facebook--7h8KvIC4DbRRc8VlyJ8PFc/5OP69kHWKca01wLH0w10jX",
+        "to": "/pt/docs/tracks/configuracao-do-conector-facebook"
+      },
+      {
+        "from": "/es/tracks/integracion-de-facebook--7h8KvIC4DbRRc8VlyJ8PFc/5OP69kHWKca01wLH0w10jX",
+        "to": "/es/docs/tracks/configuracion-del-conector-facebook"
+      },
+      {
+        "from": "/en/tracks/facebook-integration--7h8KvIC4DbRRc8VlyJ8PFc/747gwmk5oMkyb6FtwLo17B",
+        "to": "/en/docs/tracks/defining-a-trade-policy"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-facebook--7h8KvIC4DbRRc8VlyJ8PFc/747gwmk5oMkyb6FtwLo17B",
+        "to": "/pt/docs/tracks/definicao-da-politica-comercial"
+      },
+      {
+        "from": "/es/tracks/integracion-de-facebook--7h8KvIC4DbRRc8VlyJ8PFc/747gwmk5oMkyb6FtwLo17B",
+        "to": "/es/docs/tracks/definir-la-politica-comercial"
+      },
+      {
+        "from": "/en/tracks/facebook-integration--7h8KvIC4DbRRc8VlyJ8PFc/7kNXlgUr0A4HRFXTCX8TYb",
+        "to": "/en/docs/tracks/facebook"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-facebook--7h8KvIC4DbRRc8VlyJ8PFc/7kNXlgUr0A4HRFXTCX8TYb",
+        "to": "/pt/docs/tracks/facebook"
+      },
+      {
+        "from": "/es/tracks/integracion-de-facebook--7h8KvIC4DbRRc8VlyJ8PFc/7kNXlgUr0A4HRFXTCX8TYb",
+        "to": "/es/docs/tracks/facebook"
+      },
+      {
+        "from": "/en/tracks/facebook-integration--7h8KvIC4DbRRc8VlyJ8PFc/4THXfWqYHqMZGGk6zgrk7K",
+        "to": "/en/docs/tracks/integration-overview"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-facebook--7h8KvIC4DbRRc8VlyJ8PFc/4THXfWqYHqMZGGk6zgrk7K",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao"
+      },
+      {
+        "from": "/es/tracks/integracion-de-facebook--7h8KvIC4DbRRc8VlyJ8PFc/4THXfWqYHqMZGGk6zgrk7K",
+        "to": "/es/docs/tracks/vision-general-de-la-integracion"
+      },
+      {
+        "from": "/en/tracks/facebook-integration--7h8KvIC4DbRRc8VlyJ8PFc/41qzoa7TWIYTyIhABHdgzI",
+        "to": "/en/docs/tracks/sending-products-to-facebook"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-facebook--7h8KvIC4DbRRc8VlyJ8PFc/41qzoa7TWIYTyIhABHdgzI",
+        "to": "/pt/docs/tracks/envio-de-produtos-para-o-facebook"
+      },
+      {
+        "from": "/es/tracks/integracion-de-facebook--7h8KvIC4DbRRc8VlyJ8PFc/41qzoa7TWIYTyIhABHdgzI",
+        "to": "/es/docs/tracks/envio-de-productos-a-facebook"
+      },
+      {
+        "from": "/en/tracks/how-to-campaign-through-google-ads--47kz5PRQPK0IEaqGqiIuA/1FT4KHCSbGmQCsmUQk286w",
+        "to": "/en/docs/tracks/google-shopping-ads-install"
+      },
+      {
+        "from": "/pt/tracks/como-fazer-campanhas-atraves-do-google-ads--47kz5PRQPK0IEaqGqiIuA/1FT4KHCSbGmQCsmUQk286w",
+        "to": "/pt/docs/tracks/instalacao-do-google-shopping-ads"
+      },
+      {
+        "from": "/es/tracks/como-hacer-campanas-a-traves-de-google-ads--47kz5PRQPK0IEaqGqiIuA/1FT4KHCSbGmQCsmUQk286w",
+        "to": "/es/docs/tracks/instalacion-de-google-shopping-ads"
+      },
+      {
+        "from": "/en/tracks/how-to-campaign-through-google-ads--47kz5PRQPK0IEaqGqiIuA/4H0V9Z4NkQUiS4y2K0I8IU",
+        "to": "/en/docs/tracks/google-shopping-ads-set-up"
+      },
+      {
+        "from": "/pt/tracks/como-fazer-campanhas-atraves-do-google-ads--47kz5PRQPK0IEaqGqiIuA/4H0V9Z4NkQUiS4y2K0I8IU",
+        "to": "/pt/docs/tracks/configuraces-iniciais-do-google-shopping-ads"
+      },
+      {
+        "from": "/es/tracks/como-hacer-campanas-a-traves-de-google-ads--47kz5PRQPK0IEaqGqiIuA/4H0V9Z4NkQUiS4y2K0I8IU",
+        "to": "/es/docs/tracks/configuracion-inicial-de-google-shopping-ads"
+      },
+      {
+        "from": "/en/tracks/how-to-campaign-through-google-ads--47kz5PRQPK0IEaqGqiIuA/1kTynkm91DI6kXTnIQiSJS",
+        "to": "/en/docs/tracks/performance-optimization"
+      },
+      {
+        "from": "/pt/tracks/como-fazer-campanhas-atraves-do-google-ads--47kz5PRQPK0IEaqGqiIuA/1kTynkm91DI6kXTnIQiSJS",
+        "to": "/pt/docs/tracks/otimizacao-de-performance"
+      },
+      {
+        "from": "/es/tracks/como-hacer-campanas-a-traves-de-google-ads--47kz5PRQPK0IEaqGqiIuA/1kTynkm91DI6kXTnIQiSJS",
+        "to": "/es/docs/tracks/optimizacion-del-rendimiento"
+      },
+      {
+        "from": "/en/tracks/how-to-campaign-through-google-ads--47kz5PRQPK0IEaqGqiIuA/5YIxQy9TpuaEkgqYo2IaSa",
+        "to": "/en/docs/tracks/setting-up-a-smart-campaign"
+      },
+      {
+        "from": "/pt/tracks/como-fazer-campanhas-atraves-do-google-ads--47kz5PRQPK0IEaqGqiIuA/5YIxQy9TpuaEkgqYo2IaSa",
+        "to": "/pt/docs/tracks/configurando-uma-campanha-inteligente"
+      },
+      {
+        "from": "/es/tracks/como-hacer-campanas-a-traves-de-google-ads--47kz5PRQPK0IEaqGqiIuA/5YIxQy9TpuaEkgqYo2IaSa",
+        "to": "/es/docs/tracks/configuracion-de-una-campana-inteligente"
+      },
+      {
+        "from": "/en/tracks/integrating-with-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/44hAYlKYSRZMTNY3ELxeQ2",
+        "to": "/en/docs/tracks/authenticating-your-google-shopping-account"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/44hAYlKYSRZMTNY3ELxeQ2",
+        "to": "/pt/docs/tracks/autenticacao-da-conta-google-shopping"
+      },
+      {
+        "from": "/es/tracks/integracion-con-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/44hAYlKYSRZMTNY3ELxeQ2",
+        "to": "/es/docs/tracks/autenticar-la-cuenta-google-shopping"
+      },
+      {
+        "from": "/en/tracks/integrating-with-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/wWyl0Njxgs5KfXvxYZJrl",
+        "to": "/en/docs/tracks/configuring-the-connector"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/wWyl0Njxgs5KfXvxYZJrl",
+        "to": "/pt/docs/tracks/configuracao-do-conector"
+      },
+      {
+        "from": "/es/tracks/integracion-con-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/wWyl0Njxgs5KfXvxYZJrl",
+        "to": "/es/docs/tracks/configuracion-del-conector"
+      },
+      {
+        "from": "/en/tracks/integrating-with-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/3D9Dw6MQnGkqHZhPzme31X",
+        "to": "/en/docs/tracks/configuring-the-feed"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/3D9Dw6MQnGkqHZhPzme31X",
+        "to": "/pt/docs/tracks/configuracao-do-feed"
+      },
+      {
+        "from": "/es/tracks/integracion-con-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/3D9Dw6MQnGkqHZhPzme31X",
+        "to": "/es/docs/tracks/configurar-el-feed"
+      },
+      {
+        "from": "/en/tracks/integrating-with-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/7jttxOIppfjVGgCMA8rrBt",
+        "to": "/en/docs/tracks/configuring-the-google-shopping-integration"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/7jttxOIppfjVGgCMA8rrBt",
+        "to": "/pt/docs/tracks/configuracao-da-integracao-google-shopping"
+      },
+      {
+        "from": "/es/tracks/integracion-con-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/7jttxOIppfjVGgCMA8rrBt",
+        "to": "/es/docs/tracks/configuracion-de-la-integracion-google-shopping"
+      },
+      {
+        "from": "/en/tracks/integrating-with-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/3AqbcsWrge8zLt0BC5CtGd",
+        "to": "/en/docs/tracks/defining-the-google-shopping-trade-policy"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/3AqbcsWrge8zLt0BC5CtGd",
+        "to": "/pt/docs/tracks/definicao-da-politica-comercial-google-shopping"
+      },
+      {
+        "from": "/es/tracks/integracion-con-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/3AqbcsWrge8zLt0BC5CtGd",
+        "to": "/es/docs/tracks/definir-la-politica-comercial-google-shopping"
+      },
+      {
+        "from": "/en/tracks/integrating-with-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/2kGKxwD9HKJvTLDTikQ4zG",
+        "to": "/en/docs/tracks/google-shopping-marketplace"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/2kGKxwD9HKJvTLDTikQ4zG",
+        "to": "/pt/docs/tracks/google-shopping-marketplace"
+      },
+      {
+        "from": "/es/tracks/integracion-con-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/2kGKxwD9HKJvTLDTikQ4zG",
+        "to": "/es/docs/tracks/marketplace-de-google-shopping"
+      },
+      {
+        "from": "/en/tracks/integrating-with-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/5L5LnccDCj5lJk8H95GQ82",
+        "to": "/en/docs/tracks/sending-products-to-google-shopping"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/5L5LnccDCj5lJk8H95GQ82",
+        "to": "/pt/docs/tracks/envio-de-produtos-para-o-google-shopping"
+      },
+      {
+        "from": "/es/tracks/integracion-con-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/5L5LnccDCj5lJk8H95GQ82",
+        "to": "/es/docs/tracks/enviar-productos-a-google-shopping"
+      },
+      {
+        "from": "/en/tracks/integrating-with-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/1wZhEoyuWujmj0lKaWO71X",
+        "to": "/en/docs/tracks/submitting-product-prices"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/1wZhEoyuWujmj0lKaWO71X",
+        "to": "/pt/docs/tracks/envio-de-precos-do-produto"
+      },
+      {
+        "from": "/es/tracks/integracion-con-google-shopping--25Sl7iOqq58PGfVfTAo8Xw/1wZhEoyuWujmj0lKaWO71X",
+        "to": "/es/docs/tracks/envio-de-precios-de-productos"
+      },
+      {
+        "from": "/en/tracks/integration-with-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/jUtgjBDumr5oGWIU7mVLC",
+        "to": "/en/docs/tracks/configuring-the-integration-with-fbe-in-the-vtex-admin"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/jUtgjBDumr5oGWIU7mVLC",
+        "to": "/pt/docs/tracks/configurar-a-integracao-com-o-fbe-no-admin-vtex"
+      },
+      {
+        "from": "/es/tracks/integracion-con-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/jUtgjBDumr5oGWIU7mVLC",
+        "to": "/es/docs/tracks/configurar-la-integracion-con-fbe-en-el-admin-vtex"
+      },
+      {
+        "from": "/en/tracks/integration-with-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/434Z1iWnaa0zbOMDyr6oi",
+        "to": "/en/docs/tracks/facebook-business-extension"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/434Z1iWnaa0zbOMDyr6oi",
+        "to": "/pt/docs/tracks/facebook-business-extension"
+      },
+      {
+        "from": "/es/tracks/integracion-con-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/434Z1iWnaa0zbOMDyr6oi",
+        "to": "/es/docs/tracks/facebook-business-extension"
+      },
+      {
+        "from": "/en/tracks/integration-with-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/7JvybNGcBXxGKbVWjadKjt",
+        "to": "/en/docs/tracks/installing-the-facebook-business-extension-e-conversions-api-app"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/7JvybNGcBXxGKbVWjadKjt",
+        "to": "/pt/docs/tracks/instalar-a-app-facebook-business-extension-e-conversions-api"
+      },
+      {
+        "from": "/es/tracks/integracion-con-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/7JvybNGcBXxGKbVWjadKjt",
+        "to": "/es/docs/tracks/instalar-la-aplicacion-facebook-business-extension-e-conversions-api"
+      },
+      {
+        "from": "/en/tracks/integration-with-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/2OdxzECQkND8gP3ohtTRDD",
+        "to": "/en/docs/tracks/integration-with-facebook-business-extension-overview"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/2OdxzECQkND8gP3ohtTRDD",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-o-facebook-business-extension"
+      },
+      {
+        "from": "/es/tracks/integracion-con-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/2OdxzECQkND8gP3ohtTRDD",
+        "to": "/es/docs/tracks/vision-general-de-la-integracion-con-facebook-business-extension"
+      },
+      {
+        "from": "/en/tracks/integration-with-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/DmcxFAdyCC7t0a72hIXeT",
+        "to": "/en/docs/tracks/interface-da-integracao-configurada"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/DmcxFAdyCC7t0a72hIXeT",
+        "to": "/pt/docs/tracks/interface-da-integracao-configurada"
+      },
+      {
+        "from": "/es/tracks/integracion-con-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/DmcxFAdyCC7t0a72hIXeT",
+        "to": "/es/docs/tracks/interface-da-integracao-configurada"
+      },
+      {
+        "from": "/en/tracks/lengow-integration--2KDrouPiE4HDKUFFSG3KdN/70Yx1oxJDXSLFwepbU7PJj",
+        "to": "/en/docs/tracks/create-product-feed"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-lengow--2KDrouPiE4HDKUFFSG3KdN/70Yx1oxJDXSLFwepbU7PJj",
+        "to": "/pt/docs/tracks/criar-feed-de-produtos"
+      },
+      {
+        "from": "/es/tracks/integracion-de-lengow--2KDrouPiE4HDKUFFSG3KdN/70Yx1oxJDXSLFwepbU7PJj",
+        "to": "/es/docs/tracks/crear-feed-de-productos"
+      },
+      {
+        "from": "/en/tracks/lengow-integration--2KDrouPiE4HDKUFFSG3KdN/NyLu3CjnE0sl0QWZbuuZ2",
+        "to": "/en/docs/tracks/import-orders-from-lengow"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-lengow--2KDrouPiE4HDKUFFSG3KdN/NyLu3CjnE0sl0QWZbuuZ2",
+        "to": "/pt/docs/tracks/importar-pedidos-da-lengow"
+      },
+      {
+        "from": "/es/tracks/integracion-de-lengow--2KDrouPiE4HDKUFFSG3KdN/NyLu3CjnE0sl0QWZbuuZ2",
+        "to": "/es/docs/tracks/importar-pedidos-de-lengow"
+      },
+      {
+        "from": "/en/tracks/lengow-integration--2KDrouPiE4HDKUFFSG3KdN/3lxT3FsW1zZIewGSEiqA7s",
+        "to": "/en/docs/tracks/installation-and-setup"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-lengow--2KDrouPiE4HDKUFFSG3KdN/3lxT3FsW1zZIewGSEiqA7s",
+        "to": "/pt/docs/tracks/instalacao-e-configuracao"
+      },
+      {
+        "from": "/es/tracks/integracion-de-lengow--2KDrouPiE4HDKUFFSG3KdN/3lxT3FsW1zZIewGSEiqA7s",
+        "to": "/es/docs/tracks/instalacion-y-configuracion"
+      },
+      {
+        "from": "/en/tracks/lengow-integration--2KDrouPiE4HDKUFFSG3KdN/5oDUsde0bNmQmR8WF36U8l",
+        "to": "/en/docs/tracks/sales-channel-mapping"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-lengow--2KDrouPiE4HDKUFFSG3KdN/5oDUsde0bNmQmR8WF36U8l",
+        "to": "/pt/docs/tracks/mapeamento-de-canais-de-venda"
+      },
+      {
+        "from": "/es/tracks/integracion-de-lengow--2KDrouPiE4HDKUFFSG3KdN/5oDUsde0bNmQmR8WF36U8l",
+        "to": "/es/docs/tracks/mapeo-de-canales-de-venta"
+      },
+      {
+        "from": "/en/tracks/lengow-integration--2KDrouPiE4HDKUFFSG3KdN/4GpDlL5cdrxjxchIqI6Hyn",
+        "to": "/en/docs/tracks/specifications-mapping"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-lengow--2KDrouPiE4HDKUFFSG3KdN/4GpDlL5cdrxjxchIqI6Hyn",
+        "to": "/pt/docs/tracks/mapeamento-de-especificacoes"
+      },
+      {
+        "from": "/es/tracks/integracion-de-lengow--2KDrouPiE4HDKUFFSG3KdN/4GpDlL5cdrxjxchIqI6Hyn",
+        "to": "/es/docs/tracks/mapeo-de-especificaciones"
+      },
+      {
+        "from": "/en/tracks/lengow-integration--2KDrouPiE4HDKUFFSG3KdN/1WkrVEezFauIuXWvBakZkk",
+        "to": "/en/docs/tracks/update-and-import-product-feed"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-lengow--2KDrouPiE4HDKUFFSG3KdN/1WkrVEezFauIuXWvBakZkk",
+        "to": "/pt/docs/tracks/atualizar-e-importar-feed-de-produtos"
+      },
+      {
+        "from": "/es/tracks/integracion-de-lengow--2KDrouPiE4HDKUFFSG3KdN/1WkrVEezFauIuXWvBakZkk",
+        "to": "/es/docs/tracks/actualizar-y-importar-feed-de-productos"
+      },
+      {
+        "from": "/en/tracks/lengow-integration--2KDrouPiE4HDKUFFSG3KdN/5hvcyPkF60yGzzgYDV7DzZ",
+        "to": "/en/docs/tracks/what-is-lengow"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-lengow--2KDrouPiE4HDKUFFSG3KdN/5hvcyPkF60yGzzgYDV7DzZ",
+        "to": "/pt/docs/tracks/o-que-e-lengow"
+      },
+      {
+        "from": "/es/tracks/integracion-de-lengow--2KDrouPiE4HDKUFFSG3KdN/5hvcyPkF60yGzzgYDV7DzZ",
+        "to": "/es/docs/tracks/que-es-lengow"
+      },
+      {
+        "from": "/en/tracks/livelo-integration--4ZSHEiuTkh8HR9ubJQj8BP/4kocvdsHiLcLLcX6eQIVmD",
+        "to": "/en/docs/tracks/configuring-livelo-price-divergence-rule"
+      },
+      {
+        "from": "/pt/tracks/integracao-livelo--4ZSHEiuTkh8HR9ubJQj8BP/4kocvdsHiLcLLcX6eQIVmD",
+        "to": "/pt/docs/tracks/con-gurar-regra-de-divergencia-de-valores-livelo"
+      },
+      {
+        "from": "/es/tracks/integracion-de-livelo--4ZSHEiuTkh8HR9ubJQj8BP/4kocvdsHiLcLLcX6eQIVmD",
+        "to": "/es/docs/tracks/configurar-livelo-regla-de-divergencia-de-precios"
+      },
+      {
+        "from": "/en/tracks/livelo-integration--4ZSHEiuTkh8HR9ubJQj8BP/HgIbZEzbPr8FQid5MXURQ",
+        "to": "/en/docs/tracks/configuring-the-integration"
+      },
+      {
+        "from": "/pt/tracks/integracao-livelo--4ZSHEiuTkh8HR9ubJQj8BP/HgIbZEzbPr8FQid5MXURQ",
+        "to": "/pt/docs/tracks/configurando-a-integracao"
+      },
+      {
+        "from": "/es/tracks/integracion-de-livelo--4ZSHEiuTkh8HR9ubJQj8BP/HgIbZEzbPr8FQid5MXURQ",
+        "to": "/es/docs/tracks/configuracion-de-la-integracion"
+      },
+      {
+        "from": "/en/tracks/livelo-integration--4ZSHEiuTkh8HR9ubJQj8BP/5rhGcaM0SedoK7lDMBkVFD",
+        "to": "/en/docs/tracks/livelo-integration-overview"
+      },
+      {
+        "from": "/pt/tracks/integracao-livelo--4ZSHEiuTkh8HR9ubJQj8BP/5rhGcaM0SedoK7lDMBkVFD",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-a-livelo"
+      },
+      {
+        "from": "/es/tracks/integracion-de-livelo--4ZSHEiuTkh8HR9ubJQj8BP/5rhGcaM0SedoK7lDMBkVFD",
+        "to": "/es/docs/tracks/vision-general-de-la-livelo-integracion"
+      },
+      {
+        "from": "/en/tracks/livelo-integration--4ZSHEiuTkh8HR9ubJQj8BP/2h9cAUiAZONxc5xbqeRjvu",
+        "to": "/en/docs/tracks/livelo-integration-registration"
+      },
+      {
+        "from": "/pt/tracks/integracao-livelo--4ZSHEiuTkh8HR9ubJQj8BP/2h9cAUiAZONxc5xbqeRjvu",
+        "to": "/pt/docs/tracks/cadastro-da-integracao-livelo"
+      },
+      {
+        "from": "/es/tracks/integracion-de-livelo--4ZSHEiuTkh8HR9ubJQj8BP/2h9cAUiAZONxc5xbqeRjvu",
+        "to": "/es/docs/tracks/registro-de-integracion-de-livelo"
+      },
+      {
+        "from": "/en/tracks/livelo-integration--4ZSHEiuTkh8HR9ubJQj8BP/1Ue3UIHrelsvjYpkLL4IRx",
+        "to": "/en/docs/tracks/mapping-product-categories-and-attributes"
+      },
+      {
+        "from": "/pt/tracks/integracao-livelo--4ZSHEiuTkh8HR9ubJQj8BP/1Ue3UIHrelsvjYpkLL4IRx",
+        "to": "/pt/docs/tracks/mapeamento-de-categorias-e-atributos-de-produtos"
+      },
+      {
+        "from": "/es/tracks/integracion-de-livelo--4ZSHEiuTkh8HR9ubJQj8BP/1Ue3UIHrelsvjYpkLL4IRx",
+        "to": "/es/docs/tracks/mapeo-de-categorias-y-atributos-de-productos"
+      },
+      {
+        "from": "/en/tracks/magazine-luiza-integration-set-up--5Yx5IrNa7Y48c6aSC8wu2Y/4QWLcDhsh2GSSamouyu6M0",
+        "to": "/en/docs/tracks/adding-the-magazine-luiza-integration"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/4QWLcDhsh2GSSamouyu6M0",
+        "to": "/pt/docs/tracks/cadastro-da-integracao-da-magazine-luiza"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/4QWLcDhsh2GSSamouyu6M0",
+        "to": "/es/docs/tracks/registro-de-la-integracion-de-magazine-luiza"
+      },
+      {
+        "from": "/en/tracks/magazine-luiza-integration-set-up--5Yx5IrNa7Y48c6aSC8wu2Y/2fdw5tfuj3YfAfOgWYRaKw",
+        "to": "/en/docs/tracks/attribute-management"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/2fdw5tfuj3YfAfOgWYRaKw",
+        "to": "/pt/docs/tracks/gerenciamento-de-atributos"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/2fdw5tfuj3YfAfOgWYRaKw",
+        "to": "/es/docs/tracks/gestion-de-atributos"
+      },
+      {
+        "from": "/en/tracks/magazine-luiza-integration-set-up--5Yx5IrNa7Y48c6aSC8wu2Y/3tZ4qVuMDDsC2jx2DCmjdA",
+        "to": "/en/docs/tracks/configure-integration"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/3tZ4qVuMDDsC2jx2DCmjdA",
+        "to": "/pt/docs/tracks/configurar-integracao"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/3tZ4qVuMDDsC2jx2DCmjdA",
+        "to": "/es/docs/tracks/configurar-integracion"
+      },
+      {
+        "from": "/en/tracks/magazine-luiza-integration-set-up--5Yx5IrNa7Y48c6aSC8wu2Y/6VucFv9jzwin9scENazmiK",
+        "to": "/en/docs/tracks/configuring-price-divergence-rule-magazine-luiza"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/6VucFv9jzwin9scENazmiK",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-magazine-luiza"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/6VucFv9jzwin9scENazmiK",
+        "to": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios-magazine-luiza"
+      },
+      {
+        "from": "/en/tracks/magazine-luiza-integration-set-up--5Yx5IrNa7Y48c6aSC8wu2Y/4rMSsxy5GMtnz931MLrSRV",
+        "to": "/en/docs/tracks/integrating-with-magazine-luiza"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/4rMSsxy5GMtnz931MLrSRV",
+        "to": "/pt/docs/tracks/integrar-com-o-magazine-luiza"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/4rMSsxy5GMtnz931MLrSRV",
+        "to": "/es/docs/tracks/integrar-con-magazine-luiza"
+      },
+      {
+        "from": "/en/tracks/magazine-luiza-integration-set-up--5Yx5IrNa7Y48c6aSC8wu2Y/5CEVGKgtrMuifbjNoo8jKX",
+        "to": "/en/docs/tracks/magazine-luiza-marketplace"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/5CEVGKgtrMuifbjNoo8jKX",
+        "to": "/pt/docs/tracks/magazine-luiza-marketplace"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/5CEVGKgtrMuifbjNoo8jKX",
+        "to": "/es/docs/tracks/marketplace-magazine-luiza"
+      },
+      {
+        "from": "/en/tracks/magazine-luiza-integration-set-up--5Yx5IrNa7Y48c6aSC8wu2Y/7IGiw1NmFIVuw2c9qIqvKj",
+        "to": "/en/docs/tracks/what-functionalities-does-the-integration-offer"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/7IGiw1NmFIVuw2c9qIqvKj",
+        "to": "/pt/docs/tracks/quais-sao-as-funcionalidades-que-a-integracao-magalu-oferece"
+      },
+      {
+        "from": "/es/tracks/configurar-la-integracion-de-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/7IGiw1NmFIVuw2c9qIqvKj",
+        "to": "/es/docs/tracks/que-funciones-ofrece-la-integracion"
+      },
+      {
+        "from": "/en/tracks/mapping-centauro-categories-variations-and-attributes--D8Qnjbr5lfLkUfMRhsfbj/5Lc42XVVABaidvEjm4Ki9",
+        "to": "/en/docs/tracks/mapping-centauro-categories-variations-and-attributes"
+      },
+      {
+        "from": "/pt/tracks/mapeamento-de-categorias-e-atributos-da-centauro--D8Qnjbr5lfLkUfMRhsfbj/5Lc42XVVABaidvEjm4Ki9",
+        "to": "/pt/docs/tracks/mapeamento-de-categorias-e-atributos-da-centauro"
+      },
+      {
+        "from": "/es/tracks/mapeo-de-categorias-variaciones-y-atributos-de-centauro--D8Qnjbr5lfLkUfMRhsfbj/5Lc42XVVABaidvEjm4Ki9",
+        "to": "/es/docs/tracks/mapeo-de-categorias-variaciones-y-atributos-de-centauro"
+      },
+      {
+        "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/2MR2USqcvDGaoAkGNdCfGi",
+        "to": "/en/docs/tracks/ad-types-classic-and-premium"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/2MR2USqcvDGaoAkGNdCfGi",
+        "to": "/pt/docs/tracks/tipos-de-anuncio-classico-e-premium"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/2MR2USqcvDGaoAkGNdCfGi",
+        "to": "/es/docs/tracks/tipos-de-anuncios-clasico-y-premium"
+      },
+      {
+        "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/4leBEAd22Icm46kGeiGgak",
+        "to": "/en/docs/tracks/authorizing-mercado-livre-integration-in-vtex-panel"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4leBEAd22Icm46kGeiGgak",
+        "to": "/pt/docs/tracks/autorizar-integracao-do-mercado-livre-no-painel-da-vtex"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/4leBEAd22Icm46kGeiGgak",
+        "to": "/es/docs/tracks/autorizar-la-integracion-de-mercado-libre-en-el-panel-de-vtex"
+      },
+      {
+        "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/1ivH7sJoS771wZFMkaFdpt",
+        "to": "/en/docs/tracks/configuring-price-divergence-rule-mercado-libre"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/1ivH7sJoS771wZFMkaFdpt",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-mercado-livre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/1ivH7sJoS771wZFMkaFdpt",
+        "to": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios-mercado-libre"
+      },
+      {
+        "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/6T5EBd0pXLftDqGvWxarR8",
+        "to": "/en/docs/tracks/defining-the-shipping-strategy"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/6T5EBd0pXLftDqGvWxarR8",
+        "to": "/pt/docs/tracks/definicao-da-estrategia-de-envio"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/6T5EBd0pXLftDqGvWxarR8",
+        "to": "/es/docs/tracks/definir-la-estrategia-de-envio"
+      },
+      {
+        "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA",
+        "to": "/en/docs/tracks/mapping-product-categories-and-attributes-to-mercado-libre"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA",
+        "to": "/pt/docs/tracks/mapear-categorias-e-atributos-dos-produtos-para-o-mercado-livre-mapper"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA",
+        "to": "/es/docs/tracks/mapear-categorias-y-atributos-de-los-productos-para-mercado-libre-mapper"
+      },
+      {
+        "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR",
+        "to": "/en/docs/tracks/match-offers-mercado-livre"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR",
+        "to": "/pt/docs/tracks/match-de-anuncios-mercado-livre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR",
+        "to": "/es/docs/tracks/match-de-anuncios-de-mercado-libre"
+      },
+      {
+        "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/51oWBHvVxSs8eAwLQhSbSd",
+        "to": "/en/docs/tracks/mercado-libre-marketplace"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/51oWBHvVxSs8eAwLQhSbSd",
+        "to": "/pt/docs/tracks/mercado-livre-marketplace"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/51oWBHvVxSs8eAwLQhSbSd",
+        "to": "/es/docs/tracks/mercado-libre-marketplace"
+      },
+      {
+        "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/4YvYdgICMosaEgISOYogsi",
+        "to": "/en/docs/tracks/register-mercado-livre-integration"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4YvYdgICMosaEgISOYogsi",
+        "to": "/pt/docs/tracks/cadastro-da-integracao-do-mercado-livre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/4YvYdgICMosaEgISOYogsi",
+        "to": "/es/docs/tracks/registro-de-la-integracion-de-mercado-libre"
+      },
+      {
+        "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/15NZiQstCET8zyQUIa7nhw",
+        "to": "/en/docs/tracks/setting-up-a-trade-policy-for-mercado-livre"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/15NZiQstCET8zyQUIa7nhw",
+        "to": "/pt/docs/tracks/configurar-politica-comercial-para-o-mercado-livre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/15NZiQstCET8zyQUIa7nhw",
+        "to": "/es/docs/tracks/configurar-politica-comercial-para-mercado-libre"
+      },
+      {
+        "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/4551ZlEQI8qmiSWieigoKy",
+        "to": "/en/docs/tracks/setting-up-the-logistics-for-mercado-livre"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4551ZlEQI8qmiSWieigoKy",
+        "to": "/pt/docs/tracks/configurar-logistica-para-o-mercado-livre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/4551ZlEQI8qmiSWieigoKy",
+        "to": "/es/docs/tracks/configurar-la-logistica-para-mercado-libre"
+      },
+      {
+        "from": "/en/tracks/netshoes-integration-set-up--5Ua87lhFg4m0kEcuyqmcCm/6vQYuUfZVGDzDJjrvPczeh",
+        "to": "/en/docs/tracks/configuring-price-divergence-rule-netshoes"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-netshoes--5Ua87lhFg4m0kEcuyqmcCm/6vQYuUfZVGDzDJjrvPczeh",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-netshoes"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-netshoes--5Ua87lhFg4m0kEcuyqmcCm/6vQYuUfZVGDzDJjrvPczeh",
+        "to": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios-netshoes"
+      },
+      {
+        "from": "/en/tracks/netshoes-integration-set-up--5Ua87lhFg4m0kEcuyqmcCm/6ESk5Zk32baNfluXbL3Xmz",
+        "to": "/en/docs/tracks/defining-netshoes-trade-policy"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-netshoes--5Ua87lhFg4m0kEcuyqmcCm/6ESk5Zk32baNfluXbL3Xmz",
+        "to": "/pt/docs/tracks/definicao-da-politica-comercial-para-netshoes"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-netshoes--5Ua87lhFg4m0kEcuyqmcCm/6ESk5Zk32baNfluXbL3Xmz",
+        "to": "/es/docs/tracks/definir-la-politica-comercial-para-netshoes"
+      },
+      {
+        "from": "/en/tracks/netshoes-integration-set-up--5Ua87lhFg4m0kEcuyqmcCm/1UpQGBTJQw4wimCeYSe8yc",
+        "to": "/en/docs/tracks/mapping-categories-variations-and-attributes-in-netshoes"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-netshoes--5Ua87lhFg4m0kEcuyqmcCm/1UpQGBTJQw4wimCeYSe8yc",
+        "to": "/pt/docs/tracks/mapeamento-de-categorias-variacoes-e-atributos-da-netshoes"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-netshoes--5Ua87lhFg4m0kEcuyqmcCm/1UpQGBTJQw4wimCeYSe8yc",
+        "to": "/es/docs/tracks/mapeo-de-categorias-variaciones-y-atributos-de-netshoes"
+      },
+      {
+        "from": "/en/tracks/netshoes-integration-set-up--5Ua87lhFg4m0kEcuyqmcCm/6xlGZRAyTSdIJDMNImfHyR",
+        "to": "/en/docs/tracks/netshoes-marketplace"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-netshoes--5Ua87lhFg4m0kEcuyqmcCm/6xlGZRAyTSdIJDMNImfHyR",
+        "to": "/pt/docs/tracks/netshoes-marketplace"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-netshoes--5Ua87lhFg4m0kEcuyqmcCm/6xlGZRAyTSdIJDMNImfHyR",
+        "to": "/es/docs/tracks/netshoes-marketplace"
+      },
+      {
+        "from": "/en/tracks/netshoes-integration-set-up--5Ua87lhFg4m0kEcuyqmcCm/4XEVWU4XIQimY4swYuaOoE",
+        "to": "/en/docs/tracks/orders-products-and-freight-settings-in-netshoes"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-netshoes--5Ua87lhFg4m0kEcuyqmcCm/4XEVWU4XIQimY4swYuaOoE",
+        "to": "/pt/docs/tracks/configuracoes-de-notificacoes-de-pedidos-produtos-e-frete-na-netshoes"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-netshoes--5Ua87lhFg4m0kEcuyqmcCm/4XEVWU4XIQimY4swYuaOoE",
+        "to": "/es/docs/tracks/configuracion-de-notificaciones-de-pedidos-productos-y-flete-en-netshoes"
+      },
+      {
+        "from": "/en/tracks/netshoes-integration-set-up--5Ua87lhFg4m0kEcuyqmcCm/44wi4Ib06yw3dLcqZVqTv8",
+        "to": "/en/docs/tracks/product-group-registration-in-netshoes"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-netshoes--5Ua87lhFg4m0kEcuyqmcCm/44wi4Ib06yw3dLcqZVqTv8",
+        "to": "/pt/docs/tracks/cadastro-dos-agrupamentos-de-produtos-da-netshoes"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-netshoes--5Ua87lhFg4m0kEcuyqmcCm/44wi4Ib06yw3dLcqZVqTv8",
+        "to": "/es/docs/tracks/registro-de-grupos-de-productos-en-netshoes"
+      },
+      {
+        "from": "/en/tracks/netshoes-integration-set-up--5Ua87lhFg4m0kEcuyqmcCm/7o8Vt25LJmAUuMmSWSmWes",
+        "to": "/en/docs/tracks/registering-the-netshoes-integration"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-netshoes--5Ua87lhFg4m0kEcuyqmcCm/7o8Vt25LJmAUuMmSWSmWes",
+        "to": "/pt/docs/tracks/cadastro-da-integracao-da-netshoes"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-netshoes--5Ua87lhFg4m0kEcuyqmcCm/7o8Vt25LJmAUuMmSWSmWes",
+        "to": "/es/docs/tracks/registro-de-la-integracion-de-netshoes"
+      },
+      {
+        "from": "/en/tracks/netshoes-integration-set-up--5Yx5IrNa7Y48c6aSC8wu2Y/6mokL50ny8gYK2S4ImOy2w",
+        "to": "/en/docs/tracks/setting-up-a-marketplace-trade-policy"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-netshoes--5Yx5IrNa7Y48c6aSC8wu2Y/6mokL50ny8gYK2S4ImOy2w",
+        "to": "/pt/docs/tracks/configurar-politica-comercial-para-marketplace"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-netshoes--5Yx5IrNa7Y48c6aSC8wu2Y/6mokL50ny8gYK2S4ImOy2w",
+        "to": "/es/docs/tracks/configurar-la-politica-comercial-para-marketplace"
+      },
+      {
+        "from": "/en/tracks/netshoes-integration-set-up-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/5NcpxEUrgW1fgVI8iUKk3Z",
+        "to": "/en/docs/tracks/defining-magazine-luiza-trade-policy"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-com-o-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/5NcpxEUrgW1fgVI8iUKk3Z",
+        "to": "/pt/docs/tracks/definicao-da-politica-comercial-para-magazine-luiza"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-netshoes-magazine-luiza--5Yx5IrNa7Y48c6aSC8wu2Y/5NcpxEUrgW1fgVI8iUKk3Z",
+        "to": "/es/docs/tracks/definir-la-politica-comercial-para-magazine-luiza"
+      },
+      {
+        "from": "/en/tracks/posthaus-integration--eipXIoOCKRgTDkg1Z1C4a/1OrzYEI4OZajAwUXPzmtlE",
+        "to": "/en/docs/tracks/configuring-price-divergence-rule-posthaus"
+      },
+      {
+        "from": "/pt/tracks/integracao-posthaus--eipXIoOCKRgTDkg1Z1C4a/1OrzYEI4OZajAwUXPzmtlE",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-posthaus"
+      },
+      {
+        "from": "/es/tracks/integracion-posthaus--eipXIoOCKRgTDkg1Z1C4a/1OrzYEI4OZajAwUXPzmtlE",
+        "to": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios-posthaus"
+      },
+      {
+        "from": "/en/tracks/posthaus-integration--eipXIoOCKRgTDkg1Z1C4a/2TTDtf6ZityqXzfPfnvJ3e",
+        "to": "/en/docs/tracks/configuring-the-integration-posthaus"
+      },
+      {
+        "from": "/pt/tracks/integracao-posthaus--eipXIoOCKRgTDkg1Z1C4a/2TTDtf6ZityqXzfPfnvJ3e",
+        "to": "/pt/docs/tracks/configurando-a-integracao-posthaus"
+      },
+      {
+        "from": "/es/tracks/integracion-posthaus--eipXIoOCKRgTDkg1Z1C4a/2TTDtf6ZityqXzfPfnvJ3e",
+        "to": "/es/docs/tracks/configuracion-de-la-integracion-posthaus"
+      },
+      {
+        "from": "/en/tracks/posthaus-integration--eipXIoOCKRgTDkg1Z1C4a/3IbgFea6lpfYjtrEMCvDte",
+        "to": "/en/docs/tracks/mapping-product-categories-and-attributes-posthaus"
+      },
+      {
+        "from": "/pt/tracks/integracao-posthaus--eipXIoOCKRgTDkg1Z1C4a/3IbgFea6lpfYjtrEMCvDte",
+        "to": "/pt/docs/tracks/mapeamento-de-categorias-e-atributos-de-produtos-posthaus"
+      },
+      {
+        "from": "/es/tracks/integracion-posthaus--eipXIoOCKRgTDkg1Z1C4a/3IbgFea6lpfYjtrEMCvDte",
+        "to": "/es/docs/tracks/mapeo-de-categorias-y-atributos-de-productos-posthaus"
+      },
+      {
+        "from": "/en/tracks/posthaus-integration--eipXIoOCKRgTDkg1Z1C4a/4ftXLupAsAfGz4qgFknnNm",
+        "to": "/en/docs/tracks/posthaus-integration-overview"
+      },
+      {
+        "from": "/pt/tracks/integracao-posthaus--eipXIoOCKRgTDkg1Z1C4a/4ftXLupAsAfGz4qgFknnNm",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-a-posthaus"
+      },
+      {
+        "from": "/es/tracks/integracion-posthaus--eipXIoOCKRgTDkg1Z1C4a/4ftXLupAsAfGz4qgFknnNm",
+        "to": "/es/docs/tracks/descripcion-general-de-la-integracion-de-posthaus"
+      },
+      {
+        "from": "/en/tracks/posthaus-integration--eipXIoOCKRgTDkg1Z1C4a/14JuCRZSOD0iFMMFWZNEB1",
+        "to": "/en/docs/tracks/posthaus-integration-registration"
+      },
+      {
+        "from": "/pt/tracks/integracao-posthaus--eipXIoOCKRgTDkg1Z1C4a/14JuCRZSOD0iFMMFWZNEB1",
+        "to": "/pt/docs/tracks/cadastro-da-integracao-posthaus"
+      },
+      {
+        "from": "/es/tracks/integracion-posthaus--eipXIoOCKRgTDkg1Z1C4a/14JuCRZSOD0iFMMFWZNEB1",
+        "to": "/es/docs/tracks/registro-de-integracion-posthaus"
+      },
+      {
+        "from": "/en/tracks/product-integration-errors-with-amazon--6sgd4Pagy3wNsWKBvmIFrP/4HsdzgoYxgQNtCBCRttKDA",
+        "to": "/en/docs/tracks/product-integration-errors-with-amazon"
+      },
+      {
+        "from": "/pt/tracks/erros-de-integracao-de-produtos-amazon--6sgd4Pagy3wNsWKBvmIFrP/4HsdzgoYxgQNtCBCRttKDA",
+        "to": "/pt/docs/tracks/erros-de-integracao-de-produtos-amazon"
+      },
+      {
+        "from": "/es/tracks/errores-de-integracion-de-productos-amazon--6sgd4Pagy3wNsWKBvmIFrP/4HsdzgoYxgQNtCBCRttKDA",
+        "to": "/es/docs/tracks/errores-de-integracion-de-productos-amazon"
+      },
+      {
+        "from": "/en/tracks/registering-the-centauro-integration--D8Qnjbr5lfLkUfMRhsfbj/4EqL0hADU1AWvP0gTr4nyq",
+        "to": "/en/docs/tracks/registering-the-centauro-integration"
+      },
+      {
+        "from": "/pt/tracks/cadastro-da-integracao-da-centauro--D8Qnjbr5lfLkUfMRhsfbj/4EqL0hADU1AWvP0gTr4nyq",
+        "to": "/pt/docs/tracks/cadastro-da-integracao-da-centauro"
+      },
+      {
+        "from": "/es/tracks/registro-de-la-integracion-de-centauro--D8Qnjbr5lfLkUfMRhsfbj/4EqL0hADU1AWvP0gTr4nyq",
+        "to": "/es/docs/tracks/registro-de-la-integracion-de-centauro"
+      },
+      {
+        "from": "/en/tracks/skyhub-b2w-integration-set-up--6w07SJBVqE020KIOOS8ygk/4rbhQuuWlUvOp4oOeBlbiC",
+        "to": "/en/docs/tracks/setting-up-a-marketplace-trade-policy-skyhub-b2w"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-da-skyhub-b2w--6w07SJBVqE020KIOOS8ygk/4rbhQuuWlUvOp4oOeBlbiC",
+        "to": "/pt/docs/tracks/configurar-politica-comercial-para-marketplace-skyhub-b2w"
+      },
+      {
+        "from": "/es/tracks/configurar-integracion-skyhub-b2w--6w07SJBVqE020KIOOS8ygk/4rbhQuuWlUvOp4oOeBlbiC",
+        "to": "/es/docs/tracks/configurar-la-politica-comercial-para-marketplace-skyhub-b2w"
+      },
+      {
+        "from": "/en/tracks/tiktok-integration--1r0yJSO11nrer1YVu3WTFd/4PFKJMdL0QRArCTPER91lx",
+        "to": "/en/docs/tracks/compatibility-and-requirements-for-integration"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-tiktok--1r0yJSO11nrer1YVu3WTFd/4PFKJMdL0QRArCTPER91lx",
+        "to": "/pt/docs/tracks/compatibilidade-e-requisitos-para-a-integracao"
+      },
+      {
+        "from": "/es/tracks/integracion-de-tiktok--1r0yJSO11nrer1YVu3WTFd/4PFKJMdL0QRArCTPER91lx",
+        "to": "/es/docs/tracks/compatibilidad-y-requisitos-para-la-integracion"
+      },
+      {
+        "from": "/en/tracks/tiktok-integration--1r0yJSO11nrer1YVu3WTFd/4AEUg7pEdX1beOaQhFf0wC",
+        "to": "/en/docs/tracks/configuring-the-integration-with-tiktok-for-business-in-vtex-admin"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-tiktok--1r0yJSO11nrer1YVu3WTFd/4AEUg7pEdX1beOaQhFf0wC",
+        "to": "/pt/docs/tracks/configurar-a-integracao-com-o-tiktok-for-business-no-admin-vtex"
+      },
+      {
+        "from": "/es/tracks/integracion-de-tiktok--1r0yJSO11nrer1YVu3WTFd/4AEUg7pEdX1beOaQhFf0wC",
+        "to": "/es/docs/tracks/configurar-la-integracion-de-tiktok-for-business-en-vtex-admin"
+      },
+      {
+        "from": "/en/tracks/tiktok-integration--1r0yJSO11nrer1YVu3WTFd/3xzZwEaIHsMImwAnKfZGgL",
+        "to": "/en/docs/tracks/installing-the-tiktok-for-business-app"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-tiktok--1r0yJSO11nrer1YVu3WTFd/3xzZwEaIHsMImwAnKfZGgL",
+        "to": "/pt/docs/tracks/instalar-o-aplicativo-tiktok-for-business"
+      },
+      {
+        "from": "/es/tracks/integracion-de-tiktok--1r0yJSO11nrer1YVu3WTFd/3xzZwEaIHsMImwAnKfZGgL",
+        "to": "/es/docs/tracks/instalar-la-aplicacion-tiktok-for-business"
+      },
+      {
+        "from": "/en/tracks/tiktok-integration--1r0yJSO11nrer1YVu3WTFd/24SfBYkRkKMaetgjLDKgaP",
+        "to": "/en/docs/tracks/managing-the-integration-with-tiktok-for-business-in-vtex-admin"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-tiktok--1r0yJSO11nrer1YVu3WTFd/24SfBYkRkKMaetgjLDKgaP",
+        "to": "/pt/docs/tracks/gerenciar-a-integracao-com-o-tiktok-for-business-no-admin-vtex"
+      },
+      {
+        "from": "/es/tracks/integracion-de-tiktok--1r0yJSO11nrer1YVu3WTFd/24SfBYkRkKMaetgjLDKgaP",
+        "to": "/es/docs/tracks/gestionar-la-integracion-de-tiktok-for-business-en-vtex-admin"
+      },
+      {
+        "from": "/en/tracks/tiktok-integration--1r0yJSO11nrer1YVu3WTFd/7Dwfwu1aHMp1aR1yvej5nv",
+        "to": "/en/docs/tracks/tiktok-for-business"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-o-tiktok--1r0yJSO11nrer1YVu3WTFd/7Dwfwu1aHMp1aR1yvej5nv",
+        "to": "/pt/docs/tracks/tiktok-for-business"
+      },
+      {
+        "from": "/es/tracks/integracion-de-tiktok--1r0yJSO11nrer1YVu3WTFd/7Dwfwu1aHMp1aR1yvej5nv",
+        "to": "/es/docs/tracks/tiktok-for-business"
+      },
+      {
+        "from": "/en/tracks/what-features-does-the-integration-offer--2YfvI3Jxe0CGIKoWIGQEIq/5DIYlh0eXB9ClfQFC3l3Mr",
+        "to": "/en/docs/tracks/what-features-does-the-integration-offer"
+      },
+      {
+        "from": "/pt/tracks/quais-sao-as-funcionalidades-que-a-integracao-oferece--2YfvI3Jxe0CGIKoWIGQEIq/5DIYlh0eXB9ClfQFC3l3Mr",
+        "to": "/pt/docs/tracks/quais-sao-as-funcionalidades-que-a-integracao-oferece"
+      },
+      {
+        "from": "/es/tracks/que-funcionalidades-ofrece-la-integracion--2YfvI3Jxe0CGIKoWIGQEIq/5DIYlh0eXB9ClfQFC3l3Mr",
+        "to": "/es/docs/tracks/que-funcionalidades-ofrece-la-integracion"
+      },
+      {
+        "from": "/en/tracks/wish-integration--50hbG4bzhSIhjz1lzqI1g4/2aF61hBlTKNXJlhN6aowbM",
+        "to": "/en/docs/tracks/authorize-wish-integration-on-vtex-dashboard"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-wish--50hbG4bzhSIhjz1lzqI1g4/2aF61hBlTKNXJlhN6aowbM",
+        "to": "/pt/docs/tracks/autorizar-integracao-da-wish-no-painel-da-vtex"
+      },
+      {
+        "from": "/es/tracks/integracion-con-wish--50hbG4bzhSIhjz1lzqI1g4/2aF61hBlTKNXJlhN6aowbM",
+        "to": "/es/docs/tracks/autorizar-integracion-de-wish-en-el-panel-de-vtex"
+      },
+      {
+        "from": "/en/tracks/wish-integration--50hbG4bzhSIhjz1lzqI1g4/6EYEy1jRiAj465WOnhiczD",
+        "to": "/en/docs/tracks/integration-configurations"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-wish--50hbG4bzhSIhjz1lzqI1g4/6EYEy1jRiAj465WOnhiczD",
+        "to": "/pt/docs/tracks/configuracoes-da-integracao"
+      },
+      {
+        "from": "/es/tracks/integracion-con-wish--50hbG4bzhSIhjz1lzqI1g4/6EYEy1jRiAj465WOnhiczD",
+        "to": "/es/docs/tracks/configuraciones-de-la-integracion"
+      },
+      {
+        "from": "/en/tracks/wish-integration--50hbG4bzhSIhjz1lzqI1g4/HvbHUmSDbHe1io6XqvHS3",
+        "to": "/en/docs/tracks/mapping-colors-and-sizes"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-wish--50hbG4bzhSIhjz1lzqI1g4/HvbHUmSDbHe1io6XqvHS3",
+        "to": "/pt/docs/tracks/mapeamento-de-cor-e-tamanho"
+      },
+      {
+        "from": "/es/tracks/integracion-con-wish--50hbG4bzhSIhjz1lzqI1g4/HvbHUmSDbHe1io6XqvHS3",
+        "to": "/es/docs/tracks/mapeo-de-color-y-tamano"
+      },
+      {
+        "from": "/en/tracks/wish-integration--50hbG4bzhSIhjz1lzqI1g4/4mIn8NE9McE9BxKsAf9IcB",
+        "to": "/en/docs/tracks/what-to-configure-in-wish-prior-to-the-integration"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-wish--50hbG4bzhSIhjz1lzqI1g4/4mIn8NE9McE9BxKsAf9IcB",
+        "to": "/pt/docs/tracks/o-que-configurar-na-wish-antes-de-iniciar-a-integracao"
+      },
+      {
+        "from": "/es/tracks/integracion-con-wish--50hbG4bzhSIhjz1lzqI1g4/4mIn8NE9McE9BxKsAf9IcB",
+        "to": "/es/docs/tracks/que-configurar-en-wish-antes-de-iniciar-la-integracion"
+      },
+      {
+        "from": "/en/tracks/wish-integration--50hbG4bzhSIhjz1lzqI1g4/3OHGQIQmt1dKw9RwKruE7H",
+        "to": "/en/docs/tracks/what-to-configure-with-vtex-before-starting-the-integration"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-wish--50hbG4bzhSIhjz1lzqI1g4/3OHGQIQmt1dKw9RwKruE7H",
+        "to": "/pt/docs/tracks/o-que-configurar-na-vtex-antes-de-iniciar-a-integracao"
+      },
+      {
+        "from": "/es/tracks/integracion-con-wish--50hbG4bzhSIhjz1lzqI1g4/3OHGQIQmt1dKw9RwKruE7H",
+        "to": "/es/docs/tracks/que-configurar-en-vtex-antes-de-iniciar-la-integracion"
+      },
+      {
+        "from": "/en/tracks/wish-integration--50hbG4bzhSIhjz1lzqI1g4/5sany6F7MOsEfmjuG5zIvl",
+        "to": "/en/docs/tracks/wish-app-installation"
+      },
+      {
+        "from": "/pt/tracks/integracao-com-a-wish--50hbG4bzhSIhjz1lzqI1g4/5sany6F7MOsEfmjuG5zIvl",
+        "to": "/pt/docs/tracks/instalacao-do-app-da-wish"
+      },
+      {
+        "from": "/es/tracks/integracion-con-wish--50hbG4bzhSIhjz1lzqI1g4/5sany6F7MOsEfmjuG5zIvl",
+        "to": "/es/docs/tracks/instalacion-de-la-app-de-wish"
+      },
+      {
+        "from": "/en/tracks/creating-franchise-accounts--zav76TFEZlAjnyBVL5tRc/eujH0id9Y4WJjjmdazUKd",
+        "to": "/en/docs/tracks/creating-franchise-accounts"
+      },
+      {
+        "from": "/pt/tracks/criar-contas-franquias--zav76TFEZlAjnyBVL5tRc/eujH0id9Y4WJjjmdazUKd",
+        "to": "/pt/docs/tracks/criar-contas-franquias"
+      },
+      {
+        "from": "/es/tracks/crear-cuentas-franquicia--zav76TFEZlAjnyBVL5tRc/eujH0id9Y4WJjjmdazUKd",
+        "to": "/es/docs/tracks/crear-cuentas-franquicia"
+      },
+      {
+        "from": "/en/tracks/instore-first-steps-and-configurations--zav76TFEZlAjnyBVL5tRc/5PSjRstg7UU4lOm0s8aqKN",
+        "to": "/en/docs/tracks/adding-new-stores-to-instore"
+      },
+      {
+        "from": "/pt/tracks/instore-primeiros-passos-e-configuracoes--zav76TFEZlAjnyBVL5tRc/5PSjRstg7UU4lOm0s8aqKN",
+        "to": "/pt/docs/tracks/adicionar-lojas-ao-instore"
+      },
+      {
+        "from": "/es/tracks/instore-primeros-pasos-y-configuracion--zav76TFEZlAjnyBVL5tRc/5PSjRstg7UU4lOm0s8aqKN",
+        "to": "/es/docs/tracks/agregar-nuevos-tiendas-al-instore"
+      },
+      {
+        "from": "/en/tracks/instore-first-steps-and-configurations--zav76TFEZlAjnyBVL5tRc/4L5SoLxE8O3YkxF7FKymrO",
+        "to": "/en/docs/tracks/instore-basic-settings"
+      },
+      {
+        "from": "/pt/tracks/instore-primeiros-passos-e-configuracoes--zav76TFEZlAjnyBVL5tRc/4L5SoLxE8O3YkxF7FKymrO",
+        "to": "/pt/docs/tracks/instore-setup-basico"
+      },
+      {
+        "from": "/es/tracks/instore-primeros-pasos-y-configuracion--zav76TFEZlAjnyBVL5tRc/4L5SoLxE8O3YkxF7FKymrO",
+        "to": "/es/docs/tracks/instore-configuracion-basica"
+      },
+      {
+        "from": "/en/tracks/instore-first-steps-and-configurations--zav76TFEZlAjnyBVL5tRc/5pqtuvi97FFZiGf7MlSe8q",
+        "to": "/en/docs/tracks/managing-sales-associates-in-instore"
+      },
+      {
+        "from": "/pt/tracks/instore-primeiros-passos-e-configuracoes--zav76TFEZlAjnyBVL5tRc/5pqtuvi97FFZiGf7MlSe8q",
+        "to": "/pt/docs/tracks/gerenciar-vendedores-no-instore"
+      },
+      {
+        "from": "/es/tracks/instore-primeros-pasos-y-configuracion--zav76TFEZlAjnyBVL5tRc/5pqtuvi97FFZiGf7MlSe8q",
+        "to": "/es/docs/tracks/gestionar-vendedores-en-instore"
+      },
+      {
+        "from": "/en/tracks/instore-getting-started-and-setting-up--zav76TFEZlAjnyBVL5tRc/Rby973h1l9tEM4C1YrzwZ",
+        "to": "/en/docs/tracks/customizing-instore"
+      },
+      {
+        "from": "/pt/tracks/instore-primeiros-passos-e-configuracoes--zav76TFEZlAjnyBVL5tRc/Rby973h1l9tEM4C1YrzwZ",
+        "to": "/pt/docs/tracks/customizar-o-instore"
+      },
+      {
+        "from": "/es/tracks/instore-primeros-pasos-y-configuracion--zav76TFEZlAjnyBVL5tRc/Rby973h1l9tEM4C1YrzwZ",
+        "to": "/es/docs/tracks/personalizacion-de-instore"
+      },
+      {
+        "from": "/en/tracks/instore-getting-started-and-setting-up--zav76TFEZlAjnyBVL5tRc/1wtAanSRA3g2316dw7bw8u",
+        "to": "/en/docs/tracks/prerequisites-for-using-instore"
+      },
+      {
+        "from": "/pt/tracks/instore-primeiros-passos-e-configuracoes--zav76TFEZlAjnyBVL5tRc/1wtAanSRA3g2316dw7bw8u",
+        "to": "/pt/docs/tracks/pre-requisitos-para-usar-o-instore"
+      },
+      {
+        "from": "/es/tracks/instore-primeros-pasos-y-configuracion--zav76TFEZlAjnyBVL5tRc/1wtAanSRA3g2316dw7bw8u",
+        "to": "/es/docs/tracks/requisitos-previos-para-usar-instore"
+      },
+      {
+        "from": "/en/tracks/instore-payments--43B4Nr7uZva5UdwWEt3PEy/4ye3bIWldaHJxGTgAziBZo",
+        "to": "/en/docs/tracks/configuring-cash-payments-through-instore"
+      },
+      {
+        "from": "/pt/tracks/instore-pagamentos--43B4Nr7uZva5UdwWEt3PEy/4ye3bIWldaHJxGTgAziBZo",
+        "to": "/pt/docs/tracks/configurar-pagamento-em-dinheiro-pelo-instore"
+      },
+      {
+        "from": "/es/tracks/instore-pagos--43B4Nr7uZva5UdwWEt3PEy/4ye3bIWldaHJxGTgAziBZo",
+        "to": "/es/docs/tracks/configurar-pago-en-efectivo-por-instore"
+      },
+      {
+        "from": "/en/tracks/instore-payments--43B4Nr7uZva5UdwWEt3PEy/jHQQcyX3WKeUFidwSjmY1",
+        "to": "/en/docs/tracks/define-payment-methods-displayed-on-instore"
+      },
+      {
+        "from": "/pt/tracks/instore-pagamentos--43B4Nr7uZva5UdwWEt3PEy/jHQQcyX3WKeUFidwSjmY1",
+        "to": "/pt/docs/tracks/definir-meios-de-pagamento-exibidos-no-instore"
+      },
+      {
+        "from": "/es/tracks/instore-pagos--43B4Nr7uZva5UdwWEt3PEy/jHQQcyX3WKeUFidwSjmY1",
+        "to": "/es/docs/tracks/definir-los-metodos-de-pago-mostrados-en-instore"
+      },
+      {
+        "from": "/en/tracks/instore-payments--43B4Nr7uZva5UdwWEt3PEy/5rSTgGeCqEN7c9LmFbfqA",
+        "to": "/en/docs/tracks/setting-up-credit-direct-sale"
+      },
+      {
+        "from": "/pt/tracks/instore-pagamentos--43B4Nr7uZva5UdwWEt3PEy/5rSTgGeCqEN7c9LmFbfqA",
+        "to": "/pt/docs/tracks/configurar-venda-direta-credito"
+      },
+      {
+        "from": "/es/tracks/instore-pagos--43B4Nr7uZva5UdwWEt3PEy/5rSTgGeCqEN7c9LmFbfqA",
+        "to": "/es/docs/tracks/configuracion-de-venta-directa-credito"
+      },
+      {
+        "from": "/en/tracks/instore-payments--43B4Nr7uZva5UdwWEt3PEy/74ESYaDpWvw6RSODO2SDl0",
+        "to": "/en/docs/tracks/setting-up-debit-direct-sale"
+      },
+      {
+        "from": "/pt/tracks/instore-pagamentos--43B4Nr7uZva5UdwWEt3PEy/74ESYaDpWvw6RSODO2SDl0",
+        "to": "/pt/docs/tracks/configurar-venda-direta-debito"
+      },
+      {
+        "from": "/es/tracks/instore-pagos--43B4Nr7uZva5UdwWEt3PEy/74ESYaDpWvw6RSODO2SDl0",
+        "to": "/es/docs/tracks/configuracion-de-venta-directa-debito"
+      },
+      {
+        "from": "/en/tracks/instore-payments--43B4Nr7uZva5UdwWEt3PEy/2liigRors32hzqBNs2M1Oa",
+        "to": "/en/docs/tracks/setting-up-payment-methods-for-instore"
+      },
+      {
+        "from": "/pt/tracks/instore-pagamentos--43B4Nr7uZva5UdwWEt3PEy/2liigRors32hzqBNs2M1Oa",
+        "to": "/pt/docs/tracks/configurar-metodos-de-pagamento-para-o-instore"
+      },
+      {
+        "from": "/es/tracks/instore-pagos--43B4Nr7uZva5UdwWEt3PEy/2liigRors32hzqBNs2M1Oa",
+        "to": "/es/docs/tracks/configuracion-de-metodos-de-pago-para-instore"
+      },
+      {
+        "from": "/en/tracks/instore-payments--43B4Nr7uZva5UdwWEt3PEy/7MiYdeYcy77tMqsYC8GTxn",
+        "to": "/en/docs/tracks/setting-up-pix"
+      },
+      {
+        "from": "/pt/tracks/instore-pagamentos--43B4Nr7uZva5UdwWEt3PEy/7MiYdeYcy77tMqsYC8GTxn",
+        "to": "/pt/docs/tracks/configurar-pix"
+      },
+      {
+        "from": "/es/tracks/instore-pagos--43B4Nr7uZva5UdwWEt3PEy/7MiYdeYcy77tMqsYC8GTxn",
+        "to": "/es/docs/tracks/configuracion-de-pix"
+      },
+      {
+        "from": "/en/tracks/instore-product-overview--4BYzQIwyOHvnmnCYQgLzdr/6cq4E1JCmA6vCvBCCtAgIM",
+        "to": "/en/docs/tracks/instore-using-the-app"
+      },
+      {
+        "from": "/pt/tracks/instore-visao-geral-do-produto--4BYzQIwyOHvnmnCYQgLzdr/6cq4E1JCmA6vCvBCCtAgIM",
+        "to": "/pt/docs/tracks/instore-usando-o-app"
+      },
+      {
+        "from": "/es/tracks/inStore - Descripción del producto--4BYzQIwyOHvnmnCYQgLzdr/6cq4E1JCmA6vCvBCCtAgIM",
+        "to": "/es/docs/tracks/instore-usando-el-app"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/6nmLlqdoUdTzmfYIlRMYds",
+        "to": "/en/docs/tracks/access-to-the-customers-last-cart"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/6nmLlqdoUdTzmfYIlRMYds",
+        "to": "/pt/docs/tracks/acesso-ao-ultimo-carrinho-do-cliente"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/6nmLlqdoUdTzmfYIlRMYds",
+        "to": "/es/docs/tracks/acceso-al-ultimo-carrito-del-cliente"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/58azf53rTM13poip0Zfax6",
+        "to": "/en/docs/tracks/barcode-reading"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/58azf53rTM13poip0Zfax6",
+        "to": "/pt/docs/tracks/leitura-do-codigo-de-barras"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/58azf53rTM13poip0Zfax6",
+        "to": "/es/docs/tracks/lectura-de-codigo-de-barras"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/6ROGNzkKUOObfab2wKDm6K",
+        "to": "/en/docs/tracks/best-practices-for-testing-instore"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/6ROGNzkKUOObfab2wKDm6K",
+        "to": "/pt/docs/tracks/boas-praticas-de-testes-instore"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/6ROGNzkKUOObfab2wKDm6K",
+        "to": "/es/docs/tracks/mejores-practicas-de-pruebas-instore"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/UAahHrTwypk1HhoyyMd2W",
+        "to": "/en/docs/tracks/cancel-and-refund-an-order-on-instore"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/UAahHrTwypk1HhoyyMd2W",
+        "to": "/pt/docs/tracks/cancelar-e-estornar-um-pedido-no-instore"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/UAahHrTwypk1HhoyyMd2W",
+        "to": "/es/docs/tracks/cancelar-y-reembolsar-un-pedido-en-instore"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/2hlBqxHlxgFo2o4R52pbsk",
+        "to": "/en/docs/tracks/cart-transfer-and-capture"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/2hlBqxHlxgFo2o4R52pbsk",
+        "to": "/pt/docs/tracks/transferir-e-capturar-carrinho"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/2hlBqxHlxgFo2o4R52pbsk",
+        "to": "/es/docs/tracks/transferir-y-capturar-carrito"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/2l56Bc2V1Xjv93JddsdEMi",
+        "to": "/en/docs/tracks/customer-identification"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/2l56Bc2V1Xjv93JddsdEMi",
+        "to": "/pt/docs/tracks/identificacao-do-cliente"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/2l56Bc2V1Xjv93JddsdEMi",
+        "to": "/es/docs/tracks/identificacion-del-cliente"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/48cSQw1XD4qWkZEsb2ZGbn",
+        "to": "/en/docs/tracks/customer-profile-on-instore"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/48cSQw1XD4qWkZEsb2ZGbn",
+        "to": "/pt/docs/tracks/perfil-do-cliente-no-instore"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/48cSQw1XD4qWkZEsb2ZGbn",
+        "to": "/es/docs/tracks/perfil-del-cliente-en-instore"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/7D36LJhQ25Y1E1YQoGRSoG",
+        "to": "/en/docs/tracks/delivery"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/7D36LJhQ25Y1E1YQoGRSoG",
+        "to": "/pt/docs/tracks/entrega"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/7D36LJhQ25Y1E1YQoGRSoG",
+        "to": "/es/docs/tracks/entrega"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/2rPSJ8519UCCZo5uEBkqxh",
+        "to": "/en/docs/tracks/installation"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/2rPSJ8519UCCZo5uEBkqxh",
+        "to": "/pt/docs/tracks/instalacao"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/2rPSJ8519UCCZo5uEBkqxh",
+        "to": "/es/docs/tracks/instalacion"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/1nSGGl6oBaeAn6uFDRIbRG",
+        "to": "/en/docs/tracks/instore-login"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/1nSGGl6oBaeAn6uFDRIbRG",
+        "to": "/pt/docs/tracks/login-no-instore"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/1nSGGl6oBaeAn6uFDRIbRG",
+        "to": "/es/docs/tracks/iniciar-sesion-en-instore"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/1MXhIOrlzqQlsV2c76YCpY",
+        "to": "/en/docs/tracks/omnichannel-cart"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/1MXhIOrlzqQlsV2c76YCpY",
+        "to": "/pt/docs/tracks/carrinho-omnichannel"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/1MXhIOrlzqQlsV2c76YCpY",
+        "to": "/es/docs/tracks/carrito-omnicanal"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/2xxwfe7UQhd33nPTIRF9Yw",
+        "to": "/en/docs/tracks/payment"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/2xxwfe7UQhd33nPTIRF9Yw",
+        "to": "/pt/docs/tracks/pagamento"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/2xxwfe7UQhd33nPTIRF9Yw",
+        "to": "/es/docs/tracks/pago"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/5UeqJA3sHp5goJacvHwPoS",
+        "to": "/en/docs/tracks/printing-an-order-summary"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/5UeqJA3sHp5goJacvHwPoS",
+        "to": "/pt/docs/tracks/impressao-de-resumo-do-pedido"
+      },
+      {
+        "from": "/es/tracks/instore-utilizando-la-aplicación--4BYzQIwyOHvnmnCYQgLzdr/5UeqJA3sHp5goJacvHwPoS",
+        "to": "/es/docs/tracks/impresion-del-resumen-del-pedido"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/nHvqzKre0iKXqHXTuz7JH",
+        "to": "/en/docs/tracks/product-details"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/nHvqzKre0iKXqHXTuz7JH",
+        "to": "/pt/docs/tracks/detalhes-do-produto"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/nHvqzKre0iKXqHXTuz7JH",
+        "to": "/es/docs/tracks/detalles-del-producto"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/TrTtmCGVLTaCSmowGFYDI",
+        "to": "/en/docs/tracks/sale-confirmed"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/TrTtmCGVLTaCSmowGFYDI",
+        "to": "/pt/docs/tracks/venda-confirmada"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/TrTtmCGVLTaCSmowGFYDI",
+        "to": "/es/docs/tracks/venta-confirmada"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/6deiffo22iKkY27PkfstXy",
+        "to": "/en/docs/tracks/sharing-shopping-cart-using-instore-social-selling"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/6deiffo22iKkY27PkfstXy",
+        "to": "/pt/docs/tracks/compartilhar-carrinho-utilizando-o-instore-social-selling"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/6deiffo22iKkY27PkfstXy",
+        "to": "/es/docs/tracks/compartir-el-carrito-utilizando-instore-social-selling"
+      },
+      {
+        "from": "/en/tracks/instore-using-the-app--4BYzQIwyOHvnmnCYQgLzdr/9sXeVwoD60qYYgRJ11r5F",
+        "to": "/en/docs/tracks/unified-search"
+      },
+      {
+        "from": "/pt/tracks/instore-usando-o-app--4BYzQIwyOHvnmnCYQgLzdr/9sXeVwoD60qYYgRJ11r5F",
+        "to": "/pt/docs/tracks/busca-unificada"
+      },
+      {
+        "from": "/es/tracks/instore-usando-el-app--4BYzQIwyOHvnmnCYQgLzdr/9sXeVwoD60qYYgRJ11r5F",
+        "to": "/es/docs/tracks/busqueda-unificada"
+      },
+      {
+        "from": "/en/tracks/register-the-barcode-of-the-skus-for-the-instore--zav76TFEZlAjnyBVL5tRc/4eooWH0d8Aiwzparyi4Hg",
+        "to": "/en/docs/tracks/register-the-barcode-of-the-skus-for-instore"
+      },
+      {
+        "from": "/pt/tracks/cadastrar-o-codigo-de-barras-dos-skus-para-instore--zav76TFEZlAjnyBVL5tRc/4eooWH0d8Aiwzparyi4Hg",
+        "to": "/pt/docs/tracks/cadastrar-o-codigo-de-barras-dos-skus-para-instore"
+      },
+      {
+        "from": "/es/tracks/registrar-el-codigo-de-barras-de-los-skus-para-el-instore--zav76TFEZlAjnyBVL5tRc/4eooWH0d8Aiwzparyi4Hg",
+        "to": "/es/docs/tracks/registrar-el-codigo-de-barras-de-los-skus-para-el-instore"
+      },
+      {
+        "from": "/en/tracks/unified-commerce-strategies--3WGDRRhc3vf1MJb9zGncnv/4hXfgqXxS1lwAfnxgja3xW",
+        "to": "/en/docs/tracks/configuring-physical-stores-as-pickup-points"
+      },
+      {
+        "from": "/pt/tracks/estrategias-de-comercio-unificado--3WGDRRhc3vf1MJb9zGncnv/4hXfgqXxS1lwAfnxgja3xW",
+        "to": "/pt/docs/tracks/configurar-lojas-fisicas-como-pontos-de-retirada"
+      },
+      {
+        "from": "/es/tracks/estrategias-de-comercio-unificado--3WGDRRhc3vf1MJb9zGncnv/4hXfgqXxS1lwAfnxgja3xW",
+        "to": "/es/docs/tracks/configurar-tiendas-fisicas-como-puntos-de-recogida"
+      },
+      {
+        "from": "/en/tracks/unified-commerce-strategies--3WGDRRhc3vf1MJb9zGncnv/50GAmxxFsJoLWqcnMysWdl",
+        "to": "/en/docs/tracks/configuring-ship-from-store"
+      },
+      {
+        "from": "/pt/tracks/estrategias-de-comercio-unificado--3WGDRRhc3vf1MJb9zGncnv/50GAmxxFsJoLWqcnMysWdl",
+        "to": "/pt/docs/tracks/configurar-ship-from-store"
+      },
+      {
+        "from": "/es/tracks/estrategias-de-comercio-unificado--3WGDRRhc3vf1MJb9zGncnv/50GAmxxFsJoLWqcnMysWdl",
+        "to": "/es/docs/tracks/configurar-ship-from-store"
+      },
+      {
+        "from": "/en/tracks/unified-commerce-strategies--3WGDRRhc3vf1MJb9zGncnv/40KMlmGI5tN0r0KPCDWgGn",
+        "to": "/en/docs/tracks/endless-aisle"
+      },
+      {
+        "from": "/pt/tracks/estrategias-de-comercio-unificado--3WGDRRhc3vf1MJb9zGncnv/40KMlmGI5tN0r0KPCDWgGn",
+        "to": "/pt/docs/tracks/prateleira-infinita"
+      },
+      {
+        "from": "/es/tracks/estrategias-de-comercio-unificado--3WGDRRhc3vf1MJb9zGncnv/40KMlmGI5tN0r0KPCDWgGn",
+        "to": "/es/docs/tracks/pasillo-infinito"
+      },
+      {
+        "from": "/en/tracks/unified-commerce-strategies--3WGDRRhc3vf1MJb9zGncnv/1YOAnl8O2KN6drCEGLVoXV",
+        "to": "/en/docs/tracks/order-delivery"
+      },
+      {
+        "from": "/pt/tracks/estrategias-de-comercio-unificado--3WGDRRhc3vf1MJb9zGncnv/1YOAnl8O2KN6drCEGLVoXV",
+        "to": "/pt/docs/tracks/delivery"
+      },
+      {
+        "from": "/es/tracks/estrategias-de-comercio-unificado--3WGDRRhc3vf1MJb9zGncnv/1YOAnl8O2KN6drCEGLVoXV",
+        "to": "/es/docs/tracks/entrega-delivery"
+      },
+      {
+        "from": "/en/tracks/unified-commerce-strategies--3WGDRRhc3vf1MJb9zGncnv/2LGAiUnHES1enjHsfi8fI3",
+        "to": "/en/docs/tracks/unified-commerce-101"
+      },
+      {
+        "from": "/pt/tracks/estrategias-de-comercio-unificado--3WGDRRhc3vf1MJb9zGncnv/2LGAiUnHES1enjHsfi8fI3",
+        "to": "/pt/docs/tracks/comercio-unificado-101"
+      },
+      {
+        "from": "/es/tracks/estrategias-de-comercio-unificado--3WGDRRhc3vf1MJb9zGncnv/2LGAiUnHES1enjHsfi8fI3",
+        "to": "/es/docs/tracks/comercio-unificado-101"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/125yr6jAfwiiz84JP4ppfO",
+        "to": "/en/docs/tracks/configuring-event"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/125yr6jAfwiiz84JP4ppfO",
+        "to": "/pt/docs/tracks/configurar-evento"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/125yr6jAfwiiz84JP4ppfO",
+        "to": "/es/docs/tracks/configurar-evento"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/5WLXGbOSFmxN7QlzOnfGrv",
+        "to": "/en/docs/tracks/creating-event"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/5WLXGbOSFmxN7QlzOnfGrv",
+        "to": "/pt/docs/tracks/criar-evento"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/5WLXGbOSFmxN7QlzOnfGrv",
+        "to": "/es/docs/tracks/crear-evento"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/Uw0RiHj7cDUnbEpMSp6DE",
+        "to": "/en/docs/tracks/getting-event-recording"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/Uw0RiHj7cDUnbEpMSp6DE",
+        "to": "/pt/docs/tracks/obter-gravacao-do-evento"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/Uw0RiHj7cDUnbEpMSp6DE",
+        "to": "/es/docs/tracks/obtener-la-grabacion-del-evento"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/7e3bP6LjFgxXC210jSpl59",
+        "to": "/en/docs/tracks/hiding-or-removing-live-shopping-component"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/7e3bP6LjFgxXC210jSpl59",
+        "to": "/pt/docs/tracks/ocultar-ou-remover-componente-do-live-shopping"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/7e3bP6LjFgxXC210jSpl59",
+        "to": "/es/docs/tracks/ocultar-o-eliminar-componente-de-live-shopping"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/5r4DSCZCdQUErgJzLGtiMD",
+        "to": "/en/docs/tracks/installing-live-shopping"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/5r4DSCZCdQUErgJzLGtiMD",
+        "to": "/pt/docs/tracks/instalar-live-shopping"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/5r4DSCZCdQUErgJzLGtiMD",
+        "to": "/es/docs/tracks/instalar-live-shopping"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/Dw0QdKI0aGjmyD5Z6z5JC",
+        "to": "/en/docs/tracks/optional-using-external-studios"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/Dw0QdKI0aGjmyD5Z6z5JC",
+        "to": "/pt/docs/tracks/opcional-usar-studio-externo"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/Dw0QdKI0aGjmyD5Z6z5JC",
+        "to": "/es/docs/tracks/opcional-usar-studio-externo"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/4r5uk6XHxdYlOGMr11GFWR",
+        "to": "/en/docs/tracks/placing-the-live-shopping-component"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/4r5uk6XHxdYlOGMr11GFWR",
+        "to": "/pt/docs/tracks/adicionar-componente-do-live-shopping"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/4r5uk6XHxdYlOGMr11GFWR",
+        "to": "/es/docs/tracks/insertar-componente-de-live-shopping"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/69PX90vv4oDWQ34nnBkiQt",
+        "to": "/en/docs/tracks/transmitting-event-from-bundle"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/69PX90vv4oDWQ34nnBkiQt",
+        "to": "/pt/docs/tracks/transmitir-evento-a-partir-do-bundle"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/69PX90vv4oDWQ34nnBkiQt",
+        "to": "/es/docs/tracks/transmitir-evento-desde-bundle"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/6NrWRLAJEHijcd6tLIWoqq",
+        "to": "/en/docs/tracks/turning-on-event"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/6NrWRLAJEHijcd6tLIWoqq",
+        "to": "/pt/docs/tracks/iniciar-evento"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/6NrWRLAJEHijcd6tLIWoqq",
+        "to": "/es/docs/tracks/iniciar-evento"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/3GKzrP9nkyRwpUyyeYUaeX",
+        "to": "/en/docs/tracks/using-bundle-studio"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/3GKzrP9nkyRwpUyyeYUaeX",
+        "to": "/pt/docs/tracks/usar-studio-bundle"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/3GKzrP9nkyRwpUyyeYUaeX",
+        "to": "/es/docs/tracks/usar-studio-bundle"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/1le8tz3fyBdb7kR4UdxTjZ",
+        "to": "/en/docs/tracks/validating-installation"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/1le8tz3fyBdb7kR4UdxTjZ",
+        "to": "/pt/docs/tracks/validar-instalacao"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/1le8tz3fyBdb7kR4UdxTjZ",
+        "to": "/es/docs/tracks/validar-la-instalacion"
+      },
+      {
+        "from": "/en/tracks/vtex-live-shopping-getting-started--3eCHNCIx8XhZOSmX0sQT3U/17HV0OAaCIB46tW9O1rVEJ",
+        "to": "/en/docs/tracks/vtex-live-shopping"
+      },
+      {
+        "from": "/pt/tracks/vtex-live-shopping-primeiros-passos--3eCHNCIx8XhZOSmX0sQT3U/17HV0OAaCIB46tW9O1rVEJ",
+        "to": "/pt/docs/tracks/vtex-live-shopping"
+      },
+      {
+        "from": "/es/tracks/vtex-live-shopping-primeros-pasos--3eCHNCIx8XhZOSmX0sQT3U/17HV0OAaCIB46tW9O1rVEJ",
+        "to": "/es/docs/tracks/vtex-live-shopping"
+      },
+      {
+        "from": "/en/tracks/what-is-instore--zav76TFEZlAjnyBVL5tRc/7fnnVlG3Kv1Tay9iagc5yf",
+        "to": "/en/docs/tracks/what-is-instore"
+      },
+      {
+        "from": "/pt/tracks/o-que-e-o-instore--zav76TFEZlAjnyBVL5tRc/7fnnVlG3Kv1Tay9iagc5yf",
+        "to": "/pt/docs/tracks/o-que-e-o-instore"
+      },
+      {
+        "from": "/es/tracks/que-es-instore--zav76TFEZlAjnyBVL5tRc/7fnnVlG3Kv1Tay9iagc5yf",
+        "to": "/es/docs/tracks/que-es-instore"
+      },
+      {
+        "from": "/en/tracks/next-steps-after-the-go-live--3J7WFZyvTcoiwkcIVFVhIS/1t2QBZvrOBSLgvHaAV9fYm",
+        "to": "/en/docs/tracks/add-on-products"
+      },
+      {
+        "from": "/pt/tracks/proximos-passos-apos-o-go-live--3J7WFZyvTcoiwkcIVFVhIS/1t2QBZvrOBSLgvHaAV9fYm",
+        "to": "/pt/docs/tracks/produtos-add-on"
+      },
+      {
+        "from": "/es/tracks/proximos-pasos-tras-el-go-live--3J7WFZyvTcoiwkcIVFVhIS/1t2QBZvrOBSLgvHaAV9fYm",
+        "to": "/es/docs/tracks/products-add-on"
+      },
+      {
+        "from": "/en/tracks/next-steps-after-the-go-live--3J7WFZyvTcoiwkcIVFVhIS/7bORBaAr4rIG3JgRi68jIK",
+        "to": "/en/docs/tracks/next-steps"
+      },
+      {
+        "from": "/pt/tracks/proximos-passos-apos-o-go-live--3J7WFZyvTcoiwkcIVFVhIS/7bORBaAr4rIG3JgRi68jIK",
+        "to": "/pt/docs/tracks/proximos-passos"
+      },
+      {
+        "from": "/es/tracks/proximos-pasos-tras-el-go-live--3J7WFZyvTcoiwkcIVFVhIS/7bORBaAr4rIG3JgRi68jIK",
+        "to": "/es/docs/tracks/proximos-pasos"
+      },
+      {
+        "from": "/en/tracks/next-steps-after-the-go-live--3J7WFZyvTcoiwkcIVFVhIS/V1fs7IkfYMfn91ZVHTLu4",
+        "to": "/en/docs/tracks/other-vtex-module-settings"
+      },
+      {
+        "from": "/pt/tracks/proximos-passos-apos-o-go-live--3J7WFZyvTcoiwkcIVFVhIS/V1fs7IkfYMfn91ZVHTLu4",
+        "to": "/pt/docs/tracks/outras-configuracoes-de-modulos-vtex"
+      },
+      {
+        "from": "/es/tracks/proximos-pasos-tras-el-go-live--3J7WFZyvTcoiwkcIVFVhIS/V1fs7IkfYMfn91ZVHTLu4",
+        "to": "/es/docs/tracks/otros-ajustes-de-los-modulos-de-vtex"
+      },
+      {
+        "from": "/en/tracks/next-steps-after-the-go-live--3J7WFZyvTcoiwkcIVFVhIS/5Qvw31yH2FPDBl14K5xXHA",
+        "to": "/en/docs/tracks/unified-commerce"
+      },
+      {
+        "from": "/pt/tracks/proximos-passos-apos-o-go-live--3J7WFZyvTcoiwkcIVFVhIS/5Qvw31yH2FPDBl14K5xXHA",
+        "to": "/pt/docs/tracks/comercio-unificado"
+      },
+      {
+        "from": "/es/tracks/proximos-pasos-tras-el-go-live--3J7WFZyvTcoiwkcIVFVhIS/5Qvw31yH2FPDBl14K5xXHA",
+        "to": "/es/docs/tracks/comercio-unificado"
+      },
+      {
+        "from": "/en/tracks/support-at-vtex--4AXsGdGHqExp9ZkiNq9eMy/3g2mhmPDx5GszNgLDICzsl",
+        "to": "/en/docs/tracks/billing-support"
+      },
+      {
+        "from": "/pt/tracks/suporte-na-vtex--4AXsGdGHqExp9ZkiNq9eMy/3g2mhmPDx5GszNgLDICzsl",
+        "to": "/pt/docs/tracks/suporte-financeiro"
+      },
+      {
+        "from": "/es/tracks/soporte-en-vtex--4AXsGdGHqExp9ZkiNq9eMy/3g2mhmPDx5GszNgLDICzsl",
+        "to": "/es/docs/tracks/soporte-financiero"
+      },
+      {
+        "from": "/en/tracks/support-at-vtex--4AXsGdGHqExp9ZkiNq9eMy/3KQWGgkPOwbFTPfBxL7YwZ",
+        "to": "/en/docs/tracks/commercial-support"
+      },
+      {
+        "from": "/pt/tracks/suporte-na-vtex--4AXsGdGHqExp9ZkiNq9eMy/3KQWGgkPOwbFTPfBxL7YwZ",
+        "to": "/pt/docs/tracks/suporte-comercial"
+      },
+      {
+        "from": "/es/tracks/soporte-en-vtex--4AXsGdGHqExp9ZkiNq9eMy/3KQWGgkPOwbFTPfBxL7YwZ",
+        "to": "/es/docs/tracks/soporte-comercial"
+      },
+      {
+        "from": "/en/tracks/support-at-vtex--4AXsGdGHqExp9ZkiNq9eMy/3TUpFItxp8L1WZAD1JuYfF",
+        "to": "/en/docs/tracks/contract-termination"
+      },
+      {
+        "from": "/pt/tracks/suporte-na-vtex--4AXsGdGHqExp9ZkiNq9eMy/3TUpFItxp8L1WZAD1JuYfF",
+        "to": "/pt/docs/tracks/rescisao-de-contrato"
+      },
+      {
+        "from": "/es/tracks/soporte-en-vtex--4AXsGdGHqExp9ZkiNq9eMy/3TUpFItxp8L1WZAD1JuYfF",
+        "to": "/es/docs/tracks/rescision-de-contrato"
+      },
+      {
+        "from": "/en/tracks/support-at-vtex--4AXsGdGHqExp9ZkiNq9eMy/2Ik9CGbPeZIHHaYFsuyId3",
+        "to": "/en/docs/tracks/how-vtex-support-works"
+      },
+      {
+        "from": "/pt/tracks/suporte-na-vtex--4AXsGdGHqExp9ZkiNq9eMy/2Ik9CGbPeZIHHaYFsuyId3",
+        "to": "/pt/docs/tracks/funcionamento-do-suporte-vtex"
+      },
+      {
+        "from": "/es/tracks/soporte-en-vtex--4AXsGdGHqExp9ZkiNq9eMy/2Ik9CGbPeZIHHaYFsuyId3",
+        "to": "/es/docs/tracks/funcionamiento-del-soporte-vtex"
+      },
+      {
+        "from": "/en/tracks/support-at-vtex--4AXsGdGHqExp9ZkiNq9eMy/6EboD7Y1BOLlWdT8JM15EE",
+        "to": "/en/docs/tracks/opening-tickets"
+      },
+      {
+        "from": "/pt/tracks/suporte-na-vtex--4AXsGdGHqExp9ZkiNq9eMy/6EboD7Y1BOLlWdT8JM15EE",
+        "to": "/pt/docs/tracks/abertura-de-chamados"
+      },
+      {
+        "from": "/es/tracks/soporte-en-vtex--4AXsGdGHqExp9ZkiNq9eMy/6EboD7Y1BOLlWdT8JM15EE",
+        "to": "/es/docs/tracks/apertura-de-tickets"
+      },
+      {
+        "from": "/en/tracks/support-at-vtex--4AXsGdGHqExp9ZkiNq9eMy/3thRAdTB3gGwTB0e1fVL3T",
+        "to": "/en/docs/tracks/technical-support"
+      },
+      {
+        "from": "/pt/tracks/suporte-na-vtex--4AXsGdGHqExp9ZkiNq9eMy/3thRAdTB3gGwTB0e1fVL3T",
+        "to": "/pt/docs/tracks/suporte-tecnico"
+      },
+      {
+        "from": "/es/tracks/soporte-en-vtex--4AXsGdGHqExp9ZkiNq9eMy/3thRAdTB3gGwTB0e1fVL3T",
+        "to": "/es/docs/tracks/suporte-tecnico"
+      },
+      {
+        "from": "/en/tracks/support-at-vtex--4AXsGdGHqExp9ZkiNq9eMy/7w7cUmbrdPEKpTMItjXEB8",
+        "to": "/en/docs/tracks/vtex-support"
+      },
+      {
+        "from": "/pt/tracks/suporte-na-vtex--4AXsGdGHqExp9ZkiNq9eMy/7w7cUmbrdPEKpTMItjXEB8",
+        "to": "/pt/docs/tracks/suporte-na-vtex"
+      },
+      {
+        "from": "/es/tracks/soporte-en-vtex--4AXsGdGHqExp9ZkiNq9eMy/7w7cUmbrdPEKpTMItjXEB8",
+        "to": "/es/docs/tracks/soporte-vtex"
+      },
+      {
+        "from": "/en/tracks/vtex-store-overview--eSDNk26pdvemF3XKM0nK9/4yPqZQyj0t675QpcG7H6yl",
+        "to": "/en/docs/tracks/accounts-and-architecture"
+      },
+      {
+        "from": "/pt/tracks/trilha-da-loja-vtex--eSDNk26pdvemF3XKM0nK9/4yPqZQyj0t675QpcG7H6yl",
+        "to": "/pt/docs/tracks/contas-e-arquitetura"
+      },
+      {
+        "from": "/es/tracks/serie-de-la-tienda-vtex--eSDNk26pdvemF3XKM0nK9/4yPqZQyj0t675QpcG7H6yl",
+        "to": "/es/docs/tracks/cuentas-y-arquitectura"
+      },
+      {
+        "from": "/en/tracks/vtex-store-overview--eSDNk26pdvemF3XKM0nK9/7euXDZR5CCnVFSrXyczIhu",
+        "to": "/en/docs/tracks/backend-integrations"
+      },
+      {
+        "from": "/pt/tracks/trilha-da-loja-vtex--eSDNk26pdvemF3XKM0nK9/7euXDZR5CCnVFSrXyczIhu",
+        "to": "/pt/docs/tracks/integracoes-de-backend"
+      },
+      {
+        "from": "/es/tracks/serie-de-la-tienda-vtex--eSDNk26pdvemF3XKM0nK9/7euXDZR5CCnVFSrXyczIhu",
+        "to": "/es/docs/tracks/integraciones-de-backend"
+      },
+      {
+        "from": "/en/tracks/vtex-store-overview--eSDNk26pdvemF3XKM0nK9/67SCtUreXxKYWhZh8n0zvZ",
+        "to": "/en/docs/tracks/frontend-implementation"
+      },
+      {
+        "from": "/pt/tracks/trilha-da-loja-vtex--eSDNk26pdvemF3XKM0nK9/67SCtUreXxKYWhZh8n0zvZ",
+        "to": "/pt/docs/tracks/implementacao-de-frontend"
+      },
+      {
+        "from": "/es/tracks/serie-de-la-tienda-vtex--eSDNk26pdvemF3XKM0nK9/67SCtUreXxKYWhZh8n0zvZ",
+        "to": "/es/docs/tracks/implementacion-del-frontend"
+      },
+      {
+        "from": "/en/tracks/vtex-store-overview--eSDNk26pdvemF3XKM0nK9/4EPwTXx5oFdSG1dA3zIchz",
+        "to": "/en/docs/tracks/initial-setup"
+      },
+      {
+        "from": "/pt/tracks/trilha-da-loja-vtex--eSDNk26pdvemF3XKM0nK9/4EPwTXx5oFdSG1dA3zIchz",
+        "to": "/pt/docs/tracks/configuracoes-iniciais"
+      },
+      {
+        "from": "/es/tracks/serie-de-la-tienda-vtex--eSDNk26pdvemF3XKM0nK9/4EPwTXx5oFdSG1dA3zIchz",
+        "to": "/es/docs/tracks/configuracion-inicial"
+      },
+      {
+        "from": "/en/tracks/vtex-store-overview--eSDNk26pdvemF3XKM0nK9/3QfoDZWg9YWl8lwS9MVrnU",
+        "to": "/en/docs/tracks/introduction-to-vtex"
+      },
+      {
+        "from": "/pt/tracks/trilha-da-loja-vtex--eSDNk26pdvemF3XKM0nK9/3QfoDZWg9YWl8lwS9MVrnU",
+        "to": "/pt/docs/tracks/introducao-a-vtex"
+      },
+      {
+        "from": "/es/tracks/serie-de-la-tienda-vtex--eSDNk26pdvemF3XKM0nK9/3QfoDZWg9YWl8lwS9MVrnU",
+        "to": "/es/docs/tracks/introduccion-a-vtex"
+      },
+      {
+        "from": "/en/tracks/vtex-store-overview--eSDNk26pdvemF3XKM0nK9/6xYnNxDHUcY6FyChgziCoH",
+        "to": "/en/docs/tracks/planning-the-go-live"
+      },
+      {
+        "from": "/pt/tracks/trilha-da-loja-vtex--eSDNk26pdvemF3XKM0nK9/6xYnNxDHUcY6FyChgziCoH",
+        "to": "/pt/docs/tracks/planejamento-do-go-live"
+      },
+      {
+        "from": "/es/tracks/serie-de-la-tienda-vtex--eSDNk26pdvemF3XKM0nK9/6xYnNxDHUcY6FyChgziCoH",
+        "to": "/es/docs/tracks/planificacion-del-go-live"
+      },
+      {
+        "from": "/en/tracks/vtex-store-overview--eSDNk26pdvemF3XKM0nK9/75MX4aorniD0BYAB8Nwbo7",
+        "to": "/en/docs/tracks/vtex-modules-i"
+      },
+      {
+        "from": "/pt/tracks/trilha-da-loja-vtex--eSDNk26pdvemF3XKM0nK9/75MX4aorniD0BYAB8Nwbo7",
+        "to": "/pt/docs/tracks/modulos-da-vtex-i"
+      },
+      {
+        "from": "/es/tracks/serie-de-la-tienda-vtex--eSDNk26pdvemF3XKM0nK9/75MX4aorniD0BYAB8Nwbo7",
+        "to": "/es/docs/tracks/modulos-de-vtex-i"
+      },
+      {
+        "from": "/en/tracks/vtex-store-overview--eSDNk26pdvemF3XKM0nK9/3MYcZaojb5HSUg6ufm6GxQ",
+        "to": "/en/docs/tracks/vtex-modules-ii"
+      },
+      {
+        "from": "/pt/tracks/trilha-da-loja-vtex--eSDNk26pdvemF3XKM0nK9/3MYcZaojb5HSUg6ufm6GxQ",
+        "to": "/pt/docs/tracks/modulos-da-vtex-ii"
+      },
+      {
+        "from": "/es/tracks/serie-de-la-tienda-vtex--eSDNk26pdvemF3XKM0nK9/3MYcZaojb5HSUg6ufm6GxQ",
+        "to": "/es/docs/tracks/modulos-de-vtex-ii"
+      },
+      {
+        "from": "/en/tracks/clustered-payment-conditions--1LqUFHQZ3ZQyV5TmugbGNm/1LwzfViwdvLMxijASF0GU6",
+        "to": "/en/docs/tracks/configure-clustered-conditions"
+      },
+      {
+        "from": "/pt/tracks/condicoes-de-pagamento-clusterizadas--1LqUFHQZ3ZQyV5TmugbGNm/1LwzfViwdvLMxijASF0GU6",
+        "to": "/pt/docs/tracks/configurar-condicoes-de-clusterizacao"
+      },
+      {
+        "from": "/es/tracks/condiciones-de-pago-clusterizadas--1LqUFHQZ3ZQyV5TmugbGNm/1LwzfViwdvLMxijASF0GU6",
+        "to": "/es/docs/tracks/configurar-condiciones-de-clusterizacion"
+      },
+      {
+        "from": "/en/tracks/clustered-payment-conditions--1LqUFHQZ3ZQyV5TmugbGNm/65uVP4M7BFTcO2Ps1wJzSv",
+        "to": "/en/docs/tracks/enable-clustered-payment-conditions"
+      },
+      {
+        "from": "/pt/tracks/condicoes-de-pagamento-clusterizadas--1LqUFHQZ3ZQyV5TmugbGNm/65uVP4M7BFTcO2Ps1wJzSv",
+        "to": "/pt/docs/tracks/habilitar-clustered-payment-conditions"
+      },
+      {
+        "from": "/es/tracks/condiciones-de-pago-clusterizadas--1LqUFHQZ3ZQyV5TmugbGNm/65uVP4M7BFTcO2Ps1wJzSv",
+        "to": "/es/docs/tracks/habilitar-clustered-payment-conditions"
+      },
+      {
+        "from": "/en/tracks/clustered-payment-conditions--1LqUFHQZ3ZQyV5TmugbGNm/2CmfhSqmOTVo0tLWkAPiiA",
+        "to": "/en/docs/tracks/how-clustered-conditions-work"
+      },
+      {
+        "from": "/pt/tracks/condicoes-de-pagamento-clusterizadas--1LqUFHQZ3ZQyV5TmugbGNm/2CmfhSqmOTVo0tLWkAPiiA",
+        "to": "/pt/docs/tracks/como-funcionam-as-condicoes-de-clusterizacao"
+      },
+      {
+        "from": "/es/tracks/condiciones-de-pago-clusterizadas--1LqUFHQZ3ZQyV5TmugbGNm/2CmfhSqmOTVo0tLWkAPiiA",
+        "to": "/es/docs/tracks/como-funcionan-las-condiciones-de-clusterizacion"
+      },
+      {
+        "from": "/en/tracks/clustered-payment-conditions--1LqUFHQZ3ZQyV5TmugbGNm/5k74U1EJm6FzirFczMYHBk",
+        "to": "/en/docs/tracks/use-cases"
+      },
+      {
+        "from": "/pt/tracks/condicoes-de-pagamento-clusterizadas--1LqUFHQZ3ZQyV5TmugbGNm/5k74U1EJm6FzirFczMYHBk",
+        "to": "/pt/docs/tracks/casos-de-uso"
+      },
+      {
+        "from": "/es/tracks/condiciones-de-pago-clusterizadas--1LqUFHQZ3ZQyV5TmugbGNm/5k74U1EJm6FzirFczMYHBk",
+        "to": "/es/docs/tracks/casos-practicos"
+      },
+      {
+        "from": "/en/tracks/clustered-payment-conditions--1LqUFHQZ3ZQyV5TmugbGNm/4z2upCJ2om27Cs0BVJRA0U",
+        "to": "/en/docs/tracks/what-are-clustered-payment-conditions"
+      },
+      {
+        "from": "/pt/tracks/condicoes-de-pagamento-clusterizadas--1LqUFHQZ3ZQyV5TmugbGNm/4z2upCJ2om27Cs0BVJRA0U",
+        "to": "/pt/docs/tracks/o-que-e-o-condicoes-de-pagamento-clusterizadas"
+      },
+      {
+        "from": "/es/tracks/condiciones-de-pago-clusterizadas--1LqUFHQZ3ZQyV5TmugbGNm/4z2upCJ2om27Cs0BVJRA0U",
+        "to": "/es/docs/tracks/que-son-las-condiciones-de-pago-clusterizadas"
+      },
+      {
+        "from": "/en/tracks/customer-credit-getting-started--1hCRg21lXYy2seOKgqQ2CC/7FHLd0cmxqqGeEUuc8uioU",
+        "to": "/en/docs/tracks/creating-accounts"
+      },
+      {
+        "from": "/pt/tracks/customer-credit-como-comecar--1hCRg21lXYy2seOKgqQ2CC/7FHLd0cmxqqGeEUuc8uioU",
+        "to": "/pt/docs/tracks/criando-contas"
+      },
+      {
+        "from": "/es/tracks/customer-credit-como-empezar--1hCRg21lXYy2seOKgqQ2CC/7FHLd0cmxqqGeEUuc8uioU",
+        "to": "/es/docs/tracks/creando-cuentas"
+      },
+      {
+        "from": "/en/tracks/customer-credit-getting-started--1hCRg21lXYy2seOKgqQ2CC/36grlQ69NK6OCuioeekyCs",
+        "to": "/en/docs/tracks/installing-customer-credit"
+      },
+      {
+        "from": "/pt/tracks/customer-credit-como-comecar--1hCRg21lXYy2seOKgqQ2CC/36grlQ69NK6OCuioeekyCs",
+        "to": "/pt/docs/tracks/instalar-customer-credit"
+      },
+      {
+        "from": "/es/tracks/customer-credit-como-empezar--1hCRg21lXYy2seOKgqQ2CC/36grlQ69NK6OCuioeekyCs",
+        "to": "/es/docs/tracks/instalar-customer-credit"
+      },
+      {
+        "from": "/en/tracks/customer-credit-getting-started--1hCRg21lXYy2seOKgqQ2CC/4eknoeqaj6EGC20amsm6Gc",
+        "to": "/en/docs/tracks/managing-accounts"
+      },
+      {
+        "from": "/pt/tracks/customer-credit-como-comecar--1hCRg21lXYy2seOKgqQ2CC/4eknoeqaj6EGC20amsm6Gc",
+        "to": "/pt/docs/tracks/gerenciando-contas"
+      },
+      {
+        "from": "/es/tracks/customer-credit-como-empezar--1hCRg21lXYy2seOKgqQ2CC/4eknoeqaj6EGC20amsm6Gc",
+        "to": "/es/docs/tracks/administrando-cuentas"
+      },
+      {
+        "from": "/en/tracks/customer-credit-getting-started--1hCRg21lXYy2seOKgqQ2CC/vtf5UVQcmlb0kHBZYYmM3",
+        "to": "/en/docs/tracks/managing-customer-credit-invoices"
+      },
+      {
+        "from": "/pt/tracks/customer-credit-como-comecar--1hCRg21lXYy2seOKgqQ2CC/vtf5UVQcmlb0kHBZYYmM3",
+        "to": "/pt/docs/tracks/gerenciando-titulos-no-customer-credit"
+      },
+      {
+        "from": "/es/tracks/customer-credit-como-empezar--1hCRg21lXYy2seOKgqQ2CC/vtf5UVQcmlb0kHBZYYmM3",
+        "to": "/es/docs/tracks/gestionar-titulos-en-customer-credit"
+      },
+      {
+        "from": "/en/tracks/customer-credit-getting-started--1hCRg21lXYy2seOKgqQ2CC/21ok0GBwmcIeaY2IukYMOg",
+        "to": "/en/docs/tracks/setting-up-the-app"
+      },
+      {
+        "from": "/pt/tracks/customer-credit-como-comecar--1hCRg21lXYy2seOKgqQ2CC/21ok0GBwmcIeaY2IukYMOg",
+        "to": "/pt/docs/tracks/configurando-a-app"
+      },
+      {
+        "from": "/es/tracks/customer-credit-como-empezar--1hCRg21lXYy2seOKgqQ2CC/21ok0GBwmcIeaY2IukYMOg",
+        "to": "/es/docs/tracks/configuracion-de-la-app"
+      },
+      {
+        "from": "/en/tracks/digital-wallet-e-wallet--6X8YyZBoVJpz5R8oXciTyu/STKWiXJSR9ImPt5EEC2aL",
+        "to": "/en/docs/tracks/apple-pay"
+      },
+      {
+        "from": "/pt/tracks/carteira-digital-e-wallet--6X8YyZBoVJpz5R8oXciTyu/STKWiXJSR9ImPt5EEC2aL",
+        "to": "/pt/docs/tracks/apple-pay"
+      },
+      {
+        "from": "/es/tracks/cartera-digital-e-wallet--6X8YyZBoVJpz5R8oXciTyu/STKWiXJSR9ImPt5EEC2aL",
+        "to": "/es/docs/tracks/apple-pay"
+      },
+      {
+        "from": "/en/tracks/digital-wallet-e-wallet--6X8YyZBoVJpz5R8oXciTyu/7jLbdfch9Oe2yYbQa9zwE1",
+        "to": "/en/docs/tracks/digital-wallet-e-wallet"
+      },
+      {
+        "from": "/pt/tracks/carteira-digital-e-wallet--6X8YyZBoVJpz5R8oXciTyu/7jLbdfch9Oe2yYbQa9zwE1",
+        "to": "/pt/docs/tracks/carteira-digital-e-wallet"
+      },
+      {
+        "from": "/es/tracks/cartera-digital-e-wallet--6X8YyZBoVJpz5R8oXciTyu/7jLbdfch9Oe2yYbQa9zwE1",
+        "to": "/es/docs/tracks/cartera-digital-e-wallet"
+      },
+      {
+        "from": "/en/tracks/digital-wallet-e-wallet--6X8YyZBoVJpz5R8oXciTyu/61JMBvM5Vanqj6RaJsP8CT",
+        "to": "/en/docs/tracks/google-pay"
+      },
+      {
+        "from": "/pt/tracks/carteira-digital-e-wallet--6X8YyZBoVJpz5R8oXciTyu/61JMBvM5Vanqj6RaJsP8CT",
+        "to": "/pt/docs/tracks/google-pay"
+      },
+      {
+        "from": "/es/tracks/cartera-digital-e-wallet--6X8YyZBoVJpz5R8oXciTyu/61JMBvM5Vanqj6RaJsP8CT",
+        "to": "/es/docs/tracks/google-pay"
+      },
+      {
+        "from": "/en/tracks/rappi-integration--2AeYfJRnQ0I91dvSzRcpKh/VoIvBSldeT2A4MuRVMMi1",
+        "to": "/en/docs/tracks/configuring-rappi-price-divergence-rule"
+      },
+      {
+        "from": "/pt/tracks/integracao-rappi--2AeYfJRnQ0I91dvSzRcpKh/VoIvBSldeT2A4MuRVMMi1",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-rappi"
+      },
+      {
+        "from": "/es/tracks/integracion-de-rappi--2AeYfJRnQ0I91dvSzRcpKh/VoIvBSldeT2A4MuRVMMi1",
+        "to": "/es/docs/tracks/configurar-rappi-regla-de-divergencia-de-precios"
+      },
+      {
+        "from": "/en/tracks/rappi-integration--2AeYfJRnQ0I91dvSzRcpKh/1SowuK4iQngOHebFMfizYY",
+        "to": "/en/docs/tracks/configuring-the-integration-rappi"
+      },
+      {
+        "from": "/pt/tracks/integracao-rappi--2AeYfJRnQ0I91dvSzRcpKh/1SowuK4iQngOHebFMfizYY",
+        "to": "/pt/docs/tracks/configurando-a-integracao-rappi"
+      },
+      {
+        "from": "/es/tracks/integracion-de-rappi--2AeYfJRnQ0I91dvSzRcpKh/1SowuK4iQngOHebFMfizYY",
+        "to": "/es/docs/tracks/configuracion-de-la-integracion-rappi"
+      },
+      {
+        "from": "/en/tracks/rappi-integration--2AeYfJRnQ0I91dvSzRcpKh/6iVRkhA3WHvynIlwgQhjPc",
+        "to": "/en/docs/tracks/mapping-rappi-product-categories-and-attributes"
+      },
+      {
+        "from": "/pt/tracks/integracao-rappi--2AeYfJRnQ0I91dvSzRcpKh/6iVRkhA3WHvynIlwgQhjPc",
+        "to": "/pt/docs/tracks/mapeamento-de-categorias-e-atributos-de-produtos-rappi"
+      },
+      {
+        "from": "/es/tracks/integracion-de-rappi--2AeYfJRnQ0I91dvSzRcpKh/6iVRkhA3WHvynIlwgQhjPc",
+        "to": "/es/docs/tracks/mapeo-de-categorias-y-atributos-de-productos-rappi"
+      },
+      {
+        "from": "/en/tracks/rappi-integration--2AeYfJRnQ0I91dvSzRcpKh/7y40IL3ajiukMRHrX3XmC8",
+        "to": "/en/docs/tracks/rappi-integration-overview"
+      },
+      {
+        "from": "/pt/tracks/integracao-rappi--2AeYfJRnQ0I91dvSzRcpKh/7y40IL3ajiukMRHrX3XmC8",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-a-rappi"
+      },
+      {
+        "from": "/es/tracks/integracion-rappi--2AeYfJRnQ0I91dvSzRcpKh/7y40IL3ajiukMRHrX3XmC8",
+        "to": "/es/docs/tracks/vision-general-de-la-rappi-integracion"
+      },
+      {
+        "from": "/en/tracks/rappi-integration--2AeYfJRnQ0I91dvSzRcpKh/4Wu9gyd5xCRC0MOb5zG9BK",
+        "to": "/en/docs/tracks/rappi-integration-registration"
+      },
+      {
+        "from": "/pt/tracks/integracao-rappi--2AeYfJRnQ0I91dvSzRcpKh/4Wu9gyd5xCRC0MOb5zG9BK",
+        "to": "/pt/docs/tracks/cadastro-da-integracao-rappi"
+      },
+      {
+        "from": "/es/tracks/integracion-de-rappi--2AeYfJRnQ0I91dvSzRcpKh/4Wu9gyd5xCRC0MOb5zG9BK",
+        "to": "/es/docs/tracks/registro-de-integracion-de-rappi"
+      },
+      {
+        "from": "/en/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/4IuoQWGsT6vM3hSwUwhb65",
+        "to": "/en/docs/tracks/retail-media-benefits"
+      },
+      {
+        "from": "/pt/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/4IuoQWGsT6vM3hSwUwhb65",
+        "to": "/pt/docs/tracks/beneficios-de-retail-media"
+      },
+      {
+        "from": "/es/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/4IuoQWGsT6vM3hSwUwhb65",
+        "to": "/es/docs/tracks/beneficios-de-retail-media"
+      },
+      {
+        "from": "/en/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/60HoAleRC38rjrhHeDlDDE",
+        "to": "/en/docs/tracks/retail-media-glossary"
+      },
+      {
+        "from": "/pt/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/60HoAleRC38rjrhHeDlDDE",
+        "to": "/pt/docs/tracks/glossario-de-retail-media"
+      },
+      {
+        "from": "/es/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/60HoAleRC38rjrhHeDlDDE",
+        "to": "/es/docs/tracks/glosario-de-retail-media"
+      },
+      {
+        "from": "/en/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/6uZNA50xAxvloMaVcQAET2",
+        "to": "/en/docs/tracks/retail-media-roles"
+      },
+      {
+        "from": "/pt/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/6uZNA50xAxvloMaVcQAET2",
+        "to": "/pt/docs/tracks/papeis-e-atribuicoes-em-retail-media"
+      },
+      {
+        "from": "/es/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/6uZNA50xAxvloMaVcQAET2",
+        "to": "/es/docs/tracks/roles-en-retail-media"
+      },
+      {
+        "from": "/en/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/36ZHI8z0VQjcu5yHeGEvv3",
+        "to": "/en/docs/tracks/retail-media"
+      },
+      {
+        "from": "/pt/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/36ZHI8z0VQjcu5yHeGEvv3",
+        "to": "/pt/docs/tracks/retail-media"
+      },
+      {
+        "from": "/es/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/36ZHI8z0VQjcu5yHeGEvv3",
+        "to": "/es/docs/tracks/retail-media"
+      },
+      {
+        "from": "/en/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/4vpBSgWJn7y3KUgkc9Npmn",
+        "to": "/en/docs/tracks/vtex-ads-first-steps"
+      },
+      {
+        "from": "/pt/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/4vpBSgWJn7y3KUgkc9Npmn",
+        "to": "/pt/docs/tracks/vtex-ads-primeiros-passos"
+      },
+      {
+        "from": "/es/tracks/vtex-ads--4sZoGHUrBNlaPMrtPCqGvA/4vpBSgWJn7y3KUgkc9Npmn",
+        "to": "/es/docs/tracks/vtex-ads-primeros-pasos"
+      },
+      {
+        "from": "/en/tracks/shopee-integration--4CaZCzU9ZO1CByH0haZ9hA/1JR54rlpud2f3BwQivSlem",
+        "to": "/en/docs/tracks/configuring-price-divergence-rule-shopee"
+      },
+      {
+        "from": "/pt/tracks/integracao-shopee--4CaZCzU9ZO1CByH0haZ9hA/1JR54rlpud2f3BwQivSlem",
+        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-shopee"
+      },
+      {
+        "from": "/es/tracks/integracion-con-shopee--4CaZCzU9ZO1CByH0haZ9hA/1JR54rlpud2f3BwQivSlem",
+        "to": "/es/docs/tracks/configuracion-de-regla-de-divergencia-de-precios-shopee"
+      },
+      {
+        "from": "/en/tracks/shopee-integration--4CaZCzU9ZO1CByH0haZ9hA/2kss3HDVbJwgOOKFgOVhcf",
+        "to": "/en/docs/tracks/install-and-configure-shopee-connector"
+      },
+      {
+        "from": "/pt/tracks/integracao-shopee--4CaZCzU9ZO1CByH0haZ9hA/2kss3HDVbJwgOOKFgOVhcf",
+        "to": "/pt/docs/tracks/instalar-e-configurar-conector-shopee"
+      },
+      {
+        "from": "/es/tracks/integracion-con-shopee--4CaZCzU9ZO1CByH0haZ9hA/2kss3HDVbJwgOOKFgOVhcf",
+        "to": "/es/docs/tracks/instalar-y-configurar-el-conector-shopee"
+      },
+      {
+        "from": "/en/tracks/shopee-integration--4CaZCzU9ZO1CByH0haZ9hA/16mHy8MU2k9bh65m5yLIsd",
+        "to": "/en/docs/tracks/integration-overview-shopee"
+      },
+      {
+        "from": "/pt/tracks/integracao-shopee--4CaZCzU9ZO1CByH0haZ9hA/16mHy8MU2k9bh65m5yLIsd",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-shopee"
+      },
+      {
+        "from": "/es/tracks/integracion-con-shopee--4CaZCzU9ZO1CByH0haZ9hA/16mHy8MU2k9bh65m5yLIsd",
+        "to": "/es/docs/tracks/resumen-de-integracion-shopee"
+      },
+      {
+        "from": "/en/tracks/shopee-integration--4CaZCzU9ZO1CByH0haZ9hA/7FgpimfEhkQmYsIMeCeuNH",
+        "to": "/en/docs/tracks/mapping-product-categories-and-attributes-to-shopee"
+      },
+      {
+        "from": "/pt/tracks/integracao-shopee--4CaZCzU9ZO1CByH0haZ9hA/7FgpimfEhkQmYsIMeCeuNH",
+        "to": "/pt/docs/tracks/mapeamento-de-categorias-e-atributos-dos-produtos-para-a-shopee"
+      },
+      {
+        "from": "/es/tracks/integracion-con-shopee--4CaZCzU9ZO1CByH0haZ9hA/7FgpimfEhkQmYsIMeCeuNH",
+        "to": "/es/docs/tracks/mapear-categorias-y-atributos-de-los-productos-para-shopee"
+      },
+      {
+        "from": "/en/tracks/shopee-integration--4CaZCzU9ZO1CByH0haZ9hA/70xqC5uNOggv51Lb3su45w",
+        "to": "/en/docs/tracks/settings-on-the-vtex-platform-shopee"
+      },
+      {
+        "from": "/pt/tracks/integracao-shopee--4CaZCzU9ZO1CByH0haZ9hA/70xqC5uNOggv51Lb3su45w",
+        "to": "/pt/docs/tracks/configuracoes-na-plataforma-vtex-shopee"
+      },
+      {
+        "from": "/es/tracks/integracion-con-shopee--4CaZCzU9ZO1CByH0haZ9hA/70xqC5uNOggv51Lb3su45w",
+        "to": "/es/docs/tracks/configuracion-en-la-plataforma-vtex-shopee"
+      },
+      {
+        "from": "/en/tracks/extensions-hub--AW7klkYMh557y5IUOgzco/3lWdpzjyhHVwzMC7pTG0QS",
+        "to": "/en/docs/tracks/extensions-hub-1"
+      },
+      {
+        "from": "/pt/tracks/hub-de-extensoes--AW7klkYMh557y5IUOgzco/3lWdpzjyhHVwzMC7pTG0QS",
+        "to": "/pt/docs/tracks/hub-de-extensoes-1"
+      },
+      {
+        "from": "/es/tracks/hub-de-extensiones--AW7klkYMh557y5IUOgzco/3lWdpzjyhHVwzMC7pTG0QS",
+        "to": "/es/docs/tracks/hub-de-extensiones-1"
+      },
+      {
+        "from": "/en/tracks/extensions-hub--AW7klkYMh557y5IUOgzco/2LDRvGujYsumxi7IlE7CEJ",
+        "to": "/en/docs/tracks/extensions-hub-app-store"
+      },
+      {
+        "from": "/pt/tracks/hub-de-extensoes--AW7klkYMh557y5IUOgzco/2LDRvGujYsumxi7IlE7CEJ",
+        "to": "/pt/docs/tracks/hub-de-extensoes-app-store"
+      },
+      {
+        "from": "/es/tracks/hub-de-extensiones--AW7klkYMh557y5IUOgzco/2LDRvGujYsumxi7IlE7CEJ",
+        "to": "/es/docs/tracks/hub-de-extensiones-app-store"
+      },
+      {
+        "from": "/en/tracks/extensions-hub--AW7klkYMh557y5IUOgzco/3XkOpOSbeCJIcBL5dhuPq1",
+        "to": "/en/docs/tracks/extensions-hub-partners"
+      },
+      {
+        "from": "/pt/tracks/hub-de-extensoes--AW7klkYMh557y5IUOgzco/3XkOpOSbeCJIcBL5dhuPq1",
+        "to": "/pt/docs/tracks/hub-de-extensoes-parceiros"
+      },
+      {
+        "from": "/es/tracks/hub-de-extensiones--AW7klkYMh557y5IUOgzco/3XkOpOSbeCJIcBL5dhuPq1",
+        "to": "/es/docs/tracks/hub-de-extensiones-partners"
+      },
+      {
+        "from": "/en/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/9BRHYNfuS6bP4WG4pOmgb",
+        "to": "/en/docs/tracks/implementing-the-search-in-your-store-frontend"
+      },
+      {
+        "from": "/pt/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/9BRHYNfuS6bP4WG4pOmgb",
+        "to": "/pt/docs/tracks/implementar-a-busca-no-frontend-da-loja"
+      },
+      {
+        "from": "/es/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/9BRHYNfuS6bP4WG4pOmgb",
+        "to": "/es/docs/tracks/implementar-la-busqueda-en-el-frontend-de-la-tienda"
+      },
+      {
+        "from": "/en/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/4mwZGH252R3CCPRim8v0F3",
+        "to": "/en/docs/tracks/installing-intelligent-search"
+      },
+      {
+        "from": "/pt/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/4mwZGH252R3CCPRim8v0F3",
+        "to": "/pt/docs/tracks/instalar-o-intelligent-search"
+      },
+      {
+        "from": "/es/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/4mwZGH252R3CCPRim8v0F3",
+        "to": "/es/docs/tracks/instalar-intelligent-search"
+      },
+      {
+        "from": "/en/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/70STcbJCGfgNlBQbhp6y7o",
+        "to": "/en/docs/tracks/next-steps-intelligent-search"
+      },
+      {
+        "from": "/pt/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/70STcbJCGfgNlBQbhp6y7o",
+        "to": "/pt/docs/tracks/proximos-passos-intelligent-search"
+      },
+      {
+        "from": "/es/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/70STcbJCGfgNlBQbhp6y7o",
+        "to": "/es/docs/tracks/proximos-pasos-intelligent-search"
+      },
+      {
+        "from": "/en/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/3qgT47zY08biLP3d5os3DG",
+        "to": "/en/docs/tracks/overview-intelligent-search"
+      },
+      {
+        "from": "/pt/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/3qgT47zY08biLP3d5os3DG",
+        "to": "/pt/docs/tracks/visao-geral-intelligent-search"
+      },
+      {
+        "from": "/es/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/3qgT47zY08biLP3d5os3DG",
+        "to": "/es/docs/tracks/vision-general-intelligent-search"
+      },
+      {
+        "from": "/en/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/2wBsO1AKTQZ04idbTKszI4",
+        "to": "/en/docs/tracks/starting-the-integration-with-catalog"
+      },
+      {
+        "from": "/pt/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/2wBsO1AKTQZ04idbTKszI4",
+        "to": "/pt/docs/tracks/iniciar-integracao-com-o-catalogo"
+      },
+      {
+        "from": "/es/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/2wBsO1AKTQZ04idbTKszI4",
+        "to": "/es/docs/tracks/iniciar-la-integracion-con-el-catalogo"
+      },
+      {
+        "from": "/en/tracks/accounts-and-permissions--5PxyAgZrtiYlaYZBTlhJ2A/1ZWhHn9uWxLlk7GoVTAzYe",
+        "to": "/en/docs/tracks/what-are-permissions-and-access-profiles"
+      },
+      {
+        "from": "/pt/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/1ZWhHn9uWxLlk7GoVTAzYe",
+        "to": "/pt/docs/tracks/o-que-sao-permissoes-e-perfis-de-acesso"
+      },
+      {
+        "from": "/es/tracks/cuentas-y-permisos--5PxyAgZrtiYlaYZBTlhJ2A/1ZWhHn9uWxLlk7GoVTAzYe",
+        "to": "/es/docs/tracks/que-son-permisos-y-perfiles-de-acceso"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/3moFonW33dgOYDrU21Z1X0",
+        "to": "/en/docs/tracks/adding-collections-track"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/3moFonW33dgOYDrU21Z1X0",
+        "to": "/pt/docs/tracks/cadastrar-colecoes-track"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/3moFonW33dgOYDrU21Z1X0",
+        "to": "/es/docs/tracks/registrar-una-coleccion-track"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/1ROhz3Y7mfSMmCO1I1GxEL",
+        "to": "/en/docs/tracks/adding-products"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/1ROhz3Y7mfSMmCO1I1GxEL",
+        "to": "/pt/docs/tracks/cadastrar-produto"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/1ROhz3Y7mfSMmCO1I1GxEL",
+        "to": "/es/docs/tracks/registrar-producto"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/17PxekVPmVYI4c3OCQ0ddJ",
+        "to": "/en/docs/tracks/adding-skus"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/17PxekVPmVYI4c3OCQ0ddJ",
+        "to": "/pt/docs/tracks/cadastrar-sku"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/17PxekVPmVYI4c3OCQ0ddJ",
+        "to": "/es/docs/tracks/registrar-sku"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/7i3sB8fgkqUp5NoH5yJtfh",
+        "to": "/en/docs/tracks/brands-concept-definition"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/7i3sB8fgkqUp5NoH5yJtfh",
+        "to": "/pt/docs/tracks/marcas-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/7i3sB8fgkqUp5NoH5yJtfh",
+        "to": "/es/docs/tracks/marcas-definicion-de-concepto"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/7kz4uWVq6NoaOdUpiJv4PR",
+        "to": "/en/docs/tracks/catalog-architecture"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/7kz4uWVq6NoaOdUpiJv4PR",
+        "to": "/pt/docs/tracks/arquitetura-do-catalogo"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/7kz4uWVq6NoaOdUpiJv4PR",
+        "to": "/es/docs/tracks/arquitectura-del-catalogo"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/3rA2tTpIoEXdv2nzC27zxR",
+        "to": "/en/docs/tracks/catalog-concept-definition"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/3rA2tTpIoEXdv2nzC27zxR",
+        "to": "/pt/docs/tracks/catalogo-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/3rA2tTpIoEXdv2nzC27zxR",
+        "to": "/es/docs/tracks/catalogo-definicion-de-concepto"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/2gkZDjXRqfsq62TlAkj4uf",
+        "to": "/en/docs/tracks/categories-concept-definition"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/2gkZDjXRqfsq62TlAkj4uf",
+        "to": "/pt/docs/tracks/categorias-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/2gkZDjXRqfsq62TlAkj4uf",
+        "to": "/es/docs/tracks/categorias-definicion-de-concepto"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/4hN41yU8IPeb8HKmmaXoca",
+        "to": "/en/docs/tracks/collections-concept-definition"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/4hN41yU8IPeb8HKmmaXoca",
+        "to": "/pt/docs/tracks/colecoes-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/4hN41yU8IPeb8HKmmaXoca",
+        "to": "/es/docs/tracks/colecciones-definicion-del-concepto"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/7lEGOSpAlQJCs5eUc5XFmR",
+        "to": "/en/docs/tracks/create-brands"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/7lEGOSpAlQJCs5eUc5XFmR",
+        "to": "/pt/docs/tracks/cadastrar-marcas"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/7lEGOSpAlQJCs5eUc5XFmR",
+        "to": "/es/docs/tracks/registrar-marcas"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/3UYjVS03JbleGPh0Ckpic1",
+        "to": "/en/docs/tracks/creating-categories"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/3UYjVS03JbleGPh0Ckpic1",
+        "to": "/pt/docs/tracks/cadastrar-categorias"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/3UYjVS03JbleGPh0Ckpic1",
+        "to": "/es/docs/tracks/registrar-categorias"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/1wmX3QvQVxbKVmalhIE5Ru",
+        "to": "/en/docs/tracks/products-concept-definition"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/1wmX3QvQVxbKVmalhIE5Ru",
+        "to": "/pt/docs/tracks/produtos-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/1wmX3QvQVxbKVmalhIE5Ru",
+        "to": "/es/docs/tracks/productos-definicion-de-concepto"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/3mJbIqMlz6oKDmyZ2bKJoA",
+        "to": "/en/docs/tracks/sku-concept-definition"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/3mJbIqMlz6oKDmyZ2bKJoA",
+        "to": "/pt/docs/tracks/sku-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/3mJbIqMlz6oKDmyZ2bKJoA",
+        "to": "/es/docs/tracks/sku-definicion-de-concepto"
+      },
+      {
+        "from": "/en/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/2NQoBv8m4Yz3oQaLgDRagP",
+        "to": "/en/docs/tracks/specifications-concept-definition"
+      },
+      {
+        "from": "/pt/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/2NQoBv8m4Yz3oQaLgDRagP",
+        "to": "/pt/docs/tracks/especificacoes-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/2NQoBv8m4Yz3oQaLgDRagP",
+        "to": "/es/docs/tracks/especificaciones-definicion-de-concepto"
+      },
+      {
+        "from": "/en/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/4yB9wSl79cArd68aRBnBZ2",
+        "to": "/en/docs/tracks/cms-vtex-io"
+      },
+      {
+        "from": "/pt/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/4yB9wSl79cArd68aRBnBZ2",
+        "to": "/pt/docs/tracks/cms-vtex-io"
+      },
+      {
+        "from": "/es/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/4yB9wSl79cArd68aRBnBZ2",
+        "to": "/es/docs/tracks/cms-vtex-io"
+      },
+      {
+        "from": "/en/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/5qgXy9Erm7FDP3UB5Ox8Bs",
+        "to": "/en/docs/tracks/cross-border-stores"
+      },
+      {
+        "from": "/pt/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/5qgXy9Erm7FDP3UB5Ox8Bs",
+        "to": "/pt/docs/tracks/lojas-internacionais-cross-border"
+      },
+      {
+        "from": "/es/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/5qgXy9Erm7FDP3UB5Ox8Bs",
+        "to": "/es/docs/tracks/tiendas-transfronterizas-cross-border"
+      },
+      {
+        "from": "/en/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/78y5kSB5GaS1XHH9qBr6mS",
+        "to": "/en/docs/tracks/glossary"
+      },
+      {
+        "from": "/pt/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/78y5kSB5GaS1XHH9qBr6mS",
+        "to": "/pt/docs/tracks/glossario"
+      },
+      {
+        "from": "/es/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/78y5kSB5GaS1XHH9qBr6mS",
+        "to": "/es/docs/tracks/glosario"
+      },
+      {
+        "from": "/en/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/1oN446gRGcR2s70RvBCAmj",
+        "to": "/en/docs/tracks/legacy-cms-portal"
+      },
+      {
+        "from": "/pt/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/1oN446gRGcR2s70RvBCAmj",
+        "to": "/pt/docs/tracks/cms-portal-legado"
+      },
+      {
+        "from": "/es/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/1oN446gRGcR2s70RvBCAmj",
+        "to": "/es/docs/tracks/cms-portal-legado"
+      },
+      {
+        "from": "/en/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/6OCY6S9tqBXPD5mgpbBInC",
+        "to": "/en/docs/tracks/what-is-the-cms"
+      },
+      {
+        "from": "/pt/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/6OCY6S9tqBXPD5mgpbBInC",
+        "to": "/pt/docs/tracks/o-que-e-o-cms"
+      },
+      {
+        "from": "/es/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/6OCY6S9tqBXPD5mgpbBInC",
+        "to": "/es/docs/tracks/o-que-e-o-cms"
+      },
+      {
+        "from": "/en/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/1UVjfLFJ81ux7M6pAnIlSJ",
+        "to": "/en/docs/tracks/como-a-conta-se-relaciona-as-paginas-do-site"
+      },
+      {
+        "from": "/pt/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/1UVjfLFJ81ux7M6pAnIlSJ",
+        "to": "/pt/docs/tracks/como-a-conta-se-relaciona-as-paginas-do-site"
+      },
+      {
+        "from": "/es/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/1UVjfLFJ81ux7M6pAnIlSJ",
+        "to": "/es/docs/tracks/como-se-relaciona-la-cuenta-con-las-paginas-del-sitio-web"
+      },
+      {
+        "from": "/en/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/3i8Cj8bC2tILvGRsdjlHly",
+        "to": "/en/docs/tracks/configuring-login-with-facebook"
+      },
+      {
+        "from": "/pt/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/3i8Cj8bC2tILvGRsdjlHly",
+        "to": "/pt/docs/tracks/configurar-login-com-facebook"
+      },
+      {
+        "from": "/es/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/3i8Cj8bC2tILvGRsdjlHly",
+        "to": "/es/docs/tracks/configurar-inicio-de-sesion-con-facebook"
+      },
+      {
+        "from": "/en/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/4XGFNDYBugBuEmazd0fJ3",
+        "to": "/en/docs/tracks/configuring-login-with-google"
+      },
+      {
+        "from": "/pt/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/4XGFNDYBugBuEmazd0fJ3",
+        "to": "/pt/docs/tracks/configurar-login-com-google"
+      },
+      {
+        "from": "/es/tracks/cuentas-y-permisos--5PxyAgZrtiYlaYZBTlhJ2A/4XGFNDYBugBuEmazd0fJ3",
+        "to": "/es/docs/tracks/configurar-inicio-de-sesion-con-google"
+      },
+      {
+        "from": "/en/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/6Ymo5bNMyEYBGsTmbTC3H9",
+        "to": "/en/docs/tracks/creating-and-editing-access-profiles"
+      },
+      {
+        "from": "/pt/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/6Ymo5bNMyEYBGsTmbTC3H9",
+        "to": "/pt/docs/tracks/criar-e-editar-perfis-de-acesso"
+      },
+      {
+        "from": "/es/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/6Ymo5bNMyEYBGsTmbTC3H9",
+        "to": "/es/docs/tracks/crear-y-editar-perfiles-de-acceso"
+      },
+      {
+        "from": "/en/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/5enE0a0glnI0coEj7rRHBA",
+        "to": "/en/docs/tracks/creating-and-editing-users"
+      },
+      {
+        "from": "/pt/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/5enE0a0glnI0coEj7rRHBA",
+        "to": "/pt/docs/tracks/criar-e-editar-usuario"
+      },
+      {
+        "from": "/es/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/5enE0a0glnI0coEj7rRHBA",
+        "to": "/es/docs/tracks/crear-y-editar-usuario"
+      },
+      {
+        "from": "/en/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/5VRxRGssiWvKCA235rHiD9",
+        "to": "/en/docs/tracks/editing-account-data"
+      },
+      {
+        "from": "/pt/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/5VRxRGssiWvKCA235rHiD9",
+        "to": "/pt/docs/tracks/editar-dados-da-conta"
+      },
+      {
+        "from": "/es/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/5VRxRGssiWvKCA235rHiD9",
+        "to": "/es/docs/tracks/editar-datos-de-la-cuenta"
+      },
+      {
+        "from": "/en/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/1ccQYubR9DvRJ08RgO8JW8",
+        "to": "/en/docs/tracks/enabling-2-factor-authentication-login"
+      },
+      {
+        "from": "/pt/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/1ccQYubR9DvRJ08RgO8JW8",
+        "to": "/pt/docs/tracks/habilitar-login-por-2-factor-authentication"
+      },
+      {
+        "from": "/es/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/1ccQYubR9DvRJ08RgO8JW8",
+        "to": "/es/docs/tracks/habilitar-inicio-de-sesion-por-autenticacion-de-2-factores"
+      },
+      {
+        "from": "/en/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/4T2vusW9RRUmVjGSuKNO2H",
+        "to": "/en/docs/tracks/understanding-your-account"
+      },
+      {
+        "from": "/pt/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/4T2vusW9RRUmVjGSuKNO2H",
+        "to": "/pt/docs/tracks/entendendo-a-sua-conta"
+      },
+      {
+        "from": "/es/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/4T2vusW9RRUmVjGSuKNO2H",
+        "to": "/es/docs/tracks/entendiendo-su-cuenta"
+      },
+      {
+        "from": "/en/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/56Bd0KpwbvAji1aFs94xdA",
+        "to": "/en/docs/tracks/what-is-the-master-user"
+      },
+      {
+        "from": "/pt/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/56Bd0KpwbvAji1aFs94xdA",
+        "to": "/pt/docs/tracks/o-que-e-o-usuario-master"
+      },
+      {
+        "from": "/es/tracks/contas-e-permissoes--5PxyAgZrtiYlaYZBTlhJ2A/56Bd0KpwbvAji1aFs94xdA",
+        "to": "/es/docs/tracks/que-es-el-usuario-master"
+      },
+      {
+        "from": "/en/tracks/data-and-privacy--4Lc0i0an0DgnEtB0AUwlcq/5f8hTEw3xOALgqzus9VXKd",
+        "to": "/en/docs/tracks/data-protection-roles"
+      },
+      {
+        "from": "/pt/tracks/dados-e-privacidade--4Lc0i0an0DgnEtB0AUwlcq/5f8hTEw3xOALgqzus9VXKd",
+        "to": "/pt/docs/tracks/papeis-na-protecao-de-dados"
+      },
+      {
+        "from": "/es/tracks/datos-y-privacidad--4Lc0i0an0DgnEtB0AUwlcq/5f8hTEw3xOALgqzus9VXKd",
+        "to": "/es/docs/tracks/roles-en-la-proteccion-de-datos"
+      },
+      {
+        "from": "/en/tracks/data-and-privacy--4Lc0i0an0DgnEtB0AUwlcq/65ZqZlNWcmFSOqZQxr8gha",
+        "to": "/en/docs/tracks/personal-data"
+      },
+      {
+        "from": "/pt/tracks/dados-e-privacidade--4Lc0i0an0DgnEtB0AUwlcq/65ZqZlNWcmFSOqZQxr8gha",
+        "to": "/pt/docs/tracks/dados-pessoais"
+      },
+      {
+        "from": "/es/tracks/datos-y-privacidad--4Lc0i0an0DgnEtB0AUwlcq/65ZqZlNWcmFSOqZQxr8gha",
+        "to": "/es/docs/tracks/datos-personales"
+      },
+      {
+        "from": "/en/tracks/data-and-privacy--4Lc0i0an0DgnEtB0AUwlcq/1ZWqUdeKsD8Mm3GKQ8xBI3",
+        "to": "/en/docs/tracks/subject-rights"
+      },
+      {
+        "from": "/pt/tracks/dados-e-privacidade--4Lc0i0an0DgnEtB0AUwlcq/1ZWqUdeKsD8Mm3GKQ8xBI3",
+        "to": "/pt/docs/tracks/direitos-dos-titulares"
+      },
+      {
+        "from": "/es/tracks/datos-y-privacidad--4Lc0i0an0DgnEtB0AUwlcq/1ZWqUdeKsD8Mm3GKQ8xBI3",
+        "to": "/es/docs/tracks/derechos-de-los-titulares"
+      },
+      {
+        "from": "/en/tracks/data-and-privacy--4Lc0i0an0DgnEtB0AUwlcq/7ANSqBP5DgOrVVyglo3Lbh",
+        "to": "/en/docs/tracks/technical-and-administrative-measures"
+      },
+      {
+        "from": "/pt/tracks/dados-e-privacidade--4Lc0i0an0DgnEtB0AUwlcq/7ANSqBP5DgOrVVyglo3Lbh",
+        "to": "/pt/docs/tracks/medidas-tecnicas-e-administrativas"
+      },
+      {
+        "from": "/es/tracks/datos-y-privacidad--4Lc0i0an0DgnEtB0AUwlcq/7ANSqBP5DgOrVVyglo3Lbh",
+        "to": "/es/docs/tracks/medidas-tecnicas-y-administrativas"
+      },
+      {
+        "from": "/en/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/1iP90RcJvlrfQhnlxM54wo",
+        "to": "/en/docs/tracks/go-live-process"
+      },
+      {
+        "from": "/pt/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/1iP90RcJvlrfQhnlxM54wo",
+        "to": "/pt/docs/tracks/processo-de-go-live"
+      },
+      {
+        "from": "/es/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/1iP90RcJvlrfQhnlxM54wo",
+        "to": "/es/docs/tracks/processo-de-go-live"
+      },
+      {
+        "from": "/en/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/12bQlMbJ68Ot0LIaO6Btkj",
+        "to": "/en/docs/tracks/go-live"
+      },
+      {
+        "from": "/pt/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/12bQlMbJ68Ot0LIaO6Btkj",
+        "to": "/pt/docs/tracks/go-live"
+      },
+      {
+        "from": "/es/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/12bQlMbJ68Ot0LIaO6Btkj",
+        "to": "/es/docs/tracks/go-live"
+      },
+      {
+        "from": "/en/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/K8UQ6W7MhH1ovp91kJxBJ",
+        "to": "/en/docs/tracks/post-go-live"
+      },
+      {
+        "from": "/pt/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/K8UQ6W7MhH1ovp91kJxBJ",
+        "to": "/pt/docs/tracks/pos-go-live"
+      },
+      {
+        "from": "/es/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/K8UQ6W7MhH1ovp91kJxBJ",
+        "to": "/es/docs/tracks/despues-del-go-live"
+      },
+      {
+        "from": "/en/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/7sM5IMx02zaHvAFTm0OxiJ",
+        "to": "/en/docs/tracks/pre-go-live"
+      },
+      {
+        "from": "/pt/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/7sM5IMx02zaHvAFTm0OxiJ",
+        "to": "/pt/docs/tracks/pre-go-live"
+      },
+      {
+        "from": "/es/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/7sM5IMx02zaHvAFTm0OxiJ",
+        "to": "/es/docs/tracks/antes-del-go-live"
+      },
+      {
+        "from": "/en/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/7wFsbWgN4rnZsbjhv8IItX",
+        "to": "/en/docs/tracks/settings"
+      },
+      {
+        "from": "/pt/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/7wFsbWgN4rnZsbjhv8IItX",
+        "to": "/pt/docs/tracks/configuracoes"
+      },
+      {
+        "from": "/es/tracks/go-live--4Ns5FxIiksmjsdX2yOTduM/7wFsbWgN4rnZsbjhv8IItX",
+        "to": "/es/docs/tracks/configuracion"
+      },
+      {
+        "from": "/en/tracks/logistics-101--13TFDwDttPl9ki9OXQhyjx/6Y8C1JuPtO5E61Ew91tq1a",
+        "to": "/en/docs/tracks/getting-started-with-logistics"
+      },
+      {
+        "from": "/pt/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx/6Y8C1JuPtO5E61Ew91tq1a",
+        "to": "/pt/docs/tracks/primeiros-passos-da-logistica"
+      },
+      {
+        "from": "/es/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx/6Y8C1JuPtO5E61Ew91tq1a",
+        "to": "/es/docs/tracks/logistica-primeros-pasos"
+      },
+      {
+        "from": "/en/tracks/logistics-101--13TFDwDttPl9ki9OXQhyjx/2XyUVa0UKMyHTmwqyA5Bx6",
+        "to": "/en/docs/tracks/inventory"
+      },
+      {
+        "from": "/pt/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx/2XyUVa0UKMyHTmwqyA5Bx6",
+        "to": "/pt/docs/tracks/inventario"
+      },
+      {
+        "from": "/es/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx/2XyUVa0UKMyHTmwqyA5Bx6",
+        "to": "/es/docs/tracks/stock"
+      },
+      {
+        "from": "/en/tracks/logistics-101--13TFDwDttPl9ki9OXQhyjx/5TuyqHRCCwYMaDv4r8rZdo",
+        "to": "/en/docs/tracks/scheduled-deliveries-and-delivery-capacity"
+      },
+      {
+        "from": "/pt/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx/5TuyqHRCCwYMaDv4r8rZdo",
+        "to": "/pt/docs/tracks/entregas-agendadas-e-capacidade-de-entrega"
+      },
+      {
+        "from": "/es/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx/5TuyqHRCCwYMaDv4r8rZdo",
+        "to": "/es/docs/tracks/entregas-programadas-y-capacidad-de-entrega"
+      },
+      {
+        "from": "/en/tracks/logistics-101--13TFDwDttPl9ki9OXQhyjx/3by48jFhzpZEseYFpH9uVt",
+        "to": "/en/docs/tracks/shipping-costs-and-simulation"
+      },
+      {
+        "from": "/pt/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx/3by48jFhzpZEseYFpH9uVt",
+        "to": "/pt/docs/tracks/custos-e-simulacao-de-envio"
+      },
+      {
+        "from": "/es/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx/3by48jFhzpZEseYFpH9uVt",
+        "to": "/es/docs/tracks/costos-y-simulacion-de-envio"
+      },
+      {
+        "from": "/en/tracks/logistics-101--13TFDwDttPl9ki9OXQhyjx/4IPeNztIXsZI4oA5TyES9N",
+        "to": "/en/docs/tracks/shipping-strategies"
+      },
+      {
+        "from": "/pt/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx/4IPeNztIXsZI4oA5TyES9N",
+        "to": "/pt/docs/tracks/as-estrategias-de-envio"
+      },
+      {
+        "from": "/es/tracks/logistica-101--13TFDwDttPl9ki9OXQhyjx/4IPeNztIXsZI4oA5TyES9N",
+        "to": "/es/docs/tracks/estrategias-de-envio"
+      },
+      {
+        "from": "/en/tracks/orders--2xkTisx4SXOWXQel8Jg8sa/381eYJw7lrypjGq3hmPtGV",
+        "to": "/en/docs/tracks/allowing-order-replacement"
+      },
+      {
+        "from": "/pt/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/381eYJw7lrypjGq3hmPtGV",
+        "to": "/pt/docs/tracks/permitir-substituicao-de-pedidos"
+      },
+      {
+        "from": "/es/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/381eYJw7lrypjGq3hmPtGV",
+        "to": "/es/docs/tracks/permitir-sustitucion-de-pedido"
+      },
+      {
+        "from": "/en/tracks/orders--2xkTisx4SXOWXQel8Jg8sa/4ts2ItvjYo8wm5gg76miS3",
+        "to": "/en/docs/tracks/canceling-an-order"
+      },
+      {
+        "from": "/pt/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/4ts2ItvjYo8wm5gg76miS3",
+        "to": "/pt/docs/tracks/cancelar-pedido"
+      },
+      {
+        "from": "/es/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/4ts2ItvjYo8wm5gg76miS3",
+        "to": "/es/docs/tracks/cancelar-pedido"
+      },
+      {
+        "from": "/en/tracks/orders--2xkTisx4SXOWXQel8Jg8sa/6rVCf9KLn1jgTaxS0xuByu",
+        "to": "/en/docs/tracks/exporting-an-order"
+      },
+      {
+        "from": "/pt/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/6rVCf9KLn1jgTaxS0xuByu",
+        "to": "/pt/docs/tracks/exportar-um-pedido"
+      },
+      {
+        "from": "/es/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/6rVCf9KLn1jgTaxS0xuByu",
+        "to": "/es/docs/tracks/exportar-un-pedido"
+      },
+      {
+        "from": "/en/tracks/orders--2xkTisx4SXOWXQel8Jg8sa/3cjk655ZzDGICH4rVfgu7O",
+        "to": "/en/docs/tracks/how-the-orders-module-filters-work"
+      },
+      {
+        "from": "/pt/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/3cjk655ZzDGICH4rVfgu7O",
+        "to": "/pt/docs/tracks/como-funcionam-os-filtros-do-modulo-pedidos"
+      },
+      {
+        "from": "/es/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/3cjk655ZzDGICH4rVfgu7O",
+        "to": "/es/docs/tracks/como-funcionan-los-filtros-del-modulo-pedidos"
+      },
+      {
+        "from": "/en/tracks/orders--2xkTisx4SXOWXQel8Jg8sa/2WgQrlHTyVo4hLjhUs1LMT",
+        "to": "/en/docs/tracks/invoicing-an-order"
+      },
+      {
+        "from": "/pt/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/2WgQrlHTyVo4hLjhUs1LMT",
+        "to": "/pt/docs/tracks/faturar-um-pedido"
+      },
+      {
+        "from": "/es/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/2WgQrlHTyVo4hLjhUs1LMT",
+        "to": "/es/docs/tracks/facturar-un-pedido"
+      },
+      {
+        "from": "/en/tracks/orders--2xkTisx4SXOWXQel8Jg8sa/2sl6hj2eqwgqbDgTF6y5qE",
+        "to": "/en/docs/tracks/o-que-e-um-pedido-na-vtex"
+      },
+      {
+        "from": "/pt/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/2sl6hj2eqwgqbDgTF6y5qE",
+        "to": "/pt/docs/tracks/o-que-e-um-pedido-na-vtex"
+      },
+      {
+        "from": "/es/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/2sl6hj2eqwgqbDgTF6y5qE",
+        "to": "/es/docs/tracks/o-que-e-um-pedido-na-vtex"
+      },
+      {
+        "from": "/en/tracks/orders--2xkTisx4SXOWXQel8Jg8sa/4811ExCe3WrEiRMV3sy9n8",
+        "to": "/en/docs/tracks/order-flow"
+      },
+      {
+        "from": "/pt/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/4811ExCe3WrEiRMV3sy9n8",
+        "to": "/pt/docs/tracks/fluxo-do-pedido"
+      },
+      {
+        "from": "/es/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/4811ExCe3WrEiRMV3sy9n8",
+        "to": "/es/docs/tracks/flujo-del-pedido"
+      },
+      {
+        "from": "/en/tracks/orders--2xkTisx4SXOWXQel8Jg8sa/q9GPspTb9cHlMeAZfdEUe",
+        "to": "/en/docs/tracks/partial-invoices"
+      },
+      {
+        "from": "/pt/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/q9GPspTb9cHlMeAZfdEUe",
+        "to": "/pt/docs/tracks/faturas-parciais"
+      },
+      {
+        "from": "/es/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/q9GPspTb9cHlMeAZfdEUe",
+        "to": "/es/docs/tracks/facturas-parciales"
+      },
+      {
+        "from": "/en/tracks/orders--2xkTisx4SXOWXQel8Jg8sa/204AjAQseJe8RLUi8GAhiC",
+        "to": "/en/docs/tracks/seeing-order-details"
+      },
+      {
+        "from": "/pt/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/204AjAQseJe8RLUi8GAhiC",
+        "to": "/pt/docs/tracks/ver-detalhes-do-pedido"
+      },
+      {
+        "from": "/es/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/204AjAQseJe8RLUi8GAhiC",
+        "to": "/es/docs/tracks/ver-detalles-del-pedido"
+      },
+      {
+        "from": "/en/tracks/orders--2xkTisx4SXOWXQel8Jg8sa/2MOZ5WVNZJSSPTGjlGXsuV",
+        "to": "/en/docs/tracks/subscription-orders"
+      },
+      {
+        "from": "/pt/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/2MOZ5WVNZJSSPTGjlGXsuV",
+        "to": "/pt/docs/tracks/pedidos-por-assinatura"
+      },
+      {
+        "from": "/es/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/2MOZ5WVNZJSSPTGjlGXsuV",
+        "to": "/es/docs/tracks/pedidos-por-suscripcion"
+      },
+      {
+        "from": "/en/tracks/orders--2xkTisx4SXOWXQel8Jg8sa/6axzVCJECyHPGHzYjWDR52",
+        "to": "/en/docs/tracks/the-reservation"
+      },
+      {
+        "from": "/pt/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/6axzVCJECyHPGHzYjWDR52",
+        "to": "/pt/docs/tracks/a-reserva"
+      },
+      {
+        "from": "/es/tracks/pedidos--2xkTisx4SXOWXQel8Jg8sa/6axzVCJECyHPGHzYjWDR52",
+        "to": "/es/docs/tracks/la-reserva"
+      },
+      {
+        "from": "/en/tracks/payments--6GAS7ZzGAm7AGoEAwDbwJG/6bzGxlz4inf8sKmvZ1c7i3",
+        "to": "/en/docs/tracks/configuring-a-payment-condition"
+      },
+      {
+        "from": "/pt/tracks/pagamentos--6GAS7ZzGAm7AGoEAwDbwJG/6bzGxlz4inf8sKmvZ1c7i3",
+        "to": "/pt/docs/tracks/configurar-uma-condicao-de-pagamento"
+      },
+      {
+        "from": "/es/tracks/pagos--6GAS7ZzGAm7AGoEAwDbwJG/6bzGxlz4inf8sKmvZ1c7i3",
+        "to": "/es/docs/tracks/configurar-una-condicion-de-pago"
+      },
+      {
+        "from": "/en/tracks/payments--6GAS7ZzGAm7AGoEAwDbwJG/7pAEMAo4iqNHwYOarZ3zgm",
+        "to": "/en/docs/tracks/configuring-payment-connectors"
+      },
+      {
+        "from": "/pt/tracks/pagamentos--6GAS7ZzGAm7AGoEAwDbwJG/7pAEMAo4iqNHwYOarZ3zgm",
+        "to": "/pt/docs/tracks/configurar-um-conector-de-pagamentos"
+      },
+      {
+        "from": "/es/tracks/pagos--6GAS7ZzGAm7AGoEAwDbwJG/7pAEMAo4iqNHwYOarZ3zgm",
+        "to": "/es/docs/tracks/configurar-un-conector-de-pagos"
+      },
+      {
+        "from": "/en/tracks/payments--6GAS7ZzGAm7AGoEAwDbwJG/TEYVv2fcVkH7et9n3OnBS",
+        "to": "/en/docs/tracks/credit-card-payment-flow"
+      },
+      {
+        "from": "/pt/tracks/pagamentos--6GAS7ZzGAm7AGoEAwDbwJG/TEYVv2fcVkH7et9n3OnBS",
+        "to": "/pt/docs/tracks/fluxo-de-um-pagamento-por-cartao-de-credito"
+      },
+      {
+        "from": "/es/tracks/pagos--6GAS7ZzGAm7AGoEAwDbwJG/TEYVv2fcVkH7et9n3OnBS",
+        "to": "/es/docs/tracks/flujo-de-pago-por-tarjeta-de-credito"
+      },
+      {
+        "from": "/en/tracks/payments--6GAS7ZzGAm7AGoEAwDbwJG/kdPbEIWf8Xq8tESQvViMB",
+        "to": "/en/docs/tracks/how-the-payments-module-works"
+      },
+      {
+        "from": "/pt/tracks/pagamentos--6GAS7ZzGAm7AGoEAwDbwJG/kdPbEIWf8Xq8tESQvViMB",
+        "to": "/pt/docs/tracks/como-funciona-o-modulo-de-pagamentos"
+      },
+      {
+        "from": "/es/tracks/pagos--6GAS7ZzGAm7AGoEAwDbwJG/kdPbEIWf8Xq8tESQvViMB",
+        "to": "/es/docs/tracks/como-funciona-el-modulo-de-pagos"
+      },
+      {
+        "from": "/en/tracks/payments--6GAS7ZzGAm7AGoEAwDbwJG/1wWt35dRwEboRs1nrSx7G0",
+        "to": "/en/docs/tracks/how-to-configure-a-custom-payment"
+      },
+      {
+        "from": "/pt/tracks/pagamentos--6GAS7ZzGAm7AGoEAwDbwJG/1wWt35dRwEboRs1nrSx7G0",
+        "to": "/pt/docs/tracks/configurar-pagamentos-customizados"
+      },
+      {
+        "from": "/es/tracks/pagos--6GAS7ZzGAm7AGoEAwDbwJG/1wWt35dRwEboRs1nrSx7G0",
+        "to": "/es/docs/tracks/configurar-pagos-personalizados"
+      },
+      {
+        "from": "/en/tracks/payments--6GAS7ZzGAm7AGoEAwDbwJG/1xjzgJZvqwaI1rfxLMCC3Y",
+        "to": "/en/docs/tracks/the-transaction-flow"
+      },
+      {
+        "from": "/pt/tracks/pagamentos--6GAS7ZzGAm7AGoEAwDbwJG/1xjzgJZvqwaI1rfxLMCC3Y",
+        "to": "/pt/docs/tracks/fluxo-de-uma-transacao"
+      },
+      {
+        "from": "/es/tracks/pagos--6GAS7ZzGAm7AGoEAwDbwJG/1xjzgJZvqwaI1rfxLMCC3Y",
+        "to": "/es/docs/tracks/flujo-de-una-transaccion"
+      },
+      {
+        "from": "/en/tracks/payments--6GAS7ZzGAm7AGoEAwDbwJG/3Nt40DMEWkvhlpaL5PlBy",
+        "to": "/en/docs/tracks/viewing-transaction-details"
+      },
+      {
+        "from": "/pt/tracks/pagamentos--6GAS7ZzGAm7AGoEAwDbwJG/3Nt40DMEWkvhlpaL5PlBy",
+        "to": "/pt/docs/tracks/ver-detalhes-da-transacao"
+      },
+      {
+        "from": "/es/tracks/pagos--6GAS7ZzGAm7AGoEAwDbwJG/3Nt40DMEWkvhlpaL5PlBy",
+        "to": "/es/docs/tracks/ver-detalles-de-la-transaccion"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/3g39iXkQza4AW7C7L814mj",
+        "to": "/en/docs/tracks/adding-a-fixed-price"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/3g39iXkQza4AW7C7L814mj",
+        "to": "/pt/docs/tracks/cadastrar-preco-fixo"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/3g39iXkQza4AW7C7L814mj",
+        "to": "/es/docs/tracks/registrar-precio-fijo"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/7fyZaYe1IGzL0qVC28tOBO",
+        "to": "/en/docs/tracks/adding-a-price-rule"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/7fyZaYe1IGzL0qVC28tOBO",
+        "to": "/pt/docs/tracks/cadastrar-regra-de-preco"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/7fyZaYe1IGzL0qVC28tOBO",
+        "to": "/es/docs/tracks/cadastrar-regra-de-preco"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/1QDJfW5ALy4W8pRWg2AWt1",
+        "to": "/en/docs/tracks/adding-rounding-rules"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/1QDJfW5ALy4W8pRWg2AWt1",
+        "to": "/pt/docs/tracks/cadastrar-arredondamento-de-precos"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/1QDJfW5ALy4W8pRWg2AWt1",
+        "to": "/es/docs/tracks/registrar-redondeo-de-precios"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/P99EjtrlRHk92Q8qDPq29",
+        "to": "/en/docs/tracks/cadastrar-preco-base"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/P99EjtrlRHk92Q8qDPq29",
+        "to": "/pt/docs/tracks/cadastrar-preco-base"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/P99EjtrlRHk92Q8qDPq29",
+        "to": "/es/docs/tracks/registrar-precio-base"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/2WQ3pVYfQpXkJnHr7VTFBv",
+        "to": "/en/docs/tracks/cadastrar-tabelas-de-preco"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/2WQ3pVYfQpXkJnHr7VTFBv",
+        "to": "/pt/docs/tracks/cadastrar-tabelas-de-precos"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/2WQ3pVYfQpXkJnHr7VTFBv",
+        "to": "/es/docs/tracks/registrar-tabla-de-precio"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/6IVgeLPeggIv2mkbFVO6y3",
+        "to": "/en/docs/tracks/cadastrar-trava-de-preco"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/6IVgeLPeggIv2mkbFVO6y3",
+        "to": "/pt/docs/tracks/cadastrar-trava-de-preco"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/6IVgeLPeggIv2mkbFVO6y3",
+        "to": "/es/docs/tracks/registrar-bloqueo-de-precio"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/5lV5s54lQ69zPXxngbpI5D",
+        "to": "/en/docs/tracks/exporting-and-importing-via-a-price-spreadsheet"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/5lV5s54lQ69zPXxngbpI5D",
+        "to": "/pt/docs/tracks/exportacao-e-importacao-via-planilha-de-precos"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/5lV5s54lQ69zPXxngbpI5D",
+        "to": "/es/docs/tracks/exportacion-e-importacion-mediante-la-plantilla-de-precios"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/3XcXp0r5WrJvogB8KIX4Kx",
+        "to": "/en/docs/tracks/preco-base-definicao-de-conceito"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/3XcXp0r5WrJvogB8KIX4Kx",
+        "to": "/pt/docs/tracks/preco-base-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/3XcXp0r5WrJvogB8KIX4Kx",
+        "to": "/es/docs/tracks/preco-base-definicao-de-conceito"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/3HxF2u5VwidqnUGnFoKdDy",
+        "to": "/en/docs/tracks/preco-fixo-definicao-de-conceito"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/3HxF2u5VwidqnUGnFoKdDy",
+        "to": "/pt/docs/tracks/preco-fixo-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/3HxF2u5VwidqnUGnFoKdDy",
+        "to": "/es/docs/tracks/precio-fijo-definicion-de-concepto"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/3N9xYhnampRQOrfaTAOxNu",
+        "to": "/en/docs/tracks/prices-module-overview"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/3N9xYhnampRQOrfaTAOxNu",
+        "to": "/pt/docs/tracks/modulo-de-precos-visao-geral"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/3N9xYhnampRQOrfaTAOxNu",
+        "to": "/es/docs/tracks/modulo-de-precios-vision-general"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/7GptzvlPDVM11ojEjywIQx",
+        "to": "/en/docs/tracks/pricing-system-architecture"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/7GptzvlPDVM11ojEjywIQx",
+        "to": "/pt/docs/tracks/arquitetura-do-sistema-de-precos"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/7GptzvlPDVM11ojEjywIQx",
+        "to": "/es/docs/tracks/arquitectura-del-sistema-de-precios"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/2rBirbpB7wLnei4dQ9KGMW",
+        "to": "/en/docs/tracks/regra-de-preco-definicao-de-conceito"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/2rBirbpB7wLnei4dQ9KGMW",
+        "to": "/pt/docs/tracks/regra-de-preco-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/2rBirbpB7wLnei4dQ9KGMW",
+        "to": "/es/docs/tracks/regla-de-precio-definicion-de-concepto"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/1tUIUvF6BUkDgMsknGaMkF",
+        "to": "/en/docs/tracks/rounding-rules-concept-definition"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/1tUIUvF6BUkDgMsknGaMkF",
+        "to": "/pt/docs/tracks/arredondamento-de-precos-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/1tUIUvF6BUkDgMsknGaMkF",
+        "to": "/es/docs/tracks/redondeo-de-precios-definicion-de-concepto"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/1wAm5m3IUfIj6maBdaRJt8",
+        "to": "/en/docs/tracks/tabelas-de-preco-definicao-de-conceito"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/1wAm5m3IUfIj6maBdaRJt8",
+        "to": "/pt/docs/tracks/tabelas-de-preco-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/1wAm5m3IUfIj6maBdaRJt8",
+        "to": "/es/docs/tracks/tablas-de-precio-definicion-de-concepto"
+      },
+      {
+        "from": "/en/tracks/prices-101--6f8pwCns3PJHqMvQSugNfP/7JZhLmI3mjBVu0RMOueoy3",
+        "to": "/en/docs/tracks/trava-de-preco-definicao-de-conceito"
+      },
+      {
+        "from": "/pt/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP/7JZhLmI3mjBVu0RMOueoy3",
+        "to": "/pt/docs/tracks/trava-de-preco-definicao-de-conceito"
+      },
+      {
+        "from": "/es/tracks/precios-101--6f8pwCns3PJHqMvQSugNfP/7JZhLmI3mjBVu0RMOueoy3",
+        "to": "/es/docs/tracks/bloqueo-de-precio-definicion-de-concepto"
+      },
+      {
+        "from": "/en/tracks/promotions--6asfF1vFYiZgTQtOzwJchR/4W2AA8MWwIy80z5UCYw0f9",
+        "to": "/en/docs/tracks/campaigns-what-are-they-and-how-to-create-them"
+      },
+      {
+        "from": "/pt/tracks/promocoes--6asfF1vFYiZgTQtOzwJchR/4W2AA8MWwIy80z5UCYw0f9",
+        "to": "/pt/docs/tracks/campanhas-o-que-sao-e-como-criar"
+      },
+      {
+        "from": "/es/tracks/promociones--6asfF1vFYiZgTQtOzwJchR/4W2AA8MWwIy80z5UCYw0f9",
+        "to": "/es/docs/tracks/campanas-que-son-y-como-crearlas"
+      },
+      {
+        "from": "/en/tracks/promotions--6asfF1vFYiZgTQtOzwJchR/6RU676Ot6K15ZT1aJA8NRW",
+        "to": "/en/docs/tracks/creating-discount-coupons"
+      },
+      {
+        "from": "/pt/tracks/promocoes--6asfF1vFYiZgTQtOzwJchR/6RU676Ot6K15ZT1aJA8NRW",
+        "to": "/pt/docs/tracks/criar-cupons-de-desconto"
+      },
+      {
+        "from": "/es/tracks/promociones--6asfF1vFYiZgTQtOzwJchR/6RU676Ot6K15ZT1aJA8NRW",
+        "to": "/es/docs/tracks/crear-cupones-de-descuento"
+      },
+      {
+        "from": "/en/tracks/promotions--6asfF1vFYiZgTQtOzwJchR/7FjbeZdE2KMwk5L1t98pZI",
+        "to": "/en/docs/tracks/creating-regular-promotions"
+      },
+      {
+        "from": "/pt/tracks/promocoes--6asfF1vFYiZgTQtOzwJchR/7FjbeZdE2KMwk5L1t98pZI",
+        "to": "/pt/docs/tracks/criar-promocao-regular"
+      },
+      {
+        "from": "/es/tracks/promociones--6asfF1vFYiZgTQtOzwJchR/7FjbeZdE2KMwk5L1t98pZI",
+        "to": "/es/docs/tracks/crear-promocion-regular"
+      },
+      {
+        "from": "/en/tracks/promotions--6asfF1vFYiZgTQtOzwJchR/2a2D0K85Ahvs4hLnL3Ag7N",
+        "to": "/en/docs/tracks/how-promotions-work"
+      },
+      {
+        "from": "/pt/tracks/promocoes--6asfF1vFYiZgTQtOzwJchR/2a2D0K85Ahvs4hLnL3Ag7N",
+        "to": "/pt/docs/tracks/como-funcionam-as-promocoes"
+      },
+      {
+        "from": "/es/tracks/promociones--6asfF1vFYiZgTQtOzwJchR/2a2D0K85Ahvs4hLnL3Ag7N",
+        "to": "/es/docs/tracks/como-funcionan-las-promociones"
+      },
+      {
+        "from": "/en/tracks/promotions--6asfF1vFYiZgTQtOzwJchR/jOu9b69mKbrTDfSJYAawy",
+        "to": "/en/docs/tracks/promotions-for-specific-scenarios"
+      },
+      {
+        "from": "/pt/tracks/promocoes--6asfF1vFYiZgTQtOzwJchR/jOu9b69mKbrTDfSJYAawy",
+        "to": "/pt/docs/tracks/promocoes-para-cenarios-especificos"
+      },
+      {
+        "from": "/es/tracks/promociones--6asfF1vFYiZgTQtOzwJchR/jOu9b69mKbrTDfSJYAawy",
+        "to": "/es/docs/tracks/promociones-para-escenarios-especificos"
+      },
+      {
+        "from": "/en/tracks/promotions--6asfF1vFYiZgTQtOzwJchR/3DcO1XrLqlbZsq80zxSgZS",
+        "to": "/en/docs/tracks/surcharges-what-they-are-and-how-to-create-them"
+      },
+      {
+        "from": "/pt/tracks/promocoes--6asfF1vFYiZgTQtOzwJchR/3DcO1XrLqlbZsq80zxSgZS",
+        "to": "/pt/docs/tracks/taxas-o-que-sao-e-como-criar"
+      },
+      {
+        "from": "/es/tracks/promociones--6asfF1vFYiZgTQtOzwJchR/3DcO1XrLqlbZsq80zxSgZS",
+        "to": "/es/docs/tracks/tasas-que-son-y-como-crearlas"
+      },
+      {
+        "from": "/en/tracks/store-development--3fHF3GIjK8UugnQKIakpl9/2xxY5AkUvGL5v5bJaO5Uzw",
+        "to": "/en/docs/tracks/app-store"
+      },
+      {
+        "from": "/pt/tracks/desenvolvimento-de-loja--3fHF3GIjK8UugnQKIakpl9/2xxY5AkUvGL5v5bJaO5Uzw",
+        "to": "/pt/docs/tracks/app-store"
+      },
+      {
+        "from": "/es/tracks/desarrollo-de-la-tienda--3fHF3GIjK8UugnQKIakpl9/2xxY5AkUvGL5v5bJaO5Uzw",
+        "to": "/es/docs/tracks/app-store"
+      },
+      {
+        "from": "/en/tracks/store-development--3fHF3GIjK8UugnQKIakpl9/4Fnjaw5JZFVBmtWat3zsjd",
+        "to": "/en/docs/tracks/backend"
+      },
+      {
+        "from": "/pt/tracks/desenvolvimento-de-loja--3fHF3GIjK8UugnQKIakpl9/4Fnjaw5JZFVBmtWat3zsjd",
+        "to": "/pt/docs/tracks/backend"
+      },
+      {
+        "from": "/es/tracks/desarrollo-de-la-tienda--3fHF3GIjK8UugnQKIakpl9/4Fnjaw5JZFVBmtWat3zsjd",
+        "to": "/es/docs/tracks/backend"
+      },
+      {
+        "from": "/en/tracks/store-development--3fHF3GIjK8UugnQKIakpl9/6a4cJHg8fVgDNDEdcq9S9Q",
+        "to": "/en/docs/tracks/conceitos-avancados"
+      },
+      {
+        "from": "/pt/tracks/desenvolvimento-de-loja--3fHF3GIjK8UugnQKIakpl9/6a4cJHg8fVgDNDEdcq9S9Q",
+        "to": "/pt/docs/tracks/conceitos-avancados"
+      },
+      {
+        "from": "/es/tracks/desarrollo-de-la-tienda--3fHF3GIjK8UugnQKIakpl9/6a4cJHg8fVgDNDEdcq9S9Q",
+        "to": "/es/docs/tracks/conceitos-avancados"
+      },
+      {
+        "from": "/en/tracks/store-development--3fHF3GIjK8UugnQKIakpl9/5DTcawNjc5MovtD7HNqURl",
+        "to": "/en/docs/tracks/frontend"
+      },
+      {
+        "from": "/pt/tracks/desenvolvimento-de-loja--3fHF3GIjK8UugnQKIakpl9/5DTcawNjc5MovtD7HNqURl",
+        "to": "/pt/docs/tracks/frontend"
+      },
+      {
+        "from": "/es/tracks/desarrollo-de-la-tienda--3fHF3GIjK8UugnQKIakpl9/5DTcawNjc5MovtD7HNqURl",
+        "to": "/es/docs/tracks/frontend"
+      },
+      {
+        "from": "/en/tracks/store-development--3fHF3GIjK8UugnQKIakpl9/2PS5GZ2XUXs70Pu8m7wRcz",
+        "to": "/en/docs/tracks/store-development"
+      },
+      {
+        "from": "/pt/tracks/desenvolvimento-de-loja--3fHF3GIjK8UugnQKIakpl9/2PS5GZ2XUXs70Pu8m7wRcz",
+        "to": "/pt/docs/tracks/desenvolvimento-de-loja"
+      },
+      {
+        "from": "/es/tracks/desarrollo-de-la-tienda--3fHF3GIjK8UugnQKIakpl9/2PS5GZ2XUXs70Pu8m7wRcz",
+        "to": "/es/docs/tracks/desarrollo-de-la-tienda"
+      },
+      {
+        "from": "/en/tracks/transactional-emails--6IkJwttMw5T84mlY9RifRP/42LVaxtFb2VHX9xTZU58qC",
+        "to": "/en/docs/tracks/adding-a-sender"
+      },
+      {
+        "from": "/pt/tracks/e-mails-transacionais--6IkJwttMw5T84mlY9RifRP/42LVaxtFb2VHX9xTZU58qC",
+        "to": "/pt/docs/tracks/cadastrar-remetente"
+      },
+      {
+        "from": "/es/tracks/e-mails-transaccionales--6IkJwttMw5T84mlY9RifRP/42LVaxtFb2VHX9xTZU58qC",
+        "to": "/es/docs/tracks/registrar-remitente"
+      },
+      {
+        "from": "/en/tracks/transactional-emails--6IkJwttMw5T84mlY9RifRP/5uvq01BDu6nnDEJpseR1aH",
+        "to": "/en/docs/tracks/how-message-center-works"
+      },
+      {
+        "from": "/pt/tracks/e-mails-transacionais--6IkJwttMw5T84mlY9RifRP/5uvq01BDu6nnDEJpseR1aH",
+        "to": "/pt/docs/tracks/como-funciona-o-message-center"
+      },
+      {
+        "from": "/es/tracks/e-mails-transaccionales--6IkJwttMw5T84mlY9RifRP/5uvq01BDu6nnDEJpseR1aH",
+        "to": "/es/docs/tracks/como-funciona-el-message-center"
+      },
+      {
+        "from": "/en/tracks/transactional-emails--6IkJwttMw5T84mlY9RifRP/335JZKUYgvYlGOJgvJYxRO",
+        "to": "/en/docs/tracks/how-to-create-and-edit-transactional-email-templates"
+      },
+      {
+        "from": "/pt/tracks/e-mails-transacionais--6IkJwttMw5T84mlY9RifRP/335JZKUYgvYlGOJgvJYxRO",
+        "to": "/pt/docs/tracks/criar-ou-editar-template-de-e-mail-transacional"
+      },
+      {
+        "from": "/es/tracks/e-mails-transaccionales--6IkJwttMw5T84mlY9RifRP/335JZKUYgvYlGOJgvJYxRO",
+        "to": "/es/docs/tracks/crear-o-editar-template-de-correo-electronico-transaccional"
+      },
+      {
+        "from": "/en/tracks/transactional-emails--6IkJwttMw5T84mlY9RifRP/fLMUCPArCYB9vcTZEZ6bi",
+        "to": "/en/docs/tracks/including-order-variables-in-email-template"
+      },
+      {
+        "from": "/pt/tracks/e-mails-transacionais--6IkJwttMw5T84mlY9RifRP/fLMUCPArCYB9vcTZEZ6bi",
+        "to": "/pt/docs/tracks/incluir-variaveis-do-pedido-no-template-de-e-mail"
+      },
+      {
+        "from": "/es/tracks/e-mails-transaccionales--6IkJwttMw5T84mlY9RifRP/fLMUCPArCYB9vcTZEZ6bi",
+        "to": "/es/docs/tracks/incluir-variables-del-pedido-en-el-template-de-correo-electronico"
+      },
+      {
+        "from": "/en/tracks/transactional-emails--6IkJwttMw5T84mlY9RifRP/13YJE9CKzeduRfVplgjC88",
+        "to": "/en/docs/tracks/viewing-the-email-history-of-an-order"
+      },
+      {
+        "from": "/pt/tracks/e-mails-transacionais--6IkJwttMw5T84mlY9RifRP/13YJE9CKzeduRfVplgjC88",
+        "to": "/pt/docs/tracks/ver-historico-de-e-mails-de-um-pedido"
+      },
+      {
+        "from": "/es/tracks/e-mails-transaccionales--6IkJwttMw5T84mlY9RifRP/13YJE9CKzeduRfVplgjC88",
+        "to": "/es/docs/tracks/ver-historial-de-correos-electronicos-de-un-pedido"
+      }
+    ],
     "fromManualInput": [
       {
         "from": "/tutorial/algoritmo-de-selecao-de-sellers-white-label--3MemNQ4pKkWCpMdzI27AHa",
