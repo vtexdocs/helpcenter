@@ -24,6 +24,10 @@ import ArticleRender from 'components/article-render'
 import ArticleIndex from 'components/article-index'
 import type { SectionId } from 'utils/typings/unionTypes'
 import { ArticlePageProps } from 'utils/typings/types'
+import {
+  getArticleRevalidateTime,
+  getCategoryCoverRevalidateTime,
+} from 'utils/config'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -227,7 +231,7 @@ export const getStaticProps: GetStaticProps = async ({
         },
         locale: currentLocale,
       },
-      revalidate: 3600,
+      revalidate: getCategoryCoverRevalidateTime(),
     }
   }
 
@@ -291,7 +295,7 @@ export const getStaticProps: GetStaticProps = async ({
         },
         locale: currentLocale,
       },
-      revalidate: 600,
+      revalidate: getArticleRevalidateTime(),
     }
   }
   logger.error(`Markdown file does not exist for ${slug}`)

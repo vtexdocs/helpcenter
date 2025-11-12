@@ -31,6 +31,10 @@ import { ArticlePageProps } from 'utils/typings/types'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
 import { getMessages } from 'utils/get-messages'
 import type { SectionId } from 'utils/typings/unionTypes'
+import {
+  getArticleRevalidateTime,
+  getCategoryCoverRevalidateTime,
+} from 'utils/config'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -253,7 +257,7 @@ export const getStaticProps: GetStaticProps = async ({
           },
           locale: currentLocale,
         },
-        revalidate: 3600,
+        revalidate: getCategoryCoverRevalidateTime(),
       }
     }
   }
@@ -320,7 +324,7 @@ export const getStaticProps: GetStaticProps = async ({
         },
         locale: currentLocale,
       },
-      revalidate: 3600,
+      revalidate: getArticleRevalidateTime(),
     }
   }
 
