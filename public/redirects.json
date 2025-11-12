@@ -12762,6 +12762,42 @@
     ],
     "fromTrackArticles": [
       {
+        "from": "/docs/tracks/definir-meios-de-pagamento-exibidos-no-instore",
+        "to": "/pt/docs/tracks/definir-meios-de-pagamento-exibidos-no-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/configurar-pagamento-em-dinheiro-pelo-instore",
+        "to": "/pt/docs/tracks/configurar-pagamento-em-dinheiro-pelo-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/configurar-metodos-de-pagamento-para-o-instore",
+        "to": "/pt/docs/tracks/configurar-metodos-de-pagamento-para-o-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/definir-los-metodos-de-pago-mostrados-en-instore",
+        "to": "/es/docs/tracks/definir-los-metodos-de-pago-mostrados-en-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/configurar-pago-en-efectivo-por-instore",
+        "to": "/es/docs/tracks/configurar-pago-en-efectivo-por-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/configuracion-de-metodos-de-pago-para-instore",
+        "to": "/es/docs/tracks/configuracion-de-metodos-de-pago-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/define-payment-methods-displayed-on-instore",
+        "to": "/en/docs/tracks/define-payment-methods-displayed-on-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/configuring-cash-payments-through-instore",
+        "to": "/en/docs/tracks/configuring-cash-payments-through-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/setting-up-payment-methods-for-instore",
+        "to": "/en/docs/tracks/setting-up-payment-methods-for-vtex-sales-app"
+      },      
+      {
         "from": "/docs/tracks/customizar-o-instore",
         "to": "/pt/docs/tracks/customizar-o-vtex-sales-app"
       },
