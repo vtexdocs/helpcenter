@@ -12762,6 +12762,90 @@
     ],
     "fromTrackArticles": [
       {
+        "from": "/docs/tracks/cancelar-e-estornar-um-pedido-no-instore",
+        "to": "/pt/docs/tracks/cancelar-e-estornar-um-pedido-no-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/compartilhar-carrinho-utilizando-o-instore-social-selling",
+        "to": "/pt/docs/tracks/compartilhar-carrinho-utilizando-o-vtex-sales-app-social-selling"
+      },
+      {
+        "from": "/docs/tracks/perfil-do-cliente-no-instore",
+        "to": "/pt/docs/tracks/perfil-do-cliente-no-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/busca-unificada",
+        "to": "/pt/docs/tracks/busca-unificada-no-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/login-no-instore",
+        "to": "/pt/docs/tracks/login-no-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/boas-praticas-de-testes-instore",
+        "to": "/pt/docs/tracks/boas-praticas-de-testes-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/instore-usando-o-app",
+        "to": "/pt/docs/tracks/vtex-sales-app-usando-o-app"
+      },
+      {
+        "from": "/docs/tracks/cancelar-y-reembolsar-un-pedido-en-instore",
+        "to": "/es/docs/tracks/cancelar-y-reembolsar-un-pedido-en-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/compartir-el-carrito-utilizando-instore-social-selling",
+        "to": "/es/docs/tracks/compartir-el-carrito-utilizando-vtex-sales-app-social-selling"
+      },
+      {
+        "from": "/docs/tracks/perfil-del-cliente-en-instore",
+        "to": "/es/docs/tracks/perfil-del-cliente-en-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/busqueda-unificada",
+        "to": "/es/docs/tracks/busqueda-unificada-en-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/iniciar-sesion-en-instore",
+        "to": "/es/docs/tracks/iniciar-sesion-en-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/mejores-practicas-de-pruebas-instore",
+        "to": "/es/docs/tracks/mejores-practicas-de-pruebas-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/instore-usando-el-app",
+        "to": "/es/docs/tracks/vtex-sales-app-usando-el-app"
+      },
+      {
+        "from": "/docs/tracks/cancel-and-refund-an-order-on-instore",
+        "to": "/en/docs/tracks/cancel-and-refund-an-order-on-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/sharing-shopping-cart-using-instore-social-selling",
+        "to": "/en/docs/tracks/sharing-shopping-cart-using-vtex-sales-app-social-selling"
+      },
+      {
+        "from": "/docs/tracks/customer-profile-on-instore",
+        "to": "/en/docs/tracks/customer-profile-on-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/unified-search",
+        "to": "/en/docs/tracks/unified-search-in-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/instore-login",
+        "to": "/en/docs/tracks/vtex-sales-app-login"
+      },
+      {
+        "from": "/docs/tracks/best-practices-for-testing-instore",
+        "to": "/en/docs/tracks/best-practices-for-testing-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/instore-using-the-app",
+        "to": "/en/docs/tracks/vtex-sales-app-using-the-app"
+      },
+      {
         "from": "/docs/tracks/definir-meios-de-pagamento-exibidos-no-instore",
         "to": "/pt/docs/tracks/definir-meios-de-pagamento-exibidos-no-vtex-sales-app"
       },
