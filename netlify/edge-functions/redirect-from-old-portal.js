@@ -84,11 +84,11 @@ export default async (request, context) => {
       console.log('Modern announcement detected (date-prefixed), skipping redirect')
       return context.next()
     }
-    if (type === 'faq' && !slug.match(/--[^/]+$/)) {
+    if (type === 'faq' && !url.pathname.match(/--[^/]+/)) {
       console.log('Modern FAQ detected (no article key), skipping redirect')
       return context.next()
     }
-    if (type === 'known-issues' && !slug.match(/--[^/]+$/) && !slug.startsWith('ki--')) {
+    if (type === 'known-issues' && !url.pathname.match(/--[^/]+/) && !slug.startsWith('ki--')) {
       console.log('Modern known-issue detected (no article key, not ki-- format), skipping redirect')
       return context.next()
     }
@@ -115,7 +115,17 @@ export default async (request, context) => {
         destination = `/${locale}/known-issues/${slug}`
       }
     } else if (type === 'faq') {
-      destination = `/${locale}/faq/${slug}`
+      // Check navigation.json for FAQs to find the locale-specific slug
+      console.log('checking navigation.json for faq slug')
+      const nav = await getNavigation(url)
+      const newSlug = findFaqSlug(nav, slug, locale)
+      if (!newSlug) {
+        // fallback: if navigation.json doesn't have it, use original slug
+        console.log('using original slug:', slug)
+        destination = `/${locale}/faq/${slug}`
+      } else {
+        destination = `/${locale}/faq/${newSlug}`
+      }
     } else if (type === 'announcements') {
       // Always check navigation.json for announcements to find the modern slug.
       // Even if redirects.json set a destination, we need navigation.json to
@@ -328,6 +338,34 @@ function findAnnouncementSlug(nav, oldSlug, locale) {
   }
 
   return search(annSection.categories || [])
+}
+
+function findFaqSlug(nav, oldSlug, locale) {
+  // Locate FAQ block
+  const faqSection = nav.navbar.find(
+    (item) => item.documentation === 'faq'
+  )
+  if (!faqSection) return null
+
+  // Traverse recursively
+  function search(children) {
+    for (const child of children) {
+      if (child.type === 'markdown' && child.slug) {
+        // Check if any locale's slug matches the old slug
+        for (const slugValue of Object.values(child.slug)) {
+          if (slugValue === oldSlug) {
+            // Found a match, return the slug for the requested locale
+            return child.slug[locale] || child.slug.en
+          }
+        }
+      }
+      const found = search(child.children || [])
+      if (found) return found
+    }
+    return null
+  }
+
+  return search(faqSection.categories || [])
 }
 
 /**
