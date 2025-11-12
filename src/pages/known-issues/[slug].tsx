@@ -25,6 +25,10 @@ import { isCategoryCover } from 'utils/article-page/getPagination'
 import { sanitizeArray } from 'utils/sanitizeArrays'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
 import type { SectionId } from 'utils/typings/unionTypes'
+import {
+  getArticleRevalidateTime,
+  getCategoryCoverRevalidateTime,
+} from 'utils/config'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -244,7 +248,7 @@ export const getStaticProps: GetStaticProps = async ({
         },
         locale: currentLocale,
       },
-      revalidate: 3600,
+      revalidate: getCategoryCoverRevalidateTime(),
     }
   }
 
@@ -307,7 +311,7 @@ export const getStaticProps: GetStaticProps = async ({
         },
         locale: currentLocale,
       },
-      revalidate: 600,
+      revalidate: getArticleRevalidateTime(),
     }
   }
   logger.error(`Error while processing ${params?.slug}`)

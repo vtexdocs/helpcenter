@@ -32,6 +32,10 @@ import {
   checkTroubleshootingFallback,
   createTroubleshootingRedirect,
 } from 'utils/checkTroubleshootingFallback'
+import {
+  getArticleRevalidateTime,
+  getCategoryCoverRevalidateTime,
+} from 'utils/config'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -274,7 +278,7 @@ export const getStaticProps: GetStaticProps = async ({
           },
           locale: currentLocale,
         },
-        revalidate: 3600,
+        revalidate: getCategoryCoverRevalidateTime(),
       }
     }
   }
@@ -342,7 +346,7 @@ export const getStaticProps: GetStaticProps = async ({
         },
         locale: currentLocale,
       },
-      revalidate: 3600,
+      revalidate: getArticleRevalidateTime(),
     }
   }
 

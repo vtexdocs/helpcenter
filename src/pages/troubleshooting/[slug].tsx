@@ -21,6 +21,10 @@ import ArticleIndex from 'components/article-index'
 import { ArticlePageProps } from 'utils/typings/types'
 import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { sanitizeArray } from 'utils/sanitizeArrays'
+import {
+  getArticleRevalidateTime,
+  getCategoryCoverRevalidateTime,
+} from 'utils/config'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -222,7 +226,7 @@ export const getStaticProps: GetStaticProps = async ({
         },
         locale: currentLocale,
       },
-      revalidate: 3600,
+      revalidate: getCategoryCoverRevalidateTime(),
     }
   }
 
@@ -285,7 +289,7 @@ export const getStaticProps: GetStaticProps = async ({
         },
         locale: currentLocale,
       },
-      revalidate: 600,
+      revalidate: getArticleRevalidateTime(),
     }
   }
   logger.error(`Markdown file does not exist for ${slug}`)
