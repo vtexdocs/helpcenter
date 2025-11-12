@@ -12762,6 +12762,90 @@
     ],
     "fromTrackArticles": [
       {
+        "from": "/docs/tracks/customizar-o-instore",
+        "to": "/pt/docs/tracks/customizar-o-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/gerencadastrar-o-codigo-de-barras-dos-skus-para-instore",
+        "to": "/pt/docs/tracks/cadastrar-o-codigo-de-barras-dos-skus-para-o-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/gerenciar-vendedores-no-instore",
+        "to": "/pt/docs/tracks/gerenciar-vendedores-no-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/adicionar-lojas-ao-instore",
+        "to": "/pt/docs/tracks/gerenciar-lojas-fisicas-no-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/instore-setup-basico",
+        "to": "/pt/docs/tracks/vtex-sales-app-configuracoes-basicas"
+      },      
+      {
+        "from": "/docs/tracks/pre-requisitos-para-usar-o-instore",
+        "to": "/pt/docs/tracks/pre-requisitos-para-usar-o-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/o-que-e-o-instore",
+        "to": "/pt/docs/tracks/o-que-e-o-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/personalizacion-de-instore",
+        "to": "/es/docs/tracks/personalizacion-de-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/registrar-el-codigo-de-barras-de-los-skus-para-el-instore",
+        "to": "/es/docs/tracks/registrar-el-codigo-de-barras-de-los-skus-para-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/gestionar-vendedores-en-instore",
+        "to": "/es/docs/tracks/gestionar-vendedores-en-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/agregar-nuevos-tiendas-al-instore",
+        "to": "/es/docs/tracks/gestionar-tiendas-fisicas-en-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/instore-configuracion-basica",
+        "to": "/es/docs/tracks/vtex-sales-app-configuracion-basica"
+      },
+      {
+        "from": "/docs/tracks/requisitos-previos-para-usar-instore",
+        "to": "/es/docs/tracks/requisitos-previos-para-usar-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/que-es-instore",
+        "to": "/es/docs/tracks/que-es-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/customizing-instore",
+        "to": "/en/docs/tracks/customizing-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/register-the-barcode-of-the-skus-for-instore",
+        "to": "/en/docs/tracks/register-the-barcode-of-the-skus-for-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/managing-sales-associates-in-instore",
+        "to": "/en/docs/tracks/managing-sales-associates-in-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/adding-new-stores-to-instore",
+        "to": "/en/docs/tracks/managing-physical-stores-in-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/instore-basic-settings",
+        "to": "/en/docs/tracks/vtex-sales-app-basic-settings"
+      },
+      {
+        "from": "/docs/tracks/prerequisites-for-using-instore",
+        "to": "/en/docs/tracks/prerequisites-for-using-vtex-sales-app"
+      },
+      {
+        "from": "/docs/tracks/what-is-instore",
+        "to": "/en/docs/tracks/what-is-vtex-sales-app"
+      },
+      {
         "from": "/tracks/suiteshare",
         "to": "/en/docs/tracks/what-is-suiteshare"
       },
