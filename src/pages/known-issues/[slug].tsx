@@ -134,7 +134,7 @@ export const getStaticProps: GetStaticProps = async ({
     docsPathsGLOBAL,
   })
   const { keyPath, flattenedSidebar, sidebarfallback } =
-    await getSidebarMetadata(sectionSelected, resolvedSlug)
+    await getSidebarMetadata(sectionSelected, resolvedSlug, { branch })
   const isKICover = isCategoryCover(slug, sidebarfallback)
 
   if (!mdFileExists && !isKICover) {
