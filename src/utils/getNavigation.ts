@@ -5,24 +5,121 @@ import {
   parseRateLimitHeaders,
   formatRateLimitInfo,
 } from './githubRateLimitHandler'
-import { getCdnUrls } from './githubCdnFallback'
-// import { enumerateNavigation } from './enumerate-navigation'
+import {
+  getCdnUrls,
+  getGitHubRawUrl,
+  convertToJsDelivr,
+  convertToStatically,
+} from './githubCdnFallback'
+import { getLogger } from './logging/log-util'
 
-export default async function getNavigation() {
+const logger = getLogger('getNavigation')
+
+const DEFAULT_OWNER = 'vtexdocs'
+const DEFAULT_REPO = 'help-center-content'
+const DEFAULT_PATH = 'public/navigation.json'
+const DEFAULT_BRANCH = 'main'
+
+type NavigationOptions = {
+  branch?: string
+}
+
+type GithubSource = {
+  owner: string
+  repo: string
+  ref: string
+  path: string
+  provider: 'raw' | 'jsdelivr' | 'statically'
+}
+
+function parseGithubSource(url: string): GithubSource | null {
+  const rawMatch = url.match(
+    /^https:\/\/raw\.githubusercontent\.com\/(.+?)\/(.+?)\/([^/]+)\/(.+)$/
+  )
+
+  if (rawMatch) {
+    const [, owner, repo, ref, filePath] = rawMatch
+    return {
+      owner,
+      repo,
+      ref,
+      path: filePath,
+      provider: 'raw',
+    }
+  }
+
+  const jsDelivrMatch = url.match(
+    /^https:\/\/cdn\.jsdelivr\.net\/gh\/(.+?)\/(.+?)@([^/]+)\/(.+)$/
+  )
+
+  if (jsDelivrMatch) {
+    const [, owner, repo, ref, filePath] = jsDelivrMatch
+    return {
+      owner,
+      repo,
+      ref,
+      path: filePath,
+      provider: 'jsdelivr',
+    }
+  }
+
+  const staticallyMatch = url.match(
+    /^https:\/\/cdn\.statically\.io\/gh\/(.+?)\/(.+?)\/([^/]+)\/(.+)$/
+  )
+
+  if (staticallyMatch) {
+    const [, owner, repo, ref, filePath] = staticallyMatch
+    return {
+      owner,
+      repo,
+      ref,
+      path: filePath,
+      provider: 'statically',
+    }
+  }
+
+  return null
+}
+
+function buildGithubUrl(source: GithubSource, branch: string) {
+  switch (source.provider) {
+    case 'jsdelivr':
+      return convertToJsDelivr(source.owner, source.repo, branch, source.path)
+    case 'statically':
+      return convertToStatically(source.owner, source.repo, branch, source.path)
+    default:
+      return getGitHubRawUrl(source.owner, source.repo, branch, source.path)
+  }
+}
+
+export default async function getNavigation(options: NavigationOptions = {}) {
+  const branch = options.branch?.trim() || DEFAULT_BRANCH
   // Prefer environment URL to allow fetching from external repo
   const envUrl = process.env.navigationJsonUrl
-  if (envUrl) {
+  const githubSource = envUrl ? parseGithubSource(envUrl) : null
+  const owner = githubSource?.owner || DEFAULT_OWNER
+  const repo = githubSource?.repo || DEFAULT_REPO
+  const filePath = githubSource?.path || DEFAULT_PATH
+  const envUrlForBranch = githubSource
+    ? buildGithubUrl(githubSource, branch)
+    : envUrl
+
+  if (githubSource && githubSource.ref !== branch) {
+    logger.info(
+      `Switching navigation source from ref ${githubSource.ref} to ${branch}`
+    )
+  }
+
+  if (envUrlForBranch) {
     try {
-      const result = await fetch(envUrl)
+      const result = await fetch(envUrlForBranch)
 
       // Check for rate limiting (403 OR 429)
       if (result.status === 403 || result.status === 429) {
         if (isRateLimited(result)) {
           const rateLimitInfo = parseRateLimitHeaders(result.headers)
-          console.warn(
-            `getNavigation: Rate limited on primary URL. ${formatRateLimitInfo(
-              rateLimitInfo
-            )}`
+          logger.warn(
+            `Rate limited on primary URL. ${formatRateLimitInfo(rateLimitInfo)}`
           )
           // Fall through to CDN fallbacks below
         }
@@ -35,35 +132,32 @@ export default async function getNavigation() {
       throw new Error(
         `Failed to fetch navigation from env URL: ${result.status}`
       )
-    } catch (e) {
-      console.warn(
-        'getNavigation: failed to fetch from env URL, trying CDN fallbacks',
-        e
-      )
+    } catch (error) {
+      logger.warn('Failed to fetch from env URL, trying CDN fallbacks')
+      if (error instanceof Error) {
+        logger.warn(error.message)
+      }
 
       // Try CDN fallbacks
-      const cdnUrls = getCdnUrls(
-        'vtexdocs',
-        'help-center-content',
-        'main',
-        'public/navigation.json',
-        'jsdelivr'
-      )
+      const cdnUrls = getCdnUrls(owner, repo, branch, filePath, 'jsdelivr')
 
       for (const url of cdnUrls.slice(1)) {
         // Skip first (already tried)
         try {
           const cdnType = url.includes('jsdelivr') ? 'jsDelivr' : 'Statically'
-          console.info(`getNavigation: Trying ${cdnType}`)
+          logger.info(`Trying ${cdnType}`)
           const result = await fetch(url)
 
           if (result.ok) {
             const data = await result.json()
-            console.info(`getNavigation: Successfully fetched from ${cdnType}`)
+            logger.info(`Successfully fetched from ${cdnType}`)
             return data.navbar
           }
         } catch (cdnErr) {
-          console.warn(`getNavigation: CDN attempt failed`, cdnErr)
+          logger.warn('CDN attempt failed')
+          if (cdnErr instanceof Error) {
+            logger.warn(cdnErr.message)
+          }
           continue
         }
       }
@@ -72,13 +166,16 @@ export default async function getNavigation() {
 
   // Filesystem fallback (server-side only)
   try {
-    const filePath = path.join(process.cwd(), 'public', 'navigation.json')
-    const fileContent = fs.readFileSync(filePath, 'utf8')
+    const filePathFs = path.join(process.cwd(), 'public', 'navigation.json')
+    const fileContent = fs.readFileSync(filePathFs, 'utf8')
     const navigation = JSON.parse(fileContent)
-    console.info('getNavigation: Using filesystem fallback')
+    logger.info('Using filesystem fallback')
     return navigation.navbar
   } catch (error) {
-    console.error('getNavigation: All methods failed', error)
+    logger.error('All methods failed')
+    if (error instanceof Error) {
+      logger.error(error.message)
+    }
     throw error
   }
 }

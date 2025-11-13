@@ -133,7 +133,7 @@ export const getStaticProps: GetStaticProps = async ({
   })
 
   const { keyPath, flattenedSidebar, sidebarfallback } =
-    await getSidebarMetadata(sectionSelected, slug)
+    await getSidebarMetadata(sectionSelected, slug, { branch })
 
   const isTrackCover = isCategoryCover(slug, sidebarfallback)
 
