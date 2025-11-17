@@ -13,6 +13,7 @@ NODE_VERSION = "20"
 # Catch-all for hostname redirects (must be first to handle newhelp.vtex.com -> help.vtex.com)
 [[edge_functions]]
   path = "/*"
+  excludedPath = ["/netlify-prerender-function", "/.netlify/*", "/__netlify/*"]
   function = "redirect-from-old-portal"
 
 [[edge_functions]]
