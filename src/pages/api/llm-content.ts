@@ -92,11 +92,11 @@ export default async function handler(
     const content = escapeCurlyBraces(replaceHTMLBlocks(withoutFrontmatter))
 
     // Cache headers
-    // Default to disabling cache unless explicitly set to 'false'
+    // Default to enabling cache unless explicitly set to 'true' to disable
     const disableCache =
-      (process.env.DISABLE_LLM_CONTENT_CACHE ?? 'true') === 'true'
+      (process.env.DISABLE_LLM_CONTENT_CACHE ?? 'false') === 'true'
     if (disableCache) {
-      // Fully disable caching for testing
+      // Fully disable caching when explicitly requested
       res.setHeader(
         'Cache-Control',
         'no-store, no-cache, must-revalidate, max-age=0'
@@ -105,16 +105,21 @@ export default async function handler(
       res.setHeader('Expires', '0')
       res.setHeader('Netlify-CDN-Cache-Control', 'no-store')
     } else {
-      // Default: 5m s-maxage, 30m stale-while-revalidate
+      // Default: 10m s-maxage, 60m stale-while-revalidate
+      // Optimized for AI bot consumption with edge caching
       res.setHeader(
         'Cache-Control',
-        'public, s-maxage=300, stale-while-revalidate=1800'
+        'public, s-maxage=600, stale-while-revalidate=3600'
       )
       res.setHeader(
         'Netlify-CDN-Cache-Control',
-        'public, s-maxage=300, stale-while-revalidate=1800'
+        'public, s-maxage=600, stale-while-revalidate=3600'
       )
     }
+
+    // Add Vary header to separate cache entries by User-Agent
+    // This ensures search bots and AI bots don't share cached responses
+    res.setHeader('Vary', 'User-Agent')
 
     return res.status(200).json({
       section,
