@@ -9,14 +9,14 @@ const outerContainer: SxStyleProp = {
   border: '1px solid #E7E9EE',
   background: 'white',
   padding: '8px',
-  maxHeight: 'calc(100vh - 5rem)',
+  maxHeight: 'calc(100vh - 5rem - 80px)',
   zIndex: -1,
 }
 
 const innerContainer: SxStyleProp = {
   overflowY: 'scroll',
   overscrollBehavior: 'contain',
-  maxHeight: 'calc(100vh - 5rem - 16px)',
+  maxHeight: 'calc(100vh - 5rem - 96px)',
   scrollbarWidth: 'thin',
   scrollbarColor: 'white white',
 
