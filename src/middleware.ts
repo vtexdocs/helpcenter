@@ -12,6 +12,8 @@ export const config = {
     '/troubleshooting/:path*',
   ],
 }
+const shouldLogBotHandling =
+  (process.env.ENABLE_BOT_MIDDLEWARE_LOGS ?? 'true') !== 'false'
 
 /**
  * Extract section and slug from the URL pathname.
@@ -74,14 +76,41 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const locale = request.nextUrl.locale || 'en'
 
+  if (shouldLogBotHandling) {
+    console.info('[bot-middleware] AI bot detected, attempting rewrite', {
+      pathname,
+      locale,
+      userAgent,
+    })
+  }
+
   const parsed = parsePathToSectionAndSlug(pathname, locale)
 
   if (!parsed) {
+    if (shouldLogBotHandling) {
+      console.info(
+        '[bot-middleware] AI bot path parsing failed, serving HTML fallback',
+        {
+          pathname,
+          locale,
+          userAgent,
+        }
+      )
+    }
     // Could not parse the path, let it through
     return NextResponse.next()
   }
 
   const { section, slug } = parsed
+
+  if (shouldLogBotHandling) {
+    console.info('[bot-middleware] AI bot rewrite to LLM content', {
+      section,
+      slug,
+      locale,
+      userAgent,
+    })
+  }
 
   // Construct the LLM API URL with query parameters
   const llmUrl = new URL(
