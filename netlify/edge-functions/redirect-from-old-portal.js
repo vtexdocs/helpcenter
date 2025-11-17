@@ -26,6 +26,15 @@ export default async (request, context) => {
     return context.next()
   }
 
+  // Yield for Netlify internal paths (prerender extension, etc.)
+  if (
+    url.pathname === '/netlify-prerender-function' ||
+    url.pathname.startsWith('/.netlify/') ||
+    url.pathname.startsWith('/__netlify/')
+  ) {
+    return context.next()
+  }
+
   // Yield for static files and Next.js internals
   if (
     url.pathname.startsWith('/_next/') ||
