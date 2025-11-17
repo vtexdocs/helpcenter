@@ -17554,6 +17554,50 @@
       {
         "from": "/pt/tutorial/como-funcionam-pontos-de-retirada",
         "to": "/pt/docs/tutorials/pontos-de-retirada"
+      },
+      {
+        "from": "/en/docs/tutorials/gerenciar-usuarios",
+        "to": "/en/docs/tutorials/managing-admin-users"
+      },
+      {
+        "from": "/en/docs/tutorials/how-to-manage-users",
+        "to": "/en/docs/tutorials/managing-admin-users"
+      },
+      {
+        "from": "/v4",
+        "to": "/en/docs/tutorials/vtex-admin-start-here"
+      },
+      {
+        "from": "/pt/v4",
+        "to": "/pt/docs/tutorials/admin-vtex-comece-aqui"
+      },
+      {
+        "from": "/es/v4",
+        "to": "/es/docs/tutorials/admin-vtex-comience-aqui"
+      },
+      {
+        "from": "/en/v4",
+        "to": "/en/docs/tutorials/vtex-admin-start-here"
+      },
+      {
+        "from": "/educationnewsletter/en",
+        "to": "https://vtexhelp.myvtex.com/educationnewsletter/en"
+      },
+      {
+        "from": "/educationnewsletter/es",
+        "to": "https://vtexhelp.myvtex.com/educationnewsletter/es"
+      },
+      {
+        "from": "/educationnewsletter/pt",
+        "to": "https://vtexhelp.myvtex.com/educationnewsletter/pt"
+      },
+      {
+        "from": "/tables/payments",
+        "to": "/en/docs/tutorials/list-of-payment-providers-by-country"
+      },
+      {
+        "from": "/en/tables/payments",
+        "to": "/en/docs/tutorials/list-of-payment-providers-by-country"
       }
     ]
   }
