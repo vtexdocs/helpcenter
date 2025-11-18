@@ -2,6 +2,18 @@
   "redirects": {
     "fromCsvExport": [
       {
+        "from": "/tutorials/criar-um-produto-beta",
+        "to": "/pt/docs/tutorials/adicionar-ou-editar-produto"
+      },
+      {
+        "from": "/tutorials/agregar-producto-beta",
+        "to": "/es/docs/tutorials/agregar-o-editar-productos"
+      },
+      {
+        "from": "/tutorials/adding-products-beta",
+        "to": "/tutorials/adding-or-editing-products"
+      },      
+      {
         "from": "/faq/donde-veo-a-los-clientes-que-utilizan-recurrencia",
         "to": "/tutorial/donde-veo-a-los-clientes-que-utilizan-recurrencia"
       },
