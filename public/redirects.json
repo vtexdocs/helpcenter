@@ -2,15 +2,7 @@
   "redirects": {
     "fromCsvExport": [
       {
-        "from": "/tutorials/criar-um-produto-beta",
-        "to": "/pt/docs/tutorials/adicionar-ou-editar-produto"
-      },
-      {
-        "from": "/tutorials/agregar-producto-beta",
-        "to": "/es/docs/tutorials/agregar-o-editar-productos"
-      },
-      {
-        "from": "/tutorials/adding-products-beta",
+        "from": "/tutorial/criar-um-produto-beta--2nkoy6RakJEVF7ug4ZP0bP",
         "to": "/tutorials/adding-or-editing-products"
       },      
       {
