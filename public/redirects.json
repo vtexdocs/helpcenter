@@ -2,6 +2,18 @@
   "redirects": {
     "fromCsvExport": [
       {
+        "from": "/tutorials/add-image-to-product-description",
+        "to": "/en/docs/tutorials/adding-or-editing-products"
+      },
+      {
+        "from": "/tutorials/anadir-imagen-a-la-descripcion-del-producto",
+        "to": "/es/docs/tutorials/agregar-o-editar-productos"
+      },
+      {
+        "from": "/tutorials/adicionar-imagem-a-descricao-do-produto",
+        "to": "/pt/docs/tutorials/adicionar-ou-editar-produto"
+      },
+      {
         "from": "/tutorial/criar-um-produto-beta--2nkoy6RakJEVF7ug4ZP0bP",
         "to": "/tutorials/adding-or-editing-products"
       },      
