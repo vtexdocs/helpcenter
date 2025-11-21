@@ -17425,7 +17425,7 @@
       },
       {
         "from": "/en/subcategory/settings--4uqMnZjwBO04uWgCom8QiA",
-        "to": "/en/docs/tutorials/integration-settings"
+        "to": "/en/docs/tutorials/integration-settings-subcategory"
       },
       {
         "from": "/en/tutorial/shopee-integration--5OV9idUY6fHu3P8grnCnqj",
@@ -17497,67 +17497,67 @@
       },
       {
         "from": "/en/subcategory/insights-overview--1TIJqw8kV2Yok4iQe4SAkq",
-        "to": "en/docs/tutorials/dashboards-in-the-vtex-admin"
+        "to": "/en/docs/tutorials/dashboards-in-the-vtex-admin-subcategory"
       },
       {
         "from": "/en/subcategory/benefits--1yTYB5p4b6iwMsUg8uieyq",
-        "to": "/en/docs/tutorials/promotions"
+        "to": "/en/docs/tutorials/promotions-subcategory"
       },
       {
         "from": "/en/subcategory/access-profiles--1HSqkejwuYcQSMC400uY84",
-        "to": "/en/docs/tutorials/access-control"
+        "to": "/en/docs/tutorials/access-control-subcategory"
       },
       {
         "from": "/en/category/authentications--2DvfvQ5Mwc8mWIgaCWcEyo",
-        "to": "/en/docs/tutorials/authentication"
+        "to": "/en/docs/tutorials/authentication-category"
       },
       {
         "from": "/en/subcategory/application-keys--5GYFjiMQg0qIKpnnQY2qjh",
-        "to": "/en/docs/tutorials/api-keys-category"
+        "to": "/en/docs/tutorials/api-keys-subcategory"
       },
       {
         "from": "/en/category/cms--2I0KMdRlAkcwwiK4YeaiUi",
-        "to": "/en/docs/tutorials/storefront"
+        "to": "/en/docs/tutorials/storefront-category"
       },
       {
         "from": "/es/subcategory/vision-de-conjunto-de-insights--1TIJqw8kV2Yok4iQe4SAkq",
-        "to": "/es/docs/tutorials/dashboards-en-el-admin-vtex"
+        "to": "/es/docs/tutorials/dashboards-en-el-admin-vtex-subcategoria"
       },
       {
         "from": "/es/subcategory/configuracion-de-integraciones--4uqMnZjwBO04uWgCom8QiA",
-        "to": "/es/docs/tutorials/configuracion-de-las-integraciones"
+        "to": "/es/docs/tutorials/configuracion-de-las-integraciones-subcategoria"
       },
       {
         "from": "/es/subcategory/vision-de-general-de-pagos--2Xay1NOZKE2CSqKMwckOm8",
-        "to": "/es/docs/tutorials/vision-de-conjunto-de-pagos"
+        "to": "/es/docs/tutorials/vision-de-conjunto-de-pagos-subcategoria"
       },
       {
         "from": "/es/category/autenticaciones--2DvfvQ5Mwc8mWIgaCWcEyo",
-        "to": "/es/docs/tutorials/autenticacion"
+        "to": "/es/docs/tutorials/autenticacion-categoria"
       },
       {
         "from": "/es/subcategory/claves--21NfLcKOibBom7QOhU9yjP",
-        "to": "/es/docs/tutorials/claves-de-api-category"
+        "to": "/es/docs/tutorials/claves-de-api-subcategoria"
       },
       {
         "from": "/es/category/cms--2I0KMdRlAkcwwiK4YeaiUi",
-        "to": "/es/docs/tutorials/storefront"
+        "to": "/es/docs/tutorials/storefront-categoria"
       },
       {
         "from": "/pt/subcategory/visao-geral-do-insights--1TIJqw8kV2Yok4iQe4SAkq",
-        "to": "/pt/docs/tutorials/dashboards-no-admin-vtex"
+        "to": "/pt/docs/tutorials/dashboards-no-admin-vtex-subcategoria"
       },
       {
         "from": "/pt/category/autenticacoes--2DvfvQ5Mwc8mWIgaCWcEyo",
-        "to": "/pt/docs/tutorials/autenticacao"
+        "to": "/pt/docs/tutorials/autenticacao-categoria"
       },
       {
         "from": "/pt/subcategory/chaves-de-aplicacao--5GYFjiMQg0qIKpnnQY2qjh",
-        "to": "/pt/docs/tutorials/chaves-de-api-category"
+        "to": "/pt/docs/tutorials/chaves-de-api-subcategoria"
       },
       {
         "from": "/pt/category/cms--2I0KMdRlAkcwwiK4YeaiUi",
-        "to": "/pt/docs/tutorials/storefront"
+        "to": "/pt/docs/tutorials/storefront-categoria"
       },
       {
         "from": "/es/tutorial/como-funcionan-los-pedidos-incompletos--tutorials_294",

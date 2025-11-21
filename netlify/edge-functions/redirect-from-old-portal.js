@@ -105,9 +105,11 @@ export default async (request, context) => {
     if (type === 'tutorial') {
       destination = `/${locale}/docs/tutorials/${slug}`
     } else if (type === 'subcategory') {
-      destination = `/${locale}/docs/tutorials/${slug}`
+      const suffix = getLocalizedSuffix('subcategory', locale)
+      destination = `/${locale}/docs/tutorials/${slug}${suffix}`
     } else if (type === 'category') {
-      destination = `/${locale}/docs/tutorials/${slug}`
+      const suffix = getLocalizedSuffix('category', locale)
+      destination = `/${locale}/docs/tutorials/${slug}${suffix}`
     } else if (type === 'tracks') {
       destination = `/${locale}/docs/tracks/${slug}`
     } else if (type === 'known-issues') {
@@ -210,6 +212,15 @@ function getRedirectsMap() {
     redirectsMapCache = redirectsMap
   }
   return redirectsMapCache
+}
+
+// Helper function to get localized suffix for category/subcategoryy
+function getLocalizedSuffix(type, locale) {
+  const suffixes = {
+    category: { en: '-category', pt: '-categoria', es: '-categoria' },
+    subcategory: { en: '-subcategory', pt: '-subcategoria', es: '-subcategoria' }
+  }
+  return suffixes[type]?.[locale] || suffixes[type].en // fallback to EN
 }
 
 // Helper function to detect locale from path
