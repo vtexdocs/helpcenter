@@ -214,7 +214,7 @@ function getRedirectsMap() {
   return redirectsMapCache
 }
 
-// Helper function to get localized suffix for category/subcategory
+// Helper function to get localized suffix for category/subcategoryy
 function getLocalizedSuffix(type, locale) {
   const suffixes = {
     category: { en: '-category', pt: '-categoria', es: '-categoria' },
