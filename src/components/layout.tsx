@@ -1,6 +1,7 @@
 import { Flex, Box } from '@vtex/brand-ui'
 import type { ReactElement } from 'react'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import { TrackerContext } from 'utils/contexts/trackerContext'
 import { useClientNavigation } from 'utils/useClientNavigation'
 import { ThemeProvider } from '@vtex/brand-ui'
@@ -51,6 +52,8 @@ export default function Layout({
   const { initTracker, startTracking } = useContext(TrackerContext)
   const { navigation } = useClientNavigation() // Load navigation client-side
   const intl = useIntl()
+  const router = useRouter()
+  const [currentUrl, setCurrentUrl] = useState<string>('')
 
   useEffect(() => {
     // Lazy load tracker to avoid blocking main thread
@@ -61,6 +64,12 @@ export default function Layout({
 
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCurrentUrl(window.location.href)
+    }
+  }, [router.asPath])
 
   return (
     <ThemeProvider>
@@ -74,7 +83,7 @@ export default function Layout({
           menuDocumentationData(intl),
           menuSupportData(intl),
           updatesData(intl),
-          feedbackSectionData(intl),
+          feedbackSectionData(intl, currentUrl),
         ]}
         sectionSelected={sectionSelected ?? ''}
         fallback={navigation} // Use client-side loaded navigation (null during loading)

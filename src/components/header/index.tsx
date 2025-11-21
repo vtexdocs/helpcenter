@@ -42,7 +42,14 @@ const Header = () => {
   const lastScroll = useRef(0)
   const modalOpen = useRef(false)
   const [showDropdown, setShowDropdown] = useState(false)
+  const [currentUrl, setCurrentUrl] = useState<string>('')
   const headerElement = useRef<HTMLElement>()
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCurrentUrl(window.location.href)
+    }
+  }, [router.asPath])
 
   useEffect(() => {
     const body = document.body
@@ -141,7 +148,7 @@ const Header = () => {
 
           <VtexLink
             sx={styles.rightLinksItem}
-            href={getFeedbackURL()}
+            href={getFeedbackURL(currentUrl)}
             target="_blank"
           >
             <LongArrowIcon />

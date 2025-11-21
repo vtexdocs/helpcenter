@@ -46,7 +46,11 @@ const Footer = () => {
       message: intl.formatMessage({
         id: 'landing_page_footer_feedback.message',
       }),
-      to: () => getFeedbackURL(),
+      to: () => {
+        const currentUrl =
+          typeof window !== 'undefined' ? window.location.href : ''
+        return getFeedbackURL(currentUrl)
+      },
     },
   ]
 
