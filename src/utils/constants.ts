@@ -98,7 +98,7 @@ export const updatesData = (intl: IntlShape) => {
   return data
 }
 
-export const feedbackSectionData = (intl: IntlShape) => {
+export const feedbackSectionData = (intl: IntlShape, currentUrl?: string) => {
   const data: DocDataElement[] = [
     {
       id: 'Feedback',
@@ -107,7 +107,7 @@ export const feedbackSectionData = (intl: IntlShape) => {
         id: 'landing_page_header_feedback.message',
       }),
       description: '',
-      link: getFeedbackURL(),
+      link: getFeedbackURL(currentUrl),
     },
   ]
 

@@ -5,8 +5,9 @@ import { Box, Flex, Text, Button, Link } from '@vtex/brand-ui'
 import styles from 'styles/error-page'
 import fiveHundredImage from '../../public/images/500-illustration.png'
 import { GetStaticProps } from 'next'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
+import { getFeedbackURL } from 'utils/get-url'
 
 interface Props {
   branch: string
@@ -15,6 +16,13 @@ interface Props {
 const FiveHundredPage: Page<Props> = ({ branch }) => {
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
+  const [feedbackUrl, setFeedbackUrl] = useState<string>('')
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setFeedbackUrl(getFeedbackURL(window.location.href))
+    }
+  }, [])
 
   return (
     <>
@@ -34,7 +42,7 @@ const FiveHundredPage: Page<Props> = ({ branch }) => {
             <Button sx={styles.button}>
               <Link
                 sx={styles.buttonLink}
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfmnotPvPjw-SjiE7lt2Nt3RQgNUe10ixXZmuO2v9enOJReoQ/viewform?entry.1972292648=help.vtex.com&entry.1799503232="
+                href={feedbackUrl || getFeedbackURL()}
               >
                 CONTACT US
               </Link>
