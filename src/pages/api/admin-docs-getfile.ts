@@ -20,7 +20,7 @@ interface GitHubFileContent {
   }
 }
 
-async function getMarkdownFile(org: string, repo: string, path: string) {
+async function getFile(org: string, repo: string, path: string) {
   const response = await octokit.request(
     'GET /repos/{org}/{repo}/contents/{path}',
     {
@@ -63,18 +63,16 @@ export default async function handler(
     return
   }
 
-  // Ensure it's a markdown file
-  if (!path.endsWith('.md')) {
-    res.status(400).json({ error: 'Only markdown files (.md) are supported' })
+  // Ensure it's a markdown or JSON file
+  if (!path.endsWith('.md') && !path.endsWith('.json')) {
+    res.status(400).json({
+      error: 'Only markdown files (.md) and JSON files (.json) are supported',
+    })
     return
   }
 
   try {
-    const fileContent = await getMarkdownFile(
-      'vtexdocs',
-      'admin-docs-content',
-      path
-    )
+    const fileContent = await getFile('vtexdocs', 'admin-docs-content', path)
     res.status(200).json(fileContent)
   } catch (error: unknown) {
     const err = error as { status?: number; message?: string }
