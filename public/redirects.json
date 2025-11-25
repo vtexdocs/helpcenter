@@ -17614,6 +17614,18 @@
       {
         "from": "/en/tables/payments",
         "to": "/en/docs/tutorials/list-of-payment-providers-by-country"
+      },
+      {
+        "from": "/pt/docs/tutorials/vtex-support-brazil",
+        "to": "/pt/docs/tutorials/recursos-de-suporte-global-da-vtex"
+      },
+      {
+        "from": "/en/docs/tutorials/suporte-vtex-estados-unidos",
+        "to": "/docs/tutorials/vtex-global-support-resources"
+      },
+      {
+        "from": "/pt/docs/tutorials/suporte-vtex-emea",
+        "to": "/docs/tutorials/vtex-global-support-resources"
       }
     ]
   }
