@@ -2,6 +2,18 @@
   "redirects": {
     "fromCsvExport": [
       {
+        "from": "/tutorials/cadastrar-o-codigo-de-barra-dos-skus-para-o-vtex-sales-app",
+        "to": "/tracks/cadastrar-o-codigo-de-barras-dos-skus-para-o-vtex-sales-app"
+      },
+      {
+        "from": "/tutorials/registering-the-skus-barcode-for-vtex-sales-app",
+        "to": "/tracks/register-the-barcode-of-the-skus-for-vtex-sales-app"
+      },
+      {
+        "from": "/tutorials/registrar-los-codigos-de-barras-de-los-skus-para-el-vtex-sales-app",
+        "to": "/tracks/registrar-el-codigo-de-barras-de-los-skus-para-vtex-sales-app"
+      },
+      {
         "from": "/tutorials/add-image-to-product-description",
         "to": "/en/docs/tutorials/adding-or-editing-products"
       },
