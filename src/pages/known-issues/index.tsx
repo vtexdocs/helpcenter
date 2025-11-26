@@ -33,7 +33,7 @@ import {
   sortBy,
 } from 'utils/constants'
 import Select from 'components/select'
-import Input from 'components/input'
+import { Input } from '@vtexdocs/components'
 import SearchIcon from 'components/icons/search-icon'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'

@@ -19,7 +19,7 @@ import Pagination from 'components/pagination'
 
 import Filter from 'components/filter'
 import searchIcon from '../../components/icons/search-icon'
-import Input from 'components/input'
+import { Input } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch } from 'utils/fetchBatchGithubData'
 import { parseFrontmatter } from 'utils/fetchBatchGithubData'

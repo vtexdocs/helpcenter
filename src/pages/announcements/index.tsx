@@ -17,7 +17,7 @@ import Select from 'components/select'
 import AnnouncementCard from 'components/announcement-card'
 import { sortBy } from 'utils/constants'
 import SearchIcon from 'components/icons/search-icon'
-import Input from 'components/input'
+import { Input } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 
