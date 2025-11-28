@@ -7,8 +7,8 @@ import {
   FixedIcon,
   ImprovedIcon,
   RemovedIcon,
+  AnnouncementIcon,
 } from '@vtexdocs/components'
-import AnnouncementIcon from 'components/icons/announcement-icon'
 import { IntlShape } from 'react-intl'
 
 export type ActionType =

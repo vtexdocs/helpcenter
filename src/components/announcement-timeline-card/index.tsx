@@ -4,8 +4,7 @@ import { getDaysElapsed } from '../../utils/get-days-elapsed'
 import { useIntl } from 'react-intl'
 
 import styles from './styles'
-import MegaphoneIcon from 'components/icons/megaphone-icon'
-import NewIcon from 'components/icons/new-icon'
+import { MegaphoneIcon, NewIcon } from '@vtexdocs/components'
 import Link from 'next/link'
 
 export interface AnnouncementTimelineCardProps {

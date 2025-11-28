@@ -4,8 +4,7 @@ import AnimateHeight from 'react-animate-height'
 import { DocumentContext } from 'utils/contexts/documentContext'
 import { TableOfContents } from '@vtexdocs/components'
 
-import MenuIcon from 'components/icons/menu-icon'
-import { CloseIcon } from '@vtexdocs/components'
+import { MenuIcon, CloseIcon } from '@vtexdocs/components'
 
 import styles from './styles'
 import { FormattedMessage } from 'react-intl'
