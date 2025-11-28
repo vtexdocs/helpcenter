@@ -18,7 +18,7 @@ import TroubleshootingCard from 'components/troubleshooting-card'
 import Pagination from 'components/pagination'
 
 import Filter from 'components/filter'
-import searchIcon from '../../components/icons/search-icon'
+import { SearchIcon } from '@vtexdocs/components'
 import { Input } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch } from 'utils/fetchBatchGithubData'
@@ -136,7 +136,7 @@ const TroubleshootingPage: NextPage<Props> = ({
             placeholder={intl.formatMessage({
               id: 'troubleshooting_page_search.placeholder',
             })}
-            Icon={searchIcon}
+            Icon={SearchIcon}
             value={search}
             onChange={(value: string) => setSearch(value)}
           />

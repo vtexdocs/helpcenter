@@ -5,7 +5,7 @@ import type { DocDataElement } from 'utils/typings/types'
 import styles from './styles'
 import { useRef } from 'react'
 import { useIntl } from 'react-intl'
-import LongArrowIcon from 'components/icons/long-arrow-icon'
+import { LongArrowIcon } from '@vtexdocs/components'
 
 const SupportSectionCard = ({
   Icon,

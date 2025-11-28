@@ -1,12 +1,14 @@
 import type { IconComponent } from 'utils/typings/types'
 
-import AddedIcon from 'components/icons/added-icon'
-import DeprecatedIcon from 'components/icons/deprecated-icon'
-import DocumentationUpdatesIcon from 'components/icons/documentation-updates-icon'
-import FixedIcon from 'components/icons/fixed-icon'
-import ImprovedIcon from 'components/icons/improved-icon'
+import {
+  AddedIcon,
+  DeprecatedIcon,
+  DocumentationUpdatesIcon,
+  FixedIcon,
+  ImprovedIcon,
+  RemovedIcon,
+} from '@vtexdocs/components'
 import AnnouncementIcon from 'components/icons/announcement-icon'
-import RemovedIcon from 'components/icons/removed-icon'
 import { IntlShape } from 'react-intl'
 
 export type ActionType =

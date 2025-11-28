@@ -23,7 +23,7 @@ import WarningIcon from 'components/icons/warning-icon'
 import GraphIcon from 'components/icons/graph-icon'
 import MegaphoneIcon from 'components/icons/megaphone-icon'
 import FAQIcon from 'components/icons/faq-icon'
-import LongArrowIcon from 'components/icons/long-arrow-icon'
+import { LongArrowIcon } from '@vtexdocs/components'
 import TroubleshootingIcon from 'components/icons/troubleshooting-icon'
 
 libraryConfig
