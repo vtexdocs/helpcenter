@@ -20,8 +20,11 @@ const HamburgerMenu = dynamic(
 ) as React.FC<{ parentsArray?: string[] }>
 
 import DropdownMenu from 'components/dropdown-menu'
-import VTEXHelpCenterIcon from 'components/icons/vtex-helpcenter-icon'
-import { GridIcon, LongArrowIcon } from '@vtexdocs/components'
+import {
+  VTEXHelpCenterIcon,
+  GridIcon,
+  LongArrowIcon,
+} from '@vtexdocs/components'
 import { getFeedbackURL } from 'utils/get-url'
 
 import AnnouncementBar from 'components/announcement-bar'

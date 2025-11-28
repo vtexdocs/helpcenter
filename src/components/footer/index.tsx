@@ -13,12 +13,14 @@ import {
 } from 'utils/get-url'
 import { useIntl } from 'react-intl'
 import LocaleSwitcherFooter from 'components/locale-switcher-footer'
-import VtexLogoFooter from 'components/icons/vtexLogoFooter'
-import InstagramIcon from 'components/icons/instagram-icon'
-import YoutubeIcon from 'components/icons/youtube-icon'
-import FacebookCircleIcon from 'components/icons/facebook-circle-icon'
-import TwitterCircleIcon from 'components/icons/twitter-circle-icon'
-import LinkedinCircleIcon from 'components/icons/linkedin-circle-icon'
+import {
+  VTEXLogoFooter,
+  InstagramIcon,
+  YoutubeIcon,
+  FacebookCircleIcon,
+  TwitterCircleIcon,
+  LinkedinCircleIcon,
+} from '@vtexdocs/components'
 
 const Footer = () => {
   const intl = useIntl()
@@ -78,7 +80,7 @@ const Footer = () => {
   ]
   return (
     <Box sx={styles.outerBox}>
-      <VtexLogoFooter sx={{ width: '61px', height: '22px' }} />
+      <VTEXLogoFooter sx={{ width: '61px', height: '22px' }} />
       <Flex sx={styles.socialMediaIcons}>
         {socialIcons.map((icon, index) => (
           <Link key={index} href={icon.to()}>

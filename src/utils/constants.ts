@@ -15,16 +15,18 @@ import {
 } from './typings/types'
 import { IntlShape } from 'react-intl'
 import libraryConfig from './libraryConfig'
-import DeveloperPortalIcon from 'components/icons/developer-portal-icon'
-import StartHereIcon from 'components/icons/start-here-icon'
-import TutorialsIcon from 'components/icons/tutorials-icon'
-import PaperIcon from 'components/icons/paper-icon'
-import WarningIcon from 'components/icons/warning-icon'
-import GraphIcon from 'components/icons/graph-icon'
-import MegaphoneIcon from 'components/icons/megaphone-icon'
-import FAQIcon from 'components/icons/faq-icon'
-import { LongArrowIcon } from '@vtexdocs/components'
-import TroubleshootingIcon from 'components/icons/troubleshooting-icon'
+import {
+  FAQIcon,
+  MegaphoneIcon,
+  GraphIcon,
+  WarningIcon,
+  PaperIcon,
+  StartHereIcon,
+  TutorialsIcon,
+  DeveloperPortalIcon,
+  GearTroubleshootingIcon,
+  LongArrowIcon,
+} from '@vtexdocs/components'
 
 libraryConfig
 export const messages = getMessages()
@@ -138,7 +140,7 @@ export const menuSupportData = (intl: IntlShape) => {
     },
     {
       id: 'troubleshooting',
-      Icon: TroubleshootingIcon,
+      Icon: GearTroubleshootingIcon,
       title: intl.formatMessage({ id: 'menu_troubleshooting.title' }),
       description: intl.formatMessage({
         id: 'menu_troubleshooting.description',
@@ -219,7 +221,7 @@ export const ICON_REGISTRY: Record<string, IconComponent> = {
   announcements: MegaphoneIcon,
   faq: FAQIcon,
   'known-issues': WarningIcon,
-  troubleshooting: TroubleshootingIcon,
+  troubleshooting: GearTroubleshootingIcon,
 }
 
 export const getIcon = (categoryId: string): IconComponent => {
