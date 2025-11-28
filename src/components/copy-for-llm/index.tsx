@@ -4,7 +4,7 @@ import { Box, Text } from '@vtex/brand-ui'
 import { useIntl } from 'react-intl'
 import copy from 'copy-text-to-clipboard'
 
-import CopyIcon from 'components/icons/copy-icon'
+import { CopyIcon } from '@vtexdocs/components'
 import styles from './styles'
 
 interface Props {

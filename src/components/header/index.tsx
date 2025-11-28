@@ -21,8 +21,7 @@ const HamburgerMenu = dynamic(
 
 import DropdownMenu from 'components/dropdown-menu'
 import VTEXHelpCenterIcon from 'components/icons/vtex-helpcenter-icon'
-import GridIcon from 'components/icons/grid-icon'
-import LongArrowIcon from 'components/icons/long-arrow-icon'
+import { GridIcon, LongArrowIcon } from '@vtexdocs/components'
 import { getFeedbackURL } from 'utils/get-url'
 
 import AnnouncementBar from 'components/announcement-bar'

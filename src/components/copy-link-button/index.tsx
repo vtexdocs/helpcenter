@@ -1,6 +1,6 @@
 import { Button } from '@vtex/brand-ui'
 import Tooltip from 'components/tooltip'
-import CopyIcon from 'components/icons/copy-icon'
+import { CopyIcon } from '@vtexdocs/components'
 import { useIntl } from 'react-intl'
 import { useState } from 'react'
 import styles from './styles'
