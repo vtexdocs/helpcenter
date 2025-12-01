@@ -2,6 +2,18 @@
   "redirects": {
     "fromCsvExport": [
       {
+        "from": "/faq/why-is-the-product-not-visible-on-the-website--frequentlyAskedQuestions_382",
+        "to": "/faq/why-is-the-product-not-visible-on-the-website"
+      },
+      {
+       "from": "/faq/por-que-el-producto-no-aparece-en-el-sitio-web--frequentlyAskedQuestions_382",
+        "to": "/es/faq/por-que-el-producto-no-aparece-en-el-sitio-web"
+      },
+      {
+        "from": "/faq/por-que-o-produto-nao-aparece-no-site--frequentlyAskedQuestions_382",
+        "to": "/pt/faq/por-que-o-produto-nao-aparece-no-site"
+      },
+      {
         "from": "/tutorials/cadastrar-o-codigo-de-barra-dos-skus-para-o-vtex-sales-app",
         "to": "/tracks/cadastrar-o-codigo-de-barras-dos-skus-para-o-vtex-sales-app"
       },
