@@ -1,6 +1,7 @@
 import { Box, Text } from '@vtex/brand-ui'
 
-import DocumentationCard, { DocumentProps } from 'components/documentation-card'
+import DocumentationCard from 'components/documentation-card'
+import { DocumentProps } from 'utils/typings/types'
 import { createDocFromUrl } from './functions'
 
 import styles from './styles'

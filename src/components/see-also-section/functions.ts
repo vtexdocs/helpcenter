@@ -1,7 +1,6 @@
 import { capitalizeFirstLetter } from 'utils/string-utils'
 import { getIcon } from 'utils/constants'
-
-import { DocumentProps } from 'components/documentation-card'
+import { DocumentProps } from 'utils/typings/types'
 
 const getTitleFromUrl = (url: string) => {
   const words = url.split('#')[0].split('-')

@@ -78,12 +78,10 @@ const TrackPage: NextPage<ArticlePageProps> = ({
   ) : (
     <ArticleIndex
       breadcrumbList={breadcrumbList}
-      name={componentProps?.articleData?.name ?? ''}
-      children={componentProps?.articleData?.children}
-      hidePaginationNext={componentProps?.articleData?.hidePaginationNext}
-      hidePaginationPrevious={
-        componentProps?.articleData?.hidePaginationPrevious
-      }
+      name={componentProps?.name ?? ''}
+      children={componentProps?.children}
+      hidePaginationNext={componentProps?.hidePaginationNext}
+      hidePaginationPrevious={componentProps?.hidePaginationPrevious}
       isListed={isListed}
       slug={slug}
       pagination={pagination}
@@ -249,11 +247,9 @@ export const getStaticProps: GetStaticProps = async ({
           isListed,
           branch,
           componentProps: {
-            articleData: {
-              name: categoryTitle || slug,
-              children: childrenList,
-              hidePaginationNext: !childrenList.length,
-            },
+            name: categoryTitle || slug,
+            children: childrenList,
+            hidePaginationNext: !childrenList.length,
           },
           locale: currentLocale,
         },

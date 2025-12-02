@@ -103,7 +103,12 @@ export interface ArticleIndexingProps {
 
 export type IconComponent = (props: IconProps) => JSX.Element
 
-// Documentation Card Types
+export type DataElement = {
+  link: string
+  Icon: IconComponent
+  description: string
+}
+
 export interface DocumentProps extends DataElement {
   title: string
 }
@@ -111,12 +116,6 @@ export interface DocumentProps extends DataElement {
 export interface CardProps extends DocumentProps {
   containerType: 'dropdown' | 'see-also' | 'mobile'
   onClick?: MouseEventHandler<HTMLAnchorElement> | undefined
-}
-
-export type DataElement = {
-  link: string
-  Icon: IconComponent
-  description: string
 }
 
 export interface DocDataElement extends DataElement {
