@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'pt' | 'es'
+export type LocaleType = 'en' | 'pt' | 'es'
 
 export type SectionId =
   | 'tracks'

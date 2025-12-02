@@ -160,3 +160,10 @@ export type ArticlePageProps =
       componentProps: ArticleIndexingProps
       headingList?: Item[]
     }
+
+export interface ContributorsType {
+  name: string
+  login: string
+  avatar: string
+  userPage: string
+}

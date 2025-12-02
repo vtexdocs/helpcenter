@@ -1,5 +1,5 @@
 import { GetStaticPropsResult } from 'next'
-import { ContributorsType } from './getFileContributors'
+import { ContributorsType } from './typings/types'
 import { Item } from '@vtexdocs/components'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 

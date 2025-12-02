@@ -1,4 +1,4 @@
-import { ContributorsType } from 'utils/getFileContributors'
+import { ContributorsType } from 'utils/typings/types'
 interface GitHubUserApiResponse {
   login: string
   name: string | null
