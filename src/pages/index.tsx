@@ -13,7 +13,7 @@ import styles from 'styles/landing-page'
 import { GetStaticProps } from 'next'
 import { useContext } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
-import { localeType } from 'utils/navigation-utils'
+import { LocaleType } from 'utils/typings/unionTypes'
 import { AnnouncementDataElement } from 'utils/typings/types'
 import { getLogger } from 'utils/logging/log-util'
 import { getISRRevalidateTime } from 'utils/config'
@@ -85,9 +85,9 @@ export const getStaticProps: GetStaticProps = async ({
       : 'main'
   const branch = preview ? previewBranch : 'main'
   const logger = getLogger('Home News')
-  const currentLocale: localeType = locale
-    ? (locale as localeType)
-    : ('en' as localeType)
+  const currentLocale: LocaleType = locale
+    ? (locale as LocaleType)
+    : ('en' as LocaleType)
 
   if (!docsPathsGLOBAL) {
     docsPathsGLOBAL = await getAnnouncementsPaths('announcements')

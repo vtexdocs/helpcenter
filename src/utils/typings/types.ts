@@ -1,119 +1,20 @@
 import { NextPage } from 'next'
 import { IconProps } from '@vtex/brand-ui'
-
-import { ActionType } from 'components/announcement-timeline-card/functions'
-import { UpdatesTitle, ResourceTitle } from './unionTypes'
-import { MarkDownProps } from 'components/article-render'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { Item } from '@vtexdocs/components'
-import { ArticleIndexingProps } from 'components/article-index'
+import { MouseEventHandler } from 'react'
+import {
+  UpdatesTitle,
+  ResourceTitle,
+  SectionId,
+  KnownIssueStatus,
+} from './unionTypes'
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type Page<P = {}, IP = P> = NextPage<P, IP> & {
   sidebarfallback?: any //eslint-disable-line
   hideSidebar?: boolean
   isPreview?: boolean
-}
-
-export type IconComponent = (props: IconProps) => JSX.Element
-
-export type DataElement = {
-  link: string
-  Icon: IconComponent
-  description: string
-}
-
-export interface DocDataElement extends DataElement {
-  id: string
-  title: string
-  isExternalLink?: boolean
-}
-
-export interface FaqDataElement extends DataElement {
-  title: string
-  productTeam: string
-}
-
-export interface UpdatesDataElement extends DataElement {
-  title: UpdatesTitle
-}
-
-export interface ExternalLinkDataElement extends DataElement {
-  title: string
-}
-
-export type UpdateElement = {
-  slug: string
-  title: string
-  createdAt: string
-  hidden: boolean
-  description: string
-  actionType: ActionType
-}
-
-export type WhatsNextDataElement = {
-  title: string
-  description: string
-  linkTitle: string
-  linkTo: string
-}
-
-export type WhatsNextDataElementTutorial = {
-  title: string
-  linkTitle: string
-  linkTo: string
-}
-
-export type ResourceDataElement = {
-  title: ResourceTitle
-  description: string
-  link: string
-}
-
-export type KnownIssueStatus =
-  | 'Fixed'
-  | 'Closed'
-  | 'Backlog'
-  | 'Scheduled'
-  | 'No_Fix'
-
-export type KnownIssueDataElement = {
-  title: string
-  id: string
-  kiStatus: KnownIssueStatus
-  module: string
-  slug: string
-  createdAt: string
-  updatedAt: string
-  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
-}
-
-export type AnnouncementDataElement = {
-  title: string
-  url: string
-  createdAt: string
-  updatedAt: string
-  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
-  synopsis?: string
-}
-
-export type SortByType = 'newest' | 'recently_updated'
-
-export type FaqCardDataElement = {
-  title: string
-  slug: string
-  createdAt: string
-  updatedAt: string
-  productTeam: string
-  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
-}
-
-export type TroubleshootingDataElement = {
-  title: string
-  slug: string
-  tags: string[]
-  createdAt: string
-  updatedAt: string
-  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
 }
 
 export type ArticlePageProps =
@@ -160,6 +61,130 @@ export type ArticlePageProps =
       componentProps: ArticleIndexingProps
       headingList?: Item[]
     }
+
+// Article Render Types
+export interface MarkDownProps {
+  content: string
+  serialized: MDXRemoteSerializeResult
+  contributors: ContributorsType[]
+  path: string
+  headingList: Item[]
+  seeAlsoData: {
+    url: string
+    title: string
+    category: string
+  }[]
+  slug: string
+  isListed: boolean
+  branch: string
+  pagination?: {
+    previousDoc: {
+      slug: string | null
+      name: string | null
+    }
+    nextDoc: {
+      slug: string | null
+      name: string | null
+    }
+  }
+  breadcrumbList: { slug: string; name: string; type: string }[]
+  headings: Item[]
+  type: SectionId
+}
+
+// Article Index Types
+export interface ArticleIndexingProps {
+  name: string
+  children: { name: string; slug: string }[]
+  hidePaginationPrevious: boolean
+  hidePaginationNext: boolean
+  type: string
+}
+
+export type IconComponent = (props: IconProps) => JSX.Element
+
+// Documentation Card Types
+export interface DocumentProps extends DataElement {
+  title: string
+}
+
+export interface CardProps extends DocumentProps {
+  containerType: 'dropdown' | 'see-also' | 'mobile'
+  onClick?: MouseEventHandler<HTMLAnchorElement> | undefined
+}
+
+export type DataElement = {
+  link: string
+  Icon: IconComponent
+  description: string
+}
+
+export interface DocDataElement extends DataElement {
+  id: string
+  title: string
+  isExternalLink?: boolean
+}
+
+export interface FaqDataElement extends DataElement {
+  title: string
+  productTeam: string
+}
+
+export interface UpdatesDataElement extends DataElement {
+  title: UpdatesTitle
+}
+
+export interface ExternalLinkDataElement extends DataElement {
+  title: string
+}
+
+export type WhatsNextDataElement = {
+  title: string
+  description: string
+  linkTitle: string
+  linkTo: string
+}
+
+export type WhatsNextDataElementTutorial = {
+  title: string
+  linkTitle: string
+  linkTo: string
+}
+
+export type ResourceDataElement = {
+  title: ResourceTitle
+  description: string
+  link: string
+}
+
+export type CardDataElement = {
+  title: string
+  createdAt: string
+  updatedAt: string
+  status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'CHANGED' | string
+}
+
+export interface AnnouncementDataElement extends CardDataElement {
+  url: string
+  synopsis?: string
+}
+
+export interface KnownIssueDataElement extends CardDataElement {
+  slug: string
+  id: string
+  kiStatus: KnownIssueStatus
+  module: string
+}
+
+export interface FaqCardDataElement extends CardDataElement {
+  slug: string
+  productTeam: string
+}
+
+export interface TroubleshootingDataElement extends CardDataElement {
+  slug: string
+  tags: string[]
+}
 
 export interface ContributorsType {
   name: string

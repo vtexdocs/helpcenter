@@ -1,5 +1,5 @@
 import { getDocsPaths } from './getDocsPaths'
-import { localeType } from './navigation-utils'
+import { LocaleType } from 'utils/typings/unionTypes'
 import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import { SectionId } from './typings/unionTypes'
 import { ParsedUrlQuery } from 'querystring'
@@ -8,7 +8,7 @@ type ExtractedParams = {
   sectionSelected: string
   branch: string
   slug: string
-  currentLocale: localeType
+  currentLocale: LocaleType
   docsPaths: Record<string, { locale: string; path: string }[]>
   mdFileExists: boolean
   mdFileExistsForCurrentLocale: boolean
@@ -38,7 +38,7 @@ export async function extractStaticPropsParams({
 
   const branch = preview ? previewBranch : 'main'
   const slug = params?.slug as string
-  const currentLocale: localeType = (locale as localeType) || 'en'
+  const currentLocale: LocaleType = (locale as LocaleType) || 'en'
   const docsPaths =
     preview ||
     process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD ||

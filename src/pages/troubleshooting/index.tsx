@@ -8,10 +8,10 @@ import { useContext, useMemo, useState } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
-import { localeType } from 'utils/navigation-utils'
+import { LocaleType, SortByType } from 'utils/typings/unionTypes'
 import { Flex } from '@vtex/brand-ui'
 import Select from 'components/select'
-import { SortByType, TroubleshootingDataElement } from 'utils/typings/types'
+import { TroubleshootingDataElement } from 'utils/typings/types'
 import usePagination from 'utils/hooks/usePagination'
 import { sortBy } from 'utils/constants'
 import TroubleshootingCard from 'components/troubleshooting-card'
@@ -180,7 +180,7 @@ export async function getStaticProps({
     branch
   )
   const logger = getLogger('troubleshooting')
-  const currentLocale: localeType = (locale ?? 'en') as localeType
+  const currentLocale: LocaleType = (locale ?? 'en') as LocaleType
   const slugs = Object.keys(docsPathsGLOBAL)
   const batchSize = 100
 

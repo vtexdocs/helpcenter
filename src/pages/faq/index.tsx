@@ -1,7 +1,8 @@
 import { Box, Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 
-import { FaqCardDataElement, SortByType } from 'utils/typings/types'
+import { FaqCardDataElement } from 'utils/typings/types'
+import { SortByType, LocaleType } from 'utils/typings/unionTypes'
 import Head from 'next/head'
 import styles from 'styles/filterable-cards-page'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -19,7 +20,6 @@ import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
 import faqImage from '../../../public/images/faq.png'
 import Pagination from 'components/pagination'
-import { localeType } from 'utils/navigation-utils'
 import Select from 'components/select'
 import { faqFilter, sortBy } from 'utils/constants'
 import FaqCard from 'components/faq-card'
@@ -223,7 +223,7 @@ export const getStaticProps: GetStaticProps = async ({
   const branch = preview ? previewBranch : 'main'
   const docsPathsGLOBAL = await getFaqPaths('faq', branch)
   const logger = getLogger('FAQs')
-  const currentLocale: localeType = (locale ?? 'en') as localeType
+  const currentLocale: LocaleType = (locale ?? 'en') as LocaleType
   const slugs = Object.keys(docsPathsGLOBAL)
   const batchSize = 100
 

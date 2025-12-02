@@ -6,49 +6,18 @@ import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
 import SeeAlsoSection from 'components/see-also-section'
 import DocumentContextProvider from 'utils/contexts/documentContext'
-import { Item, MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
+import { MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
 
 import styles from 'styles/documentation-page'
 import ArticlePagination from 'components/article-pagination'
 import Contributors from 'components/contributors'
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { ContributorsType } from 'utils/typings/types'
+import { MarkDownProps } from 'utils/typings/types'
 import CopyLinkButton from 'components/copy-link-button'
 import TimeToRead from 'components/TimeToRead'
 import DateText from 'components/date-text'
 import Author from 'components/author'
 import Tag from 'components/tag'
 import CopyForLLM from 'components/copy-for-llm'
-import type { SectionId } from 'utils/typings/unionTypes'
-
-export interface MarkDownProps {
-  content: string
-  serialized: MDXRemoteSerializeResult
-  contributors: ContributorsType[]
-  path: string
-  headingList: Item[]
-  seeAlsoData: {
-    url: string
-    title: string
-    category: string
-  }[]
-  slug: string
-  isListed: boolean
-  branch: string
-  pagination?: {
-    previousDoc: {
-      slug: string | null
-      name: string | null
-    }
-    nextDoc: {
-      slug: string | null
-      name: string | null
-    }
-  }
-  breadcrumbList: { slug: string; name: string; type: string }[]
-  headings: Item[]
-  type: SectionId
-}
 
 const ArticleRender = ({
   serialized,
