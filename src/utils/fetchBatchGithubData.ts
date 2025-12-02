@@ -1,6 +1,6 @@
 import { serialize } from 'next-mdx-remote/serialize'
 import { LoggerType } from './logging/log-util'
-import { localeType } from './navigation-utils'
+import { LocaleType } from 'utils/typings/unionTypes'
 import { DocsPaths } from './getDocsPaths'
 import { fetchGitHubFileWithFallback } from './githubCdnFallback'
 
@@ -45,7 +45,7 @@ export const fetchFromGithub = async (
 export const getPathBySlug = (
   slug: string,
   docsPathsGLOBAL: DocsPaths,
-  currentLocale: localeType
+  currentLocale: LocaleType
 ): string | undefined => {
   return docsPathsGLOBAL[slug]?.find((entry) => entry.locale === currentLocale)
     ?.path
@@ -55,7 +55,7 @@ export const fetchBatch = async (
   batch: string[],
   repo: string,
   docsPathsGLOBAL: DocsPaths,
-  currentLocale: localeType,
+  currentLocale: LocaleType,
   branch: string,
   logger: LoggerType
 ) => {

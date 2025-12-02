@@ -3,16 +3,7 @@ import { Box, Flex, Text } from '@vtex/brand-ui'
 
 import styles from './styles'
 import { cardContainer, cardTitle, titleContainer } from './functions'
-import { DataElement } from 'utils/typings/types'
-import { MouseEventHandler } from 'react'
-
-export interface DocumentProps extends DataElement {
-  title: string
-}
-export interface CardProps extends DocumentProps {
-  containerType: 'dropdown' | 'see-also' | 'mobile'
-  onClick?: MouseEventHandler<HTMLAnchorElement> | undefined
-}
+import { CardProps } from 'utils/typings/types'
 const DocumentationCard = ({
   title,
   description,

@@ -8,18 +8,6 @@ import { useIntl } from 'react-intl'
 import Head from 'next/head'
 import CopyLinkButton from 'components/copy-link-button'
 
-interface ArticleIndexingDataI {
-  name: string
-  children: { name: string; slug: string }[]
-  hidePaginationPrevious: boolean
-  hidePaginationNext: boolean
-  type: string
-}
-
-export interface ArticleIndexingProps {
-  articleData: ArticleIndexingDataI
-}
-
 const ArticleIndexing = ({ ...props }) => {
   const intl = useIntl()
   return (

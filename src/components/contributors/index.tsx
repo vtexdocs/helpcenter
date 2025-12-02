@@ -5,7 +5,7 @@ import Tooltip from 'components/tooltip'
 import { useIntl } from 'react-intl'
 
 import styles from './styles'
-import { ContributorsType } from 'utils/getFileContributors'
+import { ContributorsType } from 'utils/typings/types'
 import Image from 'next/image'
 
 interface Props {

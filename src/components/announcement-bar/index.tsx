@@ -2,7 +2,7 @@ import styles from './styles'
 import type { PropsWithChildren } from 'react'
 import { useDialogState, Dialog } from 'reakit/Dialog'
 import { Box, Button, Text, SxProps, Link } from '@vtex/brand-ui'
-import { IconClose } from './IconClose'
+import { CloseIcon } from '@vtexdocs/components'
 
 interface AnnouncementBarProps extends PropsWithChildren<SxProps> {
   type: string
@@ -13,6 +13,7 @@ interface AnnouncementBarProps extends PropsWithChildren<SxProps> {
     tag?: string
     button?: string
   }
+  children?: React.ReactNode
 }
 
 const AnnouncementBar = ({
@@ -75,7 +76,7 @@ const AnnouncementBar = ({
               onClick={(e) => {
                 handleClose(e)
               }}
-              icon={() => <IconClose />}
+              icon={() => <CloseIcon />}
             />
           </Box>
         )}

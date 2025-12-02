@@ -1,7 +1,8 @@
 import { Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 
-import { AnnouncementDataElement, SortByType } from 'utils/typings/types'
+import { AnnouncementDataElement } from 'utils/typings/types'
+import { LocaleType, SortByType } from 'utils/typings/unionTypes'
 import Head from 'next/head'
 import styles from 'styles/announcements-page'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -12,7 +13,6 @@ import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/announcements.png'
 import Pagination from 'components/pagination'
-import { localeType } from 'utils/navigation-utils'
 import Select from 'components/select'
 import AnnouncementCard from 'components/announcement-card'
 import { sortBy } from 'utils/constants'
@@ -156,7 +156,7 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPathsGLOBAL = await getAnnouncementsPaths('announcements', branch)
 
   const logger = getLogger('News')
-  const currentLocale: localeType = (locale ?? 'en') as localeType
+  const currentLocale: LocaleType = (locale ?? 'en') as LocaleType
   const slugs = Object.keys(docsPathsGLOBAL)
   const batchSize = 100
 
@@ -165,7 +165,7 @@ export const getStaticProps: GetStaticProps = async ({
   function getAnnouncementSynopsis(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     frontmatter: any,
-    locale: localeType
+    locale: LocaleType
   ): string | undefined {
     switch (locale) {
       case 'en':

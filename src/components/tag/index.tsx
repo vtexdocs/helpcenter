@@ -1,7 +1,7 @@
 import { SxStyleProp, Text } from '@vtex/brand-ui'
 
-import type { KnownIssueStatus } from 'utils/typings/types'
 import styles from './styles'
+import { KnownIssueStatus } from 'utils/typings/unionTypes'
 
 const Tag = ({
   sx = {},

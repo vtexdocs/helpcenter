@@ -1,5 +1,5 @@
 import { SxStyleProp } from '@vtex/brand-ui'
-import { KnownIssueStatus } from 'utils/typings/types'
+import { KnownIssueStatus } from 'utils/typings/unionTypes'
 
 const tag: SxStyleProp = {
   borderRadius: '11.5px',

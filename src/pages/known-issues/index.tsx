@@ -2,11 +2,12 @@ import { Flex } from '@vtex/brand-ui'
 import { GetStaticPropsContext, NextPage } from 'next'
 
 import usePagination from '../../utils/hooks/usePagination'
+import { KnownIssueDataElement } from 'utils/typings/types'
 import {
-  KnownIssueDataElement,
   KnownIssueStatus,
   SortByType,
-} from 'utils/typings/types'
+  LocaleType,
+} from 'utils/typings/unionTypes'
 import Head from 'next/head'
 import styles from 'styles/filterable-cards-page'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -25,7 +26,6 @@ import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/known-issues.png'
 import KnownIssueCard from 'components/known-issue-card'
 import Pagination from 'components/pagination'
-import { localeType } from 'utils/navigation-utils'
 import Filter from 'components/filter'
 import {
   knownIssuesStatusFilter,
@@ -231,9 +231,9 @@ export async function getStaticProps({
   const branch = preview ? previewBranch : 'main'
   const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
   const logger = getLogger('Known Issues')
-  const currentLocale: localeType = locale
-    ? (locale as localeType)
-    : ('en' as localeType)
+  const currentLocale: LocaleType = locale
+    ? (locale as LocaleType)
+    : ('en' as LocaleType)
 
   const slugs = Object.keys(docsPathsGLOBAL)
   const batchSize = 100

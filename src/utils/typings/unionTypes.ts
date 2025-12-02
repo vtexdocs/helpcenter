@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'pt' | 'es'
+export type LocaleType = 'en' | 'pt' | 'es'
 
 export type SectionId =
   | 'tracks'
@@ -21,3 +21,12 @@ export type ResourceTitle =
   | 'Developer Portal'
   | 'Help Center'
   | 'Support'
+
+export type KnownIssueStatus =
+  | 'Fixed'
+  | 'Closed'
+  | 'Backlog'
+  | 'Scheduled'
+  | 'No_Fix'
+
+export type SortByType = 'newest' | 'recently_updated'

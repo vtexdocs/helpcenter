@@ -1,5 +1,5 @@
 import { Box, Flex, Text } from '@vtex/brand-ui'
-import { ContributorsType } from 'utils/getFileContributors'
+import { ContributorsType } from 'utils/typings/types'
 import Image from 'next/image'
 import styles from './styles'
 
