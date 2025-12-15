@@ -82,3 +82,21 @@ force = true
 from = "/:locale/docs/tutorials/creating-multi-store-multi-domain"
 status = 308
 to = "/docs/tutorials/managing-a-multistore"
+
+[[redirects]]
+force = true
+from = "/faq/why-is-the-product-not-visible-on-the-website--frequentlyAskedQuestions_382"
+status = 308
+to = "faq/why-is-the-product-not-visible-on-the-website"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-el-producto-no-aparece-en-el-sitio-web--frequentlyAskedQuestions_382"
+status = 308
+to = "/es/faq/por-que-el-producto-no-aparece-en-el-sitio-web"
+
+[[redirects]]
+force = true
+from = "/faq/por-que-o-produto-nao-aparece-no-site--frequentlyAskedQuestions_382"
+status = 308
+to = "/pt/faq/por-que-o-produto-nao-aparece-no-site"
