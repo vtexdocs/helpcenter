@@ -4,6 +4,7 @@
 
 - **GitHub Issue**: [#327 - Update Netlify build image selection](https://github.com/vtexdocs/helpcenter/issues/327)
 - **Jira Task**: [EDU-16245](https://vtex-dev.atlassian.net/browse/EDU-16245)
+- **Where to change the build image:** [Project configuration > Continuous deployment](https://app.netlify.com/projects/leafy-mooncake-7c2e5e/configuration/deploys#continuous-deployment)
 
 ## Migration Summary
 
