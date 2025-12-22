@@ -88,10 +88,18 @@ The following components require validation after migration:
 
 | Test URL | Expected Destination | Status |
 |----------|---------------------|--------|
-| `/tutorial/creating-multi-store-multi-domain` | `/en/docs/tutorials/managing-a-multistore` | ✅ Pass |
+| `/tutorial/creating-multi-store-multi-domain` | `/en/docs/tutorials/managing-a-multistore` | ⚠️ Redirect works, destination 500 |
 | `/faq` | `/faq` (listing page) | ✅ Pass |
 | `/known-issues` | `/known-issues` (listing page) | ✅ Pass |
 | `/announcements` | `/announcements` (listing page) | ✅ Pass |
+
+#### Tutorial Pages (CRITICAL ISSUE)
+
+| Test URL | Production | Deploy Preview |
+|----------|------------|----------------|
+| `/pt/docs/tutorials/criar-autenticacao-oauth2` | ✅ Works | ❌ 500 Error |
+| `/pt/docs/tutorials/assinaturas-categoria` | ✅ Works | ❌ 500 Error |
+| `/en/docs/tutorials/managing-a-multistore` | ✅ Works | ❌ 500 Error |
 
 #### Image Optimization
 
@@ -110,7 +118,41 @@ The following components require validation after migration:
 
 ## Issues Encountered
 
-_No issues encountered yet._
+### CRITICAL: 500 Errors on Tutorial Pages
+
+**Status:** Under Investigation
+
+**Symptoms:**
+- Tutorial article pages return 500 errors on deploy preview
+- Same pages work correctly on production (Ubuntu Focal)
+- Affects both individual tutorials and category/subcategory pages
+
+**Affected URLs (examples):**
+- `/pt/docs/tutorials/criar-autenticacao-oauth2` - 500 on preview, works on prod
+- `/pt/docs/tutorials/assinaturas-categoria` - 500 on preview
+- `/pt/docs/tutorials/conversational-commerce-categoria` - 500 on preview
+- `/en/docs/tutorials/managing-a-multistore` - 500 on preview
+
+**Working pages:**
+- Homepage (`/`) - ✅
+- FAQ listing (`/faq`) - ✅
+- Known Issues listing (`/known-issues`) - ✅
+- Announcements listing (`/announcements`) - ✅
+
+**Potential Causes:**
+1. Sharp/libvips compatibility issue with tutorial image processing
+2. Node.js version behavior differences
+3. Memory/resource limits on new build image
+4. Dependency incompatibility with Ubuntu Noble
+
+**Build Logs:**
+- [Test Deploy Logs (PR #399)](https://app.netlify.com/projects/leafy-mooncake-7c2e5e/deploys/6949bbbd0e851800080e73c1)
+
+**Next Steps:**
+- [ ] Check Netlify function logs for error details
+- [ ] Compare build logs between old and new builds
+- [ ] Test if issue is specific to pages with images
+- [ ] Consider testing with Node.js version pinned explicitly
 
 ## Rollback Instructions
 
@@ -128,6 +170,10 @@ If issues arise after production migration:
 |------|--------|--------------|
 | 2025-12-22 | Created migration document | Pedro Costa |
 | 2025-12-22 | Verified current build image: Ubuntu Focal 20.04 | Pedro Costa |
-| _TBD_ | Tested on deploy preview | _TBD_ |
-| _TBD_ | Updated production build image | _TBD_ |
+| 2025-12-22 | Changed build image to Ubuntu Noble 24.04 in Netlify UI | Pedro Costa |
+| 2025-12-22 | Created test PR #399 and deploy preview | Pedro Costa |
+| 2025-12-22 | **BLOCKER FOUND**: Tutorial pages return 500 errors | Pedro Costa |
+| _TBD_ | Investigate and resolve 500 errors | _TBD_ |
+| _TBD_ | Re-test after fix | _TBD_ |
+| _TBD_ | Merge PR to deploy to production | _TBD_ |
 
