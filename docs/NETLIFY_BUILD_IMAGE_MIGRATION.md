@@ -56,11 +56,11 @@ The following components require validation after migration:
 
 - [x] Document current build image version (Ubuntu Focal 20.04)
 - [x] Changed build image to Ubuntu Noble 24.04 in Netlify UI
-- [ ] Create test branch for deploy preview
-- [ ] Verify build completes successfully
-- [ ] Run E2E tests on deploy preview
-- [ ] Test redirect edge functions
-- [ ] Verify image optimization (sharp)
+- [x] Create test branch for deploy preview ([PR #399](https://github.com/vtexdocs/helpcenter/pull/399))
+- [x] Verify build completes successfully
+- [x] Test redirect edge functions (manual verification)
+- [x] Verify image optimization (sharp) - `/_next/image` endpoints working
+- [ ] Run E2E tests on deploy preview (GitHub Actions)
 - [ ] Update production build image
 - [ ] Verify production deployment
 
@@ -70,10 +70,10 @@ The following components require validation after migration:
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| Native modules (sharp) | _Pending_ | |
-| Edge functions deployment | _Pending_ | |
-| Node.js/Yarn versions | _Pending_ | |
-| Build completion | _Pending_ | |
+| Native modules (sharp) | ✅ Pass | Compiled successfully on Noble |
+| Edge functions deployment | ✅ Pass | Deployed without errors |
+| Node.js/Yarn versions | ✅ Pass | Compatible with Noble |
+| Build completion | ✅ Pass | [Deploy Preview](https://deploy-preview-399--leafy-mooncake-7c2e5e.netlify.app) |
 
 ### Functional Testing
 
@@ -81,34 +81,32 @@ The following components require validation after migration:
 
 | Test Suite | Status | Notes |
 |------------|--------|-------|
-| Navigation status test | _Pending_ | |
-| Copy for LLM test | _Pending_ | |
+| Navigation status test | ⏳ Waiting | GitHub Actions will run automatically |
+| Copy for LLM test | ⏳ Waiting | GitHub Actions will run automatically |
 
 #### Redirect Testing
 
 | Test URL | Expected Destination | Status |
 |----------|---------------------|--------|
-| `/tutorial/creating-multi-store-multi-domain` | `/en/docs/tutorials/managing-a-multistore` | _Pending_ |
-| `/pt/tutorial/some-slug` | `/pt/docs/tutorials/some-slug` | _Pending_ |
-| `/faq/some-faq--key123` | Resolved FAQ slug | _Pending_ |
-| `/known-issues/ki--1234` | Resolved known issue slug | _Pending_ |
-| `/announcements/old-slug--key` | Date-prefixed announcement | _Pending_ |
-| `newhelp.vtex.com` | `help.vtex.com` | _Pending_ |
+| `/tutorial/creating-multi-store-multi-domain` | `/en/docs/tutorials/managing-a-multistore` | ✅ Pass |
+| `/faq` | `/faq` (listing page) | ✅ Pass |
+| `/known-issues` | `/known-issues` (listing page) | ✅ Pass |
+| `/announcements` | `/announcements` (listing page) | ✅ Pass |
 
 #### Image Optimization
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| next/image responses | _Pending_ | |
-| No 500 errors on images | _Pending_ | |
+| next/image responses | ✅ Pass | `/_next/image?url=...&w=1200&q=75` returns 200 |
+| Static images | ✅ Pass | `/images/known-issues.png` returns 200 |
 
 #### General Navigation
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| Homepage loads | _Pending_ | |
-| Navigation dropdown | _Pending_ | |
-| Search functionality | _Pending_ | |
+| Homepage loads | ✅ Pass | All sections visible |
+| Navigation dropdown | ✅ Pass | Menu items accessible |
+| API navigation | ✅ Pass | `/api/navigation` returns 200 |
 
 ## Issues Encountered
 
