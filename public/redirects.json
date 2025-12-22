@@ -17649,7 +17649,15 @@
       },
       {
         "from": "/tutorials/adding-products-beta",
-        "to": "/tutorials/adding-or-editing-products"
+        "to": "/en/docs/tutorials/adding-or-editing-products"
+      },
+      {
+        "from": "/pt/faq/por-que-o-produto-nao-aparece-no-site--frequentlyAskedQuestions_382",
+        "to": "/pt/faq/por-que-o-produto-nao-aparece-no-site"
+      },
+      {
+        "from": "/en/docs/tutorials/what-is-vtex-io",
+        "to": "https://developers.vtex.com/docs/guides/vtex-io-documentation-what-is-vtex-io"
       }
     ]
   }
