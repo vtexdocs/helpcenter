@@ -100,3 +100,9 @@ force = true
 from = "/faq/por-que-o-produto-nao-aparece-no-site--frequentlyAskedQuestions_382"
 status = 308
 to = "/pt/faq/por-que-o-produto-nao-aparece-no-site"
+
+[[redirects]]
+force = true
+from = "/pt/faq/por-que-o-produto-nao-aparece-no-site--frequentlyAskedQuestions_382"
+status = 308
+to = "/pt/faq/por-que-o-produto-nao-aparece-no-site"
