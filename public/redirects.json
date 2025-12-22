@@ -17638,6 +17638,22 @@
       {
         "from": "/pt/docs/tutorials/suporte-vtex-emea",
         "to": "/docs/tutorials/vtex-global-support-resources"
+      },
+      {
+        "from": "/tutorials/criar-um-produto-beta",
+        "to": "/pt/docs/tutorials/adicionar-ou-editar-produto"
+      },
+      {
+        "from": "/tutorials/agregar-producto-beta",
+        "to": "/es/docs/tutorials/agregar-o-editar-productos"
+      },
+      {
+        "from": "/tutorials/adding-products-beta",
+        "to": "/en/docs/tutorials/adding-or-editing-products"
+      },
+      {
+        "from": "/en/docs/tutorials/what-is-vtex-io",
+        "to": "https://developers.vtex.com/docs/guides/vtex-io-documentation-what-is-vtex-io"
       }
     ]
   }
