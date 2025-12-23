@@ -204,6 +204,8 @@ The cache contained the old sharp 0.31.2 binaries. `yarn.lock` was updated corre
 | **Test 1** | 2025-12-22 | Ubuntu Noble + sharp 0.31.2 | ❌ 500 errors | `libvips-cpp.so.42` missing on Noble |
 | **Test 2** | 2025-12-23 | Ubuntu Noble + sharp 0.33.5 | ❌ 500 errors | Netlify used cached node_modules (old sharp) |
 | **Test 3** | 2025-12-23 | Ubuntu Noble + sharp 0.33.5 + cache cleared | ❌ 500 errors | Optional platform deps not bundled for Lambda |
+| **Test 4** | 2025-12-23 | Ubuntu Noble + sharp 0.33.5 + @img/sharp-linux-x64 | ❌ 500 errors | Netlify used cached node_modules again |
+| **Test 5** | 2025-12-23 | Ubuntu Noble + cache cleared again | ❌ 500 errors | `@img/*` packages not in `included_files` |
 
 ### Test Details
 
@@ -235,9 +237,25 @@ The cache contained the old sharp 0.31.2 binaries. `yarn.lock` was updated corre
 - Analysis: Sharp 0.33.x uses optional platform-specific packages (`@img/sharp-linux-x64`). Yarn only installs optional deps for the build platform, not the Lambda runtime.
 - Logs: `test3 build logs - cache cleared.txt`, `test3 function logs - cache cleared.txt`
 
-**Next Step: Test 4**
-- Add `@img/sharp-linux-x64` as a direct dependency (not optional)
-- This forces the linux-x64 binaries to be installed regardless of build platform
+**Test 4: Direct linux-x64 Dependency**
+- Build image: Ubuntu Noble 24.04
+- sharp version: 0.33.5
+- Added: `@img/sharp-linux-x64@^0.33.5` as direct dependency in package.json
+- Result: ❌ Same error - `Could not load the "sharp" module using the linux-x64 runtime`
+- Cause: Netlify restored cached node_modules from Test 3. Yarn install completed in only 3.14s (too fast - just used cached modules). The new dependency was never installed.
+- Logs: `test4 build logs - direct linux-x64 dep.txt`, `test4 function logs - direct linux-x64 dep.txt`
+
+**Test 5: Cache Cleared Again**
+- Build image: Ubuntu Noble 24.04
+- Cache: Cleared ("Building without cache" confirmed in logs)
+- Yarn install: 43.53s (fresh install worked)
+- Result: ❌ Same error - `Could not load the "sharp" module using the linux-x64 runtime`
+- **Root Cause Found**: `netlify.toml` only includes `node_modules/sharp/**/*` in `included_files`. But sharp 0.33.x puts platform binaries in `node_modules/@img/sharp-linux-x64/`, which is a **separate package** not being bundled into the serverless function.
+- Logs: `test5 build logs - cache cleared again.txt`, `test5 function logs - cache cleared again.txt`
+
+**Next Step: Test 6**
+- Updated `netlify.toml` to include `node_modules/@img/**/*` in `included_files`
+- This ensures all platform-specific sharp binaries are bundled into the function
 
 ## Rollback Instructions
 
@@ -263,7 +281,11 @@ If issues arise after production migration:
 | 2025-12-23 | **ROOT CAUSE FOUND**: `sharp` module incompatible with Noble (libvips mismatch) | Pedro Costa |
 | 2025-12-23 | Upgraded sharp to ^0.33.5, but Netlify used cached node_modules | Pedro Costa |
 | 2025-12-23 | Cleared cache, new error: platform-specific binaries not bundled | Pedro Costa |
-| _TBD_ | Add @img/sharp-linux-x64 as direct dependency | _TBD_ |
-| _TBD_ | Re-test after fix | _TBD_ |
+| 2025-12-23 | Added @img/sharp-linux-x64 as direct dependency | Pedro Costa |
+| 2025-12-23 | Test 4: Cache restored again, dependency not installed | Pedro Costa |
+| 2025-12-23 | Test 5: Cache cleared, fresh install worked, but @img packages not bundled | Pedro Costa |
+| 2025-12-23 | **ROOT CAUSE**: `netlify.toml` missing `node_modules/@img/**/*` in included_files | Pedro Costa |
+| 2025-12-23 | Updated `netlify.toml` to include @img packages | Pedro Costa |
+| _TBD_ | Test 6: Verify fix works | _TBD_ |
 | _TBD_ | Merge PR to deploy to production | _TBD_ |
 

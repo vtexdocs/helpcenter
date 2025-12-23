@@ -1,0 +1,1092 @@
+Dec 23, 12:48:15 AM: e26ad72c WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 23, 12:48:15 AM: 4c00059b WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 23, 12:48:15 AM: e26ad72c WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 23, 12:48:15 AM: 4c00059b WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 23, 12:48:16 AM: e26ad72c WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 23, 12:48:16 AM: 4c00059b INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-15-skyhub-new-shipping-model.md[49m
+Dec 23, 12:48:16 AM: 4c00059b INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 23, 12:48:16 AM: 4c00059b INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-05-indeva-by-vtex-documentation-now-in-the-vtex-help-center.md[49m
+Dec 23, 12:48:16 AM: 4c00059b INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 23, 12:48:16 AM: e26ad72c INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-15-skyhub-new-shipping-model.md[49m
+Dec 23, 12:48:16 AM: 4c00059b INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-02-breaking-change-livelo-new-mandatory-permission.md[49m
+Dec 23, 12:48:16 AM: e26ad72c INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 23, 12:48:16 AM: 4c00059b INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 23, 12:48:16 AM: 4c00059b INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-13-breaking-change-shopee-nova-permissao-obrigatoria-en.md[49m
+Dec 23, 12:48:16 AM: 4c00059b INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 23, 12:48:16 AM: 4c00059b INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-07-vtex-help-center-now-with-enhanced-interface-and-new-features.md[49m
+Dec 23, 12:48:16 AM: e26ad72c INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-05-indeva-by-vtex-documentation-now-in-the-vtex-help-center.md[49m
+Dec 23, 12:48:16 AM: e26ad72c INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 23, 12:48:16 AM: e26ad72c INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-02-breaking-change-livelo-new-mandatory-permission.md[49m
+Dec 23, 12:48:16 AM: 4c00059b INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 23, 12:48:16 AM: e26ad72c INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 23, 12:48:16 AM: e26ad72c INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-13-breaking-change-shopee-nova-permissao-obrigatoria-en.md[49m
+Dec 23, 12:48:16 AM: e26ad72c INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 23, 12:48:16 AM: e26ad72c INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-07-vtex-help-center-now-with-enhanced-interface-and-new-features.md[49m
+Dec 23, 12:48:17 AM: e26ad72c INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 23, 12:48:17 AM: 4c00059b Duration: 8524.1 ms	Memory Usage: 294 MB
+Dec 23, 12:48:18 AM: e26ad72c Duration: 8561.93 ms	Memory Usage: 299 MB
+Dec 23, 12:48:23 AM: ad83ddc4 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:23 AM: ad83ddc4 Duration: 1036.36 ms	Memory Usage: 330 MB
+Dec 23, 12:48:24 AM: 9e006712 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:24 AM: 9e006712 Duration: 227.55 ms	Memory Usage: 339 MB
+Dec 23, 12:48:24 AM: 3d589a98 Duration: 300.17 ms	Memory Usage: 305 MB
+Dec 23, 12:48:24 AM: 99184940 Duration: 89.73 ms	Memory Usage: 339 MB
+Dec 23, 12:48:24 AM: 435f3d48 Duration: 126.03 ms	Memory Usage: 339 MB
+Dec 23, 12:48:24 AM: 8540267f Duration: 273.07 ms	Memory Usage: 324 MB
+Dec 23, 12:48:26 AM: b6d99cb0 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:26 AM: b6d99cb0 Duration: 861.89 ms	Memory Usage: 340 MB
+Dec 23, 12:48:27 AM: 2e362478 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:27 AM: 2e362478 Duration: 161.27 ms	Memory Usage: 340 MB
+Dec 23, 12:48:27 AM: c8ddc142 Duration: 53.47 ms	Memory Usage: 339 MB
+Dec 23, 12:48:27 AM: ade03e72 Duration: 106.28 ms	Memory Usage: 340 MB
+Dec 23, 12:48:27 AM: 911e48be Duration: 132.06 ms	Memory Usage: 342 MB
+Dec 23, 12:48:27 AM: e46f3cf3 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:27 AM: e46f3cf3 Duration: 149.35 ms	Memory Usage: 341 MB
+Dec 23, 12:48:27 AM: 3e3a8abe ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:27 AM: 3e3a8abe Duration: 202.66 ms	Memory Usage: 349 MB
+Dec 23, 12:48:28 AM: 64463600 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:28 AM: 64463600 Duration: 168.69 ms	Memory Usage: 358 MB
+Dec 23, 12:48:29 AM: 941ff61a ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:29 AM: 941ff61a Duration: 119.25 ms	Memory Usage: 358 MB
+Dec 23, 12:48:29 AM: 6b99b34b Duration: 64.08 ms	Memory Usage: 358 MB
+Dec 23, 12:48:29 AM: 8778e7ed ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:29 AM: 646c045e Duration: 266.91 ms	Memory Usage: 343 MB
+Dec 23, 12:48:29 AM: 8778e7ed Duration: 228.05 ms	Memory Usage: 358 MB
+Dec 23, 12:48:30 AM: 6f7a504a ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:30 AM: 6f7a504a Duration: 311.94 ms	Memory Usage: 360 MB
+Dec 23, 12:48:30 AM: 3be66f3a Duration: 5159.17 ms	Memory Usage: 247 MB
+Dec 23, 12:48:30 AM: 6d935e02 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:30 AM: 6d935e02 Duration: 220.89 ms	Memory Usage: 343 MB
+Dec 23, 12:48:30 AM: 3027e0f5 Duration: 52.03 ms	Memory Usage: 343 MB
+Dec 23, 12:48:30 AM: 00040fb0 Duration: 142.74 ms	Memory Usage: 343 MB
+Dec 23, 12:48:31 AM: de3883b4 Duration: 74.73 ms	Memory Usage: 360 MB
+Dec 23, 12:48:31 AM: 5e74f24d ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:31 AM: abc02662 Duration: 109.09 ms	Memory Usage: 360 MB
+Dec 23, 12:48:31 AM: 5e74f24d Duration: 367.85 ms	Memory Usage: 343 MB
+Dec 23, 12:48:31 AM: 2f152de9 Duration: 6204.27 ms	Memory Usage: 294 MB
+Dec 23, 12:48:31 AM: f19b2a82 Duration: 405.73 ms	Memory Usage: 275 MB
+Dec 23, 12:48:31 AM: a46c65fb Duration: 6245.09 ms	Memory Usage: 268 MB
+Dec 23, 12:48:31 AM: 7aee1d5f Duration: 64.55 ms	Memory Usage: 360 MB
+Dec 23, 12:48:31 AM: 6f71847d Duration: 79.06 ms	Memory Usage: 343 MB
+Dec 23, 12:48:31 AM: aece9cb1 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:31 AM: 4e2b7231 Duration: 75.51 ms	Memory Usage: 343 MB
+Dec 23, 12:48:31 AM: fa6f2955 Duration: 313.13 ms	Memory Usage: 308 MB
+Dec 23, 12:48:31 AM: aece9cb1 Duration: 145.75 ms	Memory Usage: 360 MB
+Dec 23, 12:48:32 AM: 97adf92c ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:32 AM: 2d420f6f ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:32 AM: 80fc1613 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:32 AM: 2d420f6f Duration: 103.72 ms	Memory Usage: 360 MB
+Dec 23, 12:48:32 AM: 97adf92c Duration: 7569.52 ms	Memory Usage: 290 MB
+Dec 23, 12:48:32 AM: eab8dd6b Duration: 1336.18 ms	Memory Usage: 283 MB
+Dec 23, 12:48:32 AM: 80fc1613 Duration: 7683.27 ms	Memory Usage: 293 MB
+Dec 23, 12:48:33 AM: f72910c0 Duration: 75.15 ms	Memory Usage: 284 MB
+Dec 23, 12:48:33 AM: 745e3d4b Duration: 86.95 ms	Memory Usage: 362 MB
+Dec 23, 12:48:33 AM: 597732d2 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:33 AM: 82a7d363 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:33 AM: 597732d2 Duration: 115.79 ms	Memory Usage: 343 MB
+Dec 23, 12:48:33 AM: 82a7d363 Duration: 99.87 ms	Memory Usage: 362 MB
+Dec 23, 12:48:33 AM: 81945707 Duration: 97.48 ms	Memory Usage: 290 MB
+Dec 23, 12:48:33 AM: 9a0294ea ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:33 AM: 9a0294ea Duration: 104.16 ms	Memory Usage: 362 MB
+Dec 23, 12:48:33 AM: a116258d ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:33 AM: 5274ed47 Duration: 393.82 ms	Memory Usage: 320 MB
+Dec 23, 12:48:33 AM: a116258d Duration: 127.35 ms	Memory Usage: 349 MB
+Dec 23, 12:48:33 AM: 191854a0 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:33 AM: 812a1c69 Duration: 489.69 ms	Memory Usage: 328 MB
+Dec 23, 12:48:33 AM: e0363a5b ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:33 AM: 191854a0 Duration: 1935.83 ms	Memory Usage: 310 MB
+Dec 23, 12:48:33 AM: f6bad36b ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:33 AM: e0363a5b Duration: 151.78 ms	Memory Usage: 351 MB
+Dec 23, 12:48:33 AM: f6bad36b Duration: 135.88 ms	Memory Usage: 362 MB
+Dec 23, 12:48:33 AM: 38271612 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:33 AM: 38271612 Duration: 253.84 ms	Memory Usage: 320 MB
+Dec 23, 12:48:33 AM: c0e77e59 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:33 AM: 98cd43bf ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:33 AM: c0e77e59 Duration: 150.54 ms	Memory Usage: 363 MB
+Dec 23, 12:48:33 AM: 98cd43bf Duration: 180.97 ms	Memory Usage: 320 MB
+Dec 23, 12:48:34 AM: 647d878e ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:34 AM: e2e2a027 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:34 AM: 647d878e Duration: 122.59 ms	Memory Usage: 351 MB
+Dec 23, 12:48:34 AM: e2e2a027 Duration: 121.16 ms	Memory Usage: 363 MB
+Dec 23, 12:48:34 AM: 20bfc03e ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:34 AM: a5e87969 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:34 AM: 20bfc03e Duration: 99.5 ms	Memory Usage: 363 MB
+Dec 23, 12:48:34 AM: a5e87969 Duration: 133.82 ms	Memory Usage: 351 MB
+Dec 23, 12:48:34 AM: 0026c1a7 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:34 AM: d8b4a840 Duration: 44.22 ms	Memory Usage: 352 MB
+Dec 23, 12:48:34 AM: 0026c1a7 Duration: 171.12 ms	Memory Usage: 367 MB
+Dec 23, 12:48:34 AM: 13f4a439 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:34 AM: e145b08d Duration: 77.9 ms	Memory Usage: 310 MB
+Dec 23, 12:48:34 AM: 6e42c2ab Duration: 104.11 ms	Memory Usage: 320 MB
+Dec 23, 12:48:34 AM: 37bce265 Duration: 61.78 ms	Memory Usage: 354 MB
+Dec 23, 12:48:34 AM: 0ba6769a Duration: 92.52 ms	Memory Usage: 328 MB
+Dec 23, 12:48:34 AM: 13f4a439 Duration: 1536 ms	Memory Usage: 308 MB
+Dec 23, 12:48:34 AM: 51ad6a7a ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:34 AM: 51ad6a7a Duration: 165.3 ms	Memory Usage: 361 MB
+Dec 23, 12:48:34 AM: cdcd97f7 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:34 AM: 95a66740 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:34 AM: cdcd97f7 Duration: 1550.88 ms	Memory Usage: 311 MB
+Dec 23, 12:48:34 AM: b6abfc49 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:34 AM: 95a66740 Duration: 237.26 ms	Memory Usage: 313 MB
+Dec 23, 12:48:34 AM: b6abfc49 Duration: 221.88 ms	Memory Usage: 328 MB
+Dec 23, 12:48:35 AM: f25e108d ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:35 AM: f25e108d Duration: 191.14 ms	Memory Usage: 328 MB
+Dec 23, 12:48:35 AM: 51408928 Duration: 6309.7 ms	Memory Usage: 267 MB
+Dec 23, 12:48:36 AM: cd9c6d63 Duration: 60.53 ms	Memory Usage: 314 MB
+Dec 23, 12:48:36 AM: bf2a55eb Duration: 79.74 ms	Memory Usage: 328 MB
+Dec 23, 12:48:36 AM: 6dafcd8a Duration: 468.79 ms	Memory Usage: 301 MB
+Dec 23, 12:48:37 AM: 2437aff0 Duration: 5908.94 ms	Memory Usage: 269 MB
+Dec 23, 12:48:41 AM: e1f18bc2 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:41 AM: 8b45009d ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:41 AM: 73e626c9 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:41 AM: 8b45009d Duration: 231.71 ms	Memory Usage: 328 MB
+Dec 23, 12:48:41 AM: 73e626c9 Duration: 187.51 ms	Memory Usage: 325 MB
+Dec 23, 12:48:41 AM: 35eb5d15 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:41 AM: e1f18bc2 Duration: 7294.11 ms	Memory Usage: 290 MB
+Dec 23, 12:48:41 AM: 35eb5d15 Duration: 162.45 ms	Memory Usage: 334 MB
+Dec 23, 12:48:42 AM: a4d2e0f8 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:42 AM: a4d2e0f8 Duration: 141.77 ms	Memory Usage: 340 MB
+Dec 23, 12:48:42 AM: 7742d1f2 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:42 AM: 7742d1f2 Duration: 116.19 ms	Memory Usage: 340 MB
+Dec 23, 12:48:42 AM: 40312fb8 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:42 AM: 08e99b53 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:42 AM: 40312fb8 Duration: 1389.84 ms	Memory Usage: 303 MB
+Dec 23, 12:48:42 AM: 08e99b53 Duration: 648.02 ms	Memory Usage: 329 MB
+Dec 23, 12:48:42 AM: 477ba284 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:42 AM: 477ba284 Duration: 193.55 ms	Memory Usage: 340 MB
+Dec 23, 12:48:42 AM: 95363f4e ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:42 AM: 95363f4e Duration: 1841.35 ms	Memory Usage: 299 MB
+Dec 23, 12:48:43 AM: 61399ff2 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 23, 12:48:43 AM: 61399ff2 Duration: 211.54 ms	Memory Usage: 305 MB
