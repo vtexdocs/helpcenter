@@ -1,0 +1,1603 @@
+Dec 22, 11:07:00 PM: 00475140 Duration: 8355 ms	Memory Usage: 294 MB
+Dec 22, 11:07:05 PM: 0f277326 Duration: 6426 ms	Memory Usage: 274 MB
+Dec 22, 11:07:06 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-15-skyhub-new-shipping-model.md[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-05-indeva-by-vtex-documentation-now-in-the-vtex-help-center.md[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-02-breaking-change-livelo-new-mandatory-permission.md[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-13-breaking-change-shopee-nova-permissao-obrigatoria-en.md[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-07-vtex-help-center-now-with-enhanced-interface-and-new-features.md[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-15-skyhub-new-shipping-model.md[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-05-indeva-by-vtex-documentation-now-in-the-vtex-help-center.md[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-02-breaking-change-livelo-new-mandatory-permission.md[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-13-breaking-change-shopee-nova-permissao-obrigatoria-en.md[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-07-vtex-help-center-now-with-enhanced-interface-and-new-features.md[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:13 PM: e4f59f14 Duration: 627 ms	Memory Usage: 300 MB
+Dec 22, 11:07:13 PM: ac3419ed Duration: 261 ms	Memory Usage: 302 MB
+Dec 22, 11:07:13 PM: 92691895 Duration: 285 ms	Memory Usage: 312 MB
+Dec 22, 11:08:25 PM: e0cd315e Duration: 896 ms	Memory Usage: 329 MB
+Dec 22, 11:08:26 PM: e0cd315e ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:29 PM: bbc34f2a Duration: 321 ms	Memory Usage: 343 MB
+Dec 22, 11:08:30 PM: 66510e92 Duration: 2017 ms	Memory Usage: 302 MB
+Dec 22, 11:08:32 PM: 66510e92 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:32 PM: edd4bc0f Duration: 254 ms	Memory Usage: 302 MB
+Dec 22, 11:08:32 PM: edd4bc0f ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:32 PM: 9c52f7de Duration: 175 ms	Memory Usage: 302 MB
+Dec 22, 11:08:33 PM: 9c52f7de ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:33 PM: 37942da3 Duration: 104 ms	Memory Usage: 302 MB
+Dec 22, 11:08:38 PM: 1628e242 Duration: 8 ms	Memory Usage: 302 MB
+Dec 22, 11:08:39 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/dezembro/2025-12-15-skyhub-novo-modelo-de-calculo-de-frete.md[49m
+Dec 22, 11:08:39 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/dezembro/2025-12-05-documentacao-da-indeva-by-vtex-migrada-para-o-help-center-vtex.md[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/dezembro/2025-12-02-breaking-change-livelo-nova-permissao-obrigatoria.md[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/novembro/2025-11-13-breaking-change-shopee-nova-permissao-obrigatoria.md[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/novembro/2025-11-07-help-center-vtex-agora-com-interface-aprimorada-e-novas-funcionalidades.md[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:40 PM: 527e90c0 Duration: 307 ms	Memory Usage: 343 MB
+Dec 22, 11:08:40 PM: eb771863 Duration: 596 ms	Memory Usage: 304 MB
+Dec 22, 11:08:43 PM: cae2b1ae Duration: 344 ms	Memory Usage: 304 MB
+Dec 22, 11:08:43 PM: 7f0c8fb2 Duration: 397 ms	Memory Usage: 343 MB
+Dec 22, 11:08:44 PM: 30fad059 Duration: 54 ms	Memory Usage: 343 MB
+Dec 22, 11:08:44 PM: a543de49 Duration: 915 ms	Memory Usage: 343 MB
+Dec 22, 11:08:45 PM: 5d320ea9 Duration: 854 ms	Memory Usage: 304 MB
+Dec 22, 11:08:45 PM: eb0f50ad Duration: 181 ms	Memory Usage: 343 MB
+Dec 22, 11:08:45 PM: f975f6cf Duration: 298 ms	Memory Usage: 302 MB
+Dec 22, 11:08:45 PM: 8b0c674a Duration: 160 ms	Memory Usage: 304 MB
+Dec 22, 11:08:46 PM: f975f6cf ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:46 PM: c73dc202 Duration: 905 ms	Memory Usage: 343 MB
+Dec 22, 11:08:46 PM: 521f9670 Duration: 395 ms	Memory Usage: 302 MB
+Dec 22, 11:08:46 PM: 521f9670 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:46 PM: c73dc202 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/tutorials/about-the-admin/admin-overview/accessing-the-beta-environment.md[49m
+Dec 22, 11:08:46 PM: c73dc202 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:50 PM: 40e6c767 Duration: 331 ms	Memory Usage: 343 MB
+Dec 22, 11:08:50 PM: 40e6c767 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:51 PM: 7d464a79 Duration: 164 ms	Memory Usage: 343 MB
+Dec 22, 11:08:51 PM: 7d464a79 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:51 PM: c6034d4b Duration: 127 ms	Memory Usage: 343 MB
+Dec 22, 11:08:51 PM: 2c42f919 Duration: 85 ms	Memory Usage: 304 MB
+Dec 22, 11:08:51 PM: 847c72cd Duration: 145 ms	Memory Usage: 302 MB
+Dec 22, 11:08:51 PM: d5c20adc Duration: 6652 ms	Memory Usage: 253 MB
+Dec 22, 11:08:51 PM: ddc07da4 Duration: 957 ms	Memory Usage: 304 MB
+Dec 22, 11:08:51 PM: 81ae5dff Duration: 162 ms	Memory Usage: 343 MB
+Dec 22, 11:08:51 PM: d7ee6b57 Duration: 110 ms	Memory Usage: 302 MB
+Dec 22, 11:08:51 PM: d7ee6b57 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:52 PM: 6f10b76e Duration: 140 ms	Memory Usage: 302 MB
+Dec 22, 11:08:52 PM: 6f10b76e ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:52 PM: ddc07da4 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:52 PM: b9adb91e Duration: 125 ms	Memory Usage: 304 MB
+Dec 22, 11:08:53 PM: b9adb91e ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:53 PM: 369e264c Duration: 154 ms	Memory Usage: 304 MB
+Dec 22, 11:08:53 PM: 369e264c ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:53 PM: ccacbb31 Duration: 154 ms	Memory Usage: 304 MB
+Dec 22, 11:08:53 PM: ccacbb31 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:03 PM: f8f9ea7c Duration: 480 ms	Memory Usage: 305 MB
+Dec 22, 11:09:04 PM: 66e726c3 Duration: 1147 ms	Memory Usage: 305 MB
+Dec 22, 11:09:06 PM: eb4ee2c3 Duration: 965 ms	Memory Usage: 315 MB
+Dec 22, 11:09:07 PM: eb4ee2c3 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:08 PM: 62ef3417 Duration: 137 ms	Memory Usage: 324 MB
+Dec 22, 11:09:08 PM: 62ef3417 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:08 PM: 85eaff5a Duration: 2114 ms	Memory Usage: 288 MB
+Dec 22, 11:09:09 PM: e34b73c2 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:10 PM: c0ef7129 Duration: 135 ms	Memory Usage: 329 MB
+Dec 22, 11:09:10 PM: c0ef7129 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:10 PM: 03a4ef71 Duration: 142 ms	Memory Usage: 333 MB
+Dec 22, 11:09:10 PM: 03a4ef71 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:10 PM: aeef9feb Duration: 117 ms	Memory Usage: 335 MB
+Dec 22, 11:09:10 PM: f04733e7 Duration: 271 ms	Memory Usage: 302 MB
+Dec 22, 11:09:10 PM: 1197f23c Duration: 374 ms	Memory Usage: 304 MB
+Dec 22, 11:09:10 PM: 932ced6b Duration: 7301 ms	Memory Usage: 266 MB
+Dec 22, 11:09:10 PM: 86794393 Duration: 9126 ms	Memory Usage: 283 MB
+Dec 22, 11:09:10 PM: 85eaff5a ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:10 PM: d13efeb4 Duration: 169 ms	Memory Usage: 344 MB
+Dec 22, 11:09:11 PM: d13efeb4 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:19 PM: 86794393 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:19 PM: 02b932d0 Duration: 719 ms	Memory Usage: 322 MB
+Dec 22, 11:09:20 PM: 02b932d0 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:20 PM: 1d2a88da Duration: 182 ms	Memory Usage: 322 MB
+Dec 22, 11:09:20 PM: 1d2a88da ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:21 PM: c035fc15 Duration: 196 ms	Memory Usage: 322 MB
+Dec 22, 11:09:21 PM: c035fc15 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:33:49 PM: 3b5960f7 Duration: 8593 ms	Memory Usage: 297 MB
+Dec 22, 11:33:49 PM: 96b5da0d Duration: 8767 ms	Memory Usage: 300 MB
+Dec 22, 11:33:56 PM: 3b5960f7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-15-skyhub-new-shipping-model.md[49m
+Dec 22, 11:33:56 PM: 3b5960f7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:33:56 PM: 3b5960f7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-05-indeva-by-vtex-documentation-now-in-the-vtex-help-center.md[49m
+Dec 22, 11:33:56 PM: 3b5960f7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:33:56 PM: 3b5960f7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-02-breaking-change-livelo-new-mandatory-permission.md[49m
+Dec 22, 11:33:56 PM: 3b5960f7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:33:56 PM: 3b5960f7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-13-breaking-change-shopee-nova-permissao-obrigatoria-en.md[49m
+Dec 22, 11:33:56 PM: 3b5960f7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:33:56 PM: 3b5960f7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-07-vtex-help-center-now-with-enhanced-interface-and-new-features.md[49m
+Dec 22, 11:33:56 PM: 3b5960f7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:33:56 PM: 96b5da0d INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-15-skyhub-new-shipping-model.md[49m
+Dec 22, 11:33:56 PM: 96b5da0d INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:33:56 PM: 96b5da0d INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-05-indeva-by-vtex-documentation-now-in-the-vtex-help-center.md[49m
+Dec 22, 11:33:56 PM: 96b5da0d INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:33:56 PM: 96b5da0d INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-02-breaking-change-livelo-new-mandatory-permission.md[49m
+Dec 22, 11:33:56 PM: 96b5da0d INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:33:56 PM: 96b5da0d INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-13-breaking-change-shopee-nova-permissao-obrigatoria-en.md[49m
+Dec 22, 11:33:56 PM: 96b5da0d INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:33:56 PM: 96b5da0d INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-07-vtex-help-center-now-with-enhanced-interface-and-new-features.md[49m
+Dec 22, 11:33:56 PM: 96b5da0d INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:01 PM: bc778992 Duration: 671 ms	Memory Usage: 306 MB
+Dec 22, 11:34:02 PM: 8ccf82d7 Duration: 215 ms	Memory Usage: 310 MB
+Dec 22, 11:34:02 PM: 117b4d5b Duration: 230 ms	Memory Usage: 307 MB
+Dec 22, 11:34:34 PM: 74c7d4a6 Duration: 1010 ms	Memory Usage: 325 MB
+Dec 22, 11:34:35 PM: 74c7d4a6 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:36 PM: acb16434 Duration: 331 ms	Memory Usage: 349 MB
+Dec 22, 11:34:37 PM: 40b481c2 Duration: 290 ms	Memory Usage: 349 MB
+Dec 22, 11:34:37 PM: 3804d4e3 Duration: 1057 ms	Memory Usage: 323 MB
+Dec 22, 11:34:37 PM: 60c1a2cc Duration: 229 ms	Memory Usage: 310 MB
+Dec 22, 11:34:38 PM: 5169e4d5 Duration: 6478 ms	Memory Usage: 272 MB
+Dec 22, 11:34:38 PM: 70f78930 Duration: 314 ms	Memory Usage: 349 MB
+Dec 22, 11:34:38 PM: 70f78930 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:38 PM: 4b407259 Duration: 143 ms	Memory Usage: 310 MB
+Dec 22, 11:34:38 PM: 3804d4e3 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:38 PM: f2fe717f Duration: 133 ms	Memory Usage: 349 MB
+Dec 22, 11:34:39 PM: 9ba6a05e Duration: 470 ms	Memory Usage: 349 MB
+Dec 22, 11:34:39 PM: a3fa3816 Duration: 1357 ms	Memory Usage: 321 MB
+Dec 22, 11:34:39 PM: 3c87ac51 Duration: 5411 ms	Memory Usage: 250 MB
+Dec 22, 11:34:39 PM: 9ba6a05e ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:39 PM: 3a6d4f6f Duration: 160 ms	Memory Usage: 349 MB
+Dec 22, 11:34:39 PM: 3a6d4f6f ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:40 PM: a3fa3816 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:40 PM: 248e4aad Duration: 177 ms	Memory Usage: 327 MB
+Dec 22, 11:34:40 PM: 248e4aad ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:41 PM: 5a224428 Duration: 198 ms	Memory Usage: 342 MB
+Dec 22, 11:34:41 PM: 5a224428 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:44 PM: a380b196 Duration: 365 ms	Memory Usage: 302 MB
+Dec 22, 11:34:45 PM: 748fd66c Duration: 3582 ms	Memory Usage: 311 MB
+Dec 22, 11:34:47 PM: 748fd66c INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/dezembro/2025-12-15-skyhub-novo-modelo-de-calculo-de-frete.md[49m
+Dec 22, 11:34:47 PM: 7ccaf71d Duration: 81 ms	Memory Usage: 302 MB
+Dec 22, 11:34:47 PM: 6ab06cc8 Duration: 86 ms	Memory Usage: 342 MB
+Dec 22, 11:34:47 PM: 748fd66c INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:47 PM: 748fd66c INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/dezembro/2025-12-05-documentacao-da-indeva-by-vtex-migrada-para-o-help-center-vtex.md[49m
+Dec 22, 11:34:47 PM: 748fd66c INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:47 PM: 748fd66c INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/dezembro/2025-12-02-breaking-change-livelo-nova-permissao-obrigatoria.md[49m
+Dec 22, 11:34:47 PM: 748fd66c INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:47 PM: 748fd66c INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/novembro/2025-11-13-breaking-change-shopee-nova-permissao-obrigatoria.md[49m
+Dec 22, 11:34:47 PM: 748fd66c INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:47 PM: 748fd66c INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/novembro/2025-11-07-help-center-vtex-agora-com-interface-aprimorada-e-novas-funcionalidades.md[49m
+Dec 22, 11:34:47 PM: 748fd66c INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:48 PM: 4c01b375 Duration: 85 ms	Memory Usage: 342 MB
+Dec 22, 11:34:48 PM: 56e76a56 Duration: 73 ms	Memory Usage: 302 MB
+Dec 22, 11:34:49 PM: 0416458d Duration: 102 ms	Memory Usage: 312 MB
+Dec 22, 11:34:49 PM: bfa5fdb4 Duration: 66 ms	Memory Usage: 302 MB
+Dec 22, 11:34:49 PM: 703dbea4 Duration: 58 ms	Memory Usage: 342 MB
+Dec 22, 11:34:49 PM: b9901cf4 Duration: 86 ms	Memory Usage: 342 MB
+Dec 22, 11:34:50 PM: f0333ee7 Duration: 2864 ms	Memory Usage: 359 MB
+Dec 22, 11:34:50 PM: 21ed585f Duration: 62 ms	Memory Usage: 313 MB
+Dec 22, 11:34:50 PM: 9cfb9746 Duration: 1625 ms	Memory Usage: 307 MB
+Dec 22, 11:34:50 PM: 349245d1 Duration: 292 ms	Memory Usage: 349 MB
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/nao-encontro-uma-colecao-o-que-fazer.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/erro-de-coluna-nula-ao-tentar-importar-planilha-de-frete.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/erro-invalid-header-signature-ao-tentar-importar-planilha-de-frete.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/erro-object-reference-not-set-to-an-instance-of-an-object-ao-tentar.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/faq-vtex-shipping-network.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/utms.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-cadastrei-categoria-similar-e-os-produtos-nao-sao-exibidos.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-o-produto-esta-com-nome-duplicado.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-campo-de-produto-nao-aparece-como-filtro.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/billing/recebi-uma-nota-fiscal-e-nao-sou-cliente-vtex-por-que.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/como-configurar-loja-guarda-chuva-na-integracao-com-o-mercado-livre.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/como-configurar-multiplas-contas-na-integracao-com-o-mercado-livre.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/meus-produtosskus-nao-estao-integrando-com-a-vtex.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/nao-reconheco-o-id-de-reserva-de-um-pedido-o-que-pode-ter-acontecido.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-eu-nao-consigo-alterar-informacoes-do-produto-no-marketplace.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-meu-pedido-aparece-cancelado-no-marketplace-mas-esta-como-faturado-na-vtex.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-meu-produto-foi-categorizado-errado-no-mercado-livre.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-meu-produto-inativo-foi-vendido-no-marketplace.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-meu-produto-nao-inativa-no-marketplace.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-meus-meios-de-pagamento-nao-aparecem-no-marketplace.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-meus-pedidos-nao-integram-com-o-mercado-livre.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-meus-produtos-estao-sem-estoque.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-nao-consigo-inserir-selo-da-promocao-no-marketplace.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-nao-consigo-integrar-produto-sem-ean-ou-com-ean-invalido.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-nao-consigo-integrar-um-marketplace-vtex-com-outro-marketplace.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-o-mercado-livre-retorna-erros-de-atributo-apos-o-mapeamento.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-o-pedido-nao-fatura-no-marketplace.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-o-pedido-nao-vai-para-o-status-enviado-no-marketplace.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/por-que-os-produtos-nao-foram-enviados-para-o-marketplace.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/channels/suggestion-retorna-erro-ao-tentar-processar-sugestao-de-sku.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/change-seller-para-afiliacoes-que-suportam-split-nativo-faq.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/como-funciona-o-fluxo-de-liquidacao-agendada-para-compras-realizadas-com-duas.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/corrigir-erro-de-redirecionamento-no-pagseguro.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/o-que-fazer-quando-ha-problemas-com-uma-transacao.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/por-que-estou-recebendo-e-mails-para-revisar-a-liquidacao-de-um-pagamento.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/o-que-fazer-quando-o-nsu-do-produto-e-duplicada-em-transacoes-realizadas.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/por-que-nao-aparece-a-forma-de-pagamento-do-pedido-na-vtex.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/por-que-nao-encontro-uma-transacao-no-pci-gateway.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/por-que-o-pagamentos-nao-finaliza-o-cancelamento-da-transacao.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/por-que-um-pagamento-esta-parado-no-status-authorizing.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/por-que-um-pedido-nao-foi-enviado-para-o-antifraude.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/financial/por-que-uma-transacao-foi-liquidada-com-sucesso-mas-nao-foi-finalizada-no-pci.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/identity/cliente-nao-consegue-fazer-login.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/identity/o-que-fazer-em-caso-de-erro-de-acesso-ao-modulo-pedidos.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/identity/por-que-a-autenticacao-utilizando-appkey-e-apptoken-nao-funciona.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/identity/por-que-login-no-admin-redireciona-para-loja.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/ativei-a-assinatura-de-um-produto-mas-ele-nao-aparece-no-site.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/busca-com-parametro-de-especificacao-retorna-busca-vazia-o-que-fazer.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/como-vincular-duas-promocoes-ao-mesmo-cupom.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/editei-um-placeholder-e-o-site-nao-atualiza-o-que-fazer.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/kitlook-nao-e-exibido-na-vitrine.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/mensagem-erro-the-limit-of-activated-calculators-has-been-reached.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/nao-consigo-editar-skus.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-a-tabela-de-precos-nao-aparece-para-o-cliente.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-as-imagens-da-minha-loja-estao-sendo-exibidas-com-baixa-qualidade.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-meu-produto-esta-aparecendo-na-categoria-errada.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-minha-promocao-nao-funciona-para-todos-os-tipos-de-entrega.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-minha-promocao-nao-funciona-para-um-cluster-de-clientes.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-nao-aparece-o-avise-me.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-nao-consigo-alterar-os-campos-de-um-grupo.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-nao-recebo-email-de-carrinho-abandonado.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-o-buscador-da-vtex-ignora-alguns-termos-buscados.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-o-filtro-de-campo-de-produto-ou-campo-de-sku-nao-esta-retornando.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-o-preco-de-lista-nao-aparece-no-front-end-da-minha-loja.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-o-produto-nao-aparece-no-site.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-o-zoom-da-minha-loja-nao-funciona.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/por-que-um-termo-buscado-nao-retorna-produtos-que-existem.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/porque-a-imagem-thumb-esta-em-baixa-qualidade.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/preco-do-resultado-de-busca-e-diferente-da-pagina-de-produto.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/marketing-and-merchandising/website-com-erro-como-ajustar.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/others/meu-site-esta-lento.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/others/o-que-fazer-quando-o-avise-me-nao-esta-sendo-exibido.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/others/por-que-minhas-meta-tags-nao-sao-utilizadas-pelo-google.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/others/por-que-nao-consigo-abrir-imagens-que-baixei-diretamente-do-meu-site.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/others/por-que-pedidos-nao-foram-associados-a-uma-lista.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/others/teste-ab-por-que-nao-esta-funcionando-google-analytics.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/ao-tentar-aprovar-pagamento-gerenciamento-de-pedidos-retorna-erro.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/como-vejo-os-clientes-que-mais-compraram.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/erro-404-ao-tentar-cancelar-pedido.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/erro-na-simulacao-de-frete.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/o-pedido-foi-faturado-no-erp-mas-continua-no-status-preparando-entrega.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/pedidos-feitos-com-visa-checkout-nao-aparecem-na-area-de-meus-pedidos.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-a-data-prometida-diverge-com-a-data-de-entrega.md[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:51 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: 9cfb9746 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: d68e63e8 Duration: 218 ms	Memory Usage: 349 MB
+Dec 22, 11:34:52 PM: 109a278f Duration: 268 ms	Memory Usage: 314 MB
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-algumas-afiliacoes-de-gateways-ficam-amarelas.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-aparece-mensagem-the-timespan-could-not-be-parsed.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-meu-pedido-cancelado-foi-cobrado-na-fatura-do-cliente.md[49m
+Dec 22, 11:34:52 PM: d68e63e8 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-meu-pedido-com-estoque-disponivel-esta-dando-erro-no-modulo-pedidos.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-meu-pedido-esta-parado-em-preparando-entrega.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-meu-pedido-foi-faturado-e-o-produto-continua-reservado.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-meu-valor-de-frete-esta-errado.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-minha-transportadora-calculou-frete-para-um-peso-menor-do-que-o-minimo-configurado.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-minha-transportadora-nao-aparece-no-checkout.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-o-hostname-no-json-do-message-center-mostra-informacao-diferente-do-license-manager.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-o-rastreio-nao-funciona.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-o-status-do-pedido-nao-atualiza.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-vejo-inumeros-e-mails-transacionais-repetidos-em-um-pedido.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/por-que-um-pedido-foi-cancelado-no-status-preparando-entrega.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/tentei-atualizar-a-planilha-de-frete-e-deu-um-erro-o-que-fazer.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/post-purchase/sku-com-unidades-positivas-no-inventario-mas-indisponivel-para-venda.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/como-adicionar-mais-atendentes-em-um-link-de-whatsapp.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/checkout-com-erro-loja-nao-encontrada-o-que-fazer.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/reliability/por-que-da-erro-ao-acessar-a-loja-apos-virar-o-dns.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/como-editar-um-link-de-whatsapp.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/como-bloquear-customizacoes-para-investigar-problemas-no-front-end-da-loja.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/como-encontrar-o-pixel-do-google-analytics.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/como-encontrar-o-pixel-do-google-tag-manager.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/como-encontrar-o-pixel-do-linkedin.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/como-encontrar-pixel-do-facebook.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/localize-o-pixel-do-google-ads.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/meu-trial-acabou-e-agora.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/o-que-e-o-link-de-whatsapp.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/onde-utilizar-o-link-de-whatsapp.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/por-que-foi-solicitado-login-no-checkout-finalizacao-de-compra.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/por-que-o-brinde-aparece-como-indisponivel.md[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/faq/shopping/por-que-o-item-do-carrinho-foi-separado.md[49m
+Dec 22, 11:34:52 PM: 109a278f ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:52 PM: f0333ee7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:34:53 PM: 28b8ac5d Duration: 440 ms	Memory Usage: 359 MB
+Dec 22, 11:34:53 PM: 1b9cecdf Duration: 76 ms	Memory Usage: 349 MB
+Dec 22, 11:34:53 PM: 7adb8e3c Duration: 102 ms	Memory Usage: 316 MB
+Dec 22, 11:34:53 PM: 28b8ac5d ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:53 PM: 221a5250 Duration: 8129 ms	Memory Usage: 289 MB
+Dec 22, 11:34:53 PM: 3bf8647f Duration: 57 ms	Memory Usage: 349 MB
+Dec 22, 11:34:53 PM: c626e680 Duration: 107 ms	Memory Usage: 359 MB
+Dec 22, 11:34:53 PM: c626e680 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:54 PM: a7753f25 Duration: 168 ms	Memory Usage: 364 MB
+Dec 22, 11:34:54 PM: a7753f25 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:34:55 PM: 5e3fe796 Duration: 77 ms	Memory Usage: 367 MB
+Dec 22, 11:34:55 PM: 94ed9571 Duration: 54 ms	Memory Usage: 369 MB
+Dec 22, 11:35:00 PM: 221a5250 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:35:01 PM: 21d8ffa0 Duration: 649 ms	Memory Usage: 328 MB
+Dec 22, 11:35:02 PM: 21d8ffa0 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:35:02 PM: adda5c5c Duration: 177 ms	Memory Usage: 328 MB
+Dec 22, 11:35:02 PM: adda5c5c ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:35:05 PM: 977f319e Duration: 175 ms	Memory Usage: 328 MB
+Dec 22, 11:35:05 PM: 977f319e ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:35:05 PM: ff96768c Duration: 123 ms	Memory Usage: 328 MB
+Dec 22, 11:35:05 PM: ff96768c ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:35:05 PM: 9c36c7d7 Duration: 221 ms	Memory Usage: 328 MB
+Dec 22, 11:35:06 PM: 9c36c7d7 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:35:07 PM: 13092c58 Duration: 262 ms	Memory Usage: 349 MB
+Dec 22, 11:35:07 PM: 9537d029 Duration: 160 ms	Memory Usage: 349 MB
+Dec 22, 11:35:07 PM: 9537d029 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:35:07 PM: 0900956d ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)

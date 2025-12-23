@@ -1,0 +1,867 @@
+Dec 22, 10:21:22 PM: f61897c5 Duration: 60266 ms	Memory Usage: 315 MB
+Dec 22, 10:21:30 PM: f61897c5 WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:21:32 PM: f7065401 Duration: 5731 ms	Memory Usage: 254 MB
+Dec 22, 10:21:32 PM: b678b427 Duration: 60306 ms	Memory Usage: 318 MB
+Dec 22, 10:21:40 PM: b678b427 WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:22:02 PM: 2932212a Duration: 60000 ms	Memory Usage: 308 MB
+Dec 22, 10:22:05 PM: 2932212a WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:22:09 PM: c6dcd99a Duration: 60320 ms	Memory Usage: 311 MB
+Dec 22, 10:22:16 PM: c6dcd99a WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:22:39 PM: 4880eec9 Duration: 60000 ms	Memory Usage: 330 MB
+Dec 22, 10:22:44 PM: b160a7f9 Duration: 60000 ms	Memory Usage: 324 MB
+Dec 22, 10:22:45 PM: 4880eec9 WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:22:52 PM: b160a7f9 WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:23:15 PM: 20b86477 Duration: 60000 ms	Memory Usage: 330 MB
+Dec 22, 10:23:20 PM: 6c5c65e0 Duration: 5313 ms	Memory Usage: 258 MB
+Dec 22, 10:23:21 PM: 3703a510 Duration: 60313 ms	Memory Usage: 311 MB
+Dec 22, 10:23:22 PM: 20b86477 WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:23:28 PM: 3703a510 WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:23:51 PM: 94075df2 Duration: 60000 ms	Memory Usage: 325 MB
+Dec 22, 10:23:56 PM: 6895921a Duration: 60000 ms	Memory Usage: 329 MB
+Dec 22, 10:23:58 PM: 94075df2 WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:24:03 PM: 6895921a WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:24:32 PM: 0ffee903 Duration: 60000 ms	Memory Usage: 323 MB
+Dec 22, 10:24:34 PM: dbe3e0c4 WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:24:39 PM: 0ffee903 WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:25:10 PM: bb39e836 WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:25:16 PM: aa6ca72f WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:25:35 PM: 51940b0c Duration: 2472 ms	Memory Usage: 177 MB
+Dec 22, 10:25:41 PM: 7781f8c5 WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:25:44 PM: bb61271b Duration: 5863 ms	Memory Usage: 274 MB
+Dec 22, 10:25:44 PM: 983aaa44 Duration: 5394 ms	Memory Usage: 232 MB
+Dec 22, 10:25:46 PM: 150b762b WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:25:58 PM: 0e2469d2 Duration: 1619 ms	Memory Usage: 299 MB
+Dec 22, 10:25:58 PM: 791549fb Duration: 1678 ms	Memory Usage: 272 MB
+Dec 22, 10:25:58 PM: c2347e5c Duration: 491 ms	Memory Usage: 274 MB
+Dec 22, 10:25:59 PM: 301f8d65 Duration: 5527 ms	Memory Usage: 240 MB
+Dec 22, 10:26:00 PM: 51731e72 Duration: 1168 ms	Memory Usage: 292 MB
+Dec 22, 10:26:00 PM: 78da57ad Duration: 153 ms	Memory Usage: 299 MB
+Dec 22, 10:26:00 PM: 8f55b093 Duration: 1531 ms	Memory Usage: 299 MB
+Dec 22, 10:26:01 PM: 3c47dac4 Duration: 1718 ms	Memory Usage: 323 MB
+Dec 22, 10:26:01 PM: c3081862 Duration: 106 ms	Memory Usage: 294 MB
+Dec 22, 10:26:01 PM: 8f55b093 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:03 PM: 3c47dac4 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:04 PM: 22d6788d Duration: 300 ms	Memory Usage: 319 MB
+Dec 22, 10:26:04 PM: 3146a3e3 Duration: 79 ms	Memory Usage: 323 MB
+Dec 22, 10:26:04 PM: 5b2c067e Duration: 72 ms	Memory Usage: 299 MB
+Dec 22, 10:26:04 PM: 796f4687 Duration: 6597 ms	Memory Usage: 293 MB
+Dec 22, 10:26:04 PM: 22d6788d ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:04 PM: acb46356 Duration: 239 ms	Memory Usage: 328 MB
+Dec 22, 10:26:04 PM: 8b5de4e7 Duration: 73 ms	Memory Usage: 302 MB
+Dec 22, 10:26:04 PM: c6a8eb5c Duration: 49 ms	Memory Usage: 321 MB
+Dec 22, 10:26:04 PM: acb46356 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:04 PM: f0d39335 Duration: 155 ms	Memory Usage: 335 MB
+Dec 22, 10:26:04 PM: f0d39335 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:04 PM: f69932b8 Duration: 196 ms	Memory Usage: 345 MB
+Dec 22, 10:26:05 PM: f69932b8 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:05 PM: c3e1fa66 Duration: 5264 ms	Memory Usage: 240 MB
+Dec 22, 10:26:05 PM: 487c08b8 Duration: 343 ms	Memory Usage: 350 MB
+Dec 22, 10:26:05 PM: 487c08b8 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:05 PM: b870ae5f Duration: 226 ms	Memory Usage: 350 MB
+Dec 22, 10:26:06 PM: b870ae5f ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:06 PM: ff56e6d2 Duration: 409 ms	Memory Usage: 350 MB
+Dec 22, 10:26:06 PM: 74f02172 Duration: 127 ms	Memory Usage: 309 MB
+Dec 22, 10:26:06 PM: e553a75e Duration: 82 ms	Memory Usage: 324 MB
+Dec 22, 10:26:07 PM: 20df8a75 Duration: 59 ms	Memory Usage: 350 MB
+Dec 22, 10:26:07 PM: 5d0de431 Duration: 66 ms	Memory Usage: 350 MB
+Dec 22, 10:26:07 PM: 26561c02 Duration: 277 ms	Memory Usage: 319 MB
+Dec 22, 10:26:08 PM: 22828ab4 Duration: 174 ms	Memory Usage: 331 MB
+Dec 22, 10:26:08 PM: 668fb699 Duration: 56 ms	Memory Usage: 350 MB
+Dec 22, 10:26:08 PM: 84a1df17 Duration: 72 ms	Memory Usage: 350 MB
+Dec 22, 10:26:08 PM: 26561c02 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:08 PM: 37faf302 Duration: 6424 ms	Memory Usage: 264 MB
+Dec 22, 10:26:08 PM: 21574bde Duration: 350 ms	Memory Usage: 323 MB
+Dec 22, 10:26:09 PM: 21574bde ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:09 PM: de6deeee Duration: 60 ms	Memory Usage: 323 MB
+Dec 22, 10:26:09 PM: cb421f6b Duration: 37 ms	Memory Usage: 323 MB
+Dec 22, 10:26:09 PM: 68fc74af Duration: 260 ms	Memory Usage: 312 MB
+Dec 22, 10:26:09 PM: 68fc74af ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:09 PM: 5db8544d Duration: 42 ms	Memory Usage: 323 MB
+Dec 22, 10:26:09 PM: 07bb7095 Duration: 184 ms	Memory Usage: 322 MB
+Dec 22, 10:26:10 PM: 07bb7095 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:11 PM: 135e04d5 Duration: 221 ms	Memory Usage: 293 MB
+Dec 22, 10:26:14 PM: bfcdf7ec Duration: 1398 ms	Memory Usage: 312 MB
+Dec 22, 10:26:14 PM: 141889ce Duration: 402 ms	Memory Usage: 298 MB
+Dec 22, 10:26:15 PM: d03b31cd Duration: 58 ms	Memory Usage: 298 MB
+Dec 22, 10:26:15 PM: 44912269 Duration: 55 ms	Memory Usage: 298 MB
+Dec 22, 10:26:15 PM: 8608af6d WARN   Primary rate limit hit for GET /repos/{org}/{repo}/git/trees/{ref}?recursive=true (403/429 status)
+Dec 22, 10:26:15 PM: bfcdf7ec ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:16 PM: 4bd15716 Duration: 247 ms	Memory Usage: 321 MB
+Dec 22, 10:26:16 PM: 4bd15716 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:17 PM: 0807bc8c Duration: 183 ms	Memory Usage: 331 MB
+Dec 22, 10:26:17 PM: 0807bc8c ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:18 PM: 26321737 Duration: 260 ms	Memory Usage: 340 MB
+Dec 22, 10:26:18 PM: 26321737 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:19 PM: 059e2c52 Duration: 61 ms	Memory Usage: 340 MB
+Dec 22, 10:26:19 PM: acbab8b4 Duration: 1400 ms	Memory Usage: 315 MB
+Dec 22, 10:26:19 PM: 5972f4ab Duration: 1547 ms	Memory Usage: 291 MB
+Dec 22, 10:26:19 PM: ae28e155 Duration: 233 ms	Memory Usage: 325 MB
+Dec 22, 10:26:19 PM: e764b223 Duration: 67 ms	Memory Usage: 352 MB
+Dec 22, 10:26:19 PM: e570f487 Duration: 144 ms	Memory Usage: 340 MB
+Dec 22, 10:26:19 PM: e570f487 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:19 PM: 02915b83 Duration: 205 ms	Memory Usage: 326 MB
+Dec 22, 10:26:19 PM: 02915b83 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 10:26:20 PM: acbab8b4 ERROR  Error: 
+Something went wrong installing the "sharp" module
+
+libvips-cpp.so.42: cannot open shared object file: No such file or directory
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current linux-x64 runtime: "npm install --platform=linux --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:07:00 PM: 00475140 Duration: 8355 ms	Memory Usage: 294 MB
+Dec 22, 11:07:05 PM: 0f277326 Duration: 6426 ms	Memory Usage: 274 MB
+Dec 22, 11:07:06 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-15-skyhub-new-shipping-model.md[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-05-indeva-by-vtex-documentation-now-in-the-vtex-help-center.md[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-02-breaking-change-livelo-new-mandatory-permission.md[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-13-breaking-change-shopee-nova-permissao-obrigatoria-en.md[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-07-vtex-help-center-now-with-enhanced-interface-and-new-features.md[49m
+Dec 22, 11:07:07 PM: 00475140 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-15-skyhub-new-shipping-model.md[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-05-indeva-by-vtex-documentation-now-in-the-vtex-help-center.md[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/december/2025-12-02-breaking-change-livelo-new-mandatory-permission.md[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-13-breaking-change-shopee-nova-permissao-obrigatoria-en.md[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/announcements/2025/november/2025-11-07-vtex-help-center-now-with-enhanced-interface-and-new-features.md[49m
+Dec 22, 11:07:07 PM: 8f9a6bd7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:07:13 PM: e4f59f14 Duration: 627 ms	Memory Usage: 300 MB
+Dec 22, 11:07:13 PM: ac3419ed Duration: 261 ms	Memory Usage: 302 MB
+Dec 22, 11:07:13 PM: 92691895 Duration: 285 ms	Memory Usage: 312 MB
+Dec 22, 11:08:25 PM: e0cd315e Duration: 896 ms	Memory Usage: 329 MB
+Dec 22, 11:08:26 PM: e0cd315e ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:29 PM: bbc34f2a Duration: 321 ms	Memory Usage: 343 MB
+Dec 22, 11:08:30 PM: 66510e92 Duration: 2017 ms	Memory Usage: 302 MB
+Dec 22, 11:08:32 PM: 66510e92 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:32 PM: edd4bc0f Duration: 254 ms	Memory Usage: 302 MB
+Dec 22, 11:08:32 PM: edd4bc0f ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:32 PM: 9c52f7de Duration: 175 ms	Memory Usage: 302 MB
+Dec 22, 11:08:33 PM: 9c52f7de ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:33 PM: 37942da3 Duration: 104 ms	Memory Usage: 302 MB
+Dec 22, 11:08:38 PM: 1628e242 Duration: 8 ms	Memory Usage: 302 MB
+Dec 22, 11:08:39 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/dezembro/2025-12-15-skyhub-novo-modelo-de-calculo-de-frete.md[49m
+Dec 22, 11:08:39 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/dezembro/2025-12-05-documentacao-da-indeva-by-vtex-migrada-para-o-help-center-vtex.md[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/dezembro/2025-12-02-breaking-change-livelo-nova-permissao-obrigatoria.md[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/novembro/2025-11-13-breaking-change-shopee-nova-permissao-obrigatoria.md[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/pt/announcements/2025/novembro/2025-11-07-help-center-vtex-agora-com-interface-aprimorada-e-novas-funcionalidades.md[49m
+Dec 22, 11:08:40 PM: eb9879c7 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:40 PM: 527e90c0 Duration: 307 ms	Memory Usage: 343 MB
+Dec 22, 11:08:40 PM: eb771863 Duration: 596 ms	Memory Usage: 304 MB
+Dec 22, 11:08:43 PM: cae2b1ae Duration: 344 ms	Memory Usage: 304 MB
+Dec 22, 11:08:43 PM: 7f0c8fb2 Duration: 397 ms	Memory Usage: 343 MB
+Dec 22, 11:08:44 PM: 30fad059 Duration: 54 ms	Memory Usage: 343 MB
+Dec 22, 11:08:44 PM: a543de49 Duration: 915 ms	Memory Usage: 343 MB
+Dec 22, 11:08:45 PM: 5d320ea9 Duration: 854 ms	Memory Usage: 304 MB
+Dec 22, 11:08:45 PM: eb0f50ad Duration: 181 ms	Memory Usage: 343 MB
+Dec 22, 11:08:45 PM: f975f6cf Duration: 298 ms	Memory Usage: 302 MB
+Dec 22, 11:08:45 PM: 8b0c674a Duration: 160 ms	Memory Usage: 304 MB
+Dec 22, 11:08:46 PM: f975f6cf ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:46 PM: c73dc202 Duration: 905 ms	Memory Usage: 343 MB
+Dec 22, 11:08:46 PM: 521f9670 Duration: 395 ms	Memory Usage: 302 MB
+Dec 22, 11:08:46 PM: 521f9670 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:46 PM: c73dc202 INFO   [102mINFO - githubCdnFallback[49m
+[102mFetching from GitHub Raw: vtexdocs/help-center-content@main/docs/en/tutorials/about-the-admin/admin-overview/accessing-the-beta-environment.md[49m
+Dec 22, 11:08:46 PM: c73dc202 INFO   [102mINFO - githubCdnFallback[49m
+[102mSuccessfully fetched from GitHub Raw[49m
+Dec 22, 11:08:50 PM: 40e6c767 Duration: 331 ms	Memory Usage: 343 MB
+Dec 22, 11:08:50 PM: 40e6c767 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:51 PM: 2c42f919 Duration: 85 ms	Memory Usage: 304 MB
+Dec 22, 11:08:51 PM: 847c72cd Duration: 145 ms	Memory Usage: 302 MB
+Dec 22, 11:08:51 PM: ddc07da4 Duration: 957 ms	Memory Usage: 304 MB
+Dec 22, 11:08:51 PM: d7ee6b57 Duration: 110 ms	Memory Usage: 302 MB
+Dec 22, 11:08:51 PM: d7ee6b57 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:52 PM: 6f10b76e Duration: 140 ms	Memory Usage: 302 MB
+Dec 22, 11:08:52 PM: 6f10b76e ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:52 PM: ddc07da4 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:52 PM: b9adb91e Duration: 125 ms	Memory Usage: 304 MB
+Dec 22, 11:08:53 PM: b9adb91e ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:08:53 PM: 369e264c Duration: 154 ms	Memory Usage: 304 MB
+Dec 22, 11:08:53 PM: 369e264c ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:03 PM: f8f9ea7c Duration: 480 ms	Memory Usage: 305 MB
+Dec 22, 11:09:04 PM: 66e726c3 Duration: 1147 ms	Memory Usage: 305 MB
+Dec 22, 11:09:06 PM: eb4ee2c3 Duration: 965 ms	Memory Usage: 315 MB
+Dec 22, 11:09:07 PM: eb4ee2c3 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:08 PM: 62ef3417 Duration: 137 ms	Memory Usage: 324 MB
+Dec 22, 11:09:08 PM: 62ef3417 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:09 PM: e34b73c2 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+Dec 22, 11:09:10 PM: 86794393 Duration: 9126 ms	Memory Usage: 283 MB
+Dec 22, 11:09:19 PM: 86794393 ERROR  Error: Could not load the "sharp" module using the linux-x64 runtime
+Possible solutions:
+- Ensure optional dependencies can be installed:
+    npm install --include=optional sharp
+- Ensure your package manager supports multi-platform installation:
+    See https://sharp.pixelplumbing.com/install#cross-platform
+- Add platform-specific dependencies:
+    npm install --os=linux --cpu=x64 sharp
+- Consult the installation documentation:
+    See https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/sharp.js:113:9)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/var/task/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (/var/task/node_modules/sharp/lib/constructor.js:10:1)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)

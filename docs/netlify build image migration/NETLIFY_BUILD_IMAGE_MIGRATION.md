@@ -176,17 +176,68 @@ libvips-cpp.so.42: cannot open shared object file: No such file or directory
 
 **Solution:**
 
-Update `sharp` in `package.json` from `^0.31.2` → `^0.33.5`:
-
-```bash
-yarn upgrade sharp@^0.33.5
-```
+1. ✅ Update `sharp` in `package.json` from `^0.31.2` → `^0.33.5`
+2. ⏳ **Clear Netlify build cache** to force fresh install
 
 Sharp 0.33.x includes prebuilt binaries for Ubuntu Noble 24.04 with libvips 8.15.x.
 
-**Reference Logs:**
-- `docs/netlify build image migration/test function logs pr399.txt` - Shows sharp errors
-- `docs/netlify build image migration/control function logs production.txt` - No errors
+### Test 2 Results (sharp 0.33.5 - with cached node_modules)
+
+The upgrade didn't work because **Netlify used cached node_modules**:
+
+```
+Started restoring cached node modules
+Finished restoring cached node modules
+```
+
+The cache contained the old sharp 0.31.2 binaries. `yarn.lock` was updated correctly to `sharp@0.33.5`, but the cache wasn't invalidated.
+
+**Next step:** Clear Netlify build cache:
+1. Go to: Netlify Dashboard → Site configuration → Build & deploy → Dependency management
+2. Click "Clear cache and retry deploy"
+
+## Tests
+
+| Test | Date | Configuration | Result | Root Cause |
+|------|------|---------------|--------|------------|
+| **Control** | 2025-12-22 | Ubuntu Focal + sharp 0.31.2 | ✅ Pass | N/A (production baseline) |
+| **Test 1** | 2025-12-22 | Ubuntu Noble + sharp 0.31.2 | ❌ 500 errors | `libvips-cpp.so.42` missing on Noble |
+| **Test 2** | 2025-12-23 | Ubuntu Noble + sharp 0.33.5 | ❌ 500 errors | Netlify used cached node_modules (old sharp) |
+| **Test 3** | 2025-12-23 | Ubuntu Noble + sharp 0.33.5 + cache cleared | ❌ 500 errors | Optional platform deps not bundled for Lambda |
+
+### Test Details
+
+**Control (Production Baseline)**
+- Build image: Ubuntu Focal 20.04
+- sharp version: 0.31.2
+- Status: Working correctly
+- Logs: `control build logs.txt`, `control function logs production.txt`
+
+**Test 1: Initial Noble Migration**
+- Build image: Ubuntu Noble 24.04
+- sharp version: 0.31.2 (unchanged)
+- Result: 500 errors on tutorial pages
+- Cause: sharp 0.31.2 requires `libvips-cpp.so.42` which doesn't exist on Noble
+- Logs: `test1 build logs - sharp 0.31.2.txt`, `test1 function logs - sharp 0.31.2.txt`
+
+**Test 2: Sharp Upgrade**
+- Build image: Ubuntu Noble 24.04
+- sharp version: 0.33.5 (upgraded)
+- Result: Same 500 errors
+- Cause: Netlify restored cached node_modules containing old sharp binaries
+- Logs: `test2 build logs - sharp 0.33.5.txt`, `test2 function logs - sharp 0.33.5.txt`
+
+**Test 3: Cache Cleared**
+- Build image: Ubuntu Noble 24.04
+- sharp version: 0.33.5
+- Cache: Cleared via Netlify UI ("Building without cache" confirmed in logs)
+- Result: ❌ Different error - `Could not load the "sharp" module using the linux-x64 runtime`
+- Analysis: Sharp 0.33.x uses optional platform-specific packages (`@img/sharp-linux-x64`). Yarn only installs optional deps for the build platform, not the Lambda runtime.
+- Logs: `test3 build logs - cache cleared.txt`, `test3 function logs - cache cleared.txt`
+
+**Next Step: Test 4**
+- Add `@img/sharp-linux-x64` as a direct dependency (not optional)
+- This forces the linux-x64 binaries to be installed regardless of build platform
 
 ## Rollback Instructions
 
@@ -210,7 +261,9 @@ If issues arise after production migration:
 | 2025-12-23 | Compared build logs: plugin warning is NOT root cause (same in both) | Pedro Costa |
 | 2025-12-23 | Identified as runtime error; need Netlify Function Logs | Pedro Costa |
 | 2025-12-23 | **ROOT CAUSE FOUND**: `sharp` module incompatible with Noble (libvips mismatch) | Pedro Costa |
-| _TBD_ | Upgrade sharp ^0.31.2 → ^0.33.5 | _TBD_ |
+| 2025-12-23 | Upgraded sharp to ^0.33.5, but Netlify used cached node_modules | Pedro Costa |
+| 2025-12-23 | Cleared cache, new error: platform-specific binaries not bundled | Pedro Costa |
+| _TBD_ | Add @img/sharp-linux-x64 as direct dependency | _TBD_ |
 | _TBD_ | Re-test after fix | _TBD_ |
 | _TBD_ | Merge PR to deploy to production | _TBD_ |
 
