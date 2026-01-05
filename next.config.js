@@ -22,6 +22,7 @@ const nextConfig = {
       'cdn.statically.io',
       'github.com',
       'avatars.githubusercontent.com',
+      'vtex.com',
     ],
     remotePatterns: [
       {
@@ -49,10 +50,9 @@ const nextConfig = {
         hostname: 'avatars.githubusercontent.com',
         pathname: '/**',
       },
-      // Allow all other HTTPS domains for backward compatibility
       {
         protocol: 'https',
-        hostname: '**',
+        hostname: 'vtex.com',
         pathname: '/**',
       },
     ],
