@@ -34,6 +34,7 @@ const ArticlePagination = ({
             <Link
               style={styles.paginationLinkPrevious}
               href={pagination?.previousDoc?.slug}
+              locale={false}
             >
               <Box sx={styles.paginationBox}>
                 <Text sx={styles.paginationText}>
@@ -54,6 +55,7 @@ const ArticlePagination = ({
             <Link
               style={styles.paginationLinkNext}
               href={pagination?.nextDoc?.slug}
+              locale={false}
             >
               <Box
                 sx={

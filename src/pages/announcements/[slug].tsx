@@ -180,7 +180,7 @@ export const getStaticProps: GetStaticProps = async ({
       'announcements'
     )
     pagination = getPagination({
-      contentType: 'docs/announcements',
+      contentType: 'announcements',
       sidebarfallback,
       currentLocale,
       slug,
