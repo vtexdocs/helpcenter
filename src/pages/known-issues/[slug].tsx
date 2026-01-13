@@ -135,14 +135,14 @@ export const getStaticProps: GetStaticProps = async ({
     await getSidebarMetadata(sectionSelected, resolvedSlug, { branch })
   const isKICover = isCategoryCover(slug, sidebarfallback)
 
-  if (!mdFileExists && !isKICover) {
+  if (!mdFileExists && isKICover.length === 0) {
     logger.warn(
       `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
     return { notFound: true }
   }
 
-  if (!mdFileExistsForCurrentLocale && !isKICover) {
+  if (!mdFileExistsForCurrentLocale && isKICover.length === 0) {
     logger.warn(
       `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
     )
@@ -196,8 +196,8 @@ export const getStaticProps: GetStaticProps = async ({
     )
   }
 
-  if (isKICover && !mdFileExists) {
-    if (currentLocale !== isKICover) {
+  if (isKICover.length > 0 && !mdFileExists) {
+    if (!isKICover.includes(currentLocale)) {
       logger.warn(
         `Localized path missing for slug=${slug}, redirecting to available locale`
       )

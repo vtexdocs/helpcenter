@@ -76,19 +76,21 @@ export function isCategoryCover(
   slug: string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sidebarfallback: any
-): string | null {
+): string[] {
   const categorySlugs: Record<string, string>[] = jp.query(
     sidebarfallback,
     `$..[?(@.type=="category")].slug`
   )
 
+  const matchingLocales: string[] = []
+
   for (const slugObj of categorySlugs) {
     for (const [locale, value] of Object.entries(slugObj)) {
       if (value === slug) {
-        return locale
+        matchingLocales.push(locale)
       }
     }
   }
 
-  return null
+  return matchingLocales
 }

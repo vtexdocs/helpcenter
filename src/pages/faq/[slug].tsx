@@ -118,14 +118,14 @@ export const getStaticProps: GetStaticProps = async ({
 
   const isFaqCover = isCategoryCover(slug, sidebarfallback)
 
-  if (!mdFileExists && !isFaqCover) {
+  if (!mdFileExists && isFaqCover.length === 0) {
     logger.warn(
       `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
     return { notFound: true }
   }
 
-  if (!mdFileExistsForCurrentLocale && !isFaqCover) {
+  if (!mdFileExistsForCurrentLocale && isFaqCover.length === 0) {
     logger.warn(
       `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
     )
@@ -179,8 +179,8 @@ export const getStaticProps: GetStaticProps = async ({
     )
   }
 
-  if (isFaqCover && !mdFileExists) {
-    if (currentLocale !== isFaqCover) {
+  if (isFaqCover.length > 0 && !mdFileExists) {
+    if (!isFaqCover.includes(currentLocale)) {
       logger.warn(
         `Localized path missing for slug=${slug}, redirecting to available locale`
       )

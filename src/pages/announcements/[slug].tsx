@@ -119,14 +119,14 @@ export const getStaticProps: GetStaticProps = async ({
 
   const isAnnouncementCategory = isCategoryCover(slug, sidebarfallback)
 
-  if (!mdFileExists && !isAnnouncementCategory) {
+  if (!mdFileExists && isAnnouncementCategory.length === 0) {
     logger.warn(
       `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
     return { notFound: true }
   }
 
-  if (!mdFileExistsForCurrentLocale && !isAnnouncementCategory) {
+  if (!mdFileExistsForCurrentLocale && isAnnouncementCategory.length === 0) {
     logger.warn(
       `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
     )
@@ -180,13 +180,29 @@ export const getStaticProps: GetStaticProps = async ({
       'announcements'
     )
     pagination = getPagination({
+      contentType: 'docs/announcements',
       sidebarfallback,
       currentLocale,
       slug,
       logger,
     }).pagination
 
-    if (isAnnouncementCategory && !mdFileExists) {
+    if (isAnnouncementCategory.length > 0 && !mdFileExists) {
+      //Se existe a categoria, mas a slug está em outro locale, redireciona
+      //Verifica se a slug não existe para o locale atual antes de redirecionar
+      if (!isAnnouncementCategory.includes(currentLocale)) {
+        logger.warn(
+          `Localized path missing for slug=${slug}, redirecting to available locale`
+        )
+        return keyPath
+          ? redirectToLocalizedUrl(
+              keyPath,
+              currentLocale,
+              flattenedSidebar,
+              'announcements'
+            )
+          : { notFound: true }
+      }
       const childrenArrayName: string[] = []
       const childrenArraySlug: string[] = []
 

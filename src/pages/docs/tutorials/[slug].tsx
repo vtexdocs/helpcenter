@@ -142,7 +142,7 @@ export const getStaticProps: GetStaticProps = async ({
   const isTutorialCategory = isCategoryCover(slug, sidebarfallback)
 
   //Se não existe o arquivo md para a slug e não é capa de categoria, checa se há arquivo md para troubleshooting com a mesma slug
-  if (!mdFileExists && !isTutorialCategory) {
+  if (!mdFileExists && isTutorialCategory.length === 0) {
     logger.warn(
       `Markdown file not found: slug=${slug}, locale=${currentLocale}, branch=${branch}`
     )
@@ -164,7 +164,7 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   //Se existe o arquivo md, mas apenas para outro locale, redireciona
-  if (!mdFileExistsForCurrentLocale && !isTutorialCategory) {
+  if (!mdFileExistsForCurrentLocale && isTutorialCategory.length === 0) {
     logger.warn(
       `Localized path missing for slug=${slug}, redirecting to available locale`
     )
@@ -224,9 +224,9 @@ export const getStaticProps: GetStaticProps = async ({
       logger,
     }).pagination
 
-    if (isTutorialCategory && !mdFileExists) {
+    if (isTutorialCategory.length > 0 && !mdFileExists) {
       //Se existe a categoria, mas a slug está em outro locale, redireciona
-      if (currentLocale !== isTutorialCategory) {
+      if (!isTutorialCategory.includes(currentLocale)) {
         logger.warn(
           `Localized path missing for slug=${slug}, redirecting to available locale`
         )
