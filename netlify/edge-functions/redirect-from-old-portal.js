@@ -1,11 +1,53 @@
 // Import redirects data at build time using Deno's JSON import
 import redirectsData from '../../public/redirects.json' with { type: 'json' }
 
+/**
+ * Safely decode a URI component, handling malformed encodings (e.g., Latin-1 instead of UTF-8)
+ * Falls back to the original string if decoding fails
+ */
+function safeDecodeURIComponent(str) {
+  try {
+    return decodeURIComponent(str)
+  } catch {
+    // If standard decoding fails, try to handle Latin-1 encoded characters
+    try {
+      // Replace Latin-1 encoded characters with UTF-8 equivalents
+      return decodeURIComponent(
+        str.replace(/%([0-9A-Fa-f]{2})/g, (_, hex) => {
+          const charCode = parseInt(hex, 16)
+          // If it's a Latin-1 extended character (128-255), encode it properly as UTF-8
+          if (charCode >= 128 && charCode <= 255) {
+            return encodeURIComponent(String.fromCharCode(charCode))
+          }
+          return `%${hex}`
+        })
+      )
+    } catch {
+      // If all decoding fails, return the original string
+      return str
+    }
+  }
+}
+
+/**
+ * Normalize a string by removing diacritics (accents)
+ * This helps match URLs with accented characters to slugs without accents
+ */
+function normalizeString(str) {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
 export default async (request, context) => {
   console.log('running edge function: redirect-from-old-portal')
   console.log('request.url', request.url)
 
-  const url = new URL(request.url)
+  let url
+  try {
+    url = new URL(request.url)
+  } catch (e) {
+    console.error('Failed to parse URL:', e.message)
+    return context.next()
+  }
 
   // Redirect from old hostname to new hostname FIRST (before any other checks)
   if (url.hostname === 'newhelp.vtex.com') {
@@ -45,6 +87,11 @@ export default async (request, context) => {
     return context.next()
   }
 
+  // Yield for pure locale routes (e.g., /pt, /es, /en) - let Next.js handle i18n
+  if (url.pathname.match(/^\/(?:en|pt|es)\/?$/)) {
+    return context.next()
+  }
+
   const search = url.search ? url.search : '' // preserve query string
 
   let destination
@@ -74,7 +121,16 @@ export default async (request, context) => {
   // Match patterns:
   // /<locale>/{type}/{slug}[--<key>]
   // /{type}/{slug}[--<key>]
-  const match = url.pathname.match(
+  // First, try to safely decode the pathname to handle malformed encodings
+  let decodedPathname
+  try {
+    decodedPathname = safeDecodeURIComponent(url.pathname)
+  } catch (e) {
+    console.error('Failed to decode pathname:', e.message)
+    decodedPathname = url.pathname
+  }
+
+  const match = decodedPathname.match(
     /^(?:\/(?<locale>[a-z]{2}))?\/(?<type>tutorial|announcements|known-issues|tracks|faq|subcategory|category)\/(?<slug>[^/]+?)(?:--[^/]+)?(?:\/[^/]+)?$/
   )
 
@@ -82,14 +138,16 @@ export default async (request, context) => {
     console.log('match found')
     const locale = match.groups.locale || 'en' // default if no locale
     const type = match.groups.type // "tutorial", "tracks", "faq"
-    const slug = match.groups.slug // clean slug without --key
+    // Normalize the slug to remove accents for matching
+    const rawSlug = match.groups.slug
+    const slug = normalizeString(rawSlug) // clean slug without accents
     console.log('locale', locale)
     console.log('type', type)
     console.log('slug', slug)
     console.log('search', search)
 
     // Skip modern paths that don't need redirecting
-    if (type === 'announcements' && slug.match(/^\d{4}-\d{2}-\d{2}-/)) {
+    if (type === 'announcements' && (slug.match(/^\d{4}-\d{2}-\d{2}-/)) || slug.match(/\d{4}/) || slug.match(/\d{4}-\w+/)) {
       console.log('Modern announcement detected (date-prefixed), skipping redirect')
       return context.next()
     }
@@ -261,12 +319,16 @@ function getBasePath(path) {
 
 // Helper function to find matching redirect entry by base path
 function findRedirectByBasePath(redirectsMap, basePath) {
+  // Normalize the basePath for comparison
+  const normalizedBasePath = normalizeString(basePath)
+
   // Look for any key in the map that:
   // 1. Matches the base path exactly, OR
-  // 2. Starts with base path followed by "--"
+  // 2. Matches after normalization (removing accents), OR
+  // 3. Starts with base path followed by "--"
   for (const [key, value] of redirectsMap.entries()) {
     const keyBasePath = getBasePath(key)
-    if (keyBasePath === basePath) {
+    if (keyBasePath === basePath || normalizeString(keyBasePath) === normalizedBasePath) {
       console.log(`Fuzzy match found: ${key} matches base path ${basePath}`)
       return value
     }
@@ -278,7 +340,14 @@ async function checkRedirects(url) {
   try {
     const redirectsMap = getRedirectsMap()
 
-    let currentPath = url.pathname
+    // Safely decode the pathname to handle malformed encodings
+    let currentPath
+    try {
+      currentPath = safeDecodeURIComponent(url.pathname)
+    } catch {
+      currentPath = url.pathname
+    }
+
     const visitedPaths = new Set() // Prevent infinite loops
     const maxRedirects = 10 // Safety limit
     const availableLocales = ['pt', 'en', 'es', null] // null means no locale
@@ -294,6 +363,17 @@ async function checkRedirects(url) {
 
       // First try exact O(1) Map lookup
       let redirectTo = redirectsMap.get(currentPath)
+
+      // If no exact match, try with normalized path (no accents)
+      if (!redirectTo) {
+        const normalizedPath = normalizeString(currentPath)
+        if (normalizedPath !== currentPath) {
+          redirectTo = redirectsMap.get(normalizedPath)
+          if (redirectTo) {
+            console.log(`Normalized match found: ${currentPath} -> ${normalizedPath}`)
+          }
+        }
+      }
 
       // If no exact match, try fuzzy match by base path
       if (!redirectTo) {
