@@ -189,6 +189,7 @@ export const getStaticProps: GetStaticProps = async ({
     categoryTitle = c || ''
 
     pagination = getPagination({
+      contentType: 'docs/tracks',
       sidebarfallback,
       currentLocale,
       slug,
@@ -204,6 +205,19 @@ export const getStaticProps: GetStaticProps = async ({
     )
 
     if (isTrackCover && !mdFileExists) {
+      if (currentLocale !== isTrackCover) {
+        logger.warn(
+          `Localized path missing for slug=${slug}, redirecting to available locale`
+        )
+        return keyPath
+          ? redirectToLocalizedUrl(
+              keyPath,
+              currentLocale,
+              flattenedSidebar,
+              'tracks'
+            )
+          : { notFound: true }
+      }
       const childrenArrayName: string[] = []
       const childrenArraySlug: string[] = []
 

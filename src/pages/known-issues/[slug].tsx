@@ -197,6 +197,19 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   if (isKICover && !mdFileExists) {
+    if (currentLocale !== isKICover) {
+      logger.warn(
+        `Localized path missing for slug=${slug}, redirecting to available locale`
+      )
+      return keyPath
+        ? redirectToLocalizedUrl(
+            keyPath,
+            currentLocale,
+            flattenedSidebar,
+            'known-issues'
+          )
+        : { notFound: true }
+    }
     const childrenArrayName: string[] = []
     const childrenArraySlug: string[] = []
 

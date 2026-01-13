@@ -1,5 +1,5 @@
-import { Link, Grid, Text, Box } from '@vtex/brand-ui'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
+import { Grid, Text, Box } from '@vtex/brand-ui'
 import { useIntl } from 'react-intl'
 interface Props {
   pagination: {
@@ -23,13 +23,8 @@ const ArticlePagination = ({
   hidePaginationNext,
   hidePaginationPrevious,
 }: Props) => {
-  const router = useRouter()
   const intl = useIntl()
 
-  const handleClick = (e: { preventDefault: () => void }, slug: string) => {
-    e.preventDefault()
-    router.push(`${slug}`)
-  }
   return (
     <Box sx={styles.mainContainer}>
       <Grid sx={styles.flexContainer}>
@@ -37,11 +32,8 @@ const ArticlePagination = ({
           pagination?.previousDoc?.slug &&
           pagination?.previousDoc?.name && (
             <Link
-              sx={styles.paginationLinkPrevious}
+              style={styles.paginationLinkPrevious}
               href={pagination?.previousDoc?.slug}
-              onClick={(e: { preventDefault: () => void }) => {
-                handleClick(e, pagination.previousDoc.slug as string)
-              }}
             >
               <Box sx={styles.paginationBox}>
                 <Text sx={styles.paginationText}>
@@ -60,11 +52,8 @@ const ArticlePagination = ({
           pagination?.nextDoc?.slug &&
           pagination?.nextDoc?.name && (
             <Link
-              sx={styles.paginationLinkNext}
+              style={styles.paginationLinkNext}
               href={pagination?.nextDoc?.slug}
-              onClick={(e: { preventDefault: () => void }) => {
-                handleClick(e, pagination?.nextDoc?.slug as string)
-              }}
             >
               <Box
                 sx={

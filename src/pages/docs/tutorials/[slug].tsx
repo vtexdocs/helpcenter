@@ -217,6 +217,7 @@ export const getStaticProps: GetStaticProps = async ({
       'docs/tutorials'
     )
     pagination = getPagination({
+      contentType: 'docs/tutorials',
       sidebarfallback,
       currentLocale,
       slug,
@@ -224,6 +225,21 @@ export const getStaticProps: GetStaticProps = async ({
     }).pagination
 
     if (isTutorialCategory && !mdFileExists) {
+      //Se existe a categoria, mas a slug está em outro locale, redireciona
+      if (currentLocale !== isTutorialCategory) {
+        logger.warn(
+          `Localized path missing for slug=${slug}, redirecting to available locale`
+        )
+        return keyPath
+          ? redirectToLocalizedUrl(
+              keyPath,
+              currentLocale,
+              flattenedSidebar,
+              'tutorials'
+            )
+          : { notFound: true }
+      }
+
       const childrenArrayName: string[] = []
       const childrenArraySlug: string[] = []
 
