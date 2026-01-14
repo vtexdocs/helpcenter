@@ -49,7 +49,8 @@ export default async (request, context) => {
     return context.next()
   }
 
-  // Redirect from old hostname to new hostname FIRST (before any other checks)
+  // 1. Hostname Redirect
+  // // Redirect from old hostname to new hostname FIRST (before any other checks)
   if (url.hostname === 'newhelp.vtex.com') {
     const newUrl = new URL(request.url)
     newUrl.hostname = 'help.vtex.com'
@@ -63,12 +64,12 @@ export default async (request, context) => {
     })
   }
 
-  // Yield for API calls - they should pass through without interception
+  // 2. Yield for API calls - they should pass through without interception
   if (url.pathname.startsWith('/api/')) {
     return context.next()
   }
 
-  // Yield for Netlify internal paths (prerender extension, etc.)
+  // 2. Yield for Netlify internal paths (prerender extension, etc.)
   if (
     url.pathname === '/netlify-prerender-function' ||
     url.pathname.startsWith('/.netlify/') ||
@@ -77,7 +78,7 @@ export default async (request, context) => {
     return context.next()
   }
 
-  // Yield for static files and Next.js internals
+  // 2. Yield for static files and Next.js internals
   if (
     url.pathname.startsWith('/_next/') ||
     url.pathname.startsWith('/images/') ||
@@ -87,11 +88,31 @@ export default async (request, context) => {
     return context.next()
   }
 
-  // Yield for pure locale routes (e.g., /pt, /es, /en) - let Next.js handle i18n
+  // 3. HOME REDIRECT
+  if (url.pathname === '/') {
+    const nextLocaleCookie = context.cookies.get("NEXT_LOCALE")
+    const netlifyCookie = context.cookies.get("nf_lang")
+    const headerLocale = getLocaleFromHeader(request.headers.get("accept-language"))
+
+    // Prioridade total para o que o usuário já escolheu ou o navegador diz
+    const preferredLocale = nextLocaleCookie || netlifyCookie || headerLocale || 'pt'
+
+    if (preferredLocale !== 'en') {
+      return new Response(null, {
+        status: 307,
+        headers: { Location: new URL(`/${preferredLocale}`, url.origin).toString() },
+      })
+    }
+    return context.next()
+  }
+
+  // 4. Yield for pure locale routes (e.g., /pt, /es, /en) - let Next.js handle i18n
   if (url.pathname.match(/^\/(?:en|pt|es)\/?$/)) {
     return context.next()
   }
 
+
+  // 5. LÓGICA DE REDIRECIONAMENTO LEGADO
   const search = url.search ? url.search : '' // preserve query string
 
   let destination
@@ -131,12 +152,15 @@ export default async (request, context) => {
   }
 
   const match = decodedPathname.match(
-    /^(?:\/(?<locale>[a-z]{2}))?\/(?<type>tutorial|announcements|known-issues|tracks|faq|subcategory|category)\/(?<slug>[^/]+?)(?:--[^/]+)?(?:\/[^/]+)?$/
+    /^(?:\/(?<locale>en|pt|es))?\/(?<type>tutorial|announcements|known-issues|tracks|faq|subcategory|category)\/(?<slug>[^/]+?)(?:--[^/]+)?(?:\/[^/]+)?$/
   )
 
   if (match && match.groups) {
     console.log('match found')
-    const locale = match.groups.locale || 'en' // default if no locale
+    const cookieLocale = context.cookies.get("NEXT_LOCALE") || context.cookies.get("nf_lang")
+    const headerLocale = getLocaleFromHeader(request.headers.get("accept-language"))
+    const locale = match.groups.locale || cookieLocale || headerLocale || 'en'
+
     const type = match.groups.type // "tutorial", "tracks", "faq"
     // Normalize the slug to remove accents for matching
     const rawSlug = match.groups.slug
@@ -503,8 +527,7 @@ async function resolveKiSlug(originalSlug, locale) {
 
     if (!content) {
       console.error(
-        `Failed to fetch ki mapping from all CDNs: ${
-          lastError?.message || 'Unknown error'
+        `Failed to fetch ki mapping from all CDNs: ${lastError?.message || 'Unknown error'
         }`
       )
       return null
@@ -531,4 +554,12 @@ async function resolveKiSlug(originalSlug, locale) {
     )
     return null
   }
+}
+
+function getLocaleFromHeader(header) {
+  if (!header) return null
+  // Ex: "pt-BR,pt;q=0.9,en-US;q=0.8" -> ["pt", "en"]
+  const locales = header.split(',').map(l => l.split(';')[0].split('-')[0].trim())
+  const supported = ['pt', 'es', 'en']
+  return locales.find(l => supported.includes(l))
 }

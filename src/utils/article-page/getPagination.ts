@@ -44,9 +44,7 @@ export function getPagination({
     previousDoc:
       indexOfSlug > 0
         ? {
-            slug: `/${currentLocale}/${contentType}/${
-              docsListSlug[indexOfSlug - 1]
-            }`,
+            slug: `/${contentType}/${docsListSlug[indexOfSlug - 1]}`,
             name:
               docsListName[indexOfSlug - 1]?.[currentLocale] ||
               docsListName[indexOfSlug - 1]?.en,
@@ -55,9 +53,7 @@ export function getPagination({
     nextDoc:
       indexOfSlug < docsListSlug.length - 1
         ? {
-            slug: `/${currentLocale}/${contentType}/${
-              docsListSlug[indexOfSlug + 1]
-            }`,
+            slug: `/${contentType}/${docsListSlug[indexOfSlug + 1]}`,
             name:
               docsListName[indexOfSlug + 1]?.[currentLocale] ||
               docsListName[indexOfSlug + 1]?.en,
