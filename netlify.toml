@@ -77,6 +77,22 @@ function = "redirect-from-old-portal"
   path = "/:locale/announcements/*--*"
   function = "redirect-from-old-portal"
 
+[[edge_functions]]
+  path = "/subcategory/*--*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/:locale/subcategory/*--*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/subcategory/*"
+  function = "redirect-from-old-portal"
+
+[[edge_functions]]
+  path = "/:locale/subcategory/*"
+  function = "redirect-from-old-portal"
+
 [[redirects]]
 force = true
 from = "/:locale/docs/tutorials/creating-multi-store-multi-domain"
