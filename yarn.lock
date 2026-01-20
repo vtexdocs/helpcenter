@@ -3107,8 +3107,8 @@
   integrity sha512-SVQBxaSdEVdpJFja1aVTIiZBgpQKePyYOUWGzcYq6LYkSWqSbz2LoC7TuLUsmfweYmVkv8+4eVuxcDpQVEpq1A==
 
 "@vtexdocs/components@https://github.com/vtexdocs/components.git#fix/sidebar-locale-regression":
-  version "6.0.39"
-  resolved "https://github.com/vtexdocs/components.git#87ebae7d2da8b5dfd913af9aba4b1785171de1b3"
+  version "6.0.40"
+  resolved "https://github.com/vtexdocs/components.git#c7389054c319b3ed6754912a0d3c07c569367719"
   dependencies:
     "@code-hike/mdx" "^0.9.0"
     "@vtex/brand-ui" "^0.46.1"
