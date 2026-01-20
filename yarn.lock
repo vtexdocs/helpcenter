@@ -3106,9 +3106,9 @@
   resolved "https://registry.npmjs.org/@vtex/tsconfig/-/tsconfig-0.6.0.tgz"
   integrity sha512-SVQBxaSdEVdpJFja1aVTIiZBgpQKePyYOUWGzcYq6LYkSWqSbz2LoC7TuLUsmfweYmVkv8+4eVuxcDpQVEpq1A==
 
-"@vtexdocs/components@https://github.com/vtexdocs/components.git#v6.0.33":
-  version "6.0.33"
-  resolved "https://github.com/vtexdocs/components.git#c1db3ce94f1db05f428c9c0077c24601116f277f"
+"@vtexdocs/components@https://github.com/vtexdocs/components.git#v6.0.36":
+  version "6.0.36"
+  resolved "https://github.com/vtexdocs/components.git#aa8b43e76e16dc8c7fb5920edc7f97a3bf2bd008"
   dependencies:
     "@code-hike/mdx" "^0.9.0"
     "@vtex/brand-ui" "^0.46.1"
