@@ -767,3 +767,4 @@ The script processes redirects from CSV files (exported from the old portal) and
 ### Troubleshooting fallback
 
 Troubleshooting are new content types. In the old help center, they're published as tutorials. So to correctly redirect users, the `getStaticProps()` function of the tutorials page has a fallback flow. If no .md file is found for the requested tutorial slug, this flow checks the navigation data for troubleshooting articles with that slug, redirecting the user if it exists.
+# Trigger rebuild
