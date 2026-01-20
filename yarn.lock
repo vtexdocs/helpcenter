@@ -3106,7 +3106,7 @@
   resolved "https://registry.npmjs.org/@vtex/tsconfig/-/tsconfig-0.6.0.tgz"
   integrity sha512-SVQBxaSdEVdpJFja1aVTIiZBgpQKePyYOUWGzcYq6LYkSWqSbz2LoC7TuLUsmfweYmVkv8+4eVuxcDpQVEpq1A==
 
-"@vtexdocs/components@https://github.com/vtexdocs/components.git#fix/sidebar-locale-regression":
+"@vtexdocs/components@https://github.com/vtexdocs/components.git#fix/sidebar-locale-v2":
   version "6.0.40"
   resolved "https://github.com/vtexdocs/components.git#c7389054c319b3ed6754912a0d3c07c569367719"
   dependencies:
