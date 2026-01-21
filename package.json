@@ -132,6 +132,7 @@
     }
   },
   "resolutions": {
-    "@vtexdocs/components/next": "^13.5.11"
+    "@vtexdocs/components/next": "^13.5.11",
+    "@vtexdocs/components": "https://github.com/vtexdocs/components.git#a2b5cee14a06f34ae9229cfb039ac13357a15765"
   }
 }
