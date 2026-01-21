@@ -7,6 +7,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const nextConfig = {
+  generateBuildId: async () => {
+    // Force unique build ID to bust CDN cache
+    return `build-${Date.now()}`
+  },
   experimental: {
     largePageDataBytes: 500 * 1000,
     workerThreads: false,
