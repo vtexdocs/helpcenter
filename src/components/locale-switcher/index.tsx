@@ -33,10 +33,90 @@ interface NavigationData {
   }[]
 }
 
+const ALLOWED_LOCALES = ['en', 'es', 'pt'] as const
+
+/**
+ * Normalize a slug by removing diacritics (accents) for comparison
+ * This handles cases where URL slugs have accents but navigation.json doesn't
+ */
+const normalizeSlug = (slug: string): string => {
+  return slug.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
+/**
+ * Safely decode a URI component, handling malformed encodings
+ * Falls back to the original string if decoding fails
+ */
+const safeDecodeURIComponent = (str: string): string => {
+  try {
+    return decodeURIComponent(str)
+  } catch {
+    // If standard decoding fails, try to handle Latin-1 encoded characters
+    try {
+      // Replace Latin-1 encoded characters with UTF-8 equivalents
+      return decodeURIComponent(
+        str.replace(/%([0-9A-Fa-f]{2})/g, (_, hex) => {
+          const charCode = parseInt(hex, 16)
+          // If it's a Latin-1 extended character (128-255), encode it properly as UTF-8
+          if (charCode >= 128 && charCode <= 255) {
+            return encodeURIComponent(String.fromCharCode(charCode))
+          }
+          return `%${hex}`
+        })
+      )
+    } catch {
+      // If all decoding fails, return the original string
+      return str
+    }
+  }
+}
+
+/**
+ * Set locale cookies for both Next.js (NEXT_LOCALE) and Netlify (nf_lang)
+ * This ensures locale preference persists across navigation
+ */
+const setLocaleCookies = (locale: string) => {
+  const maxAge = 60 * 60 * 24 * 365 // 1 year
+  document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=${maxAge}; SameSite=Lax`
+  document.cookie = `nf_lang=${locale}; path=/; max-age=${maxAge}; SameSite=Lax`
+}
+
+/**
+ * Extract the current locale from the pathname
+ * Returns the locale if found in the first path segment, otherwise null
+ */
+const extractLocaleFromPath = (pathname: string): string | null => {
+  const segments = pathname.split('/').filter(Boolean)
+  if (
+    segments.length > 0 &&
+    ALLOWED_LOCALES.includes(segments[0] as (typeof ALLOWED_LOCALES)[number])
+  ) {
+    return segments[0]
+  }
+  return null
+}
+
+/**
+ * Remove locale prefix from pathname if present
+ */
+const removeLocaleFromPath = (pathname: string): string => {
+  const currentLocale = extractLocaleFromPath(pathname)
+  if (currentLocale) {
+    return pathname.replace(new RegExp(`^/${currentLocale}`), '') || '/'
+  }
+  return pathname
+}
+
 const findLocalizedSlug = async (
   slug: string,
   locale: keyof Slug
 ): Promise<string> => {
+  if (!slug) return slug
+
+  // Decode and normalize the slug for comparison
+  const decodedSlug = safeDecodeURIComponent(slug)
+  const normalizedSlug = normalizeSlug(decodedSlug)
+
   const data: NavigationData = navigationData
 
   for (const item of data.navbar) {
@@ -45,48 +125,42 @@ const findLocalizedSlug = async (
         // Iterate through the children of the child categories first
         for (const grandchild of child.children) {
           if (typeof grandchild.slug === 'object') {
-            // Check if the current locale slug matches
-            const currentLocaleSlug = Object.values(grandchild.slug).find(
-              (s) => s === slug
+            // Check if any locale slug matches (normalized comparison)
+            const matchingSlug = Object.values(grandchild.slug).find(
+              (s) =>
+                s && (s === decodedSlug || normalizeSlug(s) === normalizedSlug)
             )
 
-            if (currentLocaleSlug) {
-              console.log(
-                `Found matching grandchild slug: ${
-                  grandchild.slug[locale] || slug
-                }`
-              )
+            if (matchingSlug) {
               return grandchild.slug[locale] || slug
             }
-          } else if (grandchild.slug === slug) {
-            console.log(`Found matching grandchild slug: ${grandchild.slug}`)
+          } else if (
+            grandchild.slug === decodedSlug ||
+            normalizeSlug(grandchild.slug) === normalizedSlug
+          ) {
             return (grandchild.slug as unknown as Slug)[locale] || slug
           }
         }
 
         // Now check the child categories
         if (typeof child.slug === 'object') {
-          // Check if the current locale slug matches
-          const currentLocaleSlug = Object.values(child.slug).find(
-            (s) => s === slug
+          // Check if any locale slug matches (normalized comparison)
+          const matchingSlug = Object.values(child.slug).find(
+            (s) =>
+              s && (s === decodedSlug || normalizeSlug(s) === normalizedSlug)
           )
-          if (currentLocaleSlug) {
-            console.log(
-              `Found matching child slug: ${child.slug[locale] || slug}`
-            )
+          if (matchingSlug) {
             return child.slug[locale] || slug
           }
-        } else if (child.slug === slug) {
-          console.log(`Found matching child slug: ${child.slug}`)
+        } else if (
+          child.slug === decodedSlug ||
+          normalizeSlug(child.slug) === normalizedSlug
+        ) {
           return (child.slug as unknown as Slug)[locale] || slug
         }
       }
     }
   }
-
-  console.log(
-    `No matching slug found in navbar, returning the original slug: ${slug}`
-  )
 
   return slug
 }
@@ -109,46 +183,60 @@ export default function LocaleSwitcher() {
   ]
 
   const handleOptionClick = async (option: string) => {
-    const locale = option as keyof Slug
+    const newLocale = option as 'en' | 'pt' | 'es'
+    // Use pathname which is already decoded by the browser
     const currentPath = window.location.pathname
-    const pathParts = currentPath.split('/')
 
-    // Obtain the current locale
-    const allowedLocales = ['en', 'es', 'pt']
-    const currentLocale = allowedLocales.includes(pathParts[1])
-      ? pathParts[1]
-      : 'en'
-    const newPathParts = pathParts.filter((part) => part !== currentLocale)
+    // Set cookies for both Next.js and Netlify
+    setLocaleCookies(newLocale)
 
-    if (currentPath.includes('/docs')) {
-      const contentType = newPathParts[2]
-      const currentSlug = newPathParts[3]
-      const localizedSlug = await findLocalizedSlug(currentSlug, locale)
-      const newPath = currentSlug
-        ? `/${locale}/docs/${contentType}/${localizedSlug}`
-        : `/${locale}/docs/${contentType}`
-      console.log(newPath)
-      window.location.href = newPath
-    } else if (
-      currentPath.includes('/known-issues') ||
-      currentPath.includes('/troubleshooting') ||
-      currentPath.includes('/announcements') ||
-      currentPath.includes('/faq') ||
-      currentPath.includes('/known-issues')
-    ) {
-      const contentType = newPathParts[1]
-      const currentSlug = newPathParts[2]
-      const localizedSlug = await findLocalizedSlug(currentSlug, locale)
-      const newPath = currentSlug
-        ? `/${locale}/${contentType}/${localizedSlug}`
-        : `/${locale}/${contentType}`
-      console.log(newPath)
-      window.location.href = newPath
-    } else {
-      console.log(currentPath)
-      const newPath = `/${locale}`
-      window.location.href = newPath
+    // Remove existing locale from path to get the base path
+    const basePath = removeLocaleFromPath(currentPath)
+    const pathSegments = basePath.split('/').filter(Boolean)
+
+    let newPath: string
+
+    // Handle /docs/* routes (e.g., /docs/tutorials/slug, /docs/tracks/slug)
+    if (pathSegments[0] === 'docs' && pathSegments.length >= 2) {
+      const contentType = pathSegments[1] // tutorials, tracks, etc.
+      const currentSlug = pathSegments[2]
+
+      if (currentSlug) {
+        const localizedSlug = await findLocalizedSlug(currentSlug, newLocale)
+        // Encode the slug to ensure proper URL encoding (UTF-8)
+        newPath = `/${newLocale}/docs/${contentType}/${encodeURIComponent(
+          localizedSlug
+        )}`
+      } else {
+        newPath = `/${newLocale}/docs/${contentType}`
+      }
     }
+    // Handle other content types (announcements, faq, known-issues, troubleshooting)
+    else if (
+      ['known-issues', 'troubleshooting', 'announcements', 'faq'].includes(
+        pathSegments[0]
+      )
+    ) {
+      const contentType = pathSegments[0]
+      const currentSlug = pathSegments[1]
+
+      if (currentSlug) {
+        const localizedSlug = await findLocalizedSlug(currentSlug, newLocale)
+        // Encode the slug to ensure proper URL encoding (UTF-8)
+        newPath = `/${newLocale}/${contentType}/${encodeURIComponent(
+          localizedSlug
+        )}`
+      } else {
+        newPath = `/${newLocale}/${contentType}`
+      }
+    }
+    // Handle root and other pages
+    else {
+      newPath = basePath === '/' ? `/${newLocale}` : `/${newLocale}${basePath}`
+    }
+
+    // Use window.location for full page reload to ensure proper locale handling
+    window.location.href = newPath
   }
 
   const disclosure = useDisclosureState({ visible: false })
@@ -196,6 +284,7 @@ export default function LocaleSwitcher() {
               option={option}
               screen="large"
               onClick={() => {
+                disclosure.hide()
                 handleOptionClick(option.value)
               }}
               active={option.value === router.locale}

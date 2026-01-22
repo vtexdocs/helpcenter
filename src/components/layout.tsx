@@ -35,6 +35,7 @@ interface Props {
   isPreview: boolean
   sectionSelected?: SectionId | ''
   parentsArray?: string[]
+  locale?: 'en' | 'pt' | 'es'
 }
 
 // const tracker = new OpenReplay({
@@ -48,6 +49,7 @@ export default function Layout({
   isPreview = false,
   sectionSelected,
   parentsArray,
+  locale,
 }: Props) {
   const { initTracker, startTracking } = useContext(TrackerContext)
   const { navigation } = useClientNavigation() // Load navigation client-side
@@ -71,6 +73,17 @@ export default function Layout({
     }
   }, [router.asPath])
 
+  const supportedLocales = ['en', 'pt', 'es'] as const
+  type SupportedLocale = (typeof supportedLocales)[number]
+
+  const localeCandidates = [locale, router.locale, intl.locale]
+
+  const derivedLocale = (localeCandidates.find(
+    (candidate): candidate is SupportedLocale =>
+      typeof candidate === 'string' &&
+      supportedLocales.includes(candidate as SupportedLocale)
+  ) ?? 'en') as SupportedLocale
+
   return (
     <ThemeProvider>
       <LibraryContextProvider
@@ -88,7 +101,7 @@ export default function Layout({
         sectionSelected={sectionSelected ?? ''}
         fallback={navigation} // Use client-side loaded navigation (null during loading)
         isPreview={isPreview}
-        locale={intl.locale as 'en' | 'pt' | 'es'}
+        locale={derivedLocale}
       >
         <iframe
           src="https://www.googletagmanager.com/ns.html?id=GTM-K2NM75K"
