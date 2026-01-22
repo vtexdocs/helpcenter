@@ -9,6 +9,21 @@ NODE_VERSION = "20"
 [[plugins]]
     package = "@netlify/plugin-nextjs"
 
+[[headers]]
+  for = "/_next/data/*"
+  [headers.values]
+    Netlify-Vary = "language=en|pt"
+
+[[headers]]
+  for = "/pt/*"
+  [headers.values]
+    Netlify-Vary = "language=en|pt"
+
+[[headers]]
+  for = "/en/*"
+  [headers.values]
+    Netlify-Vary = "language=en|pt"
+
 # All redirect cases are handled by the redirect-from-old-portal edge function.
 # Catch-all for hostname redirects (must be first to handle newhelp.vtex.com -> help.vtex.com)
 [[edge_functions]]
