@@ -1860,7 +1860,7 @@
     "@emnapi/runtime" "^1.4.3"
     "@tybys/wasm-util" "^0.10.0"
 
-"@netlify/plugin-nextjs@^5.11.4":
+"@netlify/plugin-nextjs@^5.15.5":
   version "5.15.5"
   resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-5.15.5.tgz#748a85083158251a2095153b3d230f73ab0cb366"
   integrity sha512-Lvix59vHCEfvopILvdfIK2EPe/CrLH5qrIdwYnJbxpp/SSVgklsHpBrfNM9ADTr310r+WJRDz11NcDyHu3iT9w==
@@ -3118,9 +3118,9 @@
   resolved "https://registry.yarnpkg.com/@vtex/tsconfig/-/tsconfig-0.6.0.tgz#c9dfffc95d2ef55195237411f9c15269ca30b2a5"
   integrity sha512-SVQBxaSdEVdpJFja1aVTIiZBgpQKePyYOUWGzcYq6LYkSWqSbz2LoC7TuLUsmfweYmVkv8+4eVuxcDpQVEpq1A==
 
-"@vtexdocs/components@https://github.com/vtexdocs/components.git#1a3f03a":
-  version "6.0.41"
-  resolved "https://github.com/vtexdocs/components.git#1a3f03a0650b6a54945264be22c6a2b66445789a"
+"@vtexdocs/components@https://github.com/vtexdocs/components.git#200e8d8":
+  version "6.0.37"
+  resolved "https://github.com/vtexdocs/components.git#200e8d82b102620710a3873e7730781a931064a5"
   dependencies:
     "@code-hike/mdx" "^0.9.0"
     "@vtex/brand-ui" "^0.46.1"
