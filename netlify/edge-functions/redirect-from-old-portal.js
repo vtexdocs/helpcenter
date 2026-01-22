@@ -30,14 +30,6 @@ function safeDecodeURIComponent(str) {
 }
 
 /**
- * Normalize a string by removing diacritics (accents)
- * This helps match URLs with accented characters to slugs without accents
- */
-function normalizeString(str) {
-  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-}
-
-/**
  * Helper function to append locale cookies to the Netlify-Vary header.
  * This ensures the CDN caches separate versions for each locale.
  */
@@ -200,9 +192,7 @@ export default async (request, context) => {
     const locale = match.groups.locale || cookieLocale || headerLocale || 'en'
 
     const type = match.groups.type // "tutorial", "tracks", "faq"
-    // Normalize the slug to remove accents for matching
-    const rawSlug = match.groups.slug
-    const slug = normalizeString(rawSlug) // clean slug without accents
+    const slug = match.groups.slug
     console.log('locale', locale)
     console.log('type', type)
     console.log('slug', slug)
@@ -385,17 +375,11 @@ function getBasePath(path) {
 
 // Helper function to find matching redirect entry by base path
 function findRedirectByBasePath(redirectsMap, basePath) {
-  // Normalize the basePath for comparison
-  const normalizedBasePath = normalizeString(basePath)
-
-  // Look for any key in the map that:
-  // 1. Matches the base path exactly, OR
-  // 2. Matches after normalization (removing accents), OR
-  // 3. Starts with base path followed by "--"
+  // Look for any key in the map that matches the base path exactly
   for (const [key, value] of redirectsMap.entries()) {
     const keyBasePath = getBasePath(key)
-    if (keyBasePath === basePath || normalizeString(keyBasePath) === normalizedBasePath) {
-      console.log(`Fuzzy match found: ${key} matches base path ${basePath}`)
+    if (keyBasePath === basePath) {
+      console.log(`Match found: ${key} matches base path ${basePath}`)
       return value
     }
   }
@@ -429,17 +413,6 @@ async function checkRedirects(url) {
 
       // First try exact O(1) Map lookup
       let redirectTo = redirectsMap.get(currentPath)
-
-      // If no exact match, try with normalized path (no accents)
-      if (!redirectTo) {
-        const normalizedPath = normalizeString(currentPath)
-        if (normalizedPath !== currentPath) {
-          redirectTo = redirectsMap.get(normalizedPath)
-          if (redirectTo) {
-            console.log(`Normalized match found: ${currentPath} -> ${normalizedPath}`)
-          }
-        }
-      }
 
       // If no exact match, try fuzzy match by base path
       if (!redirectTo) {

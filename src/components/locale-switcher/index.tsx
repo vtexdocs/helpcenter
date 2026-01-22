@@ -36,14 +36,6 @@ interface NavigationData {
 const ALLOWED_LOCALES = ['en', 'es', 'pt'] as const
 
 /**
- * Normalize a slug by removing diacritics (accents) for comparison
- * This handles cases where URL slugs have accents but navigation.json doesn't
- */
-const normalizeSlug = (slug: string): string => {
-  return slug.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-}
-
-/**
  * Safely decode a URI component, handling malformed encodings
  * Falls back to the original string if decoding fails
  */
@@ -113,49 +105,33 @@ const findLocalizedSlug = async (
 ): Promise<string> => {
   if (!slug) return slug
 
-  // Decode and normalize the slug for comparison
   const decodedSlug = safeDecodeURIComponent(slug)
-  const normalizedSlug = normalizeSlug(decodedSlug)
-
   const data: NavigationData = navigationData
 
   for (const item of data.navbar) {
     for (const category of item.categories) {
       for (const child of category.children) {
-        // Iterate through the children of the child categories first
         for (const grandchild of child.children) {
           if (typeof grandchild.slug === 'object') {
-            // Check if any locale slug matches (normalized comparison)
             const matchingSlug = Object.values(grandchild.slug).find(
-              (s) =>
-                s && (s === decodedSlug || normalizeSlug(s) === normalizedSlug)
+              (s) => s === decodedSlug
             )
-
             if (matchingSlug) {
               return grandchild.slug[locale] || slug
             }
-          } else if (
-            grandchild.slug === decodedSlug ||
-            normalizeSlug(grandchild.slug) === normalizedSlug
-          ) {
+          } else if (grandchild.slug === decodedSlug) {
             return (grandchild.slug as unknown as Slug)[locale] || slug
           }
         }
 
-        // Now check the child categories
         if (typeof child.slug === 'object') {
-          // Check if any locale slug matches (normalized comparison)
           const matchingSlug = Object.values(child.slug).find(
-            (s) =>
-              s && (s === decodedSlug || normalizeSlug(s) === normalizedSlug)
+            (s) => s === decodedSlug
           )
           if (matchingSlug) {
             return child.slug[locale] || slug
           }
-        } else if (
-          child.slug === decodedSlug ||
-          normalizeSlug(child.slug) === normalizedSlug
-        ) {
+        } else if (child.slug === decodedSlug) {
           return (child.slug as unknown as Slug)[locale] || slug
         }
       }
