@@ -79,10 +79,14 @@ export function isCategoryCover(
   )
 
   const matchingLocales: string[] = []
+  // Normalize the input slug to NFC to handle potential Unicode mismatches
+  // (e.g., "catálogo" composed vs decomposed forms)
+  const normalizedSlug = slug.normalize('NFC')
 
   for (const slugObj of categorySlugs) {
     for (const [locale, value] of Object.entries(slugObj)) {
-      if (value === slug) {
+      // Normalize both sides to ensure consistent comparison
+      if (value.normalize('NFC') === normalizedSlug) {
         matchingLocales.push(locale)
       }
     }
