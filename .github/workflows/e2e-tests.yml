@@ -35,7 +35,6 @@ jobs:
           wait-on: ${{ steps.wait-for-netlify-preview.outputs.url }}
           wait-on-timeout: 120
           install-command: yarn install --ignore-engines
-          config: video=true,screenshotOnRunFailure=true,videosFolder=src/tests/cypress/videos,screenshotsFolder=src/tests/cypress/screenshots
         env:
           CYPRESS_baseUrl: ${{ steps.wait-for-netlify-preview.outputs.url }}
 
@@ -45,14 +44,6 @@ jobs:
         with:
           name: cypress-screenshots
           path: src/tests/cypress/screenshots
-          if-no-files-found: ignore
-
-      - name: Upload Cypress videos on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-videos
-          path: src/tests/cypress/videos
           if-no-files-found: ignore
 
       - name: Generate test summary

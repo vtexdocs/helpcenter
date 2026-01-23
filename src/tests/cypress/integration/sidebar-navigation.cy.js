@@ -59,7 +59,6 @@ describe('Sidebar Navigation Tests', () => {
     })
 
     cy.viewport(1366, 768)
-    cy.wait(500)
   })
 
   const clickVisibleSidebarLink = (hrefPattern, locale) => {
