@@ -135,33 +135,70 @@ export const getStaticProps: GetStaticProps = async ({
 
   const isTrackCover = isCategoryCover(slug, sidebarfallback)
 
-  if (!mdFileExists && !isTrackCover) {
+  if (!mdFileExists && isTrackCover.length === 0) {
     logger.warn(
       `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
     return { notFound: true }
   }
 
-  if (!mdFileExistsForCurrentLocale && !isTrackCover) {
-    logger.warn(
-      `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
-    )
-    if (keyPath) {
-      return redirectToLocalizedUrl(
-        keyPath,
-        currentLocale,
-        flattenedSidebar,
-        'tracks'
+  // Fix for Netlify i18n routing bug: when Netlify incorrectly routes a locale-specific
+  // slug to the wrong locale handler (e.g., PT slug routed to EN handler), we need to
+  // serve the content with the correct locale instead of redirecting (which would cause
+  // an infinite loop since Netlify would misroute the redirect too).
+  let effectiveLocale = currentLocale
+  let effectiveMdFilePath = mdFilePath
+
+  // Fix for markdown files: detect when slug belongs to a different locale
+  if (!mdFileExistsForCurrentLocale && mdFileExists && docsPaths[slug]) {
+    const availableLocale = docsPaths[slug][0]?.locale as
+      | 'en'
+      | 'pt'
+      | 'es'
+      | undefined
+    if (availableLocale && availableLocale !== currentLocale) {
+      logger.info(
+        `Netlify i18n bug detected: slug ${slug} belongs to locale ${availableLocale}, ` +
+          `but was routed to ${currentLocale} handler. Serving content with correct locale.`
       )
+      effectiveLocale = availableLocale
+      effectiveMdFilePath = docsPaths[slug][0]?.path || ''
     }
-    return { notFound: true }
+  }
+
+  // Fix for category pages: detect when the category slug belongs to a different locale
+  if (isTrackCover.length > 0 && !isTrackCover.includes(currentLocale)) {
+    const categoryLocale = isTrackCover[0] as 'en' | 'pt' | 'es'
+    logger.info(
+      `Netlify i18n bug detected for category: slug ${slug} belongs to locale ${categoryLocale}, ` +
+        `but was routed to ${currentLocale} handler. Serving content with correct locale.`
+    )
+    effectiveLocale = categoryLocale
+  }
+
+  if (!mdFileExistsForCurrentLocale && isTrackCover.length === 0) {
+    // If we couldn't find the file for current locale and couldn't fix via locale override
+    if (effectiveLocale === currentLocale) {
+      logger.warn(
+        `Localized path missing for slug=${slug}, redirecting to available locale`
+      )
+      const redirectResult = keyPath
+        ? await redirectToLocalizedUrl(
+            keyPath,
+            currentLocale,
+            flattenedSidebar,
+            'tracks'
+          )
+        : { notFound: true as const }
+      return redirectResult
+    }
   }
 
   const isListed = !!keyPath
   const breadcrumbList: { slug: string; name: string; type: string }[] = [
     {
       slug: `/docs/tracks`,
-      name: getMessages()[currentLocale]['documentation_start_here.title'],
+      name: getMessages()[effectiveLocale]['documentation_start_here.title'],
       type: 'markdown',
     },
   ]
@@ -177,7 +214,7 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArrayName: pn,
       parentsArrayType: pt,
       categoryTitle: c,
-    } = computeParents(keyPath, flattenedSidebar, currentLocale, logger)
+    } = computeParents(keyPath, flattenedSidebar, effectiveLocale, logger)
     parentsArray = p
     parentsArrayName = pn
     parentsArrayType = pt
@@ -189,8 +226,9 @@ export const getStaticProps: GetStaticProps = async ({
     categoryTitle = c || ''
 
     pagination = getPagination({
+      contentType: 'docs/tracks',
       sidebarfallback,
-      currentLocale,
+      currentLocale: effectiveLocale,
       slug,
       logger,
     }).pagination
@@ -203,7 +241,20 @@ export const getStaticProps: GetStaticProps = async ({
       'docs/tracks'
     )
 
-    if (isTrackCover && !mdFileExists) {
+    if (isTrackCover.length > 0 && !mdFileExists) {
+      if (!isTrackCover.includes(effectiveLocale)) {
+        logger.warn(
+          `Localized path missing for slug=${slug}, redirecting to available locale`
+        )
+        return keyPath
+          ? redirectToLocalizedUrl(
+              keyPath,
+              effectiveLocale,
+              flattenedSidebar,
+              'tracks'
+            )
+          : { notFound: true }
+      }
       const childrenArrayName: string[] = []
       const childrenArraySlug: string[] = []
 
@@ -211,19 +262,19 @@ export const getStaticProps: GetStaticProps = async ({
         keyPath,
         'name',
         flattenedSidebar,
-        currentLocale,
+        effectiveLocale,
         childrenArrayName
       )
       getChildren(
         keyPath,
         'slug',
         flattenedSidebar,
-        currentLocale,
+        effectiveLocale,
         childrenArraySlug
       )
 
       const childrenList = childrenArrayName.map((name, idx) => ({
-        slug: `/${currentLocale}/docs/tracks/${childrenArraySlug[idx]}`,
+        slug: `/${effectiveLocale}/docs/tracks/${childrenArraySlug[idx]}`,
         name,
       }))
 
@@ -251,18 +302,18 @@ export const getStaticProps: GetStaticProps = async ({
             children: childrenList,
             hidePaginationNext: !childrenList.length,
           },
-          locale: currentLocale,
+          locale: effectiveLocale,
         },
         revalidate: getCategoryCoverRevalidateTime(),
       }
     }
   }
 
-  if (mdFileExists) {
+  if (mdFileExists || effectiveMdFilePath) {
     const rawContent = await fetchRawMarkdown(
       sectionSelected,
       branch,
-      mdFilePath
+      effectiveMdFilePath || mdFilePath
     )
     const documentationContent = escapeCurlyBraces(
       replaceHTMLBlocks(rawContent)
@@ -273,17 +324,19 @@ export const getStaticProps: GetStaticProps = async ({
       content: documentationContent,
       headingList,
       logger,
-      path: mdFilePath,
+      path: effectiveMdFilePath || mdFilePath,
     })
     if (!serialized) {
-      logger.error(`Serialization failed for ${mdFilePath}`)
+      logger.error(
+        `Serialization failed for ${effectiveMdFilePath || mdFilePath}`
+      )
       return { notFound: true }
     }
 
     const contributors = await fetchFileContributors(
       sectionSelected,
       branch,
-      mdFilePath
+      effectiveMdFilePath || mdFilePath
     )
 
     logger.info(`Processing ${slug}`)
@@ -291,7 +344,7 @@ export const getStaticProps: GetStaticProps = async ({
     const seeAlsoData = await getSeeAlsoData(
       serialized?.frontmatter?.seeAlso as string[],
       docsPaths,
-      currentLocale,
+      effectiveLocale,
       logger
     )
 
@@ -315,10 +368,10 @@ export const getStaticProps: GetStaticProps = async ({
           serialized: JSON.parse(JSON.stringify(serialized)),
           headingList,
           contributors,
-          path: mdFilePath,
+          path: effectiveMdFilePath || mdFilePath,
           seeAlsoData,
         },
-        locale: currentLocale,
+        locale: effectiveLocale,
       },
       revalidate: getArticleRevalidateTime(),
     }

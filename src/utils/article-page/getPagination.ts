@@ -16,6 +16,7 @@ type PaginationResult = {
 }
 
 type GetPaginationParams = {
+  contentType: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sidebarfallback: any
   currentLocale: string
@@ -24,6 +25,7 @@ type GetPaginationParams = {
 }
 
 export function getPagination({
+  contentType,
   sidebarfallback,
   currentLocale,
   slug,
@@ -42,7 +44,7 @@ export function getPagination({
     previousDoc:
       indexOfSlug > 0
         ? {
-            slug: docsListSlug[indexOfSlug - 1],
+            slug: `/${contentType}/${docsListSlug[indexOfSlug - 1]}`,
             name:
               docsListName[indexOfSlug - 1]?.[currentLocale] ||
               docsListName[indexOfSlug - 1]?.en,
@@ -51,7 +53,7 @@ export function getPagination({
     nextDoc:
       indexOfSlug < docsListSlug.length - 1
         ? {
-            slug: docsListSlug[indexOfSlug + 1],
+            slug: `/${contentType}/${docsListSlug[indexOfSlug + 1]}`,
             name:
               docsListName[indexOfSlug + 1]?.[currentLocale] ||
               docsListName[indexOfSlug + 1]?.en,
@@ -66,11 +68,29 @@ export function getPagination({
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function isCategoryCover(slug: string, sidebarfallback: any): boolean {
-  const categories: string[] = jp.query(
+export function isCategoryCover(
+  slug: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  sidebarfallback: any
+): string[] {
+  const categorySlugs: Record<string, string>[] = jp.query(
     sidebarfallback,
-    `$..[?(@.type=="category")].slug.*`
+    `$..[?(@.type=="category")].slug`
   )
-  return categories.includes(slug)
+
+  const matchingLocales: string[] = []
+  // Normalize the input slug to NFC to handle potential Unicode mismatches
+  // (e.g., "catálogo" composed vs decomposed forms)
+  const normalizedSlug = slug.normalize('NFC')
+
+  for (const slugObj of categorySlugs) {
+    for (const [locale, value] of Object.entries(slugObj)) {
+      // Normalize both sides to ensure consistent comparison
+      if (value.normalize('NFC') === normalizedSlug) {
+        matchingLocales.push(locale)
+      }
+    }
+  }
+
+  return matchingLocales
 }

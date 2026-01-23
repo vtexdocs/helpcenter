@@ -1,4 +1,5 @@
 import { SxStyleProp } from '@vtex/brand-ui'
+import { CSSProperties } from 'react'
 
 const mainContainer: SxStyleProp = {
   width: '100%',
@@ -10,7 +11,6 @@ const flexContainer: SxStyleProp = {
   fontWeight: 'bold',
   gridAutoFlow: 'column',
   px: ['18px', 'initial'],
-  gap: ['16px', '20%'],
   gridAutoColumns: '1fr',
 }
 
@@ -53,19 +53,20 @@ const subTitle: SxStyleProp = {
   fontSize: '0.85em',
 }
 
-const paginationLink: SxStyleProp = {
+const paginationLink: CSSProperties = {
   width: '100%',
+  maxWidth: '230px',
   display: 'inline-flex',
 }
 
-const paginationLinkNext: SxStyleProp = {
+const paginationLinkNext: CSSProperties = {
   ...paginationLink,
   justifySelf: 'flex-end',
   textAlign: 'right',
   justifyContent: 'right',
 }
 
-const paginationLinkPrevious: SxStyleProp = {
+const paginationLinkPrevious: CSSProperties = {
   ...paginationLink,
   justifySelf: 'flex-start',
 }

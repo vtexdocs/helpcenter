@@ -1,12 +1,12 @@
 name: E2E Tests
-on: 
+on:
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
   e2e-tests:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,12 +21,14 @@ jobs:
           checkInterval: 10
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
         with:
           wait-on: 'https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app'
-          wait-on-timeout: 120
+          wait-on-timeout: 180
+          install-command: yarn install --ignore-engines
+          config: video=true,screenshotOnRunFailure=true,videosFolder=src/tests/cypress/videos,screenshotsFolder=src/tests/cypress/screenshots
         env:
           CYPRESS_baseUrl: https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app
 
@@ -35,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cypress-screenshots
-          path: cypress/screenshots
+          path: src/tests/cypress/screenshots
           if-no-files-found: ignore
 
       - name: Upload Cypress videos on failure
@@ -43,27 +45,34 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
-          path: cypress/videos
+          path: src/tests/cypress/videos
           if-no-files-found: ignore
 
       - name: Generate test summary
         if: always()
         run: |
-          echo "## 🧪 Cypress Test Summary" >> $GITHUB_STEP_SUMMARY
+          echo "## 🧪 Cypress E2E Test Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Deployment URL:** https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           if [[ "${{ job.status }}" == "success" ]]; then
             echo "✅ All tests passed!" >> $GITHUB_STEP_SUMMARY
           else
-            echo "❌ Some tests failed. Check the logs for details." >> $GITHUB_STEP_SUMMARY
+            echo "❌ Some tests failed. Check the logs and artifacts for details." >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           if [[ -f "./cypress.log" ]]; then
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Failed Tests" >> $GITHUB_STEP_SUMMARY
+            echo "### Test Log" >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY
             cat cypress.log >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY
           fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Test Suites" >> $GITHUB_STEP_SUMMARY
+          echo "- Navigation Status Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Copy for AI Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Locale Switching Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Sidebar Navigation Tests" >> $GITHUB_STEP_SUMMARY
