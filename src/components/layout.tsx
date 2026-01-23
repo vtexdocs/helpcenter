@@ -1,8 +1,7 @@
 import { Flex, Box } from '@vtex/brand-ui'
 import type { ReactElement } from 'react'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { TrackerContext } from 'utils/contexts/trackerContext'
 import { useClientNavigation } from 'utils/useClientNavigation'
 import { ThemeProvider } from '@vtex/brand-ui'
 import dynamic from 'next/dynamic'
@@ -51,21 +50,10 @@ export default function Layout({
   parentsArray,
   locale,
 }: Props) {
-  const { initTracker, startTracking } = useContext(TrackerContext)
   const { navigation } = useClientNavigation() // Load navigation client-side
   const intl = useIntl()
   const router = useRouter()
   const [currentUrl, setCurrentUrl] = useState<string>('')
-
-  useEffect(() => {
-    // Lazy load tracker to avoid blocking main thread
-    const timer = setTimeout(() => {
-      initTracker()
-      startTracking()
-    }, 100)
-
-    return () => clearTimeout(timer)
-  }, [])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

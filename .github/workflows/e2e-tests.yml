@@ -11,26 +11,33 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Delay for Netlify checks to appear
-        run: sleep 120
-
-      - name: Wait for all checks to complete (including Netlify)
-        uses: WyriHaximus/github-action-wait-for-status@e2c4fd94097b7e270c0ae858e16d80981fcf7d57
+      - name: Wait for Netlify deploy to complete for this commit
+        uses: fountainhead/action-wait-for-check@v1.1.0
+        id: wait-for-netlify-deploy
         with:
-          ignoreActions: e2e-tests
-          checkInterval: 10
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          checkName: 'netlify/leafy-mooncake-7c2e5e/deploy-preview'
+          timeoutSeconds: 600
+
+      - name: Wait for Netlify deploy preview URL to be accessible
+        uses: jakepartusch/wait-for-netlify-action@v1.4
+        id: wait-for-netlify-preview
+        with:
+          site_name: 'leafy-mooncake-7c2e5e'
+          max_timeout: 300
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
         with:
-          wait-on: 'https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app'
-          wait-on-timeout: 180
+          wait-on: ${{ steps.wait-for-netlify-preview.outputs.url }}
+          wait-on-timeout: 120
           install-command: yarn install --ignore-engines
           config: video=true,screenshotOnRunFailure=true,videosFolder=src/tests/cypress/videos,screenshotsFolder=src/tests/cypress/screenshots
         env:
-          CYPRESS_baseUrl: https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app
+          CYPRESS_baseUrl: ${{ steps.wait-for-netlify-preview.outputs.url }}
 
       - name: Upload Cypress screenshots on failure
         if: failure()
@@ -53,7 +60,7 @@ jobs:
         run: |
           echo "## 🧪 Cypress E2E Test Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Deployment URL:** https://deploy-preview-${{ github.event.pull_request.number }}--leafy-mooncake-7c2e5e.netlify.app" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployment URL:** ${{ steps.wait-for-netlify-preview.outputs.url }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
           if [[ "${{ job.status }}" == "success" ]]; then
