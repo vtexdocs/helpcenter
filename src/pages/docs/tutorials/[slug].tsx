@@ -168,6 +168,7 @@ export const getStaticProps: GetStaticProps = async ({
   let effectiveLocale = currentLocale
   let effectiveMdFilePath = mdFilePath
 
+  // Fix for markdown files: detect when slug belongs to a different locale
   if (!mdFileExistsForCurrentLocale && mdFileExists && docsPaths[slug]) {
     const availableLocale = docsPaths[slug][0]?.locale as
       | 'en'
@@ -182,6 +183,21 @@ export const getStaticProps: GetStaticProps = async ({
       effectiveLocale = availableLocale
       effectiveMdFilePath = docsPaths[slug][0]?.path || ''
     }
+  }
+
+  // Fix for category pages: detect when the category slug belongs to a different locale
+  // isTutorialCategory contains the locales that have this slug (e.g., ['pt'] for a PT-only slug)
+  if (
+    isTutorialCategory.length > 0 &&
+    !isTutorialCategory.includes(currentLocale)
+  ) {
+    // The slug belongs to a different locale than the current handler
+    const categoryLocale = isTutorialCategory[0] as 'en' | 'pt' | 'es'
+    logger.info(
+      `Netlify i18n bug detected for category: slug ${slug} belongs to locale ${categoryLocale}, ` +
+        `but was routed to ${currentLocale} handler. Serving content with correct locale.`
+    )
+    effectiveLocale = categoryLocale
   }
 
   if (!mdFileExistsForCurrentLocale && isTutorialCategory.length === 0) {
