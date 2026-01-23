@@ -11,6 +11,38 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Wait for Netlify deploy to complete for this commit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          echo "Waiting for Netlify deploy status on commit $COMMIT_SHA..."
+          MAX_ATTEMPTS=60  # 10 minutes (60 * 10 seconds)
+          ATTEMPT=0
+          while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
+            STATUS=$(gh api repos/${{ github.repository }}/commits/$COMMIT_SHA/statuses \
+              --jq '[.[] | select(.context == "netlify/leafy-mooncake-7c2e5e/deploy-preview")] | .[0].state // "pending"')
+            
+            echo "Attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS: Netlify status = $STATUS"
+            
+            if [ "$STATUS" = "success" ]; then
+              echo "✅ Netlify deploy completed successfully!"
+              # Get the deploy URL from the status
+              DEPLOY_URL=$(gh api repos/${{ github.repository }}/commits/$COMMIT_SHA/statuses \
+                --jq '[.[] | select(.context == "netlify/leafy-mooncake-7c2e5e/deploy-preview")] | .[0].target_url')
+              echo "Deploy URL: $DEPLOY_URL"
+              exit 0
+            elif [ "$STATUS" = "failure" ] || [ "$STATUS" = "error" ]; then
+              echo "❌ Netlify deploy failed!"
+              exit 1
+            fi
+            
+            ATTEMPT=$((ATTEMPT + 1))
+            sleep 10
+          done
+          echo "❌ Timeout waiting for Netlify deploy"
+          exit 1
+
       - name: Wait for Netlify deploy preview URL to be accessible
         uses: jakepartusch/wait-for-netlify-action@v1.4
         id: wait-for-netlify-preview
