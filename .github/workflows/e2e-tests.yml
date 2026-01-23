@@ -11,15 +11,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Wait for Netlify deploy to complete for this commit
-        uses: fountainhead/action-wait-for-check@v1.1.0
-        id: wait-for-netlify-deploy
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          checkName: 'netlify/leafy-mooncake-7c2e5e/deploy-preview'
-          timeoutSeconds: 600
-
       - name: Wait for Netlify deploy preview URL to be accessible
         uses: jakepartusch/wait-for-netlify-action@v1.4
         id: wait-for-netlify-preview
