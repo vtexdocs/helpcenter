@@ -183,8 +183,8 @@ describe('Copy for AI Feature', () => {
     // Wait a bit more for hydration to complete
     cy.wait(2000)
 
-    // Verify the button exists before stubbing (button text stays in English)
-    cy.contains('button', 'Copy for AI', { timeout: 10000 }).should(
+    // Verify the button exists before stubbing (button text is localized to Spanish)
+    cy.contains('button', 'Copiar para IA', { timeout: 10000 }).should(
       'be.visible'
     )
 
@@ -204,14 +204,14 @@ describe('Copy for AI Feature', () => {
         .as('execCommandES')
     })
 
-    // Click the Copy button
-    cy.contains('button', 'Copy for AI').click()
+    // Click the Copy button (Spanish text)
+    cy.contains('button', 'Copiar para IA').click()
 
     // Wait for execCommand
     cy.get('@execCommandES').should('have.been.calledWith', 'copy')
 
-    // Verify button changes to "Copied!" (stays in English)
-    cy.contains('button', 'Copied!', { timeout: 5000 }).should('be.visible')
+    // Verify button changes to "¡Copiado!" (Spanish translation)
+    cy.contains('button', '¡Copiado!', { timeout: 5000 }).should('be.visible')
 
     // Verify Spanish content was captured; only assert difference if truly different
     cy.then(() => {
@@ -261,8 +261,8 @@ describe('Copy for AI Feature', () => {
     // Wait a bit more for hydration to complete
     cy.wait(2000)
 
-    // Verify the button exists before stubbing (button text stays in English)
-    cy.contains('button', 'Copy for AI', { timeout: 10000 }).should(
+    // Verify the button exists before stubbing (button text is localized to Portuguese)
+    cy.contains('button', 'Copiar para IA', { timeout: 10000 }).should(
       'be.visible'
     )
 
@@ -282,14 +282,14 @@ describe('Copy for AI Feature', () => {
         .as('execCommandPT')
     })
 
-    // Click the Copy button
-    cy.contains('button', 'Copy for AI').click()
+    // Click the Copy button (Portuguese text)
+    cy.contains('button', 'Copiar para IA').click()
 
     // Wait for execCommand
     cy.get('@execCommandPT').should('have.been.calledWith', 'copy')
 
-    // Verify button changes to "Copied!" (stays in English)
-    cy.contains('button', 'Copied!', { timeout: 5000 }).should('be.visible')
+    // Verify button changes to "Copiado!" (Portuguese translation)
+    cy.contains('button', 'Copiado!', { timeout: 5000 }).should('be.visible')
 
     // Verify Portuguese content was captured; only assert difference if truly different
     cy.then(() => {
