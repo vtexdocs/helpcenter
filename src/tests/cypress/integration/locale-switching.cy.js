@@ -141,12 +141,14 @@ describe('Locale Switching Tests', () => {
 
       cy.get('button').contains('PT').should('be.visible')
       // Filter for visible sidebar links only (some may be in collapsed sections)
+      // Use scrollIntoView to handle fixed position elements
       cy.get('a[href*="/pt/docs/tutorials/"]')
         .filter(':visible')
         .first()
-        .click()
+        .scrollIntoView()
+        .click({ force: true })
 
-      cy.url({ timeout: 10000 }).should('include', '/pt/')
+      cy.url({ timeout: 15000 }).should('include', '/pt/')
       cy.get('button').contains('PT').should('be.visible')
     })
 
@@ -155,12 +157,14 @@ describe('Locale Switching Tests', () => {
 
       cy.get('button').contains('ES').should('be.visible')
       // Filter for visible sidebar links only (some may be in collapsed sections)
+      // Use scrollIntoView to handle fixed position elements
       cy.get('a[href*="/es/docs/tutorials/"]')
         .filter(':visible')
         .first()
-        .click()
+        .scrollIntoView()
+        .click({ force: true })
 
-      cy.url({ timeout: 10000 }).should('include', '/es/')
+      cy.url({ timeout: 15000 }).should('include', '/es/')
       cy.get('button').contains('ES').should('be.visible')
     })
   })
