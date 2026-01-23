@@ -92,29 +92,6 @@ describe('Copy for AI Feature', () => {
     }
   })
 
-  /**
-   * Helper function to stub execCommand and capture copied content
-   */
-  const stubCopyCommand = (lang, alias) => {
-    cy.document().then((doc) => {
-      cy.stub(doc, 'execCommand')
-        .callsFake((command) => {
-          if (command === 'copy') {
-            const activeElement = doc.activeElement
-            if (activeElement && activeElement.value) {
-              copiedContents[lang] = activeElement.value
-            }
-            return true
-          }
-          return false
-        })
-        .as(alias)
-    })
-  }
-
-  /**
-   * Helper function to verify copied content has markdown structure
-   */
   const verifyMarkdownStructure = (content, lang) => {
     expect(content).to.exist
     expect(content.trim()).to.not.be.empty
@@ -133,24 +110,27 @@ describe('Copy for AI Feature', () => {
   it('Should copy content in English and verify markdown structure', () => {
     cy.visit(tutorialUrl)
 
-    // Verify button exists
-    cy.contains('button', 'Copy for AI', { timeout: 10000 }).should(
-      'be.visible'
-    )
+    cy.document().then((doc) => {
+      cy.stub(doc, 'execCommand')
+        .callsFake((command) => {
+          if (command === 'copy') {
+            const activeElement = doc.activeElement
+            if (activeElement && activeElement.value) {
+              copiedContents.en = activeElement.value
+            }
+            return true
+          }
+          return false
+        })
+        .as('execCommandEN')
+    })
 
-    // Stub copy command
-    stubCopyCommand('en', 'execCommandEN')
+    cy.contains('button', 'Copy for AI', { timeout: 10000 }).click()
 
-    // Click the Copy for AI button
-    cy.contains('button', 'Copy for AI').click()
-
-    // Wait for execCommand to be called
     cy.get('@execCommandEN').should('have.been.calledWith', 'copy')
 
-    // Verify button changes to "Copied!"
     cy.contains('button', 'Copied!', { timeout: 5000 }).should('be.visible')
 
-    // Verify content was captured and has markdown structure
     cy.then(() => {
       expect(copiedContents.en).to.not.be.undefined
       expect(copiedContents.en).to.not.be.empty
@@ -158,7 +138,6 @@ describe('Copy for AI Feature', () => {
       verifyMarkdownStructure(copiedContents.en, 'en')
     })
 
-    // Verify button resets back to "Copy for AI"
     cy.contains('button', 'Copy for AI', { timeout: 15000 }).should(
       'be.visible'
     )
@@ -173,27 +152,29 @@ describe('Copy for AI Feature', () => {
     const spanishUrl = `/es/docs/tutorials/${tutorialSlugs.es}`
     cy.visit(spanishUrl)
 
-    // Wait for page to be fully loaded
     cy.get('article', { timeout: 15000 }).should('be.visible')
 
-    // Verify the button exists (Spanish text)
-    cy.contains('button', 'Copiar para IA', { timeout: 10000 }).should(
-      'be.visible'
-    )
+    cy.document().then((doc) => {
+      cy.stub(doc, 'execCommand')
+        .callsFake((command) => {
+          if (command === 'copy') {
+            const activeElement = doc.activeElement
+            if (activeElement && activeElement.value) {
+              copiedContents.es = activeElement.value
+            }
+            return true
+          }
+          return false
+        })
+        .as('execCommandES')
+    })
 
-    // Stub copy command
-    stubCopyCommand('es', 'execCommandES')
+    cy.contains('button', 'Copiar para IA', { timeout: 10000 }).click()
 
-    // Click the Copy button
-    cy.contains('button', 'Copiar para IA').click()
-
-    // Wait for execCommand
     cy.get('@execCommandES').should('have.been.calledWith', 'copy')
 
-    // Verify button changes to "¡Copiado!"
     cy.contains('button', '¡Copiado!', { timeout: 5000 }).should('be.visible')
 
-    // Verify Spanish content was captured and has markdown structure
     cy.then(() => {
       expect(copiedContents.es).to.not.be.undefined
       expect(copiedContents.es).to.not.be.empty
@@ -211,27 +192,29 @@ describe('Copy for AI Feature', () => {
     const portugueseUrl = `/pt/docs/tutorials/${tutorialSlugs.pt}`
     cy.visit(portugueseUrl)
 
-    // Wait for page to be fully loaded
     cy.get('article', { timeout: 15000 }).should('be.visible')
 
-    // Verify the button exists (Portuguese text)
-    cy.contains('button', 'Copiar para IA', { timeout: 10000 }).should(
-      'be.visible'
-    )
+    cy.document().then((doc) => {
+      cy.stub(doc, 'execCommand')
+        .callsFake((command) => {
+          if (command === 'copy') {
+            const activeElement = doc.activeElement
+            if (activeElement && activeElement.value) {
+              copiedContents.pt = activeElement.value
+            }
+            return true
+          }
+          return false
+        })
+        .as('execCommandPT')
+    })
 
-    // Stub copy command
-    stubCopyCommand('pt', 'execCommandPT')
+    cy.contains('button', 'Copiar para IA', { timeout: 10000 }).click()
 
-    // Click the Copy button
-    cy.contains('button', 'Copiar para IA').click()
-
-    // Wait for execCommand
     cy.get('@execCommandPT').should('have.been.calledWith', 'copy')
 
-    // Verify button changes to "Copiado!"
     cy.contains('button', 'Copiado!', { timeout: 5000 }).should('be.visible')
 
-    // Verify Portuguese content and markdown structure
     cy.then(() => {
       expect(copiedContents.pt).to.not.be.undefined
       expect(copiedContents.pt).to.not.be.empty
@@ -239,7 +222,6 @@ describe('Copy for AI Feature', () => {
       verifyMarkdownStructure(copiedContents.pt, 'pt')
     })
 
-    // Verify all three language contents are unique (if all available)
     cy.then(() => {
       if (!copiedContents.en || !copiedContents.es || !copiedContents.pt) {
         cy.log(
@@ -248,7 +230,6 @@ describe('Copy for AI Feature', () => {
         return
       }
 
-      // If any contents are identical, treat as untranslated
       if (
         copiedContents.en === copiedContents.es ||
         copiedContents.en === copiedContents.pt ||
@@ -270,7 +251,6 @@ describe('Copy for AI Feature', () => {
       expect(uniqueContents.size).to.equal(3)
       cy.log('✓ All three language contents are unique')
 
-      // Log summary
       cy.log('Content Summary:')
       cy.log(`EN: ${copiedContents.en.length} chars`)
       cy.log(`ES: ${copiedContents.es.length} chars`)
