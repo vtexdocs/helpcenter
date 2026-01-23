@@ -94,7 +94,7 @@
     "@vtex/prettier-config": "^1.0.0",
     "@vtex/tsconfig": "^0.6.0",
     "clipboardy": "^3.0.0",
-    "cypress": "12.5.1",
+    "cypress": "^13.17.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "13.0.6",
