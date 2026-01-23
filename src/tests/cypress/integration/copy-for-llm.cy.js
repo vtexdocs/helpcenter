@@ -62,7 +62,7 @@ describe('Copy for AI Feature', () => {
           const prefix = tutorialsSection.slugPrefix.endsWith('/')
             ? tutorialsSection.slugPrefix.slice(0, -1)
             : tutorialsSection.slugPrefix
-          tutorialUrl = `${prefix}/${slug}`
+          tutorialUrl = `/${prefix}/${slug}`
           cy.log(`Using tutorial: ${tutorialUrl}`)
           cy.log(
             `Language slugs - EN: ${tutorialSlugs.en}, ES: ${tutorialSlugs.es}, PT: ${tutorialSlugs.pt}`
@@ -171,10 +171,9 @@ describe('Copy for AI Feature', () => {
       return
     }
     // Navigate to Spanish version using Spanish slug
-    const prefix = tutorialUrl.substring(0, tutorialUrl.lastIndexOf('/'))
-    const spanishUrl = `${prefix.replace('/docs/', '/es/docs/')}/${
-      tutorialSlugs.es
-    }`
+    // The URL format is: /{locale}/docs/tutorials/{slug}
+    // tutorialUrl is like "docs/tutorials/slug" (no leading slash from slugPrefix)
+    const spanishUrl = `/es/docs/tutorials/${tutorialSlugs.es}`
 
     cy.visit(spanishUrl)
 
@@ -251,10 +250,8 @@ describe('Copy for AI Feature', () => {
       return
     }
     // Navigate to Portuguese version using Portuguese slug
-    const prefix = tutorialUrl.substring(0, tutorialUrl.lastIndexOf('/'))
-    const portugueseUrl = `${prefix.replace('/docs/', '/pt/docs/')}/${
-      tutorialSlugs.pt
-    }`
+    // The URL format is: /{locale}/docs/tutorials/{slug}
+    const portugueseUrl = `/pt/docs/tutorials/${tutorialSlugs.pt}`
 
     cy.visit(portugueseUrl)
 
