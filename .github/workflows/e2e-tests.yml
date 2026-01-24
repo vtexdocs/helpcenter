@@ -18,69 +18,49 @@ jobs:
           COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           echo "Waiting for Netlify deploy status on commit $COMMIT_SHA..."
+          echo "Netlify can take 15+ minutes to start building during busy periods."
 
-          # Phase 1: Wait for Netlify to START (create any status)
-          echo "Phase 1: Waiting for Netlify to start building..."
-          MAX_WAIT_FOR_START=30  # 5 minutes (30 * 10 seconds)
-          ATTEMPT=0
-          NETLIFY_STARTED=false
-
-          while [ $ATTEMPT -lt $MAX_WAIT_FOR_START ]; do
-            # Check if Netlify has created ANY status for this commit
-            STATUS_COUNT=$(gh api repos/${{ github.repository }}/commits/$COMMIT_SHA/statuses \
-              --jq '[.[] | select(.context | startswith("netlify/"))] | length')
-            
-            if [ "$STATUS_COUNT" -gt "0" ]; then
-              NETLIFY_STARTED=true
-              echo "✅ Netlify has started building (found $STATUS_COUNT status(es))"
-              break
-            fi
-            
-            ATTEMPT=$((ATTEMPT + 1))
-            echo "Attempt $ATTEMPT/$MAX_WAIT_FOR_START: Waiting for Netlify to start..."
-            sleep 10
-          done
-
-          if [ "$NETLIFY_STARTED" = "false" ]; then
-            echo "⚠️ Netlify did not start building after 5 minutes."
-            echo "This may be due to Netlify configuration or temporary issues."
-            echo "Skipping e2e tests for this PR."
-            echo "netlify_ready=false" >> $GITHUB_OUTPUT
-            exit 0
-          fi
-
-          # Phase 2: Wait for deploy to complete
-          echo "Phase 2: Waiting for Netlify deploy to complete..."
-          MAX_ATTEMPTS=60  # 10 minutes (60 * 10 seconds)
+          # Total timeout: 25 minutes (150 * 10 seconds)
+          # This accounts for Netlify queue delays + build time
+          MAX_ATTEMPTS=150
           ATTEMPT=0
 
           while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
-            STATUS=$(gh api repos/${{ github.repository }}/commits/$COMMIT_SHA/statuses \
-              --jq '[.[] | select(.context == "netlify/leafy-mooncake-7c2e5e/deploy-preview")] | .[0].state // "pending"')
+            # Get the most recent status for deploy-preview context
+            # The API returns statuses in reverse chronological order (newest first)
+            RESULT=$(gh api repos/${{ github.repository }}/commits/$COMMIT_SHA/statuses \
+              --jq '[.[] | select(.context == "netlify/leafy-mooncake-7c2e5e/deploy-preview")] | first // empty')
             
+            if [ -z "$RESULT" ]; then
+              ATTEMPT=$((ATTEMPT + 1))
+              echo "Attempt $ATTEMPT/$MAX_ATTEMPTS: Waiting for Netlify to start..."
+              sleep 10
+              continue
+            fi
+            
+            STATUS=$(echo "$RESULT" | jq -r '.state')
             echo "Attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS: Netlify status = $STATUS"
             
             if [ "$STATUS" = "success" ]; then
+              DEPLOY_URL=$(echo "$RESULT" | jq -r '.target_url')
               echo "✅ Netlify deploy completed successfully!"
-              # Get the deploy URL from the status
-              DEPLOY_URL=$(gh api repos/${{ github.repository }}/commits/$COMMIT_SHA/statuses \
-                --jq '[.[] | select(.context == "netlify/leafy-mooncake-7c2e5e/deploy-preview")] | .[0].target_url')
               echo "Deploy URL: $DEPLOY_URL"
-              echo "netlify_ready=true" >> $GITHUB_OUTPUT
+              echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
               exit 0
             elif [ "$STATUS" = "failure" ] || [ "$STATUS" = "error" ]; then
               echo "❌ Netlify deploy failed!"
               exit 1
             fi
             
+            # Status is "pending" - keep waiting
             ATTEMPT=$((ATTEMPT + 1))
             sleep 10
           done
-          echo "❌ Timeout waiting for Netlify deploy to complete"
+
+          echo "❌ Timeout waiting for Netlify deploy after 25 minutes"
           exit 1
 
       - name: Wait for Netlify deploy preview URL to be accessible
-        if: steps.wait-for-netlify-status.outputs.netlify_ready != 'false'
         uses: jakepartusch/wait-for-netlify-action@v1.4
         id: wait-for-netlify-preview
         with:
@@ -90,7 +70,6 @@ jobs:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
       - name: Run Cypress E2E tests
-        if: steps.wait-for-netlify-status.outputs.netlify_ready != 'false'
         uses: cypress-io/github-action@v6
         with:
           wait-on: ${{ steps.wait-for-netlify-preview.outputs.url }}
@@ -100,7 +79,7 @@ jobs:
           CYPRESS_baseUrl: ${{ steps.wait-for-netlify-preview.outputs.url }}
 
       - name: Upload Cypress screenshots on failure
-        if: failure() && steps.wait-for-netlify-status.outputs.netlify_ready != 'false'
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-screenshots
@@ -112,15 +91,6 @@ jobs:
         run: |
           echo "## 🧪 Cypress E2E Test Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-
-          if [[ "${{ steps.wait-for-netlify-status.outputs.netlify_ready }}" == "false" ]]; then
-            echo "⚠️ **Netlify did not build this PR**" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "E2E tests were skipped because Netlify did not start a deploy preview for this commit." >> $GITHUB_STEP_SUMMARY
-            echo "This can happen due to Netlify configuration or temporary issues." >> $GITHUB_STEP_SUMMARY
-            exit 0
-          fi
-
           echo "**Deployment URL:** ${{ steps.wait-for-netlify-preview.outputs.url }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
