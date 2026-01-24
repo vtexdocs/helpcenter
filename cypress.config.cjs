@@ -22,13 +22,13 @@ module.exports = defineConfig({
     specPattern: 'src/tests/cypress/integration/**/*.cy.{js,jsx,ts,tsx}',
     supportFile: 'src/tests/cypress/support/index.js',
     baseUrl: 'http://localhost:3030',
-    // Increased timeouts for CI/Netlify preview environments which can be slow
-    pageLoadTimeout: 60000, // 60 seconds for page loads (reduced from 180s)
-    defaultCommandTimeout: 10000, // 10 seconds for element assertions (reduced from 20s)
-    requestTimeout: 60000, // 60 seconds for cy.request()
-    responseTimeout: 60000, // 60 seconds for responses
+    // Shorter timeouts with more retries - fail fast, retry often
+    pageLoadTimeout: 10000, // 10 seconds for page loads
+    defaultCommandTimeout: 5000, // 5 seconds for element assertions
+    requestTimeout: 10000, // 10 seconds for cy.request()
+    responseTimeout: 10000, // 10 seconds for responses
     retries: {
-      runMode: 1, // Retry failed tests once in CI (reduced from 2)
+      runMode: 3, // Retry failed tests 3 times in CI
       openMode: 0, // No retries in interactive mode
     },
   },
