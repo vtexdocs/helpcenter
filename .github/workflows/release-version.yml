@@ -18,186 +18,186 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v3
-      with:
-        ref: main
-        fetch-depth: 0
-        token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        cache: 'yarn'
-    - name: Setup
-      # Git configs and environment preparation
-      run: |
-        git checkout main
-        git config user.name "${{ github.event.pull_request.user.login }}"
-        git config user.email "${{ github.event.pull_request.user.id }}+${{ github.event.pull_request.user.login }}@users.noreply.github.com"
-        chmod +x .husky/*
-        yarn install
-    - name: Set major release env var
-      if: contains(github.event.pull_request.labels.*.name, 'release-major')
-      run: echo "RELEASE=major" >> $GITHUB_ENV
-    - name: Set minor release env var
-      if: contains(github.event.pull_request.labels.*.name, 'release-minor')
-      run: echo "RELEASE=minor" >> $GITHUB_ENV
-    - name: Set patch release env var
-      if: contains(github.event.pull_request.labels.*.name, 'release-patch')
-      run: echo "RELEASE=patch" >> $GITHUB_ENV
-    - name: Set auto release env var
-      if: contains(github.event.pull_request.labels.*.name, 'release-auto')
-      run: echo "RELEASE=auto" >> $GITHUB_ENV
-    - name: Set no release env var
-      if: contains(github.event.pull_request.labels.*.name, 'release-no')
-      run: echo "RELEASE=no" >> $GITHUB_ENV
-    - name: Default release env var to auto
-      # If no label is provided, it will generate an automatic released version (based on PR semantic commits)
-      run: |
-        if [[ -z "${{ env.RELEASE }}" ]];
-        then
-          echo "RELEASE=auto" >> $GITHUB_ENV
-        else
-          exit 0
-        fi
-    - name: Check if tag already exists and resolve conflicts
-      if: ${{ env.RELEASE != 'no' }}
-      run: |
-        # Determine the appropriate dry-run command based on release type
-        if [[ "${{ env.RELEASE }}" == "patch" ]]; then
-          DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as patch"
-          RELEASE_TYPE="patch"
-        elif [[ "${{ env.RELEASE }}" == "minor" ]]; then
-          DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as minor"
-          RELEASE_TYPE="minor"
-        elif [[ "${{ env.RELEASE }}" == "major" ]]; then
-          DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as major"
-          RELEASE_TYPE="major"
-        else
-          DRY_RUN_CMD="yarn --silent standard-version --dry-run"
-          RELEASE_TYPE="auto"
-        fi
-        
-        # Extract the next version from dry run output using regex for semantic versioning
-        NEXT_VERSION=$(eval $DRY_RUN_CMD | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' | head -1 || echo "")
-        
-        # Validate that we got a proper semantic version
-        if [[ -z "$NEXT_VERSION" ]] || [[ ! "$NEXT_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-          echo "Warning: Could not extract valid semantic version from dry run output. Skipping tag conflict check."
-          echo "Dry run output was:"
-          eval $DRY_RUN_CMD
-        elif git tag -l | grep -q "^${NEXT_VERSION}$"; then
-          echo "Warning: Tag ${NEXT_VERSION} already exists! Finding next available version..."
-          
-          # Get the latest existing tag
-          LATEST_TAG=$(git tag --sort=-version:refname | head -1)
-          echo "Latest existing tag: $LATEST_TAG"
-          
-          # Extract version numbers (assuming format vX.Y.Z)
-          if [[ $LATEST_TAG =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
-            MAJOR=${BASH_REMATCH[1]}
-            MINOR=${BASH_REMATCH[2]}
-            PATCH=${BASH_REMATCH[3]}
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'yarn'
+      - name: Setup
+        # Git configs and environment preparation
+        run: |
+          git checkout main
+          git config user.name "${{ github.event.pull_request.user.login }}"
+          git config user.email "${{ github.event.pull_request.user.id }}+${{ github.event.pull_request.user.login }}@users.noreply.github.com"
+          chmod +x .husky/*
+          yarn install
+      - name: Set major release env var
+        if: contains(github.event.pull_request.labels.*.name, 'release-major')
+        run: echo "RELEASE=major" >> $GITHUB_ENV
+      - name: Set minor release env var
+        if: contains(github.event.pull_request.labels.*.name, 'release-minor')
+        run: echo "RELEASE=minor" >> $GITHUB_ENV
+      - name: Set patch release env var
+        if: contains(github.event.pull_request.labels.*.name, 'release-patch')
+        run: echo "RELEASE=patch" >> $GITHUB_ENV
+      - name: Set auto release env var
+        if: contains(github.event.pull_request.labels.*.name, 'release-auto')
+        run: echo "RELEASE=auto" >> $GITHUB_ENV
+      - name: Set no release env var
+        if: contains(github.event.pull_request.labels.*.name, 'release-no')
+        run: echo "RELEASE=no" >> $GITHUB_ENV
+      - name: Default release env var to auto
+        # If no label is provided, it will generate an automatic released version (based on PR semantic commits)
+        run: |
+          if [[ -z "${{ env.RELEASE }}" ]];
+          then
+            echo "RELEASE=auto" >> $GITHUB_ENV
+          else
+            exit 0
+          fi
+      - name: Check if tag already exists and resolve conflicts
+        if: ${{ env.RELEASE != 'no' }}
+        run: |
+          # Determine the appropriate dry-run command based on release type
+          if [[ "${{ env.RELEASE }}" == "patch" ]]; then
+            DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as patch"
+            RELEASE_TYPE="patch"
+          elif [[ "${{ env.RELEASE }}" == "minor" ]]; then
+            DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as minor"
+            RELEASE_TYPE="minor"
+          elif [[ "${{ env.RELEASE }}" == "major" ]]; then
+            DRY_RUN_CMD="yarn --silent standard-version --dry-run --release-as major"
+            RELEASE_TYPE="major"
+          else
+            DRY_RUN_CMD="yarn --silent standard-version --dry-run"
+            RELEASE_TYPE="auto"
+          fi
+
+          # Extract the next version from dry run output using regex for semantic versioning
+          NEXT_VERSION=$(eval $DRY_RUN_CMD | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' | head -1 || echo "")
+
+          # Validate that we got a proper semantic version
+          if [[ -z "$NEXT_VERSION" ]] || [[ ! "$NEXT_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Warning: Could not extract valid semantic version from dry run output. Skipping tag conflict check."
+            echo "Dry run output was:"
+            eval $DRY_RUN_CMD
+          elif git tag -l | grep -q "^${NEXT_VERSION}$"; then
+            echo "Warning: Tag ${NEXT_VERSION} already exists! Finding next available version..."
             
-            # Calculate next version based on release type
-            if [[ "$RELEASE_TYPE" == "major" ]]; then
-              NEXT_MAJOR=$((MAJOR + 1))
-              FALLBACK_VERSION="v${NEXT_MAJOR}.0.0"
-            elif [[ "$RELEASE_TYPE" == "minor" ]]; then
-              NEXT_MINOR=$((MINOR + 1))
-              FALLBACK_VERSION="v${MAJOR}.${NEXT_MINOR}.0"
-            else
-              # For patch and auto, increment patch
-              NEXT_PATCH=$((PATCH + 1))
-              FALLBACK_VERSION="v${MAJOR}.${MINOR}.${NEXT_PATCH}"
-            fi
+            # Get the latest existing tag
+            LATEST_TAG=$(git tag --sort=-version:refname | head -1)
+            echo "Latest existing tag: $LATEST_TAG"
             
-            # Check if fallback version already exists, keep incrementing if needed
-            while git tag -l | grep -q "^${FALLBACK_VERSION}$"; do
-              echo "Version ${FALLBACK_VERSION} also exists, trying next..."
+            # Extract version numbers (assuming format vX.Y.Z)
+            if [[ $LATEST_TAG =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+              MAJOR=${BASH_REMATCH[1]}
+              MINOR=${BASH_REMATCH[2]}
+              PATCH=${BASH_REMATCH[3]}
+              
+              # Calculate next version based on release type
               if [[ "$RELEASE_TYPE" == "major" ]]; then
-                NEXT_MAJOR=$((NEXT_MAJOR + 1))
+                NEXT_MAJOR=$((MAJOR + 1))
                 FALLBACK_VERSION="v${NEXT_MAJOR}.0.0"
               elif [[ "$RELEASE_TYPE" == "minor" ]]; then
-                NEXT_MINOR=$((NEXT_MINOR + 1))
+                NEXT_MINOR=$((MINOR + 1))
                 FALLBACK_VERSION="v${MAJOR}.${NEXT_MINOR}.0"
               else
-                NEXT_PATCH=$((NEXT_PATCH + 1))
+                # For patch and auto, increment patch
+                NEXT_PATCH=$((PATCH + 1))
                 FALLBACK_VERSION="v${MAJOR}.${MINOR}.${NEXT_PATCH}"
               fi
-            done
-            
-            echo "Using fallback version: $FALLBACK_VERSION"
-            echo "OVERRIDE_VERSION=${FALLBACK_VERSION}" >> $GITHUB_ENV
+              
+              # Check if fallback version already exists, keep incrementing if needed
+              while git tag -l | grep -q "^${FALLBACK_VERSION}$"; do
+                echo "Version ${FALLBACK_VERSION} also exists, trying next..."
+                if [[ "$RELEASE_TYPE" == "major" ]]; then
+                  NEXT_MAJOR=$((NEXT_MAJOR + 1))
+                  FALLBACK_VERSION="v${NEXT_MAJOR}.0.0"
+                elif [[ "$RELEASE_TYPE" == "minor" ]]; then
+                  NEXT_MINOR=$((NEXT_MINOR + 1))
+                  FALLBACK_VERSION="v${MAJOR}.${NEXT_MINOR}.0"
+                else
+                  NEXT_PATCH=$((NEXT_PATCH + 1))
+                  FALLBACK_VERSION="v${MAJOR}.${MINOR}.${NEXT_PATCH}"
+                fi
+              done
+              
+              echo "Using fallback version: $FALLBACK_VERSION"
+              echo "OVERRIDE_VERSION=${FALLBACK_VERSION}" >> $GITHUB_ENV
+            else
+              echo "Error: Could not parse latest tag format: $LATEST_TAG"
+              exit 1
+            fi
           else
-            echo "Error: Could not parse latest tag format: $LATEST_TAG"
+            if [[ -n "$NEXT_VERSION" ]]; then
+              echo "Next version will be: $NEXT_VERSION"
+            else
+              echo "Warning: Could not determine next version from dry run"
+            fi
+          fi
+      - name: Patch version
+        if: ${{ env.RELEASE == 'patch' }}
+        # Run Standard Version script to release new patch version
+        run: |
+          if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
+            yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
+          else
+            yarn release -- --release-as patch
+          fi
+      - name: Minor version
+        if: ${{ env.RELEASE == 'minor' }}
+        # Run Standard Version script to release new minor version
+        run: |
+          if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
+            yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
+          else
+            yarn release -- --release-as minor
+          fi
+      - name: Major version
+        if: ${{ env.RELEASE == 'major' }}
+        # Run Standard Version script to release new major version
+        run: |
+          if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
+            yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
+          else
+            yarn release -- --release-as major
+          fi
+      - name: Automatic version
+        if: ${{ env.RELEASE == 'auto' }}
+        # Run Standard Version script to release new version
+        run: |
+          if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
+            yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
+          else
+            yarn release
+          fi
+      - name: Push new version
+        if: ${{ env.RELEASE != 'no' }}
+        id: publish_tag
+        # Push new commits and new version tags to main branch
+        run: |
+          if ! git push --follow-tags; then
+            echo "Push failed - possibly due to existing tag"
+            git tag -d $(git describe HEAD --abbrev=0) || true
             exit 1
           fi
-        else
-          if [[ -n "$NEXT_VERSION" ]]; then
-            echo "Next version will be: $NEXT_VERSION"
-          else
-            echo "Warning: Could not determine next version from dry run"
-          fi
-        fi
-    - name: Patch version
-      if: ${{ env.RELEASE == 'patch' }}
-      # Run Standard Version script to release new patch version
-      run: |
-        if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
-          yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
-        else
-          yarn release -- --release-as patch
-        fi
-    - name: Minor version
-      if: ${{ env.RELEASE == 'minor' }}
-      # Run Standard Version script to release new minor version
-      run: |
-        if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
-          yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
-        else
-          yarn release -- --release-as minor
-        fi
-    - name: Major version
-      if: ${{ env.RELEASE == 'major' }}
-      # Run Standard Version script to release new major version
-      run: |
-        if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
-          yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
-        else
-          yarn release -- --release-as major
-        fi
-    - name: Automatic version
-      if: ${{ env.RELEASE == 'auto' }}
-      # Run Standard Version script to release new version
-      run: |
-        if [[ -n "${{ env.OVERRIDE_VERSION }}" ]]; then
-          yarn release -- --release-as ${{ env.OVERRIDE_VERSION }}
-        else
-          yarn release
-        fi
-    - name: Push new version
-      if: ${{ env.RELEASE != 'no' }}
-      id: publish_tag
-      # Push new commits and new version tags to main branch
-      run: |
-        if ! git push --follow-tags; then
-          echo "Push failed - possibly due to existing tag"
-          git tag -d $(git describe HEAD --abbrev=0) || true
-          exit 1
-        fi
-        echo ::set-output name=tag_name::$(git describe HEAD --abbrev=0)
-    - name: Generate release body
-      # Extracts the CHANGELOG.md latest version snippet
-      if: ${{ env.RELEASE != 'no' }}
-      run: npx extract-changelog-release > RELEASE_BODY.md
-    - name: Create release
-      # Creates a GitHub Release based on the published version tag
-      if: ${{ env.RELEASE != 'no' }}
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        release_name: Release ${{ steps.publish_tag.outputs.tag_name }}
-        tag_name: ${{ steps.publish_tag.outputs.tag_name }}
-        body_path: RELEASE_BODY.md
+          echo ::set-output name=tag_name::$(git describe HEAD --abbrev=0)
+      - name: Generate release body
+        # Extracts the CHANGELOG.md latest version snippet
+        if: ${{ env.RELEASE != 'no' }}
+        run: npx extract-changelog-release > RELEASE_BODY.md
+      - name: Create release
+        # Creates a GitHub Release based on the published version tag
+        if: ${{ env.RELEASE != 'no' }}
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_name: Release ${{ steps.publish_tag.outputs.tag_name }}
+          tag_name: ${{ steps.publish_tag.outputs.tag_name }}
+          body_path: RELEASE_BODY.md

@@ -12,13 +12,53 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Wait for Netlify deploy to complete for this commit
-        uses: fountainhead/action-wait-for-check@v1.1.0
-        id: wait-for-netlify-deploy
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          checkName: 'netlify/leafy-mooncake-7c2e5e/deploy-preview'
-          timeoutSeconds: 600
+        id: wait-for-netlify-status
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          echo "Waiting for Netlify deploy status on commit $COMMIT_SHA..."
+          echo "Netlify can take 15+ minutes to start building during busy periods."
+
+          # Total timeout: 25 minutes (150 * 10 seconds)
+          # This accounts for Netlify queue delays + build time
+          MAX_ATTEMPTS=150
+          ATTEMPT=0
+
+          while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
+            # Get the most recent status for deploy-preview context
+            # The API returns statuses in reverse chronological order (newest first)
+            RESULT=$(gh api repos/${{ github.repository }}/commits/$COMMIT_SHA/statuses \
+              --jq '[.[] | select(.context == "netlify/leafy-mooncake-7c2e5e/deploy-preview")] | first // empty')
+            
+            if [ -z "$RESULT" ]; then
+              ATTEMPT=$((ATTEMPT + 1))
+              echo "Attempt $ATTEMPT/$MAX_ATTEMPTS: Waiting for Netlify to start..."
+              sleep 10
+              continue
+            fi
+            
+            STATUS=$(echo "$RESULT" | jq -r '.state')
+            echo "Attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS: Netlify status = $STATUS"
+            
+            if [ "$STATUS" = "success" ]; then
+              DEPLOY_URL=$(echo "$RESULT" | jq -r '.target_url')
+              echo "✅ Netlify deploy completed successfully!"
+              echo "Deploy URL: $DEPLOY_URL"
+              echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
+              exit 0
+            elif [ "$STATUS" = "failure" ] || [ "$STATUS" = "error" ]; then
+              echo "❌ Netlify deploy failed!"
+              exit 1
+            fi
+            
+            # Status is "pending" - keep waiting
+            ATTEMPT=$((ATTEMPT + 1))
+            sleep 10
+          done
+
+          echo "❌ Timeout waiting for Netlify deploy after 25 minutes"
+          exit 1
 
       - name: Wait for Netlify deploy preview URL to be accessible
         uses: jakepartusch/wait-for-netlify-action@v1.4
