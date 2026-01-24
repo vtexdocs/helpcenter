@@ -79,7 +79,9 @@ describe('Sidebar Navigation Tests', () => {
 
   describe('PT Locale - Sidebar Navigation', () => {
     it('should navigate to PT pages when clicking sidebar links from PT category page', () => {
-      cy.visit('/pt/docs/tutorials/sobre-o-admin-categoria')
+      cy.visit(
+        '/pt/docs/tutorials/acessar-o-ambiente-beta-pelo-dominio-myvtex-com'
+      )
 
       cy.get('button').contains('PT').should('be.visible')
 
@@ -90,7 +92,9 @@ describe('Sidebar Navigation Tests', () => {
     })
 
     it('should maintain PT locale through multiple sidebar navigations', () => {
-      cy.visit('/pt/docs/tutorials/sobre-o-admin-categoria')
+      cy.visit(
+        '/pt/docs/tutorials/acessar-o-ambiente-beta-pelo-dominio-myvtex-com'
+      )
 
       cy.get('button').contains('PT').should('be.visible')
 
@@ -113,7 +117,9 @@ describe('Sidebar Navigation Tests', () => {
     })
 
     it('should have sidebar links with /pt/ prefix on PT pages', () => {
-      cy.visit('/pt/docs/tutorials/sobre-o-admin-categoria')
+      cy.visit(
+        '/pt/docs/tutorials/acessar-o-ambiente-beta-pelo-dominio-myvtex-com'
+      )
 
       cy.get('button').contains('PT').should('be.visible')
       cy.get('a[href^="/pt/docs/"]').should('have.length.at.least', 1)
@@ -122,7 +128,7 @@ describe('Sidebar Navigation Tests', () => {
 
   describe('ES Locale - Sidebar Navigation', () => {
     it('should navigate to ES pages when clicking sidebar links from ES category page', () => {
-      cy.visit('/es/docs/tutorials/acerca-de-admin-categoria')
+      cy.visit('/es/docs/tutorials/acceder-al-ambiente-beta')
 
       cy.get('button').contains('ES').should('be.visible')
 
@@ -133,7 +139,7 @@ describe('Sidebar Navigation Tests', () => {
     })
 
     it('should maintain ES locale through multiple sidebar navigations', () => {
-      cy.visit('/es/docs/tutorials/acerca-de-admin-categoria')
+      cy.visit('/es/docs/tutorials/acceder-al-ambiente-beta')
 
       cy.get('button').contains('ES').should('be.visible')
 
@@ -156,7 +162,7 @@ describe('Sidebar Navigation Tests', () => {
     })
 
     it('should have sidebar links with /es/ prefix on ES pages', () => {
-      cy.visit('/es/docs/tutorials/acerca-de-admin-categoria')
+      cy.visit('/es/docs/tutorials/acceder-al-ambiente-beta')
 
       cy.get('button').contains('ES').should('be.visible')
       cy.get('a[href^="/es/docs/"]').should('have.length.at.least', 1)
@@ -165,7 +171,7 @@ describe('Sidebar Navigation Tests', () => {
 
   describe('EN Locale - Sidebar Navigation (Default)', () => {
     it('should navigate without locale prefix when clicking sidebar links from EN page', () => {
-      cy.visit('/docs/tutorials/about-the-admin-category')
+      cy.visit('/docs/tutorials/accessing-the-beta-environment')
 
       cy.get('button').contains('EN').should('be.visible')
 
@@ -195,7 +201,7 @@ describe('Sidebar Navigation Tests', () => {
     })
 
     it('should not have PT or ES prefixes in sidebar links on EN pages', () => {
-      cy.visit('/docs/tutorials/about-the-admin-category')
+      cy.visit('/docs/tutorials/accessing-the-beta-environment')
 
       cy.get('button').contains('EN').should('be.visible')
       cy.get('a[href*="/pt/docs/"]').should('not.exist')
@@ -205,7 +211,9 @@ describe('Sidebar Navigation Tests', () => {
 
   describe('Cross-Section Navigation', () => {
     it('should maintain PT locale when navigating between different documentation sections', () => {
-      cy.visit('/pt/docs/tutorials/sobre-o-admin-categoria')
+      cy.visit(
+        '/pt/docs/tutorials/acessar-o-ambiente-beta-pelo-dominio-myvtex-com'
+      )
       cy.get('button').contains('PT').should('be.visible')
 
       clickVisibleSidebarLink('/pt/docs/', 'PT')
@@ -216,7 +224,7 @@ describe('Sidebar Navigation Tests', () => {
     })
 
     it('should maintain ES locale when navigating between different documentation sections', () => {
-      cy.visit('/es/docs/tutorials/acerca-de-admin-categoria')
+      cy.visit('/es/docs/tutorials/acceder-al-ambiente-beta')
       cy.get('button').contains('ES').should('be.visible')
 
       clickVisibleSidebarLink('/es/docs/', 'ES')
@@ -229,7 +237,9 @@ describe('Sidebar Navigation Tests', () => {
 
   describe('Locale Switching After Sidebar Navigation', () => {
     it('should allow locale switch to work correctly after sidebar navigation on PT', () => {
-      cy.visit('/pt/docs/tutorials/sobre-o-admin-categoria')
+      cy.visit(
+        '/pt/docs/tutorials/acessar-o-ambiente-beta-pelo-dominio-myvtex-com'
+      )
       cy.get('button').contains('PT').should('be.visible')
 
       clickVisibleSidebarLink('/pt/docs/tutorials/', 'PT')
@@ -244,7 +254,7 @@ describe('Sidebar Navigation Tests', () => {
     })
 
     it('should allow locale switch to work correctly after sidebar navigation on ES', () => {
-      cy.visit('/es/docs/tutorials/acerca-de-admin-categoria')
+      cy.visit('/es/docs/tutorials/acceder-al-ambiente-beta')
       cy.get('button').contains('ES').should('be.visible')
 
       clickVisibleSidebarLink('/es/docs/tutorials/', 'ES')
