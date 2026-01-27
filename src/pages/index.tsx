@@ -110,12 +110,21 @@ export const getStaticProps: GetStaticProps = async ({
     const frontmatter = await parseFrontmatter(result.content, logger)
 
     if (frontmatter) {
+      const tags = String(frontmatter.tags ?? '')
+        .split(',')
+        .map((tag) => {
+          const trimmed = tag.trim()
+          return trimmed.charAt(0).toUpperCase() + trimmed.slice(1)
+        })
+        .filter(Boolean)
+
       announcementsData.push({
         title: String(frontmatter.title),
         url: `announcements/${slug}`,
         createdAt: String(frontmatter.createdAt),
         updatedAt: String(frontmatter.updatedAt),
         status: String(frontmatter.status),
+        tags,
       })
     }
   }
