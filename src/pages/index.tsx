@@ -57,11 +57,11 @@ const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
         <DocumentationSection />
         <FaqSection />
         <SupportSection />
-        <SubscriptionList />
         <AnnouncementSection
           annoucementsAmout={5}
           announcements={announcementTimelineData}
         />
+        <SubscriptionList />
       </Grid>
     </>
   )
