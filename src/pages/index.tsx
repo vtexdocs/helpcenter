@@ -6,6 +6,7 @@ import DocumentationSection from 'components/documentation-section'
 import AnnouncementSection from 'components/announcement-section'
 import SupportSection from 'components/support-section'
 import FaqSection from 'components/faq-section'
+import SubscriptionList from 'components/subscription-list'
 
 import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
 import Head from 'next/head'
@@ -56,6 +57,7 @@ const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
         <DocumentationSection />
         <FaqSection />
         <SupportSection />
+        <SubscriptionList />
         <AnnouncementSection
           annoucementsAmout={5}
           announcements={announcementTimelineData}
