@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 import { Box, Text, Flex, Input, Link } from '@vtex/brand-ui'
 import { getMessages } from 'utils/get-messages'
 import { getSubscritionURL, getNewsletterURL } from 'utils/get-url'
@@ -7,6 +8,9 @@ import styles from './styles'
 const messages = getMessages()
 
 const SubscriptionList: React.FC = () => {
+  const { locale } = useRouter()
+  const currentLocale = locale ?? 'en'
+  const localizedMessages = messages[currentLocale] ?? messages.en
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [messageType, setMessageType] = useState<'success' | 'error' | ''>('')
@@ -21,7 +25,7 @@ const SubscriptionList: React.FC = () => {
   const checkEmail = async (email: string): Promise<boolean> => {
     const apiKey = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
     if (!apiKey) {
-      console.error(messages['subscription_list.api_key_error'])
+      console.error(localizedMessages['subscription_list.api_key_error'])
       return false
     }
 
@@ -49,7 +53,7 @@ const SubscriptionList: React.FC = () => {
   const handleSubscribe = async () => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setMessageType('error')
-      setMessage(messages['subscription_list.invalid_email'] as string)
+      setMessage(localizedMessages['subscription_list.invalid_email'] as string)
       clearMessageAfterTimeout()
       return
     }
@@ -57,7 +61,7 @@ const SubscriptionList: React.FC = () => {
     const isValid = await checkEmail(email)
     if (!isValid) {
       setMessageType('error')
-      setMessage(messages['subscription_list.invalid_email'] as string)
+      setMessage(localizedMessages['subscription_list.invalid_email'] as string)
       clearMessageAfterTimeout()
       return
     }
@@ -87,7 +91,7 @@ const SubscriptionList: React.FC = () => {
       .then((response) => response.blob())
       .then(() => {
         setMessageType('success')
-        setMessage(messages['subscription_list.success'] as string)
+        setMessage(localizedMessages['subscription_list.success'] as string)
         setEmail('')
         setTimeout(() => {
           setMessage('')
@@ -97,7 +101,7 @@ const SubscriptionList: React.FC = () => {
       .catch((error) => {
         console.error('Error:', error)
         setMessageType('error')
-        setMessage(messages['subscription_list.error'] as string)
+        setMessage(localizedMessages['subscription_list.error'] as string)
         setTimeout(() => {
           setMessage('')
           setMessageType('')
@@ -108,13 +112,13 @@ const SubscriptionList: React.FC = () => {
   return (
     <Box sx={styles.sectionContainer}>
       <Text sx={styles.title}>
-        {messages['landing_page_subscription.title']}
+        {localizedMessages['landing_page_subscription.title']}
       </Text>
       <Flex sx={styles.cardContainer}>
         <div sx={styles.container}>
           <Text sx={styles.description}>
             {
-              messages['landing_page_subscription.description'].split(
+              localizedMessages['landing_page_subscription.description'].split(
                 'newsletter'
               )[0]
             }
@@ -126,7 +130,7 @@ const SubscriptionList: React.FC = () => {
               newsletter
             </a>
             {
-              messages['landing_page_subscription.description'].split(
+              localizedMessages['landing_page_subscription.description'].split(
                 'newsletter'
               )[1]
             }
@@ -141,12 +145,12 @@ const SubscriptionList: React.FC = () => {
               sx={styles.inputContainer}
             />
             <Box as="button" onClick={handleSubscribe} sx={styles.button}>
-              {messages['landing_page_newsletter.Button']}
+              {localizedMessages['landing_page_newsletter.Button']}
             </Box>
           </Flex>
           <Text sx={styles.privacyText}>
             {
-              messages['landing_page_subscription.textLink'].split(
+              localizedMessages['landing_page_subscription.textLink'].split(
                 'Privacy Policy'
               )[0]
             }
