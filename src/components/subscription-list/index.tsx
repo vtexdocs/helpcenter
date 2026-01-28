@@ -21,7 +21,7 @@ const SubscriptionList: React.FC = () => {
   const checkEmail = async (email: string): Promise<boolean> => {
     const apiKey = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
     if (!apiKey) {
-      console.error('Newsletter API key is not defined')
+      console.error(messages['subscription_list.api_key_error'])
       return false
     }
 
@@ -49,7 +49,7 @@ const SubscriptionList: React.FC = () => {
   const handleSubscribe = async () => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setMessageType('error')
-      setMessage('Invalid email address, please try another one.')
+      setMessage(messages['subscription_list.invalid_email'] as string)
       clearMessageAfterTimeout()
       return
     }
@@ -57,7 +57,7 @@ const SubscriptionList: React.FC = () => {
     const isValid = await checkEmail(email)
     if (!isValid) {
       setMessageType('error')
-      setMessage('Invalid email address, please try another one.')
+      setMessage(messages['subscription_list.invalid_email'] as string)
       clearMessageAfterTimeout()
       return
     }
@@ -87,7 +87,7 @@ const SubscriptionList: React.FC = () => {
       .then((response) => response.blob())
       .then(() => {
         setMessageType('success')
-        setMessage("You've successfully subscribed!")
+        setMessage(messages['subscription_list.success'] as string)
         setEmail('')
         setTimeout(() => {
           setMessage('')
@@ -97,7 +97,7 @@ const SubscriptionList: React.FC = () => {
       .catch((error) => {
         console.error('Error:', error)
         setMessageType('error')
-        setMessage("Sorry, we couldn't subscribe you. Please try again later.")
+        setMessage(messages['subscription_list.error'] as string)
         setTimeout(() => {
           setMessage('')
           setMessageType('')
