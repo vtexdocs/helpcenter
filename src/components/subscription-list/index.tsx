@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Box, Text, Flex, Input, Link } from '@vtex/brand-ui'
 import { getMessages } from 'utils/get-messages'
-import { getSubscritionURL, getNewsletterURL } from 'utils/get-url'
+import { getPrivacyNoticeURL, getNewsletterURL } from 'utils/get-url'
 import styles from './styles'
 
 const messages = getMessages()
@@ -123,7 +123,7 @@ const SubscriptionList: React.FC = () => {
               )[0]
             }
             <a
-              href={getNewsletterURL()}
+              href={getNewsletterURL(currentLocale)}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -149,17 +149,13 @@ const SubscriptionList: React.FC = () => {
             </Box>
           </Flex>
           <Text sx={styles.privacyText}>
-            {
-              localizedMessages['landing_page_subscription.textLink'].split(
-                'Privacy Policy'
-              )[0]
-            }
+            {localizedMessages['subscription_list.privacy_notice']}{' '}
             <Link
-              href={getSubscritionURL()}
+              href={getPrivacyNoticeURL(currentLocale)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Privacy Policy
+              {localizedMessages['subscription_list.privacy_policy_link']}
             </Link>
           </Text>
           {message && (
