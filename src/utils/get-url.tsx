@@ -1,3 +1,5 @@
+import { LocaleType } from 'utils/typings/unionTypes'
+
 export const getFeedbackURL = (currentUrl?: string) => {
   const encodedUrl = currentUrl ? encodeURIComponent(currentUrl) : ''
   return `https://docs.google.com/forms/d/e/1FAIpQLSfmnotPvPjw-SjiE7lt2Nt3RQgNUe10ixXZmuO2v9enOJReoQ/viewform?entry.1972292648=help.vtex.com&entry.1799503232=${encodedUrl}`
@@ -41,4 +43,18 @@ export const getYoutubeURL = () => {
 
 export const getTwitterURL = () => {
   return 'https://twitter.com/vtexonline'
+}
+
+export const getNewsletterURL = (locale: LocaleType = 'en') => {
+  return `https://vtexhelp.myvtex.com/educationnewsletter/${locale}`
+}
+
+export const getPrivacyNoticeURL = (locale: LocaleType = 'en') => {
+  const localeMap = {
+    en: 'us-en',
+    pt: 'pt-br',
+    es: 'es-mx',
+  }
+  const urlLocale = localeMap[locale]
+  return `https://vtex.com/${urlLocale}/trust/general-external-privacy-notice/`
 }

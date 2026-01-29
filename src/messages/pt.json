@@ -44,6 +44,8 @@
   "subscription_list.success": "Você se inscreveu com sucesso!",
   "subscription_list.error": "Desculpe, não foi possível realizar sua inscrição. Por favor, tente novamente mais tarde.",
   "subscription_list.email_label": "Email",
+  "subscription_list.privacy_notice": "Ao assinar nossa newsletter, você concorda com a nossa",
+  "subscription_list.privacy_policy_link": "Política de Privacidade",
   "landing_page_education_github.title": "GitHub",
   "landing_page_education_github.description": "Siga e contribua com a VTEX no GitHub",
   "landing_page_education_github.textLink": "Ir para o GitHub",
