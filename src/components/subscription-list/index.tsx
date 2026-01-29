@@ -53,7 +53,7 @@ const SubscriptionList: React.FC = () => {
   const handleSubscribe = async () => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setMessageType('error')
-      setMessage(localizedMessages['subscription_list.invalid_email'] as string)
+      setMessage(localizedMessages['subscription_list.invalid_email'])
       clearMessageAfterTimeout()
       return
     }
@@ -61,7 +61,7 @@ const SubscriptionList: React.FC = () => {
     const isValid = await checkEmail(email)
     if (!isValid) {
       setMessageType('error')
-      setMessage(localizedMessages['subscription_list.invalid_email'] as string)
+      setMessage(localizedMessages['subscription_list.invalid_email'])
       clearMessageAfterTimeout()
       return
     }
@@ -91,7 +91,7 @@ const SubscriptionList: React.FC = () => {
       .then((response) => response.blob())
       .then(() => {
         setMessageType('success')
-        setMessage(localizedMessages['subscription_list.success'] as string)
+        setMessage(localizedMessages['subscription_list.success'])
         setEmail('')
         setTimeout(() => {
           setMessage('')
@@ -101,7 +101,7 @@ const SubscriptionList: React.FC = () => {
       .catch((error) => {
         console.error('Error:', error)
         setMessageType('error')
-        setMessage(localizedMessages['subscription_list.error'] as string)
+        setMessage(localizedMessages['subscription_list.error'])
         setTimeout(() => {
           setMessage('')
           setMessageType('')
