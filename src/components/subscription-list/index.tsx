@@ -3,13 +3,16 @@ import { useRouter } from 'next/router'
 import { Box, Text, Flex, Input, Link } from '@vtex/brand-ui'
 import { getMessages } from 'utils/get-messages'
 import { getPrivacyNoticeURL, getNewsletterURL } from 'utils/get-url'
+import { LocaleType } from 'utils/typings/unionTypes'
 import styles from './styles'
 
 const messages = getMessages()
 
 const SubscriptionList: React.FC = () => {
   const { locale } = useRouter()
-  const currentLocale = locale ?? 'en'
+  const isLocaleType = (value?: string): value is LocaleType =>
+    value === 'en' || value === 'pt' || value === 'es'
+  const currentLocale: LocaleType = isLocaleType(locale) ? locale : 'en'
   const localizedMessages = messages[currentLocale] ?? messages.en
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
