@@ -37,7 +37,7 @@
   "orders.description": "Verifica el status de los pedidos de tu tienda",
   "landing_page_education.title": "¿Tienes otras preguntas?",
   "landing_page_subscription.title": "Mantente al día con la documentación de VTEX",
-  "landing_page_subscription.description": "Suscríbete a nuestra newsletter mensual para recibir información sobre los últimos Announcements, las Release Notes y los artículos recién publicados.",
+  "landing_page_subscription.description": "Suscríbete a nuestro newsletter mensual para recibir información sobre los últimos anuncios, release notes y artículos recién publicados.",
   "landing_page_subscription.textLink": "Al suscribirte a nuestra newsletter, aceptas nuestro Aviso de privacidad",
   "subscription_list.api_key_error": "La clave de API de la newsletter no está definida",
   "subscription_list.invalid_email": "Dirección de email inválida, por favor intenta con otra.",
