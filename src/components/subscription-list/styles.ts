@@ -70,6 +70,7 @@ const button: SxStyleProp = {
   border: 'none',
   borderRadius: '24px',
   cursor: 'pointer',
+  whiteSpace: 'nowrap',
   '&:hover': { backgroundColor: '#C81E51' },
   justifyContent: 'center',
   fontSize: ['14px', '16px'],
