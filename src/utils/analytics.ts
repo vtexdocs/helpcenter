@@ -1,6 +1,6 @@
 /**
  * Push custom GA event for locale switch to GTM dataLayer.
- * Configure a GTM trigger on event name "locale_switch" to send to GA4.
+ * Configure a GTM trigger on event name "locale-switch" to send to GA4.
  */
 export function trackLocaleSwitch(fromLocale: string, toLocale: string): void {
   if (typeof window === 'undefined') return
@@ -8,7 +8,7 @@ export function trackLocaleSwitch(fromLocale: string, toLocale: string): void {
   const win = window as any
   if (win.dataLayer) {
     win.dataLayer.push({
-      event: 'locale_switch',
+      event: 'locale-switch',
       locale_from: fromLocale,
       locale_to: toLocale,
     })
