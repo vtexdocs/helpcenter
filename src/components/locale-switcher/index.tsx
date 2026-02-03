@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { Box, IconGlobe, Text, IconCaret, Flex } from '@vtex/brand-ui'
+import { trackLocaleSwitch } from 'utils/analytics'
 import styles from './styles'
 import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'
 import { LocaleOption } from '@vtex/brand-ui/dist/components/Header/LocaleSwitcher'
@@ -211,7 +212,7 @@ export default function LocaleSwitcher() {
       newPath = basePath === '/' ? `/${newLocale}` : `/${newLocale}${basePath}`
     }
 
-    // Use window.location for full page reload to ensure proper locale handling
+    trackLocaleSwitch(router.locale || 'en', newLocale)
     window.location.href = newPath
   }
 
