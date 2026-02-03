@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { Box, IconGlobe, Text, IconCaret, Flex } from '@vtex/brand-ui'
+import { trackLocaleSwitch } from 'utils/analytics'
 import styles from './styles'
 import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'
 import { LocaleOption } from '@vtex/brand-ui/dist/components/Header/LocaleSwitcher'
@@ -113,7 +114,6 @@ export default function LocaleSwitcherFooter() {
     const currentPath = window.location.pathname
     const pathParts = currentPath.split('/')
 
-    // Obtain the current locale
     const allowedLocales = ['en', 'es', 'pt']
     const currentLocale = allowedLocales.includes(pathParts[1])
       ? pathParts[1]
@@ -128,6 +128,7 @@ export default function LocaleSwitcherFooter() {
         ? `/${locale}/docs/${contentType}/${localizedSlug}`
         : `/${locale}/docs/${contentType}`
       console.log(newPath)
+      trackLocaleSwitch(currentLocale, option)
       window.location.href = newPath
     } else if (
       currentPath.includes('/announcements') ||
@@ -141,10 +142,12 @@ export default function LocaleSwitcherFooter() {
         ? `/${locale}/${contentType}/${localizedSlug}`
         : `/${locale}/${contentType}`
       console.log(newPath)
+      trackLocaleSwitch(currentLocale, option)
       window.location.href = newPath
     } else {
       console.log(currentPath)
       const newPath = `/${locale}`
+      trackLocaleSwitch(currentLocale, option)
       window.location.href = newPath
     }
   }
