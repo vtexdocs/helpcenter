@@ -17660,8 +17660,16 @@
         "to": "https://developers.vtex.com/docs/guides/vtex-io-documentation-what-is-vtex-io"
       },
       {
-        "from": "/en/docs/tutorials/troubleshooting-category",
+        "from": "/en/category/troubleshooting--39pDkp8qxSll6mGj0tWViz",
         "to": "/en/troubleshooting"
+      },
+      {
+        "from": "/pt/category/troubleshooting--39pDkp8qxSll6mGj0tWViz",
+        "to": "/pt/troubleshooting"
+      },
+      {
+        "from": "/es/category/troubleshooting--39pDkp8qxSll6mGj0tWViz",
+        "to": "/es/troubleshooting"
       }
     ]
   }
