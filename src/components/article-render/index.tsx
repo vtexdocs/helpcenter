@@ -18,6 +18,7 @@ import DateText from 'components/date-text'
 import Author from 'components/author'
 import Tag from 'components/tag'
 import CopyForLLM from 'components/copy-for-llm'
+import { KnownIssueStatus } from 'utils/typings/unionTypes'
 
 const ArticleRender = ({
   serialized,
@@ -100,7 +101,12 @@ const ArticleRender = ({
                         <Text>
                           ID: {serialized.frontmatter?.internalReference}
                         </Text>
-                        <Tag sx={{ marginLeft: 'auto' }}>
+                        <Tag
+                          sx={{ marginLeft: 'auto' }}
+                          color={
+                            serialized.frontmatter?.kiStatus as KnownIssueStatus
+                          }
+                        >
                           {serialized.frontmatter?.kiStatus as string}
                         </Tag>
                       </Flex>
