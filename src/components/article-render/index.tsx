@@ -20,6 +20,8 @@ import Tag from 'components/tag'
 import CopyForLLM from 'components/copy-for-llm'
 import { KnownIssueStatus } from 'utils/typings/unionTypes'
 
+import { useIntl } from 'react-intl'
+
 const ArticleRender = ({
   serialized,
   headings,
@@ -31,6 +33,7 @@ const ArticleRender = ({
   slug,
   type,
 }: MarkDownProps) => {
+  const intl = useIntl()
   return (
     <>
       <Head>
@@ -107,7 +110,14 @@ const ArticleRender = ({
                             serialized.frontmatter?.kiStatus as KnownIssueStatus
                           }
                         >
-                          {serialized.frontmatter?.kiStatus as string}
+                          {intl.formatMessage({
+                            id: `known_issues_filter_status.${(
+                              serialized.frontmatter
+                                ?.kiStatus as KnownIssueStatus
+                            )
+                              .toLowerCase()
+                              .replace(' ', '_')}`,
+                          })}
                         </Tag>
                       </Flex>
                     </Flex>
