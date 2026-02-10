@@ -158,7 +158,7 @@ const ArticleRender = ({
               </Box>
             )}
 
-            <FeedbackSection docPath={path} slug={slug} />
+            <FeedbackSection docPath={path} slug={slug} type={type} />
             {pagination && (
               <ArticlePagination
                 hidePaginationNext={
