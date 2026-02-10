@@ -18,6 +18,9 @@ import DateText from 'components/date-text'
 import Author from 'components/author'
 import Tag from 'components/tag'
 import CopyForLLM from 'components/copy-for-llm'
+import { KnownIssueStatus } from 'utils/typings/unionTypes'
+
+import { useIntl } from 'react-intl'
 
 const ArticleRender = ({
   serialized,
@@ -30,6 +33,7 @@ const ArticleRender = ({
   slug,
   type,
 }: MarkDownProps) => {
+  const intl = useIntl()
   return (
     <>
       <Head>
@@ -100,8 +104,20 @@ const ArticleRender = ({
                         <Text>
                           ID: {serialized.frontmatter?.internalReference}
                         </Text>
-                        <Tag sx={{ marginLeft: 'auto' }}>
-                          {serialized.frontmatter?.kiStatus as string}
+                        <Tag
+                          sx={{ marginLeft: 'auto' }}
+                          color={
+                            serialized.frontmatter?.kiStatus as KnownIssueStatus
+                          }
+                        >
+                          {intl.formatMessage({
+                            id: `known_issues_filter_status.${(
+                              serialized.frontmatter
+                                ?.kiStatus as KnownIssueStatus
+                            )
+                              .toLowerCase()
+                              .replace(' ', '_')}`,
+                          })}
                         </Tag>
                       </Flex>
                     </Flex>
