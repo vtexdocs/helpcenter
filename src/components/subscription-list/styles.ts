@@ -1,5 +1,7 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+const controlHeight = '48px'
+
 const sectionContainer: SxStyleProp = {
   borderTop: '1px solid #e7e9ef',
   px: ['16px', '24px', '32px'],
@@ -43,10 +45,30 @@ const inputContainer: SxStyleProp = {
   flexDirection: ['column', 'row'],
   gap: '5px',
   justifyContent: 'center',
-  alignItems: 'center',
+  alignItems: ['center', 'flex-end'],
   width: '100%',
-  '& label': {
-    fontSize: '14px',
+}
+
+const emailInputField: SxStyleProp = {
+  flex: 1,
+  minWidth: 0,
+  width: '100%',
+  border: '1px solid #a1a8b3',
+  borderRadius: '4px',
+  color: '#4A4A4A',
+  fontSize: '16px',
+  lineHeight: '22px',
+  px: '16px',
+  py: 0,
+  height: controlHeight,
+  minHeight: controlHeight,
+  boxSizing: 'border-box',
+  '&::placeholder': {
+    color: '#4A4A4A',
+  },
+  '&:focus': {
+    outline: 'none',
+    borderColor: '#A1A8B3',
   },
 }
 
@@ -54,8 +76,10 @@ const inputContainer: SxStyleProp = {
 // only nudging layout to align with the input height.
 const button: SxStyleProp = {
   transition: 'all 0.3s ease-out',
-  minHeight: '48px',
-  marginBottom: '9px',
+  minHeight: controlHeight,
+  height: controlHeight,
+  alignSelf: ['center', 'stretch'],
+  minWidth: '140px',
   whiteSpace: 'nowrap',
   px: '16px',
 }
@@ -98,6 +122,7 @@ export default {
   title,
   description,
   inputContainer,
+  emailInputField,
   button,
   privacyText,
   message,

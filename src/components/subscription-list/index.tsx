@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-import { Box, Button, Text, Flex, Input, Link } from '@vtex/brand-ui'
+import { Box, Button, Text, Flex, Link } from '@vtex/brand-ui'
 import { getMessages } from 'utils/get-messages'
 import { getPrivacyNoticeURL, getNewsletterURL } from 'utils/get-url'
 import { LocaleType } from 'utils/typings/unionTypes'
@@ -29,7 +29,7 @@ const SubscriptionList: React.FC = () => {
     const apiKey = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
     if (!apiKey) {
       console.error(localizedMessages['subscription_list.api_key_error'])
-      return true
+      return false
     }
 
     const url = `https://mailcheck.p.rapidapi.com/?email=${encodeURIComponent(
@@ -140,15 +140,24 @@ const SubscriptionList: React.FC = () => {
             }
           </Text>
           <Flex sx={styles.inputContainer}>
-            <Input
-              label="Email"
-              size="regular"
+            <Box
+              as="input"
               id="email"
+              type="email"
+              aria-label="Email"
+              placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              sx={styles.inputContainer}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
+              sx={styles.emailInputField}
             />
-            <Button type="button" onClick={handleSubscribe} sx={styles.button}>
+            <Button
+              type="button"
+              size="regular"
+              onClick={handleSubscribe}
+              sx={styles.button}
+            >
               {localizedMessages['landing_page_newsletter.Button']}
             </Button>
           </Flex>
