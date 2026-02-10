@@ -38,16 +38,6 @@ const description: SxStyleProp = {
   marginBottom: '16px',
 }
 
-const container: SxStyleProp = {
-  maxWidth: '400px',
-  margin: '0 auto',
-  textAlign: 'center',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-}
-
 const inputContainer: SxStyleProp = {
   display: 'flex',
   flexDirection: ['column', 'row'],
@@ -60,20 +50,14 @@ const inputContainer: SxStyleProp = {
   },
 }
 
+// Use the same base style as other landing CTAs (default @vtex/brand-ui Button),
+// only nudging layout to align with the input height.
 const button: SxStyleProp = {
-  display: 'inline-flex',
-  alignItems: 'center',
-  px: '16px',
+  transition: 'all 0.3s ease-out',
   minHeight: '48px',
-  backgroundColor: '#e31c58',
-  color: '#fff',
-  border: 'none',
-  borderRadius: '24px',
-  cursor: 'pointer',
+  marginBottom: '9px',
   whiteSpace: 'nowrap',
-  '&:hover': { backgroundColor: '#C81E51' },
-  justifyContent: 'center',
-  fontSize: ['14px', '16px'],
+  px: '16px',
 }
 
 const privacyText: SxStyleProp = {
@@ -111,7 +95,6 @@ const popupCard: SxStyleProp = {
 export default {
   sectionContainer,
   cardContainer,
-  container,
   title,
   description,
   inputContainer,

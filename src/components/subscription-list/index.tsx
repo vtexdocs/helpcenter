@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-import { Box, Text, Flex, Input, Link } from '@vtex/brand-ui'
+import { Box, Button, Text, Flex, Input, Link } from '@vtex/brand-ui'
 import { getMessages } from 'utils/get-messages'
 import { getPrivacyNoticeURL, getNewsletterURL } from 'utils/get-url'
 import { LocaleType } from 'utils/typings/unionTypes'
@@ -29,7 +29,7 @@ const SubscriptionList: React.FC = () => {
     const apiKey = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
     if (!apiKey) {
       console.error(localizedMessages['subscription_list.api_key_error'])
-      return false
+      return true
     }
 
     const url = `https://mailcheck.p.rapidapi.com/?email=${encodeURIComponent(
@@ -49,6 +49,7 @@ const SubscriptionList: React.FC = () => {
       // Block if not valid, or if block/disposable is true
       return !data.block
     } catch (error) {
+      console.error(error)
       return false
     }
   }
@@ -118,7 +119,7 @@ const SubscriptionList: React.FC = () => {
         {localizedMessages['landing_page_subscription.title']}
       </Text>
       <Flex sx={styles.cardContainer}>
-        <div sx={styles.container}>
+        <div>
           <Text sx={styles.description}>
             {
               localizedMessages['landing_page_subscription.description'].split(
@@ -147,9 +148,9 @@ const SubscriptionList: React.FC = () => {
               onChange={(e) => setEmail(e.target.value)}
               sx={styles.inputContainer}
             />
-            <Box as="button" onClick={handleSubscribe} sx={styles.button}>
+            <Button type="button" onClick={handleSubscribe} sx={styles.button}>
               {localizedMessages['landing_page_newsletter.Button']}
-            </Box>
+            </Button>
           </Flex>
           <Text sx={styles.privacyText}>
             {localizedMessages['subscription_list.privacy_notice']}{' '}
