@@ -366,5 +366,6 @@
   "sidebar_troubleshooting.title": "Troubleshooting",
   "sidebar_troubleshooting.description": "Identify and fix issues independently and efficiently",
   "troubleshooting_filter_tags.title": "Tags",
-  "troubleshooting_page_search.placeholder": "Search for identified issues, diagnostics, and fixes..."
+  "troubleshooting_page_search.placeholder": "Search for identified issues, diagnostics, and fixes...",
+  "announcements_filter_tags.title": "Tags"
 }

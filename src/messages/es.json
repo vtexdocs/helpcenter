@@ -366,5 +366,6 @@
   "sidebar_troubleshooting.title": "Resolución de problemas",
   "sidebar_troubleshooting.description": "Identifique y solucione problemas de manera autónoma y eficiente",
   "troubleshooting_filter_tags.title": "Tags",
-  "troubleshooting_page_search.placeholder": "Buscar identificación, diagnósticos y correcciones de fallas..."
+  "troubleshooting_page_search.placeholder": "Buscar identificación, diagnósticos y correcciones de fallas...",
+  "announcements_filter_tags.title": "Tags"
 }
