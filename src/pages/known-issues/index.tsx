@@ -67,6 +67,81 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const normalizedSearch = useMemo(() => search.toLowerCase(), [search])
+  const searchStopwords = useMemo(() => {
+    const stopwordsByLocale: Record<string, Set<string>> = {
+      pt: new Set([
+        'a',
+        'ao',
+        'aos',
+        'as',
+        'Ã ',
+        'Ã s',
+        'com',
+        'da',
+        'das',
+        'de',
+        'do',
+        'dos',
+        'e',
+        'em',
+        'na',
+        'nas',
+        'no',
+        'nos',
+        'ou',
+        'para',
+        'por',
+        'sem',
+      ]),
+      en: new Set([
+        'a',
+        'an',
+        'and',
+        'as',
+        'at',
+        'by',
+        'for',
+        'from',
+        'in',
+        'is',
+        'of',
+        'on',
+        'or',
+        'the',
+        'to',
+        'with',
+      ]),
+      es: new Set([
+        'a',
+        'al',
+        'con',
+        'de',
+        'del',
+        'el',
+        'en',
+        'es',
+        'la',
+        'las',
+        'los',
+        'o',
+        'para',
+        'por',
+        'un',
+        'una',
+        'y',
+      ]),
+    }
+    const localeKey = (intl.locale ?? 'pt').split('-')[0]
+    return stopwordsByLocale[localeKey] ?? stopwordsByLocale.pt
+  }, [intl.locale])
+  const searchTerms = useMemo(
+    () =>
+      normalizedSearch
+        .trim()
+        .split(/\s+/)
+        .filter((term: string) => term && !searchStopwords.has(term)),
+    [normalizedSearch, searchStopwords]
+  )
 
   const statusConfig: FilterConfig = useMemo(
     () => knownIssuesStatusFilter(intl),
@@ -94,13 +169,44 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
         (filters.modules.length === 0 ||
           filters.modules.includes(knownIssue.module))
 
-      const hasSearch: boolean = knownIssue.title
-        .toLowerCase()
-        .includes(normalizedSearch)
+      const title = knownIssue.title.toLowerCase()
+      const matchedTermsCount =
+        searchTerms.length === 0
+          ? 0
+          : searchTerms.reduce(
+              (count: number, term: string) =>
+                count + (title.includes(term) ? 1 : 0),
+              0
+            )
+      const hasSearch: boolean =
+        searchTerms.length === 0 || matchedTermsCount > 0
       return hasFilter && hasSearch
     })
 
     const sorted = data.sort((a, b) => {
+      const titleA = a.title.toLowerCase()
+      const titleB = b.title.toLowerCase()
+      const matchCountA =
+        searchTerms.length === 0
+          ? 0
+          : searchTerms.reduce(
+              (count: number, term: string) =>
+                count + (titleA.includes(term) ? 1 : 0),
+              0
+            )
+      const matchCountB =
+        searchTerms.length === 0
+          ? 0
+          : searchTerms.reduce(
+              (count: number, term: string) =>
+                count + (titleB.includes(term) ? 1 : 0),
+              0
+            )
+
+      if (matchCountA !== matchCountB) {
+        return matchCountB - matchCountA
+      }
+
       const dateA =
         sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
       const dateB =
@@ -109,7 +215,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
       return dateA.getTime() - dateB.getTime()
     })
     return sorted
-  }, [filters, sortByValue, normalizedSearch])
+  }, [filters, sortByValue, searchTerms])
 
   useEffect(() => {
     setPageIndex({
