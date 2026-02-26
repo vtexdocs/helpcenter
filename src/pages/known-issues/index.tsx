@@ -137,6 +137,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const searchTerms = useMemo(
     () =>
       normalizedSearch
+        .replace(/["'\u201C\u201D\u2018\u2019]/g, ' ')
         .trim()
         .split(/\s+/)
         .filter((term: string) => term && !searchStopwords.has(term)),
@@ -170,16 +171,9 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           filters.modules.includes(knownIssue.module))
 
       const title = knownIssue.title.toLowerCase()
-      const matchedTermsCount =
-        searchTerms.length === 0
-          ? 0
-          : searchTerms.reduce(
-              (count: number, term: string) =>
-                count + (title.includes(term) ? 1 : 0),
-              0
-            )
       const hasSearch: boolean =
-        searchTerms.length === 0 || matchedTermsCount > 0
+        searchTerms.length === 0 ||
+        searchTerms.some((term: string) => title.includes(term))
       return hasFilter && hasSearch
     })
 
