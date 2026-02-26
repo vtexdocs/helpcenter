@@ -37,6 +37,7 @@ import { Input } from '@vtexdocs/components'
 import { SearchIcon } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
+import Tooltip from 'components/tooltip'
 
 interface Props {
   knownIssuesData: KnownIssueDataElement[]
@@ -285,14 +286,23 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
-          <Input
-            placeholder={intl.formatMessage({
-              id: 'known_issues_page_search.placeholder',
+          <Tooltip
+            placement="top"
+            label={intl.formatMessage({
+              id: 'known_issues_page_search.priority_tooltip',
+              defaultMessage:
+                'Resultados priorizam titulos com maior quantidade de termos correspondentes; em empate, aplica-se a ordenacao selecionada.',
             })}
-            value={search}
-            Icon={SearchIcon}
-            onChange={(value) => setSearch(value)}
-          />
+          >
+            <Input
+              placeholder={intl.formatMessage({
+                id: 'known_issues_page_search.placeholder',
+              })}
+              value={search}
+              Icon={SearchIcon}
+              onChange={(value) => setSearch(value)}
+            />
+          </Tooltip>
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
