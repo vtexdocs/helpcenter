@@ -1,4 +1,4 @@
-import { Flex } from '@vtex/brand-ui'
+import { Box, Flex } from '@vtex/brand-ui'
 import { GetStaticPropsContext, NextPage } from 'next'
 
 import usePagination from '../../utils/hooks/usePagination'
@@ -286,23 +286,27 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
-          <Tooltip
-            placement="top"
-            label={intl.formatMessage({
-              id: 'known_issues_page_search.priority_tooltip',
-              defaultMessage:
-                'Resultados priorizam titulos com maior quantidade de termos correspondentes; em empate, aplica-se a ordenacao selecionada.',
-            })}
-          >
-            <Input
-              placeholder={intl.formatMessage({
-                id: 'known_issues_page_search.placeholder',
+          <Box sx={{ width: '100%' }}>
+            <Tooltip
+              placement="top"
+              label={intl.formatMessage({
+                id: 'known_issues_page_search.priority_tooltip',
+                defaultMessage:
+                  'Resultados priorizam titulos com maior quantidade de termos correspondentes; em empate, aplica-se a ordenacao selecionada.',
               })}
-              value={search}
-              Icon={SearchIcon}
-              onChange={(value) => setSearch(value)}
-            />
-          </Tooltip>
+            >
+              <Box sx={{ width: '100%' }}>
+                <Input
+                  placeholder={intl.formatMessage({
+                    id: 'known_issues_page_search.placeholder',
+                  })}
+                  value={search}
+                  Icon={SearchIcon}
+                  onChange={(value) => setSearch(value)}
+                />
+              </Box>
+            </Tooltip>
+          </Box>
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
