@@ -286,7 +286,17 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
-          <Box sx={{ width: '100%' }}>
+          <Flex sx={{ width: '100%', alignItems: 'center', gap: '8px' }}>
+            <Box sx={{ width: '100%' }}>
+              <Input
+                placeholder={intl.formatMessage({
+                  id: 'known_issues_page_search.placeholder',
+                })}
+                value={search}
+                Icon={SearchIcon}
+                onChange={(value) => setSearch(value)}
+              />
+            </Box>
             <Tooltip
               placement="top"
               label={intl.formatMessage({
@@ -295,18 +305,34 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
                   'Resultados priorizam titulos com maior quantidade de termos correspondentes; em empate, aplica-se a ordenacao selecionada.',
               })}
             >
-              <Box sx={{ width: '100%' }}>
-                <Input
-                  placeholder={intl.formatMessage({
-                    id: 'known_issues_page_search.placeholder',
-                  })}
-                  value={search}
-                  Icon={SearchIcon}
-                  onChange={(value) => setSearch(value)}
-                />
+              <Box
+                as="button"
+                type="button"
+                aria-label={intl.formatMessage({
+                  id: 'known_issues_page_search.priority_tooltip',
+                })}
+                sx={{
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  display: 'flex',
+                  width: '24px',
+                  height: '24px',
+                  borderRadius: '50%',
+                  border: '1px solid',
+                  borderColor: 'muted.2',
+                  backgroundColor: 'transparent',
+                  color: 'muted.0',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  cursor: 'help',
+                  flexShrink: 0,
+                  p: 0,
+                }}
+              >
+                ?
               </Box>
             </Tooltip>
-          </Box>
+          </Flex>
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
