@@ -113,3 +113,27 @@ force = true
 from = "/pt/faq/por-que-o-produto-nao-aparece-no-site--frequentlyAskedQuestions_382"
 status = 308
 to = "/pt/faq/por-que-o-produto-nao-aparece-no-site"
+
+[[redirects]]
+force = true
+from = "/en/tutorials/authentication/authentication-basics/adding-a-client-id-and-a-client-secret-to-log-in-with-facebook"
+status = 308
+to = "/en/tutorials/authentication/authentication-basics/adding-client-id-and-client-secret-to-log-in-with-facebook"
+
+[[redirects]]
+force = true
+from = "/es/tutorials/autenticacion/conceptos-basicos-de-autenticacion/registrar-client-id-y-client-secret-para-inicio-de-sesion-con-google"
+status = 308
+to = "/es/tutorials/autenticacion/conceptos-basicos-de-autenticacion/registrar-client-id-y-secreto-del-cliente-para-inicio-de-sesion-con-google"
+
+[[redirects]]
+force = true
+from = "/es/tutorials/autenticacion/conceptos-basicos-de-autenticacion/registrar-client-id-y-client-secret-para-login-con-facebook"
+status = 308
+to = "/es/tutorials/autenticacion/conceptos-basicos-de-autenticacion/registrar-client-id-y-secreto-del-cliente-para-inicio-de-sesion-con-facebook"
+
+[[redirects]]
+force = true
+from = "/pt/tutorials/autenticacao/conceitos-basicos-de-autenticacao/cadastrar-client-id-e-segredo-do-cliente-para-login-com-facebook"
+status = 308
+to = "/pt/tutorials/autenticacao/conceitos-basicos-de-autenticacao/cadastrar-client-id-e-client-secret-para-login-com-facebook"
