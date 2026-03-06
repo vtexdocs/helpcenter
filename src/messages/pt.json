@@ -333,6 +333,7 @@
   "known_issues_page.title": "Problemas conhecidos",
   "known_issues_page.subtitle": "Consulte problemas conhecidos, seus status e possíveis soluções",
   "known_issues_page_search.placeholder": "Buscar em Problemas conhecidos...",
+  "known_issues_page_search.priority_tooltip": "Resultados priorizam títulos com maior quantidade de termos correspondentes na busca",
   "filter_modal.title": "Filtros",
   "filter_modal.remove": "Remover filtros",
   "filter_modal.button": "Aplicar filtros",
