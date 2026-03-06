@@ -137,3 +137,9 @@ force = true
 from = "/pt/tutorials/autenticacao/conceitos-basicos-de-autenticacao/cadastrar-client-id-e-segredo-do-cliente-para-login-com-facebook"
 status = 308
 to = "/pt/tutorials/autenticacao/conceitos-basicos-de-autenticacao/cadastrar-client-id-e-client-secret-para-login-com-facebook"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/configuring-adyen-gateway"
+status = 308
+to = "https://developers.vtex.com/docs/apps/adyen.payment-provider-v3"
