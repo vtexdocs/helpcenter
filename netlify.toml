@@ -239,7 +239,6 @@ from = "/faq/meus-pedidos-estao-travados-em-pronto-para-manuseio--frequentlyAske
 status = 308
 to = "/faq/por-que-meu-pedido-esta-parado-em-preparando-entrega"
 
-
 [[redirects]]
 force = true
 from = "/faq/why-is-the-product-not-visible-on-the-website--frequentlyAskedQuestions_382"
