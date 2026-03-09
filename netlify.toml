@@ -85,6 +85,84 @@ to = "/docs/tutorials/managing-a-multistore"
 
 [[redirects]]
 force = true
+from = "/pt/docs/tutorials/importar-e-exportar-produtos-e-skus-via-planilha-beta"
+status = 308
+to = "/docs/tutorials/importar-e-exportar-produtos-e-skus-via-planilha"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/importing-and-exporting-products-and-skus-using-a-spreadsheet-beta"
+status = 308
+to = "/docs/tutorials/importing-and-exporting-products-and-skus-using-a-spreadsheet"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/importar-y-exportar-productos-y-skus-mediante-plantilla-beta"
+status = 308
+to = "/docs/tutorials/importar-y-exportar-productos-y-skus-mediante-plantilla"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/importar-e-exportar-especificacoes-de-produtos-via-planilha-beta"
+status = 308
+to = "/docs/tutorials/importar-e-exportar-especificacoes-de-produtos-via-planilha"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/importing-and-exporting-product-specifications-using-a-spreadsheet-beta"
+status = 308
+to = "/docs/tutorials/importing-and-exporting-product-specifications-using-a-spreadsheet"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/importar-y-exportar-especificaciones-de-productos-mediante-plantilla-beta"
+status = 308
+to = "/docs/tutorials/importar-y-exportar-especificaciones-de-productos-mediante-plantilla"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/importar-e-exportar-especificacoes-de-skus-via-planilha-beta"
+status = 308
+to = "/docs/tutorials/importar-e-exportar-especificacoes-de-skus-via-planilha"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/importing-and-exporting-sku-specifications-using-a-spreadsheet-beta"
+status = 308
+to = "/docs/tutorials/importing-and-exporting-sku-specifications-using-a-spreadsheet"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/importar-y-exportar-especificaciones-de-skus-mediante-plantilla-beta"
+status = 308
+to = "/docs/tutorials/importar-y-exportar-especificaciones-de-skus-mediante-plantilla"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/importar-e-exportar-imagens-de-produtos-e-skus-via-planilha-beta"
+status = 308
+to = "/docs/tutorials/importar-e-exportar-imagens-de-produtos-e-skus-via-planilha"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/importing-and-exporting-product-and-sku-images-using-a-spreadsheet-beta"
+status = 308
+to = "/docs/tutorials/importing-and-exporting-product-and-sku-images-using-a-spreadsheet"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/importar-y-exportar-imagenes-de-productos-y-skus-mediante-plantilla-beta"
+status = 308
+to = "/docs/tutorials/importar-y-exportar-imagenes-de-productos-y-skus-mediante-plantilla"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/importar-e-exportar-dimagens-de-produtos-e-skus-via-planilha-beta"
+status = 308
+to = "/docs/tutorials/importar-e-exportar-imagens-de-produtos-e-skus-via-planilha"
+
+[[redirects]]
+force = true
 from = "/faq/meus-pedidos-estao-travados-em-pronto-para-manuseio--frequentlyAskedQuestions_771"
 status = 308
 to = "/faq/por-que-meu-pedido-esta-parado-em-preparando-entrega"
