@@ -333,6 +333,7 @@
   "known_issues_page.title": "Known issues",
   "known_issues_page.subtitle": "Check known issues, their status, and possible solutions",
   "known_issues_page_search.placeholder": "Search Known issues...",
+  "known_issues_page_search.priority_tooltip": "Results prioritize titles with more matching terms in the search",
   "filter_modal.title": "Filters",
   "filter_modal.remove": "Remove filters",
   "filter_modal.button": "Apply filters",
