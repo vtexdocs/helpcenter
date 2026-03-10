@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.10.2](https://github.com/vtexdocs/helpcenter/compare/v0.10.1...v0.10.2) (2026-03-10)
+
+
+### Features
+
+* **known-issues:** add priority tooltip for search input to improve user experience ([b469cef](https://github.com/vtexdocs/helpcenter/commit/b469cef1817e9ff521f022227617377356c17737))
+* **known-issues:** add tooltip to search input for enhanced user guidance ([7c3fa56](https://github.com/vtexdocs/helpcenter/commit/7c3fa564ed79818571ac148ca134a14212266ca6))
+* **known-issues:** improve search ranking and stopword handling ([bda7140](https://github.com/vtexdocs/helpcenter/commit/bda714064d3860107256483886411745178f4a65))
+* **known-issues:** melhora layout da busca e tooltip ([219d5d3](https://github.com/vtexdocs/helpcenter/commit/219d5d3c2a16323719d9c2880ff39f83b60f3cff))
+* **known-issues:** refactor search input layout to enhance tooltip visibility and user experience ([fef2384](https://github.com/vtexdocs/helpcenter/commit/fef23842b49dcd9ff6b94d086a47d27a976b55ec))
+
+
+### Bug Fixes
+
+* adjust github feedback button ([4a7dec5](https://github.com/vtexdocs/helpcenter/commit/4a7dec55e7e514863b20e932a3b3fa3d7d4eb425))
+* **known-issues:** enhance search term normalization and matching logic ([7f4fcda](https://github.com/vtexdocs/helpcenter/commit/7f4fcda3a99fb256b52e2da1739152a470e9eeda))
+* **messages:** update B2B category slugs for es and pt locales to fix locale switching ([4b405d2](https://github.com/vtexdocs/helpcenter/commit/4b405d296c749c84934b6127c4e3e672a8a857ad))
+
+
+### Docs
+
+* redirect ([14636b7](https://github.com/vtexdocs/helpcenter/commit/14636b760c29f35fc2cf2e189083601611ff6d3c))
+* redirect ([4ee67e4](https://github.com/vtexdocs/helpcenter/commit/4ee67e4afe2e2e05166e0be5e6767d78b245b003))
+* remove empty line ([c90b3ab](https://github.com/vtexdocs/helpcenter/commit/c90b3ab2b13835d3484be513a64fa8a61c9924c0))
+
+
+### Chore
+
+* add redirects for login tutorials ([56c5166](https://github.com/vtexdocs/helpcenter/commit/56c516684c638597bffebce3b59ad99b9b446bb1))
+* **known-issues:** fix prettier issue ([951a7ab](https://github.com/vtexdocs/helpcenter/commit/951a7abaf184de73918eceb5c820496aa1c452ae))
+
 ### [0.10.1](https://github.com/vtexdocs/helpcenter/compare/v0.10.0...v0.10.1) (2026-02-10)
 
 
