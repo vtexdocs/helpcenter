@@ -111,7 +111,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
         'the',
         'to',
         'with',
-        'it'
+        'it',
       ]),
       es: new Set([
         'a',
@@ -131,7 +131,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
         'un',
         'una',
         'y',
-        'lo'
+        'lo',
       ]),
     }
     const localeKey = (intl.locale ?? 'pt').split('-')[0]
