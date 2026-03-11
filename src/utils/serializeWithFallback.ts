@@ -3,6 +3,7 @@ import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
 import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
+import remarkMermaid from 'utils/remark_plugins/mermaid'
 import theme from 'styles/code-hike-theme'
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 import getHeadings from 'utils/article-page/getHeadings'
@@ -35,6 +36,7 @@ export async function serializeWithFallback({
       remarkImages,
       [getHeadings, { headingList }],
       remarkBlockquote,
+      remarkMermaid,
       remarkReadingTime,
     ],
     useDynamicImport: true,
