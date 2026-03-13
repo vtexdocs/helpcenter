@@ -166,6 +166,7 @@ export type CardDataElement = {
 export interface AnnouncementDataElement extends CardDataElement {
   url: string
   synopsis?: string
+  tags: string[]
 }
 
 export interface KnownIssueDataElement extends CardDataElement {
