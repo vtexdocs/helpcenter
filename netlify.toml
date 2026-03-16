@@ -235,6 +235,24 @@ to = "/docs/tutorials/importar-y-exportar-imagenes-de-productos-y-skus-mediante-
 
 [[redirects]]
 force = true
+from = "/pt/docs/tutorials/adicionar-imagem-a-descricao-do-produto"
+status = 308
+to = "/docs/tutorials/adicionar-ou-editar-sku"
+
+[[redirects]]
+force = true
+from = "/en/tutorials/add-image-to-product-description"
+status = 308
+to = "/docs/tutorials/adding-or-editing-skus"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/anadir-imagen-a-la-descripcion-del-producto"
+status = 308
+to = "/docs/tutorials/agregar-o-editar-skus"
+
+[[redirects]]
+force = true
 from = "/faq/meus-pedidos-estao-travados-em-pronto-para-manuseio--frequentlyAskedQuestions_771"
 status = 308
 to = "/faq/por-que-meu-pedido-esta-parado-em-preparando-entrega"
