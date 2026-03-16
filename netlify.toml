@@ -241,7 +241,7 @@ to = "/docs/tutorials/adicionar-ou-editar-sku"
 
 [[redirects]]
 force = true
-from = "/en/tutorials/add-image-to-product-description"
+from = "/tutorials/add-image-to-product-description"
 status = 308
 to = "/docs/tutorials/adding-or-editing-skus"
 
