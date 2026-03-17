@@ -2,7 +2,7 @@ import { Flex, Box } from '@vtex/brand-ui'
 import type { ReactElement } from 'react'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useClientNavigation } from 'utils/useClientNavigation'
+import useNavigation from 'utils/hooks/useNavigation'
 import { ThemeProvider } from '@vtex/brand-ui'
 import dynamic from 'next/dynamic'
 
@@ -50,7 +50,7 @@ export default function Layout({
   parentsArray,
   locale,
 }: Props) {
-  const { navigation } = useClientNavigation() // Load navigation client-side
+  const { navigation } = useNavigation()
   const intl = useIntl()
   const router = useRouter()
   const [currentUrl, setCurrentUrl] = useState<string>('')
