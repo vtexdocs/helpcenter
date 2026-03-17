@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.10.4](https://github.com/vtexdocs/helpcenter/compare/v0.10.3...v0.10.4) (2026-03-17)
+
+
+### Features
+
+* add prebuild script to validate navigation data before build ([ae842ad](https://github.com/vtexdocs/helpcenter/commit/ae842ad5d95963f116b0e78e43a951b182977d09))
+* add shared navigation utilities for locale resolution ([9783f9a](https://github.com/vtexdocs/helpcenter/commit/9783f9aa02b734e5efcfdac11dc87bc49c4da309))
+* enhance navigation data fetching with robust fallback chain ([2b04c17](https://github.com/vtexdocs/helpcenter/commit/2b04c17a0e5bc58254f9e67b6cca594710da504a))
+
+
+### Chore
+
+* add vitest test infrastructure ([c6eae05](https://github.com/vtexdocs/helpcenter/commit/c6eae057bb97161a2207e8d7815e2d4ececab24f))
+
+
+### Refactoring
+
+* migrate navigation consumers to unified data fetching ([6e7344b](https://github.com/vtexdocs/helpcenter/commit/6e7344b609e342c459e0c754d45b735a5c2a85e7))
+
 ### [0.10.3](https://github.com/vtexdocs/helpcenter/compare/v0.10.2...v0.10.3) (2026-03-17)
 
 
