@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.10.3](https://github.com/vtexdocs/helpcenter/compare/v0.10.2...v0.10.3) (2026-03-17)
+
+
+### Features
+
+* add markdown preview ([29918b8](https://github.com/vtexdocs/helpcenter/commit/29918b8c26055c8ef962607c7a71aa04f7170ac0))
+* add mermaid support ([4d845e2](https://github.com/vtexdocs/helpcenter/commit/4d845e28683d090f4e4f0728f911eed2000782b7))
+
+
+### Chore
+
+* **navigation.json:** fallback navigation file is not updated and leading to errors ([3fa2625](https://github.com/vtexdocs/helpcenter/commit/3fa2625f52c5daefdbcb8758d400c011a5bb100c))
+* update package.json ([462e5eb](https://github.com/vtexdocs/helpcenter/commit/462e5eb7dc8ddbf3fbe69be826df225ad5a652f7))
+* update package.json ([5c73156](https://github.com/vtexdocs/helpcenter/commit/5c73156a18993e8601cbb45353990b01b915ce39))
+
+
+### Docs
+
+* redirect ([ef40740](https://github.com/vtexdocs/helpcenter/commit/ef40740e6271beeec4ec453956ea8207b41a1308))
+* redirect ([b3c5607](https://github.com/vtexdocs/helpcenter/commit/b3c56073cffa6e8b875581d18e9c57bc333639ea))
+* redirect ([8a534b7](https://github.com/vtexdocs/helpcenter/commit/8a534b73eea38cdf5bd6f8323e777b1887a44dab))
+* redirect ([701c498](https://github.com/vtexdocs/helpcenter/commit/701c49892db02cf491e008765690811ca696d421))
+* remove locale ([877a63d](https://github.com/vtexdocs/helpcenter/commit/877a63d30b98e95c15098b9ba57191f29bb0ca18))
+
 ### [0.10.2](https://github.com/vtexdocs/helpcenter/compare/v0.10.1...v0.10.2) (2026-03-10)
 
 
