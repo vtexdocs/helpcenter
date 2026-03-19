@@ -27,13 +27,15 @@ import { parseFrontmatter } from 'utils/fetchBatchGithubData'
 interface Props {
   branch: string
   troubleshootingData: TroubleshootingDataElement[]
-  availableTags: string[]
+  availableDomainFilters: string[]
+  availableSymptomFilters: string[]
 }
 
 const TroubleshootingPage: NextPage<Props> = ({
   troubleshootingData,
   branch,
-  availableTags,
+  availableDomainFilters,
+  availableSymptomFilters,
 }) => {
   const { setBranchPreview } = useContext(PreviewContext)
   setBranchPreview(branch)
@@ -44,24 +46,35 @@ const TroubleshootingPage: NextPage<Props> = ({
     curr: 1,
     total: Math.ceil(troubleshootingData.length / itemsPerPage),
   })
-  const [filters, setFilters] = useState<string[]>([])
+  const [filters, setFilters] = useState<{
+    domains: string[]
+    symptoms: string[]
+  }>({ domains: [], symptoms: [] })
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const [search, setSearch] = useState<string>('')
 
-  // Create dynamic filter function
-  const createDynamicTroubleshootingFilter = (tags: string[]) => ({
-    name: intl.formatMessage({ id: 'troubleshooting_filter_tags.title' }),
-    options: tags.map((tag) => ({
-      id: tag,
-      name: tag,
+  const createDynamicTroubleshootingFilter = (
+    nameId: string,
+    options: string[]
+  ) => ({
+    name: intl.formatMessage({ id: nameId }),
+    options: options.map((option) => ({
+      id: option,
+      name: option,
     })),
   })
 
   const filteredResult = useMemo(() => {
     const data = troubleshootingData.filter((troubleshoot) => {
       const hasFilters: boolean =
-        filters.length === 0 ||
-        troubleshoot.tags.some((tag) => filters.includes(tag))
+        (filters.domains.length === 0 ||
+          (troubleshoot.domainFilters ?? []).some((tag) =>
+            filters.domains.includes(tag)
+          )) &&
+        (filters.symptoms.length === 0 ||
+          (troubleshoot.symptomFilters ?? []).some((tag) =>
+            filters.symptoms.includes(tag)
+          ))
       const hasSearch: boolean = troubleshoot.title
         .toLowerCase()
         .includes(search.toLowerCase())
@@ -121,9 +134,22 @@ const TroubleshootingPage: NextPage<Props> = ({
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
-              checkBoxFilter={createDynamicTroubleshootingFilter(availableTags)}
-              onApply={(newFilters) => setFilters(newFilters.checklist)}
-              selectedCheckboxes={filters}
+              tagFilter={createDynamicTroubleshootingFilter(
+                'troubleshooting_filter_symptoms.title',
+                availableSymptomFilters
+              )}
+              checkBoxFilter={createDynamicTroubleshootingFilter(
+                'troubleshooting_filter_domains.title',
+                availableDomainFilters
+              )}
+              onApply={(newFilters) =>
+                setFilters({
+                  domains: newFilters.checklist,
+                  symptoms: newFilters.tag,
+                })
+              }
+              selectedCheckboxes={filters.domains}
+              selectedTags={filters.symptoms}
             />
             <Select
               label={intl.formatMessage({ id: 'sort.label' })}
@@ -185,7 +211,23 @@ export async function getStaticProps({
   const batchSize = 100
 
   const troubleshootingData: TroubleshootingDataElement[] = []
-  const allTags = new Set<string>() // Track all unique tags
+  const allDomainFilters = new Set<string>()
+  const allSymptomFilters = new Set<string>()
+
+  function normalizeFrontmatterList(value: unknown): string[] {
+    if (Array.isArray(value)) {
+      return value.map((item) => String(item).trim()).filter(Boolean)
+    }
+
+    return String(value ?? '')
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean)
+  }
+
+  function formatTagLabel(value: string): string {
+    return value.charAt(0).toUpperCase() + value.slice(1)
+  }
 
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
@@ -202,36 +244,40 @@ export async function getStaticProps({
       if (!content) continue
       const frontmatter = await parseFrontmatter(content, logger)
       if (frontmatter) {
-        const tags = String(frontmatter.tags ?? '')
-          .split(',')
-          .map((tag) => {
-            const trimmed = tag.trim()
-            // Only capitalize first letter if it's lowercase
-            return trimmed.charAt(0).toUpperCase() + trimmed.slice(1)
-          })
-          .filter(Boolean)
-        // Add tags to our set
-        tags.forEach((tag) => allTags.add(tag))
+        const rawDomainFilters = normalizeFrontmatterList(
+          frontmatter.domainFilters
+        )
+        const rawSymptomFilters = normalizeFrontmatterList(
+          frontmatter.symptomFilters
+        )
+        const domainFilters = rawDomainFilters.map(formatTagLabel)
+        const symptomFilters = rawSymptomFilters.map(formatTagLabel)
+
+        domainFilters.forEach((tag) => allDomainFilters.add(tag))
+        symptomFilters.forEach((tag) => allSymptomFilters.add(tag))
+
         troubleshootingData.push({
           title: String(frontmatter.title),
           slug,
           createdAt: String(frontmatter.createdAt),
           updatedAt: String(frontmatter.updatedAt),
-          tags,
+          domainFilters,
+          symptomFilters,
           status: String(frontmatter.status),
         })
       }
     }
   }
 
-  // Convert Set to sorted array
-  const availableTags = Array.from(allTags).sort()
+  const availableDomainFilters = Array.from(allDomainFilters).sort()
+  const availableSymptomFilters = Array.from(allSymptomFilters).sort()
 
   return {
     props: {
       sectionSelected,
       troubleshootingData,
-      availableTags,
+      availableDomainFilters,
+      availableSymptomFilters,
       branch,
     },
     revalidate: getISRRevalidateTime(),
