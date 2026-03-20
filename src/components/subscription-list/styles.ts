@@ -72,8 +72,6 @@ const emailInputField: SxStyleProp = {
   },
 }
 
-// Use the same base style as other landing CTAs (default @vtex/brand-ui Button),
-// only nudging layout to align with the input height.
 const button: SxStyleProp = {
   transition: 'all 0.3s ease-out',
   minHeight: controlHeight,
