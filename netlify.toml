@@ -241,6 +241,30 @@ to = "/docs/tutorials/importar-y-exportar-imagenes-de-productos-y-skus-mediante-
 
 [[redirects]]
 force = true
+from = "/pt/docs/tutorials/cadastrar-o-codigo-de-barra-dos-skus-para-o-vtex-sales-app"
+status = 308
+to = "/docs/tracks/cadastrar-o-codigo-de-barras-dos-skus-para-o-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/registering-the-skus-barcode-for-vtex-sales-app"
+status = 308
+to = "/docs/tracks/register-the-barcode-of-the-skus-for-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/docs/tutorials/registering-the-skus-barcode-for-vtex-sales-app"
+status = 308
+to = "/docs/tracks/register-the-barcode-of-the-skus-for-vtex-sales-app"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/registrar-los-codigos-de-barras-de-los-skus-para-el-vtex-sales-app"
+status = 308
+to = "/docs/tracks/registrar-el-codigo-de-barras-de-los-skus-para-vtex-sales-app"
+
+[[redirects]]
+force = true
 from = "/pt/docs/tutorials/adicionar-imagem-a-descricao-do-produto"
 status = 308
 to = "/docs/tutorials/adicionar-ou-editar-sku"
