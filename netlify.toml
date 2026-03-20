@@ -103,6 +103,12 @@ to = "/docs/tutorials/importing-and-exporting-products-and-skus-using-a-spreadsh
 
 [[redirects]]
 force = true
+from = "/docs/tutorials/importing-and-exporting-products-and-skus-using-a-spreadsheet-beta"
+status = 308
+to = "/docs/tutorials/importing-and-exporting-products-and-skus-using-a-spreadsheet"
+
+[[redirects]]
+force = true
 from = "/es/docs/tutorials/importar-y-exportar-productos-y-skus-mediante-plantilla-beta"
 status = 308
 to = "/docs/tutorials/importar-y-exportar-productos-y-skus-mediante-plantilla"
@@ -116,6 +122,12 @@ to = "/docs/tutorials/importar-e-exportar-especificacoes-de-produtos-via-planilh
 [[redirects]]
 force = true
 from = "/en/docs/tutorials/importing-and-exporting-product-specifications-using-a-spreadsheet-beta"
+status = 308
+to = "/docs/tutorials/importing-and-exporting-product-specifications-using-a-spreadsheet"
+
+[[redirects]]
+force = true
+from = "/docs/tutorials/importing-and-exporting-product-specifications-using-a-spreadsheet-beta"
 status = 308
 to = "/docs/tutorials/importing-and-exporting-product-specifications-using-a-spreadsheet"
 
@@ -139,6 +151,12 @@ to = "/docs/tutorials/importing-and-exporting-sku-specifications-using-a-spreads
 
 [[redirects]]
 force = true
+from = "/docs/tutorials/importing-and-exporting-sku-specifications-using-a-spreadsheet-beta"
+status = 308
+to = "/docs/tutorials/importing-and-exporting-sku-specifications-using-a-spreadsheet"
+
+[[redirects]]
+force = true
 from = "/es/docs/tutorials/importar-y-exportar-especificaciones-de-skus-mediante-plantilla-beta"
 status = 308
 to = "/docs/tutorials/importar-y-exportar-especificaciones-de-skus-mediante-plantilla"
@@ -152,6 +170,12 @@ to = "/docs/tutorials/importar-e-exportar-imagens-de-produtos-e-skus-via-planilh
 [[redirects]]
 force = true
 from = "/en/docs/tutorials/importing-and-exporting-product-and-sku-images-using-a-spreadsheet-beta"
+status = 308
+to = "/docs/tutorials/importing-and-exporting-product-and-sku-images-using-a-spreadsheet"
+
+[[redirects]]
+force = true
+from = "/docs/tutorials/importing-and-exporting-product-and-sku-images-using-a-spreadsheet-beta"
 status = 308
 to = "/docs/tutorials/importing-and-exporting-product-and-sku-images-using-a-spreadsheet"
 
