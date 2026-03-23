@@ -6,7 +6,14 @@ import { LocaleType } from 'utils/typings/unionTypes'
 import Head from 'next/head'
 import styles from 'styles/announcements-page'
 import { PreviewContext } from 'utils/contexts/preview'
-import { Fragment, useContext, useMemo, useState } from 'react'
+import {
+  Fragment,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
@@ -14,6 +21,11 @@ import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/announcements.png'
 import Pagination from 'components/pagination'
 import AnnouncementCard from 'components/announcement-card'
+import Filter from 'components/filter'
+import {
+  announcementsTypeFilter,
+  announcementsAreaFilter,
+} from 'utils/constants'
 import { SearchIcon } from '@vtexdocs/components'
 import { Input } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
@@ -27,36 +39,67 @@ interface Props {
 const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
+
+  useEffect(() => {
+    setBranchPreview(branch)
+  }, [])
+
   const itemsPerPage = 8
   const [searchTerm, setSearchTerm] = useState('')
-  const [page, setPage] = useState({ curr: 1, total: 1 })
+  const [page, setPage] = useState({
+    curr: 1,
+    total: Math.ceil(announcementsData.length / itemsPerPage),
+  })
+  const [filters, setFilters] = useState<{
+    type: string[]
+    area: string[]
+  }>({ type: [], area: [] })
+
+  const typeConfig = useMemo(() => announcementsTypeFilter(intl), [intl])
+  const areaConfig = useMemo(() => announcementsAreaFilter(intl), [intl])
 
   const filteredResult = useMemo(() => {
-    const data = announcementsData.filter((announcement) =>
-      announcement.title?.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    const data = announcementsData.filter((announcement) => {
+      const matchesSearch = announcement.title
+        ?.toLowerCase()
+        .includes(searchTerm.toLowerCase())
+
+      const matchesType =
+        filters.type.length === 0 ||
+        (announcement.announcementType &&
+          filters.type.includes(announcement.announcementType))
+
+      const matchesArea =
+        filters.area.length === 0 ||
+        (announcement.area && filters.area.includes(announcement.area))
+
+      return matchesSearch && matchesType && matchesArea
+    })
 
     data.sort((a, b) => {
       return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     })
 
-    setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
-
     return data
-  }, [searchTerm, intl.locale])
+  }, [searchTerm, filters, intl.locale])
+
+  useEffect(() => {
+    setPage({
+      curr: 1,
+      total: Math.ceil(filteredResult.length / itemsPerPage),
+    })
+  }, [filteredResult])
 
   const paginatedResult = useMemo(() => {
     return filteredResult.slice(
       (page.curr - 1) * itemsPerPage,
       page.curr * itemsPerPage
     )
-  }, [page])
+  }, [page, filteredResult])
 
-  function handleClick(props: { selected: number }) {
-    if (props.selected !== undefined && props.selected !== page.curr)
-      setPage({ ...page, curr: props.selected })
-  }
+  const handleClick = useCallback(({ selected }: { selected: number }) => {
+    setPage((prev) => ({ ...prev, curr: selected }))
+  }, [])
 
   return (
     <>
@@ -88,6 +131,20 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
           })}
         />
         <Flex sx={styles.container}>
+          <Flex sx={styles.optionsContainer}>
+            <Filter
+              tagFilter={typeConfig}
+              checkBoxFilter={areaConfig}
+              selectedTags={filters.type}
+              selectedCheckboxes={filters.area}
+              onApply={(newFilters) =>
+                setFilters({
+                  type: newFilters.tag ?? [],
+                  area: newFilters.checklist ?? [],
+                })
+              }
+            />
+          </Flex>
           <Input
             placeholder={intl.formatMessage({
               id: 'announcements_page_search.placeholder',
@@ -188,6 +245,12 @@ export const getStaticProps: GetStaticProps = async ({
           createdAt: String(frontmatter.createdAt),
           updatedAt: String(frontmatter.updatedAt),
           status: String(frontmatter.status),
+          announcementType: frontmatter.announcementType
+            ? String(frontmatter.announcementType)
+            : null,
+          area: frontmatter.announcementArea
+            ? String(frontmatter.announcementArea)
+            : null,
         }
 
         const synopsis = getAnnouncementSynopsis(frontmatter, currentLocale)
