@@ -5,7 +5,6 @@ import type { AnnouncementDataElement } from 'utils/typings/types'
 import styles from './styles'
 import Tag from 'components/tag'
 import { useIntl } from 'react-intl'
-import DateText from 'components/date-text'
 
 export type AnnouncementCardSize = 'small' | 'large'
 
@@ -18,19 +17,16 @@ const AnnouncementCard = ({
   announcement,
   appearance = 'small',
 }: AnnouncementCardProps) => {
-  const { createdAt, updatedAt, url, title } = announcement
+  const { createdAt, url, title } = announcement
   const intl = useIntl()
 
   const createdAtDate = new Date(createdAt)
-  const updatedAtDate = new Date(updatedAt)
   const currentDate = new Date()
   const sevenDaysAgo = new Date(currentDate)
   sevenDaysAgo.setDate(currentDate.getDate() - 7)
   const isNew = createdAtDate >= sevenDaysAgo && createdAtDate <= currentDate
 
-  const createdAtText = `${intl.formatMessage({
-    id: 'date_text.created',
-  })}: ${intl.formatDate(createdAtDate)}`
+  const formattedDate = intl.formatDate(createdAtDate)
 
   return (
     <Link sx={{ ...styles.link[appearance] }} href={`${url}`}>
@@ -48,19 +44,12 @@ const AnnouncementCard = ({
         <Text sx={{ ...styles.title[appearance] }} className="title">
           {title}
         </Text>
-        {appearance === 'large' && (
-          <DateText createdAt={createdAtDate} updatedAt={updatedAtDate} />
-        )}
-        {appearance === 'small' && (
-          <Flex sx={styles.datesContainer}>
-            <Text sx={{ ...styles.date[appearance] }}>{createdAtText}</Text>
-          </Flex>
-        )}
         {announcement?.synopsis && (
           <Text sx={{ ...styles.synopsis[appearance] }}>
             {announcement.synopsis}
           </Text>
         )}
+        <Text sx={{ ...styles.date[appearance] }}>{formattedDate}</Text>
       </Box>
     </Link>
   )
