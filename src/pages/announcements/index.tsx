@@ -66,12 +66,11 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
 
       const matchesType =
         filters.type.length === 0 ||
-        (announcement.announcementType &&
-          filters.type.includes(announcement.announcementType))
+        filters.type.some((t) => announcement.tags.includes(t))
 
       const matchesArea =
         filters.area.length === 0 ||
-        (announcement.area && filters.area.includes(announcement.area))
+        filters.area.some((a) => announcement.tags.includes(a))
 
       return matchesSearch && matchesType && matchesArea
     })
@@ -239,18 +238,17 @@ export const getStaticProps: GetStaticProps = async ({
         frontmatter &&
         (frontmatter.status === 'PUBLISHED' || frontmatter.status === 'CHANGED')
       ) {
+        const tags: string[] = Array.isArray(frontmatter.tags)
+          ? frontmatter.tags.map(String)
+          : []
+
         const base: AnnouncementDataElement = {
           title: String(frontmatter.title),
           url: `announcements/${slug}`,
           createdAt: String(frontmatter.createdAt),
           updatedAt: String(frontmatter.updatedAt),
           status: String(frontmatter.status),
-          announcementType: frontmatter.announcementType
-            ? String(frontmatter.announcementType)
-            : null,
-          area: frontmatter.announcementArea
-            ? String(frontmatter.announcementArea)
-            : null,
+          tags,
         }
 
         const synopsis = getAnnouncementSynopsis(frontmatter, currentLocale)

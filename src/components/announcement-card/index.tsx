@@ -38,21 +38,26 @@ const AnnouncementCard = ({
   const createdAtDate = new Date(createdAt)
   const formattedDate = intl.formatDate(createdAtDate)
 
+  const typeTags = (announcement.tags ?? []).filter(
+    (tag) => tag in typeTagColor
+  )
+
   return (
     <Link sx={{ ...styles.link[appearance] }} href={`${url}`}>
       <Box sx={{ ...styles.container, ...styles.containerSpacing[appearance] }}>
-        {announcement.announcementType &&
-          typeTagColor[announcement.announcementType] && (
-            <Flex sx={styles.tagContainer}>
-              <Tag color={typeTagColor[announcement.announcementType]}>
+        {typeTags.length > 0 && (
+          <Flex sx={styles.tagContainer}>
+            {typeTags.map((tag) => (
+              <Tag key={tag} color={typeTagColor[tag]}>
                 {intl.formatMessage({
-                  id: `announcements_filter_type.${announcement.announcementType
+                  id: `announcements_filter_type.${tag
                     .toLowerCase()
                     .replace(/ /g, '_')}`,
                 })}
               </Tag>
-            </Flex>
-          )}
+            ))}
+          </Flex>
+        )}
         <Text sx={{ ...styles.title[appearance] }} className="title">
           {title}
         </Text>

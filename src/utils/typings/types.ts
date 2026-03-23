@@ -166,8 +166,7 @@ export type CardDataElement = {
 export interface AnnouncementDataElement extends CardDataElement {
   url: string
   synopsis?: string
-  announcementType?: string | null
-  area?: string | null
+  tags: string[]
 }
 
 export interface KnownIssueDataElement extends CardDataElement {

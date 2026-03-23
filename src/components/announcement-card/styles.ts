@@ -119,6 +119,8 @@ const tagContainer: SxStyleProp = {
   width: '100%',
   justifyContent: 'flex-start',
   alignItems: 'center',
+  gap: '6px',
+  flexWrap: 'wrap',
   mb: '4px',
 }
 
