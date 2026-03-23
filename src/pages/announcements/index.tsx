@@ -2,7 +2,7 @@ import { Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 
 import { AnnouncementDataElement } from 'utils/typings/types'
-import { LocaleType, SortByType } from 'utils/typings/unionTypes'
+import { LocaleType } from 'utils/typings/unionTypes'
 import Head from 'next/head'
 import styles from 'styles/announcements-page'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -13,9 +13,7 @@ import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/announcements.png'
 import Pagination from 'components/pagination'
-import Select from 'components/select'
 import AnnouncementCard from 'components/announcement-card'
-import { sortBy } from 'utils/constants'
 import { SearchIcon } from '@vtexdocs/components'
 import { Input } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
@@ -33,7 +31,6 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const itemsPerPage = 8
   const [searchTerm, setSearchTerm] = useState('')
   const [page, setPage] = useState({ curr: 1, total: 1 })
-  const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const filteredResult = useMemo(() => {
     const data = announcementsData.filter((announcement) =>
@@ -41,18 +38,13 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
     )
 
     data.sort((a, b) => {
-      const dateA =
-        sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
-      const dateB =
-        sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
-
-      return dateA.getTime() - dateB.getTime()
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     })
 
     setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [searchTerm, sortByValue, intl.locale])
+  }, [searchTerm, intl.locale])
 
   const paginatedResult = useMemo(() => {
     return filteredResult.slice(
@@ -96,14 +88,6 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
           })}
         />
         <Flex sx={styles.container}>
-          <Flex sx={styles.optionsContainer}>
-            <Select
-              label={intl.formatMessage({ id: 'sort.label' })}
-              value={sortByValue}
-              options={sortBy(intl)}
-              onSelect={(ordering) => setSortByValue(ordering as SortByType)}
-            />
-          </Flex>
           <Input
             placeholder={intl.formatMessage({
               id: 'announcements_page_search.placeholder',
