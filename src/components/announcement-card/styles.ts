@@ -121,7 +121,7 @@ const tagContainer: SxStyleProp = {
   alignItems: 'center',
   gap: '6px',
   flexWrap: 'wrap',
-  mb: '4px',
+  mb: '12px',
 }
 
 export default {
