@@ -1,10 +1,25 @@
-import { Box, Text, Link, Flex } from '@vtex/brand-ui'
+import { Box, Flex, Text, Link } from '@vtex/brand-ui'
 
 import type { AnnouncementDataElement } from 'utils/typings/types'
 
 import styles from './styles'
 import Tag from 'components/tag'
 import { useIntl } from 'react-intl'
+
+type AnnouncementTagColor =
+  | 'Fixed'
+  | 'Closed'
+  | 'Scheduled'
+  | 'Deprecation'
+  | 'Backlog'
+
+const typeTagColor: Record<string, AnnouncementTagColor> = {
+  'New feature': 'Fixed',
+  Improvement: 'Closed',
+  'Breaking change': 'Scheduled',
+  Deprecation: 'Deprecation',
+  'Security update': 'Backlog',
+}
 
 export type AnnouncementCardSize = 'small' | 'large'
 
@@ -21,26 +36,23 @@ const AnnouncementCard = ({
   const intl = useIntl()
 
   const createdAtDate = new Date(createdAt)
-  const currentDate = new Date()
-  const sevenDaysAgo = new Date(currentDate)
-  sevenDaysAgo.setDate(currentDate.getDate() - 7)
-  const isNew = createdAtDate >= sevenDaysAgo && createdAtDate <= currentDate
-
   const formattedDate = intl.formatDate(createdAtDate)
 
   return (
     <Link sx={{ ...styles.link[appearance] }} href={`${url}`}>
       <Box sx={{ ...styles.container, ...styles.containerSpacing[appearance] }}>
-        {isNew && (
-          <Flex sx={styles.bottomContainer}>
-            <Tag sx={styles.tag} color={'New'}>
-              {intl.formatMessage({
-                id: 'announcement_card.new_tag',
-                defaultMessage: 'New',
-              })}
-            </Tag>
-          </Flex>
-        )}
+        {announcement.announcementType &&
+          typeTagColor[announcement.announcementType] && (
+            <Flex sx={styles.tagContainer}>
+              <Tag color={typeTagColor[announcement.announcementType]}>
+                {intl.formatMessage({
+                  id: `announcements_filter_type.${announcement.announcementType
+                    .toLowerCase()
+                    .replace(/ /g, '_')}`,
+                })}
+              </Tag>
+            </Flex>
+          )}
         <Text sx={{ ...styles.title[appearance] }} className="title">
           {title}
         </Text>
