@@ -19,7 +19,7 @@ const cardContainer: SxStyleProp = {
 }
 
 const optionsContainer: SxStyleProp = {
-  justifyContent: ['center', 'flex-end'],
+  justifyContent: ['center', 'flex-start'],
   alignItems: 'center',
   alignContent: 'center',
   gap: '24px',

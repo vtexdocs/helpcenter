@@ -18,7 +18,8 @@ const statusColors: {
     | 'Default'
     | 'Selected'
     | 'New'
-    | 'Gray']: SxStyleProp
+    | 'Gray'
+    | 'Deprecation']: SxStyleProp
 } = {
   Backlog: {
     border: '1px solid #D3D3D3',
@@ -72,6 +73,11 @@ const statusColors: {
   Gray: {
     color: '#4A596B',
     background: '#E7E9EE',
+  },
+  Deprecation: {
+    border: '1px solid #E8A5BE',
+    color: '#A23D6E',
+    background: '#FCEAF2',
   },
 }
 

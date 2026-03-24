@@ -116,6 +116,9 @@ export const getStaticProps: GetStaticProps = async ({
         createdAt: String(frontmatter.createdAt),
         updatedAt: String(frontmatter.updatedAt),
         status: String(frontmatter.status),
+        tags: Array.isArray(frontmatter.tags)
+          ? frontmatter.tags.map(String)
+          : [],
       })
     }
   }

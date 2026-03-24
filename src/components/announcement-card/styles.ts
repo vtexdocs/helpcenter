@@ -77,9 +77,15 @@ const synopsis: { [size in AnnouncementCardSize]: SxStyleProp } = {
 const date: { [size in AnnouncementCardSize]: SxStyleProp } = {
   small: {
     fontSize: '12px',
+    fontWeight: '600',
+    color: '#A1AAB7',
+    mt: '8px',
   },
   large: {
-    fontSize: '16px',
+    fontSize: ['14px', '16px'],
+    fontWeight: '600',
+    color: '#A1AAB7',
+    mt: '8px',
   },
 }
 
@@ -109,6 +115,15 @@ const datesContainer: SxStyleProp = {
   flexWrap: 'wrap',
 }
 
+const tagContainer: SxStyleProp = {
+  width: '100%',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  gap: '6px',
+  flexWrap: 'wrap',
+  mb: '16px',
+}
+
 export default {
   container,
   containerSpacing,
@@ -118,5 +133,6 @@ export default {
   tag,
   link,
   datesContainer,
+  tagContainer,
   synopsis,
 }

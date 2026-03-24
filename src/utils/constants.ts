@@ -413,6 +413,80 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
+export const announcementsTypeFilter = (intl: IntlShape) => {
+  const data = {
+    name: intl.formatMessage({
+      id: 'announcements_filter_type.title',
+    }),
+    options: [
+      {
+        id: 'New feature',
+        name: intl.formatMessage({
+          id: 'announcements_filter_type.new_feature',
+        }),
+      },
+      {
+        id: 'Improvement',
+        name: intl.formatMessage({
+          id: 'announcements_filter_type.improvement',
+        }),
+      },
+      {
+        id: 'Breaking change',
+        name: intl.formatMessage({
+          id: 'announcements_filter_type.breaking_change',
+        }),
+      },
+      {
+        id: 'Deprecation',
+        name: intl.formatMessage({
+          id: 'announcements_filter_type.deprecation',
+        }),
+      },
+      {
+        id: 'Security update',
+        name: intl.formatMessage({
+          id: 'announcements_filter_type.security_update',
+        }),
+      },
+    ],
+  }
+
+  return data
+}
+
+export const announcementsAreaFilter = (intl: IntlShape) => {
+  const data = {
+    name: intl.formatMessage({
+      id: 'announcements_filter_area.title',
+    }),
+    options: [
+      { id: 'Admin', name: 'Admin' },
+      { id: 'Checkout', name: 'Checkout' },
+      { id: 'Catalog', name: 'Catalog' },
+      { id: 'Payments', name: 'Payments' },
+      { id: 'Orders', name: 'Orders' },
+      { id: 'Promotions', name: 'Promotions' },
+      { id: 'Prices', name: 'Prices' },
+      { id: 'Marketplace', name: 'Marketplace' },
+      { id: 'Intelligent Search', name: 'Intelligent Search' },
+      { id: 'Storefront', name: 'Storefront' },
+      { id: 'Master Data', name: 'Master Data' },
+      { id: 'Audit', name: 'Audit' },
+      { id: 'Identity', name: 'Identity' },
+      { id: 'Logistics', name: 'Logistics' },
+      { id: 'B2B', name: 'B2B' },
+      { id: 'Integrations', name: 'Integrations' },
+      { id: 'VTEX Shield', name: 'VTEX Shield' },
+      { id: 'VTEX Ads', name: 'VTEX Ads' },
+      { id: 'B2B Buyer Portal', name: 'B2B Buyer Portal' },
+      { id: 'VTEX Sales App', name: 'VTEX Sales App' },
+    ],
+  }
+
+  return data
+}
+
 export const sortBy = (intl: IntlShape) => {
   const data = [
     {

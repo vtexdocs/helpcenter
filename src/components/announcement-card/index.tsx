@@ -1,11 +1,25 @@
-import { Box, Text, Link, Flex } from '@vtex/brand-ui'
+import { Box, Flex, Text, Link } from '@vtex/brand-ui'
 
 import type { AnnouncementDataElement } from 'utils/typings/types'
 
 import styles from './styles'
 import Tag from 'components/tag'
 import { useIntl } from 'react-intl'
-import DateText from 'components/date-text'
+
+type AnnouncementTagColor =
+  | 'Fixed'
+  | 'Closed'
+  | 'Scheduled'
+  | 'Deprecation'
+  | 'Backlog'
+
+const typeTagColor: Record<string, AnnouncementTagColor> = {
+  'New feature': 'Fixed',
+  Improvement: 'Closed',
+  'Breaking change': 'Scheduled',
+  Deprecation: 'Deprecation',
+  'Security update': 'Backlog',
+}
 
 export type AnnouncementCardSize = 'small' | 'large'
 
@@ -18,49 +32,41 @@ const AnnouncementCard = ({
   announcement,
   appearance = 'small',
 }: AnnouncementCardProps) => {
-  const { createdAt, updatedAt, url, title } = announcement
+  const { createdAt, url, title } = announcement
   const intl = useIntl()
 
   const createdAtDate = new Date(createdAt)
-  const updatedAtDate = new Date(updatedAt)
-  const currentDate = new Date()
-  const sevenDaysAgo = new Date(currentDate)
-  sevenDaysAgo.setDate(currentDate.getDate() - 7)
-  const isNew = createdAtDate >= sevenDaysAgo && createdAtDate <= currentDate
+  const formattedDate = intl.formatDate(createdAtDate)
 
-  const createdAtText = `${intl.formatMessage({
-    id: 'date_text.created',
-  })}: ${intl.formatDate(createdAtDate)}`
+  const typeTags = (announcement.tags ?? []).filter(
+    (tag) => tag in typeTagColor
+  )
 
   return (
     <Link sx={{ ...styles.link[appearance] }} href={`${url}`}>
       <Box sx={{ ...styles.container, ...styles.containerSpacing[appearance] }}>
-        {isNew && (
-          <Flex sx={styles.bottomContainer}>
-            <Tag sx={styles.tag} color={'New'}>
-              {intl.formatMessage({
-                id: 'announcement_card.new_tag',
-                defaultMessage: 'New',
-              })}
-            </Tag>
+        {typeTags.length > 0 && (
+          <Flex sx={styles.tagContainer}>
+            {typeTags.map((tag) => (
+              <Tag key={tag} color={typeTagColor[tag]}>
+                {intl.formatMessage({
+                  id: `announcements_filter_type.${tag
+                    .toLowerCase()
+                    .replace(/ /g, '_')}`,
+                })}
+              </Tag>
+            ))}
           </Flex>
         )}
         <Text sx={{ ...styles.title[appearance] }} className="title">
           {title}
         </Text>
-        {appearance === 'large' && (
-          <DateText createdAt={createdAtDate} updatedAt={updatedAtDate} />
-        )}
-        {appearance === 'small' && (
-          <Flex sx={styles.datesContainer}>
-            <Text sx={{ ...styles.date[appearance] }}>{createdAtText}</Text>
-          </Flex>
-        )}
         {announcement?.synopsis && (
           <Text sx={{ ...styles.synopsis[appearance] }}>
             {announcement.synopsis}
           </Text>
         )}
+        <Text sx={{ ...styles.date[appearance] }}>{formattedDate}</Text>
       </Box>
     </Link>
   )
