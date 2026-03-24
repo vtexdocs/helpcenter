@@ -19,12 +19,9 @@ const statusColors: {
     | 'Selected'
     | 'New'
     | 'Gray'
-<<<<<<< HEAD
-    | 'Deprecation']: SxStyleProp
-=======
+    | 'Deprecation'
     | 'Blue'
     | 'Green']: SxStyleProp
->>>>>>> 71e495e4 (feat: improve troubleshooting filters and card UI)
 } = {
   Backlog: {
     border: '1px solid #D3D3D3',
@@ -79,12 +76,11 @@ const statusColors: {
     color: '#4A596B',
     background: '#E7E9EE',
   },
-<<<<<<< HEAD
   Deprecation: {
     border: '1px solid #E8A5BE',
     color: '#A23D6E',
     background: '#FCEAF2',
-=======
+  },
   Blue: {
     border: '1px solid #A5C0FF',
     color: '#2953B2',
@@ -94,7 +90,6 @@ const statusColors: {
     border: '1px solid #9FCDB4',
     color: '#3A6E32',
     background: '#DFF5DB',
->>>>>>> 71e495e4 (feat: improve troubleshooting filters and card UI)
   },
 }
 

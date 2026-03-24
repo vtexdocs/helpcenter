@@ -17,12 +17,9 @@ const Tag = ({
     | 'Selected'
     | 'New'
     | 'Gray'
-<<<<<<< HEAD
     | 'Deprecation'
-=======
     | 'Blue'
     | 'Green'
->>>>>>> 71e495e4 (feat: improve troubleshooting filters and card UI)
   onClick?: () => void
 }) => {
   return (

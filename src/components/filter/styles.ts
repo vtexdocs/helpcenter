@@ -96,17 +96,12 @@ const filterContainer: SxStyleProp = {
 }
 
 const tagContainer: SxStyleProp = {
-<<<<<<< HEAD
-  gap: '16px',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
-=======
   display: 'flex',
   flexWrap: 'wrap',
   gap: '12px',
+  justifyContent: 'center',
   overflow: 'visible',
   maxWidth: '100%',
->>>>>>> 71e495e4 (feat: improve troubleshooting filters and card UI)
 }
 
 const tag: SxStyleProp = {
