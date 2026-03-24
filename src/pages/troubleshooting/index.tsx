@@ -50,7 +50,6 @@ const TroubleshootingPage: NextPage<Props> = ({
     domains: string[]
     symptoms: string[]
   }>({ domains: [], symptoms: [] })
-  const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const [search, setSearch] = useState<string>('')
 
   const createDynamicTroubleshootingFilter = (
@@ -156,7 +155,6 @@ const TroubleshootingPage: NextPage<Props> = ({
               value={sortByValue}
               options={sortBy(intl)}
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
-            />
           </Flex>
           <Input
             placeholder={intl.formatMessage({
