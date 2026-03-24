@@ -19,6 +19,15 @@ const typeTagColor: Record<string, AnnouncementTagColor> = {
   'Breaking change': 'Scheduled',
   Deprecation: 'Deprecation',
   'Security update': 'Backlog',
+  'Nueva funcionalidad': 'Fixed',
+  Mejora: 'Closed',
+  'Cambio disruptivo': 'Scheduled',
+  Descontinuación: 'Deprecation',
+  'Actualización de seguridad': 'Backlog',
+  'Nova funcionalidade': 'Fixed',
+  Melhoria: 'Closed',
+  Descontinuação: 'Deprecation',
+  'Atualização de segurança': 'Backlog',
 }
 
 export type AnnouncementCardSize = 'small' | 'large'
@@ -49,11 +58,7 @@ const AnnouncementCard = ({
           <Flex sx={styles.tagContainer}>
             {typeTags.map((tag) => (
               <Tag key={tag} color={typeTagColor[tag]}>
-                {intl.formatMessage({
-                  id: `announcements_filter_type.${tag
-                    .toLowerCase()
-                    .replace(/ /g, '_')}`,
-                })}
+                {tag}
               </Tag>
             ))}
           </Flex>

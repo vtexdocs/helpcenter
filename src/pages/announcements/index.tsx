@@ -238,9 +238,12 @@ export const getStaticProps: GetStaticProps = async ({
         frontmatter &&
         (frontmatter.status === 'PUBLISHED' || frontmatter.status === 'CHANGED')
       ) {
-        const tags: string[] = Array.isArray(frontmatter.tags)
-          ? frontmatter.tags.map(String)
-          : []
+        const tags: string[] =
+          frontmatter.tags &&
+          Array.isArray(frontmatter.tags) &&
+          frontmatter.tags.length > 0
+            ? frontmatter.tags.map(String)
+            : []
 
         const base: AnnouncementDataElement = {
           title: String(frontmatter.title),
