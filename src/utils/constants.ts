@@ -413,38 +413,63 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
+const typeTagsByLocale: Record<string, Record<string, string>> = {
+  en: {
+    new_feature: 'New feature',
+    improvement: 'Improvement',
+    breaking_change: 'Breaking change',
+    deprecation: 'Deprecation',
+    security_update: 'Security update',
+  },
+  es: {
+    new_feature: 'Nueva funcionalidad',
+    improvement: 'Mejora',
+    breaking_change: 'Cambio disruptivo',
+    deprecation: 'Descontinuación',
+    security_update: 'Actualización de seguridad',
+  },
+  pt: {
+    new_feature: 'Nova funcionalidade',
+    improvement: 'Melhoria',
+    breaking_change: 'Breaking change',
+    deprecation: 'Descontinuação',
+    security_update: 'Atualização de segurança',
+  },
+}
+
 export const announcementsTypeFilter = (intl: IntlShape) => {
+  const ids = typeTagsByLocale[intl.locale] || typeTagsByLocale.en
   const data = {
     name: intl.formatMessage({
       id: 'announcements_filter_type.title',
     }),
     options: [
       {
-        id: 'New feature',
+        id: ids.new_feature,
         name: intl.formatMessage({
           id: 'announcements_filter_type.new_feature',
         }),
       },
       {
-        id: 'Improvement',
+        id: ids.improvement,
         name: intl.formatMessage({
           id: 'announcements_filter_type.improvement',
         }),
       },
       {
-        id: 'Breaking change',
+        id: ids.breaking_change,
         name: intl.formatMessage({
           id: 'announcements_filter_type.breaking_change',
         }),
       },
       {
-        id: 'Deprecation',
+        id: ids.deprecation,
         name: intl.formatMessage({
           id: 'announcements_filter_type.deprecation',
         }),
       },
       {
-        id: 'Security update',
+        id: ids.security_update,
         name: intl.formatMessage({
           id: 'announcements_filter_type.security_update',
         }),
@@ -461,26 +486,104 @@ export const announcementsAreaFilter = (intl: IntlShape) => {
       id: 'announcements_filter_area.title',
     }),
     options: [
-      { id: 'Admin', name: 'Admin' },
-      { id: 'Checkout', name: 'Checkout' },
-      { id: 'Catalog', name: 'Catalog' },
-      { id: 'Payments', name: 'Payments' },
-      { id: 'Orders', name: 'Orders' },
-      { id: 'Promotions', name: 'Promotions' },
-      { id: 'Prices', name: 'Prices' },
-      { id: 'Marketplace', name: 'Marketplace' },
-      { id: 'Intelligent Search', name: 'Intelligent Search' },
-      { id: 'Storefront', name: 'Storefront' },
-      { id: 'Master Data', name: 'Master Data' },
-      { id: 'Audit', name: 'Audit' },
-      { id: 'Identity', name: 'Identity' },
-      { id: 'Logistics', name: 'Logistics' },
-      { id: 'B2B', name: 'B2B' },
-      { id: 'Integrations', name: 'Integrations' },
-      { id: 'VTEX Shield', name: 'VTEX Shield' },
-      { id: 'VTEX Ads', name: 'VTEX Ads' },
-      { id: 'B2B Buyer Portal', name: 'B2B Buyer Portal' },
-      { id: 'VTEX Sales App', name: 'VTEX Sales App' },
+      {
+        id: 'Admin',
+        name: intl.formatMessage({ id: 'announcements_filter_area.admin' }),
+      },
+      {
+        id: 'Checkout',
+        name: intl.formatMessage({ id: 'announcements_filter_area.checkout' }),
+      },
+      {
+        id: 'Catalog',
+        name: intl.formatMessage({ id: 'announcements_filter_area.catalog' }),
+      },
+      {
+        id: 'Payments',
+        name: intl.formatMessage({ id: 'announcements_filter_area.payments' }),
+      },
+      {
+        id: 'Orders',
+        name: intl.formatMessage({ id: 'announcements_filter_area.orders' }),
+      },
+      {
+        id: 'Promotions',
+        name: intl.formatMessage({
+          id: 'announcements_filter_area.promotions',
+        }),
+      },
+      {
+        id: 'Prices',
+        name: intl.formatMessage({ id: 'announcements_filter_area.prices' }),
+      },
+      {
+        id: 'Marketplace',
+        name: intl.formatMessage({
+          id: 'announcements_filter_area.marketplace',
+        }),
+      },
+      {
+        id: 'Intelligent Search',
+        name: intl.formatMessage({
+          id: 'announcements_filter_area.intelligent_search',
+        }),
+      },
+      {
+        id: 'Storefront',
+        name: intl.formatMessage({
+          id: 'announcements_filter_area.storefront',
+        }),
+      },
+      {
+        id: 'Master Data',
+        name: intl.formatMessage({
+          id: 'announcements_filter_area.master_data',
+        }),
+      },
+      {
+        id: 'Audit',
+        name: intl.formatMessage({ id: 'announcements_filter_area.audit' }),
+      },
+      {
+        id: 'Identity',
+        name: intl.formatMessage({ id: 'announcements_filter_area.identity' }),
+      },
+      {
+        id: 'Logistics',
+        name: intl.formatMessage({ id: 'announcements_filter_area.logistics' }),
+      },
+      {
+        id: 'B2B',
+        name: intl.formatMessage({ id: 'announcements_filter_area.b2b' }),
+      },
+      {
+        id: 'Integrations',
+        name: intl.formatMessage({
+          id: 'announcements_filter_area.integrations',
+        }),
+      },
+      {
+        id: 'VTEX Shield',
+        name: intl.formatMessage({
+          id: 'announcements_filter_area.vtex_shield',
+        }),
+      },
+      {
+        id: 'VTEX Ads',
+        name: intl.formatMessage({ id: 'announcements_filter_area.vtex_ads' }),
+      },
+      {
+        id: 'B2B Buyer Portal',
+        name: intl.formatMessage({
+          id: 'announcements_filter_area.b2b_buyer_portal',
+        }),
+      },
+      {
+        id: 'VTEX Sales App',
+        name: intl.formatMessage({
+          id: 'announcements_filter_area.vtex_sales_app',
+        }),
+      },
     ],
   }
 
