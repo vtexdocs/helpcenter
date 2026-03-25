@@ -4,7 +4,7 @@ import troubleshooting from '../../../public/images/troubleshooting.png'
 import Head from 'next/head'
 import { useIntl } from 'react-intl'
 import type { GetStaticPropsContext, NextPage } from 'next'
-import { useContext, useMemo, useState } from 'react'
+import { useContext, useEffect, useMemo, useState } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
@@ -38,8 +38,11 @@ const TroubleshootingPage: NextPage<Props> = ({
   availableSymptomFilters,
 }) => {
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
   const intl = useIntl()
+
+  useEffect(() => {
+    setBranchPreview(branch)
+  }, [])
 
   const itemsPerPage = 8
   const [pageIndex, setPageIndex] = useState({
@@ -51,6 +54,7 @@ const TroubleshootingPage: NextPage<Props> = ({
     symptoms: string[]
   }>({ domains: [], symptoms: [] })
   const [search, setSearch] = useState<string>('')
+  const [sortByValue, setSortByValue] = useState<SortByType>('newest')
 
   const createDynamicTroubleshootingFilter = (
     nameId: string,
@@ -155,6 +159,7 @@ const TroubleshootingPage: NextPage<Props> = ({
               value={sortByValue}
               options={sortBy(intl)}
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
+            />
           </Flex>
           <Input
             placeholder={intl.formatMessage({
