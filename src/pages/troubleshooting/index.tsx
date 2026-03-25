@@ -8,12 +8,10 @@ import { useContext, useMemo, useState } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
-import { LocaleType, SortByType } from 'utils/typings/unionTypes'
+import { LocaleType } from 'utils/typings/unionTypes'
 import { Flex } from '@vtex/brand-ui'
-import Select from 'components/select'
 import { TroubleshootingDataElement } from 'utils/typings/types'
 import usePagination from 'utils/hooks/usePagination'
-import { sortBy } from 'utils/constants'
 import TroubleshootingCard from 'components/troubleshooting-card'
 import Pagination from 'components/pagination'
 
@@ -38,8 +36,9 @@ const TroubleshootingPage: NextPage<Props> = ({
   availableSymptomFilters,
 }) => {
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
   const intl = useIntl()
+
+  setBranchPreview(branch)
 
   const itemsPerPage = 8
   const [pageIndex, setPageIndex] = useState({
@@ -80,19 +79,10 @@ const TroubleshootingPage: NextPage<Props> = ({
       return hasSearch && hasFilters
     })
 
-    data.sort((a, b) => {
-      const dateA =
-        sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
-      const dateB =
-        sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
-
-      return dateA.getTime() - dateB.getTime()
-    })
-
     setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale, search])
+  }, [filters, intl.locale, search])
 
   const paginatedResult = usePagination<TroubleshootingDataElement>(
     itemsPerPage,
@@ -150,11 +140,6 @@ const TroubleshootingPage: NextPage<Props> = ({
               selectedCheckboxes={filters.domains}
               selectedTags={filters.symptoms}
             />
-            <Select
-              label={intl.formatMessage({ id: 'sort.label' })}
-              value={sortByValue}
-              options={sortBy(intl)}
-              onSelect={(ordering) => setSortByValue(ordering as SortByType)}
           </Flex>
           <Input
             placeholder={intl.formatMessage({
