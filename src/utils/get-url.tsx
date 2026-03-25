@@ -46,7 +46,7 @@ export const getTwitterURL = () => {
 }
 
 export const getNewsletterURL = (locale: LocaleType = 'en') => {
-  return `https://vtexhelp.myvtex.com/educationnewsletter/${locale}`
+  return `https://help.vtex.com/educationnewsletter/${locale}`
 }
 
 export const getPrivacyNoticeURL = (locale: LocaleType = 'en') => {

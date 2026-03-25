@@ -183,7 +183,8 @@ export interface FaqCardDataElement extends CardDataElement {
 
 export interface TroubleshootingDataElement extends CardDataElement {
   slug: string
-  tags: string[]
+  domainFilters?: string[]
+  symptomFilters?: string[]
 }
 
 export interface ContributorsType {

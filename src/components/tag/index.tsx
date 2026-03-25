@@ -18,6 +18,8 @@ const Tag = ({
     | 'New'
     | 'Gray'
     | 'Deprecation'
+    | 'Blue'
+    | 'Green'
   onClick?: () => void
 }) => {
   return (
