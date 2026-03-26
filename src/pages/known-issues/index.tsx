@@ -174,21 +174,26 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           filters.modules.includes(knownIssue.module))
 
       const title = knownIssue.title.toLowerCase()
+      const id = knownIssue.id
       const hasSearch: boolean =
         searchTerms.length === 0 ||
-        searchTerms.some((term: string) => title.includes(term))
+        searchTerms.some(
+          (term: string) => title.includes(term) || id.includes(term)
+        )
       return hasFilter && hasSearch
     })
 
     const sorted = data.sort((a, b) => {
       const titleA = a.title.toLowerCase()
       const titleB = b.title.toLowerCase()
+      const idA = a.id
+      const idB = b.id
       const matchCountA =
         searchTerms.length === 0
           ? 0
           : searchTerms.reduce(
               (count: number, term: string) =>
-                count + (titleA.includes(term) ? 1 : 0),
+                count + (titleA.includes(term) || idA.includes(term) ? 1 : 0),
               0
             )
       const matchCountB =
@@ -196,7 +201,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           ? 0
           : searchTerms.reduce(
               (count: number, term: string) =>
-                count + (titleB.includes(term) ? 1 : 0),
+                count + (titleB.includes(term) || idB.includes(term) ? 1 : 0),
               0
             )
 
