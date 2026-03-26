@@ -342,7 +342,7 @@
   "menu_status.title": "Status",
   "known_issues_page.title": "Problemas conocidos",
   "known_issues_page.subtitle": "Consulta todos los problemas conocidos, los status y posibles soluciones",
-  "known_issues_page_search.placeholder": "Buscar en Problemas conocidos",
+  "known_issues_page_search.placeholder": "Buscar problemas conocidos por título o ID",
   "known_issues_page_search.priority_tooltip": "Los resultados priorizan títulos con mayor cantidad de términos coincidentes en la búsqueda",
   "filter_modal.title": "Filtros",
   "filter_modal.remove": "Remover filtros",
