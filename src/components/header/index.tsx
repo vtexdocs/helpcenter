@@ -176,20 +176,14 @@ const Header = () => {
 
             {showAnnouncementsDropdown && announcements.length > 0 && (
               <AnnouncementsDropdown
-                announcements={announcements.slice(0, 2).map((announcement) => {
-                  const date = new Date(announcement.createdAt)
-                  const currentDate = new Date()
-                  const sevenDaysAgo = new Date(currentDate)
-                  sevenDaysAgo.setDate(currentDate.getDate() - 7)
-
-                  return {
+                announcements={announcements
+                  .slice(0, 2)
+                  .map((announcement) => ({
                     title: announcement.title,
-                    date: date,
+                    date: new Date(announcement.createdAt),
                     url: `/${announcement.url}`,
-                    isNew: date >= sevenDaysAgo,
                     tags: announcement.tags || [],
-                  }
-                })}
+                  }))}
               />
             )}
           </Flex>

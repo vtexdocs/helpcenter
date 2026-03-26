@@ -86,23 +86,6 @@ const tagsContainer: SxStyleProp = {
   marginBottom: '8px',
 }
 
-const metaInfo: SxStyleProp = {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '6px',
-  marginTop: '4px',
-}
-
-const newBadge: SxStyleProp = {
-  display: 'inline-flex',
-  alignItems: 'center',
-}
-
-const newIcon: SxStyleProp = {
-  width: '14px',
-  height: '14px',
-}
-
 const announcementDate: SxStyleProp = {
   fontSize: '16px',
   lineHeight: '22px',
@@ -141,9 +124,6 @@ export default {
   authorName,
   announcementTitle,
   tagsContainer,
-  metaInfo,
-  newBadge,
-  newIcon,
   announcementDate,
   viewAllButton,
   viewAllText,

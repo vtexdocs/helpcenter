@@ -1,6 +1,5 @@
 import { Box, Flex, Text } from '@vtex/brand-ui'
 import Link from 'next/link'
-import { NewIcon } from '@vtexdocs/components'
 import { useIntl } from 'react-intl'
 import { getDaysElapsed } from 'utils/get-days-elapsed'
 import Tag from 'components/tag'
@@ -10,7 +9,6 @@ export interface AnnouncementDropdownItem {
   title: string
   date: Date
   url: string
-  isNew: boolean
   author?: string
   tags?: string[]
 }
@@ -100,20 +98,11 @@ const AnnouncementsDropdown = ({
                   </Flex>
                 )}
                 <Text sx={styles.announcementTitle}>{announcement.title}</Text>
-                <Flex sx={styles.metaInfo}>
-                  {announcement.isNew && (
-                    <Flex sx={styles.newBadge}>
-                      <NewIcon sx={styles.newIcon} />
-                    </Flex>
-                  )}
-                  <Text sx={styles.announcementDate}>
-                    {`${getDaysElapsed(announcement.date)} ${intl.formatMessage(
-                      {
-                        id: 'relese-note-days-elapsed',
-                      }
-                    )}`}
-                  </Text>
-                </Flex>
+                <Text sx={styles.announcementDate}>
+                  {`${getDaysElapsed(announcement.date)} ${intl.formatMessage({
+                    id: 'relese-note-days-elapsed',
+                  })}`}
+                </Text>
               </Box>
             </Link>
           ))}
