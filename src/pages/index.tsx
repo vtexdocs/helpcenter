@@ -98,6 +98,8 @@ export const getStaticProps: GetStaticProps = async ({
   const announcementsData: AnnouncementDataElement[] = []
 
   for (const slug of slugs) {
+    if (announcementsData.length >= 2) break
+
     const [result] = await fetchBatch(
       [slug],
       'help-center-content',

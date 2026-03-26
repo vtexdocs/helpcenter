@@ -99,15 +99,16 @@ const dropdownButton: (active: boolean) => SxStyleProp = (active: boolean) => ({
   alignItems: 'center',
   svg: {
     mr: '8px',
+    fill: 'none',
     path: {
-      fill: active ? '#D71D55' : '#4A596B',
+      stroke: active ? '#D71D55' : '#4A596B',
     },
   },
 
   ':hover': {
     color: '#C81E51',
     'svg > path': {
-      fill: '#C81E51',
+      stroke: '#C81E51',
     },
   },
 })
