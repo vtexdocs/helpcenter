@@ -45,7 +45,6 @@ const Header = () => {
   const { branchPreview } = useContext(PreviewContext)
   const { announcements } = useAnnouncements()
 
-  const lastScroll = useRef(0)
   const modalOpen = useRef(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const [showAnnouncementsDropdown, setShowAnnouncementsDropdown] =
@@ -96,11 +95,9 @@ const Header = () => {
       }
     }
 
-    window.removeEventListener('scroll', onScroll)
     window.addEventListener('scroll', onScroll, { passive: true })
-
     return () => window.removeEventListener('scroll', onScroll)
-  }, [headerElement.current])
+  }, [])
 
   useEffect(() => {
     const hideDropdown = () => {

@@ -23,6 +23,7 @@ const sideMenuContainer: SxStyleProp = {
 
 const headerContainer: SxStyleProp = {
   position: 'sticky',
+  top: 0,
   zIndex: 9999,
   width: '100%',
   transition: 'top 0.3s',
