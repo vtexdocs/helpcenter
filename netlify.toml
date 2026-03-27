@@ -99,7 +99,7 @@ to = "/docs/tracks/vtex-sales-app-pagos"
 force = true
 from = "/pt/docs/tracks/instore-pagamentos"
 status = 308
-to = "/docs/track/vtex-sales-app-pagamentos"
+to = "/docs/tracks/vtex-sales-app-pagamentos"
 
 [[redirects]]
 force = true
@@ -159,7 +159,7 @@ to = "/docs/tracks/vtex-sales-app-using-the-app-category"
 force = true
 from = "/docs/tracks/instore-using-the-app-category"
 status = 308
-to = "/docs/docs/tracks/vtex-sales-app-using-the-app-category"
+to = "/docs/tracks/vtex-sales-app-using-the-app-category"
 
 [[redirects]]
 force = true
