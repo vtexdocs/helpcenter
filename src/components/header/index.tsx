@@ -46,6 +46,7 @@ const Header = () => {
   const { announcements } = useAnnouncements()
 
   const modalOpen = useRef(false)
+  const lastScroll = useRef(0)
   const [showDropdown, setShowDropdown] = useState(false)
   const [showAnnouncementsDropdown, setShowAnnouncementsDropdown] =
     useState(false)
