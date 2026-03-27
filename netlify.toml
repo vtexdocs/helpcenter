@@ -163,6 +163,12 @@ to = "/docs/tracks/vtex-sales-app-using-the-app-category"
 
 [[redirects]]
 force = true
+from = "/es/docs/tutorials/agregar-o-editar-organizational-units"
+status = 308
+to = "/docs/tutorials/agregar-o-editar-unidades-organizativas"
+
+[[redirects]]
+force = true
 from = "/pt/docs/tutorials/importar-e-exportar-produtos-e-skus-via-planilha-beta"
 status = 308
 to = "/docs/tutorials/importar-e-exportar-produtos-e-skus-via-planilha"
