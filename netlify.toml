@@ -91,6 +91,78 @@ to = "/docs/tracks/definir-los-medios-de-pago-mostrados-en-vtex-sales-app"
 
 [[redirects]]
 force = true
+from = "/es/docs/tracks/instore-pagos"
+status = 308
+to = "/docs/tracks/vtex-sales-app-pagos"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tracks/instore-pagamentos"
+status = 308
+to = "/docs/track/vtex-sales-app-pagamentos"
+
+[[redirects]]
+force = true
+from = "/en/docs/tracks/instore-payments"
+status = 308
+to = "/docs/tracks/vtex-sales-app-payments"
+
+[[redirects]]
+force = true
+from = "/docs/tracks/instore-payments"
+status = 308
+to = "/docs/tracks/vtex-sales-app-payments"
+
+[[redirects]]
+force = true
+from = "/es/docs/tracks/instore-primeros-pasos-y-configuracion"
+status = 308
+to = "/docs/tracks/vtex-sales-app-primeros-pasos-y-configuracion"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tracks/instore-primeiros-passos-e-configuracoes"
+status = 308
+to = "/docs/tracks/vtex-sales-app-primeiros-passos-e-configuracoes"
+
+[[redirects]]
+force = true
+from = "/en/docs/tracks/instore-getting-started-and-setting-up"
+status = 308
+to = "/docs/tracks/vtex-sales-app-getting-started-and-setting-up"
+
+[[redirects]]
+force = true
+from = "/docs/tracks/instore-getting-started-and-setting-up"
+status = 308
+to = "/docs/tracks/vtex-sales-app-getting-started-and-setting-up"
+
+[[redirects]]
+force = true
+from = "/es/docs/tracks/instore-usando-el-app-category"
+status = 308
+to = "/docs/tracks/vtex-sales-app-usando-el-app-category"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tracks/instore-usando-o-app-category"
+status = 308
+to = "/docs/tracks/vtex-sales-app-usando-o-app-category"
+
+[[redirects]]
+force = true
+from = "/en/docs/tracks/instore-using-the-app-category"
+status = 308
+to = "/docs/tracks/vtex-sales-app-using-the-app-category"
+
+[[redirects]]
+force = true
+from = "/docs/tracks/instore-using-the-app-category"
+status = 308
+to = "/docs/docs/tracks/vtex-sales-app-using-the-app-category"
+
+[[redirects]]
+force = true
 from = "/pt/docs/tutorials/importar-e-exportar-produtos-e-skus-via-planilha-beta"
 status = 308
 to = "/docs/tutorials/importar-e-exportar-produtos-e-skus-via-planilha"
