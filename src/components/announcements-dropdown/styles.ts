@@ -11,7 +11,6 @@ const outerContainer: SxStyleProp = {
   minWidth: '420px',
   maxWidth: '480px',
   zIndex: -1,
-  right: 0,
 }
 
 const innerContainer: SxStyleProp = {
