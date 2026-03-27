@@ -15,6 +15,7 @@ export type Page<P = {}, IP = P> = NextPage<P, IP> & {
   sidebarfallback?: any //eslint-disable-line
   hideSidebar?: boolean
   isPreview?: boolean
+  announcements?: AnnouncementDataElement[]
 }
 
 export type ArticlePageProps =

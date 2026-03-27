@@ -20,10 +20,12 @@ const HamburgerMenu = dynamic(
 ) as React.FC<{ parentsArray?: string[] }>
 
 import DropdownMenu from 'components/dropdown-menu'
+import AnnouncementsDropdown from 'components/announcements-dropdown'
 import {
   VTEXHelpCenterIcon,
   GridIcon,
   LongArrowIcon,
+  MegaphoneIcon,
 } from '@vtexdocs/components'
 import { getFeedbackURL } from 'utils/get-url'
 
@@ -33,6 +35,7 @@ import LocaleSwitcher from 'components/locale-switcher'
 import styles from './styles'
 import { PreviewContext } from 'utils/contexts/preview'
 import { FormattedMessage } from 'react-intl'
+import { useAnnouncements } from 'utils/hooks/useAnnouncements'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Header = () => {
@@ -40,9 +43,13 @@ const Header = () => {
   const isBranchPreview = router.isPreview
 
   const { branchPreview } = useContext(PreviewContext)
+  const { announcements } = useAnnouncements()
 
   const modalOpen = useRef(false)
+  const lastScroll = useRef(0)
   const [showDropdown, setShowDropdown] = useState(false)
+  const [showAnnouncementsDropdown, setShowAnnouncementsDropdown] =
+    useState(false)
   const [currentUrl, setCurrentUrl] = useState<string>('')
   const headerElement = useRef<HTMLElement>()
 
@@ -74,6 +81,19 @@ const Header = () => {
   useEffect(() => {
     const onScroll = () => {
       setShowDropdown(false)
+      setShowAnnouncementsDropdown(false)
+      if (headerElement.current && !modalOpen.current) {
+        const headerHeight = headerElement.current.children[0].clientHeight
+        if (
+          window.scrollY > headerHeight &&
+          window.scrollY > lastScroll.current
+        ) {
+          headerElement.current.style.top = `-${headerHeight}px`
+        } else {
+          headerElement.current.style.top = '0'
+        }
+        lastScroll.current = window.scrollY
+      }
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -83,6 +103,7 @@ const Header = () => {
   useEffect(() => {
     const hideDropdown = () => {
       setShowDropdown(false)
+      setShowAnnouncementsDropdown(false)
     }
 
     router.events.on('routeChangeStart', hideDropdown)
@@ -131,6 +152,38 @@ const Header = () => {
             </Flex>
 
             {showDropdown && <DropdownMenu />}
+          </Flex>
+
+          <Flex
+            sx={{
+              ...styles.dropdownContainer,
+              marginLeft: '32px',
+            }}
+            onMouseOver={() => setShowAnnouncementsDropdown(true)}
+            onMouseLeave={() => setShowAnnouncementsDropdown(false)}
+          >
+            <Flex sx={styles.dropdownButton(showAnnouncementsDropdown)}>
+              <MegaphoneIcon />
+              <Text
+                sx={styles.rightButtonsText}
+                data-cy="announcements-dropdown"
+              >
+                <FormattedMessage id="landing_page_header_announcements.message" />
+              </Text>
+            </Flex>
+
+            {showAnnouncementsDropdown && announcements.length > 0 && (
+              <AnnouncementsDropdown
+                announcements={announcements
+                  .slice(0, 2)
+                  .map((announcement) => ({
+                    title: announcement.title,
+                    date: new Date(announcement.createdAt),
+                    url: `/${announcement.url}`,
+                    tags: announcement.tags || [],
+                  }))}
+              />
+            )}
           </Flex>
 
           <VtexLink
