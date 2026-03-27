@@ -17833,6 +17833,37 @@
             },
             {
               "name": {
+                "en": "CMS",
+                "es": "CMS",
+                "pt": "CMS"
+              },
+              "slug": {
+                "en": "cms-beta",
+                "es": "cms-beta",
+                "pt": "cms-beta"
+              },
+              "origin": "",
+              "type": "category",
+              "children": [
+                {
+                  "name": {
+                    "en": "Content Management overview",
+                    "es": "Información general de la gestión de contenidos",
+                    "pt": "Visão geral do CMS"
+                  },
+                  "slug": {
+                    "en": "cms-overview-beta",
+                    "es": "cms-informacion-general-beta",
+                    "pt": "cms-visao-geral-beta"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": {
                 "en": "Dashboards Beta",
                 "es": "Dashboards Beta",
                 "pt": "Dashboards Beta"
