@@ -41,7 +41,6 @@ const Header = () => {
 
   const { branchPreview } = useContext(PreviewContext)
 
-  const lastScroll = useRef(0)
   const modalOpen = useRef(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const [currentUrl, setCurrentUrl] = useState<string>('')
@@ -75,25 +74,11 @@ const Header = () => {
   useEffect(() => {
     const onScroll = () => {
       setShowDropdown(false)
-      if (headerElement.current && !modalOpen.current) {
-        const headerHeight = headerElement.current.children[0].clientHeight
-        if (
-          window.scrollY > headerHeight &&
-          window.scrollY > lastScroll.current
-        ) {
-          headerElement.current.style.top = `-${headerHeight}px`
-        } else {
-          headerElement.current.style.top = '0'
-        }
-        lastScroll.current = window.scrollY
-      }
     }
 
-    window.removeEventListener('scroll', onScroll)
     window.addEventListener('scroll', onScroll, { passive: true })
-
     return () => window.removeEventListener('scroll', onScroll)
-  }, [headerElement.current])
+  }, [])
 
   useEffect(() => {
     const hideDropdown = () => {
