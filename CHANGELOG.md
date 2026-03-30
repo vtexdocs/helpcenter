@@ -2,6 +2,67 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.13.1](https://github.com/vtexdocs/helpcenter/compare/v0.10.4...v0.13.1) (2026-03-30)
+
+
+### Features
+
+* add subscription list component ([58e8bec](https://github.com/vtexdocs/helpcenter/commit/58e8bec0eb003d32bb21d2bfe27d8921dac572dc))
+* changing announcements card ([2b409c2](https://github.com/vtexdocs/helpcenter/commit/2b409c273ac07692b550ec472973b4e2a9c08282))
+* creating filter for Announcements page ([b51caaf](https://github.com/vtexdocs/helpcenter/commit/b51caaf9898571bcd3616723652a3b1a73f86e2a))
+* creating styles for each announcements card Type filter option ([2daf3df](https://github.com/vtexdocs/helpcenter/commit/2daf3dfc075a943c53c1a380c342f3a60da84aae))
+* **en.json:** testing ([5797674](https://github.com/vtexdocs/helpcenter/commit/57976747ea946605c1e8a3cb96cac7b840da62e0))
+* fixing a building error ([4d615b9](https://github.com/vtexdocs/helpcenter/commit/4d615b9a99e129c590c83b7e0ecb3dc256ae6df6))
+* fixing es and pt area filters ([964cffc](https://github.com/vtexdocs/helpcenter/commit/964cffc9afef858c558b2e402191dd59ef49ddac))
+* **i18n:** add privacy notice messages and URLs for subscription list ([08859c9](https://github.com/vtexdocs/helpcenter/commit/08859c9152f63aa78100d99433daa360cd5862cb))
+* **i18n:** add translations for subscription list messages ([431187f](https://github.com/vtexdocs/helpcenter/commit/431187f99647fe98b7605f0e48ccf8e19bfda8e5))
+* **i18n:** localize component messages ([112600e](https://github.com/vtexdocs/helpcenter/commit/112600e4ebfcd334e70712f27915db417db238a3))
+* import component into the homepage ([d3a9fa3](https://github.com/vtexdocs/helpcenter/commit/d3a9fa3f60c2298d5481f1ca110547e68375bb80))
+* improve troubleshooting filters and card UI ([d3ed2ec](https://github.com/vtexdocs/helpcenter/commit/d3ed2ec42737e8c1f71ad06f55cc1e9334328a0b))
+* known issue ID search ([4e60646](https://github.com/vtexdocs/helpcenter/commit/4e606462a366d140e641a00bd5dfbaa0041d4ea5))
+* localizing the ES and PT filters ([3561545](https://github.com/vtexdocs/helpcenter/commit/3561545192d25a0ead3e68c47990b67ae6218b15))
+* making the help-center-content files to return to the filtering ([40040da](https://github.com/vtexdocs/helpcenter/commit/40040da0de64ed8af52347158c8e62c553281912))
+* removing sort by filter from announcements ([3043c13](https://github.com/vtexdocs/helpcenter/commit/3043c137e24e1f64e84d573bde2d14cc5960c1f7))
+
+
+### Bug Fixes
+
+* add redirect for b2b trade policies overview ([2c9251e](https://github.com/vtexdocs/helpcenter/commit/2c9251e044b4037d33ec2f105d1108d3d033612e))
+* **en.json:** typos ([832c89b](https://github.com/vtexdocs/helpcenter/commit/832c89b4e4c7e2108fe257c8b109c0e00ed48a8c))
+* **header:** fix scrolling behavior ([5804d14](https://github.com/vtexdocs/helpcenter/commit/5804d1437af70acdb13e8d6c87aef61e004d283f))
+* **index.tsx:** localized messages ([553dad5](https://github.com/vtexdocs/helpcenter/commit/553dad5e3d7be7e5d47ccce68cde999912c61c38))
+* **index.tsx:** reorder component in homepage ([8ea65ed](https://github.com/vtexdocs/helpcenter/commit/8ea65ed32c8eab8ff6b88c537c8ece2a02d80349))
+* **index.tsx:** testing to fix the locale type ([15b7f58](https://github.com/vtexdocs/helpcenter/commit/15b7f58edd4fe3d3b517e54e64b06cbd8aacea4d))
+* resolve tag component merge conflicts ([bf96954](https://github.com/vtexdocs/helpcenter/commit/bf9695419cecdb1534c1e47d045ed60ebc10b406))
+* resolve troubleshooting page syntax error ([44dbd6f](https://github.com/vtexdocs/helpcenter/commit/44dbd6f03196cbac66c6f6d77473db83a91bf213))
+* standardize known issues search placeholder text across languages ([fca2f3e](https://github.com/vtexdocs/helpcenter/commit/fca2f3ea18d6027933b477009ee508721e222a82))
+* **styles.ts:** button format ([7833765](https://github.com/vtexdocs/helpcenter/commit/7833765d9189bc4c99efb5337e4da0d93ea0a9f8))
+* **styles.ts:** remove comments ([096226c](https://github.com/vtexdocs/helpcenter/commit/096226cd0d945983465b49b39e776cad1b235122))
+* **troublehsooting:** remove sort by dropwdown selector ([7adf297](https://github.com/vtexdocs/helpcenter/commit/7adf297880e1e0f6e3092509572701f74a04d1a4))
+* update known issue search placeholder with ID ([e72858e](https://github.com/vtexdocs/helpcenter/commit/e72858e597e002b73fb17d23afcc080b830501a0))
+
+
+### Refactoring
+
+* **styles.ts:** update input handling and styles ([9a043a4](https://github.com/vtexdocs/helpcenter/commit/9a043a415b0f9fd47591871fa464b23e0f2b8f76))
+* **subscription-list:** update privacy policy links and localize URLs ([a9d1f87](https://github.com/vtexdocs/helpcenter/commit/a9d1f87db3103b86343b903b939cab6a5d7b8656))
+
+
+### Style
+
+* adding space in announcements cards belo the Type filter labels ([79e8a7d](https://github.com/vtexdocs/helpcenter/commit/79e8a7dfc80c5d517e56286bce2ebc7b6af5e2cd))
+* increasing label and title inbetween space in announcement card ([add5030](https://github.com/vtexdocs/helpcenter/commit/add50308a2f200d1239b7828114848c732e96cf2))
+* **styles.ts:** add whitespace to button ([c016bd2](https://github.com/vtexdocs/helpcenter/commit/c016bd2238b9e84b2b8fb2f08ddcfdfbc88aa405))
+
+
+### Docs
+
+* create instore sales app redirects ([e489ec3](https://github.com/vtexdocs/helpcenter/commit/e489ec396bd2257cfdc1f6c51abf83f3a13684f1))
+* eS redirect about organizational units ([79e21ce](https://github.com/vtexdocs/helpcenter/commit/79e21ce44306485f5d5291521cc63748c6eeb41b))
+* fix instore redirects ([dc87622](https://github.com/vtexdocs/helpcenter/commit/dc87622877098bd6aa562e612ff47681a1816274))
+* new redirect ([b7f654e](https://github.com/vtexdocs/helpcenter/commit/b7f654e71e30269253563e60a7d6757d3fac6a29))
+* redirect ([51f7049](https://github.com/vtexdocs/helpcenter/commit/51f7049acad6b291a77ae005dfd32f09370bc979))
+
 ### [0.10.4](https://github.com/vtexdocs/helpcenter/compare/v0.10.3...v0.10.4) (2026-03-17)
 
 
