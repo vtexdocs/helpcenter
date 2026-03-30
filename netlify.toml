@@ -448,3 +448,9 @@ force = true
 from = "/en/docs/tutorials/configuring-adyen-gateway"
 status = 308
 to = "https://developers.vtex.com/docs/apps/adyen.payment-provider-v3"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/b2b-trade-policies-overview"
+status = 308
+to = "/en/docs/tutorials/b2b-sales-channels-overview"
