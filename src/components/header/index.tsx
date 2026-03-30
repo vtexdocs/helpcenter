@@ -46,7 +46,6 @@ const Header = () => {
   const { announcements } = useAnnouncements()
 
   const modalOpen = useRef(false)
-  const lastScroll = useRef(0)
   const [showDropdown, setShowDropdown] = useState(false)
   const [showAnnouncementsDropdown, setShowAnnouncementsDropdown] =
     useState(false)
@@ -82,18 +81,6 @@ const Header = () => {
     const onScroll = () => {
       setShowDropdown(false)
       setShowAnnouncementsDropdown(false)
-      if (headerElement.current && !modalOpen.current) {
-        const headerHeight = headerElement.current.children[0].clientHeight
-        if (
-          window.scrollY > headerHeight &&
-          window.scrollY > lastScroll.current
-        ) {
-          headerElement.current.style.top = `-${headerHeight}px`
-        } else {
-          headerElement.current.style.top = '0'
-        }
-        lastScroll.current = window.scrollY
-      }
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
