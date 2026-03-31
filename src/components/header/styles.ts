@@ -60,12 +60,10 @@ const rightLinks: SxStyleProp = {
 }
 
 const rightLinksItem: SxStyleProp = {
-  display: [
-    'none !important',
-    'none !important',
-    'none !important',
-    'flex !important',
-  ],
+  display: 'none !important',
+  '@media screen and (min-width: 1470px)': {
+    display: 'flex !important',
+  },
   visibility: 'visible',
   alignItems: 'center',
   padding: '0 !important',
@@ -83,12 +81,10 @@ const rightLinksItem: SxStyleProp = {
 }
 
 const dropdownContainer: SxStyleProp = {
-  display: [
-    'none !important',
-    'none !important',
-    'none !important',
-    'flex !important',
-  ],
+  display: 'none !important',
+  '@media screen and (min-width: 1470px)': {
+    display: 'flex !important',
+  },
   textTransform: 'none',
   justifyContent: 'flex-end',
   height: 'calc(100% + 1px)',
@@ -100,15 +96,16 @@ const dropdownButton: (active: boolean) => SxStyleProp = (active: boolean) => ({
   alignItems: 'center',
   svg: {
     mr: '8px',
+    fill: 'none',
     path: {
-      fill: active ? '#D71D55' : '#4A596B',
+      stroke: active ? '#D71D55' : '#4A596B',
     },
   },
 
   ':hover': {
     color: '#C81E51',
     'svg > path': {
-      fill: '#C81E51',
+      stroke: '#C81E51',
     },
   },
 })
@@ -197,12 +194,20 @@ const containerHamburguerLocale: SxStyleProp = {
   marginLeft: ['0', '0', '0', '32px'],
   gap: '20px',
 
+  '@media screen and (max-width: 1469px)': {
+    borderLeft: 'none',
+    marginLeft: '0',
+  },
+
   '& > :first-of-type': {
     '& > button:first-of-type': {
       borderLeft: 'none',
       padding: '0px 0px 0px 0px',
       width: '24px',
       height: '24px',
+      '@media screen and (max-width: 1469px)': {
+        display: 'block !important',
+      },
     },
   },
 }
