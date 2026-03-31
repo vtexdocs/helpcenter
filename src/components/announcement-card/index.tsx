@@ -5,30 +5,7 @@ import type { AnnouncementDataElement } from 'utils/typings/types'
 import styles from './styles'
 import Tag from 'components/tag'
 import { useIntl } from 'react-intl'
-
-type AnnouncementTagColor =
-  | 'Fixed'
-  | 'Closed'
-  | 'Scheduled'
-  | 'Deprecation'
-  | 'Backlog'
-
-const typeTagColor: Record<string, AnnouncementTagColor> = {
-  'New feature': 'Fixed',
-  Improvement: 'Closed',
-  'Breaking change': 'Scheduled',
-  Deprecation: 'Deprecation',
-  'Security update': 'Backlog',
-  'Nueva funcionalidad': 'Fixed',
-  Mejora: 'Closed',
-  'Cambio disruptivo': 'Scheduled',
-  Descontinuación: 'Deprecation',
-  'Actualización de seguridad': 'Backlog',
-  'Nova funcionalidade': 'Fixed',
-  Melhoria: 'Closed',
-  Descontinuação: 'Deprecation',
-  'Atualização de segurança': 'Backlog',
-}
+import { getTagColorByLocalizedName } from 'utils/constants'
 
 export type AnnouncementCardSize = 'small' | 'large'
 
@@ -47,9 +24,12 @@ const AnnouncementCard = ({
   const createdAtDate = new Date(createdAt)
   const formattedDate = intl.formatDate(createdAtDate)
 
-  const typeTags = (announcement.tags ?? []).filter(
-    (tag) => tag in typeTagColor
-  )
+  const typeTags = (announcement.tags ?? [])
+    .map((tag) => ({
+      name: tag,
+      color: getTagColorByLocalizedName(tag),
+    }))
+    .filter((tag) => tag.color !== undefined)
 
   return (
     <Link sx={{ ...styles.link[appearance] }} href={`${url}`}>
@@ -57,8 +37,8 @@ const AnnouncementCard = ({
         {typeTags.length > 0 && (
           <Flex sx={styles.tagContainer}>
             {typeTags.map((tag) => (
-              <Tag key={tag} color={typeTagColor[tag]}>
-                {tag}
+              <Tag key={tag.name} color={tag.color!}>
+                {tag.name}
               </Tag>
             ))}
           </Flex>
