@@ -454,3 +454,9 @@ force = true
 from = "/en/docs/tutorials/b2b-trade-policies-overview"
 status = 308
 to = "/en/docs/tutorials/b2b-sales-channels-overview"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/configurando-dominios-no-gerenciamento-da-conta"
+status = 308
+to = "/pt/docs/tutorials/configurar-o-dominio-da-loja"
