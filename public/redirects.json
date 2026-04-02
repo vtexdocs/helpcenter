@@ -17676,8 +17676,8 @@
         "to": "/es/troubleshooting"
       },
       {
-        "from": "pt/docs/tracks/configurar-integracao-com-a-amazon",
-        "to": "pt/docs/tracks/configurar-a-integracao-da-amazon"
+        "from": "/pt/docs/tracks/configurar-integracao-com-a-amazon",
+        "to": "/pt/docs/tracks/configurar-a-integracao-da-amazon"
       },
       {
         "from": "/pt/docs/tutorials/promocoes-do-mercado-livre",
