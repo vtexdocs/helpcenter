@@ -28,7 +28,7 @@
       {
         "from": "/tutorial/criar-um-produto-beta--2nkoy6RakJEVF7ug4ZP0bP",
         "to": "/tutorials/adding-or-editing-products"
-      },      
+      },
       {
         "from": "/faq/donde-veo-a-los-clientes-que-utilizan-recurrencia",
         "to": "/tutorial/donde-veo-a-los-clientes-que-utilizan-recurrencia"
@@ -54,7 +54,7 @@
         "to": "/tutorial/como-cambiar-la-ordenacion-de-tipos-de-entrega-en-el-carrito"
       },
       {
-        "from": "v4/docs/planner-releases-page--1tQNCNwoMvxV4EoizajqJw",
+        "from": "/v4/docs/planner-releases-page--1tQNCNwoMvxV4EoizajqJw",
         "to": "/tutorial/planner-releases-page-beta--2p7IiVD6K8i1iRiwHph5sw"
       },
       {
@@ -250,8 +250,8 @@
         "to": "/tutorial/como-borrar-coleccion"
       },
       {
-        "from": "v4/docs/gestao-de-anuncios--26VJ9h3EkYTzVKGYs00ujJ",
-        "to": "tutorial/gerenciamento-de-anuncios--7MRb9S78aBdZjFGpbuffpE"
+        "from": "/v4/docs/gestao-de-anuncios--26VJ9h3EkYTzVKGYs00ujJ",
+        "to": "/tutorial/gerenciamento-de-anuncios--7MRb9S78aBdZjFGpbuffpE"
       },
       {
         "from": "https://developers.vtex.com/vtex-rest-api/docs/how-to-add-and-handle-custom-information-in-the-order",
@@ -391,27 +391,31 @@
       },
       {
         "from": "/tutorial/o-que-preciso-fazer-para-mudar-o-dominio-da-minha-loja--frequentlyAskedQuestions_626",
-        "to": "/tutorial/configurando-dominios-no-gerenciamento-da-conta--tutorials_2450"
+        "to": "/pt/docs/tutorials/configurar-o-dominio-da-loja"
       },
       {
         "from": "/tutorial/how-can-i-change-the-domain-of-my-store--frequentlyAskedQuestions_626",
-        "to": "/tutorial/configurando-dominios-no-gerenciamento-da-conta--tutorials_2450"
+        "to": "/docs/tutorials/configuring-the-store-domain"
       },
       {
         "from": "/tutorial/como-cambiar-el-dominio-de-la-tienda--frequentlyAskedQuestions_626",
-        "to": "/tutorial/configurando-dominios-no-gerenciamento-da-conta--tutorials_2450"
+        "to": "/es/docs/tutorials/configurar-dominio-de-la-tienda"
       },
       {
         "from": "/tutorial/o-que-preciso-fazer-para-mudar-o-dominio-da-minha-loja",
-        "to": "/tutorial/configurando-dominios-no-gerenciamento-da-conta--tutorials_2450"
+        "to": "/pt/docs/tutorials/configurar-o-dominio-da-loja"
+      },
+      {
+        "from": "/pt/docs/tutorials/configurando-dominios-no-gerenciamento-da-conta",
+        "to": "/pt/docs/tutorials/configurar-o-dominio-da-loja"
       },
       {
         "from": "/tutorial/how-can-i-change-the-domain-of-my-store",
-        "to": "/tutorial/configurando-dominios-no-gerenciamento-da-conta--tutorials_2450"
+        "to": "/docs/tutorials/configuring-the-store-domain"
       },
       {
         "from": "/tutorial/como-cambiar-el-dominio-de-la-tienda",
-        "to": "/tutorial/configurando-dominios-no-gerenciamento-da-conta--tutorials_2450"
+        "to": "/es/docs/tutorials/configurar-dominio-de-la-tienda"
       },
       {
         "from": "/known-issues/estoque-reservado-em-pedidos-faturados--TfDOKEybi6eSAEoCEEAqg",
@@ -422,7 +426,7 @@
         "to": "/tutorial/como-funciona-el-healthcheck-de-vtex"
       },
       {
-        "from": "v4/docs/planner-pagina-calendario--6GESJ17RFvGrvF9JqToron",
+        "from": "/v4/docs/planner-pagina-calendario--6GESJ17RFvGrvF9JqToron",
         "to": "/tutorial/planner-pagina-calendario-beta--46wSZ7Z5xoXQPP0xHfIx9C"
       },
       {
@@ -678,7 +682,7 @@
         "to": "/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR"
       },
       {
-        "from": "en/announcements/vtex-provides-klarna-pay-now-and-klarna-pay-later-payment-methods-for-the--1YAcV4TEeNlhL49jvdX2w1",
+        "from": "/en/announcements/vtex-provides-klarna-pay-now-and-klarna-pay-later-payment-methods-for-the--1YAcV4TEeNlhL49jvdX2w1",
         "to": "/en/tutorial/list-of-payment-providers-by-country--2im3BEGXxSAcRuxEaIHPvp"
       },
       {
@@ -794,8 +798,8 @@
         "to": "/tutorial/performance-de-paginas-web--4cRiiTByzNMulixZec5YaG"
       },
       {
-        "from": "pt/tutorial/vinculos-de-sku--1SmrVgNwjJX17hdqwLa0TX",
-        "to": "pt/v4/docs/vinculos-de-sku--377K8fkQFwdHzQPNREpkJT"
+        "from": "/pt/tutorial/vinculos-de-sku--1SmrVgNwjJX17hdqwLa0TX",
+        "to": "/pt/v4/docs/vinculos-de-sku--377K8fkQFwdHzQPNREpkJT"
       },
       {
         "from": "/faq/que-es-una-condicion-de-pago-offline",
@@ -1038,7 +1042,7 @@
         "to": "/en/tutorial/banners--72XytEoeqOAOiH05oVF0pH"
       },
       {
-        "from": "v4/docs/cms-overview--5E1domEld9BhQYVMdm9b6A",
+        "from": "/v4/docs/cms-overview--5E1domEld9BhQYVMdm9b6A",
         "to": "/tutorial/cms-visao-geral--2X1xWJi9WmtNylxmggn3ts"
       },
       {
@@ -1118,7 +1122,7 @@
         "to": "/pt/tracks/vtex-intelligent-search--19wrbB7nEQcmwzDPl1l4Cb/1pxAWPEglBey1UFdvcetZV"
       },
       {
-        "from": "pt/tutorial/configurando-o-checkout-global",
+        "from": "/pt/tutorial/configurando-o-checkout-global",
         "to": "https://developers.vtex.com/vtex-rest-api/docs/setting-up-the-global-checkout"
       },
       {
@@ -1250,8 +1254,8 @@
         "to": "/tutorial/como-e-apurado-o-sla-de-operacao-da-plataforma"
       },
       {
-        "from": "pt/v4/docs/visao-geral-marketplace--1MwABSIGjYSrFPUXhnUXiV",
-        "to": "pt/tutorial/visao-geral-marketplace--40Zd0z9h2RXsM9uMUp3kEb"
+        "from": "/pt/v4/docs/visao-geral-marketplace--1MwABSIGjYSrFPUXhnUXiV",
+        "to": "/pt/tutorial/visao-geral-marketplace--40Zd0z9h2RXsM9uMUp3kEb"
       },
       {
         "from": "/tutorial/como-funciona-o-frete-do-mercado-livre-quando-o-mercado-envios-e-usado",
@@ -1490,8 +1494,8 @@
         "to": "/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/3moFonW33dgOYDrU21Z1X0"
       },
       {
-        "from": "tracks/configurar-logistica-para-o-mercado-livre--4551ZlEQI8qmiSWieigoKy",
-        "to": "pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4551ZlEQI8qmiSWieigoKy"
+        "from": "/tracks/configurar-logistica-para-o-mercado-livre--4551ZlEQI8qmiSWieigoKy",
+        "to": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4551ZlEQI8qmiSWieigoKy"
       },
       {
         "from": "/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/6UjLHdAT5YLuflki10SXLr",
@@ -1554,7 +1558,7 @@
         "to": "https://developers.vtex.com/vtex-rest-api/docs/auto-increment-field"
       },
       {
-        "from": "v4/docs/cms-visao-geral--5E1domEld9BhQYVMdm9b6A",
+        "from": "/v4/docs/cms-visao-geral--5E1domEld9BhQYVMdm9b6A",
         "to": "/tutorial/cms-visao-geral--2X1xWJi9WmtNylxmggn3ts"
       },
       {
@@ -2366,7 +2370,7 @@
         "to": "/en/tutorial/intelligent-synonyms--1rR47Kk96UgFYwh8dkDG7i"
       },
       {
-        "from": "en/announcements/vtex-provides-klarna-pay-now-and-klarna-pay-later-payment-methods-for-the--1YAcV4TEeNlhL49jvdX2w1?&utm_source=autocomplete&_ga=2.100051100.346645988.1732536607-724250621.1718387656",
+        "from": "/en/announcements/vtex-provides-klarna-pay-now-and-klarna-pay-later-payment-methods-for-the--1YAcV4TEeNlhL49jvdX2w1?&utm_source=autocomplete&_ga=2.100051100.346645988.1732536607-724250621.1718387656",
         "to": "/en/tutorial/list-of-payment-providers-by-country--2im3BEGXxSAcRuxEaIHPvp"
       },
       {
@@ -2434,7 +2438,7 @@
         "to": "/pt/tutorial/precos-dos-produtos-nao-foram-enviados-ao-marketplace--7LMjXNoYJXsgPyKFkk6I25"
       },
       {
-        "from": "v4/docs/cms-descripcion-general--5E1domEld9BhQYVMdm9b6A",
+        "from": "/v4/docs/cms-descripcion-general--5E1domEld9BhQYVMdm9b6A",
         "to": "/es/tutorial/cms-visao-geral--2X1xWJi9WmtNylxmggn3ts"
       },
       {
@@ -2450,8 +2454,8 @@
         "to": "/pt/tutorial/configurar-pagamento-com-alignetv2--1rZU7cexTYdzB4SHWjr3eJ"
       },
       {
-        "from": "v4/docs/vinculos-de-sku--377K8fkQFwdHzQPNREpkJT",
-        "to": "tutorial/vinculos-de-sku--1SmrVgNwjJX17hdqwLa0TX"
+        "from": "/v4/docs/vinculos-de-sku--377K8fkQFwdHzQPNREpkJT",
+        "to": "/tutorial/vinculos-de-sku--1SmrVgNwjJX17hdqwLa0TX"
       },
       {
         "from": "/faq/como-puedo-cambiar-el-orden-de-los-productos-en-la-tienda",
@@ -2490,7 +2494,7 @@
         "to": "https://developers.vtex.com/vtex-rest-api/docs/setting-up-triggers-in-master-data-v2"
       },
       {
-        "from": "v4/docs/site-editor--1mD5Ga8QV9j1jTs8cFhcLI",
+        "from": "/v4/docs/site-editor--1mD5Ga8QV9j1jTs8cFhcLI",
         "to": "/tutorial/site-editor-visao-geral--299Dbeb9mFczUTyNQ9xPe1"
       },
       {
@@ -2535,7 +2539,7 @@
       },
       {
         "from": "/pt/tracks/mapear-categorias-e-atributos-dos-produtos-para-o-mercado-livre-mapper--5XNeiye4rS4oao2MueSUeA",
-        "to": "pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA"
+        "to": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA"
       },
       {
         "from": "/tutorial/configurar-pagamentos-com-apple-pay--5L3NWMgvdKswWQa6eIc008",
@@ -3254,7 +3258,7 @@
         "to": "/pt/tracks/suiteshare--khP0p8mjIYRIpvM7Cb4Zr/4Xgqw105OM7zRdKmdY6avV"
       },
       {
-        "from": "v4/docs/planner-overview--3CnDypJUZrwlvBmsGt1OWU",
+        "from": "/v4/docs/planner-overview--3CnDypJUZrwlvBmsGt1OWU",
         "to": "/tutorial/releases-overview--btCkKGrWmxVGn1IEtZMnz"
       },
       {
@@ -3314,7 +3318,7 @@
         "to": "/en/tutorial/setting-up-payments-with-e-sitef--6UEi0QAlU6BXz5RgWj34Ac"
       },
       {
-        "from": "autorizar-integracao-do-mercado-livre-no-painel-da-vtex--4leBEAd22Icm46kGeiGgak",
+        "from": "/autorizar-integracao-do-mercado-livre-no-painel-da-vtex--4leBEAd22Icm46kGeiGgak",
         "to": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4leBEAd22Icm46kGeiGgak"
       },
       {
@@ -3522,11 +3526,11 @@
         "to": "/tracks/catalog-101--5AF0XfnjfWeopIFBgs3LIQ/3moFonW33dgOYDrU21Z1X0"
       },
       {
-        "from": "configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA",
+        "from": "/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA",
         "to": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA"
       },
       {
-        "from": "v4/docs/promotions-overview--6ZSwEn2PJQ5qs0Az2EPbd3",
+        "from": "/v4/docs/promotions-overview--6ZSwEn2PJQ5qs0Az2EPbd3",
         "to": "/tutorial/visao-geral-promocoes--3PeHVYcooLIDmA33IAnjhm"
       },
       {
@@ -3614,27 +3618,27 @@
         "to": "/en/tutorial/suporte-vtex-estados-unidos"
       },
       {
-        "from": "pt/tracks/conversational-commerce-vtex--5UZ9BdvwwtZm2t9QTXcbZs",
+        "from": "/pt/tracks/conversational-commerce-vtex--5UZ9BdvwwtZm2t9QTXcbZs",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
-        "from": "en/tracks/conversational-commerce-vtex--5UZ9BdvwwtZm2t9QTXcbZs",
+        "from": "/en/tracks/conversational-commerce-vtex--5UZ9BdvwwtZm2t9QTXcbZs",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
-        "from": "es/tracks/conversational-commerce-vtex--5UZ9BdvwwtZm2t9QTXcbZs",
+        "from": "/es/tracks/conversational-commerce-vtex--5UZ9BdvwwtZm2t9QTXcbZs",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
-        "from": "pt/tracks/conversational-commerce-vtex",
+        "from": "/pt/tracks/conversational-commerce-vtex",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
-        "from": "en/tracks/conversational-commerce-vtex",
+        "from": "/en/tracks/conversational-commerce-vtex",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
-        "from": "es/tracks/conversational-commerce-vtex",
+        "from": "/es/tracks/conversational-commerce-vtex",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
@@ -3842,7 +3846,7 @@
         "to": "/subcategory/assinaturas--1rA9wuuskW3PpjvMrhatAM"
       },
       {
-        "from": "tutorial/guia-de-integracao-para-marketplaces-marketplace-nao-vtex--SMBUYFVEfZr0m0ttOULxj",
+        "from": "/tutorial/guia-de-integracao-para-marketplaces-marketplace-nao-vtex--SMBUYFVEfZr0m0ttOULxj",
         "to": "https://developers.vtex.com/vtex-rest-api/docs/external-marketplace-integration-guide"
       },
       {
@@ -4014,7 +4018,7 @@
         "to": "/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR"
       },
       {
-        "from": " /tutorial/como-configurar-boleto-registrado--frequentlyAskedQuestions_2867",
+        "from": "/tutorial/como-configurar-boleto-registrado--frequentlyAskedQuestions_2867",
         "to": "/pt/tutorial/como-configurar-boleto-bancario--tutorials_447"
       },
       {
@@ -4034,7 +4038,7 @@
         "to": "/tutorial/o-que-e-o-vtex-io"
       },
       {
-        "from": "v4/docs/visao-geral-promocoes--6ZSwEn2PJQ5qs0Az2EPbd3",
+        "from": "/v4/docs/visao-geral-promocoes--6ZSwEn2PJQ5qs0Az2EPbd3",
         "to": "/tutorial/visao-geral-promocoes--3PeHVYcooLIDmA33IAnjhm"
       },
       {
@@ -4366,11 +4370,11 @@
         "to": "/en/tutorial/setting-up-payments-with-e-sitef--6UEi0QAlU6BXz5RgWj34Ac"
       },
       {
-        "from": "v4/docs/pages--48STFcQr3EZGb2X5jvg1WN",
+        "from": "/v4/docs/pages--48STFcQr3EZGb2X5jvg1WN",
         "to": "/tutorial/managing-pages-beta--3DO6rBhZ1p3zndnFu5BgRt"
       },
       {
-        "from": "tutorial/how-to-set-up-the-zoom--frequentlyAskedQuestions_586",
+        "from": "/tutorial/how-to-set-up-the-zoom--frequentlyAskedQuestions_586",
         "to": "https://developers.vtex.com/vtex-developer-docs/docs/setting-up-the-zoom"
       },
       {
@@ -5182,7 +5186,7 @@
         "to": "/pt/announcements/descontinuacao-do-vtex-payment--6BkEnyzVDHfoKwPnGdqBRs"
       },
       {
-        "from": "v4/docs/visao-geral-planner--3CnDypJUZrwlvBmsGt1OWU",
+        "from": "/v4/docs/visao-geral-planner--3CnDypJUZrwlvBmsGt1OWU",
         "to": "/tutorial/visao-geral-lancamentos--btCkKGrWmxVGn1IEtZMnz"
       },
       {
@@ -5223,7 +5227,7 @@
       },
       {
         "from": "/tutorial/integration-between-non-vtex-marketplace-and-vtex-seller-catalog-updates--5jwV8FJ1cNRmkkWnXTZEng",
-        "to": "developers.vtex.com/docs/guides/external-marketplace-integration-guide"
+        "to": "https://developers.vtex.com/docs/guides/external-marketplace-integration-guide"
       },
       {
         "from": "/faq/can-i-order-my-products-as-i-want--33nmI2G2DN3J334gFcur68",
@@ -5766,7 +5770,7 @@
         "to": "/pt/announcements/descontinuacao-do-vtex-payment--6BkEnyzVDHfoKwPnGdqBRs"
       },
       {
-        "from": "tutorial/guia-de-integracao-para-marketplaces--3yYUDMTpNSYueYSOuOyui8",
+        "from": "/tutorial/guia-de-integracao-para-marketplaces--3yYUDMTpNSYueYSOuOyui8",
         "to": "https://developers.vtex.com/vtex-rest-api/docs/external-marketplace-integration-guide"
       },
       {
@@ -5890,7 +5894,7 @@
         "to": "/tutorial/how-to-include-a-collection-of-products-in-the-shop-window"
       },
       {
-        "from": "v4/docs/visao-geral-apps--Abz99oney4PUmrf7QcHc9",
+        "from": "/v4/docs/visao-geral-apps--Abz99oney4PUmrf7QcHc9",
         "to": "/pt/tutorial/visao-geral-apps--4xfsHXyAQTjbZNuiKl6Y0e"
       },
       {
@@ -5922,7 +5926,7 @@
         "to": "/es/tutorial/configurar-pago-con-safetypayv2--5VBwbJODDKJ6zIW5a23l8V"
       },
       {
-        "from": "tutorial/como-configurar-el-zoom--frequentlyAskedQuestions_586",
+        "from": "/tutorial/como-configurar-el-zoom--frequentlyAskedQuestions_586",
         "to": "https://developers.vtex.com/vtex-developer-docs/docs/setting-up-the-zoom"
       },
       {
@@ -6174,7 +6178,7 @@
         "to": "/tutorial/feed-de-pedidos--5SzSKee2f666YCoWkm0eQC#"
       },
       {
-        "from": "v4/docs/stylesCMS--5rl2OAFril2ByEVzeFOAUI",
+        "from": "/v4/docs/stylesCMS--5rl2OAFril2ByEVzeFOAUI",
         "to": "/tutorial/styles-overview--v0Db5ohEKSFIkTzSwCjVi"
       },
       {
@@ -6198,7 +6202,7 @@
         "to": "/es/tutorial/configurar-adquirente-firstdata--4mW6gU343eWY6c8m6ocO0i"
       },
       {
-        "from": "en/tutorial/google-pay-beta--653pNFOw6L5CvGupLosJSq",
+        "from": "/en/tutorial/google-pay-beta--653pNFOw6L5CvGupLosJSq",
         "to": "/announcements/google-pay-new-payment-method-available-on-vtex--4HWD5UwH4FsjUyOqDcOFiX"
       },
       {
@@ -6314,7 +6318,7 @@
         "to": "https://developers.vtex.com/vtex-developer-docs/docs/control-to-disable-the-canonical-tag"
       },
       {
-        "from": "es/tutorial/politica-comercial-para-marketplace",
+        "from": "/es/tutorial/politica-comercial-para-marketplace",
         "to": "/pt/tutorial/configurando-a-politica-comercial-para-marketplace--tutorials_404"
       },
       {
@@ -6658,7 +6662,7 @@
         "to": "https://developers.vtex.com/vtex-rest-api/docs/erp-integration-import-products"
       },
       {
-        "from": "v4/docs/estilosCMS--5rl2OAFril2ByEVzeFOAUI",
+        "from": "/v4/docs/estilosCMS--5rl2OAFril2ByEVzeFOAUI",
         "to": "/tutorial/styles-overview--v0Db5ohEKSFIkTzSwCjVi"
       },
       {
@@ -6854,7 +6858,7 @@
         "to": "https://developers.vtex.com/vtex-rest-api/docs/erp-integration-import-products"
       },
       {
-        "from": "v4/docs/apps-overview--Abz99oney4PUmrf7QcHc9",
+        "from": "/v4/docs/apps-overview--Abz99oney4PUmrf7QcHc9",
         "to": "/en/tutorial/visao-geral-apps--4xfsHXyAQTjbZNuiKl6Y0e"
       },
       {
@@ -6962,7 +6966,7 @@
         "to": "https://assets.ctfassets.net/alneenqid6w5/4OdeCFbcVQtEgkuWsuuidl/80b79448cf2b327e07b567a8411afaa0/vtex_WebServiceGuide.pdf"
       },
       {
-        "from": "v4/docs/storefront-overview--6LK0TxoDqrJz2YnM90WvIk",
+        "from": "/v4/docs/storefront-overview--6LK0TxoDqrJz2YnM90WvIk",
         "to": "/tutorial/storefront-overview--7cRrL2xtY7HDqiyep1PxIS"
       },
       {
@@ -7074,7 +7078,7 @@
         "to": "/pt/category/billing--4wto5499HaCuWEqW4wa6ui"
       },
       {
-        "from": "tutorial/como-configurar-o-zoom--frequentlyAskedQuestions_586",
+        "from": "/tutorial/como-configurar-o-zoom--frequentlyAskedQuestions_586",
         "to": "https://developers.vtex.com/vtex-developer-docs/docs/setting-up-the-zoom"
       },
       {
@@ -7330,7 +7334,7 @@
         "to": "/tutorial/changing-default-system-texts-displayed-in-the-store"
       },
       {
-        "from": "help.vtex.com/pt/tutorial/exportando-pedidos-no-oms-2",
+        "from": "https://help.vtex.com/pt/tutorial/exportando-pedidos-no-oms-2",
         "to": "/pt/tutorial/exportacao-de-pedidos-gerenciamento-de-pedidos--tutorials_6417"
       },
       {
@@ -7338,7 +7342,7 @@
         "to": "/tutorial/feed-de-pedidos"
       },
       {
-        "from": "v4/docs/vision-general-apps--Abz99oney4PUmrf7QcHc9",
+        "from": "/v4/docs/vision-general-apps--Abz99oney4PUmrf7QcHc9",
         "to": "/es/tutorial/visao-geral-apps--4xfsHXyAQTjbZNuiKl6Y0e"
       },
       {
@@ -7366,7 +7370,7 @@
         "to": "/tutorial/how-vtex-healthcheck-works"
       },
       {
-        "from": "v4/docs/paginas--48STFcQr3EZGb2X5jvg1WN",
+        "from": "/v4/docs/paginas--48STFcQr3EZGb2X5jvg1WN",
         "to": "/tutorial/gerenciando-paginas-beta--3DO6rBhZ1p3zndnFu5BgRt?&utm_source=autocomplete"
       },
       {
@@ -7374,7 +7378,7 @@
         "to": "/es/tutorial/recursos-del-license-manager--3q6ztrC8YynQf6rdc6euk3#"
       },
       {
-        "from": "v4/docs/cms-redirects--3LUIUmXYvaB5vzf83Ts8jE",
+        "from": "/v4/docs/cms-redirects--3LUIUmXYvaB5vzf83Ts8jE",
         "to": "/tutorial/managing-url-redirects--3UJuFrU8imSVWg134mkvJV"
       },
       {
@@ -7402,7 +7406,7 @@
         "to": "https://developers.vtex.com/vtex-rest-api/docs/orders-feed"
       },
       {
-        "from": "v4/docs/planner-calendar-page--6GESJ17RFvGrvF9JqToron",
+        "from": "/v4/docs/planner-calendar-page--6GESJ17RFvGrvF9JqToron",
         "to": "/tutorial/planner-calendar-page-beta--46wSZ7Z5xoXQPP0xHfIx9C"
       },
       {
@@ -7474,7 +7478,7 @@
         "to": "/tutorial/admin-vtex-comece-aqui--531cHtUCUi3puRXNDmKziw"
       },
       {
-        "from": "v4/docs/promotion-list--5LtzPm5kQdRVI06KXHE0Td",
+        "from": "/v4/docs/promotion-list--5LtzPm5kQdRVI06KXHE0Td",
         "to": "/tutorial/promotions-list"
       },
       {
@@ -7499,7 +7503,7 @@
       },
       {
         "from": "/tutorial/configuracion-boleto-registrado-santander--67siNqkC7mcgy2GWUYimaa",
-        "to": " https://help.vtex.com/es/tutorial/configurar-adquirente-getnet-con-el-conector-egetnet--75kwGKPKnK8mwiEmQGYiWq"
+        "to": "https://help.vtex.com/es/tutorial/configurar-adquirente-getnet-con-el-conector-egetnet--75kwGKPKnK8mwiEmQGYiWq"
       },
       {
         "from": "/tracks/configurar-integracao-da-via-varejo--3E9XylGaJ2wqwISGyw4GuY/3FFcVmL5Aod6tkFIz9vJmX",
@@ -7566,7 +7570,7 @@
         "to": "/tutorial/what-is-a-workspace"
       },
       {
-        "from": "/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/6loFGF4nXvgIVIzsyyJA5c   ",
+        "from": "/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/6loFGF4nXvgIVIzsyyJA5c",
         "to": "/en/tracks/cms--2YcpgIljVaLVQYMzxQbc3z/4yB9wSl79cArd68aRBnBZ2"
       },
       {
@@ -7594,7 +7598,7 @@
         "to": "/tutorial/setting-the-grace-period-for-order-cancellation"
       },
       {
-        "from": "pt/tutorial/abrir-chamados-para-o-suporte-vtex--16yoeqpo32uqyygsmmssam",
+        "from": "/pt/tutorial/abrir-chamados-para-o-suporte-vtex--16yoeqpo32uqyygsmmssam",
         "to": "/tutorial/abrir-chamados-para-o-suporte-vtex--16yOEqpO32UQYygSmMSSAM"
       },
       {
@@ -8350,7 +8354,7 @@
         "to": "/es/tutorial/recursos-del-license-manager--3q6ztrC8YynQf6rdc6euk3#"
       },
       {
-        "from": "tutorial/google-pay-beta--653pNFOw6L5CvGupLosJSq",
+        "from": "/tutorial/google-pay-beta--653pNFOw6L5CvGupLosJSq",
         "to": "/pt/announcements/google-pay-new-payment-method-available-on-vtex--4HWD5UwH4FsjUyOqDcOFiX"
       },
       {
@@ -8366,7 +8370,7 @@
         "to": "/tracks/instore-primeiros-passos-e-configuracoes--zav76TFEZlAjnyBVL5tRc/5pqtuvi97FFZiGf7MlSe8q"
       },
       {
-        "from": "pt/tutorial/visao-geral-logistics",
+        "from": "/pt/tutorial/visao-geral-logistics",
         "to": "/pt/tutorial/fulfillment-e-logistica-na-vtex--53udnvI5eBy8DKo8FOjMoP"
       },
       {
@@ -8414,27 +8418,27 @@
         "to": "/tutorial/como-crear-usuario-webservice"
       },
       {
-        "from": "pt/subcategory/conversational-commerce-vtex--5bBAgUbHdh6ovdZ4kGsN7O",
+        "from": "/pt/subcategory/conversational-commerce-vtex--5bBAgUbHdh6ovdZ4kGsN7O",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
-        "from": "en/subcategory/conversational-commerce-vtex--5bBAgUbHdh6ovdZ4kGsN7O",
+        "from": "/en/subcategory/conversational-commerce-vtex--5bBAgUbHdh6ovdZ4kGsN7O",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
-        "from": "es/subcategory/conversational-commerce-vtex--5bBAgUbHdh6ovdZ4kGsN7O",
+        "from": "/es/subcategory/conversational-commerce-vtex--5bBAgUbHdh6ovdZ4kGsN7O",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
-        "from": "pt/subcategory/conversational-commerce-vtex",
+        "from": "/pt/subcategory/conversational-commerce-vtex",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
-        "from": "en/subcategory/conversational-commerce-vtex",
+        "from": "/en/subcategory/conversational-commerce-vtex",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
-        "from": "es/subcategory/conversational-commerce-vtex",
+        "from": "/es/subcategory/conversational-commerce-vtex",
         "to": "/pt/subcategory/suiteshare--4y4ylvqceE6vVqEF8IWZix"
       },
       {
@@ -8510,7 +8514,7 @@
         "to": "/tutorial/integracion-con-google-tag-manager"
       },
       {
-        "from": "v4/docs/layout--3NIhlDibddzybhWr3zfHqW",
+        "from": "/v4/docs/layout--3NIhlDibddzybhWr3zfHqW",
         "to": "/tutorial/o-que-e-o-cms-layout--EmO8u2WBj2W4MUQCS8262"
       },
       {
@@ -8550,7 +8554,7 @@
         "to": "https://developers.vtex.com/vtex-rest-api/docs/how-to-add-and-handle-custom-information-in-the-order"
       },
       {
-        "from": "v4/docs/planner-pagina-lancamentos--1tQNCNwoMvxV4EoizajqJw",
+        "from": "/v4/docs/planner-pagina-lancamentos--1tQNCNwoMvxV4EoizajqJw",
         "to": "/tutorial/planner-releases-page-beta--2p7IiVD6K8i1iRiwHph5sw"
       },
       {
@@ -8622,11 +8626,11 @@
         "to": "/es/tutorial/recursos-del-license-manager--3q6ztrC8YynQf6rdc6euk3#"
       },
       {
-        "from": " /tutorial/configurar-gateway-mundipagg--6C9412jePCUMGguq0YWU8M",
+        "from": "/tutorial/configurar-gateway-mundipagg--6C9412jePCUMGguq0YWU8M",
         "to": "/pt/tutorial/configurar-pagamento-com-pagarmev3--5PMavdamrVijwIrHas9ndE"
       },
       {
-        "from": "v4/docs/visao-geral-storefront--6LK0TxoDqrJz2YnM90WvIk",
+        "from": "/v4/docs/visao-geral-storefront--6LK0TxoDqrJz2YnM90WvIk",
         "to": "/tutorial/visao-geral-storefront--7cRrL2xtY7HDqiyep1PxIS"
       },
       {
@@ -8806,7 +8810,7 @@
         "to": "/tutorial/que-es-el-funil-de-ventas-de-google-analytics"
       },
       {
-        "from": "en/tutorial/logistics-module-overview",
+        "from": "/en/tutorial/logistics-module-overview",
         "to": "/en/tutorial/fulfillment-logistics-vtex--53udnvI5eBy8DKo8FOjMoP"
       },
       {
@@ -12912,7 +12916,7 @@
       {
         "from": "/docs/tracks/setting-up-payment-methods-for-instore",
         "to": "/en/docs/tracks/setting-up-payment-methods-for-vtex-sales-app"
-      },      
+      },
       {
         "from": "/docs/tracks/customizar-o-instore",
         "to": "/pt/docs/tracks/customizar-o-vtex-sales-app"
@@ -12932,7 +12936,7 @@
       {
         "from": "/docs/tracks/instore-setup-basico",
         "to": "/pt/docs/tracks/vtex-sales-app-configuracoes-basicas"
-      },      
+      },
       {
         "from": "/docs/tracks/pre-requisitos-para-usar-o-instore",
         "to": "/pt/docs/tracks/pre-requisitos-para-usar-o-vtex-sales-app"
@@ -17670,6 +17674,22 @@
       {
         "from": "/es/category/troubleshooting--39pDkp8qxSll6mGj0tWViz",
         "to": "/es/troubleshooting"
+      },
+      {
+        "from": "pt/docs/tracks/configurar-integracao-com-a-amazon",
+        "to": "pt/docs/tracks/configurar-a-integracao-da-amazon"
+      },
+      {
+        "from": "/pt/docs/tutorials/promocoes-do-mercado-livre",
+        "to": "/pt/docs/tutorials/central-de-promocoes-mercado-livre"
+      },
+      {
+        "from": "/en/docs/tutorials/promocoes-do-mercado-livre",
+        "to": "/en/docs/tutorials/mercado-libre-promotions-center"
+      },
+      {
+        "from": "/es/docs/tutorials/promocoes-do-mercado-livre",
+        "to": "/es/docs/tutorials/central-de-promociones-mercado-libre"
       }
     ]
   }
