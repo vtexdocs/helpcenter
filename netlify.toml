@@ -466,3 +466,39 @@ force = true
 from = "/pt/docs/tutorials/configurando-dominios-no-gerenciamento-da-conta"
 status = 308
 to = "/pt/docs/tutorials/configurar-o-dominio-da-loja"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/weni-by-vtex/agent-builder/official-agents-from-weni-by-vtex"
+status = 308
+to = "/en/docs/tutorials/vtex-cx-platform/agent-builder/official-agents-from-vtex-agentic-cx-platform"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/weni-by-vtex/agent-builder/assigning-and-testing-agents"
+status = 308
+to = "/en/docs/tutorials/vtex-cx-platform/agent-builder/assigning-and-testing-agents-in-agent-builder"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/weni-by-vtex/flows/flows-introduction"
+status = 308
+to = "/en/docs/tutorials/vtex-cx-platform/agent-builder/automation-flow/automation-flow-overview"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/weni-by-vtex/weni-settings/weni-chats-setting-up-human-attendance"
+status = 308
+to = "/en/docs/tutorials/vtex-cx-platform/live-desk/manage-live-desk"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/weni-by-vtex/chats/weni-chats-human-service-dashboard"
+status = 308
+to = "/en/docs/tutorials/vtex-cx-platform/live-desk/vtex-cx-live-desk-dashboard"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/weni-by-vtex/chats/introduction-to-the-chats-module"
+status = 308
+to = "/en/docs/tutorials/vtex-cx-platform/live-desk/vtex-cx-live-desk-overview"
