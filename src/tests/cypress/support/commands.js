@@ -43,3 +43,54 @@ Cypress.Commands.add('anyWithIndex', { prevSubject: 'element' }, (subject) => {
       })
   })
 })
+
+Cypress.Commands.add('switchLocale', (targetLocale) => {
+  const localeMap = { en: 'EN', es: 'ES', pt: 'PT' }
+  const targetLabel =
+    localeMap[targetLocale.toLowerCase()] || targetLocale.toUpperCase()
+
+  cy.get('button')
+    .contains(/^(EN|ES|PT)$/)
+    .click()
+
+  cy.contains(targetLabel).click()
+
+  if (targetLocale.toLowerCase() === 'en') {
+    cy.url({ timeout: 10000 }).should('not.match', /\/(pt|es)\//)
+  } else {
+    cy.url({ timeout: 10000 }).should(
+      'include',
+      `/${targetLocale.toLowerCase()}/`
+    )
+  }
+
+  cy.get('button').contains(targetLabel).should('be.visible')
+})
+
+Cypress.Commands.add('verifyLocale', (expectedLocale) => {
+  const localeMap = { en: 'EN', es: 'ES', pt: 'PT' }
+  const expectedLabel =
+    localeMap[expectedLocale.toLowerCase()] || expectedLocale.toUpperCase()
+
+  cy.get('button').contains(expectedLabel).should('be.visible')
+
+  if (expectedLocale.toLowerCase() === 'en') {
+    cy.url().should('not.match', /\/(pt|es)\//)
+  } else {
+    cy.url().should('include', `/${expectedLocale.toLowerCase()}/`)
+  }
+})
+
+Cypress.Commands.add('clickSidebarLink', (options = {}) => {
+  const { locale, index = 0 } = options
+
+  let selector = 'nav a, aside a'
+  if (locale && locale.toLowerCase() !== 'en') {
+    selector = `nav a[href*="/${locale.toLowerCase()}/"], aside a[href*="/${locale.toLowerCase()}/"]`
+  } else if (locale && locale.toLowerCase() === 'en') {
+    selector =
+      'nav a[href^="/docs/"], nav a[href^="/tutorials/"], nav a[href^="/tracks/"], aside a[href^="/docs/"], aside a[href^="/tutorials/"], aside a[href^="/tracks/"]'
+  }
+
+  cy.get(selector).should('exist').eq(index).click()
+})

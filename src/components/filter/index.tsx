@@ -1,7 +1,5 @@
 import { Box, Button, Checkbox, Flex, Text } from '@vtex/brand-ui'
-import CloseIcon from 'components/icons/close-icon'
-import FilterIcon from 'components/icons/filter-icon'
-import TrashcanIcon from 'components/icons/trashcan-icon'
+import { CloseIcon, FilterIcon, TrashcanIcon } from '@vtexdocs/components'
 import Tag from 'components/tag'
 import { useState } from 'react'
 import { useIntl } from 'react-intl'
@@ -15,6 +13,7 @@ interface Filter {
 interface Props {
   tagFilter?: Filter
   checkBoxFilter?: Filter
+  checkBoxFilters?: Filter[]
   selectedCheckboxes?: string[]
   selectedTags?: string[]
   onApply: (filters: { tag: string[]; checklist: string[] }) => void
@@ -28,6 +27,7 @@ interface SelectedFilters {
 const Filter = ({
   tagFilter,
   checkBoxFilter,
+  checkBoxFilters,
   onApply,
   selectedCheckboxes,
   selectedTags,
@@ -113,22 +113,33 @@ const Filter = ({
     )
   }
 
-  const CheckboxFilter = () => {
-    if (!checkBoxFilter) return <></>
+  const checkboxGroups =
+    checkBoxFilters ?? (checkBoxFilter ? [checkBoxFilter] : [])
+
+  const CheckboxFilters = () => {
+    if (checkboxGroups.length === 0) return <></>
+
     return (
-      <Box sx={styles.filterContainer}>
-        <Text sx={styles.filterTitle}>{checkBoxFilter.name}</Text>
-        <Box sx={styles.checkBoxContainer}>
-          {checkBoxFilter.options.map((option, index) => (
-            <Checkbox
-              key={index}
-              label={option.name}
-              checked={isFilterSelected(option.id, 'checklist')}
-              onClick={() => handleFilterClick(option.id, 'checklist')}
-            />
-          ))}
-        </Box>
-      </Box>
+      <>
+        {checkboxGroups.map((group, groupIndex) => (
+          <Box key={group.name}>
+            {groupIndex > 0 && <Divider />}
+            <Box sx={styles.filterContainer}>
+              <Text sx={styles.filterTitle}>{group.name}</Text>
+              <Box sx={styles.checkBoxContainer}>
+                {group.options.map((option, index) => (
+                  <Checkbox
+                    key={`${group.name}-${index}`}
+                    label={option.name}
+                    checked={isFilterSelected(option.id, 'checklist')}
+                    onClick={() => handleFilterClick(option.id, 'checklist')}
+                  />
+                ))}
+              </Box>
+            </Box>
+          </Box>
+        ))}
+      </>
     )
   }
 
@@ -156,8 +167,8 @@ const Filter = ({
           </Box>
           <Box sx={styles.innerContainer}>
             <TagFilter />
-            {checkBoxFilter && tagFilter && <Divider />}
-            <CheckboxFilter />
+            {tagFilter && checkboxGroups.length > 0 && <Divider />}
+            <CheckboxFilters />
           </Box>
           <Flex sx={styles.buttonsContainer}>
             <Button

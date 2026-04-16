@@ -1,6 +1,9 @@
-import { Link, Grid, Text, Box } from '@vtex/brand-ui'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Grid, Text, Box } from '@vtex/brand-ui'
 import { useIntl } from 'react-intl'
+import styles from './styles'
+
 interface Props {
   pagination: {
     previousDoc: {
@@ -16,20 +19,14 @@ interface Props {
   hidePaginationNext: boolean
 }
 
-import styles from './styles'
-
 const ArticlePagination = ({
   pagination,
   hidePaginationNext,
   hidePaginationPrevious,
 }: Props) => {
-  const router = useRouter()
   const intl = useIntl()
+  const { locale } = useRouter()
 
-  const handleClick = (e: { preventDefault: () => void }, slug: string) => {
-    e.preventDefault()
-    router.push(`${slug}`)
-  }
   return (
     <Box sx={styles.mainContainer}>
       <Grid sx={styles.flexContainer}>
@@ -37,11 +34,9 @@ const ArticlePagination = ({
           pagination?.previousDoc?.slug &&
           pagination?.previousDoc?.name && (
             <Link
-              sx={styles.paginationLinkPrevious}
+              style={styles.paginationLinkPrevious}
               href={pagination?.previousDoc?.slug}
-              onClick={(e: { preventDefault: () => void }) => {
-                handleClick(e, pagination.previousDoc.slug as string)
-              }}
+              locale={locale}
             >
               <Box sx={styles.paginationBox}>
                 <Text sx={styles.paginationText}>
@@ -56,15 +51,14 @@ const ArticlePagination = ({
               </Box>
             </Link>
           )}
+
         {!hidePaginationNext &&
           pagination?.nextDoc?.slug &&
           pagination?.nextDoc?.name && (
             <Link
-              sx={styles.paginationLinkNext}
+              style={styles.paginationLinkNext}
               href={pagination?.nextDoc?.slug}
-              onClick={(e: { preventDefault: () => void }) => {
-                handleClick(e, pagination?.nextDoc?.slug as string)
-              }}
+              locale={locale}
             >
               <Box
                 sx={

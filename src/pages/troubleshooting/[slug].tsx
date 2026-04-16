@@ -6,6 +6,7 @@ import { getLogger } from 'utils/logging/log-util'
 import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 import { computeParents, getChildren } from 'utils/navigation-utils'
 import { getMessages } from 'utils/get-messages'
+import type { SectionId } from 'utils/typings/unionTypes'
 import { serializeWithFallback } from 'utils/serializeWithFallback'
 import { fetchFileContributors } from 'utils/fetchFileContributors'
 import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
@@ -20,6 +21,10 @@ import ArticleIndex from 'components/article-index'
 import { ArticlePageProps } from 'utils/typings/types'
 import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { sanitizeArray } from 'utils/sanitizeArrays'
+import {
+  getArticleRevalidateTime,
+  getCategoryCoverRevalidateTime,
+} from 'utils/config'
 
 // Initialize in getStaticProps
 const docsPathsGLOBAL: Record<
@@ -46,7 +51,7 @@ const TroubleshootingPage: NextPage<ArticlePageProps> = ({
 
   return mdFileExists === true ? (
     <ArticleRender
-      type={sectionSelected}
+      type={sectionSelected as SectionId}
       breadcrumbList={breadcrumbList}
       isListed={isListed}
       branch={branch}
@@ -62,12 +67,10 @@ const TroubleshootingPage: NextPage<ArticlePageProps> = ({
   ) : (
     <ArticleIndex
       breadcrumbList={breadcrumbList}
-      name={componentProps?.articleData?.name ?? ''}
-      children={componentProps?.articleData?.children}
-      hidePaginationNext={componentProps?.articleData?.hidePaginationNext}
-      hidePaginationPrevious={
-        componentProps?.articleData?.hidePaginationPrevious
-      }
+      name={componentProps?.name ?? ''}
+      children={componentProps?.children}
+      hidePaginationNext={componentProps?.hidePaginationNext}
+      hidePaginationPrevious={componentProps?.hidePaginationPrevious}
       isListed={isListed}
       slug={slug}
       pagination={pagination}
@@ -108,36 +111,75 @@ export const getStaticProps: GetStaticProps = async ({
   })
 
   const { keyPath, flattenedSidebar, sidebarfallback } =
-    await getSidebarMetadata(sectionSelected, slug)
+    await getSidebarMetadata(sectionSelected, slug, { branch })
   const isTroubleshootingCover = isCategoryCover(slug, sidebarfallback)
 
-  if (!mdFileExists && !isTroubleshootingCover) {
+  if (!mdFileExists && isTroubleshootingCover.length === 0) {
     logger.warn(
       `Markdown file not found for slug: ${slug}, locale: ${currentLocale}, branch: ${branch}`
     )
     return { notFound: true }
   }
 
-  if (!mdFileExistsForCurrentLocale && !isTroubleshootingCover) {
-    logger.warn(
-      `Markdown file (slug: ${slug}, locale: ${currentLocale}, branch: ${branch}) exists for another locale. Redirecting to localized version.`
-    )
-    if (keyPath) {
-      return redirectToLocalizedUrl(
-        keyPath,
-        currentLocale,
-        flattenedSidebar,
-        'troubleshooting'
+  // Fix for Netlify i18n routing bug: when Netlify incorrectly routes a locale-specific
+  // slug to the wrong locale handler (e.g., PT slug routed to EN handler), we need to
+  // serve the content with the correct locale instead of redirecting (which would cause
+  // an infinite loop since Netlify would misroute the redirect too).
+  let effectiveLocale = currentLocale
+  let effectiveMdFilePath = mdFilePath
+
+  // Fix for markdown files: detect when slug belongs to a different locale
+  if (!mdFileExistsForCurrentLocale && mdFileExists && docsPaths[slug]) {
+    const availableLocale = docsPaths[slug][0]?.locale as
+      | 'en'
+      | 'pt'
+      | 'es'
+      | undefined
+    if (availableLocale && availableLocale !== currentLocale) {
+      logger.info(
+        `Netlify i18n bug detected: slug ${slug} belongs to locale ${availableLocale}, ` +
+          `but was routed to ${currentLocale} handler. Serving content with correct locale.`
       )
+      effectiveLocale = availableLocale
+      effectiveMdFilePath = docsPaths[slug][0]?.path || ''
     }
-    return { notFound: true }
+  }
+
+  // Fix for category pages: detect when the category slug belongs to a different locale
+  if (
+    isTroubleshootingCover.length > 0 &&
+    !isTroubleshootingCover.includes(currentLocale)
+  ) {
+    const categoryLocale = isTroubleshootingCover[0] as 'en' | 'pt' | 'es'
+    logger.info(
+      `Netlify i18n bug detected for category: slug ${slug} belongs to locale ${categoryLocale}, ` +
+        `but was routed to ${currentLocale} handler. Serving content with correct locale.`
+    )
+    effectiveLocale = categoryLocale
+  }
+
+  if (!mdFileExistsForCurrentLocale && isTroubleshootingCover.length === 0) {
+    if (effectiveLocale === currentLocale) {
+      logger.warn(
+        `Localized path missing for slug=${slug}, redirecting to available locale`
+      )
+      const redirectResult = keyPath
+        ? await redirectToLocalizedUrl(
+            keyPath,
+            currentLocale,
+            flattenedSidebar,
+            'troubleshooting'
+          )
+        : { notFound: true as const }
+      return redirectResult
+    }
   }
 
   const isListed = !!keyPath
   const breadcrumbList: { slug: string; name: string; type: string }[] = [
     {
       slug: `/troubleshooting`,
-      name: getMessages()[currentLocale]['troubleshooting_page.title'],
+      name: getMessages()[effectiveLocale]['troubleshooting_page.title'],
       type: 'markdown',
     },
   ]
@@ -152,7 +194,7 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArrayName: pn,
       parentsArrayType: pt,
       categoryTitle: c,
-    } = computeParents(keyPath, flattenedSidebar, currentLocale, logger)
+    } = computeParents(keyPath, flattenedSidebar, effectiveLocale, logger)
     parentsArray = p
     parentsArrayName = pn
     parentsArrayType = pt
@@ -172,7 +214,20 @@ export const getStaticProps: GetStaticProps = async ({
     )
   }
 
-  if (isTroubleshootingCover && !mdFileExists) {
+  if (isTroubleshootingCover.length > 0 && !mdFileExists) {
+    if (!isTroubleshootingCover.includes(effectiveLocale)) {
+      logger.warn(
+        `Localized path missing for slug=${slug}, redirecting to available locale`
+      )
+      return keyPath
+        ? redirectToLocalizedUrl(
+            keyPath,
+            effectiveLocale,
+            flattenedSidebar,
+            'troubleshooting'
+          )
+        : { notFound: true }
+    }
     const childrenArrayName: string[] = []
     const childrenArraySlug: string[] = []
 
@@ -180,19 +235,19 @@ export const getStaticProps: GetStaticProps = async ({
       keyPath,
       'name',
       flattenedSidebar,
-      currentLocale,
+      effectiveLocale,
       childrenArrayName
     )
     getChildren(
       keyPath,
       'slug',
       flattenedSidebar,
-      currentLocale,
+      effectiveLocale,
       childrenArraySlug
     )
 
     const childrenList = childrenArrayName.map((name, idx) => ({
-      slug: `/${currentLocale}/troubleshooting/${childrenArraySlug[idx]}`,
+      slug: `/${effectiveLocale}/troubleshooting/${childrenArraySlug[idx]}`,
       name,
     }))
 
@@ -213,52 +268,51 @@ export const getStaticProps: GetStaticProps = async ({
         breadcrumbList,
         branch,
         componentProps: {
-          articleData: {
-            name: categoryTitle || slug,
-            children: childrenList,
-            hidePaginationNext: !childrenList.length,
-          },
+          name: categoryTitle || slug,
+          children: childrenList,
+          hidePaginationNext: !childrenList.length,
         },
-        locale: currentLocale,
+        locale: effectiveLocale,
       },
-      revalidate: 3600,
+      revalidate: getCategoryCoverRevalidateTime(),
     }
   }
 
-  if (mdFileExists) {
+  if (mdFileExists || effectiveMdFilePath) {
     const rawContent = await fetchRawMarkdown(
       sectionSelected,
       branch,
-      mdFilePath
+      effectiveMdFilePath || mdFilePath
     )
     const documentationContent = escapeCurlyBraces(
       replaceHTMLBlocks(rawContent)
     )
 
-    // Serialize content and parse frontmatter
     const headingList: Item[] = []
     const serialized = await serializeWithFallback({
       content: documentationContent,
       headingList,
       logger,
-      path: mdFilePath,
+      path: effectiveMdFilePath || mdFilePath,
     })
     if (!serialized) {
-      logger.error(`Serialization failed for ${mdFilePath}`)
+      logger.error(
+        `Serialization failed for ${effectiveMdFilePath || mdFilePath}`
+      )
       return { notFound: true }
     }
 
     const contributors = await fetchFileContributors(
       sectionSelected,
       branch,
-      mdFilePath
+      effectiveMdFilePath || mdFilePath
     )
 
     logger.info(`Processing ${slug}`)
     const seeAlsoData = await getSeeAlsoData(
       serialized?.frontmatter?.seeAlso as string[],
       docsPaths,
-      currentLocale,
+      effectiveLocale,
       logger
     )
     const sanitizedParentsArray = parentsArray.map((item) =>
@@ -279,12 +333,12 @@ export const getStaticProps: GetStaticProps = async ({
           serialized: JSON.parse(JSON.stringify(serialized)),
           headingList,
           contributors,
-          path: mdFilePath,
+          path: effectiveMdFilePath || mdFilePath,
           seeAlsoData,
         },
-        locale: currentLocale,
+        locale: effectiveLocale,
       },
-      revalidate: 600,
+      revalidate: getArticleRevalidateTime(),
     }
   }
   logger.error(`Markdown file does not exist for ${slug}`)

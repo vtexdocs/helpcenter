@@ -1,23 +1,33 @@
 import { Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 
-import { AnnouncementDataElement, SortByType } from 'utils/typings/types'
+import { AnnouncementDataElement } from 'utils/typings/types'
+import { LocaleType } from 'utils/typings/unionTypes'
 import Head from 'next/head'
 import styles from 'styles/announcements-page'
 import { PreviewContext } from 'utils/contexts/preview'
-import { Fragment, useContext, useMemo, useState } from 'react'
+import {
+  Fragment,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/announcements.png'
 import Pagination from 'components/pagination'
-import { localeType } from 'utils/navigation-utils'
-import Select from 'components/select'
 import AnnouncementCard from 'components/announcement-card'
-import { sortBy } from 'utils/constants'
-import SearchIcon from 'components/icons/search-icon'
-import Input from 'components/input'
+import Filter from 'components/filter'
+import {
+  announcementsTypeFilter,
+  announcementsAreaFilter,
+} from 'utils/constants'
+import { SearchIcon } from '@vtexdocs/components'
+import { Input } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 
@@ -29,42 +39,66 @@ interface Props {
 const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
+
+  useEffect(() => {
+    setBranchPreview(branch)
+  }, [])
+
   const itemsPerPage = 8
   const [searchTerm, setSearchTerm] = useState('')
-  const [page, setPage] = useState({ curr: 1, total: 1 })
-  const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+  const [page, setPage] = useState({
+    curr: 1,
+    total: Math.ceil(announcementsData.length / itemsPerPage),
+  })
+  const [filters, setFilters] = useState<{
+    type: string[]
+    area: string[]
+  }>({ type: [], area: [] })
+
+  const typeConfig = useMemo(() => announcementsTypeFilter(intl), [intl])
+  const areaConfig = useMemo(() => announcementsAreaFilter(intl), [intl])
 
   const filteredResult = useMemo(() => {
-    const data = announcementsData.filter((announcement) =>
-      announcement.title?.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    const data = announcementsData.filter((announcement) => {
+      const matchesSearch = announcement.title
+        ?.toLowerCase()
+        .includes(searchTerm.toLowerCase())
 
-    data.sort((a, b) => {
-      const dateA =
-        sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
-      const dateB =
-        sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
+      const matchesType =
+        filters.type.length === 0 ||
+        filters.type.some((t) => announcement.tags.includes(t))
 
-      return dateA.getTime() - dateB.getTime()
+      const matchesArea =
+        filters.area.length === 0 ||
+        filters.area.some((a) => announcement.tags.includes(a))
+
+      return matchesSearch && matchesType && matchesArea
     })
 
-    setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
+    data.sort((a, b) => {
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    })
 
     return data
-  }, [searchTerm, sortByValue, intl.locale])
+  }, [searchTerm, filters, intl.locale])
+
+  useEffect(() => {
+    setPage({
+      curr: 1,
+      total: Math.ceil(filteredResult.length / itemsPerPage),
+    })
+  }, [filteredResult])
 
   const paginatedResult = useMemo(() => {
     return filteredResult.slice(
       (page.curr - 1) * itemsPerPage,
       page.curr * itemsPerPage
     )
-  }, [page])
+  }, [page, filteredResult])
 
-  function handleClick(props: { selected: number }) {
-    if (props.selected !== undefined && props.selected !== page.curr)
-      setPage({ ...page, curr: props.selected })
-  }
+  const handleClick = useCallback(({ selected }: { selected: number }) => {
+    setPage((prev) => ({ ...prev, curr: selected }))
+  }, [])
 
   return (
     <>
@@ -97,11 +131,17 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
-            <Select
-              label={intl.formatMessage({ id: 'sort.label' })}
-              value={sortByValue}
-              options={sortBy(intl)}
-              onSelect={(ordering) => setSortByValue(ordering as SortByType)}
+            <Filter
+              tagFilter={typeConfig}
+              checkBoxFilter={areaConfig}
+              selectedTags={filters.type}
+              selectedCheckboxes={filters.area}
+              onApply={(newFilters) =>
+                setFilters({
+                  type: newFilters.tag ?? [],
+                  area: newFilters.checklist ?? [],
+                })
+              }
             />
           </Flex>
           <Input
@@ -156,7 +196,7 @@ export const getStaticProps: GetStaticProps = async ({
   const docsPathsGLOBAL = await getAnnouncementsPaths('announcements', branch)
 
   const logger = getLogger('News')
-  const currentLocale: localeType = (locale ?? 'en') as localeType
+  const currentLocale: LocaleType = (locale ?? 'en') as LocaleType
   const slugs = Object.keys(docsPathsGLOBAL)
   const batchSize = 100
 
@@ -165,7 +205,7 @@ export const getStaticProps: GetStaticProps = async ({
   function getAnnouncementSynopsis(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     frontmatter: any,
-    locale: localeType
+    locale: LocaleType
   ): string | undefined {
     switch (locale) {
       case 'en':
@@ -198,12 +238,20 @@ export const getStaticProps: GetStaticProps = async ({
         frontmatter &&
         (frontmatter.status === 'PUBLISHED' || frontmatter.status === 'CHANGED')
       ) {
+        const tags: string[] =
+          frontmatter.tags &&
+          Array.isArray(frontmatter.tags) &&
+          frontmatter.tags.length > 0
+            ? frontmatter.tags.map(String)
+            : []
+
         const base: AnnouncementDataElement = {
           title: String(frontmatter.title),
           url: `announcements/${slug}`,
           createdAt: String(frontmatter.createdAt),
           updatedAt: String(frontmatter.updatedAt),
           status: String(frontmatter.status),
+          tags,
         }
 
         const synopsis = getAnnouncementSynopsis(frontmatter, currentLocale)

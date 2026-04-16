@@ -1,7 +1,7 @@
 import { SxStyleProp, Text } from '@vtex/brand-ui'
 
-import type { KnownIssueStatus } from 'utils/typings/types'
 import styles from './styles'
+import { KnownIssueStatus } from 'utils/typings/unionTypes'
 
 const Tag = ({
   sx = {},
@@ -11,7 +11,15 @@ const Tag = ({
 }: {
   sx?: SxStyleProp
   children: React.ReactNode
-  color?: KnownIssueStatus | 'Default' | 'Selected' | 'New' | 'Gray'
+  color?:
+    | KnownIssueStatus
+    | 'Default'
+    | 'Selected'
+    | 'New'
+    | 'Gray'
+    | 'Deprecation'
+    | 'Blue'
+    | 'Green'
   onClick?: () => void
 }) => {
   return (

@@ -25,4 +25,5 @@ const SearchPage: NextPage = () => {
     </>
   )
 }
+
 export default SearchPage

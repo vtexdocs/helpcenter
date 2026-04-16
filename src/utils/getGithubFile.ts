@@ -1,31 +1,13 @@
 import octokit from 'utils/octokitConfig'
 import { getLogger } from 'utils/logging/log-util'
 import type { Endpoints } from '@octokit/types'
+import { isRateLimitError } from './githubRateLimitHandler'
+import { fetchGitHubFileWithFallback } from './githubCdnFallback'
 
 const logger = getLogger('getGithubFile')
 
 type GetContentResponse =
   Endpoints['GET /repos/{owner}/{repo}/contents/{path}']['response']
-
-function isRateLimitError(err: any): boolean {
-  if (!err) return false
-  if (err.status === 403) {
-    const msg = (err.message || '').toLowerCase()
-    if (
-      msg.includes('rate limit') ||
-      msg.includes('api rate limit exceeded') ||
-      msg.includes('secondary rate limit')
-    ) {
-      return true
-    }
-    // Check for GitHub API error structure
-    if (err.response && err.response.headers) {
-      const remaining = err.response.headers['x-ratelimit-remaining']
-      if (remaining === '0') return true
-    }
-  }
-  return false
-}
 
 export default async function getGithubFile(
   owner: string,
@@ -33,23 +15,17 @@ export default async function getGithubFile(
   ref: string,
   path: string
 ): Promise<string> {
-  // Use raw.githubusercontent.com if in static build phase, fallback to Octokit if it fails
+  // Use CDN fallback system if in static build phase
   if (process.env.NEXT_PHASE === 'phase-production-build') {
-    const url = `https://raw.githubusercontent.com/${owner}/${repo}/${ref}/${path}`
     try {
-      const response = await fetch(url)
-      if (!response.ok) {
-        logger.warn(
-          `Failed to fetch file from raw.githubusercontent.com: ${response.status} ${response.statusText} (${url})`
-        )
-        throw new Error(
-          `Failed to fetch file from raw.githubusercontent.com: ${response.status} ${response.statusText}`
-        )
-      }
-      return await response.text()
-    } catch (err: any) {
+      return await fetchGitHubFileWithFallback(owner, repo, ref, path, {
+        cdnFallbackEnabled: true,
+        preferredCdn: 'jsdelivr',
+      })
+    } catch (err) {
+      const error = err as Error
       logger.error(
-        `Error fetching from raw.githubusercontent.com, falling back to Octokit: ${err.message}`
+        `Error fetching from CDN fallback system, falling back to Octokit: ${error.message}`
       )
       // Fallback to Octokit API
       try {
@@ -78,8 +54,9 @@ export default async function getGithubFile(
             'Octokit repos.getContent did not return string data with Accept: application/vnd.github.v3.raw'
           )
         }
-      } catch (octokitErr: any) {
-        logger.error(`Octokit fallback also failed: ${octokitErr.message}`)
+      } catch (octokitErr) {
+        const octokitError = octokitErr as Error
+        logger.error(`Octokit fallback also failed: ${octokitError.message}`)
         throw octokitErr
       }
     }
@@ -110,24 +87,16 @@ export default async function getGithubFile(
         'Octokit repos.getContent did not return string data with Accept: application/vnd.github.v3.raw'
       )
     }
-  } catch (err: any) {
-    logger.error(`Octokit fetch failed: ${err.message}`)
-    // If rate limit, fallback to raw.githubusercontent
+  } catch (err) {
+    const error = err as Error
+    logger.error(`Octokit fetch failed: ${error.message}`)
+    // If rate limit, fallback to CDN fallback system (raw -> jsDelivr -> Statically)
     if (isRateLimitError(err)) {
-      const url = `https://raw.githubusercontent.com/${owner}/${repo}/${ref}/${path}`
-      logger.warn(
-        `Octokit rate limited, falling back to raw.githubusercontent.com: ${url}`
-      )
-      const response = await fetch(url)
-      if (!response.ok) {
-        logger.error(
-          `Fallback to raw.githubusercontent.com also failed: ${response.status} ${response.statusText}`
-        )
-        throw new Error(
-          `Failed to fetch file from both Octokit and raw.githubusercontent.com: ${response.status} ${response.statusText}`
-        )
-      }
-      return await response.text()
+      logger.warn(`Octokit rate limited, falling back to CDN fallback system`)
+      return await fetchGitHubFileWithFallback(owner, repo, ref, path, {
+        cdnFallbackEnabled: true,
+        preferredCdn: 'jsdelivr',
+      })
     }
     throw err
   }

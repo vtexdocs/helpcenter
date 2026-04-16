@@ -14,8 +14,6 @@ async function getGithubTree(org: string, repo: string, ref: string) {
   return (await response).data
 }
 
-//https://api.github.com/repos/vtexdocs/devportal/commits?path=README.md
-
 export async function getAllDocsPaths(branch = 'main', category?: string) {
   const docsPaths: { [slug: string]: { locale: string; path: string }[] } = {}
 
@@ -55,9 +53,11 @@ function isStaticBuild() {
 
 function buildDocsPathsFromTree(repoTree: any, category: string) {
   const docsPaths: { [slug: string]: { locale: string; path: string }[] } = {}
+
   // @ts-ignore
   repoTree.tree.map((node: any) => {
     const path = node.path
+
     // Match docs/{locale}/{category}/.../{filename}.md(x)
     const re = /^docs\/(?<locale>pt|es|en)\/(?<rest>.+)\.(?<filetype>md|mdx)$/
     const match = path.match(re)
@@ -76,6 +76,7 @@ function buildDocsPathsFromTree(repoTree: any, category: string) {
       }
     }
   })
+
   return docsPaths
 }
 

@@ -7,6 +7,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const nextConfig = {
+  generateBuildId: async () => {
+    // Force unique build ID to bust CDN cache
+    return `build-${Date.now()}`
+  },
   experimental: {
     largePageDataBytes: 500 * 1000,
     workerThreads: false,
@@ -15,9 +19,45 @@ const nextConfig = {
   reactStrictMode: true,
   staticPageGenerationTimeout: 3600,
   images: {
+    // Fallback to domains for Next.js 13.0.5 compatibility
+    domains: [
+      'raw.githubusercontent.com',
+      'cdn.jsdelivr.net',
+      'cdn.statically.io',
+      'github.com',
+      'avatars.githubusercontent.com',
+      'vtex.com',
+    ],
     remotePatterns: [
       {
-        hostname: '**',
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.statically.io',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'vtex.com',
+        pathname: '/**',
       },
     ],
   },
@@ -26,6 +66,7 @@ const nextConfig = {
     config.experiments = { ...config.experiments, ...{ topLevelAwait: true } }
     // this will just update topLevelAwait property of config.experiments
     // config.experiments.topLevelAwait = true
+
     config.module.rules.push({
       test: /\.pem/,
       use: [
@@ -46,12 +87,27 @@ const nextConfig = {
     contentRepo: '',
     contentBranch: '',
   },
+  async headers() {
+    return [
+      {
+        // Match all pages to ensure CDN varies cache by locale cookies
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Netlify-Vary',
+            value: 'cookie=NEXT_LOCALE|nf_lang',
+          },
+        ],
+      },
+    ]
+  },
   async redirects() {
     return []
   },
   i18n: {
     locales: ['en', 'pt', 'es'],
     defaultLocale: 'en',
+    localeDetection: false,
   },
 }
 

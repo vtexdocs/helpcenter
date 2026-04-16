@@ -1,4 +1,4 @@
-import { ContributorsType } from './getFileContributors'
+import { ContributorsType } from './typings/types'
 
 interface GitHubUser {
   id: string

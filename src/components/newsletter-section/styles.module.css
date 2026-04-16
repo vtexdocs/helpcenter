@@ -4,7 +4,11 @@
   z-index: 2;
   position: absolute;
   box-shadow: 0px 0px 80px #ffffff inset;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 15%, #FFFFFF 55%);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 15%,
+    #ffffff 55%
+  );
 }
 
 .wrapper {
@@ -24,7 +28,11 @@
 
 @media (min-width: 40em) {
   .imageGradient {
-    background: linear-gradient(to left, rgba(255, 255, 255, 0) 25%, #FFFFFF 62%);
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0) 25%,
+      #ffffff 62%
+    );
   }
 
   .wrapper {
@@ -50,16 +58,19 @@
     width: 768px;
     height: 500px;
     top: -160px;
-    right: -200px
+    right: -200px;
   }
 }
 
 @media (min-width: 80em) {
   .imageGradient {
-    background: 
-      linear-gradient(to left, rgba(255, 255, 255, 0) 25%, #FFFFFF 95%),
-      linear-gradient(to right, rgba(255, 255, 255, 0) 85%, #FFFFFF 89%);
-  } 
+    background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0) 25%,
+        #ffffff 95%
+      ),
+      linear-gradient(to right, rgba(255, 255, 255, 0) 85%, #ffffff 89%);
+  }
 
   .wrapper {
     position: absolute;
@@ -83,10 +94,13 @@
 
 @media (min-width: 160em) {
   .imageGradient {
-    background: 
-      linear-gradient(to left, rgba(255, 255, 255, 0) 25%, #FFFFFF 95%),
-      linear-gradient(to right, rgba(255, 255, 255, 0) 88%, #FFFFFF 107%);
-  } 
+    background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0) 25%,
+        #ffffff 95%
+      ),
+      linear-gradient(to right, rgba(255, 255, 255, 0) 88%, #ffffff 107%);
+  }
 
   .wrapper {
     right: 460px;

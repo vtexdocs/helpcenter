@@ -1,9 +1,10 @@
 import { Flex, Box } from '@vtex/brand-ui'
 import type { ReactElement } from 'react'
-import { useContext, useEffect } from 'react'
-import { TrackerContext } from 'utils/contexts/trackerContext'
-import { useClientNavigation } from 'utils/useClientNavigation'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import useNavigation from 'utils/hooks/useNavigation'
 import { ThemeProvider } from '@vtex/brand-ui'
+import dynamic from 'next/dynamic'
 
 import styles from 'styles/documentation-page'
 import Header from 'components/header'
@@ -11,11 +12,12 @@ import Footer from 'components/footer'
 
 import { SectionId } from 'utils/typings/unionTypes'
 import Script from 'next/script'
-import {
-  CookieBar,
-  LibraryContextProvider,
-  Sidebar,
-} from '@vtexdocs/components'
+import { CookieBar, LibraryContextProvider } from '@vtexdocs/components'
+
+const Sidebar = dynamic(
+  () => import('@vtexdocs/components').then((mod) => mod.Sidebar),
+  { ssr: false }
+) as React.FC<{ parentsArray?: string[] }>
 import {
   menuDocumentationData,
   feedbackSectionData,
@@ -32,6 +34,7 @@ interface Props {
   isPreview: boolean
   sectionSelected?: SectionId | ''
   parentsArray?: string[]
+  locale?: 'en' | 'pt' | 'es'
 }
 
 // const tracker = new OpenReplay({
@@ -45,20 +48,29 @@ export default function Layout({
   isPreview = false,
   sectionSelected,
   parentsArray,
+  locale,
 }: Props) {
-  const { initTracker, startTracking } = useContext(TrackerContext)
-  const { navigation } = useClientNavigation() // Load navigation client-side
+  const { navigation } = useNavigation()
   const intl = useIntl()
+  const router = useRouter()
+  const [currentUrl, setCurrentUrl] = useState<string>('')
 
   useEffect(() => {
-    // Lazy load tracker to avoid blocking main thread
-    const timer = setTimeout(() => {
-      initTracker()
-      startTracking()
-    }, 100)
+    if (typeof window !== 'undefined') {
+      setCurrentUrl(window.location.href)
+    }
+  }, [router.asPath])
 
-    return () => clearTimeout(timer)
-  }, [])
+  const supportedLocales = ['en', 'pt', 'es'] as const
+  type SupportedLocale = (typeof supportedLocales)[number]
+
+  const localeCandidates = [locale, router.locale, intl.locale]
+
+  const derivedLocale = (localeCandidates.find(
+    (candidate): candidate is SupportedLocale =>
+      typeof candidate === 'string' &&
+      supportedLocales.includes(candidate as SupportedLocale)
+  ) ?? 'en') as SupportedLocale
 
   return (
     <ThemeProvider>
@@ -72,15 +84,15 @@ export default function Layout({
           menuDocumentationData(intl),
           menuSupportData(intl),
           updatesData(intl),
-          feedbackSectionData(intl),
+          feedbackSectionData(intl, currentUrl),
         ]}
         sectionSelected={sectionSelected ?? ''}
         fallback={navigation} // Use client-side loaded navigation (null during loading)
         isPreview={isPreview}
-        locale={intl.locale as 'en' | 'pt' | 'es'}
+        locale={derivedLocale}
       >
         <iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-KZ58QQP5"
+          src="https://www.googletagmanager.com/ns.html?id=GTM-K2NM75K"
           height="0"
           width="0"
           style={{ display: 'none', visibility: 'hidden' }}
@@ -91,7 +103,7 @@ export default function Layout({
 					new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 					j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-					})(window,document,'script','dataLayer','GTM-KZ58QQP5')
+					})(window,document,'script','dataLayer','GTM-K2NM75K')
 					`}
           </Script>
         </div>

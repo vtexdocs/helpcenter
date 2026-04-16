@@ -15,16 +15,18 @@ import {
 } from './typings/types'
 import { IntlShape } from 'react-intl'
 import libraryConfig from './libraryConfig'
-import DeveloperPortalIcon from 'components/icons/developer-portal-icon'
-import StartHereIcon from 'components/icons/start-here-icon'
-import TutorialsIcon from 'components/icons/tutorials-icon'
-import PaperIcon from 'components/icons/paper-icon'
-import WarningIcon from 'components/icons/warning-icon'
-import GraphIcon from 'components/icons/graph-icon'
-import MegaphoneIcon from 'components/icons/megaphone-icon'
-import FAQIcon from 'components/icons/faq-icon'
-import LongArrowIcon from 'components/icons/long-arrow-icon'
-import TroubleshootingIcon from 'components/icons/troubleshooting-icon'
+import {
+  FAQIcon,
+  MegaphoneIcon,
+  GraphIcon,
+  WarningIcon,
+  PaperIcon,
+  StartHereIcon,
+  TutorialsIcon,
+  DeveloperPortalIcon,
+  GearTroubleshootingIcon,
+  LongArrowIcon,
+} from '@vtexdocs/components'
 
 libraryConfig
 export const messages = getMessages()
@@ -98,7 +100,7 @@ export const updatesData = (intl: IntlShape) => {
   return data
 }
 
-export const feedbackSectionData = (intl: IntlShape) => {
+export const feedbackSectionData = (intl: IntlShape, currentUrl?: string) => {
   const data: DocDataElement[] = [
     {
       id: 'Feedback',
@@ -107,7 +109,7 @@ export const feedbackSectionData = (intl: IntlShape) => {
         id: 'landing_page_header_feedback.message',
       }),
       description: '',
-      link: getFeedbackURL(),
+      link: getFeedbackURL(currentUrl),
     },
   ]
 
@@ -138,7 +140,7 @@ export const menuSupportData = (intl: IntlShape) => {
     },
     {
       id: 'troubleshooting',
-      Icon: TroubleshootingIcon,
+      Icon: GearTroubleshootingIcon,
       title: intl.formatMessage({ id: 'menu_troubleshooting.title' }),
       description: intl.formatMessage({
         id: 'menu_troubleshooting.description',
@@ -219,7 +221,7 @@ export const ICON_REGISTRY: Record<string, IconComponent> = {
   announcements: MegaphoneIcon,
   faq: FAQIcon,
   'known-issues': WarningIcon,
-  troubleshooting: TroubleshootingIcon,
+  troubleshooting: GearTroubleshootingIcon,
 }
 
 export const getIcon = (categoryId: string): IconComponent => {
@@ -411,340 +413,157 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
-export const TroubleshootingFilters = (intl: IntlShape) => {
+const typeTagsByLocale: Record<string, Record<string, string>> = {
+  en: {
+    new_feature: 'New feature',
+    improvement: 'Improvement',
+    breaking_change: 'Breaking change',
+    deprecation: 'Deprecation',
+    security_update: 'Security update',
+  },
+  es: {
+    new_feature: 'Nueva funcionalidad',
+    improvement: 'Mejora',
+    breaking_change: 'Cambio disruptivo',
+    deprecation: 'Descontinuación',
+    security_update: 'Actualización de seguridad',
+  },
+  pt: {
+    new_feature: 'Nova funcionalidade',
+    improvement: 'Melhoria',
+    breaking_change: 'Breaking change',
+    deprecation: 'Descontinuação',
+    security_update: 'Atualização de segurança',
+  },
+}
+
+export const announcementsTypeFilter = (intl: IntlShape) => {
+  const ids = typeTagsByLocale[intl.locale] || typeTagsByLocale.en
   const data = {
-    name: intl.formatMessage({ id: 'troubleshooting_filter_tags.title' }),
+    name: intl.formatMessage({
+      id: 'announcements_filter_type.title',
+    }),
     options: [
       {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.orders' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.orders' }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.integration',
-        }),
+        id: ids.new_feature,
         name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.integration',
+          id: 'announcements_filter_type.new_feature',
         }),
       },
       {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.marketplace',
-        }),
+        id: ids.improvement,
         name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.marketplace',
+          id: 'announcements_filter_type.improvement',
         }),
       },
       {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.amazon' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.amazon' }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.sku' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.sku' }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.inventory' }),
+        id: ids.breaking_change,
         name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.inventory',
+          id: 'announcements_filter_type.breaking_change',
         }),
       },
       {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.pricing' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.pricing' }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.redirects' }),
+        id: ids.deprecation,
         name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.redirects',
+          id: 'announcements_filter_type.deprecation',
         }),
       },
       {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.master_data_v1',
-        }),
+        id: ids.security_update,
         name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.master_data_v1',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.customer' }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.customer',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.address' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.address' }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.multistore',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.multistore',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.catalog' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.catalog' }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.spreadsheet',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.spreadsheet',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.import' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.import' }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.b2b' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.b2b' }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.schema' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.schema' }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.master_data',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.master_data',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.spreadsheet_import',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.spreadsheet_import',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.index' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.index' }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.product' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.product' }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.trade_policy',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.trade_policy',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.message_center',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.message_center',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.email_templates',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.email_templates',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.authentication_token',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.authentication_token',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.ean' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.ean' }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.search' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.search' }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.intelligent_search',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.intelligent_search',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.rewriter' }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.rewriter',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.report' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.report' }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.export' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.export' }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.dashboard' }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.dashboard',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.vtex_admin',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.vtex_admin',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.overview' }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.overview',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.user_roles',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.user_roles',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.reservation',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.reservation',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.xml_integration',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.xml_integration',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.stock' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.stock' }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.order_status',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.order_status',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.invoice' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.invoice' }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.site_editor',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.site_editor',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.cms' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.cms' }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.store_framework',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.store_framework',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.promotions',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.promotions',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.affiliate' }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.affiliate',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.request_headers',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.request_headers',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.utm' }),
-        name: intl.formatMessage({ id: 'troubleshooting_filter_tags.utm' }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.custom_javascript',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.custom_javascript',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.separate_deliveries',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.separate_deliveries',
-        }),
-      },
-      {
-        id: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.order_split',
-        }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.order_split',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.packages' }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.packages',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.shipping' }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.shipping',
-        }),
-      },
-      {
-        id: intl.formatMessage({ id: 'troubleshooting_filter_tags.pre_sale' }),
-        name: intl.formatMessage({
-          id: 'troubleshooting_filter_tags.pre_sale',
+          id: 'announcements_filter_type.security_update',
         }),
       },
     ],
   }
+
+  return data
+}
+
+const areaTagsByLocale: Record<string, Record<string, string>> = {
+  en: {
+    admin: 'Admin',
+    checkout: 'Checkout',
+    catalog: 'Catalog',
+    payments: 'Payments',
+    orders: 'Orders',
+    promotions: 'Promotions',
+    prices: 'Prices',
+    marketplace: 'Marketplace',
+    intelligent_search: 'Intelligent Search',
+    storefront: 'Storefront',
+    master_data: 'Master Data',
+    audit: 'Audit',
+    identity: 'Identity',
+    logistics: 'Logistics',
+    b2b: 'B2B',
+    integrations: 'Integrations',
+    vtex_shield: 'VTEX Shield',
+    vtex_ads: 'VTEX Ads',
+    b2b_buyer_portal: 'B2B Buyer Portal',
+    vtex_sales_app: 'VTEX Sales App',
+  },
+  es: {
+    admin: 'Admin',
+    checkout: 'Checkout',
+    catalog: 'Catálogo',
+    payments: 'Pagos',
+    orders: 'Pedidos',
+    promotions: 'Promociones',
+    prices: 'Precios',
+    marketplace: 'Marketplace',
+    intelligent_search: 'Intelligent Search',
+    storefront: 'Storefront',
+    master_data: 'Master Data',
+    audit: 'Audit',
+    identity: 'Identity',
+    logistics: 'Logística',
+    b2b: 'B2B',
+    integrations: 'Integraciones',
+    vtex_shield: 'VTEX Shield',
+    vtex_ads: 'VTEX Ads',
+    b2b_buyer_portal: 'B2B Buyer Portal',
+    vtex_sales_app: 'VTEX Sales App',
+  },
+  pt: {
+    admin: 'Admin',
+    checkout: 'Checkout',
+    catalog: 'Catálogo',
+    payments: 'Pagamentos',
+    orders: 'Pedidos',
+    promotions: 'Promoções',
+    prices: 'Preços',
+    marketplace: 'Marketplace',
+    intelligent_search: 'Intelligent Search',
+    storefront: 'Storefront',
+    master_data: 'Master Data',
+    audit: 'Audit',
+    identity: 'Identity',
+    logistics: 'Logística',
+    b2b: 'B2B',
+    integrations: 'Integrações',
+    vtex_shield: 'VTEX Shield',
+    vtex_ads: 'VTEX Ads',
+    b2b_buyer_portal: 'B2B Buyer Portal',
+    vtex_sales_app: 'VTEX Sales App',
+  },
+}
+
+export const announcementsAreaFilter = (intl: IntlShape) => {
+  const ids = areaTagsByLocale[intl.locale] || areaTagsByLocale.en
+  const keys = Object.keys(ids)
+  const data = {
+    name: intl.formatMessage({
+      id: 'announcements_filter_area.title',
+    }),
+    options: keys.map((key) => ({
+      id: ids[key],
+      name: intl.formatMessage({
+        id: `announcements_filter_area.${key}`,
+      }),
+    })),
+  }
+
   return data
 }
 

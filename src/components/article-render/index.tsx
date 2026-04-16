@@ -6,47 +6,21 @@ import FeedbackSection from 'components/feedback-section'
 import OnThisPage from 'components/on-this-page'
 import SeeAlsoSection from 'components/see-also-section'
 import DocumentContextProvider from 'utils/contexts/documentContext'
-import { Item, MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
+import { MarkdownRenderer, TableOfContents } from '@vtexdocs/components'
 
 import styles from 'styles/documentation-page'
 import ArticlePagination from 'components/article-pagination'
 import Contributors from 'components/contributors'
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { ContributorsType } from 'utils/getFileContributors'
+import { MarkDownProps } from 'utils/typings/types'
 import CopyLinkButton from 'components/copy-link-button'
 import TimeToRead from 'components/TimeToRead'
 import DateText from 'components/date-text'
 import Author from 'components/author'
 import Tag from 'components/tag'
+import CopyForLLM from 'components/copy-for-llm'
+import { KnownIssueStatus } from 'utils/typings/unionTypes'
 
-export interface MarkDownProps {
-  content: string
-  serialized: MDXRemoteSerializeResult
-  contributors: ContributorsType[]
-  path: string
-  headingList: Item[]
-  seeAlsoData: {
-    url: string
-    title: string
-    category: string
-  }[]
-  slug: string
-  isListed: boolean
-  branch: string
-  pagination?: {
-    previousDoc: {
-      slug: string | null
-      name: string | null
-    }
-    nextDoc: {
-      slug: string | null
-      name: string | null
-    }
-  }
-  breadcrumbList: { slug: string; name: string; type: string }[]
-  headings: Item[]
-  type: string
-}
+import { useIntl } from 'react-intl'
 
 const ArticleRender = ({
   serialized,
@@ -59,28 +33,31 @@ const ArticleRender = ({
   slug,
   type,
 }: MarkDownProps) => {
+  const intl = useIntl()
   return (
     <>
       <Head>
-        <meta name="docsearch:doctype" content={type} />
-        {serialized?.frontmatter?.title && (
-          <>
+        <>
+          <meta name="docsearch:doctype" content={type} />
+          {serialized?.frontmatter?.title && (
             <title>{serialized?.frontmatter?.title as string}</title>
+          )}
+          {serialized?.frontmatter?.title && (
             <meta
               name="docsearch:doctitle"
               content={serialized?.frontmatter?.title as string}
             />
-          </>
-        )}
-        {serialized.frontmatter?.hidden && (
-          <meta name="robots" content="noindex" />
-        )}
-        {serialized.frontmatter?.excerpt && (
-          <meta
-            property="og:description"
-            content={serialized.frontmatter?.excerpt as string}
-          />
-        )}
+          )}
+          {serialized.frontmatter?.hidden && (
+            <meta name="robots" content="noindex" />
+          )}
+          {serialized.frontmatter?.excerpt && (
+            <meta
+              property="og:description"
+              content={serialized.frontmatter?.excerpt as string}
+            />
+          )}
+        </>
       </Head>
       <DocumentContextProvider headings={headings}>
         <Flex sx={styles.innerContainer}>
@@ -93,17 +70,19 @@ const ArticleRender = ({
               <Box sx={styles.textContainer}>
                 <article>
                   <header>
-                    <Text sx={styles.documentationTitle} className="title">
-                      {serialized.frontmatter?.title}
-                    </Text>
-                    {type == 'announcements' && contributors[0]?.avatar && (
-                      <Author contributor={contributors[0]} />
-                    )}
-                    {serialized.frontmatter?.excerpt && (
-                      <Text sx={styles.documentationExcerpt}>
-                        {serialized.frontmatter?.excerpt}
+                    <>
+                      <Text sx={styles.documentationTitle} className="title">
+                        {serialized.frontmatter?.title}
                       </Text>
-                    )}
+                      {type == 'announcements' && contributors[0]?.avatar && (
+                        <Author contributor={contributors[0]} />
+                      )}
+                      {serialized.frontmatter?.excerpt && (
+                        <Text sx={styles.documentationExcerpt}>
+                          {serialized.frontmatter?.excerpt}
+                        </Text>
+                      )}
+                    </>
                   </header>
 
                   {type == 'known-issues' && (
@@ -125,8 +104,20 @@ const ArticleRender = ({
                         <Text>
                           ID: {serialized.frontmatter?.internalReference}
                         </Text>
-                        <Tag sx={{ marginLeft: 'auto' }}>
-                          {serialized.frontmatter?.kiStatus}
+                        <Tag
+                          sx={{ marginLeft: 'auto' }}
+                          color={
+                            serialized.frontmatter?.kiStatus as KnownIssueStatus
+                          }
+                        >
+                          {intl.formatMessage({
+                            id: `known_issues_filter_status.${(
+                              serialized.frontmatter
+                                ?.kiStatus as KnownIssueStatus
+                            )
+                              .toLowerCase()
+                              .replace(' ', '_')}`,
+                          })}
                         </Tag>
                       </Flex>
                     </Flex>
@@ -156,16 +147,19 @@ const ArticleRender = ({
                           />
                         </Flex>
                       )}
-                      {serialized?.frontmatter?.readingTime && (
-                        <TimeToRead
-                          minutes={
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            (serialized?.frontmatter?.readingTime as any)
-                              ?.text ||
-                            String(serialized?.frontmatter?.readingTime)
-                          }
-                        />
-                      )}
+                      <Flex sx={{ alignItems: 'center' }}>
+                        {serialized?.frontmatter?.readingTime && (
+                          <TimeToRead
+                            minutes={
+                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                              (serialized?.frontmatter?.readingTime as any)
+                                ?.text ||
+                              String(serialized?.frontmatter?.readingTime)
+                            }
+                          />
+                        )}
+                        <CopyForLLM section={type} slug={slug} path={path} />
+                      </Flex>
                     </Box>
                   </Flex>
                   <MarkdownRenderer serialized={serialized} />

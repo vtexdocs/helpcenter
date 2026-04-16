@@ -7,12 +7,26 @@ import {
 } from '@vtex/brand-ui'
 import { useContext, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import { HamburgerMenu, SearchInput } from '@vtexdocs/components'
+import dynamic from 'next/dynamic'
+
+const SearchInput = dynamic(
+  () => import('@vtexdocs/components').then((mod) => mod.SearchInput),
+  { ssr: false }
+) as React.FC<Record<string, never>>
+
+const HamburgerMenu = dynamic(
+  () => import('@vtexdocs/components').then((mod) => mod.HamburgerMenu),
+  { ssr: false }
+) as React.FC<{ parentsArray?: string[] }>
 
 import DropdownMenu from 'components/dropdown-menu'
-import VTEXHelpCenterIcon from 'components/icons/vtex-helpcenter-icon'
-import GridIcon from 'components/icons/grid-icon'
-import LongArrowIcon from 'components/icons/long-arrow-icon'
+import AnnouncementsDropdown from 'components/announcements-dropdown'
+import {
+  VTEXHelpCenterIcon,
+  GridIcon,
+  LongArrowIcon,
+  MegaphoneIcon,
+} from '@vtexdocs/components'
 import { getFeedbackURL } from 'utils/get-url'
 
 import AnnouncementBar from 'components/announcement-bar'
@@ -21,7 +35,7 @@ import LocaleSwitcher from 'components/locale-switcher'
 import styles from './styles'
 import { PreviewContext } from 'utils/contexts/preview'
 import { FormattedMessage } from 'react-intl'
-import { useIntl } from 'react-intl'
+import { useAnnouncements } from 'utils/hooks/useAnnouncements'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Header = () => {
@@ -29,12 +43,20 @@ const Header = () => {
   const isBranchPreview = router.isPreview
 
   const { branchPreview } = useContext(PreviewContext)
+  const { announcements } = useAnnouncements()
 
-  const lastScroll = useRef(0)
   const modalOpen = useRef(false)
   const [showDropdown, setShowDropdown] = useState(false)
+  const [showAnnouncementsDropdown, setShowAnnouncementsDropdown] =
+    useState(false)
+  const [currentUrl, setCurrentUrl] = useState<string>('')
   const headerElement = useRef<HTMLElement>()
-  const intl = useIntl()
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCurrentUrl(window.location.href)
+    }
+  }, [router.asPath])
 
   useEffect(() => {
     const body = document.body
@@ -58,29 +80,17 @@ const Header = () => {
   useEffect(() => {
     const onScroll = () => {
       setShowDropdown(false)
-      if (headerElement.current && !modalOpen.current) {
-        const headerHeight = headerElement.current.children[0].clientHeight
-        if (
-          window.scrollY > headerHeight &&
-          window.scrollY > lastScroll.current
-        ) {
-          headerElement.current.style.top = `-${headerHeight}px`
-        } else {
-          headerElement.current.style.top = '0'
-        }
-        lastScroll.current = window.scrollY
-      }
+      setShowAnnouncementsDropdown(false)
     }
 
-    window.removeEventListener('scroll', onScroll)
     window.addEventListener('scroll', onScroll, { passive: true })
-
     return () => window.removeEventListener('scroll', onScroll)
-  }, [headerElement.current])
+  }, [])
 
   useEffect(() => {
     const hideDropdown = () => {
       setShowDropdown(false)
+      setShowAnnouncementsDropdown(false)
     }
 
     router.events.on('routeChangeStart', hideDropdown)
@@ -89,21 +99,7 @@ const Header = () => {
 
   return (
     <Box ref={headerElement} sx={styles.headerContainer}>
-      {!isBranchPreview ? (
-        <AnnouncementBar
-          type="info"
-          label={intl.formatMessage({
-            id: 'announcement_bar.label',
-          })}
-          closable={false}
-          action={{
-            button: intl.formatMessage({
-              id: 'announcement_bar.button',
-            }),
-            href: 'https://help.vtex.com?utm_source=new-help-center-announcement-bar',
-          }}
-        />
-      ) : (
+      {isBranchPreview && (
         <AnnouncementBar
           closable={false}
           type="warning"
@@ -145,9 +141,41 @@ const Header = () => {
             {showDropdown && <DropdownMenu />}
           </Flex>
 
+          <Flex
+            sx={{
+              ...styles.dropdownContainer,
+              marginLeft: '32px',
+            }}
+            onMouseOver={() => setShowAnnouncementsDropdown(true)}
+            onMouseLeave={() => setShowAnnouncementsDropdown(false)}
+          >
+            <Flex sx={styles.dropdownButton(showAnnouncementsDropdown)}>
+              <MegaphoneIcon />
+              <Text
+                sx={styles.rightButtonsText}
+                data-cy="announcements-dropdown"
+              >
+                <FormattedMessage id="landing_page_header_announcements.message" />
+              </Text>
+            </Flex>
+
+            {showAnnouncementsDropdown && announcements.length > 0 && (
+              <AnnouncementsDropdown
+                announcements={announcements
+                  .slice(0, 2)
+                  .map((announcement) => ({
+                    title: announcement.title,
+                    date: new Date(announcement.createdAt),
+                    url: `/${announcement.url}`,
+                    tags: announcement.tags || [],
+                  }))}
+              />
+            )}
+          </Flex>
+
           <VtexLink
             sx={styles.rightLinksItem}
-            href={getFeedbackURL()}
+            href={getFeedbackURL(currentUrl)}
             target="_blank"
           >
             <LongArrowIcon />

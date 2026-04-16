@@ -1,4 +1,5 @@
 import { LoggerType } from './logging/log-util'
+import { LocaleType } from 'utils/typings/unionTypes'
 
 export const flattenJSON = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -39,13 +40,11 @@ export const getKeysByValue = (
   return Object.keys(object).filter((key) => object[key] === value)
 }
 
-export type localeType = 'en' | 'pt' | 'es'
-
 export const getParents = (
   path: string,
   data: string,
   flattenedSidebar: { [x: string]: string },
-  locale: localeType = 'en',
+  locale: LocaleType = 'en',
   parentsArray: string[],
   parent?: string
 ) => {
@@ -83,7 +82,7 @@ export const getChildren = (
   path: string,
   data: string,
   flattenedSidebar: { [x: string]: string },
-  locale: localeType = 'en',
+  locale: LocaleType = 'en',
   childrenArray: string[] = []
 ): string[] => {
   const childrenBasePath = path?.split('slug')[0] + 'children.'
@@ -126,7 +125,7 @@ function safePush<T>(
 export function computeParents(
   keyPath: string,
   flattenedSidebar: { [x: string]: string },
-  currentLocale: localeType,
+  currentLocale: LocaleType,
   logger: LoggerType
 ) {
   const parentsArray: string[] = []

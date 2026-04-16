@@ -1,7 +1,8 @@
 import { serialize } from 'next-mdx-remote/serialize'
 import { LoggerType } from './logging/log-util'
-import { localeType } from './navigation-utils'
+import { LocaleType } from 'utils/typings/unionTypes'
 import { DocsPaths } from './getDocsPaths'
+import { fetchGitHubFileWithFallback } from './githubCdnFallback'
 
 export const parseFrontmatter = async (content: string, logger: LoggerType) => {
   try {
@@ -24,10 +25,17 @@ export const fetchFromGithub = async (
   logger: LoggerType
 ) => {
   try {
-    const url = `https://raw.githubusercontent.com/vtexdocs/${repo}/${branch}/${path}`
-    const response = await fetch(url)
-    const data = await response.text()
-    return { content: data, slug }
+    const content = await fetchGitHubFileWithFallback(
+      'vtexdocs',
+      repo,
+      branch,
+      path,
+      {
+        cdnFallbackEnabled: true,
+        preferredCdn: 'jsdelivr',
+      }
+    )
+    return { content, slug }
   } catch (error) {
     logger.error(`Error fetching data for path ${path}: ${error}`)
     return { content: '', slug }
@@ -37,7 +45,7 @@ export const fetchFromGithub = async (
 export const getPathBySlug = (
   slug: string,
   docsPathsGLOBAL: DocsPaths,
-  currentLocale: localeType
+  currentLocale: LocaleType
 ): string | undefined => {
   return docsPathsGLOBAL[slug]?.find((entry) => entry.locale === currentLocale)
     ?.path
@@ -47,7 +55,7 @@ export const fetchBatch = async (
   batch: string[],
   repo: string,
   docsPathsGLOBAL: DocsPaths,
-  currentLocale: localeType,
+  currentLocale: LocaleType,
   branch: string,
   logger: LoggerType
 ) => {

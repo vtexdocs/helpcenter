@@ -1,12 +1,13 @@
-import { Flex } from '@vtex/brand-ui'
+import { Box, Flex } from '@vtex/brand-ui'
 import { GetStaticPropsContext, NextPage } from 'next'
 
 import usePagination from '../../utils/hooks/usePagination'
+import { KnownIssueDataElement } from 'utils/typings/types'
 import {
-  KnownIssueDataElement,
   KnownIssueStatus,
   SortByType,
-} from 'utils/typings/types'
+  LocaleType,
+} from 'utils/typings/unionTypes'
 import Head from 'next/head'
 import styles from 'styles/filterable-cards-page'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -25,7 +26,6 @@ import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/known-issues.png'
 import KnownIssueCard from 'components/known-issue-card'
 import Pagination from 'components/pagination'
-import { localeType } from 'utils/navigation-utils'
 import Filter from 'components/filter'
 import {
   knownIssuesStatusFilter,
@@ -33,10 +33,11 @@ import {
   sortBy,
 } from 'utils/constants'
 import Select from 'components/select'
-import Input from 'components/input'
-import SearchIcon from 'components/icons/search-icon'
+import { Input } from '@vtexdocs/components'
+import { SearchIcon } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
+import Tooltip from 'components/tooltip'
 
 interface Props {
   knownIssuesData: KnownIssueDataElement[]
@@ -67,6 +68,84 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const normalizedSearch = useMemo(() => search.toLowerCase(), [search])
+  const searchStopwords = useMemo(() => {
+    const stopwordsByLocale: Record<string, Set<string>> = {
+      pt: new Set([
+        'a',
+        'ao',
+        'aos',
+        'as',
+        'Ã ',
+        'Ã s',
+        'com',
+        'da',
+        'das',
+        'de',
+        'do',
+        'dos',
+        'e',
+        'em',
+        'na',
+        'nas',
+        'no',
+        'nos',
+        'ou',
+        'para',
+        'por',
+        'sem',
+      ]),
+      en: new Set([
+        'a',
+        'an',
+        'and',
+        'as',
+        'at',
+        'by',
+        'for',
+        'from',
+        'in',
+        'is',
+        'of',
+        'on',
+        'or',
+        'the',
+        'to',
+        'with',
+        'it',
+      ]),
+      es: new Set([
+        'a',
+        'al',
+        'con',
+        'de',
+        'del',
+        'el',
+        'en',
+        'es',
+        'la',
+        'las',
+        'los',
+        'o',
+        'para',
+        'por',
+        'un',
+        'una',
+        'y',
+        'lo',
+      ]),
+    }
+    const localeKey = (intl.locale ?? 'pt').split('-')[0]
+    return stopwordsByLocale[localeKey] ?? stopwordsByLocale.pt
+  }, [intl.locale])
+  const searchTerms = useMemo(
+    () =>
+      normalizedSearch
+        .replace(/["'\u201C\u201D\u2018\u2019]/g, ' ')
+        .trim()
+        .split(/\s+/)
+        .filter((term: string) => term && !searchStopwords.has(term)),
+    [normalizedSearch, searchStopwords]
+  )
 
   const statusConfig: FilterConfig = useMemo(
     () => knownIssuesStatusFilter(intl),
@@ -94,13 +173,42 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
         (filters.modules.length === 0 ||
           filters.modules.includes(knownIssue.module))
 
-      const hasSearch: boolean = knownIssue.title
-        .toLowerCase()
-        .includes(normalizedSearch)
+      const title = knownIssue.title.toLowerCase()
+      const id = knownIssue.id
+      const hasSearch: boolean =
+        searchTerms.length === 0 ||
+        searchTerms.some(
+          (term: string) => title.includes(term) || id.includes(term)
+        )
       return hasFilter && hasSearch
     })
 
     const sorted = data.sort((a, b) => {
+      const titleA = a.title.toLowerCase()
+      const titleB = b.title.toLowerCase()
+      const idA = a.id
+      const idB = b.id
+      const matchCountA =
+        searchTerms.length === 0
+          ? 0
+          : searchTerms.reduce(
+              (count: number, term: string) =>
+                count + (titleA.includes(term) || idA.includes(term) ? 1 : 0),
+              0
+            )
+      const matchCountB =
+        searchTerms.length === 0
+          ? 0
+          : searchTerms.reduce(
+              (count: number, term: string) =>
+                count + (titleB.includes(term) || idB.includes(term) ? 1 : 0),
+              0
+            )
+
+      if (matchCountA !== matchCountB) {
+        return matchCountB - matchCountA
+      }
+
       const dateA =
         sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
       const dateB =
@@ -109,7 +217,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
       return dateA.getTime() - dateB.getTime()
     })
     return sorted
-  }, [filters, sortByValue, normalizedSearch])
+  }, [filters, sortByValue, searchTerms])
 
   useEffect(() => {
     setPageIndex({
@@ -185,14 +293,53 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
-          <Input
-            placeholder={intl.formatMessage({
-              id: 'known_issues_page_search.placeholder',
-            })}
-            value={search}
-            Icon={SearchIcon}
-            onChange={(value) => setSearch(value)}
-          />
+          <Flex sx={{ width: '100%', alignItems: 'center', gap: '8px' }}>
+            <Box sx={{ width: '100%' }}>
+              <Input
+                placeholder={intl.formatMessage({
+                  id: 'known_issues_page_search.placeholder',
+                })}
+                value={search}
+                Icon={SearchIcon}
+                onChange={(value) => setSearch(value)}
+              />
+            </Box>
+            <Tooltip
+              placement="top"
+              label={intl.formatMessage({
+                id: 'known_issues_page_search.priority_tooltip',
+                defaultMessage:
+                  'Resultados priorizam titulos com maior quantidade de termos correspondentes; em empate, aplica-se a ordenacao selecionada.',
+              })}
+            >
+              <Box
+                as="button"
+                type="button"
+                aria-label={intl.formatMessage({
+                  id: 'known_issues_page_search.priority_tooltip',
+                })}
+                sx={{
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  display: 'flex',
+                  width: '24px',
+                  height: '24px',
+                  borderRadius: '50%',
+                  border: '1px solid',
+                  borderColor: 'muted.2',
+                  backgroundColor: 'transparent',
+                  color: 'muted.0',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  cursor: 'help',
+                  flexShrink: 0,
+                  p: 0,
+                }}
+              >
+                ?
+              </Box>
+            </Tooltip>
+          </Flex>
           <Flex sx={styles.cardContainer}>
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
@@ -231,9 +378,9 @@ export async function getStaticProps({
   const branch = preview ? previewBranch : 'main'
   const docsPathsGLOBAL = await getKnownIssuesPaths('known-issues')
   const logger = getLogger('Known Issues')
-  const currentLocale: localeType = locale
-    ? (locale as localeType)
-    : ('en' as localeType)
+  const currentLocale: LocaleType = locale
+    ? (locale as LocaleType)
+    : ('en' as LocaleType)
 
   const slugs = Object.keys(docsPathsGLOBAL)
   const batchSize = 100

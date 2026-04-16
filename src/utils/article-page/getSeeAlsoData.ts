@@ -1,13 +1,13 @@
 import { DocsPaths } from 'utils/getDocsPaths'
 import getGithubFile from 'utils/getGithubFile'
 import { LoggerType } from 'utils/logging/log-util'
-import { localeType } from 'utils/navigation-utils'
+import { LocaleType } from 'utils/typings/unionTypes'
 import { serialize } from 'next-mdx-remote/serialize'
 
 export async function getSeeAlsoData(
   seeAlso: string[] = [],
   docsPaths: DocsPaths,
-  currentLocale: localeType,
+  currentLocale: LocaleType,
   logger: LoggerType
 ) {
   return Promise.all(

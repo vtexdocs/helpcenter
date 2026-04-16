@@ -8,18 +8,16 @@ import { useContext, useMemo, useState } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
 import { getDocsPaths as getTroubleshootingPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
-import { localeType } from 'utils/navigation-utils'
+import { LocaleType } from 'utils/typings/unionTypes'
 import { Flex } from '@vtex/brand-ui'
-import Select from 'components/select'
-import { SortByType, TroubleshootingDataElement } from 'utils/typings/types'
+import { TroubleshootingDataElement } from 'utils/typings/types'
 import usePagination from 'utils/hooks/usePagination'
-import { sortBy } from 'utils/constants'
 import TroubleshootingCard from 'components/troubleshooting-card'
 import Pagination from 'components/pagination'
-import { TroubleshootingFilters } from 'utils/constants'
+
 import Filter from 'components/filter'
-import searchIcon from '../../components/icons/search-icon'
-import Input from 'components/input'
+import { SearchIcon } from '@vtexdocs/components'
+import { Input } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch } from 'utils/fetchBatchGithubData'
 import { parseFrontmatter } from 'utils/fetchBatchGithubData'
@@ -27,49 +25,64 @@ import { parseFrontmatter } from 'utils/fetchBatchGithubData'
 interface Props {
   branch: string
   troubleshootingData: TroubleshootingDataElement[]
+  availableDomainFilters: string[]
+  availableSymptomFilters: string[]
 }
 
 const TroubleshootingPage: NextPage<Props> = ({
   troubleshootingData,
   branch,
+  availableDomainFilters,
+  availableSymptomFilters,
 }) => {
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
   const intl = useIntl()
+
+  setBranchPreview(branch)
 
   const itemsPerPage = 8
   const [pageIndex, setPageIndex] = useState({
     curr: 1,
     total: Math.ceil(troubleshootingData.length / itemsPerPage),
   })
-  const [filters, setFilters] = useState<string[]>([])
-  const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+  const [filters, setFilters] = useState<{
+    domains: string[]
+    symptoms: string[]
+  }>({ domains: [], symptoms: [] })
   const [search, setSearch] = useState<string>('')
+
+  const createDynamicTroubleshootingFilter = (
+    nameId: string,
+    options: string[]
+  ) => ({
+    name: intl.formatMessage({ id: nameId }),
+    options: options.map((option) => ({
+      id: option,
+      name: option,
+    })),
+  })
 
   const filteredResult = useMemo(() => {
     const data = troubleshootingData.filter((troubleshoot) => {
       const hasFilters: boolean =
-        filters.length === 0 ||
-        troubleshoot.tags.some((tag) => filters.includes(tag))
+        (filters.domains.length === 0 ||
+          (troubleshoot.domainFilters ?? []).some((tag) =>
+            filters.domains.includes(tag)
+          )) &&
+        (filters.symptoms.length === 0 ||
+          (troubleshoot.symptomFilters ?? []).some((tag) =>
+            filters.symptoms.includes(tag)
+          ))
       const hasSearch: boolean = troubleshoot.title
         .toLowerCase()
         .includes(search.toLowerCase())
       return hasSearch && hasFilters
     })
 
-    data.sort((a, b) => {
-      const dateA =
-        sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
-      const dateB =
-        sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
-
-      return dateA.getTime() - dateB.getTime()
-    })
-
     setPageIndex({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
 
     return data
-  }, [filters, sortByValue, intl.locale, search])
+  }, [filters, intl.locale, search])
 
   const paginatedResult = usePagination<TroubleshootingDataElement>(
     itemsPerPage,
@@ -110,21 +123,29 @@ const TroubleshootingPage: NextPage<Props> = ({
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
             <Filter
-              checkBoxFilter={TroubleshootingFilters(intl)}
-              onApply={(newFilters) => setFilters(newFilters.checklist)}
-            />
-            <Select
-              label={intl.formatMessage({ id: 'sort.label' })}
-              value={sortByValue}
-              options={sortBy(intl)}
-              onSelect={(ordering) => setSortByValue(ordering as SortByType)}
+              tagFilter={createDynamicTroubleshootingFilter(
+                'troubleshooting_filter_symptoms.title',
+                availableSymptomFilters
+              )}
+              checkBoxFilter={createDynamicTroubleshootingFilter(
+                'troubleshooting_filter_domains.title',
+                availableDomainFilters
+              )}
+              onApply={(newFilters) =>
+                setFilters({
+                  domains: newFilters.checklist,
+                  symptoms: newFilters.tag,
+                })
+              }
+              selectedCheckboxes={filters.domains}
+              selectedTags={filters.symptoms}
             />
           </Flex>
           <Input
             placeholder={intl.formatMessage({
               id: 'troubleshooting_page_search.placeholder',
             })}
-            Icon={searchIcon}
+            Icon={SearchIcon}
             value={search}
             onChange={(value: string) => setSearch(value)}
           />
@@ -168,11 +189,28 @@ export async function getStaticProps({
     branch
   )
   const logger = getLogger('troubleshooting')
-  const currentLocale: localeType = (locale ?? 'en') as localeType
+  const currentLocale: LocaleType = (locale ?? 'en') as LocaleType
   const slugs = Object.keys(docsPathsGLOBAL)
   const batchSize = 100
 
   const troubleshootingData: TroubleshootingDataElement[] = []
+  const allDomainFilters = new Set<string>()
+  const allSymptomFilters = new Set<string>()
+
+  function normalizeFrontmatterList(value: unknown): string[] {
+    if (Array.isArray(value)) {
+      return value.map((item) => String(item).trim()).filter(Boolean)
+    }
+
+    return String(value ?? '')
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean)
+  }
+
+  function formatTagLabel(value: string): string {
+    return value.charAt(0).toUpperCase() + value.slice(1)
+  }
 
   for (let i = 0; i < slugs.length; i += batchSize) {
     const batch = slugs.slice(i, i + batchSize)
@@ -189,22 +227,40 @@ export async function getStaticProps({
       if (!content) continue
       const frontmatter = await parseFrontmatter(content, logger)
       if (frontmatter) {
+        const rawDomainFilters = normalizeFrontmatterList(
+          frontmatter.domainFilters
+        )
+        const rawSymptomFilters = normalizeFrontmatterList(
+          frontmatter.symptomFilters
+        )
+        const domainFilters = rawDomainFilters.map(formatTagLabel)
+        const symptomFilters = rawSymptomFilters.map(formatTagLabel)
+
+        domainFilters.forEach((tag) => allDomainFilters.add(tag))
+        symptomFilters.forEach((tag) => allSymptomFilters.add(tag))
+
         troubleshootingData.push({
           title: String(frontmatter.title),
           slug,
           createdAt: String(frontmatter.createdAt),
           updatedAt: String(frontmatter.updatedAt),
-          tags: String(frontmatter.tags ?? '').split(','),
+          domainFilters,
+          symptomFilters,
           status: String(frontmatter.status),
         })
       }
     }
   }
 
+  const availableDomainFilters = Array.from(allDomainFilters).sort()
+  const availableSymptomFilters = Array.from(allSymptomFilters).sort()
+
   return {
     props: {
       sectionSelected,
       troubleshootingData,
+      availableDomainFilters,
+      availableSymptomFilters,
       branch,
     },
     revalidate: getISRRevalidateTime(),

@@ -1,10 +1,18 @@
 import { FeedbackSection as FeedbackSectionComponent } from '@vtexdocs/components'
+import { SectionId } from 'utils/typings/unionTypes'
+
+const DEFAULT_REPO = 'help-center-content'
+
+function getRepoForSection(type?: SectionId): string {
+  return type === 'known-issues' ? 'known-issues' : DEFAULT_REPO
+}
 
 interface DocPath {
   slug?: string
   docPath?: string
   suggestEdits?: boolean
   small?: boolean
+  type?: SectionId
 }
 
 const FeedbackSection = ({
@@ -19,7 +27,7 @@ const FeedbackSection = ({
         new Date().toISOString(),
         `https://help.vtex.com/docs/tutorials/${slug}`,
         liked ? 'positive' : 'negative',
-        comment,
+        '',
       ],
     }
 
@@ -29,7 +37,10 @@ const FeedbackSection = ({
     })
   }
 
-  const urlToEdit = `https://github.com/vtexdocs/help-center-content/edit/main/${docPath}`
+  const contentRepo = getRepoForSection(type)
+  const urlToEdit = docPath
+    ? `https://github.com/vtexdocs/${contentRepo}/edit/main/${docPath}`
+    : ''
 
   return (
     <FeedbackSectionComponent

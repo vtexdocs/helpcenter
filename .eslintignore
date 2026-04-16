@@ -8,3 +8,4 @@ public/
 .cache/
 .next/
 src/utils/getGithubFile.ts
+netlify/edge-functions/
