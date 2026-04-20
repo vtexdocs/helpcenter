@@ -119,6 +119,9 @@
     "typescript": "^4.6.2",
     "vitest": "^4.1.0"
   },
+  "optionalDependencies": {
+    "@img/sharp-linux-x64": "^0.33.5"
+  },
   "overrides": {
     "next-plugin-preval": {
       "next": "$next"
