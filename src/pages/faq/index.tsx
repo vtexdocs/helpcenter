@@ -30,6 +30,12 @@ import { SearchIcon } from '@vtexdocs/components'
 import ChipFilter from 'components/chip-filter'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
+import Tooltip from 'components/tooltip'
+import {
+  countTermMatches,
+  getSearchTerms,
+  itemMatchesAnyTerm,
+} from 'utils/search/tokenizedSearch'
 
 interface Props {
   faqData: FaqCardDataElement[]
@@ -45,7 +51,10 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const [filters, setFilters] = useState<string[]>([])
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
-  const normalizedSearch = useMemo(() => search.toLowerCase(), [search])
+  const searchTerms = useMemo(
+    () => getSearchTerms(search, intl.locale),
+    [search, intl.locale]
+  )
 
   const chipCategories: string[] = faqFilter(intl).options.map(
     (option) => option.name
@@ -55,14 +64,28 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
     const data = faqData.filter((question) => {
       const hasFilter: boolean =
         filters.length === 0 || filters.includes(question.productTeam)
-      const hasSearch: boolean = question.title
-        .toLowerCase()
-        .includes(normalizedSearch)
+      const fields = [question.title, question.slug, question.productTeam].map(
+        (s) => String(s ?? '').toLowerCase()
+      )
+      const hasSearch = itemMatchesAnyTerm(searchTerms, fields)
 
       return hasFilter && hasSearch
     })
 
     const sorted = data.sort((a, b) => {
+      const fieldsA = [a.title, a.slug, a.productTeam].map((s) =>
+        String(s ?? '').toLowerCase()
+      )
+      const fieldsB = [b.title, b.slug, b.productTeam].map((s) =>
+        String(s ?? '').toLowerCase()
+      )
+      const matchCountA = countTermMatches(searchTerms, fieldsA)
+      const matchCountB = countTermMatches(searchTerms, fieldsB)
+
+      if (matchCountA !== matchCountB) {
+        return matchCountB - matchCountA
+      }
+
       const dateA =
         sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
       const dateB =
@@ -72,7 +95,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
     })
 
     return sorted
-  }, [filters, sortByValue, intl.locale, normalizedSearch])
+  }, [filters, sortByValue, searchTerms, faqData])
 
   useEffect(() => {
     setPageIndex({
@@ -112,7 +135,10 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   function getCategoryAmount(category: string): number {
     return faqData.filter((data) => {
       const matchesCategory = data.productTeam === category
-      const matchesSearch = data.title.toLowerCase().includes(normalizedSearch)
+      const fields = [data.title, data.slug, data.productTeam].map((s) =>
+        String(s ?? '').toLowerCase()
+      )
+      const matchesSearch = itemMatchesAnyTerm(searchTerms, fields)
       return matchesCategory && matchesSearch
     }).length
   }
@@ -163,14 +189,53 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
               onSelect={(ordering) => setSortByValue(ordering as SortByType)}
             />
           </Flex>
-          <Input
-            Icon={SearchIcon}
-            placeholder={intl.formatMessage({
-              id: 'faq_page_search.placeholder',
-            })}
-            value={search}
-            onChange={(value: string) => setSearch(value)}
-          />
+          <Flex sx={{ width: '100%', alignItems: 'center', gap: '8px' }}>
+            <Box sx={{ width: '100%' }}>
+              <Input
+                Icon={SearchIcon}
+                placeholder={intl.formatMessage({
+                  id: 'faq_page_search.placeholder',
+                })}
+                value={search}
+                onChange={(value: string) => setSearch(value)}
+              />
+            </Box>
+            <Tooltip
+              placement="top"
+              label={intl.formatMessage({
+                id: 'known_issues_page_search.priority_tooltip',
+                defaultMessage:
+                  'Resultados priorizam titulos com maior quantidade de termos correspondentes; em empate, aplica-se a ordenacao selecionada.',
+              })}
+            >
+              <Box
+                as="button"
+                type="button"
+                aria-label={intl.formatMessage({
+                  id: 'known_issues_page_search.priority_tooltip',
+                })}
+                sx={{
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  display: 'flex',
+                  width: '24px',
+                  height: '24px',
+                  borderRadius: '50%',
+                  border: '1px solid',
+                  borderColor: 'muted.2',
+                  backgroundColor: 'transparent',
+                  color: 'muted.0',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  cursor: 'help',
+                  flexShrink: 0,
+                  p: 0,
+                }}
+              >
+                ?
+              </Box>
+            </Tooltip>
+          </Flex>
           <ChipFilter
             removeCategory={handleFilterRemoval}
             resetFilters={handleFilterReset}
