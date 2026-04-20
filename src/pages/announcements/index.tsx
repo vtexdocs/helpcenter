@@ -1,25 +1,32 @@
-import { Flex } from '@vtex/brand-ui'
+import { Flex, Text } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 
 import { AnnouncementDataElement } from 'utils/typings/types'
-import { LocaleType, SortByType } from 'utils/typings/unionTypes'
+import { LocaleType } from 'utils/typings/unionTypes'
 import Head from 'next/head'
 import styles from 'styles/announcements-page'
 import { PreviewContext } from 'utils/contexts/preview'
-import { Fragment, useContext, useMemo, useState } from 'react'
+import { Fragment, useContext, useEffect, useMemo, useState } from 'react'
 import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/announcements.png'
-import Pagination from 'components/pagination'
-import Select from 'components/select'
-import AnnouncementCard from 'components/announcement-card'
-import { sortBy } from 'utils/constants'
+import Filter from 'components/filter'
+import {
+  announcementsTypeFilter,
+  announcementsAreaFilter,
+} from 'utils/constants'
 import { SearchIcon } from '@vtexdocs/components'
 import { Input } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
+import AnnouncementExpandableRow from 'components/announcement-expandable-row'
+import { capitalizeMonthHeading } from 'utils/capitalizeMonthHeading'
+import {
+  getAnnouncementTypeKey,
+  type AnnouncementTypeFilterKey,
+} from 'utils/getAnnouncementTypeKey'
 
 interface Props {
   announcementsData: AnnouncementDataElement[]
@@ -29,42 +36,93 @@ interface Props {
 const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
-  setBranchPreview(branch)
-  const itemsPerPage = 8
+
+  useEffect(() => {
+    setBranchPreview(branch)
+  }, [branch, setBranchPreview])
+
   const [searchTerm, setSearchTerm] = useState('')
-  const [page, setPage] = useState({ curr: 1, total: 1 })
-  const [sortByValue, setSortByValue] = useState<SortByType>('newest')
+  const [filters, setFilters] = useState<{
+    type: string[]
+    area: string[]
+  }>({ type: [], area: [] })
+
+  const typeConfig = useMemo(() => announcementsTypeFilter(intl), [intl])
+  const areaConfig = useMemo(() => announcementsAreaFilter(intl), [intl])
 
   const filteredResult = useMemo(() => {
-    const data = announcementsData.filter((announcement) =>
-      announcement.title?.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    const data = announcementsData.filter((announcement) => {
+      const matchesSearch = announcement.title
+        ?.toLowerCase()
+        .includes(searchTerm.toLowerCase())
 
-    data.sort((a, b) => {
-      const dateA =
-        sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
-      const dateB =
-        sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
+      const matchesType =
+        filters.type.length === 0 ||
+        filters.type.some((t) => announcement.tags.includes(t))
 
-      return dateA.getTime() - dateB.getTime()
+      const matchesArea =
+        filters.area.length === 0 ||
+        filters.area.some((a) => announcement.tags.includes(a))
+
+      return matchesSearch && matchesType && matchesArea
     })
 
-    setPage({ curr: 1, total: Math.ceil(data.length / itemsPerPage) })
+    data.sort((a, b) => {
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    })
 
     return data
-  }, [searchTerm, sortByValue, intl.locale])
+  }, [searchTerm, filters, announcementsData, intl.locale])
 
-  const paginatedResult = useMemo(() => {
-    return filteredResult.slice(
-      (page.curr - 1) * itemsPerPage,
-      page.curr * itemsPerPage
-    )
-  }, [page])
+  /** Lista completa após filtros — a timeline agrupa por mês; paginar antes cortava meses inteiros. */
+  const timelineAnnouncements = useMemo(
+    () =>
+      filteredResult.map((announcement) => ({
+        title: announcement.title,
+        publishedAt: new Date(announcement.createdAt),
+        articleLink: announcement.url,
+        synopsis: announcement.synopsis,
+        typeKey: getAnnouncementTypeKey(announcement.tags, intl),
+      })),
+    [filteredResult, intl]
+  )
 
-  function handleClick(props: { selected: number }) {
-    if (props.selected !== undefined && props.selected !== page.curr)
-      setPage({ ...page, curr: props.selected })
-  }
+  const timelineByMonth = useMemo(() => {
+    const groups: {
+      monthKey: string
+      label: string
+      announcements: {
+        title: string
+        publishedAt: Date
+        articleLink: string
+        synopsis?: string
+        typeKey?: AnnouncementTypeFilterKey
+      }[]
+    }[] = []
+
+    for (const item of timelineAnnouncements) {
+      const d = item.publishedAt
+      const monthKey = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(
+        2,
+        '0'
+      )}`
+      let group = groups.find((g) => g.monthKey === monthKey)
+      if (!group) {
+        group = {
+          monthKey,
+          label: capitalizeMonthHeading(
+            intl.formatDate(d, { month: 'long', year: 'numeric' }),
+            intl.locale
+          ),
+          announcements: [],
+        }
+        groups.push(group)
+      }
+      group.announcements.push(item)
+    }
+
+    return groups
+  }, [timelineAnnouncements, intl])
 
   return (
     <>
@@ -97,11 +155,17 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
-            <Select
-              label={intl.formatMessage({ id: 'sort.label' })}
-              value={sortByValue}
-              options={sortBy(intl)}
-              onSelect={(ordering) => setSortByValue(ordering as SortByType)}
+            <Filter
+              tagFilter={typeConfig}
+              checkBoxFilter={areaConfig}
+              selectedTags={filters.type}
+              selectedCheckboxes={filters.area}
+              onApply={(newFilters) =>
+                setFilters({
+                  type: newFilters.tag ?? [],
+                  area: newFilters.checklist ?? [],
+                })
+              }
             />
           </Flex>
           <Input
@@ -113,26 +177,32 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
             onChange={(value) => setSearchTerm(value)}
           />
           <Flex sx={styles.cardContainer}>
-            {paginatedResult.length === 0 && (
+            {filteredResult.length === 0 && (
               <Flex sx={styles.noResults}>
                 {intl.formatMessage({ id: 'announcements_page_result.empty' })}
               </Flex>
             )}
-            {paginatedResult.map((announcement, id) => {
-              return (
-                <AnnouncementCard
-                  key={id}
-                  announcement={announcement}
-                  appearance="large"
-                />
-              )
-            })}
+            {filteredResult.length > 0 &&
+              timelineByMonth.map((monthGroup) => (
+                <Flex key={monthGroup.monthKey} sx={styles.monthBlock}>
+                  <Text sx={styles.monthHeading}>{monthGroup.label}</Text>
+                  {monthGroup.announcements.map((item, idx) => (
+                    <AnnouncementExpandableRow
+                      key={item.articleLink}
+                      title={item.title}
+                      articleLink={item.articleLink}
+                      publishedAt={item.publishedAt}
+                      synopsis={item.synopsis}
+                      typeKey={item.typeKey}
+                      isFirstInMonth={idx === 0}
+                      isLastInMonth={
+                        idx === monthGroup.announcements.length - 1
+                      }
+                    />
+                  ))}
+                </Flex>
+              ))}
           </Flex>
-          <Pagination
-            forcePage={page.curr}
-            pageCount={page.total}
-            onPageChange={handleClick}
-          />
         </Flex>
       </Fragment>
     </>
@@ -198,12 +268,20 @@ export const getStaticProps: GetStaticProps = async ({
         frontmatter &&
         (frontmatter.status === 'PUBLISHED' || frontmatter.status === 'CHANGED')
       ) {
+        const tags: string[] =
+          frontmatter.tags &&
+          Array.isArray(frontmatter.tags) &&
+          frontmatter.tags.length > 0
+            ? frontmatter.tags.map(String)
+            : []
+
         const base: AnnouncementDataElement = {
           title: String(frontmatter.title),
           url: `announcements/${slug}`,
           createdAt: String(frontmatter.createdAt),
           updatedAt: String(frontmatter.updatedAt),
           status: String(frontmatter.status),
+          tags,
         }
 
         const synopsis = getAnnouncementSynopsis(frontmatter, currentLocale)

@@ -16,6 +16,7 @@ const cardContainer: SxStyleProp = {
   flexDirection: 'column',
   justifyContent: 'space-between',
   mb: '56px',
+  width: '100%',
 }
 
 const optionsContainer: SxStyleProp = {
@@ -30,6 +31,27 @@ const optionsContainer: SxStyleProp = {
 const noResults: SxStyleProp = {
   py: '32px',
   textAlign: 'center',
+}
+
+const monthBlock: SxStyleProp = {
+  width: '100%',
+  flexDirection: 'column',
+  gap: '4px',
+  mb: '8px',
+}
+
+const monthHeading: SxStyleProp = {
+  fontFamily:
+    "'VTEX Trust Regular', -apple-system, system-ui, BlinkMacSystemFont, sans-serif",
+  fontSize: ['18px', '20px'],
+  lineHeight: '26px',
+  fontWeight: '500',
+  color: '#4A4A4A',
+  width: '100%',
+  textAlign: 'left',
+  mb: '12px',
+  mt: ['16px', '20px'],
+  letterSpacing: '-0.01em',
 }
 
 const searchInput: SxStyleProp = {
@@ -50,4 +72,6 @@ export default {
   optionsContainer,
   noResults,
   searchInput,
+  monthBlock,
+  monthHeading,
 }

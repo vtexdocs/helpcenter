@@ -15,6 +15,13 @@ const cardContainer: SxStyleProp = {
   flexWrap: 'wrap',
 }
 
+/** Listagem dedicada: sem bloco lateral de título, padding mais enxuto */
+const cardContainerPage: SxStyleProp = {
+  mt: 0,
+  py: ['24px', '32px', '40px'],
+  rowGap: '24px',
+}
+
 const title: SxStyleProp = {
   fontSize: '22px',
   lineHeight: '22px',
@@ -86,6 +93,32 @@ const content: SxStyleProp = {
   flexDirection: 'column',
 }
 
+const synopsis: SxStyleProp = {
+  mt: '8px',
+  mb: '8px',
+  fontSize: ['14px', '16px'],
+  lineHeight: '22px',
+  color: 'muted.0',
+}
+
+const footerDate: SxStyleProp = {
+  mt: '12px',
+  fontSize: '14px',
+  lineHeight: '20px',
+  color: '#A1AAB7',
+}
+
+const categoryTag: SxStyleProp = {
+  height: 'auto',
+  minHeight: '22px',
+  lineHeight: '20px',
+  py: '4px',
+  whiteSpace: 'normal',
+  textAlign: 'left',
+  width: 'fit-content',
+  maxWidth: '100%',
+}
+
 const newTitle: SxStyleProp = {
   margin: '0',
   color: '#F71963',
@@ -100,6 +133,7 @@ const placeholder: SxStyleProp = {
 
 export default {
   cardContainer,
+  cardContainerPage,
   title,
   description,
   icon,
@@ -108,6 +142,9 @@ export default {
   timelineTitle,
   newTitle,
   content,
+  synopsis,
+  footerDate,
+  categoryTag,
   placeholder,
   timelineContainer,
 }

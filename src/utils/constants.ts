@@ -413,6 +413,161 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
+/** Labels de tipo por locale (usado no filtro e para casar tags do frontmatter). */
+export const typeTagsByLocale: Record<string, Record<string, string>> = {
+  en: {
+    new_feature: 'New feature',
+    improvement: 'Improvement',
+    breaking_change: 'Breaking change',
+    deprecation: 'Deprecation',
+    security_update: 'Security update',
+  },
+  es: {
+    new_feature: 'Nueva funcionalidad',
+    improvement: 'Mejora',
+    breaking_change: 'Cambio disruptivo',
+    deprecation: 'Descontinuación',
+    security_update: 'Actualización de seguridad',
+  },
+  pt: {
+    new_feature: 'Nova funcionalidade',
+    improvement: 'Melhoria',
+    breaking_change: 'Breaking change',
+    deprecation: 'Descontinuação',
+    security_update: 'Atualização de segurança',
+  },
+}
+
+export const announcementsTypeFilter = (intl: IntlShape) => {
+  const ids = typeTagsByLocale[intl.locale] || typeTagsByLocale.en
+  const data = {
+    name: intl.formatMessage({
+      id: 'announcements_filter_type.title',
+    }),
+    options: [
+      {
+        id: ids.new_feature,
+        name: intl.formatMessage({
+          id: 'announcements_filter_type.new_feature',
+        }),
+      },
+      {
+        id: ids.improvement,
+        name: intl.formatMessage({
+          id: 'announcements_filter_type.improvement',
+        }),
+      },
+      {
+        id: ids.breaking_change,
+        name: intl.formatMessage({
+          id: 'announcements_filter_type.breaking_change',
+        }),
+      },
+      {
+        id: ids.deprecation,
+        name: intl.formatMessage({
+          id: 'announcements_filter_type.deprecation',
+        }),
+      },
+      {
+        id: ids.security_update,
+        name: intl.formatMessage({
+          id: 'announcements_filter_type.security_update',
+        }),
+      },
+    ],
+  }
+
+  return data
+}
+
+const areaTagsByLocale: Record<string, Record<string, string>> = {
+  en: {
+    admin: 'Admin',
+    checkout: 'Checkout',
+    catalog: 'Catalog',
+    payments: 'Payments',
+    orders: 'Orders',
+    promotions: 'Promotions',
+    prices: 'Prices',
+    marketplace: 'Marketplace',
+    intelligent_search: 'Intelligent Search',
+    storefront: 'Storefront',
+    master_data: 'Master Data',
+    audit: 'Audit',
+    identity: 'Identity',
+    logistics: 'Logistics',
+    b2b: 'B2B',
+    integrations: 'Integrations',
+    vtex_shield: 'VTEX Shield',
+    vtex_ads: 'VTEX Ads',
+    b2b_buyer_portal: 'B2B Buyer Portal',
+    vtex_sales_app: 'VTEX Sales App',
+  },
+  es: {
+    admin: 'Admin',
+    checkout: 'Checkout',
+    catalog: 'Catálogo',
+    payments: 'Pagos',
+    orders: 'Pedidos',
+    promotions: 'Promociones',
+    prices: 'Precios',
+    marketplace: 'Marketplace',
+    intelligent_search: 'Intelligent Search',
+    storefront: 'Storefront',
+    master_data: 'Master Data',
+    audit: 'Audit',
+    identity: 'Identity',
+    logistics: 'Logística',
+    b2b: 'B2B',
+    integrations: 'Integraciones',
+    vtex_shield: 'VTEX Shield',
+    vtex_ads: 'VTEX Ads',
+    b2b_buyer_portal: 'B2B Buyer Portal',
+    vtex_sales_app: 'VTEX Sales App',
+  },
+  pt: {
+    admin: 'Admin',
+    checkout: 'Checkout',
+    catalog: 'Catálogo',
+    payments: 'Pagamentos',
+    orders: 'Pedidos',
+    promotions: 'Promoções',
+    prices: 'Preços',
+    marketplace: 'Marketplace',
+    intelligent_search: 'Intelligent Search',
+    storefront: 'Storefront',
+    master_data: 'Master Data',
+    audit: 'Audit',
+    identity: 'Identity',
+    logistics: 'Logística',
+    b2b: 'B2B',
+    integrations: 'Integrações',
+    vtex_shield: 'VTEX Shield',
+    vtex_ads: 'VTEX Ads',
+    b2b_buyer_portal: 'B2B Buyer Portal',
+    vtex_sales_app: 'VTEX Sales App',
+  },
+}
+
+export const announcementsAreaFilter = (intl: IntlShape) => {
+  const ids = areaTagsByLocale[intl.locale] || areaTagsByLocale.en
+  const keys = Object.keys(ids)
+  const data = {
+    name: intl.formatMessage({
+      id: 'announcements_filter_area.title',
+    }),
+    options: keys.map((key) => ({
+      id: ids[key],
+      name: intl.formatMessage({
+        id: `announcements_filter_area.${key}`,
+      }),
+    })),
+  }
+
+  return data
+}
+
 export const sortBy = (intl: IntlShape) => {
   const data = [
     {
