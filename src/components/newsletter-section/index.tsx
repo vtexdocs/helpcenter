@@ -24,7 +24,7 @@ const NewsletterSection = () => {
             alt="Image of the VTEX store environment"
             priority
             fill
-            objectFit="cover"
+            style={{ objectFit: 'cover' }}
           />
         </Box>
         {/* Mobile Image */}
@@ -34,7 +34,7 @@ const NewsletterSection = () => {
             alt="Image of the VTEX store environment"
             priority
             fill
-            objectFit="cover"
+            style={{ objectFit: 'cover' }}
           />
         </Box>
       </Box>

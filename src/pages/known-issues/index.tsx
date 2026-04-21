@@ -38,6 +38,11 @@ import { SearchIcon } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 import Tooltip from 'components/tooltip'
+import {
+  countTermMatches,
+  getSearchTerms,
+  itemMatchesAnyTerm,
+} from 'utils/search/tokenizedSearch'
 
 interface Props {
   knownIssuesData: KnownIssueDataElement[]
@@ -67,84 +72,9 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
   }>({ kiStatus: [], modules: [] })
   const [search, setSearch] = useState<string>('')
   const [sortByValue, setSortByValue] = useState<SortByType>('newest')
-  const normalizedSearch = useMemo(() => search.toLowerCase(), [search])
-  const searchStopwords = useMemo(() => {
-    const stopwordsByLocale: Record<string, Set<string>> = {
-      pt: new Set([
-        'a',
-        'ao',
-        'aos',
-        'as',
-        'Ã ',
-        'Ã s',
-        'com',
-        'da',
-        'das',
-        'de',
-        'do',
-        'dos',
-        'e',
-        'em',
-        'na',
-        'nas',
-        'no',
-        'nos',
-        'ou',
-        'para',
-        'por',
-        'sem',
-      ]),
-      en: new Set([
-        'a',
-        'an',
-        'and',
-        'as',
-        'at',
-        'by',
-        'for',
-        'from',
-        'in',
-        'is',
-        'of',
-        'on',
-        'or',
-        'the',
-        'to',
-        'with',
-        'it',
-      ]),
-      es: new Set([
-        'a',
-        'al',
-        'con',
-        'de',
-        'del',
-        'el',
-        'en',
-        'es',
-        'la',
-        'las',
-        'los',
-        'o',
-        'para',
-        'por',
-        'un',
-        'una',
-        'y',
-        'lo',
-      ]),
-    }
-    const localeKey = (intl.locale ?? 'pt').split('-')[0]
-    return stopwordsByLocale[localeKey] ?? stopwordsByLocale.pt
-  }, [intl.locale])
   const searchTerms = useMemo(
-    () =>
-      normalizedSearch
-        .replace(/["'\u201C\u201D\u2018\u2019]/g, ' ')
-        .trim()
-        .split(/\s+/)
-        .filter((term: string) => term && !searchStopwords.has(term)),
-    [normalizedSearch, searchStopwords]
+    () => getSearchTerms(search, intl.locale),
+    [search, intl.locale]
   )
 
   const statusConfig: FilterConfig = useMemo(
@@ -173,37 +103,18 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
         (filters.modules.length === 0 ||
           filters.modules.includes(knownIssue.module))
 
-      const title = knownIssue.title.toLowerCase()
-      const id = knownIssue.id
-      const hasSearch: boolean =
-        searchTerms.length === 0 ||
-        searchTerms.some(
-          (term: string) => title.includes(term) || id.includes(term)
-        )
+      const fields = [knownIssue.title, knownIssue.id].map((s) =>
+        String(s ?? '').toLowerCase()
+      )
+      const hasSearch = itemMatchesAnyTerm(searchTerms, fields)
       return hasFilter && hasSearch
     })
 
     const sorted = data.sort((a, b) => {
-      const titleA = a.title.toLowerCase()
-      const titleB = b.title.toLowerCase()
-      const idA = a.id
-      const idB = b.id
-      const matchCountA =
-        searchTerms.length === 0
-          ? 0
-          : searchTerms.reduce(
-              (count: number, term: string) =>
-                count + (titleA.includes(term) || idA.includes(term) ? 1 : 0),
-              0
-            )
-      const matchCountB =
-        searchTerms.length === 0
-          ? 0
-          : searchTerms.reduce(
-              (count: number, term: string) =>
-                count + (titleB.includes(term) || idB.includes(term) ? 1 : 0),
-              0
-            )
+      const fieldsA = [a.title, a.id].map((s) => String(s ?? '').toLowerCase())
+      const fieldsB = [b.title, b.id].map((s) => String(s ?? '').toLowerCase())
+      const matchCountA = countTermMatches(searchTerms, fieldsA)
+      const matchCountB = countTermMatches(searchTerms, fieldsB)
 
       if (matchCountA !== matchCountB) {
         return matchCountB - matchCountA
