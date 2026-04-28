@@ -17600,6 +17600,10 @@
         "to": "/en/docs/tutorials/managing-admin-users"
       },
       {
+        "from": "/en/docs/tutorials/creating-beta-collections",
+        "to": "/docs/tracks/adding-collections-track"
+      },
+      {
         "from": "/v4",
         "to": "/en/docs/tutorials/vtex-admin-start-here"
       },

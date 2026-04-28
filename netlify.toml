@@ -665,3 +665,12 @@ from = "/pt/docs/tutorials/weni-by-vtex/insights/insights-dashboard-de-atendimen
 status = 308
 to = "/pt/docs/tutorials/vtex-cx-platform/vtex-cx-platform-analytics"
 
+from = "/pt/docs/tutorials/acesse-o-carrinho-abandonado-dos-clientes"
+status = 308
+to = "/pt/docs/tutorials/acessar-o-carrinho-abandonado-dos-clientes"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/acceda-al-carrito-abandonado-de-los-clientes"
+status = 308
+to = "/es/docs/tutorials/acceder-al-carrito-abandonado-de-los-clientes"
