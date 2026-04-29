@@ -674,3 +674,21 @@ force = true
 from = "/es/docs/tutorials/acceda-al-carrito-abandonado-de-los-clientes"
 status = 308
 to = "/es/docs/tutorials/acceder-al-carrito-abandonado-de-los-clientes"
+
+[[redirects]]
+force = true
+from = "/known-issues/timeout-in-the-query-to-analytics-preventing-to-check-the-inventory-log"
+status = 308
+to = "/known-issues/timeout-in-analytics-query-can-prevent-inventory-log-from-loading"
+
+[[redirects]]
+force = true
+from = "/pt/known-issues/tempo-limite-na-consulta-para-que-o-analytics-impeca-a-verificacao-do-registro-de-inventario"
+status = 308
+to = "/pt/known-issues/o-tempo-limite-na-consulta-do-analytics-pode-impedir-o-carregamento-do-registro-de-inventario"
+
+[[redirects]]
+force = true
+from = "/es/known-issues/tiempo-de-espera-en-la-consulta-a-analytics-que-impide-comprobar-el-registro-de-inventario"
+status = 308
+to = "/es/known-issues/el-tiempo-de-espera-en-la-consulta-de-analytics-puede-impedir-que-se-cargue-el-registro-de-inventario"
