@@ -17694,6 +17694,18 @@
       {
         "from": "/es/docs/tutorials/promocoes-do-mercado-livre",
         "to": "/es/docs/tutorials/central-de-promociones-mercado-libre"
+      },
+      {
+        "from": "/pt/docs/tutorials/como-realizar-um-teste-para-verificar-problemas-de-layout",
+        "to": "/pt/troubleshooting/o-front-end-da-minha-loja-apresenta-problemas-de-layout"
+      },
+      {
+        "from": "/docs/tutorials/how-to-test-for-layout-problems",
+        "to": "/troubleshooting/my-storefront-has-layout-issues"
+      },
+      {
+        "from": "/es/docs/tutorials/como-realizar-um-teste-para-verificar-problemas-de-layout",
+        "to": "/es/troubleshooting/el-frontend-de-mi-tienda-presenta-problemas-de-layout"
       }
     ]
   }
