@@ -79,11 +79,38 @@ Deploy previews, Branch deploys).
 | ----------------------------------- | -------------- | ---------------------------------------------------------- |
 | `HS_API_ENDPOINT`                   | Server         | Base URL of the Hybrid Search API, e.g. `https://vtexdocs-edge.vtex.com`. |
 | `HS_API_KEY`                        | Server (secret)| Internal access key, sent as `X-Internal-Access-Key`.      |
-| `NEXT_PUBLIC_HYBRID_SEARCH_ENABLED` | Public         | Optional flag to gate the feature in the UI.               |
+| `NEXT_PUBLIC_HYBRID_SEARCH_ENABLED` | Public         | Set to `true` to enable hybrid search instead of Algolia.  |
 
-Locally, copy `.env.example` to `.env.local` and fill the values.
+## Enabling hybrid search
+
+The Help Center uses a feature flag to switch between Algolia (default) and hybrid search.
+
+### Local development
+
+1. Set the following variables in `.env.local`:
+   ```bash
+   # Enable hybrid search (set to false or omit to use Algolia)
+   NEXT_PUBLIC_HYBRID_SEARCH_ENABLED=true
+   
+   # Hybrid Search API configuration (server-side only)
+   HS_API_ENDPOINT=https://vtexdocs-edge.vtex.com
+   HS_API_KEY=<your-key-here>
+   ```
+
+2. Restart the dev server for changes to take effect:
+   ```bash
+   yarn dev
+   ```
+
+### Netlify deployment
+
+Add `NEXT_PUBLIC_HYBRID_SEARCH_ENABLED=true` to Netlify environment variables to enable hybrid search in production/preview environments.
+
+**Note:** Because this uses the `NEXT_PUBLIC_` prefix, changes require a rebuild.
 
 ## Local testing
+
+After [enabling hybrid search](#enabling-hybrid-search):
 
 ```bash
 yarn dev
@@ -126,5 +153,3 @@ The tests cover:
 
 - Indexing pipeline: `vtexdocs/help-center-content/.github/workflows/index-documents.yml`
 - Upstream OpenAPI spec: `vtexdocs/vtexdocs-mcp-app/apps/api/openapi.json`
-- Parent epic: [EDU-17897](https://vtex-dev.atlassian.net/browse/EDU-17897)
-- This subtask: [EDU-17906](https://vtex-dev.atlassian.net/browse/EDU-17906)
