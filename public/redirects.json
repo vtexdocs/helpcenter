@@ -17706,6 +17706,18 @@
       {
         "from": "/es/docs/tutorials/como-realizar-um-teste-para-verificar-problemas-de-layout",
         "to": "/es/troubleshooting/el-frontend-de-mi-tienda-presenta-problemas-de-layout"
+      },
+      {
+        "from": "/pt/docs/tutorials/performance-de-paginas-web",
+        "to": "/pt/announcements/2024-05-29-descontinuacao-performance-de-paginas-web"
+      },
+      {
+        "from": "/docs/tutorials/web-page-performance",
+        "to": "/announcements/2024-05-29-web-page-performance-deprecation"
+      },
+      {
+        "from": "/es/docs/tutorials/rendimiento-de-paginas-web",
+        "to": "/es/announcements/2024-05-29-discontinuacion-rendimiento-de-paginas-web"
       }
     ]
   }
