@@ -32,7 +32,6 @@
   "dependencies": {
     "@code-hike/mdx": "^0.9.0",
     "@fortawesome/fontawesome-free": "^6.6.0",
-    "@img/sharp-linux-x64": "^0.33.5",
     "@octokit/types": "^14.1.0",
     "@plaiceholder/next": "^2.5.0",
     "@types/http-proxy": "^1.17.9",
@@ -119,6 +118,9 @@
     "start-server-and-test": "^2.1.2",
     "typescript": "^4.6.2",
     "vitest": "^4.1.0"
+  },
+  "optionalDependencies": {
+    "@img/sharp-linux-x64": "^0.33.5"
   },
   "overrides": {
     "next-plugin-preval": {
