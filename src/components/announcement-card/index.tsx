@@ -1,6 +1,10 @@
 import { Box, Text, Link, Flex } from '@vtex/brand-ui'
 
 import type { AnnouncementDataElement } from 'utils/typings/types'
+import {
+  announcementTypeTagColorMap,
+  filterAnnouncementTypeTags,
+} from 'utils/announcementTypeTags'
 
 import styles from './styles'
 import Tag from 'components/tag'
@@ -23,26 +27,23 @@ const AnnouncementCard = ({
 
   const createdAtDate = new Date(createdAt)
   const updatedAtDate = new Date(updatedAt)
-  const currentDate = new Date()
-  const sevenDaysAgo = new Date(currentDate)
-  sevenDaysAgo.setDate(currentDate.getDate() - 7)
-  const isNew = createdAtDate >= sevenDaysAgo && createdAtDate <= currentDate
 
   const createdAtText = `${intl.formatMessage({
     id: 'date_text.created',
   })}: ${intl.formatDate(createdAtDate)}`
 
+  const typeTags = filterAnnouncementTypeTags(announcement.tags)
+
   return (
     <Link sx={{ ...styles.link[appearance] }} href={`${url}`}>
       <Box sx={{ ...styles.container, ...styles.containerSpacing[appearance] }}>
-        {isNew && (
-          <Flex sx={styles.bottomContainer}>
-            <Tag sx={styles.tag} color={'New'}>
-              {intl.formatMessage({
-                id: 'announcement_card.new_tag',
-                defaultMessage: 'New',
-              })}
-            </Tag>
+        {typeTags.length > 0 && (
+          <Flex sx={styles.tagContainer}>
+            {typeTags.map((tag) => (
+              <Tag key={tag} color={announcementTypeTagColorMap[tag]}>
+                {tag}
+              </Tag>
+            ))}
           </Flex>
         )}
         <Text sx={{ ...styles.title[appearance] }} className="title">
