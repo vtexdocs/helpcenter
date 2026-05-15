@@ -40,6 +40,23 @@ const tag: SxStyleProp = {
 const tagsContainer: SxStyleProp = {
   display: 'flex',
   flexWrap: 'wrap',
+  alignItems: 'center',
+}
+
+const groupsContainer: SxStyleProp = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'center',
+  gap: '12px 20px',
+}
+
+const groupContainer: SxStyleProp = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'center',
+  gap: '8px',
+  flex: '0 1 auto',
+  maxWidth: '100%',
 }
 
 export default {
@@ -47,4 +64,6 @@ export default {
   title,
   tag,
   tagsContainer,
+  groupsContainer,
+  groupContainer,
 }

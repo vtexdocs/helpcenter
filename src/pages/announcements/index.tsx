@@ -22,6 +22,12 @@ import { Input } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 import AnnouncementExpandableRow from 'components/announcement-expandable-row'
+import Tooltip from 'components/tooltip'
+import {
+  countTermMatches,
+  getSearchTerms,
+  itemMatchesAnyTerm,
+} from 'utils/search/tokenizedSearch'
 
 interface Props {
   announcementsData: AnnouncementDataElement[]
@@ -37,6 +43,11 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   }, [branch, setBranchPreview])
 
   const [searchTerm, setSearchTerm] = useState('')
+  const searchTerms = useMemo(
+    () => getSearchTerms(searchTerm, intl.locale),
+    [searchTerm, intl.locale]
+  )
+
   const [filters, setFilters] = useState<{
     type: string[]
     area: string[]
@@ -47,9 +58,13 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
 
   const filteredResult = useMemo(() => {
     const data = announcementsData.filter((announcement) => {
-      const matchesSearch = announcement.title
-        ?.toLowerCase()
-        .includes(searchTerm.toLowerCase())
+      const fields = [
+        announcement.title ?? '',
+        announcement.synopsis ?? '',
+        announcement.tags.length > 0 ? announcement.tags.join(' ') : '',
+      ].map((s) => String(s).toLowerCase())
+
+      const matchesSearch = itemMatchesAnyTerm(searchTerms, fields)
 
       const matchesType =
         filters.type.length === 0 ||
@@ -62,12 +77,25 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
       return matchesSearch && matchesType && matchesArea
     })
 
-    data.sort((a, b) => {
+    return data.sort((a, b) => {
+      const fieldsA = [
+        a.title ?? '',
+        a.synopsis ?? '',
+        a.tags.length > 0 ? a.tags.join(' ') : '',
+      ].map((s) => String(s).toLowerCase())
+      const fieldsB = [
+        b.title ?? '',
+        b.synopsis ?? '',
+        b.tags.length > 0 ? b.tags.join(' ') : '',
+      ].map((s) => String(s).toLowerCase())
+      const matchA = countTermMatches(searchTerms, fieldsA)
+      const matchB = countTermMatches(searchTerms, fieldsB)
+      if (matchA !== matchB) {
+        return matchB - matchA
+      }
       return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     })
-
-    return data
-  }, [searchTerm, filters, announcementsData, intl.locale])
+  }, [searchTerms, filters, announcementsData])
 
   /** Lista após filtros — agrupamento só por ano (changelog). */
   const timelineAnnouncements = useMemo(
@@ -102,17 +130,11 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
 
     const yearsDesc = [...bucket.keys()].sort((a, b) => Number(b) - Number(a))
 
-    return yearsDesc.map((yearKey) => {
-      const announcements = bucket.get(yearKey) ?? []
-      announcements.sort(
-        (a, b) => b.publishedAt.getTime() - a.publishedAt.getTime()
-      )
-      return {
-        yearKey,
-        label: yearKey,
-        announcements,
-      }
-    })
+    return yearsDesc.map((yearKey) => ({
+      yearKey,
+      label: yearKey,
+      announcements: bucket.get(yearKey) ?? [],
+    }))
   }, [timelineAnnouncements])
 
   return (
@@ -159,14 +181,53 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
               }
             />
           </Flex>
-          <Input
-            placeholder={intl.formatMessage({
-              id: 'announcements_page_search.placeholder',
-            })}
-            Icon={SearchIcon}
-            value={searchTerm}
-            onChange={(value) => setSearchTerm(value)}
-          />
+          <Flex sx={{ width: '100%', alignItems: 'center', gap: '8px' }}>
+            <Box sx={{ width: '100%' }}>
+              <Input
+                placeholder={intl.formatMessage({
+                  id: 'announcements_page_search.placeholder',
+                })}
+                Icon={SearchIcon}
+                value={searchTerm}
+                onChange={(value) => setSearchTerm(value)}
+              />
+            </Box>
+            <Tooltip
+              placement="top"
+              label={intl.formatMessage({
+                id: 'known_issues_page_search.priority_tooltip',
+                defaultMessage:
+                  'Resultados priorizam titulos com maior quantidade de termos correspondentes; em empate, aplica-se a ordenacao por data de criacao.',
+              })}
+            >
+              <Box
+                as="button"
+                type="button"
+                aria-label={intl.formatMessage({
+                  id: 'known_issues_page_search.priority_tooltip',
+                })}
+                sx={{
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  display: 'flex',
+                  width: '24px',
+                  height: '24px',
+                  borderRadius: '50%',
+                  border: '1px solid',
+                  borderColor: 'muted.2',
+                  backgroundColor: 'transparent',
+                  color: 'muted.0',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  cursor: 'help',
+                  flexShrink: 0,
+                  p: 0,
+                }}
+              >
+                ?
+              </Box>
+            </Tooltip>
+          </Flex>
           <Flex sx={styles.cardContainer}>
             {filteredResult.length === 0 && (
               <Flex sx={styles.noResults}>

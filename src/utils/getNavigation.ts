@@ -12,6 +12,7 @@ import {
   convertToStatically,
 } from './githubCdnFallback'
 import { getLogger } from './logging/log-util'
+import type { NavbarItem } from '../types/navigation'
 
 const logger = getLogger('getNavigation')
 
@@ -19,6 +20,16 @@ const DEFAULT_OWNER = 'vtexdocs'
 const DEFAULT_REPO = 'help-center-content'
 const DEFAULT_PATH = 'public/navigation.json'
 const DEFAULT_BRANCH = 'main'
+
+const CACHE_TTL = 5 * 60 * 1000
+const navigationCache = new Map<
+  string,
+  { data: NavbarItem[]; timestamp: number }
+>()
+
+export function clearNavigationCache() {
+  navigationCache.clear()
+}
 
 type NavigationOptions = {
   branch?: string
@@ -94,7 +105,13 @@ function buildGithubUrl(source: GithubSource, branch: string) {
 
 export default async function getNavigation(options: NavigationOptions = {}) {
   const branch = options.branch?.trim() || DEFAULT_BRANCH
-  // Prefer environment URL to allow fetching from external repo
+  const cacheKey = branch
+  const cached = navigationCache.get(cacheKey)
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+    logger.info('Returning cached navigation data')
+    return cached.data
+  }
+
   const envUrl = process.env.navigationJsonUrl
   const githubSource = envUrl ? parseGithubSource(envUrl) : null
   const owner = githubSource?.owner || DEFAULT_OWNER
@@ -125,7 +142,9 @@ export default async function getNavigation(options: NavigationOptions = {}) {
         }
       } else if (result.ok) {
         const data = await result.json()
-        return data.navbar
+        const navbar = data.navbar
+        navigationCache.set(cacheKey, { data: navbar, timestamp: Date.now() })
+        return navbar
       }
 
       // If we got here, either rate limited or other error - try CDN fallbacks
@@ -150,8 +169,13 @@ export default async function getNavigation(options: NavigationOptions = {}) {
 
           if (result.ok) {
             const data = await result.json()
+            const navbar = data.navbar
+            navigationCache.set(cacheKey, {
+              data: navbar,
+              timestamp: Date.now(),
+            })
             logger.info(`Successfully fetched from ${cdnType}`)
-            return data.navbar
+            return navbar
           }
         } catch (cdnErr) {
           logger.warn('CDN attempt failed')
@@ -164,7 +188,21 @@ export default async function getNavigation(options: NavigationOptions = {}) {
     }
   }
 
-  // Filesystem fallback (server-side only)
+  const RAW_GITHUB_URL = `https://raw.githubusercontent.com/${DEFAULT_OWNER}/${DEFAULT_REPO}/${branch}/${DEFAULT_PATH}`
+  try {
+    logger.info('Trying raw GitHub fallback')
+    const result = await fetch(RAW_GITHUB_URL)
+    if (result.ok) {
+      const data = await result.json()
+      const navbar = data.navbar
+      navigationCache.set(cacheKey, { data: navbar, timestamp: Date.now() })
+      logger.info('Successfully fetched from raw GitHub fallback')
+      return navbar
+    }
+  } catch (error) {
+    logger.warn('Raw GitHub fallback failed')
+  }
+
   try {
     const filePathFs = path.join(process.cwd(), 'public', 'navigation.json')
     const fileContent = fs.readFileSync(filePathFs, 'utf8')

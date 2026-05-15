@@ -96,15 +96,18 @@ const filterContainer: SxStyleProp = {
 }
 
 const tagContainer: SxStyleProp = {
-  gap: '16px',
-  overflowX: 'auto',
-  overflowY: 'hidden',
-  height: '24px',
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '12px',
+  justifyContent: 'center',
+  overflow: 'visible',
+  maxWidth: '100%',
 }
 
 const tag: SxStyleProp = {
   cursor: 'pointer',
   transition: '0.3s',
+  flex: '0 0 auto',
   ':active': {
     position: 'relative',
     top: '1px',

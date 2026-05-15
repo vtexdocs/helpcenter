@@ -25,6 +25,83 @@
           "children": [
             {
               "name": {
+                "en": "March",
+                "es": "Marzo",
+                "pt": "Março"
+              },
+              "slug": {
+                "en": "2026-march",
+                "es": "2026-marzo",
+                "pt": "2026-março"
+              },
+              "origin": "",
+              "type": "category",
+              "children": [
+                {
+                  "name": {
+                    "en": "Amazon: Price suggestion",
+                    "es": "Amazon: Sugerencia de precios",
+                    "pt": "Amazon: Sugestão de preços"
+                  },
+                  "slug": {
+                    "en": "2026-03-06-amazon-price-suggestion",
+                    "es": "2026-03-06-amazon-sugerencia-de-precios",
+                    "pt": "2026-03-06-amazon-sugestao-de-precos"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": {
+                "en": "February",
+                "es": "Febrero",
+                "pt": "Fevereiro"
+              },
+              "slug": {
+                "en": "2026-february",
+                "es": "2026-febrero",
+                "pt": "2026-fevereiro"
+              },
+              "origin": "",
+              "type": "category",
+              "children": [
+                {
+                  "name": {
+                    "en": "Creating coupons in bulk",
+                    "es": "Creación de cupones en lote",
+                    "pt": "Criação de cupons em lote"
+                  },
+                  "slug": {
+                    "en": "2026-02-25-creating-coupons-in-bulk",
+                    "es": "2026-02-25-creacion-de-cupones-en-lote",
+                    "pt": "2026-02-25-criacao-de-cupons-em-lote"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Create promotions faster with reusable templates",
+                    "es": "Crea promociones más rápido con plantillas reutilizables",
+                    "pt": "Crie promoções mais rápido com templates reutilizáveis"
+                  },
+                  "slug": {
+                    "en": "2026-02-23-create-promotions-faster-with-reusable-templates",
+                    "es": "2026-02-23-crea-promociones-mas-rapido-con-plantillas-reutilizables",
+                    "pt": "2026-02-23-crie-promocoes-mais-rapido-com-templates-reutilizaveis"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": {
                 "en": "January",
                 "es": "Enero",
                 "pt": "Janeiro"
@@ -37,6 +114,36 @@
               "origin": "",
               "type": "category",
               "children": [
+                {
+                  "name": {
+                    "en": "General availability of new catalog spreadsheet import and export experience",
+                    "es": "Nueva experiencia de importación y exportación de plantillas del módulo Catálogo con disponibilidad general",
+                    "pt": "Nova experiência de importação e exportação de planilhas do Catálogo em disponibilidade global"
+                  },
+                  "slug": {
+                    "en": "2026-01-28-general-availability-of-new-catalog-spreadsheet-import-and-export-experience",
+                    "es": "2026-01-28-nueva-experiencia-de-importacion-y-exportacion-de-plantillas-del-modulo-catalogo-con-disponibilidad-general",
+                    "pt": "2026-01-28-nova-experiencia-de-importacao-e-exportacao-de-planilhas-do-catalogo-em-disponibilidade-global"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Login with Google and Facebook: Client secrets are now masked",
+                    "es": "Inicio de sesión con Google y Facebook: enmascaramiento del secreto del cliente",
+                    "pt": "Login com Google e Facebook: Client Secret agora é mascarado"
+                  },
+                  "slug": {
+                    "en": "2026-01-23-login-with-google-and-facebook-client-secret-masked",
+                    "es": "2026-01-23-login-con-google-y-facebook-secreto-del-cliente-enmascarado",
+                    "pt": "2026-01-23-login-com-google-e-facebook-client-secret-mascarado"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
                 {
                   "name": {
                     "en": "New Audit event export",
@@ -87,13 +194,13 @@
                 {
                   "name": {
                     "en": "Granular permissions for Seller Register and Marketplace Network",
-                    "es": "Permisos granulares para Seller Register y Marketplace Network",
-                    "pt": "Permissões granulares para Seller Register e Marketplace Network"
+                    "es": "Granular permissions for Seller Register and Marketplace Network",
+                    "pt": "Granular permissions for Seller Register and Marketplace Network"
                   },
                   "slug": {
                     "en": "2025-12-23-granular-permissions-seller-marketplace-network",
-                    "es": "2025-12-23-permisos-granulares-seller-marketplace-network",
-                    "pt": "2025-12-23-permissoes-granulares-seller-marketplace-network"
+                    "es": "",
+                    "pt": ""
                   },
                   "origin": "",
                   "type": "markdown",
@@ -139,6 +246,37 @@
                     "en": "2025-12-02-breaking-change-livelo-new-mandatory-permission",
                     "es": "2025-12-02-breaking-change-livelo-nuevo-permiso-obligatorio",
                     "pt": "2025-12-02-breaking-change-livelo-nova-permissao-obrigatoria"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": {
+                "en": "Diciembre",
+                "es": "Diciembre",
+                "pt": "Dezembro"
+              },
+              "slug": {
+                "en": "diciembre",
+                "es": "2025-diciembre",
+                "pt": "2025-dezembro"
+              },
+              "origin": "",
+              "type": "category",
+              "children": [
+                {
+                  "name": {
+                    "es": "Permisos granulares para Seller Register y Marketplace Network",
+                    "pt": "Permissões granulares para Seller Register e Marketplace Network",
+                    "en": "Permisos granulares para Seller Register y Marketplace Network"
+                  },
+                  "slug": {
+                    "es": "2025-12-23-permisos-granulares-seller-marketplace-network",
+                    "pt": "2025-12-23-permissoes-granulares-seller-marketplace-network",
+                    "en": ""
                   },
                   "origin": "",
                   "type": "markdown",
@@ -10253,7 +10391,7 @@
                     "pt": "9. Preço Fixo - Definição de conceito"
                   },
                   "slug": {
-                    "en": "preco-fixo-definicao-de-conceito",
+                    "en": "fixed-price-concept-definition",
                     "es": "precio-fijo-definicion-de-concepto",
                     "pt": "preco-fixo-definicao-de-conceito"
                   },
@@ -14734,6 +14872,143 @@
             },
             {
               "name": {
+                "en": "Lengow integration",
+                "es": "Integración de Lengow",
+                "pt": "Integração com a Lengow"
+              },
+              "slug": {
+                "en": "lengow-integration",
+                "es": "integracion-de-lengow",
+                "pt": "integracao-com-a-lengow"
+              },
+              "origin": "",
+              "type": "category",
+              "children": [
+                {
+                  "name": {
+                    "en": "1. What is Lengow?",
+                    "es": "1. Que es Lengow?",
+                    "pt": "1. O que é Lengow?"
+                  },
+                  "slug": {
+                    "en": "what-is-lengow",
+                    "es": "que-es-lengow",
+                    "pt": "o-que-e-lengow"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "2. Create product feed",
+                    "es": "2. Crear feed de productos",
+                    "pt": "2. Criar feed de produtos"
+                  },
+                  "slug": {
+                    "en": "create-product-feed",
+                    "es": "crear-feed-de-productos",
+                    "pt": "criar-feed-de-produtos"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "3. Sales channel mapping",
+                    "es": "3. Mapeo de canales de venta",
+                    "pt": "3. Mapeamento de canais de venda"
+                  },
+                  "slug": {
+                    "en": "sales-channel-mapping",
+                    "es": "mapeo-de-canales-de-venta",
+                    "pt": "mapeamento-de-canais-de-venda"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "4. Specifications mapping",
+                    "es": "4. Mapeo de especificaciones",
+                    "pt": "4. Mapeamento de especificações"
+                  },
+                  "slug": {
+                    "en": "specifications-mapping",
+                    "es": "mapeo-de-especificaciones",
+                    "pt": "mapeamento-de-especificacoes"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "5. Update and import product feed",
+                    "es": "5. Actualizar y importar feed de productos",
+                    "pt": "5. Atualizar e importar feed de produtos"
+                  },
+                  "slug": {
+                    "en": "update-and-import-product-feed",
+                    "es": "actualizar-y-importar-feed-de-productos",
+                    "pt": "atualizar-e-importar-feed-de-produtos"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "6. Import orders from Lengow",
+                    "es": "6. Importar pedidos de Lengow",
+                    "pt": "6. Importar pedidos da Lengow"
+                  },
+                  "slug": {
+                    "en": "import-orders-from-lengow",
+                    "es": "importar-pedidos-de-lengow",
+                    "pt": "importar-pedidos-da-lengow"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": {
+                "en": "Integración de Lengow",
+                "es": "Integración de Lengow",
+                "pt": "Integración de Lengow"
+              },
+              "slug": {
+                "en": "integracion-de-lengow",
+                "es": "integracion-de-lengow",
+                "pt": "integracion-de-lengow"
+              },
+              "origin": "",
+              "type": "category",
+              "children": [
+                {
+                  "name": {
+                    "es": "1. Instalación y configuración",
+                    "en": "1. Instalación y configuración",
+                    "pt": "1. Instalación y configuración"
+                  },
+                  "slug": {
+                    "es": "instalacion-y-configuracion",
+                    "en": "",
+                    "pt": ""
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": {
                 "en": "Facebook integration",
                 "es": "Integración de Facebook",
                 "pt": "Integração com o Facebook"
@@ -16118,14 +16393,14 @@
                 },
                 {
                   "name": {
-                    "en": "Creating a call center user",
+                    "en": "Creating a telesales user",
                     "es": "Crear usuario de televentas",
                     "pt": "Criar usuário de televendas"
                   },
                   "slug": {
-                    "en": "how-can-i-create-callcenter-user",
-                    "es": "como-creo-un-usuario-de-televentas",
-                    "pt": "como-criar-um-usuario-de-televendas"
+                    "en": "creating-a-telesales-user",
+                    "es": "crear-usuario-de-televentas",
+                    "pt": "criar-usuario-de-televendas"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -16641,12 +16916,12 @@
                 {
                   "name": {
                     "en": "Adding a Client Id and a Client Secret to log in with Google",
-                    "es": "Registrar Client Id y Client Secret para inicio de sesión con Google",
-                    "pt": "Cadastrar Client Id e Client Secret para login com Google"
+                    "es": "Registrar client ID y secreto del cliente para inicio de sesión con Google",
+                    "pt": "Cadastrar Client ID e Client secret para login com Google"
                   },
                   "slug": {
                     "en": "adding-a-client-id-and-a-client-secret-to-log-in-with-google",
-                    "es": "registrar-client-id-y-client-secret-para-inicio-de-sesion-con-google",
+                    "es": "registrar-client-id-y-secreto-del-cliente-para-inicio-de-sesion-con-google",
                     "pt": "cadastrar-client-id-e-client-secret-para-login-com-google"
                   },
                   "origin": "",
@@ -16655,14 +16930,14 @@
                 },
                 {
                   "name": {
-                    "en": "Adding Client ID and Client Secret for Facebook Login",
-                    "es": "Registrar Client ID y Secreto del cliente para Inicio de sesión con Facebook",
-                    "pt": "Cadastrar Client Id e Segredo do cliente para login com Facebook"
+                    "en": "Adding Client ID and Client secret to log in with Facebook",
+                    "es": "Registrar client ID y secreto del cliente para inicio de sesión con Facebook",
+                    "pt": "Cadastrar Client ID e Client secret para login com Facebook"
                   },
                   "slug": {
-                    "en": "adding-a-client-id-and-a-client-secret-to-log-in-with-facebook",
-                    "es": "registrar-client-id-y-client-secret-para-login-con-facebook",
-                    "pt": "cadastrar-client-id-e-segredo-do-cliente-para-login-com-facebook"
+                    "en": "adding-client-id-and-client-secret-to-log-in-with-facebook",
+                    "es": "registrar-client-id-y-secreto-del-cliente-para-inicio-de-sesion-con-facebook",
+                    "pt": "cadastrar-client-id-e-client-secret-para-login-com-facebook"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -16802,22 +17077,249 @@
           },
           "slug": {
             "en": "b2b-category",
-            "es": "b2b-categoria",
-            "pt": "b2b-categoria"
+            "es": "b2b-categoria-es",
+            "pt": "b2b-categoria-pt"
           },
           "origin": "",
           "type": "category",
           "children": [
             {
               "name": {
-                "en": "B2B Checkout Settings",
-                "es": "B2B Checkout Settings",
-                "pt": "Configurações de checkout B2B"
+                "en": "B2B Buyer Portal",
+                "es": "B2B Buyer Portal",
+                "pt": "B2B Buyer Portal"
               },
               "slug": {
-                "en": "b2b-checkout-settings-subcategory",
-                "es": "b2b-checkout-settings-subcategoria",
-                "pt": "configurações-de-checkout-b2b-subcategoria"
+                "en": "b2b-buyer-portal-subcategory",
+                "es": "b2b-buyer-portal-subcategoria-es",
+                "pt": "b2b-buyer-portal-subcategoria-pt"
+              },
+              "origin": "",
+              "type": "category",
+              "children": [
+                {
+                  "name": {
+                    "en": "B2B contracts",
+                    "es": "Contratos B2B",
+                    "pt": "Contratos B2B"
+                  },
+                  "slug": {
+                    "en": "b2b-contracts",
+                    "es": "contratos-b2b-es",
+                    "pt": "contratos-b2b-pt"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Budgets overview",
+                    "es": "Presupuestos - Información general",
+                    "pt": "Visão geral de Budgets"
+                  },
+                  "slug": {
+                    "en": "budgets-overview",
+                    "es": "presupuestos-informacion-general",
+                    "pt": "visao-geral-de-budgets"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Buyer organization members",
+                    "es": "Miembros de la organización compradora",
+                    "pt": "Membros da organização compradora"
+                  },
+                  "slug": {
+                    "en": "buyer-organization-members",
+                    "es": "miembros-de-la-organizacion-compradora",
+                    "pt": "membros-da-organizacao-compradora"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Buying policies overview",
+                    "es": "Políticas de compras",
+                    "pt": "Buying Policies"
+                  },
+                  "slug": {
+                    "en": "buying-policies-overview",
+                    "es": "politicas-de-compras",
+                    "pt": "buying-policies"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Custom checkout fields",
+                    "es": "Campos personalizables del checkout",
+                    "pt": "Campos customizáveis no checkout"
+                  },
+                  "slug": {
+                    "en": "custom-checkout-fields",
+                    "es": "campos-personalizables-del-checkout",
+                    "pt": "campos-customizaveis-do-checkout"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Organization Units",
+                    "es": "Unidades de organización",
+                    "pt": "Organization Units"
+                  },
+                  "slug": {
+                    "en": "organization-units",
+                    "es": "organization-units-es",
+                    "pt": "organization-units-pt"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Scopes overview",
+                    "es": "Visión general de Scopes",
+                    "pt": "Visão geral de Scopes"
+                  },
+                  "slug": {
+                    "en": "scopes-overview",
+                    "es": "vision-general-de-scopes",
+                    "pt": "visao-geral-de-scopes"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": {
+                "en": "Organization Account",
+                "es": "Organization Account",
+                "pt": "Organization Account"
+              },
+              "slug": {
+                "en": "organization-account-subcategory",
+                "es": "organization-account-subcategoria-es",
+                "pt": "organization-account-subcategoria-pt"
+              },
+              "origin": "",
+              "type": "category",
+              "children": [
+                {
+                  "name": {
+                    "en": "Adding or editing budgets",
+                    "es": "Agregar o editar presupuestos",
+                    "pt": "Adicionar ou editar budgets"
+                  },
+                  "slug": {
+                    "en": "adding-or-editing-budgets",
+                    "es": "agregar-o-editar-presupuestos",
+                    "pt": "adicionar-ou-editar-budgets"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Adding or editing buying policies",
+                    "es": "Agregar o editar políticas de compras",
+                    "pt": "Adicionar ou editar Buying Policies"
+                  },
+                  "slug": {
+                    "en": "adding-or-editing-buying-policies",
+                    "es": "agregar-o-editar-politicas-de-compras",
+                    "pt": "adicionar-ou-editar-buying-policies"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Adding or editing custom checkout fields",
+                    "es": "Agregar o editar campos personalizables del checkout",
+                    "pt": "Adicionar ou editar campos customizáveis do checkout"
+                  },
+                  "slug": {
+                    "en": "adding-or-editing-custom-checkout-fields",
+                    "es": "agregar-o-editar-campos-personalizables-del-checkout",
+                    "pt": "adicionar-ou-editar-campos-customizaveis"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Adding or editing Organizational Units",
+                    "es": "Agregar o editar Organizational Units",
+                    "pt": "Adicionar ou editar Organizational Units"
+                  },
+                  "slug": {
+                    "en": "adding-or-editing-organizational-units",
+                    "es": "agregar-o-editar-organizational-units",
+                    "pt": "adicionar-ou-editar-organizational-units"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Adding users to a buyer organization",
+                    "es": "Agregar usuarios a la organización compradora",
+                    "pt": "Adicionar usuários à organização compradora"
+                  },
+                  "slug": {
+                    "en": "adding-users-to-buyer-organization",
+                    "es": "agregar-usuarios-a-la-organizacion-compradora",
+                    "pt": "adicionar-usuarios-a-organizacao-compradora"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Organization Account",
+                    "es": "Organization Account",
+                    "pt": "Organization Account"
+                  },
+                  "slug": {
+                    "en": "organization-account",
+                    "es": "organization-account-es",
+                    "pt": "organization-account-pt"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": {
+                "en": "B2B Suite",
+                "es": "B2B Suite",
+                "pt": "B2B Suite"
+              },
+              "slug": {
+                "en": "b2b-suite-subcategory",
+                "es": "b2b-suite-subcategoria-es",
+                "pt": "b2b-suite-subcategoria-pt"
               },
               "origin": "",
               "type": "category",
@@ -16826,458 +17328,459 @@
                   "name": {
                     "en": "B2B Checkout Settings",
                     "es": "B2B Checkout Settings",
-                    "pt": "Configurações de Checkout no B2B"
+                    "pt": "Configurações de checkout B2B"
                   },
                   "slug": {
-                    "en": "b2b-checkout-settings",
-                    "es": "b2b-checkout-settings-es",
-                    "pt": "configuracoes-de-checkout-no-b2b"
+                    "en": "b2b-checkout-settings-subcategory",
+                    "es": "b2b-checkout-settings-subcategoria",
+                    "pt": "configurações-de-checkout-b2b-subcategoria"
                   },
                   "origin": "",
-                  "type": "markdown",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": {
-                "en": "B2B Orders History",
-                "es": "B2B Orders History",
-                "pt": "Histórico de Pedidos B2B"
-              },
-              "slug": {
-                "en": "b2b-orders-history-subcategory",
-                "es": "b2b-orders-history-subcategoria",
-                "pt": "histórico-de-pedidos-b2b-subcategoria"
-              },
-              "origin": "",
-              "type": "category",
-              "children": [
-                {
-                  "name": {
-                    "en": "B2B Orders History - Overview",
-                    "es": "B2B Orders History - Información general",
-                    "pt": "Histórico de Pedidos B2B - Visão geral"
-                  },
-                  "slug": {
-                    "en": "overview-of-b2b-orders-history",
-                    "es": "vista-general-de-b2b-orders-history",
-                    "pt": "visao-geral-do-historico-de-pedidos-b2b"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": {
-                "en": "B2B Organizations",
-                "es": "Organizaciones B2B",
-                "pt": "Organizações B2B"
-              },
-              "slug": {
-                "en": "b2b-organizations-subcategory",
-                "es": "organizaciones-b2b-subcategoria",
-                "pt": "organizações-b2b-subcategoria"
-              },
-              "origin": "",
-              "type": "category",
-              "children": [
-                {
-                  "name": {
-                    "en": "B2B Store Settings",
-                    "es": "Configuración de tiendas B2B",
-                    "pt": "Configurando lojas B2B"
-                  },
-                  "slug": {
-                    "en": "b2b-store-settings",
-                    "es": "configuracion-de-tiendas-b2b",
-                    "pt": "configurando-lojas-b2b"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
+                  "type": "category",
+                  "children": [
+                    {
+                      "name": {
+                        "en": "B2B Checkout Settings (B2B Suite)",
+                        "es": "B2B Checkout Settings (B2B Suite)",
+                        "pt": "Configurações de Checkout no B2B (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "b2b-checkout-settings",
+                        "es": "b2b-checkout-settings-es",
+                        "pt": "configuracoes-de-checkout-no-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    }
+                  ]
                 },
                 {
                   "name": {
-                    "en": "Configuring bulk data import for organizations and cost centers",
-                    "es": "Configurar la importación en masa de datos de organizaciones y centros de costos",
-                    "pt": "Configurando a importação em massa de dados sobre organizações e centros de custos"
+                    "en": "B2B Orders History",
+                    "es": "B2B Orders History",
+                    "pt": "Histórico de Pedidos B2B"
                   },
                   "slug": {
-                    "en": "configuring-bulk-data-import-for-organizations-and-cost-centers",
-                    "es": "configurar-la-importacion-en-masa-de-datos-de-organizaciones-y-centros-custo",
-                    "pt": "configurando-a-importacao-em-massa-de-organizacoes-e-centros-de-custo"
+                    "en": "b2b-orders-history-subcategory",
+                    "es": "b2b-orders-history-subcategoria",
+                    "pt": "histórico-de-pedidos-b2b-subcategoria"
                   },
                   "origin": "",
-                  "type": "markdown",
-                  "children": []
+                  "type": "category",
+                  "children": [
+                    {
+                      "name": {
+                        "en": "B2B Orders History - Overview (B2B Suite)",
+                        "es": "B2B Orders History - Información general (B2B Suite)",
+                        "pt": "Histórico de Pedidos B2B - Visão geral (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "overview-of-b2b-orders-history",
+                        "es": "vista-general-de-b2b-orders-history",
+                        "pt": "visao-geral-do-historico-de-pedidos-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    }
+                  ]
                 },
                 {
                   "name": {
-                    "en": "Managing B2B organizations",
-                    "es": "Gestión de organizaciones B2B",
-                    "pt": "Gerenciamento de organizações B2B"
+                    "en": "B2B Organizations",
+                    "es": "Organizaciones B2B",
+                    "pt": "Organizações B2B"
                   },
                   "slug": {
-                    "en": "managing-b2b-organizations",
-                    "es": "gestion-de-organizaciones-b2b",
-                    "pt": "gerenciamento-de-organizacoes-b2b"
+                    "en": "b2b-organizations-subcategory",
+                    "es": "organizaciones-b2b-subcategoria",
+                    "pt": "organizações-b2b-subcategoria"
                   },
                   "origin": "",
-                  "type": "markdown",
-                  "children": []
+                  "type": "category",
+                  "children": [
+                    {
+                      "name": {
+                        "en": "B2B Store Settings (B2B Suite)",
+                        "es": "Configuración de tiendas B2B (B2B Suite)",
+                        "pt": "Configurando lojas B2B (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "b2b-store-settings",
+                        "es": "configuracion-de-tiendas-b2b",
+                        "pt": "configurando-lojas-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "Configuring bulk data import for organizations and cost centers (B2B Suite)",
+                        "es": "Configurar la importación en masa de datos de organizaciones y centros de costos (B2B Suite)",
+                        "pt": "Configurando a importação em massa de dados sobre organizações e centros de custos (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "configuring-bulk-data-import-for-organizations-and-cost-centers",
+                        "es": "configurar-la-importacion-en-masa-de-datos-de-organizaciones-y-centros-custo",
+                        "pt": "configurando-a-importacao-em-massa-de-organizacoes-e-centros-de-custo"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "Managing B2B organizations (B2B Suite)",
+                        "es": "Gestión de organizaciones B2B (B2B Suite)",
+                        "pt": "Gerenciamento de organizações B2B (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "managing-b2b-organizations",
+                        "es": "gestion-de-organizaciones-b2b",
+                        "pt": "gerenciamento-de-organizacoes-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "Requesting a new organization (B2B Suite)",
+                        "es": "Registrar una nueva organización (B2B Suite)",
+                        "pt": "Cadastro de nova organização (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "requesting-a-new-organization",
+                        "es": "registrar-una-nueva-organizacion",
+                        "pt": "cadastro-de-nova-organizacao"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    }
+                  ]
                 },
                 {
                   "name": {
-                    "en": "Requesting a new organization",
-                    "es": "Registrar una nueva organización",
-                    "pt": "Cadastro de nova organização"
+                    "en": "B2B Quotes",
+                    "es": "Cotizaciones B2B",
+                    "pt": "Cotações B2B"
                   },
                   "slug": {
-                    "en": "requesting-a-new-organization",
-                    "es": "registrar-una-nueva-organizacion",
-                    "pt": "cadastro-de-nova-organizacao"
+                    "en": "b2b-quotes-subcategory",
+                    "es": "cotizaciones-b2b-subcategoria",
+                    "pt": "cotações-b2b-subcategoria"
                   },
                   "origin": "",
-                  "type": "markdown",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": {
-                "en": "B2B Quotes",
-                "es": "Cotizaciones B2B",
-                "pt": "Cotações B2B"
-              },
-              "slug": {
-                "en": "b2b-quotes-subcategory",
-                "es": "cotizaciones-b2b-subcategoria",
-                "pt": "cotações-b2b-subcategoria"
-              },
-              "origin": "",
-              "type": "category",
-              "children": [
-                {
-                  "name": {
-                    "en": "Managing B2B quotes",
-                    "es": "Gestionar cotizaciones en B2B",
-                    "pt": "Gerenciamento de cotações no B2B"
-                  },
-                  "slug": {
-                    "en": "managing-b2b-quotes",
-                    "es": "gestionar-cotizaciones-en-b2b",
-                    "pt": "gerenciamento-de-cotacoes-no-b2b"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": {
-                "en": "Organization details",
-                "es": "Detalles de la organización",
-                "pt": "Detalhes da organização"
-              },
-              "slug": {
-                "en": "organization-details-subcategory",
-                "es": "detalles-de-la-organizacion-subcategoria",
-                "pt": "detalhes-da-organização-subcategoria"
-              },
-              "origin": "",
-              "type": "category",
-              "children": [
-                {
-                  "name": {
-                    "en": "B2B collection management",
-                    "es": "Gestión de colecciones en B2B",
-                    "pt": "Gerenciamento de Coleções no B2B"
-                  },
-                  "slug": {
-                    "en": "b2b-collection-management",
-                    "es": "gestion-de-colecciones-en-b2b",
-                    "pt": "gerenciamento-de-colecoes-no-b2b"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
+                  "type": "category",
+                  "children": [
+                    {
+                      "name": {
+                        "en": "Managing B2B quotes (B2B Suite)",
+                        "es": "Gestionar cotizaciones en B2B (B2B Suite)",
+                        "pt": "Gerenciamento de cotações no B2B (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "managing-b2b-quotes",
+                        "es": "gestionar-cotizaciones-en-b2b",
+                        "pt": "gerenciamento-de-cotacoes-no-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    }
+                  ]
                 },
                 {
                   "name": {
-                    "en": "B2B cost center management",
-                    "es": "Gestión de centros de costos en B2B",
-                    "pt": "Gerenciamento de centro de custo no B2B"
+                    "en": "Organization details",
+                    "es": "Detalles de la organización",
+                    "pt": "Detalhes da organização"
                   },
                   "slug": {
-                    "en": "b2b-cost-center-management",
-                    "es": "gestion-de-centros-de-costos-en-b2b",
-                    "pt": "gerenciamento-de-centro-de-custo-no-b2b"
+                    "en": "organization-details-subcategory",
+                    "es": "detalles-de-la-organizacion-subcategoria",
+                    "pt": "detalhes-da-organização-subcategoria"
                   },
                   "origin": "",
-                  "type": "markdown",
-                  "children": []
+                  "type": "category",
+                  "children": [
+                    {
+                      "name": {
+                        "en": "B2B collection management (B2B Suite)",
+                        "es": "Gestión de colecciones en B2B (B2B Suite)",
+                        "pt": "Gerenciamento de Coleções no B2B (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "b2b-collection-management",
+                        "es": "gestion-de-colecciones-en-b2b",
+                        "pt": "gerenciamento-de-colecoes-no-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "B2B cost center management (B2B Suite)",
+                        "es": "Gestión de centros de costos en B2B (B2B Suite)",
+                        "pt": "Gerenciamento de centro de custo no B2B (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "b2b-cost-center-management",
+                        "es": "gestion-de-centros-de-costos-en-b2b",
+                        "pt": "gerenciamento-de-centro-de-custo-no-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "B2B organization general settings (B2B Suite)",
+                        "es": "Configuración general de organizaciones B2B (B2B Suite)",
+                        "pt": "Configurações gerais da organização B2B (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "b2b-organization-general-settings",
+                        "es": "configuracion-general-de-organizaciones-b2b",
+                        "pt": "configuracoes-gerais-da-organizacao-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "B2B trade policies - Overview (B2B Suite)",
+                        "es": "Políticas comerciales en B2B - Información general (B2B Suite)",
+                        "pt": "Política comercial no B2B - Visão geral (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "b2b-trade-policies-overview",
+                        "es": "vista-general-de-las-politicas-comerciales-en-b2b",
+                        "pt": "visao-geral-da-politica-comercial-no-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "Configuring payment conditions for B2B (B2B Suite)",
+                        "es": "Configurar condiciones de pago B2B",
+                        "pt": "Configurando condições de pagamento B2B (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "configuring-payment-conditions-for-b2b",
+                        "es": "configurar-condiciones-de-pago-b2b",
+                        "pt": "configurando-condicoes-de-pagamento-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "Configuring seller allocation for buying (B2B Suite)",
+                        "es": "Configurar la asignación de sellers a organizaciones compradoras (B2B Suite)",
+                        "pt": "Configurando atribuição de sellers à organizações compradoras (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "configuring-seller-allocation-for-buying-xky",
+                        "es": "configurar-la-asignacion-de-sellers-a-organizaciones-compradoras-b2b-xky",
+                        "pt": "configurando-atribuicao-de-sellers-a-organizacoes-compradoras-b2b-xky"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "Custom fields when adding an organization (B2B Suite)",
+                        "es": "Campos personalizados en el registro de organizaciones (B2B Suite)",
+                        "pt": "Campos personalizados no cadastro de organização (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "custom-fields-when-adding-an-organization",
+                        "es": "campos-personalizados-en-el-registro-de-organizaciones",
+                        "pt": "campos-personalizados-no-cadastro-de-organizacao"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "Managing users in B2B organizations (B2B Suite)",
+                        "es": "Gestión de usuarios en organizaciones B2B (B2B Suite)",
+                        "pt": "Gerenciamento de Usuários em organizações B2B (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "managing-users-in-b2b-organizations",
+                        "es": "gestion-de-usuarios-en-organizaciones-b2b",
+                        "pt": "gerenciamento-de-usuarios-em-organizacoes-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "Price table management in B2B organizations (B2B Suite)",
+                        "es": "Gestionar tablas de precios en organizaciones B2B (B2B Suite)",
+                        "pt": "Gerenciamento de tabelas de preços em organizações B2B (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "price-table-management-in-b2b-organizations",
+                        "es": "gestionar-tablas-de-precios-en-organizaciones-b2b",
+                        "pt": "gerenciamento-de-tabelas-de-precos-em-organizacoes-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    }
+                  ]
                 },
                 {
                   "name": {
-                    "en": "B2B organization general settings",
-                    "es": "Configuración general de organizaciones B2B",
-                    "pt": "Configurações gerais da organização B2B"
-                  },
-                  "slug": {
-                    "en": "b2b-organization-general-settings",
-                    "es": "configuracion-general-de-organizaciones-b2b",
-                    "pt": "configuracoes-gerais-da-organizacao-b2b"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "B2B trade policies - Overview",
-                    "es": "Políticas comerciales en B2B - Información general",
-                    "pt": "Política comercial no B2B - Visão geral"
-                  },
-                  "slug": {
-                    "en": "b2b-trade-policies-overview",
-                    "es": "vista-general-de-las-politicas-comerciales-en-b2b",
-                    "pt": "visao-geral-da-politica-comercial-no-b2b"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "Configuring payment conditions for B2B",
-                    "es": "Configurar condiciones de pago B2B",
-                    "pt": "Configurando condições de pagamento B2B"
-                  },
-                  "slug": {
-                    "en": "configuring-payment-conditions-for-b2b",
-                    "es": "configurar-condiciones-de-pago-b2b",
-                    "pt": "configurando-condicoes-de-pagamento-b2b"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "Configuring seller allocation for buying",
-                    "es": "Configurar la asignación de sellers a organizaciones compradoras (B2B)",
-                    "pt": "Configurando atribuição de sellers à organizações compradoras (B2B)"
-                  },
-                  "slug": {
-                    "en": "configuring-seller-allocation-for-buying-xky",
-                    "es": "configurar-la-asignacion-de-sellers-a-organizaciones-compradoras-b2b-xky",
-                    "pt": "configurando-atribuicao-de-sellers-a-organizacoes-compradoras-b2b-xky"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "Custom fields when adding an organization",
-                    "es": "Campos personalizados en el registro de organizaciones",
-                    "pt": "Campos personalizados no cadastro de organização"
-                  },
-                  "slug": {
-                    "en": "custom-fields-when-adding-an-organization",
-                    "es": "campos-personalizados-en-el-registro-de-organizaciones",
-                    "pt": "campos-personalizados-no-cadastro-de-organizacao"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "Managing users in B2B organizations",
-                    "es": "Gestión de usuarios en organizaciones B2B",
-                    "pt": "Gerenciamento de Usuários em organizações B2B"
-                  },
-                  "slug": {
-                    "en": "managing-users-in-b2b-organizations",
-                    "es": "gestion-de-usuarios-en-organizaciones-b2b",
-                    "pt": "gerenciamento-de-usuarios-em-organizacoes-b2b"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "Price table management in B2B organizations",
-                    "es": "Gestionar tablas de precios en organizaciones B2B",
-                    "pt": "Gerenciamento de tabelas de preços em organizações B2B"
-                  },
-                  "slug": {
-                    "en": "price-table-management-in-b2b-organizations",
-                    "es": "gestionar-tablas-de-precios-en-organizaciones-b2b",
-                    "pt": "gerenciamento-de-tabelas-de-precos-em-organizacoes-b2b"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": {
-                "en": "B2B - Overview",
-                "es": "B2B - Información general",
-                "pt": "B2B - Visão geral"
-              },
-              "slug": {
-                "en": "overview-subcategory",
-                "es": "vision-general-subcategoria",
-                "pt": "visão-geral-subcategoria"
-              },
-              "origin": "",
-              "type": "category",
-              "children": [
-                {
-                  "name": {
-                    "en": "B2B – Overview",
+                    "en": "B2B - Overview",
                     "es": "B2B - Información general",
-                    "pt": "B2B – Visão geral"
+                    "pt": "B2B - Visão geral"
                   },
                   "slug": {
-                    "en": "b2b-overview",
-                    "es": "b2b-vision-general",
-                    "pt": "b2b-visao-geral"
+                    "en": "overview-subcategory",
+                    "es": "vision-general-subcategoria",
+                    "pt": "visão-geral-subcategoria"
                   },
                   "origin": "",
-                  "type": "markdown",
-                  "children": []
+                  "type": "category",
+                  "children": [
+                    {
+                      "name": {
+                        "en": "B2B Suite - Overview (B2B Suite)",
+                        "es": "B2B Suite - Información general (B2B Suite)",
+                        "pt": "B2B Suite - Visão geral (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "b2b-suite-overview",
+                        "es": "b2b-suite-vision-general",
+                        "pt": "b2b-suite-visao-geral"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "What is Order Configuration (B2B Suite)",
+                        "es": "Qué es Order Configuration (B2B Suite)",
+                        "pt": "O que é Order Configuration (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "what-is-order-configuration",
+                        "es": "que-es-order-configuration",
+                        "pt": "o-que-e-order-configuration"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    }
+                  ]
                 },
                 {
                   "name": {
-                    "en": "B2B Suite - Overview",
-                    "es": "B2B Suite - Información general",
-                    "pt": "B2B Suite - Visão geral"
+                    "en": "Practical guides",
+                    "es": "Guías práticas",
+                    "pt": "Guias práticos"
                   },
                   "slug": {
-                    "en": "b2b-suite-overview",
-                    "es": "b2b-suite-vision-general",
-                    "pt": "b2b-suite-visao-geral"
+                    "en": "practical-guides-subcategory",
+                    "es": "guias-praticas-subcategoria",
+                    "pt": "guias-práticos-subcategoria"
                   },
                   "origin": "",
-                  "type": "markdown",
-                  "children": []
+                  "type": "category",
+                  "children": [
+                    {
+                      "name": {
+                        "en": "Configuring B2B self-service stores (B2B Suite)",
+                        "es": "Configurar una tienda B2B de autoservicio (B2B Suite)",
+                        "pt": "Configurar loja B2B self-service (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "configuring-b2b-self-service-stores",
+                        "es": "configurar-una-tienda-b2b-de-autoservicio",
+                        "pt": "configurar-loja-b2b-self-service"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "Facilitating B2B store operation (B2B Suite)",
+                        "es": "Facilitar la operación de una tienda B2B (B2B Suite)",
+                        "pt": "Facilitar a operação da loja B2B (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "facilitating-b2b-store-operation",
+                        "es": "facilitar-la-operacion-de-una-tienda-b2b",
+                        "pt": "facilitar-a-operacao-da-loja-b2b"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    },
+                    {
+                      "name": {
+                        "en": "How to set up B2B with VTEX (B2B Suite)",
+                        "es": "Configurar B2B en VTEX (B2B Suite)",
+                        "pt": "Configurar B2B na VTEX (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "setting-up-b2b-on-vtex",
+                        "es": "configurando-b2b-na-vtex-es",
+                        "pt": "configurando-b2b-na-vtex-pt"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    }
+                  ]
                 },
                 {
                   "name": {
-                    "en": "What is Order Configuration",
-                    "es": "Qué es Order Configuration",
-                    "pt": "O que é Order Configuration"
+                    "en": "Storefront permissions",
+                    "es": "Permisos del storefront",
+                    "pt": "Permissões da loja"
                   },
                   "slug": {
-                    "en": "what-is-order-configuration",
-                    "es": "que-es-order-configuration",
-                    "pt": "o-que-e-order-configuration"
+                    "en": "storefront-permissions-subcategory",
+                    "es": "permisos-del-storefront-subcategoria",
+                    "pt": "permissões-da-loja-subcategoria"
                   },
                   "origin": "",
-                  "type": "markdown",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": {
-                "en": "Practical guides",
-                "es": "Guías práticas",
-                "pt": "Guias práticos"
-              },
-              "slug": {
-                "en": "practical-guides-subcategory",
-                "es": "guias-praticas-subcategoria",
-                "pt": "guias-práticos-subcategoria"
-              },
-              "origin": "",
-              "type": "category",
-              "children": [
-                {
-                  "name": {
-                    "en": "Configuring B2B self-service stores",
-                    "es": "Configurar una tienda B2B de autoservicio",
-                    "pt": "Configurar loja B2B self-service"
-                  },
-                  "slug": {
-                    "en": "configuring-b2b-self-service-stores",
-                    "es": "configurar-una-tienda-b2b-de-autoservicio",
-                    "pt": "configurar-loja-b2b-self-service"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "Facilitating B2B store operation",
-                    "es": "Facilitar la operación de una tienda B2B",
-                    "pt": "Facilitar a operação da loja B2B"
-                  },
-                  "slug": {
-                    "en": "facilitating-b2b-store-operation",
-                    "es": "facilitar-la-operacion-de-una-tienda-b2b",
-                    "pt": "facilitar-a-operacao-da-loja-b2b"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "How to set up B2B with VTEX",
-                    "es": "Configurar B2B en VTEX",
-                    "pt": "Configurar B2B na VTEX"
-                  },
-                  "slug": {
-                    "en": "setting-up-b2b-on-vtex",
-                    "es": "configurando-b2b-na-vtex",
-                    "pt": "configurando-b2b-na-vtex"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": {
-                "en": "Storefront permissions",
-                "es": "Permisos del storefront",
-                "pt": "Permissões da loja"
-              },
-              "slug": {
-                "en": "storefront-permissions-subcategory",
-                "es": "permisos-del-storefront-subcategoria",
-                "pt": "permissões-da-loja-subcategoria"
-              },
-              "origin": "",
-              "type": "category",
-              "children": [
-                {
-                  "name": {
-                    "en": "Permissions management in B2B Suite",
-                    "es": "Gestionar permisos en B2B Suite",
-                    "pt": "Gerenciamento de permissões no B2B Suite"
-                  },
-                  "slug": {
-                    "en": "permissions-management-in-b2b-suite",
-                    "es": "gestionar-permisos-en-b2b-suite",
-                    "pt": "gerenciamento-de-permissoes-no-b2b-suite"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
+                  "type": "category",
+                  "children": [
+                    {
+                      "name": {
+                        "en": "Permissions management in B2B Suite (B2B Suite)",
+                        "es": "Gestionar permisos en B2B Suite (B2B Suite)",
+                        "pt": "Gerenciamento de permissões no B2B Suite (B2B Suite)"
+                      },
+                      "slug": {
+                        "en": "permissions-management-in-b2b-suite",
+                        "es": "gestionar-permisos-en-b2b-suite",
+                        "pt": "gerenciamento-de-permissoes-no-b2b-suite"
+                      },
+                      "origin": "",
+                      "type": "markdown",
+                      "children": []
+                    }
+                  ]
                 }
               ]
             }
@@ -17321,66 +17824,6 @@
                     "en": "creating-or-editing-categories-attributes-and-variations-beta",
                     "es": "crear-o-editar-categorias-atributos-y-variaciones-beta",
                     "pt": "criar-ou-editar-categorias-atributos-e-variacoes-beta"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "Importing and exporting product and SKU images using a spreadsheet (Beta)",
-                    "es": "Importar y exportar imágenes de productos y SKUs mediante plantilla (Beta)",
-                    "pt": "Importar e exportar imagens de produtos e SKUs via planilha (Beta)"
-                  },
-                  "slug": {
-                    "en": "importing-and-exporting-product-and-sku-images-using-a-spreadsheet-beta",
-                    "es": "importar-y-exportar-imagenes-de-productos-y-skus-mediante-plantilla-beta",
-                    "pt": "importar-e-exportar-imagens-de-produtos-e-skus-via-planilha-beta"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "Importing and exporting product specifications using a spreadsheet (Beta)",
-                    "es": "Importar y exportar especificaciones de productos mediante plantilla (Beta)",
-                    "pt": "Importar e exportar especificações de produtos via planilha (Beta)"
-                  },
-                  "slug": {
-                    "en": "importing-and-exporting-product-specifications-using-a-spreadsheet-beta",
-                    "es": "importar-y-exportar-especificaciones-de-productos-mediante-plantilla-beta",
-                    "pt": "importar-e-exportar-especificacoes-de-produtos-via-planilha-beta"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "Importing and exporting products and SKUs using a spreadsheet (Beta)",
-                    "es": "Importar y exportar productos y SKUs mediante plantilla (Beta)",
-                    "pt": "Importar e exportar produtos e SKUs via planilha (Beta)"
-                  },
-                  "slug": {
-                    "en": "importing-and-exporting-products-and-skus-using-a-spreadsheet-beta",
-                    "es": "importar-y-exportar-productos-y-skus-mediante-plantilla-beta",
-                    "pt": "importar-e-exportar-produtos-e-skus-via-planilha-beta"
-                  },
-                  "origin": "",
-                  "type": "markdown",
-                  "children": []
-                },
-                {
-                  "name": {
-                    "en": "Importing and exporting SKU specifications using a spreadsheet (Beta)",
-                    "es": "Importar y exportar especificaciones de SKUs mediante plantilla (Beta)",
-                    "pt": "Importar e exportar especificações de SKUs via planilha (Beta)"
-                  },
-                  "slug": {
-                    "en": "importing-and-exporting-sku-specifications-using-a-spreadsheet-beta",
-                    "es": "importar-y-exportar-especificaciones-de-skus-mediante-plantilla-beta",
-                    "pt": "importar-e-exportar-especificacoes-de-skus-via-planilha-beta"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -17696,7 +18139,7 @@
                 {
                   "name": {
                     "en": "Delivery Options (Beta)",
-                    "es": "Opciones de envío (Beta)",
+                    "es": "Opciones de envío (beta)",
                     "pt": "Opções de envio (Beta)"
                   },
                   "slug": {
@@ -18789,7 +19232,7 @@
                 {
                   "name": {
                     "en": "Creating Collections (Beta)",
-                    "es": "Registar Colecciones (Beta)",
+                    "es": "Registrar Colecciones (Beta)",
                     "pt": "Cadastrar Coleções (Beta)"
                   },
                   "slug": {
@@ -18964,21 +19407,21 @@
               "slug": {
                 "en": "import-and-export-subcategory",
                 "es": "importacion-y-exportacion-subcategoria",
-                "pt": "importação-e-exportação-subcategoria"
+                "pt": "importacao-e-exportacao-subcategoria"
               },
               "origin": "",
               "type": "category",
               "children": [
                 {
                   "name": {
-                    "en": "Exporting and importing product and SKU specifications",
-                    "es": "Exportar y importar especificaciones de producto y SKU",
-                    "pt": "Exportar e importar especificações de produto e de SKU"
+                    "en": "Importing and exporting product and SKU images using a spreadsheet",
+                    "es": "Importar y exportar imágenes de productos y SKUs mediante plantilla",
+                    "pt": "Importar e exportar imagens de produtos e SKUs via planilha"
                   },
                   "slug": {
-                    "en": "exporting-and-importing-product-and-sku-specifications",
-                    "es": "exportar-y-importar-especificaciones-de-producto-y-sku",
-                    "pt": "exportar-e-importar-especificacoes-de-produto-e-de-sku"
+                    "en": "importing-and-exporting-product-and-sku-images-using-a-spreadsheet",
+                    "es": "importar-y-exportar-imagenes-de-productos-y-skus-mediante-plantilla",
+                    "pt": "importar-e-exportar-imagens-de-produtos-e-skus-via-planilha"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -18986,14 +19429,14 @@
                 },
                 {
                   "name": {
-                    "en": "Filling in fields in the product and SKU import spreadsheet",
-                    "es": "Rellenar campos de la planilla de importación de productos y SKUs",
-                    "pt": "Preencher campos da planilha de importação de produtos e SKUs"
+                    "en": "Importing and exporting product specifications using a spreadsheet",
+                    "es": "Importar y exportar especificaciones de productos mediante plantilla",
+                    "pt": "Importar e exportar especificações de produtos via planilha"
                   },
                   "slug": {
-                    "en": "filling-in-fields-in-the-import-spreadsheet",
-                    "es": "rellenar-campos-de-la-planilla-de-importacion",
-                    "pt": "preencher-campos-da-planilha-de-importacao"
+                    "en": "importing-and-exporting-product-specifications-using-a-spreadsheet",
+                    "es": "importar-y-exportar-especificaciones-de-productos-mediante-plantilla",
+                    "pt": "importar-e-exportar-especificacoes-de-produtos-via-planilha"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -19001,14 +19444,14 @@
                 },
                 {
                   "name": {
-                    "en": "How to export a product spreadsheet",
-                    "es": "Cómo exportar planilla de productos",
-                    "pt": "Como exportar planilha de produtos"
+                    "en": "Importing and exporting products and SKUs using a spreadsheet",
+                    "es": "Importar y exportar productos y SKUs mediante plantilla",
+                    "pt": "Importar e exportar produtos e SKUs via planilha"
                   },
                   "slug": {
-                    "en": "how-to-export-a-product-spreadsheet",
-                    "es": "como-exportar-planilla-de-productos",
-                    "pt": "como-exportar-planilha-de-produtos"
+                    "en": "importing-and-exporting-products-and-skus-using-a-spreadsheet",
+                    "es": "importar-y-exportar-productos-y-skus-mediante-plantilla",
+                    "pt": "importar-e-exportar-produtos-e-skus-via-planilha"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -19016,14 +19459,14 @@
                 },
                 {
                   "name": {
-                    "en": "Importing images from a spreadsheet",
-                    "es": "Importar imágenes por plantilla",
-                    "pt": "Importar imagens por planilha"
+                    "en": "Importing and exporting SKU specifications using a spreadsheet",
+                    "es": "Importar y exportar especificaciones de SKUs mediante plantilla",
+                    "pt": "Importar e exportar especificações de SKUs via planilha"
                   },
                   "slug": {
-                    "en": "importing-images-from-a-spreadsheet",
-                    "es": "importando-imagenes-por-plantilla",
-                    "pt": "importando-imagens-por-planilha"
+                    "en": "importing-and-exporting-sku-specifications-using-a-spreadsheet",
+                    "es": "importar-y-exportar-especificaciones-de-skus-mediante-plantilla",
+                    "pt": "importar-e-exportar-especificacoes-de-skus-via-planilha"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -23393,6 +23836,36 @@
                 },
                 {
                   "name": {
+                    "en": "Price suggestion in the Amazon integration",
+                    "es": "Sugerencia de precios en la integración con Amazon",
+                    "pt": "Sugestão de preços na integração com a Amazon"
+                  },
+                  "slug": {
+                    "en": "amazon-price-suggestion",
+                    "es": "sugerencia-de-precios-amazon",
+                    "pt": "sugestao-de-precos-amazon"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Refurbished products on Mercado Libre",
+                    "es": "Productos reacondicionados en Mercado Libre",
+                    "pt": "Refurbished products on Mercado Libre"
+                  },
+                  "slug": {
+                    "en": "refurbished-products-on-mercado-libre",
+                    "es": "productos-reacondicionados-en-mercado-libre",
+                    "pt": ""
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Shopping Feed Integration",
                     "es": "Shopping Feed integración",
                     "pt": "Integração Shopping Feed"
@@ -24576,6 +25049,21 @@
                 },
                 {
                   "name": {
+                    "en": "Merchandising rule conditions",
+                    "es": "Condiciones de las reglas de merchandising",
+                    "pt": "Condições de Regras de merchandising"
+                  },
+                  "slug": {
+                    "en": "merchandising-rule-conditions",
+                    "es": "condiciones-de-las-reglas-de-merchandising",
+                    "pt": "condicoes-de-regras-de-merchandising"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Merchandising rules",
                     "es": "Reglas de merchandising",
                     "pt": "Regras de merchandising"
@@ -24873,6 +25361,21 @@
                     "en": "data-entity",
                     "es": "entidade-de-datos",
                     "pt": "entidade-de-dados"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Master Data",
+                    "es": "Master Data",
+                    "pt": "Master Data"
+                  },
+                  "slug": {
+                    "en": "master-data",
+                    "es": "master-data",
+                    "pt": "master-data"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -26703,28 +27206,28 @@
           "children": [
             {
               "name": {
-                "en": "Foresight Commerce Academy",
-                "es": "Foresight Commerce Academy",
-                "pt": "Foresight Commerce Academy"
+                "en": "VTEX Academy",
+                "es": "VTEX Academy",
+                "pt": "VTEX Academy"
               },
               "slug": {
-                "en": "foresight-commerce-academy-subcategory",
-                "es": "foresight-commerce-academy-subcategoria",
-                "pt": "foresight-commerce-academy-subcategoria"
+                "en": "vtex-academy-subcategory",
+                "es": "vtex-academy-subcategoria",
+                "pt": "vtex-academy-subcategoria"
               },
               "origin": "",
               "type": "category",
               "children": [
                 {
                   "name": {
-                    "en": "Foresight Commerce Academy - Overview",
-                    "es": "Foresight Commerce Academy - Visión Geral",
-                    "pt": "Foresight Commerce Academy - Visão geral"
+                    "en": "VTEX Academy - Overview",
+                    "es": "VTEX Academy - Visión Geral",
+                    "pt": "VTEX Academy - Visão geral"
                   },
                   "slug": {
-                    "en": "foresight-commerce-academy-overview",
-                    "es": "foresight-commerce-academy-vision-geral",
-                    "pt": "foresight-commerce-academy-visao-geral"
+                    "en": "vtex-academy-overview",
+                    "es": "vtex-academy-vision-geral",
+                    "pt": "vtex-academy-visao-geral"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -28013,6 +28516,21 @@
                 },
                 {
                   "name": {
+                    "en": "Setting up payments with Bold",
+                    "es": "Configurar pago con Bold",
+                    "pt": "Configurar pagamento com Bold"
+                  },
+                  "slug": {
+                    "en": "setting-up-payments-with-bold",
+                    "es": "configurar-pago-con-bold",
+                    "pt": "configurar-pagamento-com-bold"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Setting up payments with Bom Pra Credito",
                     "es": "Configurar pago con Bom Pra Credito",
                     "pt": "Configurar pagamento com Bom Pra Crédito"
@@ -28636,6 +29154,21 @@
                     "en": "setting-up-payments-with-gocuotas",
                     "es": "configurar-pago-con-gocuotas",
                     "pt": "configurar-pagamento-com-gocuotas"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Setting up payments with InstaPago",
+                    "es": "Configurar pago con InstaPago",
+                    "pt": "Configurar pagamento com InstaPago"
+                  },
+                  "slug": {
+                    "en": "setting-up-payments-with-instapago",
+                    "es": "configurar-pago-con-instapago",
+                    "pt": "configurar-pagamento-com-instapago"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -30264,6 +30797,21 @@
                 },
                 {
                   "name": {
+                    "en": "Payment settlement types",
+                    "es": "Tipos de liquidación de pagos",
+                    "pt": "Tipos de liquidação de pagamento"
+                  },
+                  "slug": {
+                    "en": "payment-settlement-types",
+                    "es": "tipos-de-liquidacion-de-pagos",
+                    "pt": "tipos-de-liquidacao-de-pagamento"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Pix: FAQ",
                     "es": "Pix: FAQ",
                     "pt": "Pix: FAQ"
@@ -30272,6 +30820,21 @@
                     "en": "pix-faq",
                     "es": "pix-faq",
                     "pt": "pix-faq"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
+                    "en": "Post-purchase payment operations",
+                    "es": "Operaciones de pago poscompra",
+                    "pt": "Operações de pagamentos pós-compra"
+                  },
+                  "slug": {
+                    "en": "post-purchase-payment-operations",
+                    "es": "operaciones-de-pago-poscompra",
+                    "pt": "operacoes-de-pagamentos-pos-compra"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -31926,6 +32489,21 @@
                 },
                 {
                   "name": {
+                    "en": "Promotion templates management",
+                    "es": "Gestión de plantillas de promociones",
+                    "pt": "Gerenciamento de templates de promoção"
+                  },
+                  "slug": {
+                    "en": "promotion-template-management",
+                    "es": "gestion-de-plantillas-de-promociones",
+                    "pt": "gerenciamento-de-templates-de-promocao"
+                  },
+                  "origin": "",
+                  "type": "markdown",
+                  "children": []
+                },
+                {
+                  "name": {
                     "en": "Promotions - Overview",
                     "es": "Promociones - Información general",
                     "pt": "Promoções - Visão geral"
@@ -33419,7 +33997,7 @@
               "name": {
                 "en": "Logistics - Overview",
                 "es": "Logística - Información general",
-                "pt": "logística - Visão geral"
+                "pt": "Logística - Visão geral"
               },
               "slug": {
                 "en": "logistics-overview-subcategory",
@@ -39391,13 +39969,13 @@
             {
               "name": {
                 "en": "Collections doesn't work in custom search results pages in B2B Suite",
-                "es": "Las colecciones no funcionan en las páginas de resultados de búsqueda personalizadas en B2B Suite",
-                "pt": "As coleções não funcionam em páginas de resultados de pesquisa personalizados no B2B Suite"
+                "es": "Las colecciones no funcionan en las páginas de resultados de búsqueda personalizadas de B2B Suite.",
+                "pt": "As coleções não funcionam nas páginas de resultados de pesquisa personalizadas no B2B Suite."
               },
               "slug": {
                 "en": "collections-doesnt-work-in-custom-search-results-pages-in-b2b-suite",
-                "es": "las-colecciones-no-funcionan-en-las-paginas-de-resultados-de-busqueda-personalizadas-en-b2b-suite",
-                "pt": "as-colecoes-nao-funcionam-em-paginas-de-resultados-de-pesquisa-personalizados-no-b2b-suite"
+                "es": "las-colecciones-no-funcionan-en-las-paginas-de-resultados-de-busqueda-personalizadas-de-b2b-suite",
+                "pt": "as-colecoes-nao-funcionam-nas-paginas-de-resultados-de-pesquisa-personalizadas-no-b2b-suite"
               },
               "origin": "",
               "type": "markdown",
@@ -39548,6 +40126,21 @@
                 "en": "incorrect-values-in-quotes-on-items-with-unity-multiplier-configuration",
                 "es": "valores-incorrectos-en-las-comillas-de-los-articulos-con-configuracion-de-multiplicador-unitario",
                 "pt": "valores-incorretos-em-cotacoes-de-itens-com-configuracao-de-multiplicador-de-unidade"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Non-responsive B2B components cause layout and usability issues on mobile",
+                "es": "Los componentes B2B que no responden causan problemas de diseño y usabilidad en dispositivos móviles.",
+                "pt": "Componentes B2B não responsivos causam problemas de layout e usabilidade em dispositivos móveis"
+              },
+              "slug": {
+                "en": "nonresponsive-b2b-components-cause-layout-and-usability-issues-on-mobile",
+                "es": "los-componentes-b2b-que-no-responden-causan-problemas-de-diseno-y-usabilidad-en-dispositivos-moviles",
+                "pt": "componentes-b2b-nao-responsivos-causam-problemas-de-layout-e-usabilidade-em-dispositivos-moveis"
               },
               "origin": "",
               "type": "markdown",
@@ -39811,21 +40404,6 @@
           "children": [
             {
               "name": {
-                "en": "'Large Indexed Text' and 'Indexed Text' not being changed by Specification Import",
-                "es": "'Texto grande indexado' y 'Texto indexado' no se modifican con la importación de la especificación",
-                "pt": "'Texto Grande Indexado' e 'Texto Indexado' não sendo alterados pela Importação de Especificação"
-              },
-              "slug": {
-                "en": "large-indexed-text-and-indexed-text-not-being-changed-by-specification-import",
-                "es": "texto-grande-indexado-y-texto-indexado-no-se-modifican-con-la-importacion-de-la-especificacion",
-                "pt": "texto-grande-indexado-e-texto-indexado-nao-sendo-alterados-pela-importacao-de-especificacao"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
                 "en": "'maximum number of eligible items for each cart' + more for less applies incorrect discount when using the same item.",
                 "es": "'número máximo de artículos elegibles para cada cesta' + más por menos aplica un descuento incorrecto al utilizar el mismo artículo.",
                 "pt": "'número máximo de itens qualificados para cada carrinho' + more for less aplica desconto incorreto ao usar o mesmo item."
@@ -39894,6 +40472,21 @@
                 "en": "url-logo-field-in-the-update-seller-request-not-updating",
                 "es": "el-campo-url-logo-en-la-solicitud-de-actualizacion-del-vendedor-no-se-actualiza",
                 "pt": "campo-url-logo-no-campo-update-seller-request-not-updating"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "\"Large Indexed Text\" and \"Indexed Text\" not being changed by Specification Import",
+                "es": "«Texto indexado grande» y «Texto indexado» no se modifican al importar especificaciones.",
+                "pt": "“Texto indexado grande” e “Texto indexado” não são alterados pela importação de especificações"
+              },
+              "slug": {
+                "en": "large-indexed-text-and-indexed-text-not-being-changed-by-specification-import",
+                "es": "texto-indexado-grande-y-texto-indexado-no-se-modifican-al-importar-especificaciones",
+                "pt": "texto-indexado-grande-e-texto-indexado-nao-sao-alterados-pela-importacao-de-especificacoes"
               },
               "origin": "",
               "type": "markdown",
@@ -40089,6 +40682,21 @@
                 "en": "an-item-with-the-same-key-has-already-been-added-key-description",
                 "es": "ya-se-ha-anadido-un-articulo-con-la-misma-clave-clave-descripcion",
                 "pt": "um-item-com-a-mesma-chave-ja-foi-adicionado-chave-descricao"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "API allows registering many EANs to the same SKU",
+                "es": "La API permite registrar muchos EAN en el mismo SKU.",
+                "pt": "A API permite registrar vários EANs para o mesmo SKU."
+              },
+              "slug": {
+                "en": "api-allows-registering-many-eans-to-the-same-sku",
+                "es": "la-api-permite-registrar-muchos-ean-en-el-mismo-sku",
+                "pt": "a-api-permite-registrar-varios-eans-para-o-mesmo-sku"
               },
               "origin": "",
               "type": "markdown",
@@ -40396,14 +41004,29 @@
             },
             {
               "name": {
+                "en": "Catalog does not remove special characters when setting up the text link",
+                "es": "El catálogo no elimina los caracteres especiales al configurar el enlace de texto.",
+                "pt": "O catálogo não remove caracteres especiais ao configurar o link de texto."
+              },
+              "slug": {
+                "en": "catalog-does-not-remove-special-characters-when-setting-up-the-text-link",
+                "es": "el-catalogo-no-elimina-los-caracteres-especiales-al-configurar-el-enlace-de-texto",
+                "pt": "o-catalogo-nao-remove-caracteres-especiais-ao-configurar-o-link-de-texto"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "Catalog Error exporting the report",
                 "es": "Catálogo Error al exportar el informe",
-                "pt": "Catalog Erro ao exportar o relatório"
+                "pt": "Catálogo Erro ao exportar o relatório"
               },
               "slug": {
                 "en": "catalog-error-exporting-the-report",
                 "es": "catalogo-error-al-exportar-el-informe",
-                "pt": "catalog-erro-ao-exportar-o-relatorio"
+                "pt": "catalogo-erro-ao-exportar-o-relatorio"
               },
               "origin": "",
               "type": "markdown",
@@ -40517,13 +41140,13 @@
             {
               "name": {
                 "en": "catalog Image import spreadsheet does not replace the Label",
-                "es": "catálogo La hoja de cálculo de importación de imágenes no sustituye a la etiqueta",
-                "pt": "catalog A planilha de importação de imagens não substitui o rótulo"
+                "es": "catálogo La hoja de cálculo de importación de imágenes no sustituye a la etiqueta.",
+                "pt": "catálogo A planilha de importação de imagens não substitui a etiqueta"
               },
               "slug": {
                 "en": "catalog-image-import-spreadsheet-does-not-replace-the-label",
                 "es": "catalogo-la-hoja-de-calculo-de-importacion-de-imagenes-no-sustituye-a-la-etiqueta",
-                "pt": "catalog-a-planilha-de-importacao-de-imagens-nao-substitui-o-rotulo"
+                "pt": "catalogo-a-planilha-de-importacao-de-imagens-nao-substitui-a-etiqueta"
               },
               "origin": "",
               "type": "markdown",
@@ -40561,14 +41184,14 @@
             },
             {
               "name": {
-                "en": "Catalog Indexing Report 'Total' Section Calculation Error",
-                "es": "Error de cálculo de la sección 'total' del informe de indexación del catálogo",
-                "pt": "Erro de Cálculo da Seção 'Total' do Relatório de Indexação do Catálogo"
+                "en": "Catalog Indexing Report returning wrong stats",
+                "es": "El informe de indexación del catálogo devuelve estadísticas erróneas.",
+                "pt": "Relatório de indexação do catálogo retornando estatísticas incorretas"
               },
               "slug": {
-                "en": "catalog-indexing-report-total-section-calculation-error",
-                "es": "error-de-calculo-de-la-seccion-total-del-informe-de-indexacion-del-catalogo",
-                "pt": "erro-de-calculo-da-secao-total-do-relatorio-de-indexacao-do-catalogo"
+                "en": "catalog-indexing-report-returning-wrong-stats",
+                "es": "el-informe-de-indexacion-del-catalogo-devuelve-estadisticas-erroneas",
+                "pt": "relatorio-de-indexacao-do-catalogo-retornando-estatisticas-incorretas"
               },
               "origin": "",
               "type": "markdown",
@@ -40682,12 +41305,12 @@
             {
               "name": {
                 "en": "Catalog SKU Specification Export will not always export all the data if the selected category is a department",
-                "es": "La exportación de especificaciones de SKU de catálogo no siempre exportará todos los datos si la categoría seleccionada es un departamento.",
-                "pt": "A exportação de especificações de SKU do catálogo nem sempre exportará todos os dados se a categoria selecionada for um departamento"
+                "es": "La exportación de especificaciones de SKU del catálogo no siempre exportará todos los datos si la categoría seleccionada es un departamento.",
+                "pt": "A exportação de especificações de SKU do catálogo nem sempre exportará todos os dados se a categoria selecionada for um departamento."
               },
               "slug": {
                 "en": "catalog-sku-specification-export-will-not-always-export-all-the-data-if-the-selected-category-is-a-department",
-                "es": "la-exportacion-de-especificaciones-de-sku-de-catalogo-no-siempre-exportara-todos-los-datos-si-la-categoria-seleccionada-es-un-departamento",
+                "es": "la-exportacion-de-especificaciones-de-sku-del-catalogo-no-siempre-exportara-todos-los-datos-si-la-categoria-seleccionada-es-un-departamento",
                 "pt": "a-exportacao-de-especificacoes-de-sku-do-catalogo-nem-sempre-exportara-todos-os-dados-se-a-categoria-selecionada-for-um-departamento"
               },
               "origin": "",
@@ -40713,12 +41336,12 @@
               "name": {
                 "en": "CatalogV2 User Roles not Applying",
                 "es": "Los roles de usuario de CatalogV2 no se aplican",
-                "pt": "CatalogV2 Funções do usuário que não se aplicam"
+                "pt": "Funções do usuário do CatalogV2 não sendo aplicadas"
               },
               "slug": {
                 "en": "catalogv2-user-roles-not-applying",
                 "es": "los-roles-de-usuario-de-catalogv2-no-se-aplican",
-                "pt": "catalogv2-funcoes-do-usuario-que-nao-se-aplicam"
+                "pt": "funcoes-do-usuario-do-catalogv2-nao-sendo-aplicadas"
               },
               "origin": "",
               "type": "markdown",
@@ -40922,13 +41545,13 @@
             {
               "name": {
                 "en": "Collections don't open on subaccounts",
-                "es": "Los cobros no se abren en las subcuentas",
-                "pt": "As cobranças não são abertas em subcontas"
+                "es": "Las colecciones no se abren en las subcuentas.",
+                "pt": "As coleções não abrem em subcontas"
               },
               "slug": {
                 "en": "collections-dont-open-on-subaccounts",
-                "es": "los-cobros-no-se-abren-en-las-subcuentas",
-                "pt": "as-cobrancas-nao-sao-abertas-em-subcontas"
+                "es": "las-colecciones-no-se-abren-en-las-subcuentas",
+                "pt": "as-colecoes-nao-abrem-em-subcontas"
               },
               "origin": "",
               "type": "markdown",
@@ -41319,6 +41942,21 @@
                 "en": "error-leituradedadosdoadministrador-when-trying-to-access-catalog-pages-on-admin",
                 "es": "error-leituradedadosdoadministrador-al-intentar-acceder-a-las-paginas-del-catalogo-en-admin",
                 "pt": "erro-leituradedadosdoadministrador-ao-tentar-acessar-as-paginas-do-catalogo-no-admin"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "es": "Error de cálculo de la sección 'total' del informe de indexación del catálogo",
+                "pt": "Erro de Cálculo da Seção 'Total' do Relatório de Indexação do Catálogo",
+                "en": "Error de cálculo de la sección 'total' del informe de indexación del catálogo"
+              },
+              "slug": {
+                "es": "error-de-calculo-de-la-seccion-total-del-informe-de-indexacion-del-catalogo",
+                "pt": "erro-de-calculo-da-secao-total-do-relatorio-de-indexacao-do-catalogo",
+                "en": ""
               },
               "origin": "",
               "type": "markdown",
@@ -42797,13 +43435,13 @@
             {
               "name": {
                 "en": "Reorder Collection Failing for Large Collections",
-                "es": "Fallo en la reordenación de colecciones grandes",
-                "pt": "Falha na reordenação de coleções para coleções grandes"
+                "es": "Error al reordenar colecciones grandes",
+                "pt": "Falha na reordenação de coleções grandes"
               },
               "slug": {
                 "en": "reorder-collection-failing-for-large-collections",
-                "es": "fallo-en-la-reordenacion-de-colecciones-grandes",
-                "pt": "falha-na-reordenacao-de-colecoes-para-colecoes-grandes"
+                "es": "error-al-reordenar-colecciones-grandes",
+                "pt": "falha-na-reordenacao-de-colecoes-grandes"
               },
               "origin": "",
               "type": "markdown",
@@ -43216,6 +43854,21 @@
             },
             {
               "name": {
+                "en": "SpecificationCode in the ProductSpecification export only shows code for one value",
+                "es": "El código de especificación en la exportación ProductSpecification solo muestra el código de un valor.",
+                "pt": "O código de especificação na exportação ProductSpecification mostra apenas o código para um valor"
+              },
+              "slug": {
+                "en": "specificationcode-in-the-productspecification-export-only-shows-code-for-one-value",
+                "es": "el-codigo-de-especificacion-en-la-exportacion-productspecification-solo-muestra-el-codigo-de-un-valor",
+                "pt": "o-codigo-de-especificacao-na-exportacao-productspecification-mostra-apenas-o-codigo-para-um-valor"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "stockkeepingunit catalog API allows invalid commercial condition values",
                 "es": "La API del catálogo stockkeepingunit permite valores de condición comercial no válidos",
                 "pt": "A API do catálogo stockkeepingunit permite valores de condição comercial inválidos"
@@ -43233,12 +43886,12 @@
               "name": {
                 "en": "StockKeepingUnitInsertUpdate WebService method allows to insert existent RefId",
                 "es": "El método WebService StockKeepingUnitInsertUpdate permite insertar un RefId existente",
-                "pt": "O método StockKeepingUnitInsertUpdate WebService permite a inserção de RefId existentes"
+                "pt": "O método StockKeepingUnitInsertUpdate WebService permite inserir um RefId existente."
               },
               "slug": {
                 "en": "stockkeepingunitinsertupdate-webservice-method-allows-to-insert-existent-refid",
                 "es": "el-metodo-webservice-stockkeepingunitinsertupdate-permite-insertar-un-refid-existente",
-                "pt": "o-metodo-stockkeepingunitinsertupdate-webservice-permite-a-insercao-de-refid-existentes"
+                "pt": "o-metodo-stockkeepingunitinsertupdate-webservice-permite-inserir-um-refid-existente"
               },
               "origin": "",
               "type": "markdown",
@@ -44643,14 +45296,14 @@
             },
             {
               "name": {
-                "en": "Checkout has no clarity about divergences between the identified and the logged in customer",
-                "es": "El proceso de pago no deja claras las divergencias entre el cliente identificado y el registrado",
-                "pt": "O checkout não tem clareza sobre as divergências entre o cliente identificado e o cliente conectado"
+                "en": "Checkout has no clarity about divergences between the customer identified in the cart and the user logged in to the store",
+                "es": "El proceso de pago no aclara las divergencias entre el cliente identificado en el carrito y el usuario que ha iniciado sesión en la tienda.",
+                "pt": "O checkout não apresenta clareza sobre divergências entre o cliente identificado no carrinho e o usuário conectado à loja."
               },
               "slug": {
-                "en": "checkout-has-no-clarity-about-divergences-between-the-identified-and-the-logged-in-customer",
-                "es": "el-proceso-de-pago-no-deja-claras-las-divergencias-entre-el-cliente-identificado-y-el-registrado",
-                "pt": "o-checkout-nao-tem-clareza-sobre-as-divergencias-entre-o-cliente-identificado-e-o-cliente-conectado"
+                "en": "checkout-has-no-clarity-about-divergences-between-the-customer-identified-in-the-cart-and-the-user-logged-in-to-the-store",
+                "es": "el-proceso-de-pago-no-aclara-las-divergencias-entre-el-cliente-identificado-en-el-carrito-y-el-usuario-que-ha-iniciado-sesion-en-la-tienda",
+                "pt": "o-checkout-nao-apresenta-clareza-sobre-divergencias-entre-o-cliente-identificado-no-carrinho-e-o-usuario-conectado-a-loja"
               },
               "origin": "",
               "type": "markdown",
@@ -44876,6 +45529,21 @@
                 "en": "checkout-ui-overwrites-shipping-recipient-when-name-is-different-from-profile-data",
                 "es": "la-interfaz-de-pago-sobrescribe-el-destinatario-del-envio-cuando-el-nombre-es-diferente-de-los-datos-del-perfil",
                 "pt": "a-interface-de-usuario-do-checkout-substitui-o-destinatario-da-remessa-quando-o-nome-e-diferente-dos-dados-do-perfil"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Checkout UI shows “login to view credits” when provider returns balance=0",
+                "es": "La interfaz de usuario de pago muestra «inicie sesión para ver los créditos» cuando el proveedor devuelve saldo=0.",
+                "pt": "A interface do usuário do checkout exibe “faça login para visualizar os créditos” quando o provedor retorna saldo=0"
+              },
+              "slug": {
+                "en": "checkout-ui-shows-login-to-view-credits-when-provider-returns-balance0",
+                "es": "la-interfaz-de-usuario-de-pago-muestra-inicie-sesion-para-ver-los-creditos-cuando-el-proveedor-devuelve-saldo0",
+                "pt": "a-interface-do-usuario-do-checkout-exibe-faca-login-para-visualizar-os-creditos-quando-o-provedor-retorna-saldo0"
               },
               "origin": "",
               "type": "markdown",
@@ -45199,13 +45867,13 @@
             {
               "name": {
                 "en": "Divergent order value between marketplace and seller while using price override and promotions",
-                "es": "Valor de pedido divergente entre el mercado y el vendedor al utilizar anulación de precios y promociones",
-                "pt": "Valor divergente do pedido entre o mercado e o vendedor enquanto usa a substituição de preço e promoções"
+                "es": "Valor del pedido divergente entre el mercado y el vendedor al utilizar la anulación de precios y las promociones.",
+                "pt": "Valor divergente do pedido entre o marketplace e o vendedor ao usar substituição de preço e promoções"
               },
               "slug": {
                 "en": "divergent-order-value-between-marketplace-and-seller-while-using-price-override-and-promotions",
-                "es": "valor-de-pedido-divergente-entre-el-mercado-y-el-vendedor-al-utilizar-anulacion-de-precios-y-promociones",
-                "pt": "valor-divergente-do-pedido-entre-o-mercado-e-o-vendedor-enquanto-usa-a-substituicao-de-preco-e-promocoes"
+                "es": "valor-del-pedido-divergente-entre-el-mercado-y-el-vendedor-al-utilizar-la-anulacion-de-precios-y-las-promociones",
+                "pt": "valor-divergente-do-pedido-entre-o-marketplace-e-o-vendedor-ao-usar-substituicao-de-preco-e-promocoes"
               },
               "origin": "",
               "type": "markdown",
@@ -46655,12 +47323,12 @@
               "name": {
                 "en": "Proportional shipping costs shows negative values when there are promotion that split items and free shipping applied",
                 "es": "Los gastos de envío proporcionales muestran valores negativos cuando hay promociones que fraccionan artículos y se aplican gastos de envío gratuitos.",
-                "pt": "Os custos de frete proporcionais mostram valores negativos quando há promoções que dividem itens e frete grátis aplicado"
+                "pt": "Os custos de envio proporcionais apresentam valores negativos quando há promoções que dividem os itens e envio gratuito aplicado."
               },
               "slug": {
                 "en": "proportional-shipping-costs-shows-negative-values-when-there-are-promotion-that-split-items-and-free-shipping-applied",
                 "es": "los-gastos-de-envio-proporcionales-muestran-valores-negativos-cuando-hay-promociones-que-fraccionan-articulos-y-se-aplican-gastos-de-envio-gratuito",
-                "pt": "os-custos-de-frete-proporcionais-mostram-valores-negativos-quando-ha-promocoes-que-dividem-itens-e-frete-gratis-aplicado"
+                "pt": "os-custos-de-envio-proporcionais-apresentam-valores-negativos-quando-ha-promocoes-que-dividem-os-itens-e-envio-gratuito-aplicado"
               },
               "origin": "",
               "type": "markdown",
@@ -47104,13 +47772,13 @@
             {
               "name": {
                 "en": "Shopper is redirect to gatewayCallback/{orderGroup}/Success instead of placeOrder page",
-                "es": "El comprador es redirigido a gatewayCallback/{orderGroup}/Success en lugar de a la página placeOrder",
-                "pt": "O comprador é redirecionado para a página gatewayCallback/{orderGroup}/Success em vez da página placeOrder"
+                "es": "El comprador es redirigido a gatewayCallback/{orderGroup}/Success en lugar de a la página placeOrder.",
+                "pt": "O comprador é redirecionado para gatewayCallback/{orderGroup}/Success em vez da página placeOrder."
               },
               "slug": {
                 "en": "shopper-is-redirect-to-gatewaycallbackordergroupsuccess-instead-of-placeorder-page",
                 "es": "el-comprador-es-redirigido-a-gatewaycallbackordergroupsuccess-en-lugar-de-a-la-pagina-placeorder",
-                "pt": "o-comprador-e-redirecionado-para-a-pagina-gatewaycallbackordergroupsuccess-em-vez-da-pagina-placeorder"
+                "pt": "o-comprador-e-redirecionado-para-gatewaycallbackordergroupsuccess-em-vez-da-pagina-placeorder"
               },
               "origin": "",
               "type": "markdown",
@@ -47840,13 +48508,13 @@
             {
               "name": {
                 "en": "Error publishing Scheduled Release ahead of schedule in Admin (\"You can't publish an empty release\")",
-                "es": "Error al publicar una publicación programada antes de lo previsto en Admin (\"No se puede publicar una publicación vacía\")",
-                "pt": "Erro ao publicar a versão agendada antes do previsto no Admin (\"Você não pode publicar uma versão vazia\")"
+                "es": "Error al publicar una versión programada antes de lo previsto en Admin («No se puede publicar una versión vacía»).",
+                "pt": "Erro ao publicar uma versão programada antes do prazo no Admin (“Não é possível publicar uma versão vazia”)"
               },
               "slug": {
                 "en": "error-publishing-scheduled-release-ahead-of-schedule-in-admin-you-cant-publish-an-empty-release",
-                "es": "error-al-publicar-una-publicacion-programada-antes-de-lo-previsto-en-admin-no-se-puede-publicar-una-publicacion-vacia",
-                "pt": "erro-ao-publicar-a-versao-agendada-antes-do-previsto-no-admin-voce-nao-pode-publicar-uma-versao-vazia"
+                "es": "error-al-publicar-una-version-programada-antes-de-lo-previsto-en-admin-no-se-puede-publicar-una-version-vacia",
+                "pt": "erro-ao-publicar-uma-versao-programada-antes-do-prazo-no-admin-nao-e-possivel-publicar-uma-versao-vazia"
               },
               "origin": "",
               "type": "markdown",
@@ -48905,21 +49573,6 @@
             },
             {
               "name": {
-                "en": "Amazon integration is not cancelling orders in VTEX",
-                "es": "La integración de Amazon no cancela los pedidos en VTEX",
-                "pt": "A integração da Amazônia não está cancelando pedidos na VTEX"
-              },
-              "slug": {
-                "en": "amazon-integration-is-not-cancelling-orders-in-vtex",
-                "es": "la-integracion-de-amazon-no-cancela-los-pedidos-en-vtex",
-                "pt": "a-integracao-da-amazonia-nao-esta-cancelando-pedidos-na-vtex"
-              },
-              "origin": "",
-              "type": "markdown",
-              "children": []
-            },
-            {
-              "name": {
                 "en": "Amazon integration stock reservations for KITS",
                 "es": "Integración de Amazon reservas de stock para KITS",
                 "pt": "Reservas de estoque de integração da Amazon para KITS"
@@ -48965,6 +49618,21 @@
             },
             {
               "name": {
+                "en": "Amazon Listing Some SKUs aren't integrated due to an error in the attribute.\"color#?.value\" field 'standardized_values'",
+                "es": "Amazon Listado Algunos SKU no están integrados debido a un error en el campo «color#?.value» del atributo «standardized_values».",
+                "pt": "Amazon Listagem Alguns SKUs não estão integrados devido a um erro no campo \"color#?.value\" do atributo \"standardized_values\"."
+              },
+              "slug": {
+                "en": "amazon-listing-some-skus-arent-integrated-due-to-an-error-in-the-attributecolorvalue-field-standardizedvalues",
+                "es": "amazon-listado-algunos-sku-no-estan-integrados-debido-a-un-error-en-el-campo-colorvalue-del-atributo-standardizedvalues",
+                "pt": "amazon-listagem-alguns-skus-nao-estao-integrados-devido-a-um-erro-no-campo-colorvalue-do-atributo-standardizedvalues"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "Amazon Listing UI doesn't enable “Save and Send” and blocks SKU publication for VITAMIN productType",
                 "es": "Amazon Listing UI no habilita \"Guardar y Enviar\" y bloquea la publicación de SKU para VITAMIN productType",
                 "pt": "Amazon A interface do usuário de listagem não habilita \"Salvar e enviar\" e bloqueia a publicação de SKU para o tipo de produto VITAMINA"
@@ -48980,14 +49648,14 @@
             },
             {
               "name": {
-                "en": "Amazon order does not integrate",
-                "es": "El pedido de Amazon no se integra",
-                "pt": "O pedido da Amazon não se integra"
+                "en": "Amazon Order cancellation flow",
+                "es": "Amazon Flujo de cancelación de pedidos",
+                "pt": "Amazon Fluxo de cancelamento de pedidos"
               },
               "slug": {
-                "en": "amazon-order-does-not-integrate",
-                "es": "el-pedido-de-amazon-no-se-integra",
-                "pt": "o-pedido-da-amazon-nao-se-integra"
+                "en": "amazon-order-cancellation-flow",
+                "es": "amazon-flujo-de-cancelacion-de-pedidos",
+                "pt": "amazon-fluxo-de-cancelamento-de-pedidos"
               },
               "origin": "",
               "type": "markdown",
@@ -49153,6 +49821,21 @@
                 "en": "custom-attribute-mapper-mercado-livre",
                 "es": "mapeador-de-atributos-personalizado-mercado-livre",
                 "pt": "mapeador-de-atributos-personalizado-mercado-livre"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Dafiti Image URLs converted to WebP cause rejection by markeplace (image type unsupported)",
+                "es": "Dafiti Las URL de imágenes convertidas a WebP provocan el rechazo por parte del mercado (tipo de imagen no compatible).",
+                "pt": "Dafiti URLs de imagens convertidas para WebP são rejeitadas pelo marketplace (tipo de imagem não suportado)"
+              },
+              "slug": {
+                "en": "dafiti-image-urls-converted-to-webp-cause-rejection-by-markeplace-image-type-unsupported",
+                "es": "dafiti-las-url-de-imagenes-convertidas-a-webp-provocan-el-rechazo-por-parte-del-mercado-tipo-de-imagen-no-compatible",
+                "pt": "dafiti-urls-de-imagens-convertidas-para-webp-sao-rejeitadas-pelo-marketplace-tipo-de-imagem-nao-suportado"
               },
               "origin": "",
               "type": "markdown",
@@ -49348,6 +50031,21 @@
                 "en": "integracao-de-pedido-amazon-quantidade-de-item-invalida",
                 "es": "integracion-de-pedidos-amazon-cantidad-de-articulos-no-valida",
                 "pt": "integracao-de-pedido-amazon-quantidade-de-item-invalida"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "es": "La integración de Amazon no cancela los pedidos en VTEX",
+                "pt": "A integração da Amazônia não está cancelando pedidos na VTEX",
+                "en": "La integración de Amazon no cancela los pedidos en VTEX"
+              },
+              "slug": {
+                "es": "la-integracion-de-amazon-no-cancela-los-pedidos-en-vtex",
+                "pt": "a-integracao-da-amazonia-nao-esta-cancelando-pedidos-na-vtex",
+                "en": ""
               },
               "origin": "",
               "type": "markdown",
@@ -49896,12 +50594,12 @@
             {
               "name": {
                 "en": "Mercado Livre Os atributos seller_package_height, seller_package_width, seller_package_length e seller_package_weight são obrigatórios.",
-                "es": "Mercado Libre Los atributos altura_paquete_vendedor, anchura_paquete_vendedor, longitud_paquete_vendedor y peso_paquete_vendedor son obligatorios.",
+                "es": "Mercado Libre Los atributos seller_package_height, seller_package_width, seller_package_length y seller_package_weight son obligatorios.",
                 "pt": "Mercado Livre Os atributos seller_package_height, seller_package_width, seller_package_length e seller_package_weight são obrigatórios."
               },
               "slug": {
                 "en": "mercado-livre-os-atributos-sellerpackageheight-sellerpackagewidth-sellerpackagelength-e-sellerpackageweight-sao-obrigatorios",
-                "es": "mercado-libre-los-atributos-alturapaquetevendedor-anchurapaquetevendedor-longitudpaquetevendedor-y-pesopaquetevendedor-son-obligatorios",
+                "es": "mercado-libre-los-atributos-sellerpackageheight-sellerpackagewidth-sellerpackagelength-y-sellerpackageweight-son-obligatorios",
                 "pt": "mercado-livre-os-atributos-sellerpackageheight-sellerpackagewidth-sellerpackagelength-e-sellerpackageweight-sao-obrigatorios"
               },
               "origin": "",
@@ -50332,12 +51030,12 @@
             {
               "name": {
                 "en": "Cart does not update in FastStore if external request is made to update orderForm",
-                "es": "La cesta no se actualiza en FastStore si se realiza una solicitud externa para actualizar orderForm",
-                "pt": "O carrinho não é atualizado no FastStore se for feita uma solicitação externa para atualizar o formulário de pedido"
+                "es": "El carrito no se actualiza en FastStore si se realiza una solicitud externa para actualizar el formulario de pedido.",
+                "pt": "O carrinho não é atualizado no FastStore se for feita uma solicitação externa para atualizar o formulário de pedido."
               },
               "slug": {
                 "en": "cart-does-not-update-in-faststore-if-external-request-is-made-to-update-orderform",
-                "es": "la-cesta-no-se-actualiza-en-faststore-si-se-realiza-una-solicitud-externa-para-actualizar-orderform",
+                "es": "el-carrito-no-se-actualiza-en-faststore-si-se-realiza-una-solicitud-externa-para-actualizar-el-formulario-de-pedido",
                 "pt": "o-carrinho-nao-e-atualizado-no-faststore-se-for-feita-uma-solicitacao-externa-para-atualizar-o-formulario-de-pedido"
               },
               "origin": "",
@@ -50632,13 +51330,13 @@
             {
               "name": {
                 "en": "Products with selling price is zero cannot be added to the cart in FastStore",
-                "es": "Los productos cuyo precio de venta es cero no se pueden añadir al carrito en FastStore",
-                "pt": "Produtos com preço de venda igual a zero não podem ser adicionados ao carrinho no FastStore"
+                "es": "Los productos con precio de venta cero no se pueden añadir al carrito en FastStore.",
+                "pt": "Os produtos com preço de venda zero não podem ser adicionados ao carrinho no FastStore."
               },
               "slug": {
                 "en": "products-with-selling-price-is-zero-cannot-be-added-to-the-cart-in-faststore",
-                "es": "los-productos-cuyo-precio-de-venta-es-cero-no-se-pueden-anadir-al-carrito-en-faststore",
-                "pt": "produtos-com-preco-de-venda-igual-a-zero-nao-podem-ser-adicionados-ao-carrinho-no-faststore"
+                "es": "los-productos-con-precio-de-venta-cero-no-se-pueden-anadir-al-carrito-en-faststore",
+                "pt": "os-produtos-com-preco-de-venda-zero-nao-podem-ser-adicionados-ao-carrinho-no-faststore"
               },
               "origin": "",
               "type": "markdown",
@@ -50669,6 +51367,21 @@
                 "en": "redirects-for-preview-links-when-using-in-the-final-of-the-url",
                 "es": "redirecciones-para-los-enlaces-de-previsualizacion-cuando-se-utiliza-en-la-parte-final-de-la-url",
                 "pt": "redirecionamentos-para-links-de-visualizacao-ao-usar-no-final-do-url"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Secrets take hours to propagate to builds in WebOps (FastStore Platform)",
+                "es": "Los secretos tardan horas en propagarse a las compilaciones en WebOps (plataforma FastStore).",
+                "pt": "Os segredos levam horas para serem propagados para as compilações no WebOps (Plataforma FastStore)"
+              },
+              "slug": {
+                "en": "secrets-take-hours-to-propagate-to-builds-in-webops-faststore-platform",
+                "es": "los-secretos-tardan-horas-en-propagarse-a-las-compilaciones-en-webops-plataforma-faststore",
+                "pt": "os-segredos-levam-horas-para-serem-propagados-para-as-compilacoes-no-webops-plataforma-faststore"
               },
               "origin": "",
               "type": "markdown",
@@ -51624,6 +52337,21 @@
             },
             {
               "name": {
+                "en": "Explained Search returns results from main locale instead of selected secondary locale",
+                "es": "La búsqueda explicada devuelve resultados de la configuración regional principal en lugar de la configuración regional secundaria seleccionada.",
+                "pt": "A Pesquisa explicada retorna resultados da localidade principal em vez da localidade secundária selecionada."
+              },
+              "slug": {
+                "en": "explained-search-returns-results-from-main-locale-instead-of-selected-secondary-locale",
+                "es": "la-busqueda-explicada-devuelve-resultados-de-la-configuracion-regional-principal-en-lugar-de-la-configuracion-regional-secundaria-seleccionada",
+                "pt": "a-pesquisa-explicada-retorna-resultados-da-localidade-principal-em-vez-da-localidade-secundaria-selecionada"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "Facets from the Segment affecting breadcrumbs, page title, and additional filters",
                 "es": "Facetas del Segmento que afectan a las migas de pan, al título de la página y a los filtros adicionales",
                 "pt": "Facetas do Segmento que afetam os breadcrumbs, o título da página e os filtros adicionais"
@@ -51895,13 +52623,13 @@
             {
               "name": {
                 "en": "Intelligent Search multilanguage doesn't support 2 variations of the same language/idiom",
-                "es": "La búsqueda inteligente multilingüe no admite 2 variaciones del mismo idioma/idioma",
-                "pt": "O Intelligent Search multilíngue não é compatível com duas variações do mesmo idioma/idioma"
+                "es": "La búsqueda inteligente multilingüe no admite dos variantes del mismo idioma o dialecto.",
+                "pt": "A Pesquisa Inteligente multilíngue não suporta duas variações do mesmo idioma/idioma."
               },
               "slug": {
                 "en": "intelligent-search-multilanguage-doesnt-support-2-variations-of-the-same-languageidiom",
-                "es": "la-busqueda-inteligente-multilingue-no-admite-2-variaciones-del-mismo-idiomaidioma",
-                "pt": "o-intelligent-search-multilingue-nao-e-compativel-com-duas-variacoes-do-mesmo-idiomaidioma"
+                "es": "la-busqueda-inteligente-multilingue-no-admite-dos-variantes-del-mismo-idioma-o-dialecto",
+                "pt": "a-pesquisa-inteligente-multilingue-nao-suporta-duas-variacoes-do-mesmo-idiomaidioma"
               },
               "origin": "",
               "type": "markdown",
@@ -52179,14 +52907,14 @@
             },
             {
               "name": {
-                "en": "Prioritization by product's 'keyword' not considering stopwords",
-                "es": "Priorización por 'palabra clave' del producto sin tener en cuenta las 'stopwords",
-                "pt": "Priorização por 'palavra-chave' do produto, sem considerar stopwords"
+                "en": "Prioritization by product's \"keyword\" not considering stopwords",
+                "es": "Priorización por «palabra clave» del producto sin tener en cuenta las palabras vacías.",
+                "pt": "Priorização por “palavra-chave” do produto, sem considerar palavras irrelevantes"
               },
               "slug": {
                 "en": "prioritization-by-products-keyword-not-considering-stopwords",
-                "es": "priorizacion-por-palabra-clave-del-producto-sin-tener-en-cuenta-las-stopwords",
-                "pt": "priorizacao-por-palavrachave-do-produto-sem-considerar-stopwords"
+                "es": "priorizacion-por-palabra-clave-del-producto-sin-tener-en-cuenta-las-palabras-vacias",
+                "pt": "priorizacao-por-palavrachave-do-produto-sem-considerar-palavras-irrelevantes"
               },
               "origin": "",
               "type": "markdown",
@@ -52983,6 +53711,21 @@
                 "en": "currency-symbol-on-shelves-differs-from-website",
                 "es": "el-simbolo-de-la-moneda-en-las-estanterias-no-coincide-con-el-del-sitio-web",
                 "pt": "o-simbolo-da-moeda-nas-prateleiras-difere-do-site"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Nizza script affecting pixel apps",
+                "es": "El script Nizza afecta a las aplicaciones de píxeles.",
+                "pt": "Script Nizza afetando aplicativos pixel"
+              },
+              "slug": {
+                "en": "nizza-script-affecting-pixel-apps",
+                "es": "el-script-nizza-afecta-a-las-aplicaciones-de-pixeles",
+                "pt": "script-nizza-afetando-aplicativos-pixel"
               },
               "origin": "",
               "type": "markdown",
@@ -57556,6 +58299,21 @@
             },
             {
               "name": {
+                "en": "Orders that fail to reach the \"invoiced\" status even after the invoice has been correctly entered.",
+                "es": "Pedidos que no alcanzan el estado «facturado» incluso después de que la factura se haya introducido correctamente.",
+                "pt": "Pedidos que não alcançam o status \"faturado\" mesmo após a fatura ter sido inserida corretamente."
+              },
+              "slug": {
+                "en": "orders-that-fail-to-reach-the-invoiced-status-even-after-the-invoice-has-been-correctly-entered",
+                "es": "pedidos-que-no-alcanzan-el-estado-facturado-incluso-despues-de-que-la-factura-se-haya-introducido-correctamente",
+                "pt": "pedidos-que-nao-alcancam-o-status-faturado-mesmo-apos-a-fatura-ter-sido-inserida-corretamente"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "Orders with a 'Creation Error' remain stuck in a 'cancel' status",
                 "es": "Los pedidos con un 'Error de creación' permanecen atascados en estado 'cancelado'.",
                 "pt": "Os pedidos com um 'Erro de criação' permanecem presos em um status de 'cancelar'"
@@ -58535,12 +59293,12 @@
             {
               "name": {
                 "en": "Affiliation created in subaccount not listed in Admin; ‘Affiliation name is already used’ on retry",
-                "es": "Afiliación creada en subcuenta no listada en Admin",
+                "es": "Afiliación creada en una subcuenta que no aparece en Admin; «El nombre de la afiliación ya está en uso» al volver a intentarlo.",
                 "pt": "Afiliação criada na subconta não listada no Admin"
               },
               "slug": {
                 "en": "affiliation-created-in-subaccount-not-listed-in-admin-affiliation-name-is-already-used-on-retry",
-                "es": "afiliacion-creada-en-subcuenta-no-listada-en-admin",
+                "es": "afiliacion-creada-en-una-subcuenta-que-no-aparece-en-admin-el-nombre-de-la-afiliacion-ya-esta-en-uso-al-volver-a-intentarlo",
                 "pt": "afiliacao-criada-na-subconta-nao-listada-no-admin"
               },
               "origin": "",
@@ -58790,12 +59548,12 @@
             {
               "name": {
                 "en": "Checkout cancels transaction after creation",
-                "es": "El pago cancela la transacción después de la creación",
+                "es": "El proceso de pago cancela la transacción tras su creación.",
                 "pt": "O checkout cancela a transação após a criação"
               },
               "slug": {
                 "en": "checkout-cancels-transaction-after-creation",
-                "es": "el-pago-cancela-la-transaccion-despues-de-la-creacion",
+                "es": "el-proceso-de-pago-cancela-la-transaccion-tras-su-creacion",
                 "pt": "o-checkout-cancela-a-transacao-apos-a-criacao"
               },
               "origin": "",
@@ -60079,6 +60837,21 @@
             },
             {
               "name": {
+                "en": "Legacy Catalog Admin Gift Card page shows “Something went wrong” for specific users",
+                "es": "La página de tarjetas regalo del administrador del catálogo heredado muestra el mensaje «Se ha producido un error» para determinados usuarios.",
+                "pt": "A página do cartão-presente do administrador do catálogo antigo exibe a mensagem “Ocorreu um problema” para usuários específicos."
+              },
+              "slug": {
+                "en": "legacy-catalog-admin-gift-card-page-shows-something-went-wrong-for-specific-users",
+                "es": "la-pagina-de-tarjetas-regalo-del-administrador-del-catalogo-heredado-muestra-el-mensaje-se-ha-producido-un-error-para-determinados-usuarios",
+                "pt": "a-pagina-do-cartaopresente-do-administrador-do-catalogo-antigo-exibe-a-mensagem-ocorreu-um-problema-para-usuarios-especificos"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "List Giftcard transactions API returning empty or incomplete",
                 "es": "Lista de transacciones de Giftcard API que devuelve vacía o incompleta",
                 "pt": "Listagem da API de transações de cartão-presente que retorna vazia ou incompleta"
@@ -60844,6 +61617,21 @@
             },
             {
               "name": {
+                "en": "Redirect page does not open for credit card payments when using Defense Mode/Trigger: suspicious",
+                "es": "La página de redireccionamiento no se abre para los pagos con tarjeta de crédito cuando se utiliza el modo de defensa/desencadenante: sospechoso.",
+                "pt": "A página de redirecionamento não abre para pagamentos com cartão de crédito ao usar o Modo de Defesa/Gatilho: suspeito"
+              },
+              "slug": {
+                "en": "redirect-page-does-not-open-for-credit-card-payments-when-using-defense-modetrigger-suspicious",
+                "es": "la-pagina-de-redireccionamiento-no-se-abre-para-los-pagos-con-tarjeta-de-credito-cuando-se-utiliza-el-modo-de-defensadesencadenante-sospechoso",
+                "pt": "a-pagina-de-redirecionamento-nao-abre-para-pagamentos-com-cartao-de-credito-ao-usar-o-modo-de-defesagatilho-suspeito"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "Refund action logged twice",
                 "es": "Acción de reembolso registrada dos veces",
                 "pt": "Ação de reembolso registrada duas vezes"
@@ -61339,14 +62127,14 @@
             },
             {
               "name": {
-                "en": "Transaction cancellation error with 'Unreachable code' message",
-                "es": "Error de cancelación de transacción con el mensaje 'Código no localizable'.",
-                "pt": "Erro de cancelamento de transação com a mensagem 'Unreachable code' (código inacessível)"
+                "en": "Transaction cancellation error with \"Unreachable code\" message",
+                "es": "Error de cancelación de transacción con el mensaje «Código inaccesible».",
+                "pt": "Erro de cancelamento da transação com a mensagem “Código inacessível”"
               },
               "slug": {
                 "en": "transaction-cancellation-error-with-unreachable-code-message",
-                "es": "error-de-cancelacion-de-transaccion-con-el-mensaje-codigo-no-localizable",
-                "pt": "erro-de-cancelamento-de-transacao-com-a-mensagem-unreachable-code-codigo-inacessivel"
+                "es": "error-de-cancelacion-de-transaccion-con-el-mensaje-codigo-inaccesible",
+                "pt": "erro-de-cancelamento-da-transacao-com-a-mensagem-codigo-inacessivel"
               },
               "origin": "",
               "type": "markdown",
@@ -61414,6 +62202,21 @@
             },
             {
               "name": {
+                "en": "Transaction stuck in \"Cancelling\" when payments are \"Finished\"",
+                "es": "La transacción se queda bloqueada en «Cancelando» cuando los pagos están «Finalizados».",
+                "pt": "Transação presa em “Cancelando” quando os pagamentos estão “Concluídos”"
+              },
+              "slug": {
+                "en": "transaction-stuck-in-cancelling-when-payments-are-finished",
+                "es": "la-transaccion-se-queda-bloqueada-en-cancelando-cuando-los-pagos-estan-finalizados",
+                "pt": "transacao-presa-em-cancelando-quando-os-pagamentos-estao-concluidos"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "Transaction stuck in Approved while payment remains Settling when using partial settlements",
                 "es": "Transacción atascada en Aprobado mientras el pago permanece Liquidando cuando se utilizan liquidaciones parciales.",
                 "pt": "Transação presa em Aprovado enquanto o pagamento permanece Liquidado ao usar liquidações parciais"
@@ -61452,6 +62255,21 @@
                 "en": "transaction-stuck-in-canceling-when-one-of-the-card-is-denied",
                 "es": "transaction-stuck-in-canceling-when-one-of-the-card-is-denied",
                 "pt": "transaction-stuck-in-canceling-when-one-of-the-card-is-denied"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Transaction stuck in cancelling and cancel/refund return “Object reference not set to an instance of an object”",
+                "es": "Transacción bloqueada en la cancelación y devolución de cancelación/reembolso «Referencia de objeto no establecida en una instancia de un objeto».",
+                "pt": "Transação travada no cancelamento e cancelamento/reembolso da devolução “Referência de objeto não definida para uma instância de um objeto”"
+              },
+              "slug": {
+                "en": "transaction-stuck-in-cancelling-and-cancelrefund-return-object-reference-not-set-to-an-instance-of-an-object",
+                "es": "transaccion-bloqueada-en-la-cancelacion-y-devolucion-de-cancelacionreembolso-referencia-de-objeto-no-establecida-en-una-instancia-de-un-objeto",
+                "pt": "transacao-travada-no-cancelamento-e-cancelamentoreembolso-da-devolucao-referencia-de-objeto-nao-definida-para-uma-instancia-de-um-objeto"
               },
               "origin": "",
               "type": "markdown",
@@ -61595,13 +62413,13 @@
             {
               "name": {
                 "en": "Transactions remain stuck in Analyzing Risk despite AFPP connector approval",
-                "es": "Las transacciones siguen atascadas en Análisis de riesgos a pesar de la aprobación del conector AFPP",
-                "pt": "As transações continuam presas no Analyzing Risk apesar da aprovação do conector AFPP"
+                "es": "Las transacciones siguen atascadas en «Analizando el riesgo» a pesar de la aprobación del conector AFPP.",
+                "pt": "As transações permanecem presas na Análise de Risco, apesar da aprovação do conector AFPP."
               },
               "slug": {
                 "en": "transactions-remain-stuck-in-analyzing-risk-despite-afpp-connector-approval",
-                "es": "las-transacciones-siguen-atascadas-en-analisis-de-riesgos-a-pesar-de-la-aprobacion-del-conector-afpp",
-                "pt": "as-transacoes-continuam-presas-no-analyzing-risk-apesar-da-aprovacao-do-conector-afpp"
+                "es": "las-transacciones-siguen-atascadas-en-analizando-el-riesgo-a-pesar-de-la-aprobacion-del-conector-afpp",
+                "pt": "as-transacoes-permanecem-presas-na-analise-de-risco-apesar-da-aprovacao-do-conector-afpp"
               },
               "origin": "",
               "type": "markdown",
@@ -61610,12 +62428,12 @@
             {
               "name": {
                 "en": "Transactions remain stuck in Analyzing Risk despite legacy anti fraud connector approval",
-                "es": "Las transacciones permanecen atascadas en Análisis de riesgos a pesar de la aprobación del conector antifraude heredado",
+                "es": "Las transacciones siguen atascadas en «Analizando el riesgo» a pesar de la aprobación del conector antifraude heredado.",
                 "pt": "As transações permanecem presas no Analyzing Risk, apesar da aprovação do conector antifraude legado"
               },
               "slug": {
                 "en": "transactions-remain-stuck-in-analyzing-risk-despite-legacy-anti-fraud-connector-approval",
-                "es": "las-transacciones-permanecen-atascadas-en-analisis-de-riesgos-a-pesar-de-la-aprobacion-del-conector-antifraude-heredado",
+                "es": "las-transacciones-siguen-atascadas-en-analizando-el-riesgo-a-pesar-de-la-aprobacion-del-conector-antifraude-heredado",
                 "pt": "as-transacoes-permanecem-presas-no-analyzing-risk-apesar-da-aprovacao-do-conector-antifraude-legado"
               },
               "origin": "",
@@ -61640,12 +62458,12 @@
             {
               "name": {
                 "en": "Transactions remain stuck in Pending Authorization despite connector approval",
-                "es": "Las transacciones permanecen atascadas en Pendiente de autorización a pesar de la aprobación del conector",
-                "pt": "As transações permanecem presas em Autorização Pendente apesar da aprovação do conector"
+                "es": "Las transacciones permanecen bloqueadas en «Autorización pendiente» a pesar de la aprobación del conector.",
+                "pt": "As transações permanecem presas em Autorização pendente, apesar da aprovação do conector"
               },
               "slug": {
                 "en": "transactions-remain-stuck-in-pending-authorization-despite-connector-approval",
-                "es": "las-transacciones-permanecen-atascadas-en-pendiente-de-autorizacion-a-pesar-de-la-aprobacion-del-conector",
+                "es": "las-transacciones-permanecen-bloqueadas-en-autorizacion-pendiente-a-pesar-de-la-aprobacion-del-conector",
                 "pt": "as-transacoes-permanecem-presas-em-autorizacao-pendente-apesar-da-aprovacao-do-conector"
               },
               "origin": "",
@@ -61655,12 +62473,12 @@
             {
               "name": {
                 "en": "Transactions stuck in \"Canceling\" and payments remain in \"Authorized\"",
-                "es": "Las transacciones se atascan en \"Cancelando\" y los pagos permanecen en \"Autorizado\".",
+                "es": "Las transacciones se quedan atascadas en «Cancelando» y los pagos permanecen en «Autorizado».",
                 "pt": "As transações ficam presas em \"Cancelando\" e os pagamentos permanecem em \"Autorizados\""
               },
               "slug": {
                 "en": "transactions-stuck-in-canceling-and-payments-remain-in-authorized",
-                "es": "las-transacciones-se-atascan-en-cancelando-y-los-pagos-permanecen-en-autorizado",
+                "es": "las-transacciones-se-quedan-atascadas-en-cancelando-y-los-pagos-permanecen-en-autorizado",
                 "pt": "as-transacoes-ficam-presas-em-cancelando-e-os-pagamentos-permanecem-em-autorizados"
               },
               "origin": "",
@@ -61715,13 +62533,13 @@
             {
               "name": {
                 "en": "Transactions stuck in Pending Authorization after approval",
-                "es": "Transacciones atascadas en Pendiente de autorización tras la aprobación",
-                "pt": "Transações presas em Autorização Pendente após a aprovação"
+                "es": "Transacciones bloqueadas en «Autorización pendiente» tras su aprobación",
+                "pt": "Transações retidas em Autorização pendente após aprovação"
               },
               "slug": {
                 "en": "transactions-stuck-in-pending-authorization-after-approval",
-                "es": "transacciones-atascadas-en-pendiente-de-autorizacion-tras-la-aprobacion",
-                "pt": "transacoes-presas-em-autorizacao-pendente-apos-a-aprovacao"
+                "es": "transacciones-bloqueadas-en-autorizacion-pendiente-tras-su-aprobacion",
+                "pt": "transacoes-retidas-em-autorizacao-pendente-apos-aprovacao"
               },
               "origin": "",
               "type": "markdown",
@@ -62174,6 +62992,21 @@
                 "en": "paste-action-blocked-on-login-and-on-the-pick-and-pack-picking-search-field",
                 "es": "accion-de-pegar-bloqueada-en-el-inicio-de-sesion-y-en-el-campo-de-busqueda-de-picking-pick-and-pack",
                 "pt": "acao-de-colar-bloqueada-no-login-e-no-campo-de-pesquisa-de-picking-pick-and-pack"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Pick and Pack | Single Order Generating Multiple Worksheets Due to Concurrency Issue",
+                "es": "Seleccionar y empaquetar | Un solo pedido genera varias hojas de cálculo debido a un problema de concurrencia",
+                "pt": "Selecionar e embalar | Pedido único gerando várias planilhas devido a um problema de simultaneidade"
+              },
+              "slug": {
+                "en": "pick-and-pack-single-order-generating-multiple-worksheets-due-to-concurrency-issue",
+                "es": "seleccionar-y-empaquetar-un-solo-pedido-genera-varias-hojas-de-calculo-debido-a-un-problema-de-concurrencia",
+                "pt": "selecionar-e-embalar-pedido-unico-gerando-varias-planilhas-devido-a-um-problema-de-simultaneidade"
               },
               "origin": "",
               "type": "markdown",
@@ -65142,6 +65975,21 @@
           "children": [
             {
               "name": {
+                "en": "Apps using masterdater builder 2.x may fail to identify schemas after a install",
+                "es": "Las aplicaciones que utilizan Masterdater Builder 2.x pueden no identificar los esquemas después de una instalación.",
+                "pt": "Os aplicativos que utilizam o Masterdater Builder 2.x podem não conseguir identificar esquemas após a instalação."
+              },
+              "slug": {
+                "en": "apps-using-masterdater-builder-2x-may-fail-to-identify-schemas-after-a-install",
+                "es": "las-aplicaciones-que-utilizan-masterdater-builder-2x-pueden-no-identificar-los-esquemas-despues-de-una-instalacion",
+                "pt": "os-aplicativos-que-utilizam-o-masterdater-builder-2x-podem-nao-conseguir-identificar-esquemas-apos-a-instalacao"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "Boolean filter on Form Application does not work properly",
                 "es": "El filtro booleano en la aplicación de formularios no funciona correctamente",
                 "pt": "O filtro booleano no aplicativo de formulário não funciona corretamente"
@@ -67078,6 +67926,21 @@
             },
             {
               "name": {
+                "en": "Telesales impersonation fails for specific customers in unified Profile System stores",
+                "es": "La suplantación de identidad en las ventas telefónicas falla para clientes específicos en las tiendas del sistema de perfiles unificado.",
+                "pt": "A falsificação de identidade em vendas por telefone falha para clientes específicos em lojas do Sistema de Perfil Unificado"
+              },
+              "slug": {
+                "en": "telesales-impersonation-fails-for-specific-customers-in-unified-profile-system-stores",
+                "es": "la-suplantacion-de-identidad-en-las-ventas-telefonicas-falla-para-clientes-especificos-en-las-tiendas-del-sistema-de-perfiles-unificado",
+                "pt": "a-falsificacao-de-identidade-em-vendas-por-telefone-falha-para-clientes-especificos-em-lojas-do-sistema-de-perfil-unificado"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
                 "en": "Text in Add to Cart Button are not being translated using site editor",
                 "es": "El texto del botón Añadir al carro no se traduce con el editor del sitio.",
                 "pt": "O texto no botão Adicionar ao carrinho não está sendo traduzido usando o editor do site"
@@ -67373,6 +68236,37 @@
                 "en": "order-not-notified-carrier-leaves-label-barcode-incomplete",
                 "es": "el-pedido-no-notificado-al-transportista-deja-incompleto-el-codigo-de-barras-de-la-etiqueta",
                 "pt": "pedido-nao-notificado-transportadora-deixa-etiqueta-com-codigo-de-barras-incompleto"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": {
+            "en": "Personal shopper",
+            "es": "Personal shopper",
+            "pt": "Personal shopper"
+          },
+          "slug": {
+            "en": "personal-shopper",
+            "es": "personal-shopper",
+            "pt": "personal-shopper"
+          },
+          "origin": "",
+          "type": "category",
+          "children": [
+            {
+              "name": {
+                "en": "Notifications from the personal shopper are not arriving on WhatsApp.",
+                "es": "Las notificaciones del asistente personal de compras no llegan a WhatsApp.",
+                "pt": "As notificações do personal shopper não estão chegando no WhatsApp."
+              },
+              "slug": {
+                "en": "notifications-from-the-personal-shopper-are-not-arriving-on-whatsapp",
+                "es": "las-notificaciones-del-asistente-personal-de-compras-no-llegan-a-whatsapp",
+                "pt": "as-notificacoes-do-personal-shopper-nao-estao-chegando-no-whatsapp"
               },
               "origin": "",
               "type": "markdown",

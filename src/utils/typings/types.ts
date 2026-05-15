@@ -15,6 +15,7 @@ export type Page<P = {}, IP = P> = NextPage<P, IP> & {
   sidebarfallback?: any //eslint-disable-line
   hideSidebar?: boolean
   isPreview?: boolean
+  announcements?: AnnouncementDataElement[]
 }
 
 export type ArticlePageProps =
@@ -183,7 +184,8 @@ export interface FaqCardDataElement extends CardDataElement {
 
 export interface TroubleshootingDataElement extends CardDataElement {
   slug: string
-  tags: string[]
+  domainFilters?: string[]
+  symptomFilters?: string[]
 }
 
 export interface ContributorsType {
