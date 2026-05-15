@@ -1,4 +1,4 @@
-import { Flex, Text } from '@vtex/brand-ui'
+import { Box, Flex, Text } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 
 import { AnnouncementDataElement } from 'utils/typings/types'
@@ -22,11 +22,6 @@ import { Input } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 import AnnouncementExpandableRow from 'components/announcement-expandable-row'
-import { capitalizeMonthHeading } from 'utils/capitalizeMonthHeading'
-import {
-  getAnnouncementTypeKey,
-  type AnnouncementTypeFilterKey,
-} from 'utils/getAnnouncementTypeKey'
 
 interface Props {
   announcementsData: AnnouncementDataElement[]
@@ -74,7 +69,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
     return data
   }, [searchTerm, filters, announcementsData, intl.locale])
 
-  /** Lista completa após filtros — a timeline agrupa por mês; paginar antes cortava meses inteiros. */
+  /** Lista após filtros — agrupamento só por ano (changelog). */
   const timelineAnnouncements = useMemo(
     () =>
       filteredResult.map((announcement) => ({
@@ -82,47 +77,43 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
         publishedAt: new Date(announcement.createdAt),
         articleLink: announcement.url,
         synopsis: announcement.synopsis,
-        typeKey: getAnnouncementTypeKey(announcement.tags, intl),
+        tags: announcement.tags,
       })),
-    [filteredResult, intl]
+    [filteredResult]
   )
 
-  const timelineByMonth = useMemo(() => {
-    const groups: {
-      monthKey: string
-      label: string
-      announcements: {
-        title: string
-        publishedAt: Date
-        articleLink: string
-        synopsis?: string
-        typeKey?: AnnouncementTypeFilterKey
-      }[]
-    }[] = []
-
-    for (const item of timelineAnnouncements) {
-      const d = item.publishedAt
-      const monthKey = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(
-        2,
-        '0'
-      )}`
-      let group = groups.find((g) => g.monthKey === monthKey)
-      if (!group) {
-        group = {
-          monthKey,
-          label: capitalizeMonthHeading(
-            intl.formatDate(d, { month: 'long', year: 'numeric' }),
-            intl.locale
-          ),
-          announcements: [],
-        }
-        groups.push(group)
-      }
-      group.announcements.push(item)
+  const timelineByYear = useMemo(() => {
+    type TimelineItem = {
+      title: string
+      publishedAt: Date
+      articleLink: string
+      synopsis?: string
+      tags?: string[]
     }
 
-    return groups
-  }, [timelineAnnouncements, intl])
+    const bucket = new Map<string, TimelineItem[]>()
+
+    for (const item of timelineAnnouncements) {
+      const yearKey = String(item.publishedAt.getFullYear())
+      const list = bucket.get(yearKey) ?? []
+      list.push(item)
+      bucket.set(yearKey, list)
+    }
+
+    const yearsDesc = [...bucket.keys()].sort((a, b) => Number(b) - Number(a))
+
+    return yearsDesc.map((yearKey) => {
+      const announcements = bucket.get(yearKey) ?? []
+      announcements.sort(
+        (a, b) => b.publishedAt.getTime() - a.publishedAt.getTime()
+      )
+      return {
+        yearKey,
+        label: yearKey,
+        announcements,
+      }
+    })
+  }, [timelineAnnouncements])
 
   return (
     <>
@@ -183,23 +174,28 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
               </Flex>
             )}
             {filteredResult.length > 0 &&
-              timelineByMonth.map((monthGroup) => (
-                <Flex key={monthGroup.monthKey} sx={styles.monthBlock}>
-                  <Text sx={styles.monthHeading}>{monthGroup.label}</Text>
-                  {monthGroup.announcements.map((item, idx) => (
-                    <AnnouncementExpandableRow
-                      key={item.articleLink}
-                      title={item.title}
-                      articleLink={item.articleLink}
-                      publishedAt={item.publishedAt}
-                      synopsis={item.synopsis}
-                      typeKey={item.typeKey}
-                      isFirstInMonth={idx === 0}
-                      isLastInMonth={
-                        idx === monthGroup.announcements.length - 1
-                      }
-                    />
-                  ))}
+              timelineByYear.map((yearGroup, yearIndex) => (
+                <Flex
+                  key={yearGroup.yearKey}
+                  sx={{
+                    ...styles.yearBlock,
+                    ...(yearIndex > 0 ? { mt: ['48px', '56px'] } : {}),
+                  }}
+                >
+                  <Text sx={styles.yearHeading}>{yearGroup.label}</Text>
+                  <Flex sx={styles.yearTimelineBody}>
+                    <Box sx={styles.yearVerticalRail} aria-hidden />
+                    {yearGroup.announcements.map((item) => (
+                      <AnnouncementExpandableRow
+                        key={item.articleLink}
+                        title={item.title}
+                        articleLink={item.articleLink}
+                        publishedAt={item.publishedAt}
+                        synopsis={item.synopsis}
+                        tags={item.tags}
+                      />
+                    ))}
+                  </Flex>
                 </Flex>
               ))}
           </Flex>
