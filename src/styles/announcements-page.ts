@@ -12,35 +12,15 @@ const container: SxStyleProp = {
 }
 
 const cardContainer: SxStyleProp = {
-  gap: 0,
+  gap: '16px',
   flexDirection: 'column',
-  justifyContent: 'flex-start',
+  justifyContent: 'space-between',
   mb: '56px',
   width: '100%',
 }
 
-/** Lista de itens do ano — o trilho fica só aqui para não atravessar o título. */
-const yearTimelineBody: SxStyleProp = {
-  position: 'relative',
-  width: '100%',
-  flexDirection: 'column',
-}
-
-/** Trilho do ano só entre as linhas (eixo alinhado à coluna de pontos). */
-const yearVerticalRail: SxStyleProp = {
-  position: 'absolute',
-  zIndex: 0,
-  pointerEvents: 'none',
-  width: '2px',
-  backgroundColor: '#E0E0E0',
-  /** dateColumn width + trackColumn/2 − half line */
-  left: ['80px', '96px', '112px'],
-  top: 0,
-  bottom: 0,
-}
-
 const optionsContainer: SxStyleProp = {
-  justifyContent: ['center', 'flex-start'],
+  justifyContent: ['center', 'flex-end'],
   alignItems: 'center',
   alignContent: 'center',
   gap: '24px',
@@ -53,29 +33,24 @@ const noResults: SxStyleProp = {
   textAlign: 'center',
 }
 
-/** Bloco por ano (changelog em coluna). */
-const yearBlock: SxStyleProp = {
+const monthBlock: SxStyleProp = {
   width: '100%',
   flexDirection: 'column',
-  gap: 0,
+  gap: '4px',
+  mb: '8px',
 }
 
-/** Quebra anual — alinhado ao eixo dos pontos (sem fundo nem máscara). */
-const yearHeading: SxStyleProp = {
+const monthHeading: SxStyleProp = {
   fontFamily:
     "'VTEX Trust Regular', -apple-system, system-ui, BlinkMacSystemFont, sans-serif",
-  fontSize: ['18px', '19px', '20px'],
-  lineHeight: '1.2',
-  fontWeight: '400',
-  color: '#9AA3AE',
-  width: 'auto',
-  display: 'inline-block',
-  /** dateColumn + metade do trackColumn (9px); alinha ao centro da linha de 2px. */
-  position: 'relative',
-  left: ['81px', '97px', '113px'],
-  transform: 'translateX(-50%)',
-  textAlign: 'center',
-  mb: ['20px', '24px'],
+  fontSize: ['18px', '20px'],
+  lineHeight: '26px',
+  fontWeight: '500',
+  color: '#4A4A4A',
+  width: '100%',
+  textAlign: 'left',
+  mb: '12px',
+  mt: ['16px', '20px'],
   letterSpacing: '-0.01em',
 }
 
@@ -94,11 +69,9 @@ const searchInput: SxStyleProp = {
 export default {
   container,
   cardContainer,
-  yearTimelineBody,
-  yearVerticalRail,
   optionsContainer,
   noResults,
   searchInput,
-  yearBlock,
-  yearHeading,
+  monthBlock,
+  monthHeading,
 }

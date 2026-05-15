@@ -1,6 +1,5 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
-/** Linha inteira: data | marcador | conteúdo (tronco único via rail absoluto na página). */
 const row: SxStyleProp = {
   width: '100%',
   flexDirection: 'row',
@@ -8,56 +7,49 @@ const row: SxStyleProp = {
   minHeight: '48px',
   fontFamily:
     "'VTEX Trust Regular', -apple-system, system-ui, BlinkMacSystemFont, sans-serif",
-  minWidth: 0,
-  position: 'relative',
-  zIndex: 1,
-  mb: ['24px', '28px'],
-}
-
-/** Data à esquerda (changelog: MÊS + dia, maiúsculas) */
-const dateColumn: SxStyleProp = {
-  width: ['72px', '88px', '104px'],
-  flexShrink: 0,
-  pt: '3px',
-  pr: ['10px', '12px'],
-  textAlign: 'right',
-  fontSize: ['11px', '12px'],
-  fontWeight: '600',
-  lineHeight: '1.25rem',
-  letterSpacing: '0.04em',
-  /** Mesma cor da data no `AnnouncementCard` da main (`date.large`). */
-  color: '#A1AAB7',
-  textTransform: 'uppercase',
-  display: 'block',
 }
 
 const trackColumn: SxStyleProp = {
-  width: '18px',
+  width: '24px',
   flexShrink: 0,
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'flex-start',
-  pt: '3px',
+}
+
+const stemTop: SxStyleProp = {
+  width: '2px',
+  flexShrink: 0,
+  flexGrow: 0,
+  height: '12px',
+  backgroundColor: '#E0E0E0',
+}
+
+const stemBottom: SxStyleProp = {
+  width: '2px',
+  flexGrow: 1,
+  flexShrink: 0,
+  minHeight: '16px',
+  backgroundColor: '#E0E0E0',
 }
 
 const dot: SxStyleProp = {
-  width: '12px',
-  height: '12px',
+  width: '14px',
+  height: '14px',
   flexShrink: 0,
   borderRadius: '50%',
   borderWidth: '2px',
   borderStyle: 'solid',
-  boxSizing: 'border-box',
-  position: 'relative',
-  zIndex: 2,
+  backgroundColor: 'transparent',
+  zIndex: 1,
 }
 
 const mainColumn: SxStyleProp = {
   flex: 1,
   minWidth: 0,
   flexDirection: 'column',
-  pl: ['12px', '16px'],
+  pl: ['10px', '14px'],
   pr: '4px',
+  pb: ['20px', '24px'],
 }
 
 const headerInteractive: SxStyleProp = {
@@ -95,40 +87,40 @@ const textBlock: SxStyleProp = {
   flex: 1,
   minWidth: 0,
   flexDirection: 'column',
-  gap: '10px',
+  gap: '6px',
   alignItems: 'flex-start',
 }
 
-const typeTagsContainer: SxStyleProp = {
-  width: '100%',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  gap: '8px',
-  flexWrap: 'wrap',
-  mb: '4px',
+const statusLabel: SxStyleProp = {
+  fontSize: '13px',
+  lineHeight: '18px',
+  fontWeight: '500',
+  letterSpacing: '-0.01em',
 }
 
-const releaseTitle: SxStyleProp = {
-  '& p': {
-    /** Igual `styles.title.large` do `AnnouncementCard` na main. */
-    mb: '8px',
-    fontSize: ['14px', '20px'],
-    color: 'muted.0',
-    cursor: 'pointer',
-    m: 0,
-  },
+const title: SxStyleProp = {
+  fontSize: ['15px', '16px', '17px'],
+  lineHeight: ['22px', '24px'],
+  fontWeight: '700',
+  color: '#333333',
+  textAlign: 'left',
+  letterSpacing: '-0.02em',
 }
 
 const titleLink: SxStyleProp = {
-  color: 'muted.0',
+  color: '#333333',
   textDecoration: 'none',
   ':hover': {
-    /** Hover do card na main (`.title`). */
-    color: '#000711',
-    '& p': {
-      color: '#000711',
-    },
+    color: '#1a1a1a',
   },
+}
+
+const timeLabel: SxStyleProp = {
+  fontSize: '14px',
+  lineHeight: '20px',
+  fontWeight: '400',
+  color: '#9B9B9B',
+  letterSpacing: '-0.01em',
 }
 
 const body: SxStyleProp = {
@@ -137,24 +129,25 @@ const body: SxStyleProp = {
   fontSize: ['14px', '15px'],
   lineHeight: '22px',
   fontWeight: '400',
-  /** Sinopse large na main: `muted.0` */
-  color: 'muted.0',
+  color: '#6B6B6B',
   maxWidth: '100%',
   letterSpacing: '-0.01em',
 }
 
 export default {
   row,
-  dateColumn,
   trackColumn,
+  stemTop,
+  stemBottom,
   dot,
   mainColumn,
   headerInteractive,
   headerStatic,
   caretWrap,
   textBlock,
-  typeTagsContainer,
-  releaseTitle,
+  statusLabel,
+  title,
   titleLink,
+  timeLabel,
   body,
 }

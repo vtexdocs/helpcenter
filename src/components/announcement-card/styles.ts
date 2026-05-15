@@ -109,15 +109,6 @@ const datesContainer: SxStyleProp = {
   flexWrap: 'wrap',
 }
 
-const tagContainer: SxStyleProp = {
-  width: '100%',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  gap: '6px',
-  flexWrap: 'wrap',
-  mb: '16px',
-}
-
 export default {
   container,
   containerSpacing,
@@ -127,6 +118,5 @@ export default {
   tag,
   link,
   datesContainer,
-  tagContainer,
   synopsis,
 }

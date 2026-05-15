@@ -1,23 +1,22 @@
-import { Box, Flex, IconCaret, Link, Text } from '@vtex/brand-ui'
-import type { KeyboardEvent, MouseEvent } from 'react'
+import { Box, Flex, IconCaret, Text } from '@vtex/brand-ui'
+import type { KeyboardEvent } from 'react'
 import { useState } from 'react'
 import { useIntl } from 'react-intl'
+import Link from 'next/link'
 
-import Tag from 'components/tag'
-import {
-  announcementTypeTagColorMap,
-  filterAnnouncementTypeTags,
-  getAnnouncementTypeDotColors,
-} from 'utils/announcementTypeTags'
+import type { AnnouncementTypeFilterKey } from 'utils/getAnnouncementTypeKey'
 
 import styles from './styles'
+import { getAnnouncementTypeVisual } from './typeVisual'
 
 interface Props {
   title: string
   articleLink: string
   publishedAt: Date
   synopsis?: string
-  tags?: string[]
+  typeKey?: AnnouncementTypeFilterKey
+  isFirstInMonth: boolean
+  isLastInMonth: boolean
 }
 
 const AnnouncementExpandableRow = ({
@@ -25,7 +24,9 @@ const AnnouncementExpandableRow = ({
   articleLink,
   publishedAt,
   synopsis,
-  tags,
+  typeKey,
+  isFirstInMonth,
+  isLastInMonth,
 }: Props) => {
   const intl = useIntl()
   const [open, setOpen] = useState(false)
@@ -33,12 +34,16 @@ const AnnouncementExpandableRow = ({
   const synopsisText = synopsis?.trim()
   const hasSynopsis = Boolean(synopsisText)
 
-  const typeTags = filterAnnouncementTypeTags(tags)
-  const dotColors = getAnnouncementTypeDotColors(tags)
+  const visual = getAnnouncementTypeVisual(typeKey)
+  const publishedLabel = intl.formatDate(publishedAt, {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  })
 
-  const dateSideLabel = intl
-    .formatDate(publishedAt, { month: 'long', day: 'numeric' })
-    .toLocaleUpperCase(intl.locale)
+  const statusMessageId = typeKey
+    ? (`announcements_filter_type.${typeKey}` as const)
+    : 'announcement_timeline.default_type'
 
   const headerSx = hasSynopsis ? styles.headerInteractive : styles.headerStatic
 
@@ -61,15 +66,16 @@ const AnnouncementExpandableRow = ({
 
   return (
     <Flex sx={styles.row}>
-      <Box sx={styles.dateColumn}>{dateSideLabel}</Box>
-
       <Flex sx={styles.trackColumn}>
+        {!isFirstInMonth ? <Box sx={styles.stemTop} /> : null}
         <Box
           sx={{
             ...styles.dot,
-            ...dotColors,
+            backgroundColor: visual.dotFill,
+            borderColor: visual.dotBorder,
           }}
         />
+        {!isLastInMonth ? <Box sx={styles.stemBottom} /> : null}
       </Flex>
 
       <Flex sx={styles.mainColumn}>
@@ -86,24 +92,27 @@ const AnnouncementExpandableRow = ({
             <Box sx={{ ...styles.caretWrap, width: '20px' }} />
           )}
           <Flex sx={styles.textBlock}>
-            {typeTags.length > 0 ? (
-              <Flex sx={styles.typeTagsContainer}>
-                {typeTags.map((tag) => (
-                  <Tag key={tag} color={announcementTypeTagColorMap[tag]}>
-                    {tag}
-                  </Tag>
-                ))}
-              </Flex>
-            ) : null}
+            <Text
+              as="span"
+              sx={{
+                ...styles.statusLabel,
+                color: visual.labelColor,
+              }}
+            >
+              {intl.formatMessage({ id: statusMessageId })}
+            </Text>
             <Link
               href={articleLink}
-              onClick={(e: MouseEvent<HTMLAnchorElement>) =>
-                e.stopPropagation()
-              }
-              sx={{ ...styles.titleLink, ...styles.releaseTitle }}
+              onClick={(e) => e.stopPropagation()}
+              sx={styles.titleLink}
             >
-              <Text as="p">{title}</Text>
+              <Text as="span" sx={styles.title}>
+                {title}
+              </Text>
             </Link>
+            <Text as="span" sx={styles.timeLabel}>
+              {publishedLabel}
+            </Text>
           </Flex>
         </Flex>
         {hasSynopsis && open ? (

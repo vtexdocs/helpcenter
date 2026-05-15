@@ -82,7 +82,6 @@ const statusColors: {
     background: '#DEE8FE',
   },
   Gray: {
-    border: '1px solid #A1AAB7',
     color: '#4A596B',
     background: '#E7E9EE',
   },

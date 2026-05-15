@@ -108,6 +108,17 @@ const footerDate: SxStyleProp = {
   color: '#A1AAB7',
 }
 
+const categoryTag: SxStyleProp = {
+  height: 'auto',
+  minHeight: '22px',
+  lineHeight: '20px',
+  py: '4px',
+  whiteSpace: 'normal',
+  textAlign: 'left',
+  width: 'fit-content',
+  maxWidth: '100%',
+}
+
 const newTitle: SxStyleProp = {
   margin: '0',
   color: '#F71963',
@@ -133,6 +144,7 @@ export default {
   content,
   synopsis,
   footerDate,
+  categoryTag,
   placeholder,
   timelineContainer,
 }

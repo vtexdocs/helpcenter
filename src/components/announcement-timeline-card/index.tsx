@@ -4,18 +4,30 @@ import { getDaysElapsed } from '../../utils/get-days-elapsed'
 import { useIntl } from 'react-intl'
 
 import styles from './styles'
+import cardStyles from 'components/announcement-card/styles'
+import Tag from 'components/tag'
 import { MegaphoneIcon, NewIcon } from '@vtexdocs/components'
 import Link from 'next/link'
+import type { AnnouncementTypeFilterKey } from 'utils/getAnnouncementTypeKey'
 
 export interface AnnouncementTimelineCardProps {
   title: string
   date: Date
   articleLink: string
   first?: boolean
-  /** Listagem completa: sinopse e data */
+  /** Listagem completa: sinopse, data e tipo (mesmo vocabulário do filtro) */
   createdAt?: Date
   updatedAt?: Date
   synopsis?: string
+  typeKey?: AnnouncementTypeFilterKey
+}
+
+function tagColorForTypeKey(
+  key: AnnouncementTypeFilterKey
+): 'NewFeature' | 'Improvement' | 'Gray' {
+  if (key === 'new_feature') return 'NewFeature'
+  if (key === 'improvement') return 'Improvement'
+  return 'Gray'
 }
 
 const AnnouncementTimelineItem = ({
@@ -26,9 +38,20 @@ const AnnouncementTimelineItem = ({
   createdAt,
   updatedAt,
   synopsis,
+  typeKey,
 }: AnnouncementTimelineCardProps) => {
   const intl = useIntl()
+  const currentDate = new Date()
+  const sevenDaysAgo = new Date(currentDate)
+  sevenDaysAgo.setDate(currentDate.getDate() - 7)
+
+  const showNewTag =
+    !!createdAt &&
+    !typeKey &&
+    createdAt >= sevenDaysAgo &&
+    createdAt <= currentDate
   const showMetaBlock = !!(createdAt && updatedAt)
+  /** Listagem: sinopse, categoria e data (como cards de comunicados) */
   const useCardLikeChrome = showMetaBlock
 
   const titleLink = (
@@ -36,6 +59,8 @@ const AnnouncementTimelineItem = ({
       <Text sx={styles.timelineTitle}>{title}</Text>
     </Link>
   )
+
+  const showNewIcon = useCardLikeChrome ? showNewTag : first
 
   return (
     <Flex sx={styles.releaseContainer}>
@@ -55,10 +80,32 @@ const AnnouncementTimelineItem = ({
             titleLink
           )
         }
-        icon={first ? <NewIcon sx={styles.icon} /> : null}
+        icon={showNewIcon ? <NewIcon sx={styles.icon} /> : null}
       >
         {useCardLikeChrome ? (
           <>
+            {typeKey ? (
+              <Flex sx={cardStyles.bottomContainer}>
+                <Tag
+                  sx={{ ...cardStyles.tag, ...styles.categoryTag }}
+                  color={tagColorForTypeKey(typeKey)}
+                >
+                  {intl.formatMessage({
+                    id: `announcements_filter_type.${typeKey}`,
+                  })}
+                </Tag>
+              </Flex>
+            ) : null}
+            {showNewTag ? (
+              <Flex sx={cardStyles.bottomContainer}>
+                <Tag sx={cardStyles.tag} color={'New'}>
+                  {intl.formatMessage({
+                    id: 'announcement_card.new_tag',
+                    defaultMessage: 'New',
+                  })}
+                </Tag>
+              </Flex>
+            ) : null}
             {synopsis ? <Text sx={styles.synopsis}>{synopsis}</Text> : null}
             <Text sx={styles.footerDate}>
               {intl.formatDate(date, {
