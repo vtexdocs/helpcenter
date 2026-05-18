@@ -42,7 +42,7 @@ export type HybridSearchParams = {
   locale?: string
 }
 
-export const HS_DEFAULT_LIMIT = 10
+export const HS_DEFAULT_LIMIT = 50
 export const HS_MAX_LIMIT = 100
 export const HS_DEFAULT_TIMEOUT_MS = 15_000
 
