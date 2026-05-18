@@ -10,6 +10,7 @@ const libraryConfig = useHybridSearch
         apiEndpoint:
           process.env.NEXT_PUBLIC_HYBRID_SEARCH_API_ENDPOINT || '/api/search',
         source: 'help-center' as const,
+        itemsPerPage: 10,
       },
       index: 'helpcenter-docs',
     }

@@ -21,7 +21,7 @@ const SearchPage: NextPage = () => {
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <Search itemsPerPage={10} />
+      <Search />
     </>
   )
 }
