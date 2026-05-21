@@ -694,3 +694,201 @@ force = true
 from = "/es/known-issues/tiempo-de-espera-en-la-consulta-a-analytics-que-impide-comprobar-el-registro-de-inventario"
 status = 308
 to = "/es/known-issues/el-tiempo-de-espera-en-la-consulta-de-analytics-puede-impedir-que-se-cargue-el-registro-de-inventario"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/habilitar-login-por-2-factor-authentication"
+status = 308
+to = "/pt/docs/tutorials/habilitar-login-por-autenticacao-de-2-fatores"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/configurar-login-com-facebook"
+status = 308
+to = "/pt/docs/tutorials/configurar-login-com-facebook-e-google"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/configurar-login-com-google"
+status = 308
+to = "/pt/docs/tutorials/configurar-login-com-facebook-e-google"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/editar-dados-da-conta"
+status = 308
+to = "/pt/docs/tutorials/gerenciamento-da-conta"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/criar-e-editar-usuario"
+status = 308
+to = "/pt/docs/tutorials/gerenciar-usuarios-administrativos"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/criar-e-editar-perfis-de-acesso"
+status = 308
+to = "/pt/docs/tutorials/criar-perfil-de-acesso"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/como-a-conta-se-relaciona-as-paginas-do-site"
+status = 308
+to = "/pt/docs/tutorials/o-que-e-binding"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/o-que-sao-permissoes-e-perfis-de-acesso"
+status = 308
+to = "/pt/tracks/usuarios-e-perfis-de-acesso"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/o-que-e-o-usuario-master"
+status = 308
+to = "/pt/docs/tutorials/o-que-e-o-usuario-titular"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/entendendo-a-sua-conta"
+status = 308
+to = "/pt/tracks/introducao-ao-gerenciamento-da-conta"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/gerenciar-usuarios-e-perfis-de-acesso"
+status = 308
+to = "/pt/tracks/usuarios-e-perfis-de-acesso"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/configurar-autenticacao-e-seguranca"
+status = 308
+to = "/pt/tracks/autenticacao-e-seguranca"
+
+[[redirects]]
+force = true
+from = "/pt/tracks/gerenciar-chaves-de-api-para-integracoes"
+status = 308
+to = "/pt/tracks/chaves-de-api-para-integracoes"
+
+[[redirects]]
+force = true
+from = "/en/tracks/enabling-2-factor-authentication-login"
+status = 308
+to = "/en/docs/tutorials/enabling-login-by-2-factor-authentication"
+
+[[redirects]]
+force = true
+from = "/en/tracks/configuring-login-with-facebook"
+status = 308
+to = "/en/docs/tutorials/configuring-login-with-facebook-and-google"
+
+[[redirects]]
+force = true
+from = "/en/tracks/configuring-login-with-google"
+status = 308
+to = "/en/docs/tutorials/configuring-login-with-facebook-and-google"
+
+[[redirects]]
+force = true
+from = "/en/tracks/editing-account-data"
+status = 308
+to = "/en/docs/tutorials/account-management"
+
+[[redirects]]
+force = true
+from = "/en/tracks/creating-and-editing-users"
+status = 308
+to = "/en/docs/tutorials/managing-users"
+
+[[redirects]]
+force = true
+from = "/en/tracks/creating-and-editing-access-profiles"
+status = 308
+to = "/en/docs/tutorials/access-profiles"
+
+[[redirects]]
+force = true
+from = "/en/tracks/como-a-conta-se-relaciona-as-paginas-do-site"
+status = 308
+to = "/en/docs/tutorials/what-is-binding"
+
+[[redirects]]
+force = true
+from = "/en/tracks/what-are-permissions-and-access-profiles"
+status = 308
+to = "/en/tracks/users-and-roles"
+
+[[redirects]]
+force = true
+from = "/en/tracks/what-is-the-master-user"
+status = 308
+to = "/en/docs/tutorials/what-is-the-master-user"
+
+[[redirects]]
+force = true
+from = "/en/tracks/understanding-your-account"
+status = 308
+to = "/en/tracks/introduction-to-account-management"
+
+[[redirects]]
+force = true
+from = "/es/tracks/habilitar-inicio-de-sesion-por-autenticacion-de-2-factores"
+status = 308
+to = "/es/docs/tutorials/habilitar-login-por-autenticacion-de-2-factores"
+
+[[redirects]]
+force = true
+from = "/es/tracks/configurar-inicio-de-sesion-con-facebook"
+status = 308
+to = "/es/docs/tutorials/configurar-login-con-facebook-y-google"
+
+[[redirects]]
+force = true
+from = "/es/tracks/configurar-inicio-de-sesion-con-google"
+status = 308
+to = "/es/docs/tutorials/configurar-login-con-facebook-y-google"
+
+[[redirects]]
+force = true
+from = "/es/tracks/editar-datos-de-la-cuenta"
+status = 308
+to = "/es/docs/tutorials/gestion-de-la-cuenta"
+
+[[redirects]]
+force = true
+from = "/es/tracks/crear-y-editar-usuario"
+status = 308
+to = "/es/docs/tutorials/gestionar-usuarios"
+
+[[redirects]]
+force = true
+from = "/es/tracks/crear-y-editar-perfiles-de-acceso"
+status = 308
+to = "/es/docs/tutorials/perfiles-de-acceso"
+
+[[redirects]]
+force = true
+from = "/es/tracks/como-se-relaciona-la-cuenta-con-las-paginas-del-sitio-web"
+status = 308
+to = "/es/docs/tutorials/que-es-binding"
+
+[[redirects]]
+force = true
+from = "/es/tracks/que-son-permisos-y-perfiles-de-acceso"
+status = 308
+to = "/es/tracks/usuarios-y-roles"
+
+[[redirects]]
+force = true
+from = "/es/tracks/que-es-el-usuario-master"
+status = 308
+to = "/es/docs/tutorials/que-es-el-usuario-master"
+
+[[redirects]]
+force = true
+from = "/es/tracks/entendiendo-su-cuenta"
+status = 308
+to = "/es/tracks/introduccion-a-la-gestion-de-cuentas"
