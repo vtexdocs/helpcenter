@@ -1,34 +1,15 @@
-import { Box, Flex, Text, Link } from '@vtex/brand-ui'
+import { Box, Text, Link, Flex } from '@vtex/brand-ui'
 
 import type { AnnouncementDataElement } from 'utils/typings/types'
+import {
+  announcementTypeTagColorMap,
+  filterAnnouncementTypeTags,
+} from 'utils/announcementTypeTags'
 
 import styles from './styles'
 import Tag from 'components/tag'
 import { useIntl } from 'react-intl'
-
-type AnnouncementTagColor =
-  | 'Fixed'
-  | 'Closed'
-  | 'Scheduled'
-  | 'Deprecation'
-  | 'Backlog'
-
-const typeTagColor: Record<string, AnnouncementTagColor> = {
-  'New feature': 'Fixed',
-  Improvement: 'Closed',
-  'Breaking change': 'Scheduled',
-  Deprecation: 'Deprecation',
-  'Security update': 'Backlog',
-  'Nueva funcionalidad': 'Fixed',
-  Mejora: 'Closed',
-  'Cambio disruptivo': 'Scheduled',
-  Descontinuación: 'Deprecation',
-  'Actualización de seguridad': 'Backlog',
-  'Nova funcionalidade': 'Fixed',
-  Melhoria: 'Closed',
-  Descontinuação: 'Deprecation',
-  'Atualização de segurança': 'Backlog',
-}
+import DateText from 'components/date-text'
 
 export type AnnouncementCardSize = 'small' | 'large'
 
@@ -41,15 +22,17 @@ const AnnouncementCard = ({
   announcement,
   appearance = 'small',
 }: AnnouncementCardProps) => {
-  const { createdAt, url, title } = announcement
+  const { createdAt, updatedAt, url, title } = announcement
   const intl = useIntl()
 
   const createdAtDate = new Date(createdAt)
-  const formattedDate = intl.formatDate(createdAtDate)
+  const updatedAtDate = new Date(updatedAt)
 
-  const typeTags = (announcement.tags ?? []).filter(
-    (tag) => tag in typeTagColor
-  )
+  const createdAtText = `${intl.formatMessage({
+    id: 'date_text.created',
+  })}: ${intl.formatDate(createdAtDate)}`
+
+  const typeTags = filterAnnouncementTypeTags(announcement.tags)
 
   return (
     <Link sx={{ ...styles.link[appearance] }} href={`${url}`}>
@@ -57,7 +40,7 @@ const AnnouncementCard = ({
         {typeTags.length > 0 && (
           <Flex sx={styles.tagContainer}>
             {typeTags.map((tag) => (
-              <Tag key={tag} color={typeTagColor[tag]}>
+              <Tag key={tag} color={announcementTypeTagColorMap[tag]}>
                 {tag}
               </Tag>
             ))}
@@ -66,12 +49,19 @@ const AnnouncementCard = ({
         <Text sx={{ ...styles.title[appearance] }} className="title">
           {title}
         </Text>
+        {appearance === 'large' && (
+          <DateText createdAt={createdAtDate} updatedAt={updatedAtDate} />
+        )}
+        {appearance === 'small' && (
+          <Flex sx={styles.datesContainer}>
+            <Text sx={{ ...styles.date[appearance] }}>{createdAtText}</Text>
+          </Flex>
+        )}
         {announcement?.synopsis && (
           <Text sx={{ ...styles.synopsis[appearance] }}>
             {announcement.synopsis}
           </Text>
         )}
-        <Text sx={{ ...styles.date[appearance] }}>{formattedDate}</Text>
       </Box>
     </Link>
   )

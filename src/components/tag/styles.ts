@@ -18,6 +18,8 @@ const statusColors: {
     | 'Default'
     | 'Selected'
     | 'New'
+    | 'NewFeature'
+    | 'Improvement'
     | 'Gray'
     | 'Deprecation'
     | 'Blue'
@@ -72,7 +74,18 @@ const statusColors: {
     color: '#F71963',
     background: '#FFE0EF',
   },
+  NewFeature: {
+    border: '1px solid #9FCDB4',
+    color: '#3A6E32',
+    background: '#DFF5DB',
+  },
+  Improvement: {
+    border: '1px solid #A5C0FF',
+    color: '#2953B2',
+    background: '#DEE8FE',
+  },
   Gray: {
+    border: '1px solid #A1AAB7',
     color: '#4A596B',
     background: '#E7E9EE',
   },

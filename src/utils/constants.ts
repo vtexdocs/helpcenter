@@ -413,7 +413,8 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
-const typeTagsByLocale: Record<string, Record<string, string>> = {
+/** Labels de tipo por locale (usado no filtro e para casar tags do frontmatter). */
+export const typeTagsByLocale: Record<string, Record<string, string>> = {
   en: {
     new_feature: 'New feature',
     improvement: 'Improvement',
