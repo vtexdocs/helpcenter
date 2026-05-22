@@ -695,9 +695,6 @@ from = "/es/known-issues/tiempo-de-espera-en-la-consulta-a-analytics-que-impide-
 status = 308
 to = "/es/known-issues/el-tiempo-de-espera-en-la-consulta-de-analytics-puede-impedir-que-se-cargue-el-registro-de-inventario"
 
-# Redirects for renamed files: legacy-search/busqueda-legada/busca-legada → vtex-search-legacy/vtex-search-legado
-
-# English files
 [[redirects]]
 force = true
 from = "/docs/en/faq/marketing-and-merchandising/why-legacy-search-engine-ignores-some-terms"
@@ -710,7 +707,6 @@ from = "/docs/en/tutorials/catalog/search/how-does-legacy-search-work"
 status = 308
 to = "/docs/en/tutorials/catalog/search/how-does-vtex-search-legacy-work"
 
-# Spanish files
 [[redirects]]
 force = true
 from = "/docs/es/faq/marketing-and-merchandising/por-que-la-busqueda-legada-ignora-algunos-terminos-buscados"
@@ -723,7 +719,6 @@ from = "/docs/es/tutorials/catalogo/búsqueda/como-funciona-la-busqueda-legada"
 status = 308
 to = "/docs/es/tutorials/catalogo/búsqueda/como-funciona-vtex-search-legado"
 
-# Portuguese files
 [[redirects]]
 force = true
 from = "/docs/pt/tutorials/catálogo/busca/como-funciona-a-busca-legada"
