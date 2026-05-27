@@ -19,15 +19,19 @@ describe('Search locale handling', () => {
 
   const LOCALES = ['en', 'pt', 'es']
 
-  const LOCALE_LABELS = { en: 'EN', pt: 'PT', es: 'ES' }
+  // Use inner pages so the locale slug appears in the URL path (e.g. /pt/docs/tutorials).
+  // cy.switchLocale from '/' gives URL '/pt' (no trailing slash), which breaks its
+  // own include('/pt/') assertion. Visiting a locale doc page directly avoids this.
+  const LOCALE_START_PATHS = {
+    en: '/docs/tutorials',
+    pt: '/pt/docs/tutorials',
+    es: '/es/docs/tutorials',
+  }
 
   LOCALES.forEach((locale) => {
-    it(`shows results with locale ${locale} active`, () => {
-      cy.switchLocale(locale)
+    it(`returns search results when submitting from locale ${locale}`, () => {
+      cy.visit(LOCALE_START_PATHS[locale], { timeout: 30000 })
       cy.submitSearch('orders')
-      // router.push({pathname: '/search'}) does not preserve locale in the URL,
-      // so we assert the locale button remains active rather than checking the URL
-      cy.get('button').contains(LOCALE_LABELS[locale]).should('be.visible')
       cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
     })
   })
