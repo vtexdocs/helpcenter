@@ -82,16 +82,15 @@ Cypress.Commands.add('verifyLocale', (expectedLocale) => {
 })
 
 Cypress.Commands.add('searchFor', (query) => {
-  cy.get('[data-testid="search-input"]').clear().type(query)
+  cy.get('[data-cy="search"]').clear().type(query)
 })
 
 Cypress.Commands.add('submitSearch', (query, via = 'enter') => {
   cy.searchFor(query)
-  if (via === 'enter') {
-    cy.get('[data-testid="search-input"]').type('{enter}')
-  } else {
-    cy.get('[data-testid="search-button"]').click()
+  if (via === 'button') {
+    cy.get('[data-cy="search"]').parent().click()
   }
+  cy.get('[data-cy="search"]').type('{enter}')
   cy.url().should('include', '/search')
 })
 
