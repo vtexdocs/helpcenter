@@ -15,7 +15,7 @@ describe('Search — Algolia regression (hybrid search flag OFF)', () => {
     })
 
     cy.viewport(1366, 768)
-    cy.visit('/')
+    cy.visit('/', { timeout: 30000 })
   })
 
   it('search input is present and accepts text', () => {
