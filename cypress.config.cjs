@@ -1,6 +1,9 @@
 const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
+  env: {
+    HYBRID_SEARCH_ENABLED: process.env.CYPRESS_HYBRID_SEARCH_ENABLED ?? 'true',
+  },
   video: false, // Disabled by default for speed; enable via CLI --config video=true if needed
   screenshotOnRunFailure: true,
   videosFolder: 'src/tests/cypress/videos',
