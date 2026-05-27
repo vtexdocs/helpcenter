@@ -19,7 +19,7 @@ describe('Search — Algolia regression (hybrid search flag OFF)', () => {
   })
 
   it('search input is present and accepts text', () => {
-    cy.get('[data-cy="search"]').should('be.visible')
+    cy.get('[data-cy="search"]').parent().should('be.visible')
     cy.searchFor('orders')
     cy.get('[data-cy="search"]').should('have.value', 'orders')
   })

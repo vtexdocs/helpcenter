@@ -82,6 +82,7 @@ Cypress.Commands.add('verifyLocale', (expectedLocale) => {
 })
 
 Cypress.Commands.add('searchFor', (query) => {
+  cy.get('[data-cy="search"]').parent().click()
   cy.get('[data-cy="search"]').clear().type(query)
 })
 
