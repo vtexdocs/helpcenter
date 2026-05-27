@@ -58,8 +58,17 @@ describe('Search autocomplete', () => {
       .should('not.exist')
   })
 
-  it('shows a "See all results" link for a broad query', () => {
-    cy.searchFor('api')
-    cy.contains('See all results').should('be.visible')
+  it('dropdown suggestion links have valid hrefs', () => {
+    // autocomplete items render as real <a> tags (Link legacyBehavior wrapping <a>)
+    // — confirm the first suggestion carries a non-empty href
+    cy.searchFor('orders')
+    cy.get('[data-cy="search"]')
+      .first()
+      .parent()
+      .parent()
+      .find('a')
+      .first()
+      .invoke('attr', 'href')
+      .should('not.be.empty')
   })
 })

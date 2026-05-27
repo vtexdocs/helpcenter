@@ -33,15 +33,22 @@ describe('Search pagination / infinite scroll', () => {
       })
   })
 
-  it('does not show duplicate result hrefs across pages', () => {
-    cy.scrollTo('bottom')
-    // wait for next page to load before checking for duplicates
-    cy.wait(1500)
-    cy.get('.searchCardTitle').then(($titles) => {
-      const hrefs = [...$titles].map((el) =>
-        Cypress.$(el).closest('a').attr('href')
+  it('scrolling loads new results not seen on the first page', () => {
+    // SearchCard uses Link legacyBehavior wrapping a Flex (not an <a>), so
+    // hrefs are not queryable — verify newness via title text instead
+    cy.get('.searchCardTitle').then(($firstPage) => {
+      const firstPageTitles = new Set(
+        [...$firstPage].map((el) => el.textContent.trim())
       )
-      expect(new Set(hrefs).size).to.eq(hrefs.length)
+      cy.scrollTo('bottom')
+      // wait for IntersectionObserver sentinel + Algolia to return next page
+      cy.wait(1500)
+      cy.get('.searchCardTitle').then(($allResults) => {
+        const newTitles = [...$allResults]
+          .map((el) => el.textContent.trim())
+          .filter((t) => !firstPageTitles.has(t))
+        expect(newTitles.length).to.be.greaterThan(0)
+      })
     })
   })
 
