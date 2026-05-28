@@ -26,7 +26,7 @@ module.exports = defineConfig({
     supportFile: 'src/tests/cypress/support/index.js',
     baseUrl: 'http://localhost:3030',
     // Shorter timeouts with more retries - fail fast, retry often
-    pageLoadTimeout: 10000, // 10 seconds for page loads
+    pageLoadTimeout: 60000, // 60 seconds for page loads (Netlify preview cold starts)
     defaultCommandTimeout: 5000, // 5 seconds for element assertions
     requestTimeout: 10000, // 10 seconds for cy.request()
     responseTimeout: 10000, // 10 seconds for responses

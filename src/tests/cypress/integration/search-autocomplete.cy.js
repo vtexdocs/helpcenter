@@ -14,7 +14,7 @@ describe('Search autocomplete', () => {
       return true
     })
     cy.viewport(1366, 768)
-    cy.visit('/', { timeout: 30000 })
+    cy.visit('/', { timeout: 60000 })
   })
 
   it('shows dropdown suggestions after typing a query', () => {

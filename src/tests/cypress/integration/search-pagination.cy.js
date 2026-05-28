@@ -14,7 +14,7 @@ describe('Search pagination / infinite scroll', () => {
       return true
     })
     cy.viewport(1366, 768)
-    cy.visit('/', { timeout: 30000 })
+    cy.visit('/', { timeout: 60000 })
     cy.submitSearch('api')
     cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
   })
