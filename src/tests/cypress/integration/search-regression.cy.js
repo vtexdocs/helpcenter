@@ -45,12 +45,17 @@ describe('Search — Algolia regression (hybrid search flag OFF)', () => {
   })
 
   it('no console errors mentioning hybrid-search endpoints', () => {
-    cy.on('window:console', (type, ...args) => {
-      if (type === 'error') {
-        expect(args.join(' ')).not.to.include('hybrid')
-      }
+    cy.visit('/', {
+      onBeforeLoad(win) {
+        cy.spy(win.console, 'error').as('consoleError')
+      },
+      timeout: 60000,
     })
     cy.submitSearch('orders')
     cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
+    cy.get('@consoleError').then((spy) => {
+      const calls = spy.args.flat().join(' ')
+      expect(calls).not.to.include('hybrid')
+    })
   })
 })
