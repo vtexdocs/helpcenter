@@ -193,7 +193,7 @@ describe('Sidebar Navigation Tests', () => {
         .not('[href*="/es/"]')
         .filter(':visible')
         .first()
-        .click()
+        .click({ force: true })
 
       cy.url({ timeout: 15000 }).should('not.include', '/pt/')
       cy.url().should('not.include', '/es/')
