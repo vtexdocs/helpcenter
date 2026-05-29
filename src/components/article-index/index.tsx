@@ -43,8 +43,10 @@ const ArticleIndexing = ({ ...props }) => {
                   <Flex sx={styles.linksContainer}>
                     {props?.children?.map(
                       (el: { slug: string; name: string }) => (
-                        <Link href={el.slug} key={el.slug}>
-                          {el.name || 'Untitled'}
+                        <Link href={el.slug} key={el.slug} sx={styles.cardItem}>
+                          <Text sx={{ fontWeight: 'medium', fontSize: '16px' }}>
+                            {el.name || 'Untitled'}
+                          </Text>
                         </Link>
                       )
                     )}
