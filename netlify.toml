@@ -892,6 +892,9 @@ force = true
 from = "/es/tracks/entendiendo-su-cuenta"
 status = 308
 to = "/es/tracks/introduccion-a-la-gestion-de-cuentas"
+
+[[redirects]]
+force = true
 from = "/docs/en/faq/why-legacy-search-engine-ignores-some-terms"
 status = 308
 to = "/docs/en/faq/why-vtex-search-legacy-engine-ignores-some-terms"
