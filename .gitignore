@@ -61,3 +61,8 @@ cypress-test.log
 
 # Redirect tests
 /redirect tests/
+
+# personal configs and temporary files dir
+.claude/settings.json
+.vscode/settings.json
+temp/

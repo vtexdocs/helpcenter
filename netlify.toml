@@ -892,3 +892,36 @@ force = true
 from = "/es/tracks/entendiendo-su-cuenta"
 status = 308
 to = "/es/tracks/introduccion-a-la-gestion-de-cuentas"
+from = "/docs/en/faq/why-legacy-search-engine-ignores-some-terms"
+status = 308
+to = "/docs/en/faq/why-vtex-search-legacy-engine-ignores-some-terms"
+
+[[redirects]]
+force = true
+from = "/docs/en/tutorials/how-does-legacy-search-work"
+status = 308
+to = "/docs/en/tutorials/how-does-vtex-search-legacy-work"
+
+[[redirects]]
+force = true
+from = "/docs/es/faq/por-que-la-busqueda-legada-ignora-algunos-terminos-buscados"
+status = 308
+to = "/docs/es/faq/por-que-vtex-search-legado-ignora-algunos-terminos-buscados"
+
+[[redirects]]
+force = true
+from = "/docs/es/tutorials/catalogo/búsqueda/como-funciona-la-busqueda-legada"
+status = 308
+to = "/docs/es/tutorials/catalogo/búsqueda/como-funciona-vtex-search-legado"
+
+[[redirects]]
+force = true
+from = "/docs/pt/tutorials/como-funciona-a-busca-legada"
+status = 308
+to = "/docs/pt/tutorials/como-funciona-vtex-search-legado"
+
+[[redirects]]
+force = true
+from = "/docs/pt/faq/por-que-a-busca-legada-ignora-alguns-termos-buscados"
+status = 308
+to = "/docs/pt/faq/por-que-vtex-search-legado-ignora-alguns-termos-buscados"
