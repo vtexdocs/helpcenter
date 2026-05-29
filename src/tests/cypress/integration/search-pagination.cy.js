@@ -23,9 +23,9 @@ describe('Search pagination / infinite scroll', () => {
     cy.get('.searchCardTitle')
       .its('length')
       .then((firstPageCount) => {
+        cy.intercept('POST', /algolia\.net/).as('algoliaNextPage')
         cy.scrollTo('bottom')
-        // wait for the IntersectionObserver sentinel to trigger and Algolia to return the next page
-        cy.wait(1500)
+        cy.wait('@algoliaNextPage')
         cy.get('.searchCardTitle').should(
           'have.length.greaterThan',
           firstPageCount
@@ -40,9 +40,9 @@ describe('Search pagination / infinite scroll', () => {
       const firstPageTitles = new Set(
         [...$firstPage].map((el) => el.textContent.trim())
       )
+      cy.intercept('POST', /algolia\.net/).as('algoliaNextPage')
       cy.scrollTo('bottom')
-      // wait for IntersectionObserver sentinel + Algolia to return next page
-      cy.wait(1500)
+      cy.wait('@algoliaNextPage')
       cy.get('.searchCardTitle').then(($allResults) => {
         const newTitles = [...$allResults]
           .map((el) => el.textContent.trim())
@@ -56,9 +56,9 @@ describe('Search pagination / infinite scroll', () => {
     cy.get('.searchCardTitle')
       .its('length')
       .then((initialCount) => {
+        cy.intercept('POST', /algolia\.net/).as('algoliaNextPage')
         cy.scrollTo('bottom')
-        // wait for next page to load
-        cy.wait(1500)
+        cy.wait('@algoliaNextPage')
         cy.get('.searchCardTitle').should(
           'have.length.greaterThan',
           initialCount
