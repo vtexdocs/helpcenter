@@ -219,6 +219,12 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
             </Tooltip>
           </Flex>
           <Flex sx={styles.cardContainer}>
+            {!!filteredResult.length && (
+              <Box sx={styles.resultsNumberContainer}>
+                {filteredResult.length}{' '}
+                {intl.formatMessage({ id: 'announcements_page.results_found' })}
+              </Box>
+            )}
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
                 {intl.formatMessage({ id: 'announcements_page_result.empty' })}
