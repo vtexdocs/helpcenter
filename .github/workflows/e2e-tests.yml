@@ -114,3 +114,9 @@ jobs:
           echo "- Copy for AI Tests" >> $GITHUB_STEP_SUMMARY
           echo "- Locale Switching Tests" >> $GITHUB_STEP_SUMMARY
           echo "- Sidebar Navigation Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Search Regression Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Search Results Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Search Autocomplete Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Search Locale Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Search Pagination Tests" >> $GITHUB_STEP_SUMMARY
+          echo "- Search Doctype Filter Tests (4 pending — unblocked by vtexdocs/components PR #82)" >> $GITHUB_STEP_SUMMARY

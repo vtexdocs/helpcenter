@@ -81,6 +81,17 @@ Cypress.Commands.add('verifyLocale', (expectedLocale) => {
   }
 })
 
+Cypress.Commands.add('searchFor', (query) => {
+  cy.get('[data-cy="search"]').first().parent().click()
+  cy.get('[data-cy="search"]').first().clear().type(query)
+})
+
+Cypress.Commands.add('submitSearch', (query) => {
+  cy.searchFor(query)
+  cy.get('[data-cy="search"]').first().type('{enter}')
+  cy.url().should('include', '/search')
+})
+
 Cypress.Commands.add('clickSidebarLink', (options = {}) => {
   const { locale, index = 0 } = options
 
