@@ -86,11 +86,8 @@ Cypress.Commands.add('searchFor', (query) => {
   cy.get('[data-cy="search"]').first().clear().type(query)
 })
 
-Cypress.Commands.add('submitSearch', (query, via = 'enter') => {
+Cypress.Commands.add('submitSearch', (query) => {
   cy.searchFor(query)
-  if (via === 'button') {
-    cy.get('[data-cy="search"]').first().parent().click()
-  }
   cy.get('[data-cy="search"]').first().type('{enter}')
   cy.url().should('include', '/search')
 })

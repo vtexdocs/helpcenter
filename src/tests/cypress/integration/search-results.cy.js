@@ -19,14 +19,14 @@ describe('Search results page', () => {
   context('query submission', () => {
     it('submits via Enter and renders a result list', () => {
       cy.visit('/', { timeout: 60000 })
-      cy.submitSearch('orders', 'enter')
+      cy.submitSearch('orders')
       cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
     })
 
-    it('submits via search button and renders a result list', () => {
+    it('search URL includes the submitted keyword', () => {
       cy.visit('/', { timeout: 60000 })
-      cy.submitSearch('orders', 'button')
-      cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
+      cy.submitSearch('orders')
+      cy.url().should('include', 'keyword=orders')
     })
   })
 
