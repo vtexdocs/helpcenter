@@ -43,6 +43,10 @@ describe('Search pagination / infinite scroll', () => {
       cy.intercept('POST', /algolia\.net/).as('algoliaNextPage')
       cy.scrollTo('bottom')
       cy.wait('@algoliaNextPage')
+      cy.get('.searchCardTitle').should(
+        'have.length.greaterThan',
+        firstPageTitles.size
+      )
       cy.get('.searchCardTitle').then(($allResults) => {
         const newTitles = [...$allResults]
           .map((el) => el.textContent.trim())
