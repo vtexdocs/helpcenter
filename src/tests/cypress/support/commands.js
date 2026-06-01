@@ -86,6 +86,13 @@ Cypress.Commands.add('searchFor', (query) => {
   cy.get('[data-cy="search"]').first().clear().type(query)
 })
 
+// Traversal is fragile: SearchInput from @vtexdocs/components has no data-cy on the
+// dropdown container. Update this command if the DOM structure changes.
+// Tracked: temp/edu-18407/pr-469-review.md Recommendation 5.
+Cypress.Commands.add('getAutocompleteSuggestions', () =>
+  cy.get('[data-cy="search"]').first().parent().parent().find('a')
+)
+
 Cypress.Commands.add('submitSearch', (query) => {
   cy.searchFor(query)
   cy.get('[data-cy="search"]').first().type('{enter}')

@@ -26,12 +26,7 @@ describe('Search — Algolia regression (hybrid search flag OFF)', () => {
 
   it('autocomplete dropdown appears after typing', () => {
     cy.searchFor('orders')
-    cy.get('[data-cy="search"]')
-      .first()
-      .parent()
-      .parent()
-      .find('a')
-      .should('have.length.greaterThan', 0)
+    cy.getAutocompleteSuggestions().should('have.length.greaterThan', 0)
   })
 
   it('submitting a query navigates to a results URL', () => {
