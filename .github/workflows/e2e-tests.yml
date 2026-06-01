@@ -20,9 +20,9 @@ jobs:
           echo "Waiting for Netlify deploy status on commit $COMMIT_SHA..."
           echo "Netlify can take 15+ minutes to start building during busy periods."
 
-          # Total timeout: 25 minutes (150 * 10 seconds)
+          # Total timeout: 40 minutes (240 * 10 seconds)
           # This accounts for Netlify queue delays + build time
-          MAX_ATTEMPTS=150
+          MAX_ATTEMPTS=240
           ATTEMPT=0
 
           while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
@@ -57,7 +57,7 @@ jobs:
             sleep 10
           done
 
-          echo "❌ Timeout waiting for Netlify deploy after 25 minutes"
+          echo "❌ Timeout waiting for Netlify deploy after 40 minutes"
           exit 1
 
       - name: Wait for Netlify deploy preview URL to be accessible
