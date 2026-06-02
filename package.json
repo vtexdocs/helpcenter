@@ -92,7 +92,6 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/jsonpath": "^0.2.0",
-    "@types/minimatch": "5",
     "@types/node": "17.0.21",
     "@types/prismjs": "^1.26.0",
     "@types/react": "^18.2.0",
