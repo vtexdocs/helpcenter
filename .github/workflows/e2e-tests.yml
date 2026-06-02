@@ -29,6 +29,12 @@ jobs:
           ATTEMPT=0
           SITE_ID="leafy-mooncake-7c2e5e"
 
+          echo "Debug: inspecting commit fields on most recent deploys..."
+          curl -sf \
+            -H "Authorization: Bearer $NETLIFY_TOKEN" \
+            "https://api.netlify.com/api/v1/sites/$SITE_ID/deploys?per_page=5" \
+            | jq '[.[] | {id, state, branch, commit_ref, commit_url}]' || echo "Debug curl failed"
+
           while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
             DEPLOY=$(curl -sf \
               -H "Authorization: Bearer $NETLIFY_TOKEN" \
