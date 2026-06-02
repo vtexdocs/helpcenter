@@ -928,3 +928,21 @@ force = true
 from = "/docs/pt/faq/por-que-a-busca-legada-ignora-alguns-termos-buscados"
 status = 308
 to = "/docs/pt/faq/por-que-vtex-search-legado-ignora-alguns-termos-buscados"
+
+[[redirects]]
+force = true
+from = "/known-issues/error-when-processing-the-second-refund-of-the-same-value-as-the-first-gift-card-has-been-already-refunded"
+status = 308
+to = "/known-issues/error-when-processing-the-second-refund-or-cancellation-with-the-same-value-as-the-first"
+
+[[redirects]]
+force = true
+from = "/pt/known-issues/erro-ao-processar-o-segundo-reembolso-do-mesmo-valor-que-o-primeiro-o-cartaopresente-ja-foi-reembolsado"
+status = 308
+to = "/pt/known-issues/erro-ao-processar-o-segundo-reembolso-ou-cancelamento-com-o-mesmo-valor-do-primeiro"
+
+[[redirects]]
+force = true
+from = "/es/known-issues/error-al-procesar-el-segundo-reembolso-del-mismo-valor-que-el-primero-la-tarjeta-regalo-ya-ha-sido-reembolsada"
+status = 308
+to = "/es/known-issues/se-ha-producido-un-error-al-procesar-el-segundo-reembolso-o-la-segunda-cancelacion-con-el-mismo-importe-que-el-primero"
