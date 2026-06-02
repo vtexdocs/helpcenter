@@ -21,61 +21,46 @@ jobs:
         id: wait-for-netlify-status
         if: github.event_name == 'pull_request'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          echo "Waiting for Netlify deploy status on commit $COMMIT_SHA..."
-          echo "Netlify can take 15+ minutes to start building during busy periods."
-
-          # Total timeout: 40 minutes (240 * 10 seconds)
-          # This accounts for Netlify queue delays + build time
+          echo "Polling Netlify API for deploy state on commit $COMMIT_SHA..."
           MAX_ATTEMPTS=240
           ATTEMPT=0
+          SITE_ID="leafy-mooncake-7c2e5e"
 
           while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
-            # Get the most recent status for deploy-preview context
-            # The API returns statuses in reverse chronological order (newest first)
-            RESULT=$(gh api repos/${{ github.repository }}/commits/$COMMIT_SHA/statuses \
-              --jq '[.[] | select(.context == "netlify/leafy-mooncake-7c2e5e/deploy-preview")] | first // empty')
-            
-            if [ -z "$RESULT" ]; then
+            DEPLOY=$(curl -sf \
+              -H "Authorization: Bearer $NETLIFY_TOKEN" \
+              "https://api.netlify.com/api/v1/sites/$SITE_ID/deploys?per_page=20" \
+              | jq --arg sha "$COMMIT_SHA" '[.[] | select(.commit_ref == $sha)] | first // empty')
+
+            if [ -z "$DEPLOY" ]; then
               ATTEMPT=$((ATTEMPT + 1))
-              echo "Attempt $ATTEMPT/$MAX_ATTEMPTS: Waiting for Netlify to start..."
+              echo "Attempt $ATTEMPT/$MAX_ATTEMPTS: No deploy found for this commit yet..."
               sleep 10
               continue
             fi
-            
-            STATUS=$(echo "$RESULT" | jq -r '.state')
-            echo "Attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS: Netlify status = $STATUS"
-            
-            if [ "$STATUS" = "success" ]; then
-              DEPLOY_URL=$(echo "$RESULT" | jq -r '.target_url')
-              echo "✅ Netlify deploy completed successfully!"
-              echo "Deploy URL: $DEPLOY_URL"
+
+            STATE=$(echo "$DEPLOY" | jq -r '.state')
+            echo "Attempt $((ATTEMPT + 1))/$MAX_ATTEMPTS: Netlify deploy state = $STATE"
+
+            if [ "$STATE" = "ready" ]; then
+              DEPLOY_URL=$(echo "$DEPLOY" | jq -r '.deploy_ssl_url')
+              echo "Netlify deploy ready: $DEPLOY_URL"
               echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
               exit 0
-            elif [ "$STATUS" = "failure" ] || [ "$STATUS" = "error" ]; then
-              echo "❌ Netlify deploy failed!"
+            elif [ "$STATE" = "error" ]; then
+              echo "::error::Netlify deploy failed (state=error). Check the Netlify dashboard for build logs."
               exit 1
             fi
-            
-            # Status is "pending" - keep waiting
+
             ATTEMPT=$((ATTEMPT + 1))
             sleep 10
           done
 
-          echo "::error::Netlify deploy did not reach 'success' within 40 minutes. This is an infrastructure delay, not a code regression. Options: (1) push a retrigger commit, (2) use the workflow_dispatch manual trigger once the deploy is live in the Netlify dashboard."
+          echo "::error::Netlify deploy did not reach 'ready' within 40 minutes. Infrastructure delay, not a code regression. Use workflow_dispatch to re-run manually once the deploy is live."
           exit 1
-
-      - name: Wait for Netlify deploy preview URL to be accessible
-        uses: jakepartusch/wait-for-netlify-action@v1.4
-        id: wait-for-netlify-preview
-        if: github.event_name == 'pull_request'
-        with:
-          site_name: 'leafy-mooncake-7c2e5e'
-          max_timeout: 300
-        env:
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
       - name: Resolve deploy URL
         id: resolve-url
@@ -83,7 +68,7 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "url=${{ inputs.deploy_url }}" >> $GITHUB_OUTPUT
           else
-            echo "url=${{ steps.wait-for-netlify-preview.outputs.url }}" >> $GITHUB_OUTPUT
+            echo "url=${{ steps.wait-for-netlify-status.outputs.deploy_url }}" >> $GITHUB_OUTPUT
           fi
 
       - name: Run Cypress E2E tests
