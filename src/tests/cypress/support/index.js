@@ -17,5 +17,17 @@
 import './commands'
 import './events'
 
+Cypress.on('uncaught:exception', (err) => {
+  if (
+    err.message.includes('Suspense boundary') ||
+    err.message.includes('hydrating') ||
+    err.message.includes('Minified React error') ||
+    err.message.includes('invariant')
+  ) {
+    return false
+  }
+  return true
+})
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

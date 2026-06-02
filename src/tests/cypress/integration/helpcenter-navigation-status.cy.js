@@ -93,20 +93,6 @@ describe('Help Center Navigation Status Test', () => {
     })
   })
 
-  beforeEach(() => {
-    cy.on('uncaught:exception', (err) => {
-      if (
-        err.message.includes('Suspense boundary') ||
-        err.message.includes('hydrating') ||
-        err.message.includes('Minified React error') ||
-        err.message.includes('invariant')
-      ) {
-        return false
-      }
-      return true
-    })
-  })
-
   it('should successfully load randomly selected pages from each navbar section', function () {
     if (selectedPages.length === 0) {
       cy.task('log', 'No pages selected for testing, skipping')

@@ -2,18 +2,6 @@
 
 describe('Locale Switching Tests', () => {
   beforeEach(() => {
-    cy.on('uncaught:exception', (err) => {
-      if (
-        err.message.includes('Suspense boundary') ||
-        err.message.includes('hydrating') ||
-        err.message.includes('Minified React error') ||
-        err.message.includes('invariant')
-      ) {
-        return false
-      }
-      return true
-    })
-
     cy.viewport(1366, 768)
   })
 

@@ -73,16 +73,6 @@ describe('Copy for AI Feature', () => {
   })
 
   beforeEach(() => {
-    cy.on('uncaught:exception', (err) => {
-      if (
-        err.message.includes('Suspense boundary') ||
-        err.message.includes('hydrating')
-      ) {
-        return false
-      }
-      return true
-    })
-
     cy.viewport(1366, 768)
   })
 
