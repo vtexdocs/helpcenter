@@ -3,7 +3,7 @@ import { Box, Flex, Text, Link } from '@vtex/brand-ui'
 import type { AnnouncementDataElement } from 'utils/typings/types'
 
 import styles from './styles'
-import Tag from 'components/tag'
+import { Tag } from '@vtexdocs/components'
 import { useIntl } from 'react-intl'
 import { getTagColorByLocalizedName } from 'utils/constants'
 

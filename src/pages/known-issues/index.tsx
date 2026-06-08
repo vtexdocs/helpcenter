@@ -26,7 +26,7 @@ import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/known-issues.png'
 import KnownIssueCard from 'components/known-issue-card'
 import Pagination from 'components/pagination'
-import Filter from 'components/filter'
+import { ListingFilter } from '@vtexdocs/components'
 import {
   knownIssuesStatusFilter,
   knownIssuesModulesFilters,
@@ -181,11 +181,17 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
-            <Filter
+            <ListingFilter
               tagFilter={statusConfig}
               checkBoxFilter={moduleConfig}
               selectedCheckboxes={filters.modules}
               selectedTags={filters.kiStatus}
+              labels={{
+                button: intl.formatMessage({ id: 'filter_modal.title' }),
+                modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
+                remove: intl.formatMessage({ id: 'filter_modal.remove' }),
+                apply: intl.formatMessage({ id: 'filter_modal.button' }),
+              }}
               onApply={(newFilters) =>
                 setFilters({
                   kiStatus: (newFilters.tag ?? []).map(

@@ -21,7 +21,7 @@ import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/announcements.png'
 import Pagination from 'components/pagination'
 import AnnouncementCard from 'components/announcement-card'
-import Filter from 'components/filter'
+import { ListingFilter } from '@vtexdocs/components'
 import {
   announcementsTypeFilter,
   announcementsAreaFilter,
@@ -158,11 +158,17 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
-            <Filter
+            <ListingFilter
               tagFilter={typeConfig}
               checkBoxFilter={areaConfig}
               selectedTags={filters.type}
               selectedCheckboxes={filters.area}
+              labels={{
+                button: intl.formatMessage({ id: 'filter_modal.title' }),
+                modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
+                remove: intl.formatMessage({ id: 'filter_modal.remove' }),
+                apply: intl.formatMessage({ id: 'filter_modal.button' }),
+              }}
               onApply={(newFilters) =>
                 setFilters({
                   type: newFilters.tag ?? [],
