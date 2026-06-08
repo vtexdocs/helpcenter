@@ -62,7 +62,8 @@ export default async function handler(
       'Netlify-CDN-Cache-Control',
       'public, s-maxage=60, stale-while-revalidate=300'
     )
-    res.setHeader('Vary', 'Accept-Language')
+    // Note: locale is passed via query param (?locale=en), not Accept-Language header,
+    // so Vary: Accept-Language is not needed and could cause incorrect cache hits
 
     return res.status(200).json({
       query: q,
