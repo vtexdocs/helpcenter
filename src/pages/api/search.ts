@@ -69,7 +69,7 @@ export default async function handler(
       query: q,
       locale: locale || null,
       limit,
-      total: data.results?.length ?? 0,
+      count: data.results?.length ?? 0,
       results: data.results ?? [],
     })
   } catch (err) {

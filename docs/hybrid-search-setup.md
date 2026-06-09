@@ -29,7 +29,7 @@ do not need to set it.
   "query": "checkout",
   "locale": "en",
   "limit": 10,
-  "total": 1,
+  "count": 1,
   "results": [
     {
       "id": 123,
@@ -45,6 +45,11 @@ do not need to set it.
   ]
 }
 ```
+
+**Note:** The `count` field indicates **how many results are included in this response** 
+(equivalent to `results.length`). It does not represent the total number of matching 
+documents across the entire corpus. The upstream Hybrid Search API does not currently 
+return a corpus-wide total.
 
 ### Error responses
 
@@ -66,8 +71,11 @@ stale-while-revalidate window:
 ```
 Cache-Control: public, s-maxage=60, stale-while-revalidate=300
 Netlify-CDN-Cache-Control: public, s-maxage=60, stale-while-revalidate=300
-Vary: Accept-Language
 ```
+
+**Note:** The `Vary: Accept-Language` header is not used because locale is passed 
+via the `locale` query parameter (not the `Accept-Language` header), so varying 
+on that header could cause incorrect cache hits across locales.
 
 ## Environment variables
 
