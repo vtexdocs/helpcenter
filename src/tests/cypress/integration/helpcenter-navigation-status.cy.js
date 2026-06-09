@@ -5,10 +5,10 @@ describe('Help Center Navigation Status Test', () => {
   let baseUrl
 
   before(() => {
-    baseUrl = Cypress.config('baseUrl')
+    baseUrl = Cypress.config('baseUrl').replace(/\/$/, '')
 
     cy.request({
-      url: `${baseUrl}api/navigation`,
+      url: `${baseUrl}/api/navigation`,
       timeout: 60000,
       failOnStatusCode: false,
     }).then((response) => {
@@ -40,7 +40,7 @@ describe('Help Center Navigation Status Test', () => {
       cy.task('log', '\n' + '='.repeat(80))
       cy.task('log', '📋 HELP CENTER NAVIGATION TEST')
       cy.task('log', '='.repeat(80))
-      cy.task('log', `Fetching navigation from: ${baseUrl}api/navigation`)
+      cy.task('log', `Fetching navigation from: ${baseUrl}/api/navigation`)
       cy.task('log', `Found ${navigationData.length} navbar sections\n`)
 
       // Select one random page from each navbar section

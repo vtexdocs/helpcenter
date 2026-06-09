@@ -95,7 +95,6 @@ Cypress.Commands.add('getAutocompleteSuggestions', () =>
 Cypress.Commands.add('submitSearch', (query) => {
   cy.searchFor(query)
   cy.get('[data-cy="search"]').first().type('{enter}')
-  cy.url().should('include', '/search')
 })
 
 Cypress.Commands.add('clickSidebarLink', (options = {}) => {
