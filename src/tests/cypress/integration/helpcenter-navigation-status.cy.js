@@ -8,7 +8,7 @@ describe('Help Center Navigation Status Test', () => {
     baseUrl = Cypress.config('baseUrl')
 
     cy.request({
-      url: `${baseUrl}/api/navigation`,
+      url: `${baseUrl}api/navigation`,
       timeout: 60000,
       failOnStatusCode: false,
     }).then((response) => {
@@ -40,7 +40,7 @@ describe('Help Center Navigation Status Test', () => {
       cy.task('log', '\n' + '='.repeat(80))
       cy.task('log', '📋 HELP CENTER NAVIGATION TEST')
       cy.task('log', '='.repeat(80))
-      cy.task('log', `Fetching navigation from: ${baseUrl}/api/navigation`)
+      cy.task('log', `Fetching navigation from: ${baseUrl}api/navigation`)
       cy.task('log', `Found ${navigationData.length} navbar sections\n`)
 
       // Select one random page from each navbar section
@@ -58,7 +58,7 @@ describe('Help Center Navigation Status Test', () => {
               const name =
                 typeof item.name === 'object' ? item.name.en : item.name
               pages.push({
-                url: `${baseUrl}/${prefix}${slug}`,
+                url: `${baseUrl}${prefix}${slug}`,
                 name,
                 section: documentation,
               })
