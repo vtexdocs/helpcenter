@@ -3,7 +3,7 @@
 describe('Search autocomplete', () => {
   beforeEach(() => {
     cy.viewport(1366, 768)
-    cy.visit('/', { timeout: 60000 })
+    cy.visit('/docs/tutorials/about-the-admin-category', { timeout: 60000 })
   })
 
   it('shows dropdown suggestions after typing a query', () => {

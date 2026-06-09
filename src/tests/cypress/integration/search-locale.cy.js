@@ -3,7 +3,6 @@
 describe('Search locale handling', () => {
   beforeEach(() => {
     cy.viewport(1366, 768)
-    cy.visit('/', { timeout: 60000 })
   })
 
   const LOCALES = ['en', 'pt', 'es']

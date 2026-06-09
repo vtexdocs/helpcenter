@@ -3,7 +3,7 @@
 describe('Search pagination / infinite scroll', () => {
   beforeEach(() => {
     cy.viewport(1366, 768)
-    cy.visit('/', { timeout: 60000 })
+    cy.visit('/docs/tutorials/about-the-admin-category', { timeout: 60000 })
     cy.submitSearch('api')
     cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
   })

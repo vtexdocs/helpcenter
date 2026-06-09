@@ -7,13 +7,13 @@ describe('Search results page', () => {
 
   context('query submission', () => {
     it('submits via Enter and renders a result list', () => {
-      cy.visit('/', { timeout: 60000 })
+      cy.visit('/docs/tutorials/about-the-admin-category', { timeout: 60000 })
       cy.submitSearch('orders')
       cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
     })
 
     it('search URL includes the submitted keyword', () => {
-      cy.visit('/', { timeout: 60000 })
+      cy.visit('/docs/tutorials/about-the-admin-category', { timeout: 60000 })
       cy.submitSearch('orders')
       cy.url().should('include', 'keyword=orders')
     })
@@ -21,7 +21,7 @@ describe('Search results page', () => {
 
   context('result cards', () => {
     it('each visible result card has a non-empty title', () => {
-      cy.visit('/', { timeout: 60000 })
+      cy.visit('/docs/tutorials/about-the-admin-category', { timeout: 60000 })
       cy.submitSearch('orders')
       // SearchCard uses Link legacyBehavior wrapping a Flex (not an <a>), so
       // href is not queryable via closest('a') — title text is the stable assertion
@@ -34,7 +34,7 @@ describe('Search results page', () => {
   context('empty state', () => {
     it('shows no result cards for a query with no results', () => {
       cy.intercept('POST', /algolia\.net/).as('algoliaSearch')
-      cy.visit('/', { timeout: 60000 })
+      cy.visit('/docs/tutorials/about-the-admin-category', { timeout: 60000 })
       cy.submitSearch('xyzzy-no-results-8f3k2')
       cy.wait('@algoliaSearch')
       cy.get('.searchCardTitle').should('not.exist')
