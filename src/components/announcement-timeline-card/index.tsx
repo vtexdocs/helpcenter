@@ -22,6 +22,12 @@ const AnnouncementTimelineItem = ({
 }: AnnouncementTimelineCardProps) => {
   const intl = useIntl()
 
+  const titleLink = (
+    <Link href={articleLink}>
+      <Text sx={styles.timelineTitle}>{title}</Text>
+    </Link>
+  )
+
   return (
     <Flex sx={styles.releaseContainer}>
       <Timeline.Event
@@ -35,18 +41,12 @@ const AnnouncementTimelineItem = ({
               })}
             </Text>
           ) : (
-            <Link href={articleLink}>
-              <Text sx={styles.timelineTitle}>{title}</Text>
-            </Link>
+            titleLink
           )
         }
         icon={first ? <NewIcon sx={styles.icon} /> : null}
       >
-        {first && (
-          <Link href={articleLink}>
-            <Text sx={styles.timelineTitle}>{title}</Text>
-          </Link>
-        )}
+        {first && titleLink}
         {first && <Box sx={styles.placeholder}></Box>}
         <Text sx={styles.content}>
           {`${getDaysElapsed(date)} ${intl.formatMessage({
@@ -87,12 +87,15 @@ const AnnouncementTimelineCard = ({ announcements }: Props) => {
       </Box>
       <Box sx={styles.timelineContainer}>
         {announcements.map((announcement, index) => {
-          const isNew = announcement.date >= sevenDaysAgo
+          const isNew =
+            announcement.date >= sevenDaysAgo &&
+            announcement.date <= currentDate
+          const first = isNew || index === 0
 
           return (
             <AnnouncementTimelineItem
-              key={index}
-              {...{ ...announcement, first: isNew || index === 0 }}
+              key={announcement.articleLink}
+              {...{ ...announcement, first }}
             />
           )
         })}
