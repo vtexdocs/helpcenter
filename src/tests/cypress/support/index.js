@@ -24,6 +24,13 @@ Cypress.on('uncaught:exception', (err) => {
     err.message.includes('Minified React error') ||
     err.message.includes('invariant')
   ) {
+    // Log before suppressing so CI output shows these errors rather than silently swallowing them.
+    // A real search-UI crash may match one of these patterns — the log makes it visible in the run.
+    Cypress.log({
+      name: 'suppressed exception',
+      message: err.message,
+      consoleProps: () => ({ message: err.message, stack: err.stack }),
+    })
     return false
   }
   return true
