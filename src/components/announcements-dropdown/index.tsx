@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useIntl } from 'react-intl'
 import { getDaysElapsed } from 'utils/get-days-elapsed'
 import Tag from 'components/tag'
+import { getTagColorByLocalizedName } from 'utils/constants'
 import styles from './styles'
 
 export interface AnnouncementDropdownItem {
@@ -21,54 +22,6 @@ const AnnouncementsDropdown = ({
   announcements,
 }: AnnouncementsDropdownProps) => {
   const intl = useIntl()
-
-  const getTagColor = (tag: string) => {
-    const tagLower = tag.toLowerCase()
-
-    // New feature - Green
-    if (
-      tagLower.includes('funcionalidad') ||
-      tagLower.includes('funcionalidade') ||
-      tagLower.includes('feature')
-    ) {
-      return 'Green'
-    }
-
-    // Improvement - Blue
-    if (
-      tagLower.includes('melhoria') ||
-      tagLower.includes('improvement') ||
-      tagLower.includes('mejora')
-    ) {
-      return 'Blue'
-    }
-
-    // Breaking change - Yellow
-    if (
-      tagLower.includes('breaking') ||
-      tagLower.includes('disruptivo') ||
-      tagLower.includes('cambio disruptivo')
-    ) {
-      return 'Scheduled'
-    }
-
-    // Deprecation - Pink
-    if (tagLower.includes('descontinua') || tagLower.includes('deprecation')) {
-      return 'Deprecation'
-    }
-
-    // Security - Gray
-    if (
-      tagLower.includes('segurança') ||
-      tagLower.includes('seguridad') ||
-      tagLower.includes('security')
-    ) {
-      return 'Gray'
-    }
-
-    // Default for area tags
-    return 'Gray'
-  }
 
   return (
     <Box sx={styles.outerContainer}>
@@ -90,11 +43,14 @@ const AnnouncementsDropdown = ({
                 )}
                 {announcement.tags && announcement.tags.length > 0 && (
                   <Flex sx={styles.tagsContainer}>
-                    {announcement.tags.slice(0, 3).map((tag, tagIndex) => (
-                      <Tag key={tagIndex} color={getTagColor(tag)}>
-                        {tag}
-                      </Tag>
-                    ))}
+                    {announcement.tags.slice(0, 3).map((tag, tagIndex) => {
+                      const color = getTagColorByLocalizedName(tag) || 'Gray'
+                      return (
+                        <Tag key={tagIndex} color={color}>
+                          {tag}
+                        </Tag>
+                      )
+                    })}
                   </Flex>
                 )}
                 <Text sx={styles.announcementTitle}>{announcement.title}</Text>

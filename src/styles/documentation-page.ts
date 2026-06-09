@@ -89,6 +89,11 @@ const contentContainer: SxStyleProp = {
   minWidth: ['0px', '470px', '470px'],
 }
 
+const articleIndexContentContainer: SxStyleProp = {
+  ...contentContainer,
+  maxWidth: ['100%', '100%', '100%', '100%', '720px', '720px', '720px'],
+}
+
 const documentationTitle: SxStyleProp = {
   marginTop: '16px',
   fontSize: '1.75em',
@@ -178,15 +183,49 @@ const titleContainer: SxStyleProp = {
 }
 
 const linksContainer: SxStyleProp = {
-  flexDirection: 'column',
-  pl: '16px',
+  flexWrap: 'wrap',
   gap: '16px',
   mt: '32px',
-  borderLeft: '3px solid #E7E9EE',
+}
+
+const cardItem: SxStyleProp = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+  padding: '16px 20px',
+  border: '1px solid #E7E9EE',
+  borderRadius: '8px',
+  cursor: 'pointer',
+  width: [
+    '100%',
+    '100%',
+    'calc(50% - 8px)',
+    'calc(50% - 8px)',
+    'calc(50% - 8px)',
+    'calc(50% - 8px)',
+    'calc(50% - 8px)',
+  ],
+  color: 'muted.0',
+  textDecoration: 'none',
+  ':hover': {
+    backgroundColor: '#F8F7FC',
+    borderColor: '#C0C8D2',
+  },
+}
+
+const cardItemExcerpt: SxStyleProp = {
+  mt: '6px',
+  fontSize: '14px',
+  lineHeight: '20px',
+  color: 'muted.1',
 }
 
 export default {
   linksContainer,
+  cardItem,
+  cardItemExcerpt,
+  articleIndexContentContainer,
   titleContainer,
   textContainer,
   indexContainer,
