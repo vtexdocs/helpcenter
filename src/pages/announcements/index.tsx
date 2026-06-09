@@ -34,6 +34,8 @@ interface Props {
   branch: string
 }
 
+const ANNOUNCEMENTS_PAGE_SIZE = 20
+
 const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
@@ -52,6 +54,12 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
     type: string[]
     area: string[]
   }>({ type: [], area: [] })
+
+  const [visibleCount, setVisibleCount] = useState(ANNOUNCEMENTS_PAGE_SIZE)
+
+  useEffect(() => {
+    setVisibleCount(ANNOUNCEMENTS_PAGE_SIZE)
+  }, [searchTerms, filters])
 
   const typeConfig = useMemo(() => announcementsTypeFilter(intl), [intl])
   const areaConfig = useMemo(() => announcementsAreaFilter(intl), [intl])
@@ -97,7 +105,6 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
     })
   }, [searchTerms, filters, announcementsData])
 
-  /** Lista após filtros — agrupamento só por ano (changelog). */
   const timelineAnnouncements = useMemo(
     () =>
       filteredResult.map((announcement) => ({
@@ -110,6 +117,13 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
     [filteredResult]
   )
 
+  const visibleAnnouncements = useMemo(
+    () => timelineAnnouncements.slice(0, visibleCount),
+    [timelineAnnouncements, visibleCount]
+  )
+
+  const hasMore = visibleCount < timelineAnnouncements.length
+
   const timelineByYear = useMemo(() => {
     type TimelineItem = {
       title: string
@@ -121,7 +135,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
 
     const bucket = new Map<string, TimelineItem[]>()
 
-    for (const item of timelineAnnouncements) {
+    for (const item of visibleAnnouncements) {
       const yearKey = String(item.publishedAt.getFullYear())
       const list = bucket.get(yearKey) ?? []
       list.push(item)
@@ -135,7 +149,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
       label: yearKey,
       announcements: bucket.get(yearKey) ?? [],
     }))
-  }, [timelineAnnouncements])
+  }, [visibleAnnouncements])
 
   return (
     <>
@@ -259,6 +273,18 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
                   </Flex>
                 </Flex>
               ))}
+            {hasMore && (
+              <Box
+                as="button"
+                type="button"
+                onClick={() =>
+                  setVisibleCount((count) => count + ANNOUNCEMENTS_PAGE_SIZE)
+                }
+                sx={styles.seeMoreButton}
+              >
+                {intl.formatMessage({ id: 'announcements_page.see_more' })}
+              </Box>
+            )}
           </Flex>
         </Flex>
       </Fragment>

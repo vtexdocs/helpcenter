@@ -3,27 +3,24 @@ export type AnnouncementTagColor =
   | 'Closed'
   | 'Scheduled'
   | 'Gray'
+  | 'Deprecation'
   | 'Backlog'
 
-/** Mesmas chaves que na main: strings literais dos tags no frontmatter (EN/ES/PT). */
 export const announcementTypeTagColorMap: Record<string, AnnouncementTagColor> =
   {
     'New feature': 'Fixed',
     Improvement: 'Closed',
     'Breaking change': 'Scheduled',
-    Deprecation: 'Gray',
-    Discontinuation: 'Gray',
+    Deprecation: 'Deprecation',
     'Security update': 'Backlog',
     'Nueva funcionalidad': 'Fixed',
     Mejora: 'Closed',
     'Cambio disruptivo': 'Scheduled',
-    Descontinuación: 'Gray',
+    Descontinuación: 'Deprecation',
     'Actualización de seguridad': 'Backlog',
     'Nova funcionalidade': 'Fixed',
     Melhoria: 'Closed',
-    Descontinuação: 'Gray',
-    /** Grafia alternativa comum em conteúdo legado */
-    Discontinuação: 'Gray',
+    Descontinuação: 'Deprecation',
     'Atualização de segurança': 'Backlog',
   }
 
@@ -34,7 +31,6 @@ export function filterAnnouncementTypeTags(
   return (tags ?? []).filter((tag) => tag in map)
 }
 
-/** Alinhado ao fundo e à borda das pills em `components/tag/styles.ts`. */
 const announcementTypeDotColors: Record<
   AnnouncementTagColor,
   { backgroundColor: string; borderColor: string }
@@ -43,6 +39,7 @@ const announcementTypeDotColors: Record<
   Closed: { backgroundColor: '#DEE8FE', borderColor: '#A5C0FF' },
   Scheduled: { backgroundColor: '#FFF3DA', borderColor: '#FFD581' },
   Gray: { backgroundColor: '#E7E9EE', borderColor: '#A1AAB7' },
+  Deprecation: { backgroundColor: '#FCEAF2', borderColor: '#E8A5BE' },
   Backlog: { backgroundColor: '#E9E9E9', borderColor: '#D3D3D3' },
 }
 
@@ -51,7 +48,6 @@ const neutralDot = {
   borderColor: '#A1AAB7',
 } as const
 
-/** Primeira tag de tipo (mesma ordem das pills). */
 export function getAnnouncementTypeDotColors(tags: string[] | undefined): {
   backgroundColor: string
   borderColor: string

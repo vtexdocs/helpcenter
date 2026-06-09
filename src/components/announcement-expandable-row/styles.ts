@@ -1,6 +1,7 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
-/** Linha inteira: data | marcador | conteúdo (tronco único via rail absoluto na página). */
+import tokens from 'styles/theme-tokens'
+
 const row: SxStyleProp = {
   width: '100%',
   flexDirection: 'row',
@@ -14,7 +15,6 @@ const row: SxStyleProp = {
   mb: ['24px', '28px'],
 }
 
-/** Data à esquerda (changelog: MÊS + dia, maiúsculas) */
 const dateColumn: SxStyleProp = {
   width: ['72px', '88px', '104px'],
   flexShrink: 0,
@@ -25,8 +25,7 @@ const dateColumn: SxStyleProp = {
   fontWeight: '600',
   lineHeight: '1.25rem',
   letterSpacing: '0.04em',
-  /** Mesma cor da data no `AnnouncementCard` da main (`date.large`). */
-  color: '#A1AAB7',
+  color: tokens.grays.dateLabel,
   textTransform: 'uppercase',
   display: 'block',
 }
@@ -60,12 +59,24 @@ const mainColumn: SxStyleProp = {
   pr: '4px',
 }
 
-const headerInteractive: SxStyleProp = {
+const header: SxStyleProp = {
   flexDirection: 'row',
   alignItems: 'flex-start',
   gap: '10px',
   width: '100%',
-  textAlign: 'left',
+}
+
+const caretWrap: SxStyleProp = {
+  flexShrink: 0,
+  pt: '4px',
+  width: '20px',
+  display: 'flex',
+  justifyContent: 'center',
+}
+
+const caretButton: SxStyleProp = {
+  ...caretWrap,
+  alignItems: 'flex-start',
   font: 'inherit',
   outline: 'none',
   cursor: 'pointer',
@@ -76,19 +87,6 @@ const headerInteractive: SxStyleProp = {
     boxShadow: '0 0 0 2px rgba(20, 32, 50, 0.2)',
     borderRadius: '4px',
   },
-}
-
-const headerStatic: SxStyleProp = {
-  ...headerInteractive,
-  cursor: 'default',
-}
-
-const caretWrap: SxStyleProp = {
-  flexShrink: 0,
-  pt: '4px',
-  width: '20px',
-  display: 'flex',
-  justifyContent: 'center',
 }
 
 const textBlock: SxStyleProp = {
@@ -110,7 +108,6 @@ const typeTagsContainer: SxStyleProp = {
 
 const releaseTitle: SxStyleProp = {
   '& p': {
-    /** Igual `styles.title.large` do `AnnouncementCard` na main. */
     mb: '8px',
     fontSize: ['14px', '20px'],
     color: 'muted.0',
@@ -123,10 +120,9 @@ const titleLink: SxStyleProp = {
   color: 'muted.0',
   textDecoration: 'none',
   ':hover': {
-    /** Hover do card na main (`.title`). */
-    color: '#000711',
+    color: 'secondary.hover',
     '& p': {
-      color: '#000711',
+      color: 'secondary.hover',
     },
   },
 }
@@ -137,7 +133,6 @@ const body: SxStyleProp = {
   fontSize: ['14px', '15px'],
   lineHeight: '22px',
   fontWeight: '400',
-  /** Sinopse large na main: `muted.0` */
   color: 'muted.0',
   maxWidth: '100%',
   letterSpacing: '-0.01em',
@@ -149,9 +144,9 @@ export default {
   trackColumn,
   dot,
   mainColumn,
-  headerInteractive,
-  headerStatic,
+  header,
   caretWrap,
+  caretButton,
   textBlock,
   typeTagsContainer,
   releaseTitle,

@@ -1,5 +1,7 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+import tokens from 'styles/theme-tokens'
+
 const container: SxStyleProp = {
   mx: 'auto',
   mt: ['16px', '32px'],
@@ -19,20 +21,18 @@ const cardContainer: SxStyleProp = {
   width: '100%',
 }
 
-/** Lista de itens do ano — o trilho fica só aqui para não atravessar o título. */
 const yearTimelineBody: SxStyleProp = {
   position: 'relative',
   width: '100%',
   flexDirection: 'column',
 }
 
-/** Trilho do ano só entre as linhas (eixo alinhado à coluna de pontos). */
 const yearVerticalRail: SxStyleProp = {
   position: 'absolute',
   zIndex: 0,
   pointerEvents: 'none',
   width: '2px',
-  backgroundColor: '#E0E0E0',
+  backgroundColor: tokens.grays.timelineRail,
   /** dateColumn width + trackColumn/2 − half line */
   left: ['80px', '96px', '112px'],
   top: 0,
@@ -53,30 +53,53 @@ const noResults: SxStyleProp = {
   textAlign: 'center',
 }
 
-/** Bloco por ano (changelog em coluna). */
 const yearBlock: SxStyleProp = {
   width: '100%',
   flexDirection: 'column',
   gap: 0,
 }
 
-/** Quebra anual — alinhado ao eixo dos pontos (sem fundo nem máscara). */
 const yearHeading: SxStyleProp = {
   fontFamily:
     "'VTEX Trust Regular', -apple-system, system-ui, BlinkMacSystemFont, sans-serif",
   fontSize: ['18px', '19px', '20px'],
   lineHeight: '1.2',
   fontWeight: '400',
-  color: '#9AA3AE',
+  color: tokens.grays.yearHeading,
   width: 'auto',
   display: 'inline-block',
-  /** dateColumn + metade do trackColumn (9px); alinha ao centro da linha de 2px. */
   position: 'relative',
   left: ['81px', '97px', '113px'],
   transform: 'translateX(-50%)',
   textAlign: 'center',
   mb: ['20px', '24px'],
   letterSpacing: '-0.01em',
+}
+
+const seeMoreButton: SxStyleProp = {
+  alignSelf: 'center',
+  mt: ['32px', '40px'],
+  px: '24px',
+  py: '10px',
+  fontFamily:
+    "'VTEX Trust Regular', -apple-system, system-ui, BlinkMacSystemFont, sans-serif",
+  fontSize: ['14px', '15px'],
+  fontWeight: '600',
+  color: 'muted.0',
+  backgroundColor: 'transparent',
+  border: '1px solid',
+  borderColor: 'muted.2',
+  borderRadius: '4px',
+  cursor: 'pointer',
+  transition: '0.2s',
+  ':hover': {
+    borderColor: 'muted.0',
+    color: 'secondary.hover',
+  },
+  ':focus-visible': {
+    outline: 'none',
+    boxShadow: '0 0 0 2px rgba(20, 32, 50, 0.2)',
+  },
 }
 
 const searchInput: SxStyleProp = {
@@ -101,4 +124,5 @@ export default {
   searchInput,
   yearBlock,
   yearHeading,
+  seeMoreButton,
 }

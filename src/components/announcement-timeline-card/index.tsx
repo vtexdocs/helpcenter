@@ -12,10 +12,6 @@ export interface AnnouncementTimelineCardProps {
   date: Date
   articleLink: string
   first?: boolean
-  /** Listagem completa: sinopse e data */
-  createdAt?: Date
-  updatedAt?: Date
-  synopsis?: string
 }
 
 const AnnouncementTimelineItem = ({
@@ -23,13 +19,8 @@ const AnnouncementTimelineItem = ({
   date,
   articleLink,
   first = false,
-  createdAt,
-  updatedAt,
-  synopsis,
 }: AnnouncementTimelineCardProps) => {
   const intl = useIntl()
-  const showMetaBlock = !!(createdAt && updatedAt)
-  const useCardLikeChrome = showMetaBlock
 
   const titleLink = (
     <Link href={articleLink}>
@@ -42,9 +33,7 @@ const AnnouncementTimelineItem = ({
       <Timeline.Event
         sx={styles.timeLineBar}
         title={
-          useCardLikeChrome ? (
-            titleLink
-          ) : first ? (
+          first ? (
             <Text sx={styles.newTitle}>
               {intl.formatMessage({
                 id: 'announcement_card.new_tag',
@@ -57,28 +46,13 @@ const AnnouncementTimelineItem = ({
         }
         icon={first ? <NewIcon sx={styles.icon} /> : null}
       >
-        {useCardLikeChrome ? (
-          <>
-            {synopsis ? <Text sx={styles.synopsis}>{synopsis}</Text> : null}
-            <Text sx={styles.footerDate}>
-              {intl.formatDate(date, {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-              })}
-            </Text>
-          </>
-        ) : (
-          <>
-            {first && titleLink}
-            {first && <Box sx={styles.placeholder}></Box>}
-            <Text sx={styles.content}>
-              {`${getDaysElapsed(date)} ${intl.formatMessage({
-                id: 'relese-note-days-elapsed',
-              })}`}
-            </Text>
-          </>
-        )}
+        {first && titleLink}
+        {first && <Box sx={styles.placeholder}></Box>}
+        <Text sx={styles.content}>
+          {`${getDaysElapsed(date)} ${intl.formatMessage({
+            id: 'relese-note-days-elapsed',
+          })}`}
+        </Text>
       </Timeline.Event>
     </Flex>
   )
@@ -86,58 +60,37 @@ const AnnouncementTimelineItem = ({
 
 interface Props {
   announcements: AnnouncementTimelineCardProps[]
-  /** Bloco com título/descrição da home (landing) */
-  showLandingHeader?: boolean
-  /** Na listagem completa, exibir a timeline também no breakpoint menor */
-  forceTimelineVisible?: boolean
-  /** Na home o primeiro item ganha destaque; na página paginada use false */
-  highlightFirstItem?: boolean
 }
 
-const AnnouncementTimelineCard = ({
-  announcements,
-  showLandingHeader = true,
-  forceTimelineVisible = false,
-  highlightFirstItem = true,
-}: Props) => {
+const AnnouncementTimelineCard = ({ announcements }: Props) => {
   const intl = useIntl()
   const currentDate = new Date()
   const sevenDaysAgo = new Date(currentDate)
   sevenDaysAgo.setDate(currentDate.getDate() - 7)
 
-  const containerSx = showLandingHeader
-    ? styles.cardContainer
-    : { ...styles.cardContainer, ...styles.cardContainerPage }
-
-  const timelineSx = forceTimelineVisible
-    ? { ...styles.timelineContainer, display: 'block' }
-    : styles.timelineContainer
-
   return (
-    <Flex sx={containerSx}>
-      {showLandingHeader && (
-        <Box>
-          <Flex sx={styles.title}>
-            <MegaphoneIcon />
-            <Text>
-              {intl.formatMessage({
-                id: 'landing_page_announcements.title',
-              })}
-            </Text>
-          </Flex>
-          <Text sx={styles.description}>
+    <Flex sx={styles.cardContainer}>
+      <Box>
+        <Flex sx={styles.title}>
+          <MegaphoneIcon />
+          <Text>
             {intl.formatMessage({
-              id: 'landing_page_announcements.description',
+              id: 'landing_page_announcements.title',
             })}
           </Text>
-        </Box>
-      )}
-      <Box sx={timelineSx}>
+        </Flex>
+        <Text sx={styles.description}>
+          {intl.formatMessage({
+            id: 'landing_page_announcements.description',
+          })}
+        </Text>
+      </Box>
+      <Box sx={styles.timelineContainer}>
         {announcements.map((announcement, index) => {
-          const newReferenceDate = announcement.createdAt ?? announcement.date
           const isNew =
-            newReferenceDate >= sevenDaysAgo && newReferenceDate <= currentDate
-          const first = isNew || (highlightFirstItem && index === 0)
+            announcement.date >= sevenDaysAgo &&
+            announcement.date <= currentDate
+          const first = isNew || index === 0
 
           return (
             <AnnouncementTimelineItem

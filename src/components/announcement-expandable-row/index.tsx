@@ -1,5 +1,4 @@
 import { Box, Flex, IconCaret, Link, Text } from '@vtex/brand-ui'
-import type { KeyboardEvent, MouseEvent } from 'react'
 import { useState } from 'react'
 import { useIntl } from 'react-intl'
 
@@ -9,6 +8,7 @@ import {
   filterAnnouncementTypeTags,
   getAnnouncementTypeDotColors,
 } from 'utils/announcementTypeTags'
+import tokens from 'styles/theme-tokens'
 
 import styles from './styles'
 
@@ -40,24 +40,14 @@ const AnnouncementExpandableRow = ({
     .formatDate(publishedAt, { month: 'long', day: 'numeric' })
     .toLocaleUpperCase(intl.locale)
 
-  const headerSx = hasSynopsis ? styles.headerInteractive : styles.headerStatic
-
-  function handleHeaderKeyDown(e: KeyboardEvent) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault()
-      setOpen((v) => !v)
-    }
-  }
-
-  const headerProps = hasSynopsis
-    ? {
-        role: 'button' as const,
-        tabIndex: 0,
-        'aria-expanded': open,
-        onClick: () => setOpen((v) => !v),
-        onKeyDown: handleHeaderKeyDown,
-      }
-    : {}
+  const toggleLabel = intl.formatMessage(
+    {
+      id: open
+        ? 'announcement_expandable_row.collapse'
+        : 'announcement_expandable_row.expand',
+    },
+    { title }
+  )
 
   return (
     <Flex sx={styles.row}>
@@ -73,15 +63,22 @@ const AnnouncementExpandableRow = ({
       </Flex>
 
       <Flex sx={styles.mainColumn}>
-        <Flex sx={headerSx} {...headerProps}>
+        <Flex sx={styles.header}>
           {hasSynopsis ? (
-            <Flex sx={styles.caretWrap}>
+            <Box
+              as="button"
+              type="button"
+              aria-expanded={open}
+              aria-label={toggleLabel}
+              onClick={() => setOpen((v) => !v)}
+              sx={styles.caretButton}
+            >
               <IconCaret
-                color="#9B9B9B"
+                color={tokens.grays.caretIcon}
                 direction={open ? 'down' : 'right'}
                 size={18}
               />
-            </Flex>
+            </Box>
           ) : (
             <Box sx={{ ...styles.caretWrap, width: '20px' }} />
           )}
@@ -97,9 +94,6 @@ const AnnouncementExpandableRow = ({
             ) : null}
             <Link
               href={articleLink}
-              onClick={(e: MouseEvent<HTMLAnchorElement>) =>
-                e.stopPropagation()
-              }
               sx={{ ...styles.titleLink, ...styles.releaseTitle }}
             >
               <Text as="p">{title}</Text>
