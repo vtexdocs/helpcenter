@@ -69,10 +69,9 @@ describe('Help Center Navigation Status Test', () => {
           })
         }
 
-        // Determine the URL prefix for this section
-        const urlPrefix = section.slugPrefix.endsWith('/')
-          ? section.slugPrefix.slice(0, -1) + '/'
-          : section.slugPrefix + '/'
+        // Determine the URL prefix for this section (normalize to /prefix/ form)
+        const urlPrefix =
+          '/' + section.slugPrefix.replace(/^\//, '').replace(/\/?$/, '/')
 
         collectPages(categories, urlPrefix)
 
