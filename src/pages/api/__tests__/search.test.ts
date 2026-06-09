@@ -133,7 +133,7 @@ describe('/api/search', () => {
       query: 'hello world',
       locale: 'en',
       limit: 5,
-      total: 1,
+      count: 1,
       results: upstreamPayload.results,
     })
     expect(res.headers['cache-control']).toContain('s-maxage=60')
