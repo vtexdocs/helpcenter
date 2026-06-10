@@ -31,8 +31,8 @@ module.exports = defineConfig({
     requestTimeout: 10000, // 10 seconds for cy.request()
     responseTimeout: 10000, // 10 seconds for responses
     retries: {
-      runMode: 3, // Retry failed tests 3 times in CI
-      openMode: 0, // No retries in interactive mode
+      runMode: 2, // CI: retry a failing test up to 2 times before reporting failure
+      openMode: 0, // local interactive runner: no retries (fail fast for dev feedback)
     },
   },
 })
