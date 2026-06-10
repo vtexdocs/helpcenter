@@ -86,6 +86,23 @@ jobs:
             echo "url=${{ steps.wait-for-netlify-preview.outputs.url }}" >> $GITHUB_OUTPUT
           fi
 
+      - name: Pre-warm Netlify Functions and SSR routes
+        run: |
+          BASE_URL="${{ steps.resolve-url.outputs.url }}"
+          echo "Pre-warming: $BASE_URL"
+          # Hit the navigation API (Netlify Function — separate cold-start from CDN)
+          for ROUTE in \
+            "/api/navigation" \
+            "/en/docs/tutorials" \
+            "/en/docs/api-reference"; do
+            echo "Warming $ROUTE..."
+            STATUS=$(curl -sf -o /dev/null -w "%{http_code}" \
+              --max-time 90 --retry 3 --retry-delay 10 \
+              "$BASE_URL$ROUTE" 2>/dev/null || echo "000")
+            echo "  → HTTP $STATUS"
+          done
+          echo "Pre-warm complete."
+
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
         with:
