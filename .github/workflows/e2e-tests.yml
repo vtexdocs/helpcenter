@@ -93,7 +93,9 @@ jobs:
           # Hit the navigation API (Netlify Function — separate cold-start from CDN)
           for ROUTE in \
             "/api/navigation" \
-            "/en/docs/tutorials" \
+            "/docs/tutorials" \
+            "/pt/docs/tutorials" \
+            "/es/docs/tutorials" \
             "/en/docs/api-reference"; do
             echo "Warming $ROUTE..."
             STATUS=$(curl -sf -o /dev/null -w "%{http_code}" \
