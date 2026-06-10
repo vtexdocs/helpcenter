@@ -69,6 +69,30 @@ describe('Copy for AI Feature', () => {
       } else {
         throw new Error('Tutorials section not found in navigation')
       }
+
+      // Warm tutorial pages via cy.request so the Netlify ISR cache is populated
+      // before the asserting cy.visit. Cold pages can intermittently exceed the visit timeout.
+      if (tutorialUrl) {
+        cy.request({
+          url: tutorialUrl,
+          timeout: 90000,
+          failOnStatusCode: false,
+        })
+      }
+      if (tutorialSlugs.es) {
+        cy.request({
+          url: `/es/docs/tutorials/${tutorialSlugs.es}`,
+          timeout: 90000,
+          failOnStatusCode: false,
+        })
+      }
+      if (tutorialSlugs.pt) {
+        cy.request({
+          url: `/pt/docs/tutorials/${tutorialSlugs.pt}`,
+          timeout: 90000,
+          failOnStatusCode: false,
+        })
+      }
     })
   })
 

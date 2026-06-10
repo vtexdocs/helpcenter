@@ -92,6 +92,15 @@ describe('Help Center Navigation Status Test', () => {
     })
   })
 
+  // Warm each selected page via cy.request so the Netlify ISR cache is populated
+  // before the asserting cy.visit. Cold pages render on first request (getStaticProps
+  // + fallback:'blocking') and can intermittently exceed the 60/120s visit timeout.
+  before(() => {
+    selectedPages.forEach((page) => {
+      cy.request({ url: page.url, timeout: 90000, failOnStatusCode: false })
+    })
+  })
+
   it('should successfully load randomly selected pages from each navbar section', function () {
     if (selectedPages.length === 0) {
       cy.task('log', 'No pages selected for testing, skipping')
