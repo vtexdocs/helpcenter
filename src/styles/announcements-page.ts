@@ -32,6 +32,11 @@ const noResults: SxStyleProp = {
   textAlign: 'center',
 }
 
+const resultsNumberContainer: SxStyleProp = {
+  fontSize: '1rem',
+  color: 'muted.0',
+}
+
 const searchInput: SxStyleProp = {
   backgroundColor: '#F4F4F4',
   border: 'none',
@@ -49,5 +54,6 @@ export default {
   cardContainer,
   optionsContainer,
   noResults,
+  resultsNumberContainer,
   searchInput,
 }
