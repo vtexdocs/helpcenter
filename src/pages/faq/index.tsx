@@ -23,7 +23,7 @@ import Pagination from 'components/pagination'
 import Select from 'components/select'
 import { faqFilter, sortBy } from 'utils/constants'
 import FaqCard from 'components/faq-card'
-import Filter from 'components/filter'
+import { ListingFilter } from '@vtexdocs/components'
 import usePagination from '../../utils/hooks/usePagination'
 import { Input } from '@vtexdocs/components'
 import { SearchIcon } from '@vtexdocs/components'
@@ -177,9 +177,15 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
-            <Filter
+            <ListingFilter
               selectedCheckboxes={filters}
               checkBoxFilter={faqFilter(intl)}
+              labels={{
+                button: intl.formatMessage({ id: 'filter_modal.title' }),
+                modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
+                remove: intl.formatMessage({ id: 'filter_modal.remove' }),
+                apply: intl.formatMessage({ id: 'filter_modal.button' }),
+              }}
               onApply={(newFilters) => handleFilterApply(newFilters.checklist)}
             />
             <Select

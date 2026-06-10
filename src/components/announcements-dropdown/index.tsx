@@ -2,7 +2,7 @@ import { Box, Flex, Text } from '@vtex/brand-ui'
 import Link from 'next/link'
 import { useIntl } from 'react-intl'
 import { getDaysElapsed } from 'utils/get-days-elapsed'
-import Tag from 'components/tag'
+import { Tag } from '@vtexdocs/components'
 import { getTagColorByLocalizedName } from 'utils/constants'
 import styles from './styles'
 
