@@ -18,7 +18,7 @@ describe('Search locale handling', () => {
 
   LOCALES.forEach((locale) => {
     it(`returns search results when submitting from locale ${locale}`, () => {
-      cy.visit(LOCALE_START_PATHS[locale], { timeout: 60000 })
+      cy.visit(LOCALE_START_PATHS[locale])
       cy.submitSearch('orders')
       cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
     })

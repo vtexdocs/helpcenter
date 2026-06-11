@@ -3,7 +3,7 @@
 describe('Search autocomplete', () => {
   beforeEach(() => {
     cy.viewport(1366, 768)
-    cy.visit('/docs/tutorials/about-the-admin-category', { timeout: 60000 })
+    cy.visit('/docs/tutorials/about-the-admin-category')
   })
 
   it('shows dropdown suggestions after typing a query', () => {
@@ -12,9 +12,11 @@ describe('Search autocomplete', () => {
   })
 
   it('navigates to a result when a suggestion is clicked', () => {
-    cy.searchFor('orders')
-    cy.getAutocompleteSuggestions().first().click()
-    cy.url().should('not.eq', Cypress.config('baseUrl') + '/')
+    cy.url().then((startUrl) => {
+      cy.searchFor('orders')
+      cy.getAutocompleteSuggestions().first().click()
+      cy.url().should('not.eq', startUrl)
+    })
   })
 
   it('closes the dropdown when clicking outside the search component', () => {
