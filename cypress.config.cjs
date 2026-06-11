@@ -1,6 +1,9 @@
 const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
+  env: {
+    HYBRID_SEARCH_ENABLED: process.env.CYPRESS_HYBRID_SEARCH_ENABLED ?? 'true',
+  },
   video: false, // Disabled by default for speed; enable via CLI --config video=true if needed
   screenshotOnRunFailure: true,
   videosFolder: 'src/tests/cypress/videos',
@@ -23,13 +26,13 @@ module.exports = defineConfig({
     supportFile: 'src/tests/cypress/support/index.js',
     baseUrl: 'http://localhost:3030',
     // Shorter timeouts with more retries - fail fast, retry often
-    pageLoadTimeout: 10000, // 10 seconds for page loads
+    pageLoadTimeout: 120000, // 120 seconds for page loads (Netlify ISR cold renders can exceed 60s)
     defaultCommandTimeout: 5000, // 5 seconds for element assertions
     requestTimeout: 10000, // 10 seconds for cy.request()
     responseTimeout: 10000, // 10 seconds for responses
     retries: {
-      runMode: 3, // Retry failed tests 3 times in CI
-      openMode: 0, // No retries in interactive mode
+      runMode: 2, // CI: retry a failing test up to 2 times before reporting failure
+      openMode: 0, // local interactive runner: no retries (fail fast for dev feedback)
     },
   },
 })

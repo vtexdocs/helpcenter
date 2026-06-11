@@ -5,7 +5,7 @@ describe('Help Center Navigation Status Test', () => {
   let baseUrl
 
   before(() => {
-    baseUrl = Cypress.config('baseUrl')
+    baseUrl = Cypress.config('baseUrl').replace(/\/$/, '')
 
     cy.request({
       url: `${baseUrl}/api/navigation`,
@@ -58,7 +58,7 @@ describe('Help Center Navigation Status Test', () => {
               const name =
                 typeof item.name === 'object' ? item.name.en : item.name
               pages.push({
-                url: `${baseUrl}/${prefix}${slug}`,
+                url: `${baseUrl}${prefix}${slug}`,
                 name,
                 section: documentation,
               })
@@ -69,10 +69,9 @@ describe('Help Center Navigation Status Test', () => {
           })
         }
 
-        // Determine the URL prefix for this section
-        const urlPrefix = section.slugPrefix.endsWith('/')
-          ? section.slugPrefix.slice(0, -1) + '/'
-          : section.slugPrefix + '/'
+        // Determine the URL prefix for this section (normalize to /prefix/ form)
+        const urlPrefix =
+          '/' + section.slugPrefix.replace(/^\//, '').replace(/\/?$/, '/')
 
         collectPages(categories, urlPrefix)
 
@@ -93,17 +92,12 @@ describe('Help Center Navigation Status Test', () => {
     })
   })
 
-  beforeEach(() => {
-    cy.on('uncaught:exception', (err) => {
-      if (
-        err.message.includes('Suspense boundary') ||
-        err.message.includes('hydrating') ||
-        err.message.includes('Minified React error') ||
-        err.message.includes('invariant')
-      ) {
-        return false
-      }
-      return true
+  // Warm each selected page via cy.request so the Netlify ISR cache is populated
+  // before the asserting cy.visit. Cold pages render on first request (getStaticProps
+  // + fallback:'blocking') and can intermittently exceed the 60/120s visit timeout.
+  before(() => {
+    selectedPages.forEach((page) => {
+      cy.request({ url: page.url, timeout: 90000, failOnStatusCode: false })
     })
   })
 
