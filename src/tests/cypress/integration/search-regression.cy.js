@@ -11,7 +11,7 @@ describe('Search — Algolia regression (hybrid search flag OFF)', () => {
 
   beforeEach(() => {
     cy.viewport(1366, 768)
-    cy.visit('/docs/tutorials/about-the-admin-category', { timeout: 60000 })
+    cy.visit('/docs/tutorials/about-the-admin-category')
   })
 
   it('search input is present and accepts text', () => {
@@ -40,7 +40,6 @@ describe('Search — Algolia regression (hybrid search flag OFF)', () => {
       onBeforeLoad(win) {
         cy.spy(win.console, 'error').as('consoleError')
       },
-      timeout: 60000,
     })
     cy.submitSearch('orders')
     cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
