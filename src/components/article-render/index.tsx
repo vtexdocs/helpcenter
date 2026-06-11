@@ -17,6 +17,7 @@ import TimeToRead from 'components/TimeToRead'
 import DateText from 'components/date-text'
 import Author from 'components/author'
 import Tag from 'components/tag'
+import PaymentProvidersTable from 'components/payment-providers-table'
 import CopyForLLM from 'components/copy-for-llm'
 import { KnownIssueStatus } from 'utils/typings/unionTypes'
 
@@ -162,7 +163,11 @@ const ArticleRender = ({
                       </Flex>
                     </Box>
                   </Flex>
-                  <MarkdownRenderer serialized={serialized} />
+                  <MarkdownRenderer
+                    serialized={serialized}
+                    customComponents={{ PaymentProvidersTable }}
+                    scope={{}}
+                  />
                 </article>
               </Box>
             </Box>
