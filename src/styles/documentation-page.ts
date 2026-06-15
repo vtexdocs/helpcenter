@@ -1,5 +1,7 @@
 import type { SxStyleProp } from '@vtex/brand-ui'
 
+import tokens from 'styles/theme-tokens'
+
 const container: SxStyleProp = {
   width: '100%',
   backgroundColor: 'white',
@@ -194,7 +196,8 @@ const cardItem: SxStyleProp = {
   alignItems: 'flex-start',
   justifyContent: 'flex-start',
   padding: '16px 20px',
-  border: '1px solid #E7E9EE',
+  border: '1px solid',
+  borderColor: 'muted.3',
   borderRadius: '8px',
   cursor: 'pointer',
   width: [
@@ -209,8 +212,8 @@ const cardItem: SxStyleProp = {
   color: 'muted.0',
   textDecoration: 'none',
   ':hover': {
-    backgroundColor: '#F8F7FC',
-    borderColor: '#C0C8D2',
+    backgroundColor: 'muted.4',
+    borderColor: tokens.grays.cardHoverBorder,
   },
 }
 
