@@ -20,7 +20,7 @@ describe('Search pagination / infinite scroll', () => {
     cy.get('.searchCardTitle')
       .its('length')
       .then((firstPageCount) => {
-        cy.intercept('POST', /algolia\.net/).as('algoliaNextPage')
+        cy.intercept(/algolia\.net|\/api\/search/).as('algoliaNextPage')
         cy.scrollTo('bottom')
         cy.wait('@algoliaNextPage')
         cy.get('.searchCardTitle').should(
@@ -37,7 +37,7 @@ describe('Search pagination / infinite scroll', () => {
       const firstPageTitles = new Set(
         [...$firstPage].map((el) => el.textContent.trim())
       )
-      cy.intercept('POST', /algolia\.net/).as('algoliaNextPage')
+      cy.intercept(/algolia\.net|\/api\/search/).as('algoliaNextPage')
       cy.scrollTo('bottom')
       cy.wait('@algoliaNextPage')
       cy.get('.searchCardTitle').should(
@@ -57,7 +57,7 @@ describe('Search pagination / infinite scroll', () => {
     cy.get('.searchCardTitle')
       .its('length')
       .then((initialCount) => {
-        cy.intercept('POST', /algolia\.net/).as('algoliaNextPage')
+        cy.intercept(/algolia\.net|\/api\/search/).as('algoliaNextPage')
         cy.scrollTo('bottom')
         cy.wait('@algoliaNextPage')
         cy.get('.searchCardTitle').should(

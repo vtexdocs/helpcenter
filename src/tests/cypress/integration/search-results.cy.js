@@ -41,7 +41,7 @@ describe('Search results page', () => {
 
   context('empty state', () => {
     it('shows no result cards for a query with no results', () => {
-      cy.intercept('POST', /algolia\.net/).as('algoliaSearch')
+      cy.intercept(/algolia\.net|\/api\/search/).as('algoliaSearch')
       cy.visit('/docs/tutorials/about-the-admin-category')
       cy.submitSearch('xyzzy-no-results-8f3k2')
       cy.wait('@algoliaSearch')

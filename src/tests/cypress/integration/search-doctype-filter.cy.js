@@ -12,9 +12,11 @@ describe('Doctype filter UI', () => {
   })
 
   beforeEach(() => {
-    cy.viewport(1023, 768)
     cy.visit('/docs/tutorials/about-the-admin-category')
     cy.submitSearch('api')
+    // Set viewport after search so the header search input is visible during submission.
+    // SearchFilterTabBar is display:none at ≥ 1024px — 1023px makes it visible.
+    cy.viewport(1023, 768)
     cy.get('[data-testid="doctype-filter-tab-bar"]').should('be.visible')
   })
 
