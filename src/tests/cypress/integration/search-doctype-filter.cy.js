@@ -1,7 +1,8 @@
 /// <reference types="cypress" />
 
 // SearchFilterTabBar is a mobile/tablet component (display:none at ≥ 64em / 1024px).
-// Tests run at 1023px wide so the tab bar is visible.
+// beforeEach starts at 1280px so the header search input is visible, then narrows to 1023px
+// after submitting so the tab bar becomes visible.
 describe('Doctype filter UI', () => {
   before(() => {
     cy.request({
@@ -12,10 +13,12 @@ describe('Doctype filter UI', () => {
   })
 
   beforeEach(() => {
+    // Must be ≥ 1024px before visit/submit: searchContainer has display:['none','none','none','flex'],
+    // so at the Cypress default 1000px the header search input is hidden and click() fails.
+    cy.viewport(1280, 768)
     cy.visit('/docs/tutorials/about-the-admin-category')
     cy.submitSearch('api')
-    // Set viewport after search so the header search input is visible during submission.
-    // SearchFilterTabBar is display:none at ≥ 1024px — 1023px makes it visible.
+    // Narrow after submit: SearchFilterTabBar is display:none at ≥ 1024px — 1023px makes it visible.
     cy.viewport(1023, 768)
     cy.get('[data-testid="doctype-filter-tab-bar"]').should('be.visible')
   })
