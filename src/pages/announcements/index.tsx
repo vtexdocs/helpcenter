@@ -1,4 +1,4 @@
-import { Box, Flex } from '@vtex/brand-ui'
+import { Box, Flex, Text } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 
 import { AnnouncementDataElement } from 'utils/typings/types'
@@ -6,21 +6,12 @@ import { LocaleType } from 'utils/typings/unionTypes'
 import Head from 'next/head'
 import styles from 'styles/announcements-page'
 import { PreviewContext } from 'utils/contexts/preview'
-import {
-  Fragment,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react'
+import { Fragment, useContext, useEffect, useMemo, useState } from 'react'
 import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/announcements.png'
-import Pagination from 'components/pagination'
-import AnnouncementCard from 'components/announcement-card'
 import Filter from 'components/filter'
 import {
   announcementsTypeFilter,
@@ -30,6 +21,7 @@ import { SearchIcon } from '@vtexdocs/components'
 import { Input } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
+import AnnouncementExpandableRow from 'components/announcement-expandable-row'
 import Tooltip from 'components/tooltip'
 import {
   countTermMatches,
@@ -42,28 +34,32 @@ interface Props {
   branch: string
 }
 
+const ANNOUNCEMENTS_PAGE_SIZE = 20
+
 const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const intl = useIntl()
   const { setBranchPreview } = useContext(PreviewContext)
 
   useEffect(() => {
     setBranchPreview(branch)
-  }, [])
+  }, [branch, setBranchPreview])
 
-  const itemsPerPage = 8
   const [searchTerm, setSearchTerm] = useState('')
   const searchTerms = useMemo(
     () => getSearchTerms(searchTerm, intl.locale),
     [searchTerm, intl.locale]
   )
-  const [page, setPage] = useState({
-    curr: 1,
-    total: Math.ceil(announcementsData.length / itemsPerPage),
-  })
+
   const [filters, setFilters] = useState<{
     type: string[]
     area: string[]
   }>({ type: [], area: [] })
+
+  const [visibleCount, setVisibleCount] = useState(ANNOUNCEMENTS_PAGE_SIZE)
+
+  useEffect(() => {
+    setVisibleCount(ANNOUNCEMENTS_PAGE_SIZE)
+  }, [searchTerms, filters])
 
   const typeConfig = useMemo(() => announcementsTypeFilter(intl), [intl])
   const areaConfig = useMemo(() => announcementsAreaFilter(intl), [intl])
@@ -109,23 +105,51 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
     })
   }, [searchTerms, filters, announcementsData])
 
-  useEffect(() => {
-    setPage({
-      curr: 1,
-      total: Math.ceil(filteredResult.length / itemsPerPage),
-    })
-  }, [filteredResult])
+  const timelineAnnouncements = useMemo(
+    () =>
+      filteredResult.map((announcement) => ({
+        title: announcement.title,
+        publishedAt: new Date(announcement.createdAt),
+        articleLink: announcement.url,
+        synopsis: announcement.synopsis,
+        tags: announcement.tags,
+      })),
+    [filteredResult]
+  )
 
-  const paginatedResult = useMemo(() => {
-    return filteredResult.slice(
-      (page.curr - 1) * itemsPerPage,
-      page.curr * itemsPerPage
-    )
-  }, [page, filteredResult])
+  const visibleAnnouncements = useMemo(
+    () => timelineAnnouncements.slice(0, visibleCount),
+    [timelineAnnouncements, visibleCount]
+  )
 
-  const handleClick = useCallback(({ selected }: { selected: number }) => {
-    setPage((prev) => ({ ...prev, curr: selected }))
-  }, [])
+  const hasMore = visibleCount < timelineAnnouncements.length
+
+  const timelineByYear = useMemo(() => {
+    type TimelineItem = {
+      title: string
+      publishedAt: Date
+      articleLink: string
+      synopsis?: string
+      tags?: string[]
+    }
+
+    const bucket = new Map<string, TimelineItem[]>()
+
+    for (const item of visibleAnnouncements) {
+      const yearKey = String(item.publishedAt.getFullYear())
+      const list = bucket.get(yearKey) ?? []
+      list.push(item)
+      bucket.set(yearKey, list)
+    }
+
+    const yearsDesc = [...bucket.keys()].sort((a, b) => Number(b) - Number(a))
+
+    return yearsDesc.map((yearKey) => ({
+      yearKey,
+      label: yearKey,
+      announcements: bucket.get(yearKey) ?? [],
+    }))
+  }, [visibleAnnouncements])
 
   return (
     <>
@@ -225,26 +249,49 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
                 {intl.formatMessage({ id: 'announcements_page.results_found' })}
               </Box>
             )}
-            {paginatedResult.length === 0 && (
+            {filteredResult.length === 0 && (
               <Flex sx={styles.noResults}>
                 {intl.formatMessage({ id: 'announcements_page_result.empty' })}
               </Flex>
             )}
-            {paginatedResult.map((announcement, id) => {
-              return (
-                <AnnouncementCard
-                  key={id}
-                  announcement={announcement}
-                  appearance="large"
-                />
-              )
-            })}
+            {filteredResult.length > 0 &&
+              timelineByYear.map((yearGroup, yearIndex) => (
+                <Flex
+                  key={yearGroup.yearKey}
+                  sx={{
+                    ...styles.yearBlock,
+                    ...(yearIndex > 0 ? { mt: ['48px', '56px'] } : {}),
+                  }}
+                >
+                  <Text sx={styles.yearHeading}>{yearGroup.label}</Text>
+                  <Flex sx={styles.yearTimelineBody}>
+                    <Box sx={styles.yearVerticalRail} aria-hidden />
+                    {yearGroup.announcements.map((item) => (
+                      <AnnouncementExpandableRow
+                        key={item.articleLink}
+                        title={item.title}
+                        articleLink={item.articleLink}
+                        publishedAt={item.publishedAt}
+                        synopsis={item.synopsis}
+                        tags={item.tags}
+                      />
+                    ))}
+                  </Flex>
+                </Flex>
+              ))}
+            {hasMore && (
+              <Box
+                as="button"
+                type="button"
+                onClick={() =>
+                  setVisibleCount((count) => count + ANNOUNCEMENTS_PAGE_SIZE)
+                }
+                sx={styles.seeMoreButton}
+              >
+                {intl.formatMessage({ id: 'announcements_page.see_more' })}
+              </Box>
+            )}
           </Flex>
-          <Pagination
-            forcePage={page.curr}
-            pageCount={page.total}
-            onPageChange={handleClick}
-          />
         </Flex>
       </Fragment>
     </>

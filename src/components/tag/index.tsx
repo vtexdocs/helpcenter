@@ -16,6 +16,8 @@ const Tag = ({
     | 'Default'
     | 'Selected'
     | 'New'
+    | 'NewFeature'
+    | 'Improvement'
     | 'Gray'
     | 'Deprecation'
     | 'Blue'

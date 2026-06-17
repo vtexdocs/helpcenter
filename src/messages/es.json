@@ -2,6 +2,8 @@
   "announcement_bar.button": "Volver al portal anterior",
   "announcement_bar.label": "Esta es la versión beta del nuevo Help Center.",
   "announcement_card.new_tag": "Nuevo",
+  "announcement_expandable_row.expand": "Expandir resumen de {title}",
+  "announcement_expandable_row.collapse": "Contraer resumen de {title}",
   "landing_page_newsletter.title": "¿Cómo podemos ayudarte?",
   "landing_page_newsletter.description": "Encuentra respuestas, soluciones y orientación sobre la plataforma VTEX en un solo lugar",
   "landing_page_newsletter.policyText": "Lee nuestra",
