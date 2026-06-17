@@ -46,18 +46,6 @@ describe('Sidebar Navigation Tests', () => {
   })
 
   beforeEach(() => {
-    cy.on('uncaught:exception', (err) => {
-      if (
-        err.message.includes('Suspense boundary') ||
-        err.message.includes('hydrating') ||
-        err.message.includes('Minified React error') ||
-        err.message.includes('invariant')
-      ) {
-        return false
-      }
-      return true
-    })
-
     cy.viewport(1366, 768)
   })
 
@@ -71,6 +59,9 @@ describe('Sidebar Navigation Tests', () => {
         const href = $link.attr('href')
         cy.task('log', `Clicking ${locale} sidebar link: ${href}`)
       })
+    // TODO (EDU-18495): the sidebar CSS transition is still running when Cypress
+    // tries to click. { force: true } bypasses the animating check as a workaround.
+    // Replace with an explicit animation-end assertion once the root cause is understood.
     cy.get(`a[href*="${hrefPattern}"]`)
       .filter(':visible')
       .first()
@@ -188,12 +179,13 @@ describe('Sidebar Navigation Tests', () => {
           expect(href).to.not.include('/es/')
         })
 
+      // TODO (EDU-18495): same animation workaround as clickVisibleSidebarLink.
       cy.get('a[href^="/docs/tutorials/"]')
         .not('[href*="/pt/"]')
         .not('[href*="/es/"]')
         .filter(':visible')
         .first()
-        .click()
+        .click({ force: true })
 
       cy.url({ timeout: 15000 }).should('not.include', '/pt/')
       cy.url().should('not.include', '/es/')

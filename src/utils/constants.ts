@@ -413,7 +413,21 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
-const typeTagsByLocale: Record<string, Record<string, string>> = {
+export type AnnouncementTagColor =
+  | 'Green'
+  | 'Blue'
+  | 'Scheduled'
+  | 'Deprecation'
+  | 'Gray'
+
+type AnnouncementTypeKey =
+  | 'new_feature'
+  | 'improvement'
+  | 'breaking_change'
+  | 'deprecation'
+  | 'security_update'
+
+const typeTagsByLocale: Record<string, Record<AnnouncementTypeKey, string>> = {
   en: {
     new_feature: 'New feature',
     improvement: 'Improvement',
@@ -435,6 +449,30 @@ const typeTagsByLocale: Record<string, Record<string, string>> = {
     deprecation: 'Descontinuação',
     security_update: 'Atualização de segurança',
   },
+}
+
+export const typeTagColorMap: Record<
+  AnnouncementTypeKey,
+  AnnouncementTagColor
+> = {
+  new_feature: 'Green',
+  improvement: 'Blue',
+  breaking_change: 'Scheduled',
+  deprecation: 'Deprecation',
+  security_update: 'Gray',
+}
+
+export const getTagColorByLocalizedName = (
+  tagName: string
+): AnnouncementTagColor | undefined => {
+  for (const locale of Object.values(typeTagsByLocale)) {
+    for (const [key, value] of Object.entries(locale)) {
+      if (value === tagName) {
+        return typeTagColorMap[key as AnnouncementTypeKey]
+      }
+    }
+  }
+  return undefined
 }
 
 export const announcementsTypeFilter = (intl: IntlShape) => {

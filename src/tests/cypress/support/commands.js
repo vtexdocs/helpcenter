@@ -81,6 +81,22 @@ Cypress.Commands.add('verifyLocale', (expectedLocale) => {
   }
 })
 
+Cypress.Commands.add('searchFor', (query) => {
+  cy.get('[data-cy="search"]').first().parent().click()
+  cy.get('[data-cy="search"]').first().clear().type(query)
+})
+
+// Traversal is fragile: SearchInput from @vtexdocs/components has no data-cy on the
+// dropdown container. Update this command if the DOM structure changes.
+Cypress.Commands.add('getAutocompleteSuggestions', () =>
+  cy.get('[data-cy="search"]').first().parent().parent().find('a')
+)
+
+Cypress.Commands.add('submitSearch', (query) => {
+  cy.searchFor(query)
+  cy.get('[data-cy="search"]').first().type('{enter}')
+})
+
 Cypress.Commands.add('clickSidebarLink', (options = {}) => {
   const { locale, index = 0 } = options
 
