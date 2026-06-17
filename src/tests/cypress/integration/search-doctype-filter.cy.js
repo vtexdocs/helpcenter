@@ -21,6 +21,8 @@ describe('Doctype filter UI', () => {
     // Narrow after submit: SearchFilterTabBar is display:none at ≥ 1024px — 1023px makes it visible.
     cy.viewport(1023, 768)
     cy.get('[data-testid="doctype-filter-tab-bar"]').should('be.visible')
+    // Wait for results to load so ocurrenceCount context is populated before any test runs
+    cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
   })
 
   it('renders filter tabs with per-doctype result counts', () => {
