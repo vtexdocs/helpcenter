@@ -21,8 +21,16 @@ describe('Doctype filter UI', () => {
     // Narrow after submit: SearchFilterTabBar is display:none at ≥ 1024px — 1023px makes it visible.
     cy.viewport(1023, 768)
     cy.get('[data-testid="doctype-filter-tab-bar"]').should('be.visible')
-    // Wait for results to load so ocurrenceCount context is populated before any test runs
-    cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
+    // Wait for results to load so ocurrenceCount context is populated before any test runs.
+    // The Algolia count for the "All" tab (ocurrenceCount[""]) may arrive after the first result
+    // cards render, so gate on the count badge itself rather than .searchCardTitle alone.
+    cy.get('[data-testid="doctype-filter-tab"][data-filter=""]', {
+      timeout: 15000,
+    })
+      .find('[data-testid="doctype-filter-tab-count"]')
+      .should(($el) => {
+        expect(parseInt($el.text())).to.be.greaterThan(0)
+      })
   })
 
   it('renders filter tabs with per-doctype result counts', () => {
