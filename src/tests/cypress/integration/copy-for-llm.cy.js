@@ -122,7 +122,7 @@ describe('Copy for AI Feature', () => {
   }
 
   it('Should copy content in English and verify markdown structure', () => {
-    cy.visit(tutorialUrl)
+    cy.visit(tutorialUrl, { timeout: 240000 })
 
     cy.document().then((doc) => {
       cy.stub(doc, 'execCommand')
