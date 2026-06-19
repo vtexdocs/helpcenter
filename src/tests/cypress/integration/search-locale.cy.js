@@ -2,10 +2,11 @@
 
 describe('Search locale handling', () => {
   before(() => {
-    const warmUp = (url) => {
+    const warmUp = (url, attempt = 0) => {
       cy.request({ url, failOnStatusCode: false, timeout: 30000 }).then(
         (resp) => {
-          if (resp.status !== 200) cy.wait(2000).then(() => warmUp(url))
+          if (resp.status !== 200 && attempt < 10)
+            cy.wait(2000).then(() => warmUp(url, attempt + 1))
         }
       )
     }

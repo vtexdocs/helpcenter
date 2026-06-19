@@ -100,7 +100,7 @@ jobs:
             "/es/docs/tutorials" \
             "/en/docs/api-reference"; do
             echo "Warming $ROUTE..."
-            STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            STATUS=$(curl -sf -o /dev/null -w "%{http_code}" \
               --max-time 90 --retry 5 --retry-delay 10 --retry-all-errors \
               "$BASE_URL$ROUTE" 2>/dev/null || echo "000")
             echo "  → HTTP $STATUS"
