@@ -1,6 +1,18 @@
 /// <reference types="cypress" />
 
 describe('Search locale handling', () => {
+  before(() => {
+    const warmUp = (url) => {
+      cy.request({ url, failOnStatusCode: false, timeout: 30000 }).then(
+        (resp) => {
+          if (resp.status !== 200) cy.wait(2000).then(() => warmUp(url))
+        }
+      )
+    }
+    warmUp('/pt/docs/tutorials')
+    warmUp('/es/docs/tutorials')
+  })
+
   beforeEach(() => {
     cy.viewport(1366, 768)
   })
