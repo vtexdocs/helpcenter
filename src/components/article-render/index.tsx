@@ -18,6 +18,9 @@ import DateText from 'components/date-text'
 import Author from 'components/author'
 import Tag from 'components/tag'
 import CopyForLLM from 'components/copy-for-llm'
+import DataTable from 'components/datatable'
+import { DataTablesProvider } from 'components/datatable/context'
+import type { DataTablesData } from 'components/datatable/datatable.types'
 import { KnownIssueStatus } from 'utils/typings/unionTypes'
 
 import { useIntl } from 'react-intl'
@@ -34,6 +37,9 @@ const ArticleRender = ({
   type,
 }: MarkDownProps) => {
   const intl = useIntl()
+  const dataTablesData =
+    (serialized.scope as { dataTablesData?: DataTablesData } | undefined)
+      ?.dataTablesData ?? {}
   return (
     <>
       <Head>
@@ -162,7 +168,13 @@ const ArticleRender = ({
                       </Flex>
                     </Box>
                   </Flex>
-                  <MarkdownRenderer serialized={serialized} />
+                  <DataTablesProvider value={dataTablesData}>
+                    <MarkdownRenderer
+                      serialized={serialized}
+                      customComponents={{ DataTable }}
+                      scope={{ _: true }}
+                    />
+                  </DataTablesProvider>
                 </article>
               </Box>
             </Box>

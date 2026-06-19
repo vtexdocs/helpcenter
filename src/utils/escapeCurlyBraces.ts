@@ -60,6 +60,13 @@ const assertCodeBlocksAreCorrectlyFormatted = (content: string) => {
 }
 
 const escapeCurlyBraces: (content: string) => string = (content) => {
+  const protectedTags: string[] = []
+  content = content.replace(/<DataTable\b[^>]*\/>/g, (match) => {
+    const token = `\u0000DATATABLE${protectedTags.length}\u0000`
+    protectedTags.push(match)
+    return token
+  })
+
   try {
     assertCodeBlocksAreCorrectlyFormatted(content)
   } catch (err) {
@@ -100,6 +107,10 @@ const escapeCurlyBraces: (content: string) => string = (content) => {
 
     idx++
   }
+
+  protectedTags.forEach((tag, i) => {
+    newContent = newContent.replace(`\u0000DATATABLE${i}\u0000`, () => tag)
+  })
 
   return newContent
 }
