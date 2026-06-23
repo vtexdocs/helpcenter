@@ -62,7 +62,7 @@ const assertCodeBlocksAreCorrectlyFormatted = (content: string) => {
 const escapeCurlyBraces: (content: string) => string = (content) => {
   const protectedTags: string[] = []
   content = content.replace(/<DataTable\b[^>]*\/>/g, (match) => {
-    const token = `\u0000DATATABLE${protectedTags.length}\u0000`
+    const token = `__DATATABLE_PROTECTED_${protectedTags.length}__`
     protectedTags.push(match)
     return token
   })
