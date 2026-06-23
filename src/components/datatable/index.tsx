@@ -87,6 +87,10 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
   }, [src, columnsKey, rows])
 
   if (cols.length === 0) return null
+  if (!table) {
+    console.error(`[DataTable] No data found for src="${src}". Check if the file exists in help-center-content.`)
+    return null
+  }
 
   return (
     <Box sx={styles.container}>
