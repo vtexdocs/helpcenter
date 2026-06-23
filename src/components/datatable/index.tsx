@@ -84,7 +84,7 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
       cancelled = true
       instance?.destroy()
     }
-  }, [src, columnsKey, rows])
+  }, [src, columnsKey])
 
   if (cols.length === 0) return null
   if (!table) {
