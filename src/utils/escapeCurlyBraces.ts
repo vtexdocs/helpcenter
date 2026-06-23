@@ -109,7 +109,7 @@ const escapeCurlyBraces: (content: string) => string = (content) => {
   }
 
   protectedTags.forEach((tag, i) => {
-    newContent = newContent.replace(`\u0000DATATABLE${i}\u0000`, () => tag)
+    newContent = newContent.replace(`__DATATABLE_PROTECTED_${i}__`, () => tag)
   })
 
   return newContent

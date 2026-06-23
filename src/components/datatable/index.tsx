@@ -65,11 +65,29 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
       if (cancelled || !tableRef.current) return
 
       const anyFilterable = cols.some((column) => column.filterable)
-      instance = new DataTablesLib(tableRef.current, {
+      const tableEl = tableRef.current
+      instance = new DataTablesLib(tableEl, {
         searching: anyFilterable,
         ordering: true,
         paging: true,
         info: true,
+        autoWidth: false,
+        initComplete: function () {
+          const wrapper = tableEl.closest('.dt-container') as HTMLElement | null
+          if (!wrapper) return
+      
+          const table = wrapper.querySelector('table.dataTable') as HTMLElement | null
+          if (table) {
+            table.style.width = '100%'
+            table.style.tableLayout = 'fixed'
+      
+            const ths = table.querySelectorAll('thead th')
+            const colCount = ths.length
+            ths.forEach((th: HTMLElement) => {
+              th.style.width = `${100 / colCount}%`
+            })
+          }
+        },
         columnDefs: cols.map((column, index) => ({
           targets: index,
           orderable: Boolean(column.sortable),
