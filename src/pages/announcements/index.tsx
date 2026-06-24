@@ -346,11 +346,7 @@ export const getStaticProps: GetStaticProps = async ({
     for (const { content, slug } of batchResults) {
       if (!content) continue
       const frontmatter = await parseFrontmatter(content, logger)
-      // Only include published or changed announcements
-      if (
-        frontmatter &&
-        (frontmatter.status === 'PUBLISHED' || frontmatter.status === 'CHANGED')
-      ) {
+      if (frontmatter) {
         const tags: string[] =
           frontmatter.tags &&
           Array.isArray(frontmatter.tags) &&
