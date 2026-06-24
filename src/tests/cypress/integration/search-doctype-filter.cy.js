@@ -1,22 +1,37 @@
 /// <reference types="cypress" />
 
+import { COLD_PREVIEW_TIMEOUT } from '../support/constants'
+
 // SearchFilterTabBar is a mobile/tablet component (display:none at ≥ 64em / 1024px).
 // beforeEach starts at 1280px so the header search input is visible, then narrows to 1023px
 // after submitting so the tab bar becomes visible.
+const DOCTYPE_FILTER_PAGE = '/docs/tutorials/about-the-admin-category'
+
 describe('Doctype filter UI', () => {
   before(() => {
-    cy.request({
-      url: '/docs/tutorials/about-the-admin-category',
-      timeout: 90000,
-      failOnStatusCode: false,
-    })
+    // Warm the ISR cache for the exact page beforeEach visits so every cy.visit below is a
+    // fast cache hit instead of a ~6-min cold render. A cold render here monopolizes origin
+    // time and triggers the 403 cascade for later specs (B-5). A long timeout absorbs an
+    // in-progress cold render; retry-until-200 (guarded) self-heals transient 403/5xx
+    // throttling without consuming the whole before() timeout on a permanently failing route.
+    const warmUp = (url, attempt = 0) => {
+      cy.request({
+        url,
+        failOnStatusCode: false,
+        timeout: COLD_PREVIEW_TIMEOUT,
+      }).then((resp) => {
+        if (resp.status !== 200 && attempt < 10)
+          cy.wait(2000).then(() => warmUp(url, attempt + 1))
+      })
+    }
+    warmUp(DOCTYPE_FILTER_PAGE)
   })
 
   beforeEach(() => {
     // Must be ≥ 1024px before visit/submit: searchContainer has display:['none','none','none','flex'],
     // so at the Cypress default 1000px the header search input is hidden and click() fails.
     cy.viewport(1280, 768)
-    cy.visit('/docs/tutorials/about-the-admin-category')
+    cy.visit(DOCTYPE_FILTER_PAGE)
     cy.submitSearch('api')
     // Narrow after submit: SearchFilterTabBar is display:none at ≥ 1024px — 1023px makes it visible.
     cy.viewport(1023, 768)
