@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import { COLD_PREVIEW_TIMEOUT } from '../support/constants'
 import { writeLog } from '../support/functions'
 
 describe('Copy for AI Feature', () => {
@@ -122,7 +123,7 @@ describe('Copy for AI Feature', () => {
   }
 
   it('Should copy content in English and verify markdown structure', () => {
-    cy.visit(tutorialUrl, { timeout: 240000 })
+    cy.visit(tutorialUrl, { timeout: COLD_PREVIEW_TIMEOUT })
 
     cy.document().then((doc) => {
       cy.stub(doc, 'execCommand')
