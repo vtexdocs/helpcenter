@@ -111,7 +111,7 @@ const documentationExcerpt: SxStyleProp = {
 }
 
 const bottomContributorsContainer: SxStyleProp = {
-  display: ['none', 'initial', 'initial', 'initial', 'none'],
+  display: ['initial', 'initial', 'initial', 'initial', 'none'],
 }
 
 const bottomContributorsDivider: SxStyleProp = {
@@ -131,7 +131,7 @@ const rightContainer: SxStyleProp = {
     'none !important',
     'initial !important',
   ],
-  minWidth: [0, 0, 0, 0, '139px', '184px', '284px'],
+  minWidth: [0, 0, 0, 0, '180px', '184px', '284px'],
 }
 
 const releaseAction: SxStyleProp = {
