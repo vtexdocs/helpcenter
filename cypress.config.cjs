@@ -22,9 +22,15 @@ module.exports = defineConfig({
       const plugins = require('./src/tests/cypress/plugins/index.js')
       return plugins(on, config)
     },
+    // Spec ordering (T-45): the workflow pre-warm step warms every statically-known route to
+    // HTTP 200 before Cypress starts, so no spec runs against a cold preview. search-doctype-filter
+    // (historically the heaviest/coldest spec, ~6-min cold render) is still listed first so it runs
+    // immediately after the pre-warm while the preview is warmest. The catch-all glob then runs the
+    // remaining specs in alphabetical order; Cypress deduplicates, so doctype-filter runs once.
+    // Combined with serial execution (single worker — the CI action sets no parallel/record/group)
+    // and the after:spec inter-spec settle in plugins/index.js, this keeps concurrent origin
+    // pressure low and avoids front-loading a cold-render spec ahead of the warmed preview.
     specPattern: [
-      // Run doctype-filter first so it executes while the Netlify preview is warmest.
-      // The catch-all glob below picks it up too; Cypress deduplicates, so it only runs once.
       'src/tests/cypress/integration/search-doctype-filter.cy.js',
       'src/tests/cypress/integration/**/*.cy.{js,jsx,ts,tsx}',
     ],
