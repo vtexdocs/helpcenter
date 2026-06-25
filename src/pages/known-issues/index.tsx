@@ -252,6 +252,12 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
             </Tooltip>
           </Flex>
           <Flex sx={styles.cardContainer}>
+            {!!filteredResult.length && (
+              <Box sx={styles.resultsNumberContainer}>
+                {filteredResult.length}{' '}
+                {intl.formatMessage({ id: 'known_issues_page.results_found' })}
+              </Box>
+            )}
             {paginatedResult.length === 0 && (
               <Flex sx={styles.noResults}>
                 {intl.formatMessage({ id: 'search_result.empty' })}

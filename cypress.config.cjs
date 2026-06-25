@@ -22,7 +22,12 @@ module.exports = defineConfig({
       const plugins = require('./src/tests/cypress/plugins/index.js')
       return plugins(on, config)
     },
-    specPattern: 'src/tests/cypress/integration/**/*.cy.{js,jsx,ts,tsx}',
+    specPattern: [
+      // Run doctype-filter first so it executes while the Netlify preview is warmest.
+      // The catch-all glob below picks it up too; Cypress deduplicates, so it only runs once.
+      'src/tests/cypress/integration/search-doctype-filter.cy.js',
+      'src/tests/cypress/integration/**/*.cy.{js,jsx,ts,tsx}',
+    ],
     supportFile: 'src/tests/cypress/support/index.js',
     baseUrl: 'http://localhost:3030',
     // Shorter timeouts with more retries - fail fast, retry often

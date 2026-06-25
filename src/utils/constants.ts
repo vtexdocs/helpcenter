@@ -73,6 +73,18 @@ export const updatesData = (intl: IntlShape) => {
       link: '/announcements',
     },
     {
+      id: 'known-issues',
+      Icon: WarningIcon,
+      title: intl.formatMessage({
+        id: 'sidebar_known_issues.title',
+      }),
+      description: intl.formatMessage({
+        id: 'sidebar_known_issues.description',
+      }),
+      link: '/known-issues',
+      excludeFromSearch: true,
+    },
+    {
       id: 'Status',
       Icon: GraphIcon,
       title: intl.formatMessage({
@@ -126,17 +138,6 @@ export const menuSupportData = (intl: IntlShape) => {
         id: 'updates_info_notes.description',
       }),
       link: '/faq',
-    },
-    {
-      id: 'known-issues',
-      Icon: WarningIcon,
-      title: intl.formatMessage({
-        id: 'sidebar_known_issues.title',
-      }),
-      description: intl.formatMessage({
-        id: 'sidebar_known_issues.description',
-      }),
-      link: '/known-issues',
     },
     {
       id: 'troubleshooting',

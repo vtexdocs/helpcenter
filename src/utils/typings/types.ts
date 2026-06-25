@@ -123,6 +123,7 @@ export interface DocDataElement extends DataElement {
   id: string
   title: string
   isExternalLink?: boolean
+  excludeFromSearch?: boolean
 }
 
 export interface FaqDataElement extends DataElement {

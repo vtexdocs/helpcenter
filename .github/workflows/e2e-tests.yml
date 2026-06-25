@@ -95,6 +95,7 @@ jobs:
             "/api/navigation" \
             "/docs/tutorials" \
             "/docs/tutorials/about-the-admin-category" \
+            "/en/docs/tutorials/about-the-admin-category" \
             "/pt/docs/tutorials" \
             "/es/docs/tutorials" \
             "/en/docs/api-reference"; do
