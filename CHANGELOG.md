@@ -2,6 +2,176 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.13.8](https://github.com/vtexdocs/helpcenter/compare/v0.10.4...v0.13.8) (2026-06-25)
+
+
+### Features
+
+* add card to category page ([384d6ed](https://github.com/vtexdocs/helpcenter/commit/384d6edc50373b002e4678f22050d6a736ad596a))
+* add subscription list component ([58e8bec](https://github.com/vtexdocs/helpcenter/commit/58e8bec0eb003d32bb21d2bfe27d8921dac572dc))
+* announcements dropdown ([c7321b5](https://github.com/vtexdocs/helpcenter/commit/c7321b57c591f5c3bca7560319c7742d3ba4e782))
+* **announcements:** add monthly timeline with expandable rows ([9690c33](https://github.com/vtexdocs/helpcenter/commit/9690c33eaa0a6dc61e89c41987d423ef08132b62))
+* **announcements:** implement tag filtering and year-based grouping in announcement components ([7efa02b](https://github.com/vtexdocs/helpcenter/commit/7efa02b0ba28a265086d4899a7ecd7f50b76662b))
+* changing announcements card ([2b409c2](https://github.com/vtexdocs/helpcenter/commit/2b409c273ac07692b550ec472973b4e2a9c08282))
+* creating filter for Announcements page ([b51caaf](https://github.com/vtexdocs/helpcenter/commit/b51caaf9898571bcd3616723652a3b1a73f86e2a))
+* creating styles for each announcements card Type filter option ([2daf3df](https://github.com/vtexdocs/helpcenter/commit/2daf3dfc075a943c53c1a380c342f3a60da84aae))
+* **en.json:** testing ([5797674](https://github.com/vtexdocs/helpcenter/commit/57976747ea946605c1e8a3cb96cac7b840da62e0))
+* fixing a building error ([4d615b9](https://github.com/vtexdocs/helpcenter/commit/4d615b9a99e129c590c83b7e0ecb3dc256ae6df6))
+* fixing es and pt area filters ([964cffc](https://github.com/vtexdocs/helpcenter/commit/964cffc9afef858c558b2e402191dd59ef49ddac))
+* **i18n:** add privacy notice messages and URLs for subscription list ([08859c9](https://github.com/vtexdocs/helpcenter/commit/08859c9152f63aa78100d99433daa360cd5862cb))
+* **i18n:** add translations for subscription list messages ([431187f](https://github.com/vtexdocs/helpcenter/commit/431187f99647fe98b7605f0e48ccf8e19bfda8e5))
+* **i18n:** localize component messages ([112600e](https://github.com/vtexdocs/helpcenter/commit/112600e4ebfcd334e70712f27915db417db238a3))
+* import component into the homepage ([d3a9fa3](https://github.com/vtexdocs/helpcenter/commit/d3a9fa3f60c2298d5481f1ca110547e68375bb80))
+* improve troubleshooting filters and card UI ([d3ed2ec](https://github.com/vtexdocs/helpcenter/commit/d3ed2ec42737e8c1f71ad06f55cc1e9334328a0b))
+* known issue ID search ([4e60646](https://github.com/vtexdocs/helpcenter/commit/4e606462a366d140e641a00bd5dfbaa0041d4ea5))
+* localizing the ES and PT filters ([3561545](https://github.com/vtexdocs/helpcenter/commit/3561545192d25a0ead3e68c47990b67ae6218b15))
+* making the help-center-content files to return to the filtering ([40040da](https://github.com/vtexdocs/helpcenter/commit/40040da0de64ed8af52347158c8e62c553281912))
+* removing sort by filter from announcements ([3043c13](https://github.com/vtexdocs/helpcenter/commit/3043c137e24e1f64e84d573bde2d14cc5960c1f7))
+
+
+### Bug Fixes
+
+* add missing lines ([a87ee84](https://github.com/vtexdocs/helpcenter/commit/a87ee84ccce74648e9bff89e2207d859a3359aeb))
+* add redirect for b2b trade policies overview ([2c9251e](https://github.com/vtexdocs/helpcenter/commit/2c9251e044b4037d33ec2f105d1108d3d033612e))
+* **category card:** set the same margins and card size for all categories and subcategories ([daab145](https://github.com/vtexdocs/helpcenter/commit/daab145a5f0351b5bd723cd07f83ee3a0e0f7c83))
+* change to new name ([8c8ce39](https://github.com/vtexdocs/helpcenter/commit/8c8ce394628768cfc42b0022996043d27838d14a))
+* **ci:** warm PT/ES locale routes in pre-warm step (T-26) ([7282a72](https://github.com/vtexdocs/helpcenter/commit/7282a72324be77fef710dcc8459e926029f7a101))
+* **cypress:** add { force: true } to EN sidebar click to resolve animation flake (EDU-18495) ([b81634e](https://github.com/vtexdocs/helpcenter/commit/b81634e7767cc836db90a88a8be29a30fbb67ff4))
+* **cypress:** add warm-then-visit + raise pageLoadTimeout to 120s (T-27/T-28/T-29) ([54ac5f4](https://github.com/vtexdocs/helpcenter/commit/54ac5f4f0c27bf318a876245ac1768f1f00267db))
+* **cypress:** annotate { force: true } sidebar clicks with EDU-18495 TODO ([8da6b5d](https://github.com/vtexdocs/helpcenter/commit/8da6b5dd9563845b2aefe20f08bf1bc418464023))
+* **cypress:** avoid visiting home page in search tests to prevent deploy-preview timeouts ([4f770e9](https://github.com/vtexdocs/helpcenter/commit/4f770e9b98824520123ca32f9f6a43faecc43f3e))
+* **cypress:** correct selectors for Algolia search components ([8dd9416](https://github.com/vtexdocs/helpcenter/commit/8dd94164f5248319f711771555f5386e6b60a0a0))
+* **cypress:** expand search input before interacting ([0406062](https://github.com/vtexdocs/helpcenter/commit/0406062bcfd7c3ff1bb1904e1eddf6afcaa86253))
+* **cypress:** fix double-slash URL construction in helpcenter-navigation-status ([bd7b58d](https://github.com/vtexdocs/helpcenter/commit/bd7b58d354f6aa08aeabc76590c67bb4df5ed4fa))
+* **cypress:** fix locale spec to visit inner page directly (EDU-18407) ([9bdb418](https://github.com/vtexdocs/helpcenter/commit/9bdb4188709dc0a242cad2b08a127aeb3cb8a963))
+* **cypress:** fix no-op URL assertion and drop 60s visit timeout overrides (EDU-18407) ([4d5141c](https://github.com/vtexdocs/helpcenter/commit/4d5141cb72f3b412ffe9f499d87369873f0cd897))
+* **cypress:** fix selectors and assertions for search specs (EDU-18407) ([eb5b03a](https://github.com/vtexdocs/helpcenter/commit/eb5b03a56c390d3765701fde107d067adae0b62f))
+* **cypress:** increase visit timeout to 30s for search regression spec ([e9454bb](https://github.com/vtexdocs/helpcenter/commit/e9454bb11512cd962f4c501312e21f2de79d1543))
+* **cypress:** log suppressed uncaught exceptions before swallowing them ([8d44767](https://github.com/vtexdocs/helpcenter/commit/8d44767706dcdcf24e87466557ca8766931a2b46))
+* **cypress:** lower runMode retries from 3 to 2 (EDU-18407) ([f3667ec](https://github.com/vtexdocs/helpcenter/commit/f3667ec6c6ee508d981db70f12bc05f3467ad841))
+* **cypress:** normalize urlPrefix to /prefix/ form in navigation-status spec ([1ae938b](https://github.com/vtexdocs/helpcenter/commit/1ae938bdb28336cc338d59169512fa5afb3a2288))
+* **cypress:** pre-warm article page and drop 60s visit timeout overrides (T-30) ([075f218](https://github.com/vtexdocs/helpcenter/commit/075f218586f966fbf07d1b3e8d0a7636590e5d75))
+* **cypress:** pre-warm Netlify Functions before Cypress runs (EDU-18407) ([098c13d](https://github.com/vtexdocs/helpcenter/commit/098c13da9c61a7b9901bd9bd6a4ce4faf1bf78c5))
+* **cypress:** pre-warm search-regression page in before() (T-28 omission) ([f8de9c4](https://github.com/vtexdocs/helpcenter/commit/f8de9c4c5c225d9655226897e85814865a90e03c))
+* **cypress:** raise pageLoadTimeout to 60s and cy.visit() timeouts to 60s (EDU-18407) ([40351ad](https://github.com/vtexdocs/helpcenter/commit/40351ad66f2f4bc28285b9cd81bd6dcf688947d2))
+* **cypress:** raise remaining cy.visit() timeouts to 60s in regression and results specs (EDU-18407) ([7ed2f8c](https://github.com/vtexdocs/helpcenter/commit/7ed2f8ca0a3df6b34bb72ec34fff0f530f163ff5))
+* **cypress:** remove no-op submitSearch 'button' path; assert keyword in URL (EDU-18407) ([d932f05](https://github.com/vtexdocs/helpcenter/commit/d932f058060e0d97b5a764c1124719de4991c3b7))
+* **cypress:** remove URL assertion from submitSearch; normalize baseUrl (EDU-18407) ([37ff039](https://github.com/vtexdocs/helpcenter/commit/37ff039ea42595d440af99bdbfadfd1b0a2c3421))
+* **cypress:** replace cy.on window:console with cy.spy (EDU-18407) ([7b210cf](https://github.com/vtexdocs/helpcenter/commit/7b210cf4335c34aea35806438e21e6a4602a1ee0))
+* **cypress:** replace cy.wait(ms) with intercept alias in pagination spec (EDU-18407) ([3c0f3e1](https://github.com/vtexdocs/helpcenter/commit/3c0f3e1385ecb1c7f5f8fc140337d577067ab814))
+* **cypress:** use .first() to disambiguate duplicate search inputs ([cac266a](https://github.com/vtexdocs/helpcenter/commit/cac266a50d0047a18a313c8081ee9fa19cd50e63))
+* **cypress:** wait for DOM update after Algolia next-page in test 2 (EDU-18407) ([7f9f414](https://github.com/vtexdocs/helpcenter/commit/7f9f414756111d1a5a6490803713f3c133a25524))
+* **en.json:** typos ([832c89b](https://github.com/vtexdocs/helpcenter/commit/832c89b4e4c7e2108fe257c8b109c0e00ed48a8c))
+* **header:** add lastScroll ref to manage scroll position ([d78f21f](https://github.com/vtexdocs/helpcenter/commit/d78f21f05d46aa45d7dc096272dd2d26c8b5c66c))
+* **header:** fix scrolling behavior ([5804d14](https://github.com/vtexdocs/helpcenter/commit/5804d1437af70acdb13e8d6c87aef61e004d283f))
+* **header:** scrolling behavior ([f7267f6](https://github.com/vtexdocs/helpcenter/commit/f7267f64102d8f926407d1af8871539192ca1df0))
+* **index.tsx:** localized messages ([553dad5](https://github.com/vtexdocs/helpcenter/commit/553dad5e3d7be7e5d47ccce68cde999912c61c38))
+* **index.tsx:** reorder component in homepage ([8ea65ed](https://github.com/vtexdocs/helpcenter/commit/8ea65ed32c8eab8ff6b88c537c8ece2a02d80349))
+* **index.tsx:** testing to fix the locale type ([15b7f58](https://github.com/vtexdocs/helpcenter/commit/15b7f58edd4fe3d3b517e54e64b06cbd8aacea4d))
+* netlify.toml ([300e622](https://github.com/vtexdocs/helpcenter/commit/300e62257fdfe8fb3c556bebd64ffe9dd9c2b722))
+* redirect paths ([fb9ac41](https://github.com/vtexdocs/helpcenter/commit/fb9ac41bb097ad227df52d50d269af036af7e1ca))
+* remove new badge ([3583707](https://github.com/vtexdocs/helpcenter/commit/3583707d82a1eda77e8b9957dd6815a78d0583ae))
+* remove right alignment from announcements dropdown styles ([f9c3794](https://github.com/vtexdocs/helpcenter/commit/f9c3794367842fec10ff732af29d630c74ef6bd4))
+* remove status gate from announcements listing (EDU-18841) ([c25215b](https://github.com/vtexdocs/helpcenter/commit/c25215b6281e0e633b511cf7815c2db055c4e97c))
+* resolve tag component merge conflicts ([bf96954](https://github.com/vtexdocs/helpcenter/commit/bf9695419cecdb1534c1e47d045ed60ebc10b406))
+* resolve troubleshooting page syntax error ([44dbd6f](https://github.com/vtexdocs/helpcenter/commit/44dbd6f03196cbac66c6f6d77473db83a91bf213))
+* standardize known issues search placeholder text across languages ([fca2f3e](https://github.com/vtexdocs/helpcenter/commit/fca2f3ea18d6027933b477009ee508721e222a82))
+* **styles.ts:** button format ([7833765](https://github.com/vtexdocs/helpcenter/commit/7833765d9189bc4c99efb5337e4da0d93ea0a9f8))
+* **styles.ts:** remove comments ([096226c](https://github.com/vtexdocs/helpcenter/commit/096226cd0d945983465b49b39e776cad1b235122))
+* **troublehsooting:** remove sort by dropwdown selector ([7adf297](https://github.com/vtexdocs/helpcenter/commit/7adf297880e1e0f6e3092509572701f74a04d1a4))
+* update header styles for responsive display ([483ce25](https://github.com/vtexdocs/helpcenter/commit/483ce250a7ecf36ae0bc79f718026773ab389d24))
+* update known issue search placeholder with ID ([e72858e](https://github.com/vtexdocs/helpcenter/commit/e72858e597e002b73fb17d23afcc080b830501a0))
+
+
+### Style
+
+* adding space in announcements cards belo the Type filter labels ([79e8a7d](https://github.com/vtexdocs/helpcenter/commit/79e8a7dfc80c5d517e56286bce2ebc7b6af5e2cd))
+* increasing label and title inbetween space in announcement card ([add5030](https://github.com/vtexdocs/helpcenter/commit/add50308a2f200d1239b7828114848c732e96cf2))
+* **styles.ts:** add whitespace to button ([c016bd2](https://github.com/vtexdocs/helpcenter/commit/c016bd2238b9e84b2b8fb2f08ddcfdfbc88aa405))
+
+
+### CI
+
+* add workflow_dispatch escape hatch for Netlify build failures (EDU-18407) ([b104023](https://github.com/vtexdocs/helpcenter/commit/b10402395af734cf9716f31efcb3a64128ee8ba4))
+* debug Netlify API commit_ref field (EDU-18407) ([3db67aa](https://github.com/vtexdocs/helpcenter/commit/3db67aa639e094c83229d73de2422e28d2f6fb6e))
+* debug Netlify API HTTP status and response body (EDU-18407) ([26be0e0](https://github.com/vtexdocs/helpcenter/commit/26be0e059b375904134f06fcbb2d90c4c9ad2efc))
+* debug token + commit_ref check (EDU-18407) ([1ab8c25](https://github.com/vtexdocs/helpcenter/commit/1ab8c255616cc0ca97e5dc7448482db0f687184c))
+* **e2e:** add search spec suites to GH Actions step summary (EDU-18407) ([f89101e](https://github.com/vtexdocs/helpcenter/commit/f89101e2a7b001657de95517187dd52680afb339))
+* raise Netlify wait timeout from 25 to 40 minutes (EDU-18407) ([919500d](https://github.com/vtexdocs/helpcenter/commit/919500d2417cf03aa240dae6b49d23672b800cd6))
+* remove debug echo (EDU-18407) ([40995ad](https://github.com/vtexdocs/helpcenter/commit/40995ad8b8687b9e6ddfc75fa579c9d21aa5753b))
+* remove debug echo from Netlify API polling step (EDU-18407) ([26242cf](https://github.com/vtexdocs/helpcenter/commit/26242cf9a9d6d7af43cbfceeff9ccb8a3cd689c0))
+* retrigger Netlify deploy for E2E run (EDU-18407) ([19d197a](https://github.com/vtexdocs/helpcenter/commit/19d197a9ab0f79164b15aabe86ec335899d785b4))
+* retrigger Netlify deploy for E2E run (EDU-18407) ([b75b8e2](https://github.com/vtexdocs/helpcenter/commit/b75b8e28aaca58f4ef1a1cd00f53da45863f0298))
+* retrigger Netlify deploy for E2E run (EDU-18407) ([c691c08](https://github.com/vtexdocs/helpcenter/commit/c691c083387962d11e5b9c4ec167cc69933d322d))
+* retrigger Netlify deploy for E2E run (EDU-18407) ([a199c7b](https://github.com/vtexdocs/helpcenter/commit/a199c7b9d7ec704f5fea6db2e173c4d43df77a3b))
+* retrigger Netlify deploy for E2E run (EDU-18407) ([d5a6f43](https://github.com/vtexdocs/helpcenter/commit/d5a6f43a70ddb35198b70799efc33b02876ce9a4))
+* retrigger Netlify deploy for E2E run (EDU-18407) ([92bbdd8](https://github.com/vtexdocs/helpcenter/commit/92bbdd80651399aa3ef7ea3fb55b9b10c8c949ad))
+* retrigger Netlify deploy for E2E run (EDU-18407) ([c3cddf0](https://github.com/vtexdocs/helpcenter/commit/c3cddf0371fc112f41d7a57f2094d31b03a7042b))
+* retrigger Netlify deploy for E2E run (EDU-18407) ([04a7778](https://github.com/vtexdocs/helpcenter/commit/04a77784d213b3c766974593db20c46089683113))
+* revert T-19 — restore GitHub Statuses API polling (EDU-18407) ([b9292dc](https://github.com/vtexdocs/helpcenter/commit/b9292dc8508ae559281da314e17d8e628b86797c))
+* switch Netlify polling from GitHub Statuses API to Netlify API (EDU-18407) ([fec548c](https://github.com/vtexdocs/helpcenter/commit/fec548c3e7274826d877c79a86654f9e09a16214))
+
+
+### Revert Changes
+
+* Revert "ci(netlify): add netlify-plugin-cache-nextjs to reduce cold build time (EDU-18407)" ([bb72657](https://github.com/vtexdocs/helpcenter/commit/bb726573d8a3799d54b4d7aa49fcebcc2d116e7b))
+* Revert "feat(announcements): enhance announcement components with tag filtering and year-based timeline" ([b53b7cc](https://github.com/vtexdocs/helpcenter/commit/b53b7cc6018ffe39aeaf41aa179d9e1e215b496d))
+* **cypress:** revert search-doctype-filter to describe.skip skeleton (EDU-18407) ([e814761](https://github.com/vtexdocs/helpcenter/commit/e81476194fbfe9ccc5fd53bab04cc5e8462a80a6)), closes [#456](https://github.com/vtexdocs/helpcenter/issues/456)
+
+
+### Tests
+
+* **cypress:** add Algolia regression spec (T-2) ([0504782](https://github.com/vtexdocs/helpcenter/commit/050478205ed0d7d4b698b1172ddb8570acbfcf25))
+* **cypress:** add env block and search custom commands (T-1) ([9c9f865](https://github.com/vtexdocs/helpcenter/commit/9c9f865d0ae5256d4a31b8d2eec6e3551a963993))
+* **cypress:** add search specs T-3 through T-7 (EDU-18407) ([17c2c93](https://github.com/vtexdocs/helpcenter/commit/17c2c9381c544ccc2f97c071130f2a8ec343019a))
+* **cypress:** centralize uncaught:exception handler (EDU-18407) ([30a83f8](https://github.com/vtexdocs/helpcenter/commit/30a83f87c9b17190a75dc01163881dbb9e208e11))
+* **cypress:** implement search-doctype-filter spec (EDU-18407) ([bfad821](https://github.com/vtexdocs/helpcenter/commit/bfad821294f3864dad0d0e9c6fdcd8855aa64a5f))
+
+
+### Chore
+
+* add redirects for accounts and permissions track articles ([5ab0263](https://github.com/vtexdocs/helpcenter/commit/5ab02637f0d918044ecac94be6c310b4bab47baa))
+* add redirects for relocated abandoned cart articles ([f201490](https://github.com/vtexdocs/helpcenter/commit/f20149091ad536b1fde83de4f04a877df4701697))
+* add redirects for removed gift card refund known issue ([0690ae0](https://github.com/vtexdocs/helpcenter/commit/0690ae07126a4435dc4d8c6ee0ddb205c1e71829))
+* add redirects for vtex search legacy docs ([a6cb2f0](https://github.com/vtexdocs/helpcenter/commit/a6cb2f0fbe250b345333e3bb0f131c4c96ac3017))
+* **ci:** retrigger CI — Netlify deploy now ready (EDU-18407) ([33750ec](https://github.com/vtexdocs/helpcenter/commit/33750ec13436e4ac4f38ed39f06275c6487a3959))
+* create redirect for domain settings guide ([6ffd0f6](https://github.com/vtexdocs/helpcenter/commit/6ffd0f6285ecb37d8efae4b75cbf1c4b4ddda19b))
+* create redirects to operational capacity docs ([2bd15a5](https://github.com/vtexdocs/helpcenter/commit/2bd15a50fa9ebddb53006424dce95fb4a0ee8bc4))
+* **cypress:** drop stale PR-review tracking comment (EDU-18407) ([ef5d45e](https://github.com/vtexdocs/helpcenter/commit/ef5d45e19919666a63281eade315f05082c35375))
+* ignore personal config files and temp directory in .gitignore ([87633ec](https://github.com/vtexdocs/helpcenter/commit/87633ec5868c26ab4a56e8aea8f6ce0ef0127e7d))
+* **netlify.toml:** create redirects ([8ba02df](https://github.com/vtexdocs/helpcenter/commit/8ba02df5ea232df792a79eb50ce2b9c59fcd9e92))
+* **package:** add optional dependency for sharp-linux-x64 ([f57012a](https://github.com/vtexdocs/helpcenter/commit/f57012a121255efa3b3cb2dfb9ebc0c60332b348))
+* redirect deprecated known issue ([31cb596](https://github.com/vtexdocs/helpcenter/commit/31cb5962ec6ccfeae95bab1df4bb31cb9649ad1b))
+* **redirects.json:** fix missing / ([b52e810](https://github.com/vtexdocs/helpcenter/commit/b52e81076e8f608c74fda70aa34debd971ae1837))
+* **redirects.json:** fix redirects issues and add new ones ([d6cc0e3](https://github.com/vtexdocs/helpcenter/commit/d6cc0e3e23fcef0d4c8fce07fbed85705df438f4))
+* remove comments ([c807a27](https://github.com/vtexdocs/helpcenter/commit/c807a2723b24e3f0238e7fb35a9e52837572261f))
+
+
+### Refactoring
+
+* add shared tokenized search for list pages ([c62258a](https://github.com/vtexdocs/helpcenter/commit/c62258a69b37e6f645fff8f86ba091140507f21b))
+* **announcements:** remove dead code and finalize timeline page ([def9eb8](https://github.com/vtexdocs/helpcenter/commit/def9eb8bc4ffe933a9278557e7a6aebcdee15b3a))
+* **cypress:** centralize autocomplete traversal (EDU-18407) ([45993aa](https://github.com/vtexdocs/helpcenter/commit/45993aa0a3c641a7da53a0c7a5f41bc5391d267e))
+* remove unused announcement filter messages ([73fd1c7](https://github.com/vtexdocs/helpcenter/commit/73fd1c7fc60c216986ff7432f00d0c651193d1e3))
+* **styles.ts:** update input handling and styles ([9a043a4](https://github.com/vtexdocs/helpcenter/commit/9a043a415b0f9fd47591871fa464b23e0f2b8f76))
+* **subscription-list:** update privacy policy links and localize URLs ([a9d1f87](https://github.com/vtexdocs/helpcenter/commit/a9d1f87db3103b86343b903b939cab6a5d7b8656))
+* tag color handling in announcement components ([8c32158](https://github.com/vtexdocs/helpcenter/commit/8c32158a5b8c8ae376cd811ad1da4ac59a8be630))
+
+
+### Docs
+
+* add llms.txt ([109fa36](https://github.com/vtexdocs/helpcenter/commit/109fa36a5150529d5d6afa274eee4b259159dedf))
+* add redirect for creating beta collections ([838fa26](https://github.com/vtexdocs/helpcenter/commit/838fa263475e7eab9a26d7a26165e09e9e934689))
+* create instore sales app redirects ([e489ec3](https://github.com/vtexdocs/helpcenter/commit/e489ec396bd2257cfdc1f6c51abf83f3a13684f1))
+* eS redirect about organizational units ([79e21ce](https://github.com/vtexdocs/helpcenter/commit/79e21ce44306485f5d5291521cc63748c6eeb41b))
+* fix instore redirects ([dc87622](https://github.com/vtexdocs/helpcenter/commit/dc87622877098bd6aa562e612ff47681a1816274))
+* **netlify.toml:** add 308 redirects for cms tutorial ([baac471](https://github.com/vtexdocs/helpcenter/commit/baac47105e79d81d1cac1550f7111f66a1648a86))
+* **netlify.toml:** add 308 redirects for Weni by VTEX tutorials to Agentic CX platform ([6e9f29b](https://github.com/vtexdocs/helpcenter/commit/6e9f29bfd53c89fba838e1ec4cbf064d4d92a0a0))
+* new redirect ([b7f654e](https://github.com/vtexdocs/helpcenter/commit/b7f654e71e30269253563e60a7d6757d3fac6a29))
+* new redirect for extensibility article ([d6435db](https://github.com/vtexdocs/helpcenter/commit/d6435db6fc7a225bb9528a34802e1da55ee72c84))
+* redirect ([51f7049](https://github.com/vtexdocs/helpcenter/commit/51f7049acad6b291a77ae005dfd32f09370bc979))
+* remove llms.txt ([8e83bd6](https://github.com/vtexdocs/helpcenter/commit/8e83bd6a21118b7a69868ea481f0212fbe46eebc))
+
 ### [0.10.4](https://github.com/vtexdocs/helpcenter/compare/v0.10.3...v0.10.4) (2026-03-17)
 
 
