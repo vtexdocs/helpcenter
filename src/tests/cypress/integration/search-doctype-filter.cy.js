@@ -37,15 +37,17 @@ describe('Doctype filter UI', () => {
     cy.viewport(1023, 768)
     cy.get('[data-testid="doctype-filter-tab-bar"]').should('be.visible')
     // Wait for results to load so ocurrenceCount context is populated before any test runs.
-    // The Algolia count for the "All" tab (ocurrenceCount[""]) may arrive after the first result
-    // cards render, so gate on the count badge itself rather than .searchCardTitle alone.
-    cy.get('[data-testid="doctype-filter-tab"][data-filter=""]', {
-      timeout: 15000,
+    // The "All" tab count (ocurrenceCount[""]) arrives from the search backend after the
+    // result cards render. The timeout must sit on the command that yields the count badge so
+    // the chained .should() inherits the full retry window — on a split get(tab).find(count)
+    // chain the assertion would only inherit the 5s defaultCommandTimeout and flake on slow
+    // (cold preview) backend responses.
+    cy.get(
+      '[data-testid="doctype-filter-tab"][data-filter=""] [data-testid="doctype-filter-tab-count"]',
+      { timeout: 20000 }
+    ).should(($el) => {
+      expect(parseInt($el.text())).to.be.greaterThan(0)
     })
-      .find('[data-testid="doctype-filter-tab-count"]')
-      .should(($el) => {
-        expect(parseInt($el.text())).to.be.greaterThan(0)
-      })
   })
 
   it('renders filter tabs with per-doctype result counts', () => {
