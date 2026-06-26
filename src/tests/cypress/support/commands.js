@@ -42,11 +42,26 @@ Cypress.Commands.add('visitWithRetry', (url, options = {}) => {
     ...visitOptions
   } = options
 
+  // CYPRESS_PRE_VISIT_SETTLE_MS spaces out page-load bursts to stay under
+  // Netlify's per-IP abuse heuristic (B-5). 0 disables the settle.
+  const settle = (() => {
+    const raw = Cypress.env('PRE_VISIT_SETTLE_MS')
+    if (raw === undefined) return 1500
+    const ms = Number(raw)
+    return Number.isFinite(ms) ? ms : 1500
+  })()
+
   const attempt = (n, backoff) => {
     cy.request({ url, failOnStatusCode: false, timeout: requestTimeout }).then(
       (resp) => {
         if (resp.status >= 200 && resp.status < 300) {
-          cy.visit(url, { timeout: requestTimeout, ...visitOptions })
+          if (settle > 0) {
+            cy.wait(settle).then(() =>
+              cy.visit(url, { timeout: requestTimeout, ...visitOptions })
+            )
+          } else {
+            cy.visit(url, { timeout: requestTimeout, ...visitOptions })
+          }
           return
         }
         if (n >= maxAttempts) {
