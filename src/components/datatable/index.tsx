@@ -83,9 +83,9 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
             table.style.width = '100%'
             table.style.tableLayout = 'fixed'
 
-            const ths = table.querySelectorAll('thead th')
+            const ths = table.querySelectorAll<HTMLElement>('thead th')
             const colCount = ths.length
-            ths.forEach((th: HTMLElement) => {
+            ths.forEach((th) => {
               th.style.width = `${100 / colCount}%`
             })
           }
