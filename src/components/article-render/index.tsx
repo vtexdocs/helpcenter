@@ -166,6 +166,7 @@ const ArticleRender = ({
                   <MarkdownRenderer
                     serialized={serialized}
                     customComponents={{ InsertAccountName }}
+                    scope={{}}
                   />
                 </article>
               </Box>
