@@ -1,4 +1,4 @@
-import type { GetStaticProps } from 'next'
+import type { GetServerSideProps } from 'next'
 import InsertAccountName from 'components/insert-account-name'
 
 export default function TestInsertAccountName() {
@@ -18,6 +18,6 @@ export default function TestInsertAccountName() {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   return { props: {} }
 }
