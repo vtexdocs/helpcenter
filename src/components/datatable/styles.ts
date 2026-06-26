@@ -7,14 +7,14 @@ const container: SxStyleProp = {
   '& table.dataTable': {
     width: '100% !important',
     margin: '0 !important',
-    tableLayout: 'fixed !important' as any,
+    tableLayout: 'fixed' as SxStyleProp['tableLayout'],
   },
   '& table.dataTable thead th': {
     padding: '10px 18px !important',
   },
   '& table.dataTable tbody td': {
     padding: '10px 18px !important',
-    wordWrap: 'break-word !important' as any,
+    wordWrap: 'break-word' as SxStyleProp['wordWrap'],
   },
 
   // Search input

@@ -75,12 +75,14 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
         initComplete: function () {
           const wrapper = tableEl.closest('.dt-container') as HTMLElement | null
           if (!wrapper) return
-      
-          const table = wrapper.querySelector('table.dataTable') as HTMLElement | null
+
+          const table = wrapper.querySelector(
+            'table.dataTable'
+          ) as HTMLElement | null
           if (table) {
             table.style.width = '100%'
             table.style.tableLayout = 'fixed'
-      
+
             const ths = table.querySelectorAll('thead th')
             const colCount = ths.length
             ths.forEach((th: HTMLElement) => {
@@ -106,7 +108,9 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
 
   if (cols.length === 0) return null
   if (!table) {
-    console.error(`[DataTable] No data found for src="${src}". Check if the file exists in help-center-content.`)
+    console.error(
+      `[DataTable] No data found for src="${src}". Check if the file exists in help-center-content.`
+    )
     return null
   }
 
