@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Box, Button, Input } from '@vtex/brand-ui'
+import { Box, Button } from '@vtex/brand-ui'
 import styles from './styles'
 
 interface InsertAccountNameProps {
@@ -19,17 +19,14 @@ const InsertAccountName = ({ id }: InsertAccountNameProps) => {
 
   return (
     <Box sx={styles.container}>
-      <Input
-        id="accountNameInput"
+      <input
         placeholder="Account name"
         value={accountName}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setAccountName(e.target.value)
-        }
-        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+        onChange={(e) => setAccountName(e.target.value)}
+        onKeyDown={(e) => {
           if (e.key === 'Enter') handleNavigate()
         }}
-        sx={styles.input}
+        style={styles.input as React.CSSProperties}
       />
       <Button onClick={handleNavigate} sx={styles.button}>
         Go to documentation
