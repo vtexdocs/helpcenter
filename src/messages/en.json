@@ -1,6 +1,6 @@
 {
   "insert_account_name.placeholder": "Account name",
-  "insert_account_name.button": "Go to documentation",
+  "insert_account_name.button": "Open documentation",
   "insert_account_name.tooltip": "View documentation page on VTEX Admin",
   "insert_account_name.error": "Account name is required",
   "announcement_bar.button": "Back to previous version",
