@@ -12,13 +12,11 @@ import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/announcements.png'
-import Filter from 'components/filter'
 import {
   announcementsTypeFilter,
   announcementsAreaFilter,
 } from 'utils/constants'
-import { SearchIcon } from '@vtexdocs/components'
-import { Input } from '@vtexdocs/components'
+import { Input, ListingFilter, SearchIcon } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 import AnnouncementExpandableRow from 'components/announcement-expandable-row'
@@ -182,11 +180,17 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
-            <Filter
+            <ListingFilter
               tagFilter={typeConfig}
               checkBoxFilter={areaConfig}
               selectedTags={filters.type}
               selectedCheckboxes={filters.area}
+              labels={{
+                button: intl.formatMessage({ id: 'filter_modal.title' }),
+                modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
+                remove: intl.formatMessage({ id: 'filter_modal.remove' }),
+                apply: intl.formatMessage({ id: 'filter_modal.button' }),
+              }}
               onApply={(newFilters) =>
                 setFilters({
                   type: newFilters.tag ?? [],
