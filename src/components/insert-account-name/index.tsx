@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Box, Button } from '@vtex/brand-ui'
+import { Box } from '@vtex/brand-ui'
 import styles from './styles'
 
 interface InsertAccountNameProps {
@@ -28,9 +28,12 @@ const InsertAccountName = ({ id }: InsertAccountNameProps) => {
         }}
         style={styles.input as React.CSSProperties}
       />
-      <Button onClick={handleNavigate} sx={styles.button}>
+      <button
+        onClick={handleNavigate}
+        style={styles.button as React.CSSProperties}
+      >
         Go to documentation
-      </Button>
+      </button>
     </Box>
   )
 }

@@ -15,8 +15,19 @@ const styles: Record<string, SxStyleProp | React.CSSProperties> = {
     border: '1px solid #ccc',
     borderRadius: '4px',
     fontSize: '14px',
+    boxSizing: 'border-box',
   },
-  button: {} as SxStyleProp,
+  button: {
+    height: '40px',
+    padding: '0 16px',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+    fontSize: '14px',
+    background: 'transparent',
+    cursor: 'pointer',
+    whiteSpace: 'nowrap',
+    boxSizing: 'border-box',
+  },
 }
 
 export default styles
