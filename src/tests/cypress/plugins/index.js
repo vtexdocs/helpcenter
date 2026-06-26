@@ -19,7 +19,7 @@ const clipboardy = require('clipboardy')
 // single process (no parallelism in CI), so this is the only remaining knob to lower
 // sustained concurrent origin pressure across the run. Override with CYPRESS_INTER_SPEC_SETTLE_MS.
 const INTER_SPEC_SETTLE_MS = Number(
-  process.env.CYPRESS_INTER_SPEC_SETTLE_MS ?? 3000
+  process.env.CYPRESS_INTER_SPEC_SETTLE_MS ?? 8000
 )
 
 /**
