@@ -8,6 +8,7 @@ interface InsertAccountNameProps {
 
 const InsertAccountName = ({ id }: InsertAccountNameProps) => {
   const [accountName, setAccountName] = useState('')
+  const [hovered, setHovered] = useState(false)
 
   const handleNavigate = () => {
     if (!accountName.trim()) return
@@ -30,7 +31,13 @@ const InsertAccountName = ({ id }: InsertAccountNameProps) => {
       />
       <button
         onClick={handleNavigate}
-        style={styles.button as React.CSSProperties}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{
+          ...(styles.button as React.CSSProperties),
+          background: hovered ? '#F8F7FC' : 'transparent',
+          borderColor: hovered ? '#5E6E84' : '#ccc',
+        }}
       >
         Go to documentation
       </button>

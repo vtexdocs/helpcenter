@@ -27,6 +27,7 @@ const styles: Record<string, SxStyleProp | React.CSSProperties> = {
     cursor: 'pointer',
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
+    transition: 'all 0.3s ease-out',
   },
 }
 
