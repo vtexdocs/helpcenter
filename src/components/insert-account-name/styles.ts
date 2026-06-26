@@ -42,10 +42,7 @@ const styles: Record<string, SxStyleProp | React.CSSProperties> = {
   buttonHover: {
     background: '#F8F7FC',
     borderColor: '#5E6E84',
-  },
-  buttonDisabled: {
-    opacity: 0.4,
-    cursor: 'not-allowed',
+    color: '#E31C58',
   },
   errorText: {
     fontSize: '12px',

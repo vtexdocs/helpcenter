@@ -14,10 +14,8 @@ const InsertAccountName = ({ id }: InsertAccountNameProps) => {
   const [showError, setShowError] = useState(false)
   const [hovered, setHovered] = useState(false)
 
-  const disabled = !accountName.trim()
-
   const handleNavigate = () => {
-    if (disabled) {
+    if (!accountName.trim()) {
       setShowError(true)
       return
     }
@@ -59,11 +57,7 @@ const InsertAccountName = ({ id }: InsertAccountNameProps) => {
             onMouseLeave={() => setHovered(false)}
             style={{
               ...(styles.button as React.CSSProperties),
-              ...(disabled
-                ? (styles.buttonDisabled as React.CSSProperties)
-                : hovered
-                ? (styles.buttonHover as React.CSSProperties)
-                : {}),
+              ...(hovered ? (styles.buttonHover as React.CSSProperties) : {}),
             }}
           >
             {intl.formatMessage({ id: 'insert_account_name.button' })}
