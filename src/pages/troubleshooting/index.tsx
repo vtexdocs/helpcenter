@@ -12,12 +12,13 @@ import { LocaleType } from 'utils/typings/unionTypes'
 import { Box, Flex } from '@vtex/brand-ui'
 import { TroubleshootingDataElement } from 'utils/typings/types'
 import usePagination from 'utils/hooks/usePagination'
-import TroubleshootingCard from 'components/troubleshooting-card'
 import Pagination from 'components/pagination'
-
-import Filter from 'components/filter'
-import { SearchIcon } from '@vtexdocs/components'
-import { Input } from '@vtexdocs/components'
+import {
+  Input,
+  ListingFilter,
+  SearchIcon,
+  TroubleshootingCard,
+} from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch } from 'utils/fetchBatchGithubData'
 import { parseFrontmatter } from 'utils/fetchBatchGithubData'
@@ -151,7 +152,7 @@ const TroubleshootingPage: NextPage<Props> = ({
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
-            <Filter
+            <ListingFilter
               tagFilter={createDynamicTroubleshootingFilter(
                 'troubleshooting_filter_symptoms.title',
                 availableSymptomFilters
@@ -160,6 +161,12 @@ const TroubleshootingPage: NextPage<Props> = ({
                 'troubleshooting_filter_domains.title',
                 availableDomainFilters
               )}
+              labels={{
+                button: intl.formatMessage({ id: 'filter_modal.title' }),
+                modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
+                remove: intl.formatMessage({ id: 'filter_modal.remove' }),
+                apply: intl.formatMessage({ id: 'filter_modal.button' }),
+              }}
               onApply={(newFilters) =>
                 setFilters({
                   domains: newFilters.checklist,
@@ -223,9 +230,17 @@ const TroubleshootingPage: NextPage<Props> = ({
                 {intl.formatMessage({ id: 'search_result.empty' })}
               </Flex>
             )}
-            {paginatedResult.map((troubleshoot, id) => {
-              return <TroubleshootingCard key={id} {...troubleshoot} />
-            })}
+            {paginatedResult.map((troubleshoot, id) => (
+              <TroubleshootingCard
+                key={id}
+                variant="helpcenter"
+                basePath="troubleshooting"
+                title={troubleshoot.title}
+                slug={troubleshoot.slug}
+                domainFilters={troubleshoot.domainFilters}
+                symptomFilters={troubleshoot.symptomFilters}
+              />
+            ))}
           </Flex>
           <Pagination
             forcePage={pageIndex.curr}

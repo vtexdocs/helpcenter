@@ -3,7 +3,7 @@ import { Flex, Text, Link } from '@vtex/brand-ui'
 import type { KnownIssueDataElement } from 'utils/typings/types'
 
 import styles from './styles'
-import Tag from 'components/tag'
+import { Tag } from '@vtexdocs/components'
 import DateText from 'components/date-text'
 import { useIntl } from 'react-intl'
 

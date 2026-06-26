@@ -413,7 +413,7 @@ export const knownIssuesModulesFilters = (intl: IntlShape) => {
   return data
 }
 
-export type AnnouncementTagColor =
+export type AnnouncementDropdownTagColor =
   | 'Green'
   | 'Blue'
   | 'Scheduled'
@@ -453,7 +453,7 @@ const typeTagsByLocale: Record<string, Record<AnnouncementTypeKey, string>> = {
 
 export const typeTagColorMap: Record<
   AnnouncementTypeKey,
-  AnnouncementTagColor
+  AnnouncementDropdownTagColor
 > = {
   new_feature: 'Green',
   improvement: 'Blue',
@@ -464,7 +464,7 @@ export const typeTagColorMap: Record<
 
 export const getTagColorByLocalizedName = (
   tagName: string
-): AnnouncementTagColor | undefined => {
+): AnnouncementDropdownTagColor | undefined => {
   for (const locale of Object.values(typeTagsByLocale)) {
     for (const [key, value] of Object.entries(locale)) {
       if (value === tagName) {

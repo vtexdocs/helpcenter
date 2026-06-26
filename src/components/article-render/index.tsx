@@ -16,12 +16,13 @@ import CopyLinkButton from 'components/copy-link-button'
 import TimeToRead from 'components/TimeToRead'
 import DateText from 'components/date-text'
 import Author from 'components/author'
-import Tag from 'components/tag'
+import { Tag } from '@vtexdocs/components'
 import CopyForLLM from 'components/copy-for-llm'
 import DataTable from 'components/datatable'
 import { DataTablesProvider } from 'components/datatable/context'
 import type { DataTablesData } from 'components/datatable/datatable.types'
 import { KnownIssueStatus } from 'utils/typings/unionTypes'
+import InsertAccountName from 'components/insert-account-name'
 
 import { useIntl } from 'react-intl'
 
@@ -171,7 +172,7 @@ const ArticleRender = ({
                   <DataTablesProvider value={dataTablesData}>
                     <MarkdownRenderer
                       serialized={serialized}
-                      customComponents={{ DataTable }}
+                      customComponents={{ InsertAccountName, DataTable }}
                       scope={{ _: true }}
                     />
                   </DataTablesProvider>
