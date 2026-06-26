@@ -29,6 +29,14 @@ const styles: Record<string, SxStyleProp | React.CSSProperties> = {
     boxSizing: 'border-box',
     transition: 'all 0.3s ease-out',
   },
+  buttonHover: {
+    background: '#F8F7FC',
+    borderColor: '#5E6E84',
+  },
+  buttonDisabled: {
+    opacity: 0.4,
+    cursor: 'not-allowed',
+  },
 }
 
 export default styles
