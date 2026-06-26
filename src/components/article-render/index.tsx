@@ -16,10 +16,11 @@ import CopyLinkButton from 'components/copy-link-button'
 import TimeToRead from 'components/TimeToRead'
 import DateText from 'components/date-text'
 import Author from 'components/author'
-import Tag from 'components/tag'
+import { Tag } from '@vtexdocs/components'
 import PaymentProvidersTable from 'components/payment-providers-table'
 import CopyForLLM from 'components/copy-for-llm'
 import { KnownIssueStatus } from 'utils/typings/unionTypes'
+import InsertAccountName from 'components/insert-account-name'
 
 import { useIntl } from 'react-intl'
 
@@ -165,7 +166,10 @@ const ArticleRender = ({
                   </Flex>
                   <MarkdownRenderer
                     serialized={serialized}
-                    customComponents={{ PaymentProvidersTable }}
+                    customComponents={{
+                      InsertAccountName,
+                      PaymentProvidersTable,
+                    }}
                     scope={{}}
                   />
                 </article>

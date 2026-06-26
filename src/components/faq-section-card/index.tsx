@@ -3,7 +3,7 @@ import { Flex, Text } from '@vtex/brand-ui'
 
 import type { FaqDataElement } from 'utils/typings/types'
 import styles from './styles'
-import Tag from 'components/tag'
+import { Tag } from '@vtexdocs/components'
 
 const FaqSectionCard = ({
   title,
