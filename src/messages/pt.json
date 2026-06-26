@@ -1,4 +1,8 @@
 {
+  "insert_account_name.placeholder": "Nome da conta",
+  "insert_account_name.button": "Ir para a documentação",
+  "insert_account_name.tooltip": "Ver página de documentação no VTEX Admin",
+  "insert_account_name.error": "O nome da conta é obrigatório",
   "announcement_bar.button": "Voltar para o portal anterior",
   "announcement_bar.label": "Você está visualizando a versão beta do nosso novo Help Center.",
   "announcement_card.new_tag": "Novo",

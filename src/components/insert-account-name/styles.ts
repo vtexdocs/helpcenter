@@ -1,12 +1,17 @@
 import type { SxStyleProp } from '@vtex/brand-ui'
 
 const styles: Record<string, SxStyleProp | React.CSSProperties> = {
+  wrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '4px',
+    my: '16px',
+  } as SxStyleProp,
   container: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     gap: '8px',
-    my: '16px',
   } as SxStyleProp,
   input: {
     width: '280px',
@@ -16,6 +21,11 @@ const styles: Record<string, SxStyleProp | React.CSSProperties> = {
     borderRadius: '4px',
     fontSize: '14px',
     boxSizing: 'border-box',
+    transition: 'border-color 0.3s ease-out',
+  },
+  inputError: {
+    borderColor: '#E31C58',
+    outline: 'none',
   },
   button: {
     height: '40px',
@@ -37,6 +47,10 @@ const styles: Record<string, SxStyleProp | React.CSSProperties> = {
     opacity: 0.4,
     cursor: 'not-allowed',
   },
+  errorText: {
+    fontSize: '12px',
+    color: '#E31C58',
+  } as SxStyleProp,
 }
 
 export default styles
