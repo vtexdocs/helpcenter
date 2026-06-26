@@ -19,6 +19,7 @@ import Author from 'components/author'
 import { Tag } from '@vtexdocs/components'
 import CopyForLLM from 'components/copy-for-llm'
 import { KnownIssueStatus } from 'utils/typings/unionTypes'
+import InsertAccountName from 'components/insert-account-name'
 
 import { useIntl } from 'react-intl'
 
@@ -162,7 +163,11 @@ const ArticleRender = ({
                       </Flex>
                     </Box>
                   </Flex>
-                  <MarkdownRenderer serialized={serialized} />
+                  <MarkdownRenderer
+                    serialized={serialized}
+                    customComponents={{ InsertAccountName }}
+                    scope={{}}
+                  />
                 </article>
               </Box>
             </Box>

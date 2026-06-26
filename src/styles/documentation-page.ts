@@ -1,5 +1,7 @@
 import type { SxStyleProp } from '@vtex/brand-ui'
 
+import tokens from 'styles/theme-tokens'
+
 const container: SxStyleProp = {
   width: '100%',
   backgroundColor: 'white',
@@ -87,6 +89,11 @@ const contentContainer: SxStyleProp = {
   width: '100%',
   px: ['1.125em', 'initial'],
   minWidth: ['0px', '470px', '470px'],
+}
+
+const articleIndexContentContainer: SxStyleProp = {
+  ...contentContainer,
+  maxWidth: ['100%', '100%', '100%', '100%', '720px', '720px', '720px'],
 }
 
 const documentationTitle: SxStyleProp = {
@@ -178,15 +185,50 @@ const titleContainer: SxStyleProp = {
 }
 
 const linksContainer: SxStyleProp = {
-  flexDirection: 'column',
-  pl: '16px',
+  flexWrap: 'wrap',
   gap: '16px',
   mt: '32px',
-  borderLeft: '3px solid #E7E9EE',
+}
+
+const cardItem: SxStyleProp = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+  padding: '16px 20px',
+  border: '1px solid',
+  borderColor: 'muted.3',
+  borderRadius: '8px',
+  cursor: 'pointer',
+  width: [
+    '100%',
+    '100%',
+    'calc(50% - 8px)',
+    'calc(50% - 8px)',
+    'calc(50% - 8px)',
+    'calc(50% - 8px)',
+    'calc(50% - 8px)',
+  ],
+  color: 'muted.0',
+  textDecoration: 'none',
+  ':hover': {
+    backgroundColor: 'muted.4',
+    borderColor: tokens.grays.cardHoverBorder,
+  },
+}
+
+const cardItemExcerpt: SxStyleProp = {
+  mt: '6px',
+  fontSize: '14px',
+  lineHeight: '20px',
+  color: 'muted.1',
 }
 
 export default {
   linksContainer,
+  cardItem,
+  cardItemExcerpt,
+  articleIndexContentContainer,
   titleContainer,
   textContainer,
   indexContainer,

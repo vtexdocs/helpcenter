@@ -19,7 +19,7 @@ const ArticleIndexing = ({ ...props }) => {
       </Head>
       <Flex sx={styles.innerContainer}>
         <Box sx={styles.articleBox}>
-          <Box sx={styles.contentContainer}>
+          <Box sx={styles.articleIndexContentContainer}>
             <Flex sx={{ justifyContent: 'space-between' }}>
               {props.breadcrumbList.length > 0 && (
                 <Breadcrumb breadcrumbList={props.breadcrumbList} />
@@ -42,9 +42,20 @@ const ArticleIndexing = ({ ...props }) => {
                   </Text>
                   <Flex sx={styles.linksContainer}>
                     {props?.children?.map(
-                      (el: { slug: string; name: string }) => (
-                        <Link href={el.slug} key={el.slug}>
-                          {el.name || 'Untitled'}
+                      (el: {
+                        slug: string
+                        name: string
+                        excerpt?: string
+                      }) => (
+                        <Link href={el.slug} key={el.slug} sx={styles.cardItem}>
+                          <Text sx={{ fontWeight: 'medium', fontSize: '16px' }}>
+                            {el.name || 'Untitled'}
+                          </Text>
+                          {el.excerpt && (
+                            <Text sx={styles.cardItemExcerpt}>
+                              {el.excerpt}
+                            </Text>
+                          )}
                         </Link>
                       )
                     )}
