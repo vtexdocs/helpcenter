@@ -23,19 +23,19 @@ describe('Locale Switching Tests', () => {
   })
 
   it('should display language switcher on homepage and category pages', () => {
-    cy.visit('/')
+    cy.visitWithRetry('/')
     cy.get('button')
       .contains(/^(EN|ES|PT)$/)
       .should('be.visible')
 
-    cy.visit('/docs/tutorials/about-the-admin-category')
+    cy.visitWithRetry('/docs/tutorials/about-the-admin-category')
     cy.get('button')
       .contains(/^(EN|ES|PT)$/)
       .should('be.visible')
   })
 
   it('should switch locales correctly and update URL and sidebar links', () => {
-    cy.visit('/docs/tutorials/about-the-admin-category')
+    cy.visitWithRetry('/docs/tutorials/about-the-admin-category')
 
     cy.get('button').contains('EN').should('be.visible')
 
@@ -59,22 +59,22 @@ describe('Locale Switching Tests', () => {
   })
 
   it('should load direct locale URLs correctly for all languages', () => {
-    cy.visit('/docs/tutorials')
+    cy.visitWithRetry('/docs/tutorials')
     cy.get('button').contains('EN').should('be.visible')
     cy.url().should('not.include', '/pt/')
     cy.url().should('not.include', '/es/')
 
-    cy.visit('/pt/docs/tutorials')
+    cy.visitWithRetry('/pt/docs/tutorials')
     cy.get('button').contains('PT').should('be.visible')
     cy.url().should('include', '/pt/')
 
-    cy.visit('/es/docs/tutorials')
+    cy.visitWithRetry('/es/docs/tutorials')
     cy.get('button').contains('ES').should('be.visible')
     cy.url().should('include', '/es/')
   })
 
   it('should maintain PT locale when navigating via sidebar', () => {
-    cy.visit('/pt/docs/tutorials/sobre-o-admin-categoria')
+    cy.visitWithRetry('/pt/docs/tutorials/sobre-o-admin-categoria')
 
     cy.get('button').contains('PT').should('be.visible')
     cy.get('a[href*="/pt/docs/tutorials/"]')
@@ -88,7 +88,7 @@ describe('Locale Switching Tests', () => {
   })
 
   it('should maintain ES locale when navigating via sidebar', () => {
-    cy.visit('/es/docs/tutorials/acerca-de-admin-categoria')
+    cy.visitWithRetry('/es/docs/tutorials/acerca-de-admin-categoria')
 
     cy.get('button').contains('ES').should('be.visible')
     cy.get('a[href*="/es/docs/tutorials/"]')

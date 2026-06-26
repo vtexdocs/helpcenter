@@ -1,5 +1,4 @@
 /// <reference types="cypress" />
-import { COLD_PREVIEW_TIMEOUT } from '../support/constants'
 import { writeLog } from '../support/functions'
 
 describe('Copy for AI Feature', () => {
@@ -123,7 +122,7 @@ describe('Copy for AI Feature', () => {
   }
 
   it('Should copy content in English and verify markdown structure', () => {
-    cy.visit(tutorialUrl, { timeout: COLD_PREVIEW_TIMEOUT })
+    cy.visitWithRetry(tutorialUrl)
 
     cy.document().then((doc) => {
       cy.stub(doc, 'execCommand')
@@ -165,7 +164,7 @@ describe('Copy for AI Feature', () => {
     }
 
     const spanishUrl = `/es/docs/tutorials/${tutorialSlugs.es}`
-    cy.visit(spanishUrl)
+    cy.visitWithRetry(spanishUrl)
 
     cy.get('article', { timeout: 15000 }).should('be.visible')
 
@@ -205,7 +204,7 @@ describe('Copy for AI Feature', () => {
     }
 
     const portugueseUrl = `/pt/docs/tutorials/${tutorialSlugs.pt}`
-    cy.visit(portugueseUrl)
+    cy.visitWithRetry(portugueseUrl)
 
     cy.get('article', { timeout: 15000 }).should('be.visible')
 

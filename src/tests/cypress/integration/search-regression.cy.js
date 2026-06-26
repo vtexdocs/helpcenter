@@ -11,7 +11,7 @@ describe('Search — Algolia regression (hybrid search flag OFF)', () => {
 
   beforeEach(() => {
     cy.viewport(1366, 768)
-    cy.visit('/docs/tutorials/about-the-admin-category')
+    cy.visitWithRetry('/docs/tutorials/about-the-admin-category')
   })
 
   it('search input is present and accepts text', () => {
@@ -36,7 +36,7 @@ describe('Search — Algolia regression (hybrid search flag OFF)', () => {
   })
 
   it('no console errors mentioning hybrid-search endpoints', () => {
-    cy.visit('/docs/tutorials/about-the-admin-category', {
+    cy.visitWithRetry('/docs/tutorials/about-the-admin-category', {
       onBeforeLoad(win) {
         cy.spy(win.console, 'error').as('consoleError')
       },

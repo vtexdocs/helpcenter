@@ -31,7 +31,7 @@ describe('Doctype filter UI', () => {
     // Must be ≥ 1024px before visit/submit: searchContainer has display:['none','none','none','flex'],
     // so at the Cypress default 1000px the header search input is hidden and click() fails.
     cy.viewport(1280, 768)
-    cy.visit(DOCTYPE_FILTER_PAGE)
+    cy.visitWithRetry(DOCTYPE_FILTER_PAGE)
     cy.submitSearch('api')
     // Narrow after submit: SearchFilterTabBar is display:none at ≥ 1024px — 1023px makes it visible.
     cy.viewport(1023, 768)
