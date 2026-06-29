@@ -1,14 +1,6 @@
 /// <reference types="cypress" />
 
 describe('Search pagination / infinite scroll', () => {
-  before(() => {
-    cy.request({
-      url: '/docs/tutorials/about-the-admin-category',
-      timeout: 90000,
-      failOnStatusCode: false,
-    })
-  })
-
   beforeEach(() => {
     cy.viewport(1366, 768)
     cy.visitWithRetry('/docs/tutorials/about-the-admin-category')

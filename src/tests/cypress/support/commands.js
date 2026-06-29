@@ -28,11 +28,10 @@ import { COLD_PREVIEW_TIMEOUT } from './constants'
 
 // Resilient cy.visit for the Netlify deploy preview (B-5): cold/cache-miss doc pages
 // intermittently return 403/5xx or exceed the page-load timeout under sustained CI load.
-// visitWithRetry gates each visit on a cy.request that retries with exponential backoff
-// until the origin serves a 2xx, letting a transient throttle window decay so the visit
-// lands as a fast cache hit. After the attempt cap it fails with a clear, single error.
+// visitWithRetry visits directly and retries on non-2xx (detected via cy.intercept) with
+// exponential backoff — one request per visit instead of the old gate+visit pair.
 // Retry options (maxAttempts/initialBackoff/maxBackoff/requestTimeout) are stripped here;
-// any remaining option (timeout, failOnStatusCode, onBeforeLoad, …) passes through to cy.visit.
+// any remaining option (timeout, onBeforeLoad, …) passes through to cy.visit.
 Cypress.Commands.add('visitWithRetry', (url, options = {}) => {
   const {
     maxAttempts = 5,
@@ -52,28 +51,28 @@ Cypress.Commands.add('visitWithRetry', (url, options = {}) => {
   })()
 
   const attempt = (n, backoff) => {
-    cy.request({ url, failOnStatusCode: false, timeout: requestTimeout }).then(
-      (resp) => {
-        if (resp.status >= 200 && resp.status < 300) {
-          if (settle > 0) {
-            cy.wait(settle).then(() =>
-              cy.visit(url, { timeout: requestTimeout, ...visitOptions })
-            )
-          } else {
-            cy.visit(url, { timeout: requestTimeout, ...visitOptions })
-          }
-          return
-        }
-        if (n >= maxAttempts) {
-          throw new Error(
-            `visitWithRetry: ${url} returned HTTP ${resp.status} after ${maxAttempts} attempts`
-          )
-        }
-        cy.wait(backoff).then(() =>
-          attempt(n + 1, Math.min(backoff * 2, maxBackoff))
+    if (settle > 0) cy.wait(settle)
+    // Capture the page-load HTTP status via intercept so we can retry on 403/5xx
+    // without a separate cy.request gate (halves per-visit origin hits).
+    const alias = `_vwr_${n}`
+    cy.intercept('GET', url).as(alias)
+    cy.visit(url, {
+      timeout: requestTimeout,
+      ...visitOptions,
+      failOnStatusCode: false,
+    })
+    cy.wait(`@${alias}`).then((interception) => {
+      const status = interception.response?.statusCode ?? 200
+      if (status >= 200 && status < 300) return
+      if (n >= maxAttempts) {
+        throw new Error(
+          `visitWithRetry: ${url} returned HTTP ${status} after ${maxAttempts} attempts`
         )
       }
-    )
+      cy.wait(backoff).then(() =>
+        attempt(n + 1, Math.min(backoff * 2, maxBackoff))
+      )
+    })
   }
 
   attempt(1, initialBackoff)

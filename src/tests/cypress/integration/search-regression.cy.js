@@ -1,14 +1,6 @@
 /// <reference types="cypress" />
 
 describe('Search — Algolia regression (hybrid search flag OFF)', () => {
-  before(() => {
-    cy.request({
-      url: '/docs/tutorials/about-the-admin-category',
-      timeout: 90000,
-      failOnStatusCode: false,
-    })
-  })
-
   beforeEach(() => {
     cy.viewport(1366, 768)
     cy.visitWithRetry('/docs/tutorials/about-the-admin-category')

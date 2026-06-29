@@ -1,23 +1,6 @@
 /// <reference types="cypress" />
 
 describe('Locale Switching Tests', () => {
-  // Warm all page URLs via cy.request so the Netlify ISR cache is populated
-  // before each asserting cy.visit. Cold pages can intermittently exceed the visit timeout.
-  before(() => {
-    const urlsToWarm = [
-      '/',
-      '/docs/tutorials/about-the-admin-category',
-      '/docs/tutorials',
-      '/pt/docs/tutorials',
-      '/es/docs/tutorials',
-      '/pt/docs/tutorials/sobre-o-admin-categoria',
-      '/es/docs/tutorials/acerca-de-admin-categoria',
-    ]
-    urlsToWarm.forEach((url) => {
-      cy.request({ url, timeout: 90000, failOnStatusCode: false })
-    })
-  })
-
   beforeEach(() => {
     cy.viewport(1366, 768)
   })
