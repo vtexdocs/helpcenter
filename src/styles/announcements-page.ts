@@ -53,6 +53,11 @@ const noResults: SxStyleProp = {
   textAlign: 'center',
 }
 
+const resultsNumberContainer: SxStyleProp = {
+  fontSize: '1rem',
+  color: 'muted.0',
+}
+
 const yearBlock: SxStyleProp = {
   width: '100%',
   flexDirection: 'column',
@@ -121,6 +126,7 @@ export default {
   yearVerticalRail,
   optionsContainer,
   noResults,
+  resultsNumberContainer,
   searchInput,
   yearBlock,
   yearHeading,

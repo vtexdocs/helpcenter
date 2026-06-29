@@ -118,7 +118,7 @@ describe('Help Center Navigation Status Test', () => {
       cy.task('log', `    Page: "${page.name}"`)
       cy.task('log', `    URL: ${page.url}`)
 
-      cy.visit(page.url, { failOnStatusCode: false })
+      cy.visitWithRetry(page.url, { failOnStatusCode: false })
 
       // Verify page loads successfully
       cy.url().should('include', page.url.replace(baseUrl, ''))

@@ -24,6 +24,62 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import { COLD_PREVIEW_TIMEOUT } from './constants'
+
+// Resilient cy.visit for the Netlify deploy preview (B-5): cold/cache-miss doc pages
+// intermittently return 403/5xx or exceed the page-load timeout under sustained CI load.
+// visitWithRetry visits directly and retries on non-2xx (detected via cy.intercept) with
+// exponential backoff — one request per visit instead of the old gate+visit pair.
+// Retry options (maxAttempts/initialBackoff/maxBackoff/requestTimeout) are stripped here;
+// any remaining option (timeout, onBeforeLoad, …) passes through to cy.visit.
+Cypress.Commands.add('visitWithRetry', (url, options = {}) => {
+  const {
+    maxAttempts = 5,
+    initialBackoff = 2000,
+    maxBackoff = 16000,
+    requestTimeout = COLD_PREVIEW_TIMEOUT,
+    ...visitOptions
+  } = options
+
+  // CYPRESS_PRE_VISIT_SETTLE_MS spaces out page-load bursts to stay under
+  // Netlify's per-IP abuse heuristic (B-5). 0 disables the settle.
+  const settle = (() => {
+    const raw = Cypress.env('PRE_VISIT_SETTLE_MS')
+    if (raw === undefined) return 1500
+    const ms = Number(raw)
+    return Number.isFinite(ms) ? ms : 1500
+  })()
+
+  const attempt = (n, backoff) => {
+    if (settle > 0) cy.wait(settle)
+    // Capture the page-load HTTP status via intercept so we can retry on 403/5xx
+    // without a separate cy.request gate (halves per-visit origin hits).
+    const alias = `_vwr_${n}`
+    cy.intercept('GET', url).as(alias)
+    cy.visit(url, {
+      timeout: requestTimeout,
+      ...visitOptions,
+      failOnStatusCode: false,
+    })
+    cy.wait(`@${alias}`).then((interception) => {
+      const status = interception.response?.statusCode ?? 200
+      // 3xx redirects are fine — cy.visit follows them automatically.
+      // Only retry on 4xx/5xx (rate-limiting, server errors).
+      if (status < 400) return
+      if (n >= maxAttempts) {
+        throw new Error(
+          `visitWithRetry: ${url} returned HTTP ${status} after ${maxAttempts} attempts`
+        )
+      }
+      cy.wait(backoff).then(() =>
+        attempt(n + 1, Math.min(backoff * 2, maxBackoff))
+      )
+    })
+  }
+
+  attempt(1, initialBackoff)
+})
+
 Cypress.Commands.add('any', { prevSubject: 'element' }, (subject, size = 1) => {
   cy.wrap(subject).then((elementList) => {
     elementList = elementList.jquery ? elementList.get() : elementList

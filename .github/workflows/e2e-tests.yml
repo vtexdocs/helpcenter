@@ -86,25 +86,72 @@ jobs:
             echo "url=${{ steps.wait-for-netlify-preview.outputs.url }}" >> $GITHUB_OUTPUT
           fi
 
-      - name: Pre-warm Netlify Functions and SSR routes
+      - name: Pre-warm all statically-known routes (sequential, retry-until-200)
         run: |
           BASE_URL="${{ steps.resolve-url.outputs.url }}"
-          echo "Pre-warming: $BASE_URL"
-          # Hit the navigation API (Netlify Function — separate cold-start from CDN)
-          for ROUTE in \
-            "/api/navigation" \
-            "/docs/tutorials" \
-            "/docs/tutorials/about-the-admin-category" \
-            "/pt/docs/tutorials" \
-            "/es/docs/tutorials" \
-            "/en/docs/api-reference"; do
-            echo "Warming $ROUTE..."
-            STATUS=$(curl -sf -o /dev/null -w "%{http_code}" \
-              --max-time 90 --retry 3 --retry-delay 10 \
-              "$BASE_URL$ROUTE" 2>/dev/null || echo "000")
-            echo "  → HTTP $STATUS"
+          echo "Pre-warming routes on: $BASE_URL"
+
+          # Every statically-known path the Cypress suite visits (cy.visit / cy.request),
+          # audited per spec. /api/navigation is a Netlify Function (separate cold-start
+          # from the CDN). Dynamic paths (copy-for-llm, helpcenter-navigation-status) are
+          # derived from the /api/navigation response and warmed in-spec — they cannot be
+          # enumerated statically here.
+          ROUTES=(
+            "/api/navigation"
+            "/"
+            "/docs/tutorials"
+            "/docs/tutorials/about-the-admin-category"
+            "/docs/tutorials/accessing-the-beta-environment"
+            "/pt/docs/tutorials"
+            "/pt/docs/tutorials/sobre-o-admin-categoria"
+            "/pt/docs/tutorials/acessar-o-ambiente-beta-pelo-dominio-myvtex-com"
+            "/es/docs/tutorials"
+            "/es/docs/tutorials/acerca-de-admin-categoria"
+            "/es/docs/tutorials/acceder-al-ambiente-beta"
+          )
+
+          MAX_ATTEMPTS=6
+          FAILED_ROUTES=()
+
+          # Warm one route, retrying until HTTP 200 with exponential backoff (2s→32s).
+          # Any non-200 — including the transient 403 from Netlify's abuse/DDoS layer
+          # (B-5) and cold-render 5xx/timeouts — is treated as retryable.
+          warm_route() {
+            local route="$1"
+            local attempt=1
+            local delay=2
+            local status
+            while [ $attempt -le $MAX_ATTEMPTS ]; do
+              # -L follows the locale redirect (/docs/... → /en/docs/...) so the real
+              # ISR cache key is rendered and cached, exactly as the browser does.
+              status=$(curl -sS -L -o /dev/null -w "%{http_code}" \
+                --max-time 120 "$BASE_URL$route" 2>/dev/null || echo "000")
+              if [ "$status" = "200" ]; then
+                echo "  ✓ $route → HTTP 200 (attempt $attempt/$MAX_ATTEMPTS)"
+                return 0
+              fi
+              echo "  … $route → HTTP $status (attempt $attempt/$MAX_ATTEMPTS), retrying in ${delay}s"
+              sleep $delay
+              delay=$(( delay * 2 ))
+              if [ $delay -gt 32 ]; then delay=32; fi
+              attempt=$(( attempt + 1 ))
+            done
+            echo "  ✗ $route never returned 200 after $MAX_ATTEMPTS attempts (last HTTP $status)"
+            return 1
+          }
+
+          # Sequential (concurrency 1): keeps origin load low so warming does not itself
+          # trigger the load-correlated throttling we are trying to avoid (B-5).
+          for route in "${ROUTES[@]}"; do
+            echo "Warming $route ..."
+            warm_route "$route" || FAILED_ROUTES+=("$route")
           done
-          echo "Pre-warm complete."
+
+          if [ ${#FAILED_ROUTES[@]} -eq 0 ]; then
+            echo "✅ All ${#ROUTES[@]} routes returned HTTP 200 — preview is warm, proceeding to Cypress."
+          else
+            echo "::warning title=Pre-warm incomplete::${#FAILED_ROUTES[@]} of ${#ROUTES[@]} route(s) never reached HTTP 200 after ${MAX_ATTEMPTS} retries: ${FAILED_ROUTES[*]}. This matches the known transient Netlify deploy-preview 403/cold-start throttling under CI load (B-5, EDU-18407). Proceeding to Cypress — the in-spec warm-then-visit hooks and cy.visit retries are the second layer of defense. If many specs then fail with cy.visit 403, re-run after the preview settles."
+          fi
 
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
