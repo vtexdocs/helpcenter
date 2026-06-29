@@ -1,10 +1,27 @@
-export type DataTableColumnType = 'text' | 'link' | 'boolean'
+export type DataTableColumnType =
+  | 'text'
+  | 'link'
+  | 'boolean'
+  | 'country'
+  | 'code'
+  | 'date'
+  | 'number'
+  | 'badge'
+  | 'tag'
+  | 'currency'
 
 export interface DataTableColumn {
   key: string
   label?: string
   type?: DataTableColumnType
+  /** For `link`: row key holding the URL. */
   urlKey?: string
+  /** For `currency`: fixed ISO 4217 code (e.g. "BRL"). Defaults to "USD". */
+  currency?: string
+  /** For `currency`: row key holding a per-row ISO 4217 code (overrides `currency`). */
+  currencyKey?: string
+  /** For `badge`/`tag`: map a cell value to a background color (text rendered white). */
+  badgeColors?: Record<string, string>
   sortable?: boolean
   filterable?: boolean
 }

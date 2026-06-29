@@ -4,35 +4,84 @@ const container: SxStyleProp = {
   width: '100%',
   overflowX: 'auto',
   marginBlock: '1em',
+
+  // Make the DataTables wrapper and its control rows match the table width,
+  // so the search (top) and the count/pagination (bottom) align to the
+  // table's right edge.
+  '& .dt-container': {
+    width: '100% !important',
+  },
+  '& .dt-layout-row': {
+    width: '100% !important',
+    marginInline: '0 !important',
+  },
+
   '& table.dataTable': {
     width: '100% !important',
     margin: '0 !important',
-    tableLayout: 'fixed' as SxStyleProp['tableLayout'],
+    // Columns size to their content.
+    tableLayout: 'auto' as SxStyleProp['tableLayout'],
   },
   '& table.dataTable thead th': {
     padding: '10px 18px !important',
+    borderBottom: 'none !important',
   },
   '& table.dataTable tbody td': {
     padding: '10px 18px !important',
     wordWrap: 'break-word' as SxStyleProp['wordWrap'],
   },
 
-  // Search input
+  // `code` column type: inline code style
+  '& code.dt-code': {
+    fontFamily: 'Consolas, monaco, monospace !important',
+    fontSize: '0.85em',
+    backgroundColor: '#f1f3f4',
+    color: '#2d3748',
+    padding: '0.15em 0.4em',
+    borderRadius: '4px',
+  },
+
+  // `country` column type: flag + name on one line
+  '& .dt-country': {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '0.4em',
+  },
+
+  // `badge`/`tag` column type: colored pill
+  '& .dt-badge': {
+    display: 'inline-block',
+    padding: '0.2em 0.7em',
+    borderRadius: '999px',
+    fontSize: '0.8125em',
+    fontWeight: 500,
+    lineHeight: 1.5,
+    whiteSpace: 'nowrap',
+  },
+
+  // Search input (Help Center style: light gray, rounded), fixed width and
+  // anchored to the right edge of the table.
+  '& .dt-search': {
+    justifyContent: 'flex-end !important',
+  },
   '& .dt-search label': {
     fontSize: '0.875rem !important',
     fontWeight: '500 !important',
   },
   '& .dt-search input[type="search"]': {
-    padding: '0.5rem 0.75rem !important',
+    width: '260px !important',
+    maxWidth: '100% !important',
+    padding: '0.625rem 1rem !important',
     fontSize: '0.875rem !important',
-    border: '1px solid #e2e8f0 !important',
-    borderRadius: '0.375rem !important',
+    lineHeight: '19px !important',
+    backgroundColor: '#F4F4F4 !important',
+    border: '1px solid #E7E9EE !important',
+    borderRadius: '4px !important',
     outline: 'none !important',
     transition: 'border-color 0.2s !important',
     marginLeft: '0.5rem !important',
     '&:focus': {
-      borderColor: '#e31c58 !important',
-      boxShadow: '0 0 0 3px rgba(227, 28, 88, 0.1) !important',
+      borderColor: '#a1a8b3 !important',
     },
   },
 
@@ -61,16 +110,18 @@ const container: SxStyleProp = {
     },
   },
 
-  // Info text
+  // Info / page count text (kept on the left)
   '& .dt-info': {
     fontSize: '0.875rem !important',
     color: '#718096 !important',
     padding: '0.5rem 0 !important',
+    textAlign: 'left !important',
   },
 
-  // Pagination
+  // Pagination (kept on the right)
   '& .dt-paging': {
     gap: '0.5rem !important',
+    justifyContent: 'flex-end !important',
   },
   '& .dt-paging button': {
     padding: '0.5rem 0.75rem !important',
@@ -102,6 +153,14 @@ const container: SxStyleProp = {
   },
 }
 
+const updatedAt: SxStyleProp = {
+  margin: '0.75rem 0 0 !important',
+  fontSize: '0.8125rem',
+  color: '#718096',
+  fontStyle: 'italic',
+}
+
 export default {
   container,
+  updatedAt,
 }

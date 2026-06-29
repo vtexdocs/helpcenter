@@ -413,5 +413,17 @@
   "troubleshooting_filter_tags.title": "Tags",
   "troubleshooting_filter_domains.title": "Área",
   "troubleshooting_filter_symptoms.title": "Tipo",
-  "troubleshooting_page_search.placeholder": "Buscar identificación, diagnósticos y correcciones de fallas..."
+  "troubleshooting_page_search.placeholder": "Buscar identificación, diagnósticos y correcciones de fallas...",
+  "datatable.lengthMenu": "Resultados por página: _MENU_",
+  "datatable.search": "Buscar:",
+  "datatable.info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+  "datatable.infoEmpty": "Mostrando 0 a 0 de 0 registros",
+  "datatable.infoFiltered": "(filtrado de _MAX_ registros en total)",
+  "datatable.zeroRecords": "No se encontraron registros coincidentes",
+  "datatable.emptyTable": "No hay datos disponibles en la tabla",
+  "datatable.paginate.first": "Primero",
+  "datatable.paginate.last": "Último",
+  "datatable.paginate.next": "Siguiente",
+  "datatable.paginate.previous": "Anterior",
+  "datatable.lastUpdated": "Última actualización:"
 }

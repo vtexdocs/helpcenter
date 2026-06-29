@@ -25,18 +25,22 @@ function extractDataTableSrcs(content: string): string[] {
   return Array.from(srcs)
 }
 
-const isAbsoluteUrl = (src: string) => /^https?:\/\//.test(src)
-
-async function fetchSource(src: string, branch: string): Promise<string> {
-  if (isAbsoluteUrl(src)) {
-    const response = await fetch(src)
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status} ${response.statusText}`)
-    }
-    return response.text()
+const resolveContentPath = (src: string): string => {
+  if (/^[a-z][a-z0-9+.-]*:\/\//i.test(src) || src.startsWith('//')) {
+    throw new Error('Absolute or external URLs are not allowed')
   }
 
   const path = src.replace(/^\//, '')
+
+  if (!path || path.includes('..')) {
+    throw new Error('Invalid DataTable src path')
+  }
+
+  return path
+}
+
+async function fetchSource(src: string, branch: string): Promise<string> {
+  const path = resolveContentPath(src)
   return fetchGitHubFileWithFallback(
     'vtexdocs',
     'help-center-content',
