@@ -63,7 +63,9 @@ Cypress.Commands.add('visitWithRetry', (url, options = {}) => {
     })
     cy.wait(`@${alias}`).then((interception) => {
       const status = interception.response?.statusCode ?? 200
-      if (status >= 200 && status < 300) return
+      // 3xx redirects are fine — cy.visit follows them automatically.
+      // Only retry on 4xx/5xx (rate-limiting, server errors).
+      if (status < 400) return
       if (n >= maxAttempts) {
         throw new Error(
           `visitWithRetry: ${url} returned HTTP ${status} after ${maxAttempts} attempts`
