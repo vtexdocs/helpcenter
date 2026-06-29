@@ -2,7 +2,7 @@ import { Box, Flex, IconCaret, Link, Text } from '@vtex/brand-ui'
 import { useState } from 'react'
 import { useIntl } from 'react-intl'
 
-import Tag from 'components/tag'
+import { Tag } from '@vtexdocs/components'
 import {
   announcementTypeTagColorMap,
   filterAnnouncementTypeTags,
