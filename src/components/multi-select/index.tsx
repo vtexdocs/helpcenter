@@ -85,22 +85,19 @@ const MultiSelect = ({
             maxWidth: '180px',
           }}
         >
-          <span style={{ flex: 1, minWidth: 0 }}>
-            {/* Ghost: sets stable width from longest label, takes no height */}
+          <span style={{ flex: 1, minWidth: 0, position: 'relative' }}>
+            {/* Ghost: invisible but holds the width of the longest label */}
             <span
               aria-hidden
-              style={{
-                display: 'block',
-                height: 0,
-                overflow: 'hidden',
-                whiteSpace: 'nowrap',
-              }}
+              style={{ visibility: 'hidden', whiteSpace: 'nowrap' }}
             >
               {longestLabel}
             </span>
+            {/* Real label overlaid on top, centered over the ghost */}
             <span
               style={{
-                display: 'block',
+                position: 'absolute',
+                inset: 0,
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
