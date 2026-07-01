@@ -16,10 +16,22 @@ interface DataTableProps {
 }
 
 type DataTablesInstance = { destroy: () => void }
+// Intentionally narrowed to HTMLElement — selector strings are not used.
 type DataTablesConstructor = new (
   el: HTMLElement,
   options?: Record<string, unknown>
 ) => DataTablesInstance
+
+// Module-level promise so the DataTables bundle is only loaded once.
+let dtImport: Promise<DataTablesConstructor> | null = null
+const loadDataTables = (): Promise<DataTablesConstructor> => {
+  if (!dtImport) {
+    dtImport = import('datatables.net-dt').then(
+      (m) => m.default as unknown as DataTablesConstructor
+    )
+  }
+  return dtImport
+}
 
 interface CellData {
   content: ReactNode
@@ -37,6 +49,8 @@ const humanize = (key: string) =>
     .replace(/([a-z\d])([A-Z])/g, '$1 $2')
     .replace(/^./, (char) => char.toUpperCase())
 
+// Cache is capped at 20 entries to avoid unbounded growth in long-running envs.
+const MAX_LOCALE_CACHE = 20
 const regionNamesCache = new Map<string, Intl.DisplayNames>()
 const getRegionNames = (locale: string): Intl.DisplayNames => {
   let displayNames = regionNamesCache.get(locale)
@@ -45,6 +59,9 @@ const getRegionNames = (locale: string): Intl.DisplayNames => {
       displayNames = new Intl.DisplayNames([locale], { type: 'region' })
     } catch {
       displayNames = new Intl.DisplayNames(['en'], { type: 'region' })
+    }
+    if (regionNamesCache.size >= MAX_LOCALE_CACHE) {
+      regionNamesCache.delete(regionNamesCache.keys().next().value as string)
     }
     regionNamesCache.set(locale, displayNames)
   }
@@ -73,11 +90,16 @@ const resolveTagColor = (
   value: string,
   overrides?: Record<string, string>
 ): TagColor => {
-  if (overrides?.[value]) return overrides[value] as TagColor
+  const override = overrides?.[value]
+  if (override && (TAG_COLOR_NAMES as string[]).includes(override)) {
+    return override as TagColor
+  }
   return TAG_COLOR_NAMES[
     hashString(value.toLowerCase()) % TAG_COLOR_NAMES.length
   ]
 }
+
+const SAFE_HREF = /^https?:\/\//i
 
 const getCellData = (
   column: DataTableColumn,
@@ -94,7 +116,7 @@ const getCellData = (
       const mdMatch = raw.match(/^\[(.+?)\]\((.+?)\)$/)
       const href = mdMatch ? mdMatch[2] : raw
       const label = mdMatch ? mdMatch[1] : raw
-      if (!href.startsWith('http')) return { content: raw }
+      if (!SAFE_HREF.test(href)) return { content: raw }
       return {
         content: (
           <a href={href} target="_blank" rel="noopener noreferrer">
@@ -119,17 +141,21 @@ const getCellData = (
       if (isEmpty) return { content: '' }
       const code = String(value).trim().toUpperCase()
       const name = getRegionNames(intl.locale).of(code) ?? code
+      // Only render the flag image for valid ISO 3166-1 alpha-2 codes.
+      const validCode = /^[A-Z]{2}$/.test(code)
       const lc = code.toLowerCase()
       return {
         content: (
           <span className="dt-country">
-            <img
-              src={`https://flagcdn.com/w20/${lc}.png`}
-              srcSet={`https://flagcdn.com/w40/${lc}.png 2x`}
-              width={20}
-              height={15}
-              alt={name}
-            />
+            {validCode && (
+              <img
+                src={`https://flagcdn.com/w20/${lc}.png`}
+                srcSet={`https://flagcdn.com/w40/${lc}.png 2x`}
+                width={20}
+                height={15}
+                alt={name}
+              />
+            )}
             <span>{name}</span>
           </span>
         ),
@@ -186,6 +212,7 @@ const getCellData = (
       try {
         formatted = intl.formatNumber(num, { style: 'currency', currency })
       } catch {
+        // Invalid ISO 4217 code — fall back to plain number formatting.
         formatted = intl.formatNumber(num)
       }
       return {
@@ -210,6 +237,7 @@ const getCellData = (
     }
 
     case 'boolean': {
+      if (isEmpty) return { content: '' }
       const truthy = Boolean(value)
       return {
         content: truthy ? '✅' : '❌',
@@ -228,11 +256,11 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
   const intl = useIntl()
   const table = useDataTable(src)
   const rows = table?.rows ?? []
-  const cols = useMemo(() => (Array.isArray(columns) ? columns : []), [columns])
+  const cols = useMemo(() => columns, [columns])
   const tableRef = useRef<HTMLTableElement>(null)
   const instanceRef = useRef<DataTablesInstance | null>(null)
 
-  const columnsKey = JSON.stringify(cols)
+  const columnsKey = useMemo(() => JSON.stringify(cols), [cols])
 
   const language = useMemo(
     () => ({
@@ -256,20 +284,30 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
   const languageKey = intl.locale
 
   useEffect(() => {
+    // Destroy any previous instance before deciding whether to re-init.
+    if (instanceRef.current && tableRef.current?.isConnected) {
+      try {
+        instanceRef.current.destroy()
+      } catch {
+        // ignore
+      }
+    }
+    instanceRef.current = null
+
     if (!tableRef.current || cols.length === 0) return
 
     let cancelled = false
 
     const init = async () => {
-      const DataTablesLib = (await import('datatables.net-dt'))
-        .default as unknown as DataTablesConstructor
+      const DataTablesLib = await loadDataTables()
       if (cancelled || !tableRef.current) return
 
       const anyFilterable = cols.some((column) => column.filterable)
       const tableEl = tableRef.current
 
+      let instance: DataTablesInstance | null = null
       try {
-        instanceRef.current = new DataTablesLib(tableEl, {
+        instance = new DataTablesLib(tableEl, {
           language,
           searching: anyFilterable,
           ordering: true,
@@ -293,6 +331,20 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
       } catch (error) {
         console.error('[DataTable] Error initializing DataTables:', error)
       }
+
+      // If the component unmounted while we were awaiting, destroy immediately.
+      if (cancelled) {
+        if (instance && tableRef.current?.isConnected) {
+          try {
+            instance.destroy()
+          } catch {
+            // ignore
+          }
+        }
+        return
+      }
+
+      instanceRef.current = instance
     }
 
     init()
@@ -339,26 +391,34 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
           </tr>
         </thead>
         <tbody>
-          {rows.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              {cols.map((column) => {
-                const cell = getCellData(column, row, intl)
-                return (
-                  <td
-                    key={column.key}
-                    data-order={cell.order}
-                    data-search={cell.search}
-                    style={{
-                      textAlign: cell.align || 'left',
-                      ...(cell.noWrap ? { whiteSpace: 'nowrap' as const } : {}),
-                    }}
-                  >
-                    {cell.content}
-                  </td>
-                )
-              })}
-            </tr>
-          ))}
+          {rows.map((row, rowIndex) => {
+            const key =
+              typeof row.id === 'string' || typeof row.id === 'number'
+                ? row.id
+                : rowIndex
+            return (
+              <tr key={key}>
+                {cols.map((column) => {
+                  const cell = getCellData(column, row, intl)
+                  return (
+                    <td
+                      key={column.key}
+                      data-order={cell.order}
+                      data-search={cell.search}
+                      style={{
+                        textAlign: cell.align || 'left',
+                        ...(cell.noWrap
+                          ? { whiteSpace: 'nowrap' as const }
+                          : {}),
+                      }}
+                    >
+                      {cell.content}
+                    </td>
+                  )
+                })}
+              </tr>
+            )
+          })}
         </tbody>
       </table>
       {hasValidUpdatedAt && updatedAtDate ? (

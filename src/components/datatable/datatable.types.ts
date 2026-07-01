@@ -1,3 +1,5 @@
+import type { TagColor } from '@vtexdocs/components'
+
 export type DataTableColumnType =
   | 'text'
   | 'link'
@@ -14,10 +16,10 @@ export interface DataTableColumn {
   key: string
   label?: string
   type?: DataTableColumnType
-  /** For `currency`: ISO 4217 code (e.g. "BRL"). Defaults to "USD". */
+  /** For `currency`: ISO 4217 code (e.g. "BRL"). Defaults to "USD". Invalid codes fall back to plain number formatting. */
   currency?: string
   /** For `badge`/`tag`: map a cell value to a TagColor (e.g. `{ Active: 'Green', Deprecated: 'No_Fix' }`). */
-  badgeColors?: Record<string, string>
+  badgeColors?: Record<string, TagColor>
   sortable?: boolean
   filterable?: boolean
 }

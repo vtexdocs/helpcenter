@@ -60,17 +60,6 @@ const container: SxStyleProp = {
     paddingRight: '18px',
   },
 
-  // `badge`/`tag` column type: colored pill
-  '& .dt-badge': {
-    display: 'inline-block',
-    padding: '0.2em 0.7em',
-    borderRadius: '999px',
-    fontSize: '0.8125em',
-    fontWeight: 500,
-    lineHeight: 1.5,
-    whiteSpace: 'nowrap',
-  },
-
   // Search input (Help Center style: light gray, rounded), fixed width and
   // anchored to the right edge of the table.
   '& .dt-search': {
