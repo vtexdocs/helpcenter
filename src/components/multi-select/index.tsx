@@ -93,7 +93,6 @@ const MultiSelect = ({
             borderRadius: '4px',
             backgroundColor: '#fff',
             cursor: 'pointer',
-            outline: 'none',
             maxWidth: '180px',
           }}
         >

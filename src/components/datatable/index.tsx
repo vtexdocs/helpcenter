@@ -396,10 +396,10 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
         const codes = [...valueSets[col.key]].sort((a, b) =>
           (regionNames.of(a) ?? a).localeCompare(regionNames.of(b) ?? b)
         )
-        dropdowns[col.key] = codes.map((code) => {
-          const name = regionNames.of(code) ?? code
-          return { value: name, content: name }
-        })
+        dropdowns[col.key] = codes.map((code) => ({
+          value: code,
+          content: regionNames.of(code) ?? code,
+        }))
       } else {
         const vals = [...valueSets[col.key]].sort()
         dropdowns[col.key] = vals.map((v) => ({ value: v, content: v }))
@@ -531,11 +531,12 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
 
     init()
 
+    const tableEl = tableRef.current
     return () => {
       cancelled = true
       const instance = instanceRef.current
       instanceRef.current = null
-      if (instance && tableRef.current?.isConnected) {
+      if (instance && tableEl?.isConnected) {
         try {
           instance.destroy()
         } catch {
@@ -591,9 +592,16 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
             v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
           )
           const pattern = escaped.length > 0 ? escaped.join('|') : ''
-          // country: non-anchored (data-search is "Name CODE"); others: exact anchored
+          // country: match alpha-2 code at word boundary in "Name CODE" data-search
+          // others: exact anchored match on the cell value
           const searchRegex =
-            col.type === 'country' ? pattern : pattern ? `^(${pattern})$` : ''
+            col.type === 'country'
+              ? pattern
+                ? `\\b(${pattern})\\b`
+                : ''
+              : pattern
+              ? `^(${pattern})$`
+              : ''
           instanceRef.current
             ?.column(colIndex)
             .search(searchRegex, { regex: pattern.length > 0 })
