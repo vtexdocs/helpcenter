@@ -177,10 +177,7 @@ const getCellData = (
     case 'currency': {
       if (isEmpty) return { content: '' }
       const num = Number(value)
-      const currency =
-        (column.currencyKey
-          ? String(row[column.currencyKey] ?? '')
-          : column.currency) || 'USD'
+      const currency = column.currency || 'USD'
       if (Number.isNaN(num)) {
         const text = String(value)
         return { content: text, order: text, search: text }
@@ -302,12 +299,13 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
 
     return () => {
       cancelled = true
-      if (instanceRef.current) {
+      const instance = instanceRef.current
+      instanceRef.current = null
+      if (instance && tableRef.current?.isConnected) {
         try {
-          instanceRef.current.destroy()
-          instanceRef.current = null
-        } catch (error) {
-          console.error('[DataTable] Error destroying DataTables:', error)
+          instance.destroy()
+        } catch {
+          // DataTables DOM cleanup can race with React unmounting — safe to ignore
         }
       }
     }
