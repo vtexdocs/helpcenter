@@ -17,6 +17,7 @@ import TimeToRead from 'components/TimeToRead'
 import DateText from 'components/date-text'
 import Author from 'components/author'
 import { Tag } from '@vtexdocs/components'
+import PaymentProvidersTable from 'components/payment-providers-table'
 import CopyForLLM from 'components/copy-for-llm'
 import DataTable from 'components/datatable'
 import { DataTablesProvider } from 'components/datatable/context'
@@ -172,8 +173,12 @@ const ArticleRender = ({
                   <DataTablesProvider value={dataTablesData}>
                     <MarkdownRenderer
                       serialized={serialized}
-                      customComponents={{ InsertAccountName, DataTable }}
-                      scope={{ _: true }}
+                      customComponents={{
+                        InsertAccountName,
+                        PaymentProvidersTable,
+                        DataTable
+                      }}
+                      scope={{}}
                     />
                   </DataTablesProvider>
                 </article>
