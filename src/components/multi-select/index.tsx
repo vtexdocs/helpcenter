@@ -51,6 +51,11 @@ const MultiSelect = ({
       ? options.find((o) => o.value === selected[0])?.content ?? selected[0]
       : `${selected.length} selected`
 
+  const longestLabel = [allLabel, ...options.map((o) => o.content)].reduce(
+    (a, b) => (a.length >= b.length ? a : b),
+    ''
+  )
+
   return (
     <div
       ref={containerRef}
@@ -77,10 +82,33 @@ const MultiSelect = ({
             backgroundColor: '#fff',
             cursor: 'pointer',
             outline: 'none',
-            whiteSpace: 'nowrap',
+            maxWidth: '180px',
           }}
         >
-          <span>{triggerLabel}</span>
+          <span style={{ flex: 1, minWidth: 0 }}>
+            {/* Ghost: sets stable width from longest label, takes no height */}
+            <span
+              aria-hidden
+              style={{
+                display: 'block',
+                height: 0,
+                overflow: 'hidden',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {longestLabel}
+            </span>
+            <span
+              style={{
+                display: 'block',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}
+            >
+              {triggerLabel}
+            </span>
+          </span>
           <svg
             width="10"
             height="6"

@@ -111,6 +111,33 @@ const DateFilter = ({ label, value, yearOptions, onChange }: Props) => {
     return year
   })()
 
+  // Compute the longest possible trigger label so the button width stays stable.
+  const longestLabel = (() => {
+    const anyDate = intl.formatMessage({ id: 'datatable.dateAny' })
+    if (yearOptions.length === 0) return anyDate
+    const refYear = yearOptions[0]
+    const candidates = [
+      anyDate,
+      refYear,
+      // Longest month+year: try all 12 months, pick the longest formatted string
+      ...MONTHS.map((m) =>
+        intl.formatDate(new Date(Number(refYear), m - 1, 1), {
+          month: 'long',
+          year: 'numeric',
+        })
+      ),
+      // Longest full date: use day 28 (safe for all months) with all months
+      ...MONTHS.map((m) =>
+        intl.formatDate(new Date(Number(refYear), m - 1, 28), {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric',
+        })
+      ),
+    ]
+    return candidates.reduce((a, b) => (a.length >= b.length ? a : b), '')
+  })()
+
   const daysInMonth =
     navYear && navMonth
       ? new Date(Number(navYear), Number(navMonth), 0).getDate()
@@ -142,10 +169,33 @@ const DateFilter = ({ label, value, yearOptions, onChange }: Props) => {
             backgroundColor: '#fff',
             cursor: 'pointer',
             outline: 'none',
-            whiteSpace: 'nowrap',
+            maxWidth: '180px',
           }}
         >
-          <span>{triggerLabel}</span>
+          <span style={{ flex: 1, minWidth: 0 }}>
+            {/* Ghost: sets stable width from longest label, takes no height */}
+            <span
+              aria-hidden
+              style={{
+                display: 'block',
+                height: 0,
+                overflow: 'hidden',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {longestLabel}
+            </span>
+            <span
+              style={{
+                display: 'block',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}
+            >
+              {triggerLabel}
+            </span>
+          </span>
           <svg
             width="10"
             height="6"
