@@ -1,13 +1,16 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { createRoot } from 'react-dom/client'
+import type { Root } from 'react-dom/client'
 import type { ReactNode } from 'react'
 import { Box } from '@vtex/brand-ui'
 import { useIntl } from 'react-intl'
 import type { IntlShape } from 'react-intl'
-import { Tag } from '@vtexdocs/components'
+import { Tag, SearchIcon } from '@vtexdocs/components'
 import type { TagColor } from '@vtexdocs/components'
 
 import { useDataTable } from './context'
 import type { DataTableColumn, DataTableRow } from './datatable.types'
+import MultiSelect from 'components/multi-select'
 import styles from './styles'
 
 interface DataTableProps {
@@ -15,7 +18,15 @@ interface DataTableProps {
   columns?: DataTableColumn[]
 }
 
-type DataTablesInstance = { destroy: () => void }
+type DataTablesSearchOptions = { regex?: boolean; smart?: boolean }
+type DataTablesColumnApi = {
+  search: (val: string, opts?: DataTablesSearchOptions) => { draw: () => void }
+}
+type DataTablesInstance = {
+  destroy: () => void
+  search: (val: string) => { draw: () => void }
+  column: (index: number) => DataTablesColumnApi
+}
 // Intentionally narrowed to HTMLElement — selector strings are not used.
 type DataTablesConstructor = new (
   el: HTMLElement,
@@ -252,6 +263,9 @@ const getCellData = (
   }
 }
 
+// Column types that get a dropdown filter (values are discrete/enumerable).
+const DROPDOWN_TYPES = new Set(['badge', 'tag', 'boolean'])
+
 const DataTable = ({ src, columns = [] }: DataTableProps) => {
   const intl = useIntl()
   const table = useDataTable(src)
@@ -259,14 +273,57 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
   const cols = useMemo(() => columns, [columns])
   const tableRef = useRef<HTMLTableElement>(null)
   const instanceRef = useRef<DataTablesInstance | null>(null)
+  const searchIconRootRef = useRef<Root | null>(null)
 
   const columnsKey = useMemo(() => JSON.stringify(cols), [cols])
+
+  const anyFilterable = useMemo(() => cols.some((c) => c.filterable), [cols])
+
+  const dropdownCols = useMemo(
+    () => cols.filter((c) => c.filterable && DROPDOWN_TYPES.has(c.type ?? '')),
+    [cols]
+  )
+
+  const [columnFilters, setColumnFilters] = useState<Record<string, string[]>>(
+    {}
+  )
+
+  // Reset filter state when the table source or columns change.
+  useEffect(() => {
+    setColumnFilters({})
+  }, [src, columnsKey])
+
+  // Unique sorted values per dropdown column, derived from row data.
+  const dropdownOptions = useMemo(() => {
+    const result: Record<string, { value: string; content: string }[]> = {}
+    for (const col of dropdownCols) {
+      if (col.type === 'boolean') {
+        result[col.key] = [
+          { value: 'true', content: '✅ Yes' },
+          { value: 'false', content: '❌ No' },
+        ]
+      } else {
+        const unique = [
+          ...new Set(
+            rows
+              .map((r) => r[col.key])
+              .filter((v) => v != null && v !== '')
+              .map(String)
+          ),
+        ].sort()
+        result[col.key] = unique.map((v) => ({ value: v, content: v }))
+      }
+    }
+    return result
+  }, [dropdownCols, rows])
 
   const language = useMemo(
     () => ({
       lengthMenu: intl.formatMessage({ id: 'datatable.lengthMenu' }),
-      search: intl.formatMessage({ id: 'datatable.search' }),
-      searchPlaceholder: '',
+      search: '',
+      searchPlaceholder: intl.formatMessage({
+        id: 'datatable.searchPlaceholder',
+      }),
       info: intl.formatMessage({ id: 'datatable.info' }),
       infoEmpty: intl.formatMessage({ id: 'datatable.infoEmpty' }),
       infoFiltered: intl.formatMessage({ id: 'datatable.infoFiltered' }),
@@ -298,11 +355,23 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
 
     let cancelled = false
 
+    // Compute updatedAt label synchronously — stable for this src.
+    const updatedAtDate = table?.updatedAt ? new Date(table.updatedAt) : null
+    const updatedAtLabel =
+      updatedAtDate && !Number.isNaN(updatedAtDate.getTime())
+        ? `${intl.formatMessage({
+            id: 'datatable.lastUpdated',
+          })} ${intl.formatDate(updatedAtDate, {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          })}`
+        : null
+
     const init = async () => {
       const DataTablesLib = await loadDataTables()
       if (cancelled || !tableRef.current) return
 
-      const anyFilterable = cols.some((column) => column.filterable)
       const tableEl = tableRef.current
 
       let instance: DataTablesInstance | null = null
@@ -316,7 +385,7 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
           autoWidth: false,
           layout: {
             topStart: 'pageLength',
-            topEnd: 'search',
+            topEnd: anyFilterable ? 'search' : null,
             bottomStart: 'info',
             bottomEnd: 'paging',
           },
@@ -327,6 +396,21 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
             className: 'dt-left',
             width: null,
           })),
+          drawCallback: updatedAtLabel
+            ? function () {
+                const infoEl = tableEl
+                  .closest('.dt-container')
+                  ?.querySelector('.dt-info')
+                if (!infoEl) return
+                let span = infoEl.querySelector('.dt-updated-at')
+                if (!span) {
+                  span = document.createElement('span')
+                  span.className = 'dt-updated-at'
+                  infoEl.appendChild(span)
+                }
+                span.textContent = ` · ${updatedAtLabel}`
+              }
+            : undefined,
         })
       } catch (error) {
         console.error('[DataTable] Error initializing DataTables:', error)
@@ -345,6 +429,30 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
       }
 
       instanceRef.current = instance
+
+      // Mount SearchIcon into the DataTables-rendered search input.
+      if (anyFilterable) {
+        const searchInput = tableEl
+          .closest('.dt-container')
+          ?.querySelector('.dt-search input[type="search"]')
+        if (searchInput) {
+          const iconWrapper = document.createElement('span')
+          iconWrapper.className = 'dt-search-icon'
+          searchInput.parentElement?.insertBefore(iconWrapper, searchInput)
+          const root = createRoot(iconWrapper)
+          root.render(
+            <SearchIcon
+              sx={{
+                width: '16px',
+                minWidth: '16px',
+                minHeight: '16px',
+                flex: 0,
+              }}
+            />
+          )
+          searchIconRootRef.current = root
+        }
+      }
     }
 
     init()
@@ -353,6 +461,8 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
       cancelled = true
       const instance = instanceRef.current
       instanceRef.current = null
+      searchIconRootRef.current?.unmount()
+      searchIconRootRef.current = null
       if (instance && tableRef.current?.isConnected) {
         try {
           instance.destroy()
@@ -376,12 +486,55 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
     )
   }
 
-  const updatedAtDate = table.updatedAt ? new Date(table.updatedAt) : null
-  const hasValidUpdatedAt =
-    updatedAtDate !== null && !Number.isNaN(updatedAtDate.getTime())
-
   return (
     <Box sx={styles.container}>
+      {dropdownCols.length > 0 && (
+        <Box sx={styles.filterBar}>
+          {dropdownCols.map((col) => {
+            const colIndex = cols.indexOf(col)
+            return (
+              <MultiSelect
+                key={col.key}
+                label={col.label ?? humanize(col.key)}
+                options={dropdownOptions[col.key] ?? []}
+                selected={columnFilters[col.key] ?? []}
+                allLabel={intl.formatMessage({ id: 'datatable.filterAll' })}
+                onChange={(vals) => {
+                  setColumnFilters((prev) => ({ ...prev, [col.key]: vals }))
+                  const regex =
+                    vals.length > 0
+                      ? `^(${vals
+                          .map((v) => v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+                          .join('|')})$`
+                      : ''
+                  instanceRef.current
+                    ?.column(colIndex)
+                    .search(regex, { regex: true })
+                    .draw()
+                }}
+              />
+            )
+          })}
+          {Object.values(columnFilters).some((v) => v.length > 0) && (
+            <button
+              type="button"
+              style={styles.clearFilters as React.CSSProperties}
+              onClick={() => {
+                setColumnFilters({})
+                dropdownCols.forEach((col) => {
+                  const colIndex = cols.indexOf(col)
+                  instanceRef.current
+                    ?.column(colIndex)
+                    .search('', { regex: false })
+                    .draw()
+                })
+              }}
+            >
+              {intl.formatMessage({ id: 'datatable.clearFilters' })}
+            </button>
+          )}
+        </Box>
+      )}
       <table ref={tableRef} className="display" style={{ width: '100%' }}>
         <thead>
           <tr>
@@ -421,16 +574,6 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
           })}
         </tbody>
       </table>
-      {hasValidUpdatedAt && updatedAtDate ? (
-        <Box as="p" sx={styles.updatedAt}>
-          {intl.formatMessage({ id: 'datatable.lastUpdated' })}{' '}
-          {intl.formatDate(updatedAtDate, {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-          })}
-        </Box>
-      ) : null}
     </Box>
   )
 }

@@ -69,12 +69,24 @@ const container: SxStyleProp = {
     fontSize: '0.875rem !important',
     fontWeight: '500 !important',
   },
+  '& .dt-search': {
+    position: 'relative !important',
+  },
+  '& .dt-search-icon': {
+    position: 'absolute',
+    left: '1.25rem',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+  },
   '& .dt-search input[type="search"]': {
     width: '260px !important',
     maxWidth: '100% !important',
-    padding: '0.625rem 1rem !important',
+    padding: '0.5rem 0.75rem 0.5rem 2.25rem !important',
     fontSize: '0.875rem !important',
-    lineHeight: '19px !important',
+    lineHeight: '1.25 !important',
     backgroundColor: '#F4F4F4 !important',
     border: '1px solid #E7E9EE !important',
     borderRadius: '4px !important',
@@ -87,12 +99,17 @@ const container: SxStyleProp = {
   },
 
   // Page length select
+  '& .dt-length': {
+    width: 'auto !important',
+    flex: '0 0 auto !important',
+  },
   '& .dt-length label': {
     fontSize: '0.875rem !important',
     fontWeight: '500 !important',
   },
   '& .dt-length select': {
-    padding: '0.5rem 2rem 0.5rem 0.75rem !important',
+    width: '72px !important',
+    padding: '0.5rem 1.75rem 0.5rem 0.5rem !important',
     fontSize: '0.875rem !important',
     border: '1px solid #e2e8f0 !important',
     borderRadius: '0.375rem !important',
@@ -102,10 +119,11 @@ const container: SxStyleProp = {
     transition: 'border-color 0.2s !important',
     marginLeft: '0.5rem !important',
     marginRight: '0.5rem !important',
-    '&:focus': {
-      borderColor: '#e31c58 !important',
-      boxShadow: '0 0 0 3px rgba(227, 28, 88, 0.1) !important',
-    },
+    appearance: 'none !important',
+    WebkitAppearance: 'none !important',
+    backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23747474' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important`,
+    backgroundRepeat: 'no-repeat !important',
+    backgroundPosition: 'right 0.5rem center !important',
     '&:hover': {
       borderColor: '#cbd5e0 !important',
     },
@@ -117,6 +135,9 @@ const container: SxStyleProp = {
     color: '#718096 !important',
     padding: '0.5rem 0 !important',
     textAlign: 'left !important',
+  },
+  '& .dt-updated-at': {
+    color: '#718096',
   },
 
   // Pagination (kept on the right)
@@ -154,11 +175,29 @@ const container: SxStyleProp = {
   },
 }
 
-const updatedAt: SxStyleProp = {
-  margin: '0.75rem 0 0 !important',
-  fontSize: '0.8125rem',
-  color: '#718096',
-  fontStyle: 'italic',
+const filterBar: SxStyleProp = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'center',
+  gap: '1rem',
+  marginBottom: '0.5rem',
+  // Match Select dropdown height to the DataTables length/search controls.
+  '& select': {
+    height: 'auto !important',
+    padding: '0.5rem 2rem 0.5rem 0.75rem !important',
+    fontSize: '0.875rem !important',
+  },
+}
+
+const clearFilters = {
+  background: 'none',
+  border: 'none',
+  padding: '0.5rem 0',
+  fontSize: '0.875rem',
+  color: '#e31c58',
+  cursor: 'pointer',
+  textDecoration: 'underline',
+  alignSelf: 'flex-end',
 }
 
 const unavailable: SxStyleProp = {
@@ -173,6 +212,7 @@ const unavailable: SxStyleProp = {
 
 export default {
   container,
-  updatedAt,
+  filterBar,
+  clearFilters,
   unavailable,
 }
