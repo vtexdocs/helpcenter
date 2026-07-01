@@ -14,8 +14,6 @@ export interface DataTableColumn {
   key: string
   label?: string
   type?: DataTableColumnType
-  /** For `link`: row key holding the URL. */
-  urlKey?: string
   /** For `currency`: fixed ISO 4217 code (e.g. "BRL"). Defaults to "USD". */
   currency?: string
   /** For `currency`: row key holding a per-row ISO 4217 code (overrides `currency`). */

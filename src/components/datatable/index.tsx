@@ -89,15 +89,19 @@ const getCellData = (
 
   switch (column.type) {
     case 'link': {
-      const href = column.urlKey ? (row[column.urlKey] as string) : undefined
-      const label = value == null ? href : String(value)
-      if (!href) return { content: label ?? '' }
+      if (isEmpty) return { content: '' }
+      const raw = String(value)
+      const mdMatch = raw.match(/^\[(.+?)\]\((.+?)\)$/)
+      const href = mdMatch ? mdMatch[2] : raw
+      const label = mdMatch ? mdMatch[1] : raw
+      if (!href.startsWith('http')) return { content: raw }
       return {
         content: (
           <a href={href} target="_blank" rel="noopener noreferrer">
             {label}
           </a>
         ),
+        search: label,
       }
     }
 
