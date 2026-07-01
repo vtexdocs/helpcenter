@@ -176,7 +176,7 @@ const ArticleRender = ({
                       customComponents={{
                         InsertAccountName,
                         PaymentProvidersTable,
-                        DataTable
+                        DataTable,
                       }}
                       scope={{}}
                     />
