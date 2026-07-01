@@ -64,6 +64,7 @@ const DateFilter = ({ label, value, yearOptions, onChange }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (!open) return
     const handleClickOutside = (e: MouseEvent) => {
       if (
         containerRef.current &&
@@ -74,7 +75,7 @@ const DateFilter = ({ label, value, yearOptions, onChange }: Props) => {
     }
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+  }, [open])
 
   const handleOpen = () => {
     if (value.year) {

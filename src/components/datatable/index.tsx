@@ -311,6 +311,11 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
 
   const columnsKey = useMemo(() => JSON.stringify(cols), [cols])
 
+  const colIndexMap = useMemo(
+    () => new Map(cols.map((col, i) => [col, i])),
+    [cols]
+  )
+
   const dropdownCols = useMemo(
     () => cols.filter((c) => c.filterable && DROPDOWN_TYPES.has(c.type ?? '')),
     [cols]
@@ -348,24 +353,62 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
       ({ year, month, day }) => year || month || day
     )
 
-  // Unique sorted years per date column, derived from row data.
-  const dateYearOptions = useMemo(() => {
-    const result: Record<string, string[]> = {}
-    for (const col of dateCols) {
-      const years = [
-        ...new Set(
-          rows
-            .map((r) => r[col.key])
-            .filter((v) => v != null && v !== '')
-            .map((v) => new Date(v as string).getFullYear())
-            .filter((y) => !Number.isNaN(y))
-            .map(String)
-        ),
-      ].sort()
-      result[col.key] = years
+  // Single pass over rows: collect year options (date cols) and dropdown options (dropdown cols).
+  const { dateYearOptions, dropdownOptions } = useMemo(() => {
+    const regionNames = getRegionNames(intl.locale)
+    const yearSets: Record<string, Set<string>> = {}
+    const valueSets: Record<string, Set<string>> = {}
+
+    for (const col of dateCols) yearSets[col.key] = new Set()
+    for (const col of dropdownCols) {
+      if (col.type !== 'boolean') valueSets[col.key] = new Set()
     }
-    return result
-  }, [dateCols, rows])
+
+    for (const row of rows) {
+      for (const col of dateCols) {
+        const v = row[col.key]
+        if (v == null || v === '') continue
+        const y = new Date(v as string).getFullYear()
+        if (!Number.isNaN(y)) yearSets[col.key].add(String(y))
+      }
+      for (const col of dropdownCols) {
+        if (col.type === 'boolean') continue
+        const v = row[col.key]
+        if (v == null || v === '') continue
+        valueSets[col.key].add(
+          col.type === 'country' ? String(v).trim().toUpperCase() : String(v)
+        )
+      }
+    }
+
+    const dateYears: Record<string, string[]> = {}
+    for (const col of dateCols) {
+      dateYears[col.key] = [...yearSets[col.key]].sort()
+    }
+
+    const dropdowns: Record<string, { value: string; content: string }[]> = {}
+    for (const col of dropdownCols) {
+      if (col.type === 'boolean') {
+        dropdowns[col.key] = [
+          { value: 'true', content: '✅ Yes' },
+          { value: 'false', content: '❌ No' },
+        ]
+      } else if (col.type === 'country') {
+        const codes = [...valueSets[col.key]].sort((a, b) =>
+          (regionNames.of(a) ?? a).localeCompare(regionNames.of(b) ?? b)
+        )
+        dropdowns[col.key] = codes.map((code) => {
+          const name = regionNames.of(code) ?? code
+          return { value: name, content: name }
+        })
+      } else {
+        const vals = [...valueSets[col.key]].sort()
+        dropdowns[col.key] = vals.map((v) => ({ value: v, content: v }))
+      }
+    }
+
+    return { dateYearOptions: dateYears, dropdownOptions: dropdowns }
+  }, [allFilterCols, rows, intl.locale, dateCols, dropdownCols])
 
   // Reset all filters and search when source or columns change.
   useEffect(() => {
@@ -374,48 +417,6 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
     setSearchQuery('')
     setShowMoreFilters(false)
   }, [src, columnsKey])
-
-  // Unique sorted values per dropdown column, derived from row data.
-  const dropdownOptions = useMemo(() => {
-    const result: Record<string, { value: string; content: string }[]> = {}
-    for (const col of dropdownCols) {
-      if (col.type === 'boolean') {
-        result[col.key] = [
-          { value: 'true', content: '✅ Yes' },
-          { value: 'false', content: '❌ No' },
-        ]
-      } else if (col.type === 'country') {
-        const regionNames = getRegionNames(intl.locale)
-        const unique = [
-          ...new Set(
-            rows
-              .map((r) => r[col.key])
-              .filter((v) => v != null && v !== '')
-              .map((v) => String(v).trim().toUpperCase())
-          ),
-        ].sort((a, b) => {
-          const na = regionNames.of(a) ?? a
-          const nb = regionNames.of(b) ?? b
-          return na.localeCompare(nb)
-        })
-        result[col.key] = unique.map((code) => {
-          const name = regionNames.of(code) ?? code
-          return { value: name, content: name }
-        })
-      } else {
-        const unique = [
-          ...new Set(
-            rows
-              .map((r) => r[col.key])
-              .filter((v) => v != null && v !== '')
-              .map(String)
-          ),
-        ].sort()
-        result[col.key] = unique.map((v) => ({ value: v, content: v }))
-      }
-    }
-    return result
-  }, [dropdownCols, rows])
 
   const language = useMemo(
     () => ({
@@ -559,7 +560,7 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
   }
 
   const renderFilterControl = (col: DataTableColumn) => {
-    const colIndex = cols.indexOf(col)
+    const colIndex = colIndexMap.get(col) ?? -1
     if (DATE_FILTER_TYPES.has(col.type ?? '')) {
       return (
         <DateFilter
@@ -643,7 +644,7 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
                     )
                   )
                   allFilterCols.forEach((col) => {
-                    const colIndex = cols.indexOf(col)
+                    const colIndex = colIndexMap.get(col) ?? -1
                     instanceRef.current
                       ?.column(colIndex)
                       .search('', { regex: false })

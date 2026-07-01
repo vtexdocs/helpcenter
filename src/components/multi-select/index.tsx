@@ -24,6 +24,7 @@ const MultiSelect = ({
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (!open) return
     const handleClickOutside = (e: MouseEvent) => {
       if (
         containerRef.current &&
@@ -34,7 +35,7 @@ const MultiSelect = ({
     }
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+  }, [open])
 
   const toggle = (value: string) => {
     const next = selected.includes(value)
