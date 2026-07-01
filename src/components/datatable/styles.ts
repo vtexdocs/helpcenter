@@ -151,7 +151,7 @@ const filterBar: SxStyleProp = {
 const filterBarExpanded: SxStyleProp = {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  flexWrap: 'wrap',
   gap: '1rem',
   paddingTop: '0.5rem',
   borderTop: '1px solid #E7E9EE',
@@ -160,7 +160,6 @@ const filterBarExpanded: SxStyleProp = {
 const filterBarLeft: SxStyleProp = {
   display: 'flex',
   alignItems: 'center',
-  flexWrap: 'wrap',
   gap: '1rem',
 }
 

@@ -424,7 +424,7 @@
   "datatable.dateSelectYear": "Seleccionar año",
   "datatable.dateClearMonth": "Cualquier mes",
   "datatable.dateClearDay": "Cualquier día",
-  "datatable.moreFilters": "+ {count} filtros más",
+  "datatable.moreFilters": "Mostrar más filtros",
   "datatable.lessFilters": "Mostrar menos filtros",
   "datatable.info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
   "datatable.infoEmpty": "Mostrando 0 a 0 de 0 registros",

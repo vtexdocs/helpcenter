@@ -612,21 +612,21 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
             {allFilterCols
               .slice(0, MAX_VISIBLE_FILTERS)
               .map((col) => renderFilterControl(col))}
-            {allFilterCols.length > MAX_VISIBLE_FILTERS && (
-              <button
-                type="button"
-                style={styles.moreFilters as React.CSSProperties}
-                onClick={() => setShowMoreFilters((v) => !v)}
-              >
-                {showMoreFilters
-                  ? intl.formatMessage({ id: 'datatable.lessFilters' })
-                  : intl.formatMessage(
-                      { id: 'datatable.moreFilters' },
-                      { count: allFilterCols.length - MAX_VISIBLE_FILTERS }
-                    )}
-              </button>
-            )}
           </Box>
+          {allFilterCols.length > MAX_VISIBLE_FILTERS && (
+            <button
+              type="button"
+              style={{
+                ...(styles.moreFilters as React.CSSProperties),
+                flexShrink: 0,
+              }}
+              onClick={() => setShowMoreFilters((v) => !v)}
+            >
+              {showMoreFilters
+                ? intl.formatMessage({ id: 'datatable.lessFilters' })
+                : intl.formatMessage({ id: 'datatable.moreFilters' })}
+            </button>
+          )}
           <button
             type="button"
             style={{
