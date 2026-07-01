@@ -1,6 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { createRoot } from 'react-dom/client'
-import type { Root } from 'react-dom/client'
 import type { ReactNode } from 'react'
 import { Box } from '@vtex/brand-ui'
 import { useIntl } from 'react-intl'
@@ -11,6 +9,8 @@ import type { TagColor } from '@vtexdocs/components'
 import { useDataTable } from './context'
 import type { DataTableColumn, DataTableRow } from './datatable.types'
 import MultiSelect from 'components/multi-select'
+import DateFilter, { emptyDateFilter } from 'components/date-filter'
+import type { DateFilterValue } from 'components/date-filter'
 import styles from './styles'
 
 interface DataTableProps {
@@ -264,7 +264,41 @@ const getCellData = (
 }
 
 // Column types that get a dropdown filter (values are discrete/enumerable).
-const DROPDOWN_TYPES = new Set(['badge', 'tag', 'boolean'])
+const DROPDOWN_TYPES = new Set(['badge', 'tag', 'boolean', 'country'])
+
+const buildDateSearch = (
+  val: DateFilterValue,
+  intl: IntlShape
+): { pattern: string; regex: boolean } => {
+  const { year, month, day } = val
+  if (!year && !month && !day) return { pattern: '', regex: false }
+
+  const monthShort = month
+    ? intl.formatDate(new Date(2000, Number(month) - 1, 1), { month: 'short' })
+    : null
+
+  if (year && month && day) {
+    const formatted = intl.formatDate(
+      new Date(Number(year), Number(month) - 1, Number(day)),
+      { day: 'numeric', month: 'short', year: 'numeric' }
+    )
+    return { pattern: formatted, regex: false }
+  }
+  if (year && month)
+    return { pattern: `${monthShort} \\d+, ${year}`, regex: true }
+  if (year && day) return { pattern: `\\w+ ${day}, ${year}`, regex: true }
+  if (month && day)
+    return { pattern: `${monthShort} ${day}, \\d{4}`, regex: true }
+  if (year) return { pattern: year, regex: false }
+  if (month) return { pattern: `${monthShort} \\d+, \\d{4}`, regex: true }
+  // day only — match " N," to avoid false positives on years
+  return { pattern: ` ${day},`, regex: false }
+}
+// Column types that get a date picker filter.
+const DATE_FILTER_TYPES = new Set(['date'])
+
+const MAX_VISIBLE_FILTERS = 2
+const OVERFLOW_THRESHOLD = 3
 
 const DataTable = ({ src, columns = [] }: DataTableProps) => {
   const intl = useIntl()
@@ -273,24 +307,72 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
   const cols = useMemo(() => columns, [columns])
   const tableRef = useRef<HTMLTableElement>(null)
   const instanceRef = useRef<DataTablesInstance | null>(null)
-  const searchIconRootRef = useRef<Root | null>(null)
+  const [searchQuery, setSearchQuery] = useState('')
 
   const columnsKey = useMemo(() => JSON.stringify(cols), [cols])
-
-  const anyFilterable = useMemo(() => cols.some((c) => c.filterable), [cols])
 
   const dropdownCols = useMemo(
     () => cols.filter((c) => c.filterable && DROPDOWN_TYPES.has(c.type ?? '')),
     [cols]
   )
 
+  const dateCols = useMemo(
+    () =>
+      cols.filter((c) => c.filterable && DATE_FILTER_TYPES.has(c.type ?? '')),
+    [cols]
+  )
+
+  // All columns that get a filter control, in column order.
+  const allFilterCols = useMemo(
+    () =>
+      cols.filter(
+        (c) =>
+          c.filterable &&
+          (DROPDOWN_TYPES.has(c.type ?? '') ||
+            DATE_FILTER_TYPES.has(c.type ?? ''))
+      ),
+    [cols]
+  )
+
   const [columnFilters, setColumnFilters] = useState<Record<string, string[]>>(
     {}
   )
+  const [dateFilters, setDateFilters] = useState<
+    Record<string, DateFilterValue>
+  >({})
+  const [showMoreFilters, setShowMoreFilters] = useState(false)
 
-  // Reset filter state when the table source or columns change.
+  const hasActiveFilters =
+    Object.values(columnFilters).some((v) => v.length > 0) ||
+    Object.values(dateFilters).some(
+      ({ year, month, day }) => year || month || day
+    )
+
+  // Unique sorted years per date column, derived from row data.
+  const dateYearOptions = useMemo(() => {
+    const result: Record<string, string[]> = {}
+    for (const col of dateCols) {
+      const years = [
+        ...new Set(
+          rows
+            .map((r) => r[col.key])
+            .filter((v) => v != null && v !== '')
+            .map((v) => new Date(v as string).getFullYear())
+            .filter((y) => !Number.isNaN(y))
+            .map(String)
+        ),
+      ].sort()
+      result[col.key] = years
+    }
+    return result
+  }, [dateCols, rows])
+
+  // Reset all filters and search when source or columns change.
   useEffect(() => {
     setColumnFilters({})
+    setDateFilters({})
+    setSearchQuery('')
+    setShowMoreFilters(false)
   }, [src, columnsKey])
 
   // Unique sorted values per dropdown column, derived from row data.
@@ -302,6 +384,24 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
           { value: 'true', content: '✅ Yes' },
           { value: 'false', content: '❌ No' },
         ]
+      } else if (col.type === 'country') {
+        const regionNames = getRegionNames(intl.locale)
+        const unique = [
+          ...new Set(
+            rows
+              .map((r) => r[col.key])
+              .filter((v) => v != null && v !== '')
+              .map((v) => String(v).trim().toUpperCase())
+          ),
+        ].sort((a, b) => {
+          const na = regionNames.of(a) ?? a
+          const nb = regionNames.of(b) ?? b
+          return na.localeCompare(nb)
+        })
+        result[col.key] = unique.map((code) => {
+          const name = regionNames.of(code) ?? code
+          return { value: name, content: name }
+        })
       } else {
         const unique = [
           ...new Set(
@@ -320,10 +420,6 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
   const language = useMemo(
     () => ({
       lengthMenu: intl.formatMessage({ id: 'datatable.lengthMenu' }),
-      search: '',
-      searchPlaceholder: intl.formatMessage({
-        id: 'datatable.searchPlaceholder',
-      }),
       info: intl.formatMessage({ id: 'datatable.info' }),
       infoEmpty: intl.formatMessage({ id: 'datatable.infoEmpty' }),
       infoFiltered: intl.formatMessage({ id: 'datatable.infoFiltered' }),
@@ -378,21 +474,23 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
       try {
         instance = new DataTablesLib(tableEl, {
           language,
-          searching: anyFilterable,
+          searching: true,
           ordering: true,
           paging: true,
           info: true,
           autoWidth: false,
           layout: {
-            topStart: 'pageLength',
-            topEnd: anyFilterable ? 'search' : null,
-            bottomStart: 'info',
+            topStart: null,
+            topEnd: null,
+            bottomStart: 'pageLength',
             bottomEnd: 'paging',
+            bottom2Start: 'info',
+            bottom2End: null,
           },
           columnDefs: cols.map((column, index) => ({
             targets: index,
             orderable: Boolean(column.sortable),
-            searchable: Boolean(column.filterable),
+            searchable: true,
             className: 'dt-left',
             width: null,
           })),
@@ -429,30 +527,6 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
       }
 
       instanceRef.current = instance
-
-      // Mount SearchIcon into the DataTables-rendered search input.
-      if (anyFilterable) {
-        const searchInput = tableEl
-          .closest('.dt-container')
-          ?.querySelector('.dt-search input[type="search"]')
-        if (searchInput) {
-          const iconWrapper = document.createElement('span')
-          iconWrapper.className = 'dt-search-icon'
-          searchInput.parentElement?.insertBefore(iconWrapper, searchInput)
-          const root = createRoot(iconWrapper)
-          root.render(
-            <SearchIcon
-              sx={{
-                width: '16px',
-                minWidth: '16px',
-                minHeight: '16px',
-                flex: 0,
-              }}
-            />
-          )
-          searchIconRootRef.current = root
-        }
-      }
     }
 
     init()
@@ -461,8 +535,6 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
       cancelled = true
       const instance = instanceRef.current
       instanceRef.current = null
-      searchIconRootRef.current?.unmount()
-      searchIconRootRef.current = null
       if (instance && tableRef.current?.isConnected) {
         try {
           instance.destroy()
@@ -486,55 +558,140 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
     )
   }
 
+  const renderFilterControl = (col: DataTableColumn) => {
+    const colIndex = cols.indexOf(col)
+    if (DATE_FILTER_TYPES.has(col.type ?? '')) {
+      return (
+        <DateFilter
+          key={col.key}
+          label={col.label ?? humanize(col.key)}
+          value={dateFilters[col.key] ?? emptyDateFilter}
+          yearOptions={dateYearOptions[col.key] ?? []}
+          onChange={(val) => {
+            setDateFilters((prev) => ({ ...prev, [col.key]: val }))
+            const { pattern, regex } = buildDateSearch(val, intl)
+            instanceRef.current
+              ?.column(colIndex)
+              .search(pattern, { regex })
+              .draw()
+          }}
+        />
+      )
+    }
+    return (
+      <MultiSelect
+        key={col.key}
+        label={col.label ?? humanize(col.key)}
+        options={dropdownOptions[col.key] ?? []}
+        selected={columnFilters[col.key] ?? []}
+        allLabel={intl.formatMessage({ id: 'datatable.filterAll' })}
+        onChange={(vals) => {
+          setColumnFilters((prev) => ({ ...prev, [col.key]: vals }))
+          const escaped = vals.map((v) =>
+            v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+          )
+          const pattern = escaped.length > 0 ? escaped.join('|') : ''
+          // country: non-anchored (data-search is "Name CODE"); others: exact anchored
+          const searchRegex =
+            col.type === 'country' ? pattern : pattern ? `^(${pattern})$` : ''
+          instanceRef.current
+            ?.column(colIndex)
+            .search(searchRegex, { regex: pattern.length > 0 })
+            .draw()
+        }}
+      />
+    )
+  }
+
   return (
     <Box sx={styles.container}>
-      {dropdownCols.length > 0 && (
+      <Box sx={styles.filterBarWrapper}>
+        {/* Row 1: visible filters + toggle + search (when not expanded) */}
         <Box sx={styles.filterBar}>
-          {dropdownCols.map((col) => {
-            const colIndex = cols.indexOf(col)
-            return (
-              <MultiSelect
-                key={col.key}
-                label={col.label ?? humanize(col.key)}
-                options={dropdownOptions[col.key] ?? []}
-                selected={columnFilters[col.key] ?? []}
-                allLabel={intl.formatMessage({ id: 'datatable.filterAll' })}
-                onChange={(vals) => {
-                  setColumnFilters((prev) => ({ ...prev, [col.key]: vals }))
-                  const regex =
-                    vals.length > 0
-                      ? `^(${vals
-                          .map((v) => v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-                          .join('|')})$`
-                      : ''
-                  instanceRef.current
-                    ?.column(colIndex)
-                    .search(regex, { regex: true })
-                    .draw()
+          <Box sx={styles.filterBarLeft}>
+            {allFilterCols
+              .slice(
+                0,
+                allFilterCols.length > OVERFLOW_THRESHOLD
+                  ? MAX_VISIBLE_FILTERS
+                  : allFilterCols.length
+              )
+              .map((col) => renderFilterControl(col))}
+            {allFilterCols.length > OVERFLOW_THRESHOLD && (
+              <button
+                type="button"
+                style={styles.moreFilters as React.CSSProperties}
+                onClick={() => setShowMoreFilters((v) => !v)}
+              >
+                {showMoreFilters
+                  ? intl.formatMessage({ id: 'datatable.lessFilters' })
+                  : intl.formatMessage(
+                      { id: 'datatable.moreFilters' },
+                      { count: allFilterCols.length - MAX_VISIBLE_FILTERS }
+                    )}
+              </button>
+            )}
+            {hasActiveFilters && (
+              <button
+                type="button"
+                style={styles.clearFilters as React.CSSProperties}
+                onClick={() => {
+                  setColumnFilters({})
+                  setDateFilters(
+                    Object.fromEntries(
+                      dateCols.map((c) => [c.key, emptyDateFilter])
+                    )
+                  )
+                  allFilterCols.forEach((col) => {
+                    const colIndex = cols.indexOf(col)
+                    instanceRef.current
+                      ?.column(colIndex)
+                      .search('', { regex: false })
+                      .draw()
+                  })
                 }}
-              />
-            )
-          })}
-          {Object.values(columnFilters).some((v) => v.length > 0) && (
-            <button
-              type="button"
-              style={styles.clearFilters as React.CSSProperties}
-              onClick={() => {
-                setColumnFilters({})
-                dropdownCols.forEach((col) => {
-                  const colIndex = cols.indexOf(col)
-                  instanceRef.current
-                    ?.column(colIndex)
-                    .search('', { regex: false })
-                    .draw()
-                })
+              >
+                {intl.formatMessage({ id: 'datatable.clearFilters' })}
+              </button>
+            )}
+          </Box>
+          <Box sx={styles.filterBarRight}>
+            <SearchIcon
+              sx={{
+                width: '16px',
+                minWidth: '16px',
+                minHeight: '16px',
+                flex: 0,
+                color: '#747474',
               }}
-            >
-              {intl.formatMessage({ id: 'datatable.clearFilters' })}
-            </button>
-          )}
+            />
+            <input
+              type="search"
+              value={searchQuery}
+              placeholder={intl.formatMessage({
+                id: 'datatable.searchPlaceholder',
+              })}
+              onChange={(e) => {
+                const val = e.currentTarget.value
+                setSearchQuery(val)
+                instanceRef.current?.search(val).draw()
+              }}
+              style={styles.searchInput as React.CSSProperties}
+            />
+          </Box>
         </Box>
-      )}
+
+        {/* Row 2: expanded filters + clear + search */}
+        {showMoreFilters && (
+          <Box sx={styles.filterBarExpanded}>
+            <Box sx={styles.filterBarLeft}>
+              {allFilterCols
+                .slice(MAX_VISIBLE_FILTERS)
+                .map((col) => renderFilterControl(col))}
+            </Box>
+          </Box>
+        )}
+      </Box>
       <table ref={tableRef} className="display" style={{ width: '100%' }}>
         <thead>
           <tr>

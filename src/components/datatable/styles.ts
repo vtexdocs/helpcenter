@@ -5,9 +5,6 @@ const container: SxStyleProp = {
   overflowX: 'auto',
   marginBlock: '1em',
 
-  // Make the DataTables wrapper and its control rows match the table width,
-  // so the search (top) and the count/pagination (bottom) align to the
-  // table's right edge.
   '& .dt-container': {
     width: '100% !important',
     minWidth: '100% !important',
@@ -19,6 +16,7 @@ const container: SxStyleProp = {
     marginInline: '0 !important',
     display: 'flex !important',
     justifyContent: 'space-between !important',
+    alignItems: 'center !important',
   },
 
   '& table.dataTable': {
@@ -42,7 +40,7 @@ const container: SxStyleProp = {
     whiteSpace: 'normal',
   },
 
-  // `code` column type: inline code style
+  // `code` column type
   '& code.dt-code': {
     fontFamily: 'Consolas, monaco, monospace !important',
     fontSize: '0.85em',
@@ -52,7 +50,7 @@ const container: SxStyleProp = {
     borderRadius: '4px',
   },
 
-  // `country` column type: flag + name on one line
+  // `country` column type
   '& .dt-country': {
     display: 'inline-flex',
     alignItems: 'center',
@@ -60,45 +58,7 @@ const container: SxStyleProp = {
     paddingRight: '18px',
   },
 
-  // Search input (Help Center style: light gray, rounded), fixed width and
-  // anchored to the right edge of the table.
-  '& .dt-search': {
-    justifyContent: 'flex-end !important',
-  },
-  '& .dt-search label': {
-    fontSize: '0.875rem !important',
-    fontWeight: '500 !important',
-  },
-  '& .dt-search': {
-    position: 'relative !important',
-  },
-  '& .dt-search-icon': {
-    position: 'absolute',
-    left: '1.25rem',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-  },
-  '& .dt-search input[type="search"]': {
-    width: '260px !important',
-    maxWidth: '100% !important',
-    padding: '0.5rem 0.75rem 0.5rem 2.25rem !important',
-    fontSize: '0.875rem !important',
-    lineHeight: '1.25 !important',
-    backgroundColor: '#F4F4F4 !important',
-    border: '1px solid #E7E9EE !important',
-    borderRadius: '4px !important',
-    outline: 'none !important',
-    transition: 'border-color 0.2s !important',
-    marginLeft: '0.5rem !important',
-    '&:focus': {
-      borderColor: '#a1a8b3 !important',
-    },
-  },
-
-  // Page length select
+  // Page length select (bottom-left)
   '& .dt-length': {
     width: 'auto !important',
     flex: '0 0 auto !important',
@@ -129,7 +89,7 @@ const container: SxStyleProp = {
     },
   },
 
-  // Info / page count text (kept on the left)
+  // Info text (bottom row)
   '& .dt-info': {
     fontSize: '0.875rem !important',
     color: '#718096 !important',
@@ -140,7 +100,7 @@ const container: SxStyleProp = {
     color: '#718096',
   },
 
-  // Pagination (kept on the right)
+  // Pagination
   '& .dt-paging': {
     gap: '0.5rem !important',
     justifyContent: 'flex-end !important',
@@ -175,18 +135,68 @@ const container: SxStyleProp = {
   },
 }
 
+const filterBarWrapper: SxStyleProp = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.5rem',
+  marginBottom: '0.5rem',
+}
+
 const filterBar: SxStyleProp = {
   display: 'flex',
-  flexWrap: 'wrap',
   alignItems: 'center',
+  justifyContent: 'space-between',
   gap: '1rem',
-  marginBottom: '0.5rem',
-  // Match Select dropdown height to the DataTables length/search controls.
-  '& select': {
-    height: 'auto !important',
-    padding: '0.5rem 2rem 0.5rem 0.75rem !important',
-    fontSize: '0.875rem !important',
+}
+
+const filterBarExpanded: SxStyleProp = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: '1rem',
+  paddingTop: '0.5rem',
+  borderTop: '1px solid #E7E9EE',
+}
+
+const filterBarLeft: SxStyleProp = {
+  display: 'flex',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+}
+
+const filterBarRight: SxStyleProp = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.5rem',
+  flexShrink: 0,
+  backgroundColor: '#F4F4F4',
+  border: '1px solid #E7E9EE',
+  borderRadius: '4px',
+  padding: '0.5rem 0.75rem',
+  '&:focus-within': {
+    borderColor: '#a1a8b3',
   },
+}
+
+const searchInput = {
+  width: '220px',
+  fontSize: '0.875rem',
+  border: 'none',
+  outline: 'none',
+  backgroundColor: 'transparent',
+  color: '#2d3748',
+}
+
+const moreFilters = {
+  backgroundColor: '#F4F4F4',
+  border: '1px solid #E7E9EE',
+  borderRadius: '4px',
+  padding: '0.5rem 0.75rem',
+  fontSize: '0.875rem',
+  color: '#4a4a4a',
+  cursor: 'pointer',
+  whiteSpace: 'nowrap' as const,
 }
 
 const clearFilters = {
@@ -197,7 +207,6 @@ const clearFilters = {
   color: '#e31c58',
   cursor: 'pointer',
   textDecoration: 'underline',
-  alignSelf: 'flex-end',
 }
 
 const unavailable: SxStyleProp = {
@@ -212,7 +221,13 @@ const unavailable: SxStyleProp = {
 
 export default {
   container,
+  filterBarWrapper,
   filterBar,
+  filterBarExpanded,
+  filterBarLeft,
+  filterBarRight,
+  searchInput,
+  moreFilters,
   clearFilters,
   unavailable,
 }

@@ -54,7 +54,6 @@ const MultiSelect = ({
     <div
       ref={containerRef}
       style={{
-        position: 'relative',
         display: 'inline-flex',
         alignItems: 'center',
         gap: '8px',
@@ -62,86 +61,89 @@ const MultiSelect = ({
       }}
     >
       <span style={{ fontWeight: 500 }}>{label}</span>
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '6px',
-          padding: '0.5rem 0.75rem',
-          fontSize: '0.875rem',
-          border: '1px solid #E7E9EE',
-          borderRadius: '4px',
-          backgroundColor: selected.length > 0 ? '#fff' : '#fff',
-          cursor: 'pointer',
-          outline: 'none',
-          whiteSpace: 'nowrap',
-        }}
-      >
-        <span>{triggerLabel}</span>
-        <svg
-          width="10"
-          height="6"
-          viewBox="0 0 10 6"
-          fill="none"
+      <div style={{ position: 'relative' }}>
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
           style={{
-            flexShrink: 0,
-            transform: open ? 'rotate(180deg)' : undefined,
-            transition: 'transform 0.15s',
-          }}
-        >
-          <path
-            d="M1 1l4 4 4-4"
-            stroke="#747474"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-      {open && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 'calc(100% + 4px)',
-            left: 0,
-            zIndex: 100,
-            backgroundColor: '#fff',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '0.5rem 0.75rem',
+            fontSize: '0.875rem',
             border: '1px solid #E7E9EE',
             borderRadius: '4px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-            minWidth: '160px',
-            maxHeight: '240px',
-            overflowY: 'auto',
+            backgroundColor: '#fff',
+            cursor: 'pointer',
+            outline: 'none',
+            whiteSpace: 'nowrap',
           }}
         >
-          {options.map((opt) => (
-            <label
-              key={opt.value}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 12px',
-                fontSize: '14px',
-                cursor: 'pointer',
-                backgroundColor: selected.includes(opt.value)
-                  ? '#F4F4F4'
-                  : 'transparent',
-              }}
-            >
-              <input
-                type="checkbox"
-                checked={selected.includes(opt.value)}
-                onChange={() => toggle(opt.value)}
-                style={{ accentColor: '#e31c58', cursor: 'pointer' }}
-              />
-              {opt.content}
-            </label>
-          ))}
-        </div>
-      )}
+          <span>{triggerLabel}</span>
+          <svg
+            width="10"
+            height="6"
+            viewBox="0 0 10 6"
+            fill="none"
+            style={{
+              flexShrink: 0,
+              transform: open ? 'rotate(180deg)' : undefined,
+              transition: 'transform 0.15s',
+            }}
+          >
+            <path
+              d="M1 1l4 4 4-4"
+              stroke="#747474"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+        {open && (
+          <div
+            style={{
+              position: 'absolute',
+              top: 'calc(100% + 4px)',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              zIndex: 100,
+              backgroundColor: '#fff',
+              border: '1px solid #E7E9EE',
+              borderRadius: '4px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              minWidth: '160px',
+              maxHeight: '240px',
+              overflowY: 'auto',
+            }}
+          >
+            {options.map((opt) => (
+              <label
+                key={opt.value}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '8px 12px',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                  backgroundColor: selected.includes(opt.value)
+                    ? '#F4F4F4'
+                    : 'transparent',
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={selected.includes(opt.value)}
+                  onChange={() => toggle(opt.value)}
+                  style={{ accentColor: '#e31c58', cursor: 'pointer' }}
+                />
+                {opt.content}
+              </label>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   )
 }
