@@ -145,7 +145,6 @@ const filterBarWrapper: SxStyleProp = {
 const filterBar: SxStyleProp = {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
   gap: '1rem',
 }
 
@@ -170,6 +169,7 @@ const filterBarRight: SxStyleProp = {
   alignItems: 'center',
   gap: '0.5rem',
   flexShrink: 0,
+  marginLeft: 'auto',
   backgroundColor: '#F4F4F4',
   border: '1px solid #E7E9EE',
   borderRadius: '4px',

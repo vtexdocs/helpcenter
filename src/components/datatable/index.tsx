@@ -626,31 +626,32 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
                     )}
               </button>
             )}
-            <button
-              type="button"
-              style={{
-                ...(styles.clearFilters as React.CSSProperties),
-                visibility: hasActiveFilters ? 'visible' : 'hidden',
-              }}
-              onClick={() => {
-                setColumnFilters({})
-                setDateFilters(
-                  Object.fromEntries(
-                    dateCols.map((c) => [c.key, emptyDateFilter])
-                  )
-                )
-                allFilterCols.forEach((col) => {
-                  const colIndex = colIndexMap.get(col) ?? -1
-                  instanceRef.current
-                    ?.column(colIndex)
-                    .search('', { regex: false })
-                    .draw()
-                })
-              }}
-            >
-              {intl.formatMessage({ id: 'datatable.clearFilters' })}
-            </button>
           </Box>
+          <button
+            type="button"
+            style={{
+              ...(styles.clearFilters as React.CSSProperties),
+              visibility: hasActiveFilters ? 'visible' : 'hidden',
+              flexShrink: 0,
+            }}
+            onClick={() => {
+              setColumnFilters({})
+              setDateFilters(
+                Object.fromEntries(
+                  dateCols.map((c) => [c.key, emptyDateFilter])
+                )
+              )
+              allFilterCols.forEach((col) => {
+                const colIndex = colIndexMap.get(col) ?? -1
+                instanceRef.current
+                  ?.column(colIndex)
+                  .search('', { regex: false })
+                  .draw()
+              })
+            }}
+          >
+            {intl.formatMessage({ id: 'datatable.clearFilters' })}
+          </button>
           <Box sx={styles.filterBarRight}>
             <SearchIcon
               sx={{
