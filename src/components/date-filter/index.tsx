@@ -191,6 +191,7 @@ const DateFilter = ({ label, value, yearOptions, onChange }: Props) => {
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
+                textAlign: 'left',
               }}
             >
               {triggerLabel}

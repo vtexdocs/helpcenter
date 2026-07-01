@@ -104,6 +104,7 @@ const MultiSelect = ({
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
+                textAlign: 'left',
               }}
             >
               {triggerLabel}
