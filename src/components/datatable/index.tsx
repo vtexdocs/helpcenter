@@ -298,7 +298,6 @@ const buildDateSearch = (
 const DATE_FILTER_TYPES = new Set(['date'])
 
 const MAX_VISIBLE_FILTERS = 2
-const OVERFLOW_THRESHOLD = 3
 
 const DataTable = ({ src, columns = [] }: DataTableProps) => {
   const intl = useIntl()
@@ -611,14 +610,9 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
         <Box sx={styles.filterBar}>
           <Box sx={styles.filterBarLeft}>
             {allFilterCols
-              .slice(
-                0,
-                allFilterCols.length > OVERFLOW_THRESHOLD
-                  ? MAX_VISIBLE_FILTERS
-                  : allFilterCols.length
-              )
+              .slice(0, MAX_VISIBLE_FILTERS)
               .map((col) => renderFilterControl(col))}
-            {allFilterCols.length > OVERFLOW_THRESHOLD && (
+            {allFilterCols.length > MAX_VISIBLE_FILTERS && (
               <button
                 type="button"
                 style={styles.moreFilters as React.CSSProperties}
