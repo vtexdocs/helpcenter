@@ -626,29 +626,30 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
                     )}
               </button>
             )}
-            {hasActiveFilters && (
-              <button
-                type="button"
-                style={styles.clearFilters as React.CSSProperties}
-                onClick={() => {
-                  setColumnFilters({})
-                  setDateFilters(
-                    Object.fromEntries(
-                      dateCols.map((c) => [c.key, emptyDateFilter])
-                    )
+            <button
+              type="button"
+              style={{
+                ...(styles.clearFilters as React.CSSProperties),
+                visibility: hasActiveFilters ? 'visible' : 'hidden',
+              }}
+              onClick={() => {
+                setColumnFilters({})
+                setDateFilters(
+                  Object.fromEntries(
+                    dateCols.map((c) => [c.key, emptyDateFilter])
                   )
-                  allFilterCols.forEach((col) => {
-                    const colIndex = colIndexMap.get(col) ?? -1
-                    instanceRef.current
-                      ?.column(colIndex)
-                      .search('', { regex: false })
-                      .draw()
-                  })
-                }}
-              >
-                {intl.formatMessage({ id: 'datatable.clearFilters' })}
-              </button>
-            )}
+                )
+                allFilterCols.forEach((col) => {
+                  const colIndex = colIndexMap.get(col) ?? -1
+                  instanceRef.current
+                    ?.column(colIndex)
+                    .search('', { regex: false })
+                    .draw()
+                })
+              }}
+            >
+              {intl.formatMessage({ id: 'datatable.clearFilters' })}
+            </button>
           </Box>
           <Box sx={styles.filterBarRight}>
             <SearchIcon
