@@ -151,9 +151,21 @@ const DateFilter = ({ label, value, yearOptions, onChange }: Props) => {
         alignItems: 'center',
         gap: '8px',
         fontSize: '14px',
+        minWidth: 0,
+        maxWidth: '260px',
       }}
     >
-      <span style={{ fontWeight: 500 }}>{label}</span>
+      <span
+        style={{
+          fontWeight: 500,
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          minWidth: 0,
+        }}
+      >
+        {label}
+      </span>
       <div style={{ position: 'relative' }}>
         <button
           type="button"

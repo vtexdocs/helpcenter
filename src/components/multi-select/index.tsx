@@ -63,10 +63,22 @@ const MultiSelect = ({
         display: 'inline-flex',
         alignItems: 'center',
         gap: '8px',
+        minWidth: 0,
+        maxWidth: '260px',
         fontSize: '14px',
       }}
     >
-      <span style={{ fontWeight: 500 }}>{label}</span>
+      <span
+        style={{
+          fontWeight: 500,
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          minWidth: 0,
+        }}
+      >
+        {label}
+      </span>
       <div style={{ position: 'relative' }}>
         <button
           type="button"

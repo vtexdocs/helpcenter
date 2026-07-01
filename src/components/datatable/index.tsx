@@ -608,23 +608,21 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
       <Box sx={styles.filterBarWrapper}>
         {/* Row 1: visible filters + toggle + search (when not expanded) */}
         <Box sx={styles.filterBar}>
-          <Box sx={styles.filterBarLeft}>
-            {allFilterCols
-              .slice(0, MAX_VISIBLE_FILTERS)
-              .map((col) => renderFilterControl(col))}
-          </Box>
+          {allFilterCols
+            .slice(0, MAX_VISIBLE_FILTERS)
+            .map((col) => renderFilterControl(col))}
           {allFilterCols.length > MAX_VISIBLE_FILTERS && (
             <button
               type="button"
-              style={{
-                ...(styles.moreFilters as React.CSSProperties),
-                flexShrink: 0,
-              }}
+              title={
+                showMoreFilters
+                  ? intl.formatMessage({ id: 'datatable.lessFilters' })
+                  : intl.formatMessage({ id: 'datatable.moreFilters' })
+              }
+              style={styles.moreFiltersIcon as React.CSSProperties}
               onClick={() => setShowMoreFilters((v) => !v)}
             >
-              {showMoreFilters
-                ? intl.formatMessage({ id: 'datatable.lessFilters' })
-                : intl.formatMessage({ id: 'datatable.moreFilters' })}
+              {showMoreFilters ? '−' : '+'}
             </button>
           )}
           <button

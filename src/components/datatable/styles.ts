@@ -160,6 +160,7 @@ const filterBarExpanded: SxStyleProp = {
 const filterBarLeft: SxStyleProp = {
   display: 'flex',
   alignItems: 'center',
+  flexWrap: 'wrap',
   gap: '1rem',
 }
 
@@ -185,6 +186,22 @@ const searchInput = {
   outline: 'none',
   backgroundColor: 'transparent',
   color: '#2d3748',
+}
+
+const moreFiltersIcon = {
+  flexShrink: 0,
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '28px',
+  height: '28px',
+  backgroundColor: '#F4F4F4',
+  border: '1px solid #E7E9EE',
+  borderRadius: '4px',
+  fontSize: '1rem',
+  lineHeight: 1,
+  color: '#4a4a4a',
+  cursor: 'pointer',
 }
 
 const moreFilters = {
@@ -227,6 +244,7 @@ export default {
   filterBarRight,
   searchInput,
   moreFilters,
+  moreFiltersIcon,
   clearFilters,
   unavailable,
 }
