@@ -425,5 +425,6 @@
   "datatable.paginate.last": "Último",
   "datatable.paginate.next": "Siguiente",
   "datatable.paginate.previous": "Anterior",
-  "datatable.lastUpdated": "Última actualización:"
+  "datatable.lastUpdated": "Última actualización:",
+  "datatable.unavailable": "No fue posible cargar los datos de la tabla."
 }
