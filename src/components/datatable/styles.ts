@@ -10,25 +10,36 @@ const container: SxStyleProp = {
   // table's right edge.
   '& .dt-container': {
     width: '100% !important',
+    minWidth: '100% !important',
+    display: 'block !important',
   },
   '& .dt-layout-row': {
     width: '100% !important',
+    minWidth: '100% !important',
     marginInline: '0 !important',
+    display: 'flex !important',
+    justifyContent: 'space-between !important',
   },
 
   '& table.dataTable': {
     width: '100% !important',
+    minWidth: '100% !important',
+    maxWidth: '100% !important',
     margin: '0 !important',
-    // Columns size to their content.
     tableLayout: 'auto' as SxStyleProp['tableLayout'],
   },
+  '& table.dataTable colgroup col': {
+    width: '1%',
+  },
   '& table.dataTable thead th': {
-    padding: '10px 18px !important',
+    padding: '12px 18px !important',
     borderBottom: 'none !important',
+    whiteSpace: 'normal',
   },
   '& table.dataTable tbody td': {
-    padding: '10px 18px !important',
+    padding: '12px 18px !important',
     wordWrap: 'break-word' as SxStyleProp['wordWrap'],
+    whiteSpace: 'normal',
   },
 
   // `code` column type: inline code style
@@ -45,7 +56,8 @@ const container: SxStyleProp = {
   '& .dt-country': {
     display: 'inline-flex',
     alignItems: 'center',
-    gap: '0.4em',
+    gap: '0.6em',
+    paddingRight: '18px',
   },
 
   // `badge`/`tag` column type: colored pill
@@ -143,11 +155,11 @@ const container: SxStyleProp = {
       cursor: 'not-allowed !important',
     },
     '&.current': {
-      backgroundColor: '#e31c58 !important',
-      borderColor: '#e31c58 !important',
-      color: 'white !important',
+      backgroundColor: '#e7e9ee !important',
+      borderColor: '#e7e9ee !important',
+      color: '#2d3748 !important',
       '&:hover': {
-        backgroundColor: '#c41849 !important',
+        backgroundColor: '#d3d6de !important',
       },
     },
   },
@@ -160,7 +172,18 @@ const updatedAt: SxStyleProp = {
   fontStyle: 'italic',
 }
 
+const unavailable: SxStyleProp = {
+  marginBlock: '1em',
+  padding: '0.75rem 1rem',
+  fontSize: '0.875rem',
+  color: '#4a3800',
+  border: '1px solid #ffb100',
+  borderRadius: '4px',
+  backgroundColor: '#fff2d4',
+}
+
 export default {
   container,
   updatedAt,
+  unavailable,
 }

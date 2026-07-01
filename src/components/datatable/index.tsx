@@ -3,6 +3,8 @@ import type { ReactNode } from 'react'
 import { Box } from '@vtex/brand-ui'
 import { useIntl } from 'react-intl'
 import type { IntlShape } from 'react-intl'
+import { Tag } from '@vtexdocs/components'
+import type { TagColor } from '@vtexdocs/components'
 
 import { useDataTable } from './context'
 import type { DataTableColumn, DataTableRow } from './datatable.types'
@@ -25,7 +27,8 @@ interface CellData {
   order?: string
   /** Value used by DataTables for searching (rendered as `data-search`). */
   search?: string
-  align?: 'right'
+  align?: 'center'
+  noWrap?: boolean
 }
 
 const humanize = (key: string) =>
@@ -33,17 +36,6 @@ const humanize = (key: string) =>
     .replace(/[_-]+/g, ' ')
     .replace(/([a-z\d])([A-Z])/g, '$1 $2')
     .replace(/^./, (char) => char.toUpperCase())
-
-const columnAlign = (column: DataTableColumn): 'right' | undefined =>
-  column.type === 'number' || column.type === 'currency' ? 'right' : undefined
-
-const flagEmoji = (code: string): string => {
-  const cc = code.trim().toUpperCase()
-  if (!/^[A-Z]{2}$/.test(cc)) return ''
-  return cc.replace(/./g, (char) =>
-    String.fromCodePoint(127397 + char.charCodeAt(0))
-  )
-}
 
 const regionNamesCache = new Map<string, Intl.DisplayNames>()
 const getRegionNames = (locale: string): Intl.DisplayNames => {
@@ -59,14 +51,14 @@ const getRegionNames = (locale: string): Intl.DisplayNames => {
   return displayNames
 }
 
-const badgePalette = [
-  { backgroundColor: '#E6F4EA', color: '#1E7E34' },
-  { backgroundColor: '#FDECEA', color: '#C0392B' },
-  { backgroundColor: '#E8F0FE', color: '#1A56DB' },
-  { backgroundColor: '#FEF3DA', color: '#B7791F' },
-  { backgroundColor: '#F3E8FD', color: '#8E44AD' },
-  { backgroundColor: '#E0F7FA', color: '#00838F' },
-  { backgroundColor: '#F1F3F4', color: '#5F6368' },
+const TAG_COLOR_NAMES: TagColor[] = [
+  'Blue',
+  'Green',
+  'Gray',
+  'Scheduled',
+  'Deprecation',
+  'Closed',
+  'No_Fix',
 ]
 
 const hashString = (value: string): number => {
@@ -77,14 +69,14 @@ const hashString = (value: string): number => {
   return Math.abs(hash)
 }
 
-const badgeStyle = (
+const resolveTagColor = (
   value: string,
   overrides?: Record<string, string>
-): { backgroundColor: string; color: string } => {
-  if (overrides && overrides[value]) {
-    return { backgroundColor: overrides[value], color: '#ffffff' }
-  }
-  return badgePalette[hashString(value.toLowerCase()) % badgePalette.length]
+): TagColor => {
+  if (overrides?.[value]) return overrides[value] as TagColor
+  return TAG_COLOR_NAMES[
+    hashString(value.toLowerCase()) % TAG_COLOR_NAMES.length
+  ]
 }
 
 const getCellData = (
@@ -123,16 +115,23 @@ const getCellData = (
       if (isEmpty) return { content: '' }
       const code = String(value).trim().toUpperCase()
       const name = getRegionNames(intl.locale).of(code) ?? code
-      const flag = flagEmoji(code)
+      const lc = code.toLowerCase()
       return {
         content: (
           <span className="dt-country">
-            {flag ? <span aria-hidden="true">{flag}</span> : null}
+            <img
+              src={`https://flagcdn.com/w20/${lc}.png`}
+              srcSet={`https://flagcdn.com/w40/${lc}.png 2x`}
+              width={20}
+              height={15}
+              alt={name}
+            />
             <span>{name}</span>
           </span>
         ),
         order: name,
         search: `${name} ${code}`,
+        noWrap: true,
       }
     }
 
@@ -141,7 +140,7 @@ const getCellData = (
       const date = new Date(value as string | number)
       if (Number.isNaN(date.getTime())) {
         const text = String(value)
-        return { content: text, order: text, search: text }
+        return { content: text, order: text, search: text, noWrap: true }
       }
       const formatted = intl.formatDate(date, {
         day: 'numeric',
@@ -152,27 +151,27 @@ const getCellData = (
         content: formatted,
         order: String(date.getTime()),
         search: formatted,
+        noWrap: true,
       }
     }
 
     case 'number': {
-      if (isEmpty) return { content: '', align: 'right' }
+      if (isEmpty) return { content: '' }
       const num = Number(value)
       if (Number.isNaN(num)) {
         const text = String(value)
-        return { content: text, order: text, search: text, align: 'right' }
+        return { content: text, order: text, search: text }
       }
       const formatted = intl.formatNumber(num)
       return {
         content: formatted,
         order: String(num),
         search: formatted,
-        align: 'right',
       }
     }
 
     case 'currency': {
-      if (isEmpty) return { content: '', align: 'right' }
+      if (isEmpty) return { content: '' }
       const num = Number(value)
       const currency =
         (column.currencyKey
@@ -180,7 +179,7 @@ const getCellData = (
           : column.currency) || 'USD'
       if (Number.isNaN(num)) {
         const text = String(value)
-        return { content: text, order: text, search: text, align: 'right' }
+        return { content: text, order: text, search: text }
       }
       let formatted: string
       try {
@@ -192,7 +191,6 @@ const getCellData = (
         content: formatted,
         order: String(num),
         search: formatted,
-        align: 'right',
       }
     }
 
@@ -202,15 +200,11 @@ const getCellData = (
       const text = String(value)
       return {
         content: (
-          <span
-            className="dt-badge"
-            style={badgeStyle(text, column.badgeColors)}
-          >
-            {text}
-          </span>
+          <Tag color={resolveTagColor(text, column.badgeColors)}>{text}</Tag>
         ),
         order: text,
         search: text,
+        align: 'center',
       }
     }
 
@@ -235,6 +229,7 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
   const rows = table?.rows ?? []
   const cols = useMemo(() => (Array.isArray(columns) ? columns : []), [columns])
   const tableRef = useRef<HTMLTableElement>(null)
+  const instanceRef = useRef<DataTablesInstance | null>(null)
 
   const columnsKey = JSON.stringify(cols)
 
@@ -249,10 +244,10 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
       zeroRecords: intl.formatMessage({ id: 'datatable.zeroRecords' }),
       emptyTable: intl.formatMessage({ id: 'datatable.emptyTable' }),
       paginate: {
-        first: intl.formatMessage({ id: 'datatable.paginate.first' }),
-        last: intl.formatMessage({ id: 'datatable.paginate.last' }),
-        next: intl.formatMessage({ id: 'datatable.paginate.next' }),
-        previous: intl.formatMessage({ id: 'datatable.paginate.previous' }),
+        first: '«',
+        last: '»',
+        next: '›',
+        previous: '‹',
       },
     }),
     [intl]
@@ -262,7 +257,6 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
   useEffect(() => {
     if (!tableRef.current || cols.length === 0) return
 
-    let instance: DataTablesInstance | null = null
     let cancelled = false
 
     const init = async () => {
@@ -272,32 +266,46 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
 
       const anyFilterable = cols.some((column) => column.filterable)
       const tableEl = tableRef.current
-      instance = new DataTablesLib(tableEl, {
-        language,
-        searching: anyFilterable,
-        ordering: true,
-        paging: true,
-        info: true,
-        autoWidth: false,
-        layout: {
-          topStart: 'pageLength',
-          topEnd: 'search',
-          bottomStart: 'info',
-          bottomEnd: 'paging',
-        },
-        columnDefs: cols.map((column, index) => ({
-          targets: index,
-          orderable: Boolean(column.sortable),
-          searchable: Boolean(column.filterable),
-        })),
-      })
+
+      try {
+        instanceRef.current = new DataTablesLib(tableEl, {
+          language,
+          searching: anyFilterable,
+          ordering: true,
+          paging: true,
+          info: true,
+          autoWidth: false,
+          layout: {
+            topStart: 'pageLength',
+            topEnd: 'search',
+            bottomStart: 'info',
+            bottomEnd: 'paging',
+          },
+          columnDefs: cols.map((column, index) => ({
+            targets: index,
+            orderable: Boolean(column.sortable),
+            searchable: Boolean(column.filterable),
+            className: 'dt-left',
+            width: null,
+          })),
+        })
+      } catch (error) {
+        console.error('[DataTable] Error initializing DataTables:', error)
+      }
     }
 
     init()
 
     return () => {
       cancelled = true
-      instance?.destroy()
+      if (instanceRef.current) {
+        try {
+          instanceRef.current.destroy()
+          instanceRef.current = null
+        } catch (error) {
+          console.error('[DataTable] Error destroying DataTables:', error)
+        }
+      }
     }
   }, [src, columnsKey, languageKey])
 
@@ -306,7 +314,12 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
     console.error(
       `[DataTable] No data found for src="${src}". Check if the file exists in help-center-content.`
     )
-    return null
+    return (
+      <Box sx={styles.unavailable}>
+        <span aria-hidden="true">⚠️</span>{' '}
+        {intl.formatMessage({ id: 'datatable.unavailable' })}
+      </Box>
+    )
   }
 
   const updatedAtDate = table.updatedAt ? new Date(table.updatedAt) : null
@@ -319,16 +332,7 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
         <thead>
           <tr>
             {cols.map((column) => (
-              <th
-                key={column.key}
-                style={
-                  columnAlign(column) === 'right'
-                    ? { textAlign: 'right' }
-                    : undefined
-                }
-              >
-                {column.label ?? humanize(column.key)}
-              </th>
+              <th key={column.key}>{column.label ?? humanize(column.key)}</th>
             ))}
           </tr>
         </thead>
@@ -342,11 +346,10 @@ const DataTable = ({ src, columns = [] }: DataTableProps) => {
                     key={column.key}
                     data-order={cell.order}
                     data-search={cell.search}
-                    style={
-                      cell.align === 'right'
-                        ? { textAlign: 'right' }
-                        : undefined
-                    }
+                    style={{
+                      textAlign: cell.align || 'left',
+                      ...(cell.noWrap ? { whiteSpace: 'nowrap' as const } : {}),
+                    }}
                   >
                     {cell.content}
                   </td>

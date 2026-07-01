@@ -20,7 +20,7 @@ export interface DataTableColumn {
   currency?: string
   /** For `currency`: row key holding a per-row ISO 4217 code (overrides `currency`). */
   currencyKey?: string
-  /** For `badge`/`tag`: map a cell value to a background color (text rendered white). */
+  /** For `badge`/`tag`: map a cell value to a TagColor (e.g. `{ Active: 'Green', Deprecated: 'No_Fix' }`). */
   badgeColors?: Record<string, string>
   sortable?: boolean
   filterable?: boolean
