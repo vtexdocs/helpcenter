@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest'
 import { findLocalizedSlug } from '../find-localized-slug'
 import type { NavbarItem } from 'types/navigation'
 
