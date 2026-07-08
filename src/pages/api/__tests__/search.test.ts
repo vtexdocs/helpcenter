@@ -1,4 +1,3 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import handler from '../search'
 
@@ -31,8 +30,18 @@ function createMockRes(): MockResponse {
   return res
 }
 
-function createReq(query: Record<string, string>, method = 'GET') {
+function createReq(query: Record<string, string | string[]>, method = 'GET') {
   return { method, query } as unknown as NextApiRequest
+}
+
+function mockSuccessfulFetch() {
+  const fetchMock = vi.fn().mockResolvedValue({
+    ok: true,
+    status: 200,
+    json: async () => ({ results: [] }),
+  })
+  vi.stubGlobal('fetch', fetchMock)
+  return fetchMock
 }
 
 const ORIGINAL_ENV = { ...process.env }
@@ -260,5 +269,181 @@ describe('/api/search', () => {
     const url = String(fetchMock.mock.calls[0][0])
     expect(url).toContain('q=a%2Fb%3Fc%26d%3De')
     expect(res.statusCode).toBe(200)
+  })
+
+  describe('doctype query param', () => {
+    it('forwards a valid doctype to upstream and echoes it in the response', async () => {
+      const fetchMock = mockSuccessfulFetch()
+
+      const res = createMockRes()
+      await handler(
+        createReq({ q: 'hello', doctype: 'tutorials' }),
+        res as unknown as NextApiResponse
+      )
+
+      const url = new URL(String(fetchMock.mock.calls[0][0]))
+      expect(url.searchParams.get('doctype')).toBe('tutorials')
+      expect(res.statusCode).toBe(200)
+      expect(res.body).toMatchObject({
+        query: 'hello',
+        doctype: 'tutorials',
+      })
+    })
+
+    it.each([
+      'tracks',
+      'faq',
+      'known-issues',
+      'troubleshooting',
+      'announcements',
+    ])('forwards allowlisted doctype "%s"', async (doctype) => {
+      const fetchMock = mockSuccessfulFetch()
+
+      const res = createMockRes()
+      await handler(
+        createReq({ q: 'hello', doctype }),
+        res as unknown as NextApiResponse
+      )
+
+      const url = new URL(String(fetchMock.mock.calls[0][0]))
+      expect(url.searchParams.get('doctype')).toBe(doctype)
+      expect(res.body).toMatchObject({ doctype })
+    })
+
+    it('omits unknown doctype from the upstream request', async () => {
+      const fetchMock = mockSuccessfulFetch()
+
+      const res = createMockRes()
+      await handler(
+        createReq({ q: 'hello', doctype: 'blog-posts' }),
+        res as unknown as NextApiResponse
+      )
+
+      const url = String(fetchMock.mock.calls[0][0])
+      expect(url).not.toContain('doctype=')
+      expect(res.body).toMatchObject({ query: 'hello' })
+      expect(res.body).not.toHaveProperty('doctype')
+    })
+
+    it('omits empty doctype from the upstream request', async () => {
+      const fetchMock = mockSuccessfulFetch()
+
+      const res = createMockRes()
+      await handler(
+        createReq({ q: 'hello', doctype: '' }),
+        res as unknown as NextApiResponse
+      )
+
+      expect(String(fetchMock.mock.calls[0][0])).not.toContain('doctype=')
+      expect(res.body).not.toHaveProperty('doctype')
+    })
+
+    it('omits doctype with wrong casing from the upstream request', async () => {
+      const fetchMock = mockSuccessfulFetch()
+
+      const res = createMockRes()
+      await handler(
+        createReq({ q: 'hello', doctype: 'Tutorials' }),
+        res as unknown as NextApiResponse
+      )
+
+      expect(String(fetchMock.mock.calls[0][0])).not.toContain('doctype=')
+      expect(res.body).not.toHaveProperty('doctype')
+    })
+
+    it('uses the first value when doctype is an array', async () => {
+      const fetchMock = mockSuccessfulFetch()
+
+      const res = createMockRes()
+      await handler(
+        createReq({ q: 'hello', doctype: ['tutorials', 'faq'] }),
+        res as unknown as NextApiResponse
+      )
+
+      const url = new URL(String(fetchMock.mock.calls[0][0]))
+      expect(url.searchParams.get('doctype')).toBe('tutorials')
+      expect(res.body).toMatchObject({ doctype: 'tutorials' })
+    })
+
+    it('omits doctype when the first array value is invalid', async () => {
+      const fetchMock = mockSuccessfulFetch()
+
+      const res = createMockRes()
+      await handler(
+        createReq({ q: 'hello', doctype: ['blog-posts', 'tutorials'] }),
+        res as unknown as NextApiResponse
+      )
+
+      expect(String(fetchMock.mock.calls[0][0])).not.toContain('doctype=')
+      expect(res.body).not.toHaveProperty('doctype')
+    })
+
+    it('preserves unfiltered behavior when doctype is absent', async () => {
+      const fetchMock = mockSuccessfulFetch()
+
+      const res = createMockRes()
+      await handler(
+        createReq({ q: 'hello' }),
+        res as unknown as NextApiResponse
+      )
+
+      expect(String(fetchMock.mock.calls[0][0])).not.toContain('doctype=')
+      expect(res.body).toMatchObject({
+        query: 'hello',
+        locale: null,
+        limit: 10,
+        count: 0,
+        results: [],
+      })
+      expect(res.body).not.toHaveProperty('doctype')
+    })
+
+    it('still respects limit and locale when doctype is present', async () => {
+      const fetchMock = mockSuccessfulFetch()
+
+      const res = createMockRes()
+      await handler(
+        createReq({
+          q: 'hello',
+          doctype: 'faq',
+          limit: '7',
+          locale: 'pt',
+        }),
+        res as unknown as NextApiResponse
+      )
+
+      const url = String(fetchMock.mock.calls[0][0])
+      expect(url).toContain('limit=7')
+      expect(url).toContain('locale=pt')
+      expect(url).toContain('doctype=faq')
+      expect(res.body).toMatchObject({
+        query: 'hello',
+        locale: 'pt',
+        limit: 7,
+        doctype: 'faq',
+      })
+    })
+
+    it('keeps existing upstream error handling when doctype is present', async () => {
+      const fetchMock = vi.fn().mockResolvedValue({
+        ok: false,
+        status: 500,
+        text: async () => 'internal explosion',
+      })
+      vi.stubGlobal('fetch', fetchMock)
+
+      const res = createMockRes()
+      await handler(
+        createReq({ q: 'foo', doctype: 'tutorials' }),
+        res as unknown as NextApiResponse
+      )
+
+      expect(String(fetchMock.mock.calls[0][0])).toContain('doctype=tutorials')
+      expect(res.statusCode).toBe(502)
+      expect(res.body).toMatchObject({
+        error: 'Hybrid search request failed',
+        upstreamStatus: 500,
+      })
+    })
   })
 })

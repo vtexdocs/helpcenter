@@ -5,6 +5,21 @@ import {
   HybridSearchError,
 } from 'utils/hybrid-search-client'
 
+const DOCTYPE_ALLOWLIST = new Set([
+  'tracks',
+  'tutorials',
+  'faq',
+  'known-issues',
+  'troubleshooting',
+  'announcements',
+])
+
+function parseDoctype(raw: string | string[] | undefined): string | undefined {
+  const value = Array.isArray(raw) ? raw[0] : raw
+  if (!value || !DOCTYPE_ALLOWLIST.has(value)) return undefined
+  return value
+}
+
 // GET /api/search?q=<query>&limit=<1-100>&locale=<en|es|pt>
 //
 // Proxies the request to the VTEX Docs Hybrid Search API
@@ -27,6 +42,7 @@ export default async function handler(
   const q = String(req.query.q || '').trim()
   const locale = String(req.query.locale || '').trim()
   const limit = clampLimit(req.query.limit)
+  const doctype = parseDoctype(req.query.doctype)
 
   if (!q) {
     return res
@@ -52,7 +68,12 @@ export default async function handler(
       source: 'help-center',
     })
 
-    const data = await client.search({ q, limit, locale: locale || undefined })
+    const data = await client.search({
+      q,
+      limit,
+      locale: locale || undefined,
+      doctype,
+    })
 
     res.setHeader(
       'Cache-Control',
@@ -71,6 +92,7 @@ export default async function handler(
       limit,
       count: data.results?.length ?? 0,
       results: data.results ?? [],
+      ...(doctype ? { doctype } : {}),
     })
   } catch (err) {
     // eslint-disable-next-line no-console

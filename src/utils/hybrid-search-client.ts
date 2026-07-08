@@ -40,6 +40,7 @@ export type HybridSearchParams = {
   q: string
   limit?: number
   locale?: string
+  doctype?: string
 }
 
 export const HS_DEFAULT_LIMIT = 10
@@ -92,6 +93,7 @@ export function createHybridSearchClient(config: HybridSearchClientConfig) {
       url.searchParams.set('limit', String(clampLimit(params.limit)))
       url.searchParams.set('source', source)
       if (params.locale) url.searchParams.set('locale', params.locale)
+      if (params.doctype) url.searchParams.set('doctype', params.doctype)
 
       const controller = new AbortController()
       const timeoutId = setTimeout(() => controller.abort(), timeoutMs)

@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest'
 import {
   clampLimit,
   createHybridSearchClient,
@@ -92,6 +91,54 @@ describe('createHybridSearchClient', () => {
     await client.search({ q: 'foo' })
 
     expect(String(fetchImpl.mock.calls[0][0])).not.toContain('locale=')
+  })
+
+  it('forwards doctype to the upstream URL when provided', async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ results: [] }),
+    })
+    const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+    await client.search({ q: 'foo', doctype: 'tutorials' })
+
+    const url = String(fetchImpl.mock.calls[0][0])
+    expect(url).toContain('doctype=tutorials')
+  })
+
+  it.each([
+    'tracks',
+    'tutorials',
+    'faq',
+    'known-issues',
+    'troubleshooting',
+    'announcements',
+  ])('forwards allowlisted doctype "%s" unchanged', async (doctype) => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ results: [] }),
+    })
+    const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+    await client.search({ q: 'foo', doctype })
+
+    const url = new URL(String(fetchImpl.mock.calls[0][0]))
+    expect(url.searchParams.get('doctype')).toBe(doctype)
+  })
+
+  it('omits doctype when not provided', async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ results: [] }),
+    })
+    const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+    await client.search({ q: 'foo' })
+
+    expect(String(fetchImpl.mock.calls[0][0])).not.toContain('doctype=')
   })
 
   it('throws HybridSearchError with upstreamStatus on non-OK responses', async () => {
