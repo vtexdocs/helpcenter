@@ -15,6 +15,7 @@
     "start": "next start",
     "format": "prettier --write \"src/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "next lint",
+    "preinstall": "node scripts/purge-components-cache.mjs",
     "postinstall": "husky install",
     "cz-commit": "cz",
     "release": "standard-version",
