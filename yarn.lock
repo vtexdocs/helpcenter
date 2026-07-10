@@ -3434,7 +3434,7 @@
   resolved "https://registry.yarnpkg.com/@vtex/tsconfig/-/tsconfig-0.6.0.tgz#c9dfffc95d2ef55195237411f9c15269ca30b2a5"
   integrity sha512-SVQBxaSdEVdpJFja1aVTIiZBgpQKePyYOUWGzcYq6LYkSWqSbz2LoC7TuLUsmfweYmVkv8+4eVuxcDpQVEpq1A==
 
-"@vtexdocs/components@https://github.com/vtexdocs/components.git#feat/hybrid-search":
+"@vtexdocs/components@https://github.com/vtexdocs/components.git#5adcdf38592e4ca47135be4d7179e52c182b19b1":
   version "6.1.1"
   resolved "https://github.com/vtexdocs/components.git#5adcdf38592e4ca47135be4d7179e52c182b19b1"
   dependencies:
