@@ -239,4 +239,41 @@ describe('/api/search/counts', () => {
     expect(url).toContain('q=a%2Fb%3Fc%26d%3De')
     expect(res.statusCode).toBe(200)
   })
+
+  describe('CDN cache vary (Netlify-Vary)', () => {
+    const NEXT_JS_DEFAULT_NETLIFY_VARY = 'query=__nextDataReq|_rsc'
+
+    function expectNetlifyVaryKeysOnSearchParams(vary: string | undefined) {
+      expect(
+        vary,
+        'Netlify-Vary must be set on successful responses'
+      ).toBeDefined()
+      expect(vary).not.toBe(NEXT_JS_DEFAULT_NETLIFY_VARY)
+
+      if (vary === 'query') return
+
+      expect(vary).toMatch(/^query=/)
+      const params = vary!.replace(/^query=/, '').split('|')
+      expect(params).toContain('q')
+      expect(params).toContain('locale')
+    }
+
+    it('sets Netlify-Vary keyed on q and locale for successful responses', async () => {
+      const fetchMock = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => upstreamCountsPayload,
+      })
+      vi.stubGlobal('fetch', fetchMock)
+
+      const res = createMockRes()
+      await handler(
+        createReq({ q: 'hello', locale: 'en' }),
+        res as unknown as NextApiResponse
+      )
+
+      expect(res.statusCode).toBe(200)
+      expectNetlifyVaryKeysOnSearchParams(res.headers['netlify-vary'])
+    })
+  })
 })

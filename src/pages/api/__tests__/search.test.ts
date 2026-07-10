@@ -459,4 +459,44 @@ describe('/api/search', () => {
       })
     })
   })
+
+  describe('CDN cache vary (Netlify-Vary)', () => {
+    const NEXT_JS_DEFAULT_NETLIFY_VARY = 'query=__nextDataReq|_rsc'
+
+    function expectNetlifyVaryKeysOnSearchParams(
+      vary: string | undefined,
+      { includeDoctype = false }: { includeDoctype?: boolean } = {}
+    ) {
+      expect(
+        vary,
+        'Netlify-Vary must be set on successful responses'
+      ).toBeDefined()
+      expect(vary).not.toBe(NEXT_JS_DEFAULT_NETLIFY_VARY)
+
+      if (vary === 'query') return
+
+      expect(vary).toMatch(/^query=/)
+      const params = vary!.replace(/^query=/, '').split('|')
+      expect(params).toContain('q')
+      expect(params).toContain('locale')
+      if (includeDoctype) {
+        expect(params).toContain('doctype')
+      }
+    }
+
+    it('sets Netlify-Vary keyed on q, locale, and doctype for successful responses', async () => {
+      mockSuccessfulFetch()
+
+      const res = createMockRes()
+      await handler(
+        createReq({ q: 'hello', locale: 'en' }),
+        res as unknown as NextApiResponse
+      )
+
+      expect(res.statusCode).toBe(200)
+      expectNetlifyVaryKeysOnSearchParams(res.headers['netlify-vary'], {
+        includeDoctype: true,
+      })
+    })
+  })
 })

@@ -63,6 +63,7 @@ export default async function handler(
       'Netlify-CDN-Cache-Control',
       'public, s-maxage=60, stale-while-revalidate=300'
     )
+    res.setHeader('Netlify-Vary', 'query')
 
     return res.status(200).json({
       query: q,

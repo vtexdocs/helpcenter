@@ -225,6 +225,81 @@ describe('Doctype filter UI — counts request failure', () => {
   })
 })
 
+describe('Search proxy CDN cache-key regression (edge)', () => {
+  const LOCALE = 'en'
+  const Q_ALPHA = 'alpha111cdnreg'
+  const Q_BETA = 'beta222cdnreg'
+
+  it('GET /api/search/counts returns distinct bodies per query at the CDN edge', () => {
+    cy.request({
+      url: `/api/search/counts?q=${encodeURIComponent(
+        Q_ALPHA
+      )}&locale=${LOCALE}`,
+      failOnStatusCode: false,
+    }).then((resA) => {
+      expect(resA.status).to.eq(200)
+      expect(resA.body.query, 'counts body reflects first query').to.eq(Q_ALPHA)
+
+      cy.request({
+        url: `/api/search/counts?q=${encodeURIComponent(
+          Q_BETA
+        )}&locale=${LOCALE}`,
+        failOnStatusCode: false,
+      }).then((resB) => {
+        expect(resB.status).to.eq(200)
+        expect(resB.body.query, 'counts body reflects second query').to.eq(
+          Q_BETA
+        )
+        expect(
+          resB.body,
+          'distinct counts per query at edge'
+        ).to.not.deep.equal(resA.body)
+      })
+    })
+  })
+
+  it('GET /api/search returns distinct bodies per query at the CDN edge', () => {
+    cy.request({
+      url: `/api/search?q=${encodeURIComponent(Q_ALPHA)}&locale=${LOCALE}`,
+      failOnStatusCode: false,
+    }).then((resA) => {
+      expect(resA.status).to.eq(200)
+      expect(resA.body.query, 'search body reflects first query').to.eq(Q_ALPHA)
+
+      cy.request({
+        url: `/api/search?q=${encodeURIComponent(Q_BETA)}&locale=${LOCALE}`,
+        failOnStatusCode: false,
+      }).then((resB) => {
+        expect(resB.status).to.eq(200)
+        expect(resB.body.query, 'search body reflects second query').to.eq(
+          Q_BETA
+        )
+        expect(
+          resB.body,
+          'distinct search results per query at edge'
+        ).to.not.deep.equal(resA.body)
+      })
+    })
+  })
+})
+
+describe('Search request shape — counts without per-doctype fan-out', () => {
+  it('issues /api/search/counts and no per-doctype /api/search fan-out', () => {
+    cy.viewport(1280, 768)
+    cy.visitWithRetry(DOCTYPE_FILTER_PAGE)
+    cy.intercept('GET', COUNTS_ENDPOINT).as('counts')
+    cy.intercept('GET', '**/api/search?*').as('search')
+    submitAndRevealTabs('api')
+    cy.wait('@counts', { timeout: 20000 })
+    cy.get('@search.all').then((interceptions) => {
+      const fanOut = interceptions.filter(({ request }) =>
+        request.url.includes('doctype=')
+      )
+      expect(fanOut, 'no per-doctype search fan-out').to.have.length(0)
+    })
+  })
+})
+
 describe('Autocomplete unchanged by snippet hardening', () => {
   beforeEach(() => {
     cy.viewport(1280, 768)
