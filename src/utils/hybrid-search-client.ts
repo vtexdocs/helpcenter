@@ -43,6 +43,22 @@ export type HybridSearchParams = {
   doctype?: string
 }
 
+export type HybridSearchCountsParams = {
+  q: string
+  locale?: string
+}
+
+export type HybridSearchCountsResponse = {
+  counts: {
+    tracks: number
+    tutorial: number
+    faq: number
+    troubleshooting: number
+    announcements: number
+  }
+  total: number
+}
+
 export const HS_DEFAULT_LIMIT = 10
 export const HS_MAX_LIMIT = 100
 export const HS_DEFAULT_TIMEOUT_MS = 15_000
@@ -117,6 +133,55 @@ export function createHybridSearchClient(config: HybridSearchClientConfig) {
         }
 
         return (await response.json()) as HybridSearchResponse
+      } catch (err) {
+        if (err instanceof HybridSearchError) throw err
+        const isAbort =
+          err instanceof Error &&
+          (err.name === 'AbortError' || err.message.includes('aborted'))
+        throw new HybridSearchError(
+          isAbort ? 'Hybrid search request timed out' : 'Hybrid search failed',
+          { cause: err }
+        )
+      } finally {
+        clearTimeout(timeoutId)
+      }
+    },
+
+    async counts(
+      params: HybridSearchCountsParams
+    ): Promise<HybridSearchCountsResponse> {
+      const q = params.q?.trim() ?? ''
+      if (!q) {
+        throw new HybridSearchError('Missing required query parameter: q')
+      }
+
+      const url = new URL('/api/hybrid-search/counts', endpoint)
+      url.searchParams.set('q', q)
+      url.searchParams.set('source', source)
+      if (params.locale) url.searchParams.set('locale', params.locale)
+
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), timeoutMs)
+
+      try {
+        const doFetch = fetchImpl ?? fetch
+        const response = await doFetch(url.toString(), {
+          method: 'GET',
+          headers: {
+            'X-Internal-Access-Key': apiKey,
+            Accept: 'application/json',
+          },
+          signal: controller.signal,
+        })
+
+        if (!response.ok) {
+          throw new HybridSearchError(
+            `Hybrid search request failed (${response.status})`,
+            { upstreamStatus: response.status }
+          )
+        }
+
+        return (await response.json()) as HybridSearchCountsResponse
       } catch (err) {
         if (err instanceof HybridSearchError) throw err
         const isAbort =

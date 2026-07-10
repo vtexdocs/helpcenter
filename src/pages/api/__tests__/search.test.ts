@@ -272,7 +272,7 @@ describe('/api/search', () => {
   })
 
   describe('doctype query param', () => {
-    it('forwards a valid doctype to upstream and echoes it in the response', async () => {
+    it('maps portal doctype "tutorials" to canonical "tutorial" upstream and in the response', async () => {
       const fetchMock = mockSuccessfulFetch()
 
       const res = createMockRes()
@@ -282,32 +282,44 @@ describe('/api/search', () => {
       )
 
       const url = new URL(String(fetchMock.mock.calls[0][0]))
-      expect(url.searchParams.get('doctype')).toBe('tutorials')
+      expect(url.searchParams.get('doctype')).toBe('tutorial')
       expect(res.statusCode).toBe(200)
       expect(res.body).toMatchObject({
         query: 'hello',
-        doctype: 'tutorials',
+        doctype: 'tutorial',
       })
     })
 
-    it.each([
-      'tracks',
-      'faq',
-      'known-issues',
-      'troubleshooting',
-      'announcements',
-    ])('forwards allowlisted doctype "%s"', async (doctype) => {
+    it.each(['tracks', 'faq', 'troubleshooting', 'announcements'])(
+      'forwards canonical doctype "%s" unchanged',
+      async (doctype) => {
+        const fetchMock = mockSuccessfulFetch()
+
+        const res = createMockRes()
+        await handler(
+          createReq({ q: 'hello', doctype }),
+          res as unknown as NextApiResponse
+        )
+
+        const url = new URL(String(fetchMock.mock.calls[0][0]))
+        expect(url.searchParams.get('doctype')).toBe(doctype)
+        expect(res.body).toMatchObject({ doctype })
+      }
+    )
+
+    it('omits known-issues from the upstream request', async () => {
       const fetchMock = mockSuccessfulFetch()
 
       const res = createMockRes()
       await handler(
-        createReq({ q: 'hello', doctype }),
+        createReq({ q: 'hello', doctype: 'known-issues' }),
         res as unknown as NextApiResponse
       )
 
-      const url = new URL(String(fetchMock.mock.calls[0][0]))
-      expect(url.searchParams.get('doctype')).toBe(doctype)
-      expect(res.body).toMatchObject({ doctype })
+      const url = String(fetchMock.mock.calls[0][0])
+      expect(url).not.toContain('doctype=')
+      expect(res.body).toMatchObject({ query: 'hello' })
+      expect(res.body).not.toHaveProperty('doctype')
     })
 
     it('omits unknown doctype from the upstream request', async () => {
@@ -351,7 +363,7 @@ describe('/api/search', () => {
       expect(res.body).not.toHaveProperty('doctype')
     })
 
-    it('uses the first value when doctype is an array', async () => {
+    it('uses the first value when doctype is an array and maps portal aliases', async () => {
       const fetchMock = mockSuccessfulFetch()
 
       const res = createMockRes()
@@ -361,8 +373,8 @@ describe('/api/search', () => {
       )
 
       const url = new URL(String(fetchMock.mock.calls[0][0]))
-      expect(url.searchParams.get('doctype')).toBe('tutorials')
-      expect(res.body).toMatchObject({ doctype: 'tutorials' })
+      expect(url.searchParams.get('doctype')).toBe('tutorial')
+      expect(res.body).toMatchObject({ doctype: 'tutorial' })
     })
 
     it('omits doctype when the first array value is invalid', async () => {
@@ -438,7 +450,8 @@ describe('/api/search', () => {
         res as unknown as NextApiResponse
       )
 
-      expect(String(fetchMock.mock.calls[0][0])).toContain('doctype=tutorials')
+      const url = new URL(String(fetchMock.mock.calls[0][0]))
+      expect(url.searchParams.get('doctype')).toBe('tutorial')
       expect(res.statusCode).toBe(502)
       expect(res.body).toMatchObject({
         error: 'Hybrid search request failed',

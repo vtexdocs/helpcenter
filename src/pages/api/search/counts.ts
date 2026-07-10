@@ -1,32 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import {
-  clampLimit,
   createHybridSearchClient,
   HybridSearchError,
 } from 'utils/hybrid-search-client'
 
-const PORTAL_TO_CANONICAL_DOCTYPE: Record<string, string> = {
-  tutorials: 'tutorial',
-  tracks: 'tracks',
-  faq: 'faq',
-  troubleshooting: 'troubleshooting',
-  announcements: 'announcements',
-}
-
-function parseDoctype(raw: string | string[] | undefined): string | undefined {
-  const value = Array.isArray(raw) ? raw[0] : raw
-  if (!value) return undefined
-  return PORTAL_TO_CANONICAL_DOCTYPE[value]
-}
-
-// GET /api/search?q=<query>&limit=<1-100>&locale=<en|es|pt>
+// GET /api/search/counts?q=<query>&locale=<en|es|pt>
 //
-// Proxies the request to the VTEX Docs Hybrid Search API
-// (BM25 + vector similarity, fused via Reciprocal Rank Fusion).
+// Proxies the request to the VTEX Docs Hybrid Search counts API.
 //
 // Required env vars (server-side only):
 //   - HS_API_ENDPOINT: Base URL of the Hybrid Search API
-//                     (e.g., https://vtexdocs-edge.vtex.com)
 //   - HS_API_KEY:      Internal access key sent as `X-Internal-Access-Key`.
 
 export default async function handler(
@@ -40,8 +23,6 @@ export default async function handler(
 
   const q = String(req.query.q || '').trim()
   const locale = String(req.query.locale || '').trim()
-  const limit = clampLimit(req.query.limit)
-  const doctype = parseDoctype(req.query.doctype)
 
   if (!q) {
     return res
@@ -54,7 +35,9 @@ export default async function handler(
 
   if (!endpoint || !apiKey) {
     // eslint-disable-next-line no-console
-    console.error('search API: HS_API_ENDPOINT or HS_API_KEY is not configured')
+    console.error(
+      'search counts API: HS_API_ENDPOINT or HS_API_KEY is not configured'
+    )
     return res
       .status(503)
       .json({ error: 'Hybrid search is not configured on this environment' })
@@ -67,11 +50,9 @@ export default async function handler(
       source: 'help-center',
     })
 
-    const data = await client.search({
+    const data = await client.counts({
       q,
-      limit,
       locale: locale || undefined,
-      doctype,
     })
 
     res.setHeader(
@@ -82,20 +63,16 @@ export default async function handler(
       'Netlify-CDN-Cache-Control',
       'public, s-maxage=60, stale-while-revalidate=300'
     )
-    // Note: locale is passed via query param (?locale=en), not Accept-Language header,
-    // so Vary: Accept-Language is not needed and could cause incorrect cache hits
 
     return res.status(200).json({
       query: q,
       locale: locale || null,
-      limit,
-      count: data.results?.length ?? 0,
-      results: data.results ?? [],
-      ...(doctype ? { doctype } : {}),
+      counts: data.counts,
+      total: data.total,
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.error('search API error', err)
+    console.error('search counts API error', err)
 
     if (err instanceof HybridSearchError) {
       if (err.upstreamStatus !== undefined) {
