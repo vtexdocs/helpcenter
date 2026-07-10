@@ -3436,7 +3436,7 @@
 
 "@vtexdocs/components@https://github.com/vtexdocs/components.git#feat/hybrid-search":
   version "6.1.1"
-  resolved "https://github.com/vtexdocs/components.git#b31190d25ad7e9faff354eb2a2684722b644d542"
+  resolved "https://github.com/vtexdocs/components.git#5adcdf38592e4ca47135be4d7179e52c182b19b1"
   dependencies:
     "@code-hike/mdx" "^0.9.0"
     "@vtex/brand-ui" "^0.46.1"
