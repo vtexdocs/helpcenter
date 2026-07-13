@@ -9,7 +9,7 @@ NODE_VERSION = "20"
 # lockstep with the SHA in package.json on every intentional components bump so
 # the build cache changes and the git dependency is refetched (paired with the
 # preinstall purge in package.json).
-COMPONENTS_GIT_SHA = "5adcdf38592e4ca47135be4d7179e52c182b19b1"
+COMPONENTS_GIT_SHA = "4674bd6b33fa9a2f2a2db3ef5b778a830bdd5de7"
 
 [[plugins]]
     package = "@netlify/plugin-nextjs"
