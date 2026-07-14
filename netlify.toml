@@ -5,6 +5,12 @@ included_files = ["node_modules/sharp/**/*", "node_modules/@img/**/*", "./github
 
 [build.environment]
 NODE_VERSION = "20"
+# Cache-key fingerprint for the pinned @vtexdocs/components ref. Bump this in
+# lockstep with the ref in package.json on every intentional components bump so
+# the build cache changes and the git dependency is refetched (paired with the
+# preinstall purge in package.json). Value = the commit that the pinned tag
+# (v6.2.0) resolves to.
+COMPONENTS_GIT_SHA = "a5f231e711603c5f087a01a56de52e8212b2eb94"
 
 [[plugins]]
     package = "@netlify/plugin-nextjs"
