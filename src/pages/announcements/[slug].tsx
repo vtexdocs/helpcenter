@@ -313,6 +313,8 @@ export const getStaticProps: GetStaticProps = async ({
       headingList,
       logger,
       path: effectiveMdFilePath || mdFilePath,
+      branch,
+      locale: effectiveLocale,
     })
     if (!serialized) {
       logger.error(

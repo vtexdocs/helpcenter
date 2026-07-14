@@ -32,7 +32,6 @@ const Select = ({ value, label, options, onSelect }: Props) => {
         }}
         value={selectedValue}
       >
-        <option hidden></option>
         {options.map(({ value, content }, index) => (
           <option key={index} value={value}>
             {content}

@@ -41,6 +41,7 @@
     "algoliasearch": "^4.14.2",
     "chalk": "^5.2.0",
     "copy-text-to-clipboard": "^3.0.1",
+    "datatables.net-dt": "^2.3.8",
     "google-auth-library": "^8.7.0",
     "googleapis": "^117.0.0",
     "highlight.js": "^11.6.0",

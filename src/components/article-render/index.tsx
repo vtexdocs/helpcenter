@@ -19,6 +19,9 @@ import Author from 'components/author'
 import { Tag } from '@vtexdocs/components'
 import PaymentProvidersTable from 'components/payment-providers-table'
 import CopyForLLM from 'components/copy-for-llm'
+import DataTable from 'components/datatable'
+import { DataTablesProvider } from 'components/datatable/context'
+import type { DataTablesData } from 'components/datatable/datatable.types'
 import { KnownIssueStatus } from 'utils/typings/unionTypes'
 import InsertAccountName from 'components/insert-account-name'
 
@@ -36,6 +39,9 @@ const ArticleRender = ({
   type,
 }: MarkDownProps) => {
   const intl = useIntl()
+  const dataTablesData =
+    (serialized.scope as { dataTablesData?: DataTablesData } | undefined)
+      ?.dataTablesData ?? {}
   return (
     <>
       <Head>
@@ -164,14 +170,17 @@ const ArticleRender = ({
                       </Flex>
                     </Box>
                   </Flex>
-                  <MarkdownRenderer
-                    serialized={serialized}
-                    customComponents={{
-                      InsertAccountName,
-                      PaymentProvidersTable,
-                    }}
-                    scope={{}}
-                  />
+                  <DataTablesProvider value={dataTablesData}>
+                    <MarkdownRenderer
+                      serialized={serialized}
+                      customComponents={{
+                        InsertAccountName,
+                        PaymentProvidersTable,
+                        DataTable,
+                      }}
+                      scope={{}}
+                    />
+                  </DataTablesProvider>
                 </article>
               </Box>
             </Box>
