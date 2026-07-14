@@ -164,21 +164,17 @@ describe('Doctype filter UI (counts endpoint)', () => {
             submitAndRevealTabs('order')
             cy.wait('@counts2', { timeout: 20000 })
             // The result list must reflect the new query, never the previous hits.
-            cy.get('.searchCardTitle', { timeout: 20000 })
-              .should('have.length.greaterThan', 0)
-              .first()
-              .invoke('text')
-              .should((firstTitleAfter) => {
-                expect(firstTitleAfter.trim()).to.not.equal(
-                  firstTitleBefore.trim()
-                )
-              })
-            cy.get(ALL_TAB)
-              .find(TAB_COUNT)
-              .invoke('text')
-              .should((allAfter) => {
-                expect(allAfter).to.not.equal(allBefore)
-              })
+            cy.get('.searchCardTitle', { timeout: 20000 }).should(($titles) => {
+              expect($titles.length).to.be.greaterThan(0)
+              expect($titles.eq(0).text().trim()).to.not.equal(
+                firstTitleBefore.trim()
+              )
+            })
+            cy.get(`${ALL_TAB} ${TAB_COUNT}`, { timeout: 20000 }).should(
+              ($count) => {
+                expect($count.text()).to.not.equal(allBefore)
+              }
+            )
           })
       })
   })
