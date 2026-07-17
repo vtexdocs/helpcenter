@@ -739,7 +739,7 @@
       },
       {
         "from": "/es/tutorial/como-descargar-boletos-y-facturas-de-vtex",
-        "to": "/es/tutorial/como-descargar-las-facturas-de-vtex--tutorials_653"
+        "to": "/es/docs/tutorials/como-descargar-las-facturas-de-vtex"
       },
       {
         "from": "/faq/como-utilizar-el-control-de-meta-tags",
@@ -767,7 +767,7 @@
       },
       {
         "from": "/tutorial/como-descargar-boletos-y-facturas-de-vtex",
-        "to": "/es/tutorial/como-descargar-las-facturas-de-vtex--tutorials_653"
+        "to": "/es/docs/tutorials/como-descargar-las-facturas-de-vtex"
       },
       {
         "from": "/faq/por-que-meu-pedido-nao-foi-aprovado-na-b2w--frequentlyAskedQuestions_683",
@@ -1087,7 +1087,7 @@
       },
       {
         "from": "/faq/cuanto-tiempo-tarda-la-plataforma-para-identificar-mi-pago",
-        "to": "/tutorial/cuanto-tiempo-tarda-la-plataforma-para-identificar-mi-pago"
+        "to": "/es/docs/tutorials/vision-general-facturacion"
       },
       {
         "from": "/faq/que-es-ficha-de-deposito",
@@ -3083,7 +3083,7 @@
       },
       {
         "from": "/v4/docs/billing-overview--CcugO41lhNJzQKpazKYQC",
-        "to": "/en/tutorial/billing-module-overview--6UxfCl4fw4GmyQwoUuIcQs?&utm_source=autocomplete"
+        "to": "/en/docs/tutorials/billing-module-overview"
       },
       {
         "from": "/tutorial/comenzando-a-trabajar-en-el-master-data-con-json-schema",
@@ -3251,7 +3251,7 @@
       },
       {
         "from": "/faq/qual-o-periodo-considerado-para-a-apuracao-da-cobranca-da-minha-loja",
-        "to": "/tutorial/qual-o-periodo-considerado-para-a-apuracao-da-cobranca-da-minha-loja"
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
       },
       {
         "from": "https://docs.suiteshare.com/article/89-capturar-dados-do-lead-antes-de-iniciar-uma-conversa-no-whatsapp",
@@ -3299,7 +3299,7 @@
       },
       {
         "from": "/faq/o-que-a-vtex-considera-como-receita-para-apuracao",
-        "to": "/tutorial/o-que-a-vtex-considera-como-receita-para-apuracao"
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
       },
       {
         "from": "/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/4fcdmJzQ6QYA9zWf3bLWin",
@@ -3327,7 +3327,7 @@
       },
       {
         "from": "/faq/por-que-nao-recebi-o-contrato-assinado-da-vtex",
-        "to": "/tutorial/por-que-nao-recebi-o-contrato-assinado-da-vtex"
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
       },
       {
         "from": "/tutorial/recursos-do-license-manager-vtex-id",
@@ -4427,7 +4427,7 @@
       },
       {
         "from": "/v4/docs/visao-geral-faturas--CcugO41lhNJzQKpazKYQC",
-        "to": "/pt/tutorial/visao-geral-faturas--6UxfCl4fw4GmyQwoUuIcQs"
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
       },
       {
         "from": "/faq/o-que-e-uma-condicao-de-pagamento-offline",
@@ -4991,7 +4991,7 @@
       },
       {
         "from": "/faq/quanto-tempo-a-plataforma-demora-para-identificar-meu-pagamento",
-        "to": "/tutorial/quanto-tempo-a-plataforma-demora-para-identificar-meu-pagamento"
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
       },
       {
         "from": "/tutorial/campos-de-cadastro-de-categoria--5Z7RrvW41yumyQCmk2iqoG",
@@ -5347,7 +5347,7 @@
       },
       {
         "from": "/v4/docs/vision-general-facturacion--CcugO41lhNJzQKpazKYQC",
-        "to": "/es/tutorial/vision-general-facturacion--6UxfCl4fw4GmyQwoUuIcQs"
+        "to": "/es/docs/tutorials/vision-general-facturacion"
       },
       {
         "from": "/tutorial/control-de-busqueda-fulltextsearchbox--tutorials_549",
@@ -6915,7 +6915,7 @@
       },
       {
         "from": "/faq/what-is-the-period-considered-for-calculating-my-billing",
-        "to": "/tutorial/what-is-the-period-considered-for-calculating-my-billing"
+        "to": "/en/docs/tutorials/billing-module-overview"
       },
       {
         "from": "/tutorial/how-to-update-the-image-of-an-sku--5PMb54FnvUuWOq2qGyAosu",
@@ -6979,7 +6979,7 @@
       },
       {
         "from": "/faq/how-do-i-request-the-duplicate-of-my-bank-slip",
-        "to": "/tutorial/how-do-i-request-the-duplicate-of-my-bank-slip"
+        "to": "/en/docs/tutorials/billing-module-overview"
       },
       {
         "from": "/en/tutorial/guia-de-integracao-de-erps-pedidos",
@@ -6987,7 +6987,7 @@
       },
       {
         "from": "/faq/why-didnt-i-receive-the-signed-contract-from-vtex",
-        "to": "/tutorial/why-didnt-i-receive-the-signed-contract-from-vtex"
+        "to": "/en/docs/tutorials/billing-module-overview"
       },
       {
         "from": "/tutorial/por-que-o-buscador-da-vtex-ignora-alguns-termos-buscados",
@@ -8863,7 +8863,7 @@
       },
       {
         "from": "/faq/cual-es-el-periodo-considerado-para-computo-de-la-cobranza-de-mi-tienda",
-        "to": "/tutorial/cual-es-el-periodo-considerado-para-computo-de-la-cobranza-de-mi-tienda"
+        "to": "/es/docs/tutorials/vision-general-facturacion"
       },
       {
         "from": "/tutorial/sugestoes-de-sinonimos-do-intelligent-search-beta--18A9JTCPrMsHWpFntNoKEr",
@@ -8887,7 +8887,7 @@
       },
       {
         "from": "/faq/por-que-no-recibi-el-contrato-firmado-de-vtex",
-        "to": "/tutorial/por-que-no-recibi-el-contrato-firmado-de-vtex"
+        "to": "/es/docs/tutorials/vision-general-facturacion"
       },
       {
         "from": "/tutorial/campos-de-cadastro-de-produto--4dYXWIK3zyS8IceKkQseke",
@@ -9457,7 +9457,7 @@
       },
       {
         "from": "/tutorial/why-didnt-i-receive-the-signed-contract-from-vtex",
-        "to": "/en/docs/tutorials/vtex-agreement"
+        "to": "/en/docs/tutorials/billing-module-overview"
       },
       {
         "from": "/tutorial/how-to-download-vtex-payment-slips-and-tax-invoices",
@@ -11041,7 +11041,7 @@
       },
       {
         "from": "/tutorial/por-que-no-recibi-el-contrato-firmado-de-vtex",
-        "to": "/es/docs/tutorials/contrato-vtex"
+        "to": "/es/docs/tutorials/vision-general-facturacion"
       },
       {
         "from": "/tutorial/procedimientos-de-cuentas-a-pagar",
@@ -11061,7 +11061,7 @@
       },
       {
         "from": "/tutorial/como-solicitar-una-copia-de-mi-boleto",
-        "to": "/es/docs/tutorials/como-solicitar-una-copia-de-mi-boleto-de-cobro"
+        "to": "/es/docs/tutorials/vision-general-facturacion"
       },
       {
         "from": "/tutorial/claves-de-api-beta",
@@ -12261,11 +12261,11 @@
       },
       {
         "from": "/tutorial/por-que-nao-recebi-o-contrato-assinado-da-vtex",
-        "to": "/pt/docs/tutorials/contrato-vtex"
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
       },
       {
         "from": "/tutorial/visao-geral-do-modulo-faturas",
-        "to": "/pt/docs/tutorials/visao-geral-faturas"
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
       },
       {
         "from": "/tutorial/como-fazer-download-das-faturas-boleto-da-vtex",
@@ -17841,6 +17841,14 @@
       },
       {
         "from": "/pt/docs/tutorials/quanto-tempo-a-plataforma-demora-para-identificar-meu-pagamento",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/pt/docs/tutorials/visao-geral-faturas",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/pt/tutorial/visao-geral-faturas--6UxfCl4fw4GmyQwoUuIcQs",
         "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
       }
     ]
