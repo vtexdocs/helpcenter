@@ -207,7 +207,7 @@ to = "/docs/tutorials/vtex-sales-app-extensibility-en"
 force = true
 from = "/pt/docs/tutorials/extensibilidade-no-vtex-sales-app"
 status = 308
-to = "/docs/tutorials/vtex-sales-app-extensibility-pt"
+to = "/pt/docs/tutorials/vtex-sales-app-extensibility-pt"
 
 [[redirects]]
 force = true
