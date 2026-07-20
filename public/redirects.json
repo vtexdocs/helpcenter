@@ -13047,7 +13047,7 @@
       },
       {
         "from": "/tracks/integration-with-facebook-business-extension",
-        "to": "/en/docs/tracks/facebook-business-extension"
+        "to": "/en/docs/tracks/meta-business-extension"
       },
       {
         "from": "/tracks/lengow-integration",
@@ -13271,7 +13271,7 @@
       },
       {
         "from": "/tracks/integracao-com-o-facebook-business-extension",
-        "to": "/pt/docs/tracks/facebook-business-extension"
+        "to": "/pt/docs/tracks/meta-business-extension"
       },
       {
         "from": "/tracks/integracao-com-o-tiktok",
@@ -13415,7 +13415,7 @@
       },
       {
         "from": "/tracks/integracion-con-facebook-business-extension",
-        "to": "/es/docs/tracks/facebook-business-extension"
+        "to": "/es/docs/tracks/meta-business-extension"
       },
       {
         "from": "/tracks/integracion-con-google-shopping",
@@ -14299,39 +14299,39 @@
       },
       {
         "from": "/en/tracks/integration-with-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/434Z1iWnaa0zbOMDyr6oi",
-        "to": "/en/docs/tracks/facebook-business-extension"
+        "to": "/en/docs/tracks/meta-business-extension"
       },
       {
         "from": "/pt/tracks/integracao-com-o-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/434Z1iWnaa0zbOMDyr6oi",
-        "to": "/pt/docs/tracks/facebook-business-extension"
+        "to": "/pt/docs/tracks/meta-business-extension"
       },
       {
         "from": "/es/tracks/integracion-con-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/434Z1iWnaa0zbOMDyr6oi",
-        "to": "/es/docs/tracks/facebook-business-extension"
+        "to": "/es/docs/tracks/meta-business-extension"
       },
       {
         "from": "/en/tracks/integration-with-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/7JvybNGcBXxGKbVWjadKjt",
-        "to": "/en/docs/tracks/installing-the-facebook-business-extension-e-conversions-api-app"
+        "to": "/en/docs/tracks/installing-the-meta-business-extension-e-conversions-api-app"
       },
       {
         "from": "/pt/tracks/integracao-com-o-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/7JvybNGcBXxGKbVWjadKjt",
-        "to": "/pt/docs/tracks/instalar-a-app-facebook-business-extension-e-conversions-api"
+        "to": "/pt/docs/tracks/instalar-a-app-meta-business-extension-e-conversions-api"
       },
       {
         "from": "/es/tracks/integracion-con-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/7JvybNGcBXxGKbVWjadKjt",
-        "to": "/es/docs/tracks/instalar-la-aplicacion-facebook-business-extension-e-conversions-api"
+        "to": "/es/docs/tracks/instalar-la-aplicacion-meta-business-extension-e-conversions-api"
       },
       {
         "from": "/en/tracks/integration-with-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/2OdxzECQkND8gP3ohtTRDD",
-        "to": "/en/docs/tracks/integration-with-facebook-business-extension-overview"
+        "to": "/en/docs/tracks/integration-with-meta-business-extension-overview"
       },
       {
         "from": "/pt/tracks/integracao-com-o-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/2OdxzECQkND8gP3ohtTRDD",
-        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-o-facebook-business-extension"
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-o-meta-business-extension"
       },
       {
         "from": "/es/tracks/integracion-con-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/2OdxzECQkND8gP3ohtTRDD",
-        "to": "/es/docs/tracks/vision-general-de-la-integracion-con-facebook-business-extension"
+        "to": "/es/docs/tracks/vision-general-de-la-integracion-con-meta-business-extension"
       },
       {
         "from": "/en/tracks/integration-with-facebook-business-extension--2hS3ANSZ7vlHCcba4h7k8D/DmcxFAdyCC7t0a72hIXeT",
@@ -17730,6 +17730,54 @@
       {
         "from": "/es/docs/tutorials/capacidad-operacional-beta",
         "to": "/es/docs/tutorials/capacidad-operativa"
+      },
+      {
+        "from": "/en/docs/tracks/integration-with-facebook-business-extension",
+        "to": "/en/docs/tracks/integration-with-meta-business-extension"
+      },
+      {
+        "from": "/pt/docs/tracks/integracao-com-o-facebook-business-extension",
+        "to": "/pt/docs/tracks/integracao-com-o-meta-business-extension"
+      },
+      {
+        "from": "/es/docs/tracks/integracion-con-facebook-business-extension",
+        "to": "/es/docs/tracks/integracion-con-meta-business-extension"
+      },
+      {
+        "from": "/en/docs/tracks/facebook-business-extension",
+        "to": "/en/docs/tracks/meta-business-extension"
+      },
+      {
+        "from": "/pt/docs/tracks/facebook-business-extension",
+        "to": "/pt/docs/tracks/meta-business-extension"
+      },
+      {
+        "from": "/es/docs/tracks/facebook-business-extension",
+        "to": "/es/docs/tracks/meta-business-extension"
+      },
+      {
+        "from": "/en/docs/tracks/integration-with-facebook-business-extension-overview",
+        "to": "/en/docs/tracks/integration-with-meta-business-extension-overview"
+      },
+      {
+        "from": "/pt/docs/tracks/visao-geral-da-integracao-com-o-facebook-business-extension",
+        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-o-meta-business-extension"
+      },
+      {
+        "from": "/es/docs/tracks/vision-general-de-la-integracion-con-facebook-business-extension",
+        "to": "/es/docs/tracks/vision-general-de-la-integracion-con-meta-business-extension"
+      },
+      {
+        "from": "/en/docs/tracks/installing-the-facebook-business-extension-e-conversions-api-app",
+        "to": "/en/docs/tracks/installing-the-meta-business-extension-e-conversions-api-app"
+      },
+      {
+        "from": "/pt/docs/tracks/instalar-a-app-facebook-business-extension-e-conversions-api",
+        "to": "/pt/docs/tracks/instalar-a-app-meta-business-extension-e-conversions-api"
+      },
+      {
+        "from": "/es/docs/tracks/instalar-la-aplicacion-facebook-business-extension-e-conversions-api",
+        "to": "/es/docs/tracks/instalar-la-aplicacion-meta-business-extension-e-conversions-api"
       }
     ]
   }
