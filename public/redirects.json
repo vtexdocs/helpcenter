@@ -17778,6 +17778,126 @@
       {
         "from": "/es/docs/tracks/instalar-la-aplicacion-facebook-business-extension-e-conversions-api",
         "to": "/es/docs/tracks/instalar-la-aplicacion-meta-business-extension-e-conversions-api"
+      },
+      {
+        "from": "/en/docs/tutorials/vtex-agreement",
+        "to": "/en/docs/tutorials/billing-module-overview"
+      },
+      {
+        "from": "/en/docs/tutorials/why-didnt-i-receive-the-signed-contract-from-vtex",
+        "to": "/en/docs/tutorials/billing-module-overview"
+      },
+      {
+        "from": "/es/docs/tutorials/contrato-vtex",
+        "to": "/es/docs/tutorials/vision-general-facturacion"
+      },
+      {
+        "from": "/es/docs/tutorials/por-que-no-recibi-el-contrato-firmado-de-vtex",
+        "to": "/es/docs/tutorials/vision-general-facturacion"
+      },
+      {
+        "from": "/pt/docs/tutorials/contrato-vtex",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/pt/docs/tutorials/por-que-nao-recebi-o-contrato-assinado-da-vtex",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/en/docs/tutorials/names-of-vtex-branches-worldwide",
+        "to": "/en/docs/tutorials/billing-module-overview"
+      },
+      {
+        "from": "/es/docs/tutorials/nombres-de-las-sucursales-vtex-en-el-mundo",
+        "to": "/es/docs/tutorials/vision-general-facturacion"
+      },
+      {
+        "from": "/pt/docs/tutorials/nomes-das-filiais-vtex-pelo-mundo",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/en/docs/tutorials/requesting-a-contract-termination-in-argentina-and-colombia",
+        "to": "/en/docs/tutorials/billing-module-overview"
+      },
+      {
+        "from": "/es/docs/tutorials/solicitar-la-rescision-contractual-en-argentina-y-colombia",
+        "to": "/es/docs/tutorials/vision-general-facturacion"
+      },
+      {
+        "from": "/pt/docs/tutorials/solicitar-rescisao-contratual-na-argentina-e-colombia",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/en/docs/tutorials/how-do-i-request-a-duplicate-of-my-boleto",
+        "to": "/en/docs/tutorials/billing-module-overview"
+      },
+      {
+        "from": "/es/docs/tutorials/como-solicitar-una-copia-de-mi-boleto-de-cobro",
+        "to": "/es/docs/tutorials/vision-general-facturacion"
+      },
+      {
+        "from": "/pt/docs/tutorials/como-solicitar-a-segunda-via-do-meu-boleto-de-cobranca",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/en/docs/tutorials/what-does-vtex-consider-as-revenue-in-the-billing-calculation",
+        "to": "/en/docs/tutorials/billing-module-overview"
+      },
+      {
+        "from": "/en/docs/tutorials/what-does-vtex-consider-as-revenue-in-the-billing-calculations",
+        "to": "/en/docs/tutorials/billing-module-overview"
+      },
+      {
+        "from": "/es/docs/tutorials/que-considera-vtex-como-ingresos-en-el-calculo-de-facturacion",
+        "to": "/es/docs/tutorials/vision-general-facturacion"
+      },
+      {
+        "from": "/pt/docs/tutorials/o-que-a-vtex-considera-como-receita-para-apuracao",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/en/docs/tutorials/what-is-the-period-considered-for-calculating-my-billing",
+        "to": "/en/docs/tutorials/billing-module-overview"
+      },
+      {
+        "from": "/es/docs/tutorials/cual-es-el-periodo-considerado-para-computo-de-la-cobranza-de-mi-tienda",
+        "to": "/es/docs/tutorials/vision-general-facturacion"
+      },
+      {
+        "from": "/pt/docs/tutorials/qual-o-periodo-considerado-para-a-apuracao-da-cobranca-da-minha-loja",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/en/docs/tutorials/best-practices-when-creating-your-partner-environment",
+        "to": "/en/docs/tutorials/billing-module-overview"
+      },
+      {
+        "from": "/es/docs/tutorials/mejores-practicas-para-crear-su-ambiente-partner",
+        "to": "/es/docs/tutorials/vision-general-facturacion"
+      },
+      {
+        "from": "/pt/docs/tutorials/melhores-praticas-na-hora-de-criar-seu-ambiente-partner",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/en/docs/tutorials/how-long-does-the-platform-take-to-identify-my-payment",
+        "to": "/en/docs/tutorials/billing-module-overview"
+      },
+      {
+        "from": "/es/docs/tutorials/cuanto-tiempo-tarda-la-plataforma-para-identificar-mi-pago",
+        "to": "/es/docs/tutorials/vision-general-facturacion"
+      },
+      {
+        "from": "/pt/docs/tutorials/quanto-tempo-a-plataforma-demora-para-identificar-meu-pagamento",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/pt/docs/tutorials/visao-geral-faturas",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/pt/tutorial/visao-geral-faturas--6UxfCl4fw4GmyQwoUuIcQs",
+        "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
       }
     ]
   }
