@@ -988,3 +988,39 @@ force = true
 from = "/es/known-issues/error-al-procesar-el-segundo-reembolso-del-mismo-valor-que-el-primero-la-tarjeta-regalo-ya-ha-sido-reembolsada"
 status = 308
 to = "/es/known-issues/se-ha-producido-un-error-al-procesar-el-segundo-reembolso-o-la-segunda-cancelacion-con-el-mismo-importe-que-el-primero"
+
+[[redirects]]
+force = true
+from = "/known-issues/rewriter-not-receiving-routes-updated-from-the-catalog"
+status = 308
+to = "/known-issues/rewriter-not-receiving-route-updates-from-the-catalog"
+
+[[redirects]]
+force = true
+from = "/pt/known-issues/o-reescritor-nao-esta-recebendo-rotas-atualizadas-do-catalogo"
+status = 308
+to = "/pt/known-issues/o-rewriter-nao-esta-recebendo-atualizacoes-de-rota-do-catalogo"
+
+[[redirects]]
+force = true
+from = "/es/known-issues/el-reescritor-no-recibe-las-rutas-actualizadas-desde-el-catalogo"
+status = 308
+to = "/es/known-issues/el-rewriter-no-recibe-actualizaciones-de-ruta-del-catalogo"
+
+[[redirects]]
+force = true
+from = "/known-issues/rewriter-is-not-receiving-url-updates"
+status = 308
+to = "/known-issues/rewriter-not-receiving-route-updates-from-the-catalog"
+
+[[redirects]]
+force = true
+from = "/pt/known-issues/o-reescritor-nao-esta-recebendo-atualizacoes-de-url"
+status = 308
+to = "/pt/known-issues/o-rewriter-nao-esta-recebendo-atualizacoes-de-rota-do-catalogo"
+
+[[redirects]]
+force = true
+from = "/es/known-issues/el-reescribidor-no-recibe-actualizaciones-de-url"
+status = 308
+to = "/es/known-issues/el-rewriter-no-recibe-actualizaciones-de-ruta-del-catalogo"
