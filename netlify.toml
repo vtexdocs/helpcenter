@@ -321,25 +321,25 @@ to = "/docs/tutorials/importar-e-exportar-imagens-de-produtos-e-skus-via-planilh
 force = true
 from = "/pt/docs/tutorials/vtex-intelligent-search-configuracoes-multi-idioma-beta"
 status = 308
-to = "/docs/tutorials/vtex-intelligent-search-configuracoes-multi-idioma"
+to = "/pt/docs/tutorials/vtex-intelligent-search-configuracoes-multi-idioma"
 
 [[redirects]]
 force = true
 from = "/en/docs/tutorials/vtex-intelligent-search-multilanguage-settings-beta"
 status = 308
-to = "/docs/tutorials/vtex-intelligent-search-multilanguage-settings"
+to = "/en/docs/tutorials/vtex-intelligent-search-multilanguage-settings"
 
 [[redirects]]
 force = true
 from = "/docs/tutorials/vtex-intelligent-search-multilanguage-settings-beta"
 status = 308
-to = "/docs/tutorials/vtex-intelligent-search-multilanguage-settings"
+to = "/en/docs/tutorials/vtex-intelligent-search-multilanguage-settings"
 
 [[redirects]]
 force = true
 from = "/es/docs/tutorials/vtex-intelligent-search-configuracion-multidioma-beta"
 status = 308
-to = "/docs/tutorials/vtex-intelligent-search-configuracion-multidioma"
+to = "/es/docs/tutorials/vtex-intelligent-search-configuracion-multidioma"
 
 [[redirects]]
 force = true
