@@ -319,6 +319,30 @@ to = "/docs/tutorials/importar-e-exportar-imagens-de-produtos-e-skus-via-planilh
 
 [[redirects]]
 force = true
+from = "/pt/docs/tutorials/vtex-intelligent-search-configuracoes-multi-idioma-beta"
+status = 308
+to = "/docs/tutorials/vtex-intelligent-search-configuracoes-multi-idioma"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/vtex-intelligent-search-multilanguage-settings-beta"
+status = 308
+to = "/docs/tutorials/vtex-intelligent-search-multilanguage-settings"
+
+[[redirects]]
+force = true
+from = "/docs/tutorials/vtex-intelligent-search-multilanguage-settings-beta"
+status = 308
+to = "/docs/tutorials/vtex-intelligent-search-multilanguage-settings"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/vtex-intelligent-search-configuracion-multidioma-beta"
+status = 308
+to = "/docs/tutorials/vtex-intelligent-search-configuracion-multidioma"
+
+[[redirects]]
+force = true
 from = "/pt/docs/tutorials/exportar-e-importar-especificacoes-de-produto-e-de-sku"
 status = 308
 to = "/docs/tutorials/importar-e-exportar-especificacoes-de-produtos-via-planilha"
