@@ -17732,58 +17732,6 @@
         "to": "/es/docs/tutorials/capacidad-operativa"
       },
       {
-        "from": "/en/docs/tracks/integration-with-facebook-business-extension",
-        "to": "/en/docs/tracks/integration-with-meta-business-extension"
-      },
-      {
-        "from": "/pt/docs/tracks/integracao-com-o-facebook-business-extension",
-        "to": "/pt/docs/tracks/integracao-com-o-meta-business-extension"
-      },
-      {
-        "from": "/pt/docs/tutorials/integracao-com-o-facebook-business-extension-fbe",
-        "to": "/pt/docs/tracks/integracao-com-o-meta-business-extension"
-      },
-      {
-        "from": "/es/docs/tracks/integracion-con-facebook-business-extension",
-        "to": "/es/docs/tracks/integracion-con-meta-business-extension"
-      },
-      {
-        "from": "/en/docs/tracks/facebook-business-extension",
-        "to": "/en/docs/tracks/meta-business-extension"
-      },
-      {
-        "from": "/pt/docs/tracks/facebook-business-extension",
-        "to": "/pt/docs/tracks/meta-business-extension"
-      },
-      {
-        "from": "/es/docs/tracks/facebook-business-extension",
-        "to": "/es/docs/tracks/meta-business-extension"
-      },
-      {
-        "from": "/en/docs/tracks/integration-with-facebook-business-extension-overview",
-        "to": "/en/docs/tracks/integration-with-meta-business-extension-overview"
-      },
-      {
-        "from": "/pt/docs/tracks/visao-geral-da-integracao-com-o-facebook-business-extension",
-        "to": "/pt/docs/tracks/visao-geral-da-integracao-com-o-meta-business-extension"
-      },
-      {
-        "from": "/es/docs/tracks/vision-general-de-la-integracion-con-facebook-business-extension",
-        "to": "/es/docs/tracks/vision-general-de-la-integracion-con-meta-business-extension"
-      },
-      {
-        "from": "/en/docs/tracks/installing-the-facebook-business-extension-e-conversions-api-app",
-        "to": "/en/docs/tracks/installing-the-meta-business-extension-e-conversions-api-app"
-      },
-      {
-        "from": "/pt/docs/tracks/instalar-a-app-facebook-business-extension-e-conversions-api",
-        "to": "/pt/docs/tracks/instalar-a-app-meta-business-extension-e-conversions-api"
-      },
-      {
-        "from": "/es/docs/tracks/instalar-la-aplicacion-facebook-business-extension-e-conversions-api",
-        "to": "/es/docs/tracks/instalar-la-aplicacion-meta-business-extension-e-conversions-api"
-      },
-      {
         "from": "/en/docs/tutorials/vtex-agreement",
         "to": "/en/docs/tutorials/billing-module-overview"
       },
