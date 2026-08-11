@@ -17850,6 +17850,42 @@
       {
         "from": "/pt/tutorial/visao-geral-faturas--6UxfCl4fw4GmyQwoUuIcQs",
         "to": "/pt/docs/tutorials/visao-geral-informacoes-de-faturamento"
+      },
+      {
+        "from": "/en/docs/tutorials/how-to-request-your-contract-termination-in-brazil",
+        "to": "/en/docs/tutorials/requesting-contract-termination"
+      },
+      {
+        "from": "/es/docs/tutorials/como-solicitar-su-rescision-contractual-en-brasil",
+        "to": "/es/docs/tutorials/solicitar-rescisao-contratual"
+      },
+      {
+        "from": "/pt/docs/tutorials/como-solicitar-sua-rescisao-contratual-no-brasil",
+        "to": "/pt/docs/tutorials/solicitar-rescisao-contratual"
+      },
+      {
+        "from": "/pt/docs/tutorials/como-fazer-download-faturas-da-vtex",
+        "to": "/pt/docs/tutorials/baixar-faturas-da-vtex"
+      },
+      {
+        "from": "/docs/tutorials/how-to-download-the-vtex-invoices",
+        "to": "/docs/tutorials/downloading-vtex-invoices"
+      },
+      {
+        "from": "/es/docs/tutorials/como-descargar-las-facturas-de-vtex",
+        "to": "/es/docs/tutorials/descargar-facturas-de-vtex"
+      },
+      {
+        "from": "/en/docs/tutorials/payment-was-made-but-not-found-what-should-i-do",
+        "to": "/en/docs/tutorials/addressing-an-unidentified-invoice-payment"
+      },
+      {
+        "from": "/es/docs/tutorials/el-pago-se-realizo-pero-no-se-identifico-que-debo-hacer",
+        "to": "/es/docs/tutorials/resolver-pago-de-factura-no-identificado"
+      },
+      {
+        "from": "/pt/docs/tutorials/o-pagamento-foi-efetuado-porem-nao-identificado-o-que-devo-fazer",
+        "to": "/pt/docs/tutorials/resolver-pagamento-de-fatura-nao-identificado"
       }
     ]
   }
