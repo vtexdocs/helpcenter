@@ -1126,3 +1126,15 @@ force = true
 from = "/pt/docs/tutorials/integracao-com-o-facebook-business-extension-fbe"
 status = 308
 to = "/pt/docs/tracks/integracao-com-o-meta-business-extension"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/buying-policies"
+status = 308
+to = "/pt/docs/tutorials/politicas-de-compras"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/adicionar-ou-editar-buying-policies"
+status = 308
+to = "/pt/docs/tutorials/adicionar-ou-editar-politicas-de-compras"
