@@ -1138,3 +1138,15 @@ force = true
 from = "/pt/docs/tutorials/adicionar-ou-editar-buying-policies"
 status = 308
 to = "/pt/docs/tutorials/adicionar-ou-editar-politicas-de-compras"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/how-to-manage-users"
+status = 308
+to = "/en/docs/tutorials/managing-admin-users"
+
+[[redirects]]
+force = true
+from = "/docs/tutorials/how-to-manage-users"
+status = 308
+to = "/en/docs/tutorials/managing-admin-users"
