@@ -31,49 +31,80 @@ const infoContainer: SxStyleProp = {
 
 const articleBox: SxStyleProp = {
   fontSize: '1em',
-  lineHeight: '1.375em',
+  lineHeight: '1.75em',
   width: ['100%', 'auto'],
+  color: 'rgb(51, 65, 85)',
   a: {
     color: '#E31C58',
     textDecoration: 'none',
+    fontWeight: '500',
   },
   ul: {
+    pl: '1.5em',
+    mt: '1.25em',
+    mb: '1.25em',
     li: {
       mt: '0.5em',
       mb: '0.5em',
     },
   },
   ol: {
+    pl: '1.5em',
+    mt: '1.25em',
+    mb: '1.25em',
     li: {
       mt: '0.5em',
       mb: '0.5em',
     },
   },
   header: {
+    marginTop: '16px',
     borderBottom: '1px solid #E7E9EE',
     marginBottom: '18px',
     pb: '18px',
   },
-  h1: {
-    fontSize: '1.75em',
-    fontWeight: '400',
-    lineHeight: '2.375em',
-    overflowWrap: 'anywhere',
-  },
   h2: {
     fontSize: '1.375em',
-    lineHeight: '2em',
-    fontWeight: '400',
-    mt: '1.3em',
-    mb: '0.875em',
+    lineHeight: '1.3em',
+    fontWeight: '700',
+    mt: ['1.5em', '2em'],
+    mb: ['0.75em', '1em'],
     overflowWrap: 'anywhere',
+    color: 'rgb(15, 23, 42)',
   },
   h3: {
     fontSize: '1.125em',
     fontWeight: '600',
-    lineHeight: '1.875em',
+    lineHeight: '1.6em',
+    mt: '1.6em',
+    mb: '0.6em',
+    overflowWrap: 'anywhere',
+  },
+  h4: {
+    fontSize: '1em',
+    fontWeight: '600',
+    lineHeight: '1.5em',
     mt: '1.5em',
-    mb: '1em',
+    mb: '0.5em',
+    color: 'rgb(15, 23, 42)',
+    overflowWrap: 'anywhere',
+  },
+  h5: {
+    fontSize: '0.9375em',
+    fontWeight: '600',
+    lineHeight: '1.5em',
+    mt: '1.25em',
+    mb: '0.5em',
+    color: 'rgb(71, 85, 105)',
+    overflowWrap: 'anywhere',
+  },
+  h6: {
+    fontSize: '0.9375em',
+    fontWeight: '600',
+    lineHeight: '1.5em',
+    mt: '1.25em',
+    mb: '0.5em',
+    color: 'rgb(100, 116, 139)',
     overflowWrap: 'anywhere',
   },
   strong: {
@@ -82,6 +113,7 @@ const articleBox: SxStyleProp = {
   },
   hr: {
     border: '0.5px solid #E7E9EE',
+    my: ['2em', '3em'],
   },
 }
 
@@ -99,8 +131,9 @@ const articleIndexContentContainer: SxStyleProp = {
 const documentationTitle: SxStyleProp = {
   marginTop: '16px',
   fontSize: '1.75em',
-  lineHeight: ['30px', '38px'],
+  lineHeight: '1.15em',
   fontWeight: '400',
+  color: '#142032',
 }
 
 const documentationExcerpt: SxStyleProp = {

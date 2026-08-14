@@ -18,6 +18,7 @@ interface Props {
   publishedAt: Date
   synopsis?: string
   tags?: string[]
+  defaultOpen?: boolean
 }
 
 const AnnouncementExpandableRow = ({
@@ -26,9 +27,10 @@ const AnnouncementExpandableRow = ({
   publishedAt,
   synopsis,
   tags,
+  defaultOpen = false,
 }: Props) => {
   const intl = useIntl()
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(defaultOpen)
 
   const synopsisText = synopsis?.trim()
   const hasSynopsis = Boolean(synopsisText)
