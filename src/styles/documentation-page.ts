@@ -47,12 +47,21 @@ const articleBox: SxStyleProp = {
       mt: '0.5em',
       mb: '0.5em',
     },
+    listStyleType: 'disc',
+    'ul, ol': {
+      mt: '0.5em',
+      mb: '0.5em',
+    },
   },
   ol: {
     pl: '1.5em',
     mt: '1.25em',
     mb: '1.25em',
     li: {
+      mt: '0.5em',
+      mb: '0.5em',
+    },
+    'ul, ol': {
       mt: '0.5em',
       mb: '0.5em',
     },
