@@ -39,23 +39,72 @@ const yearVerticalRail: SxStyleProp = {
   bottom: 0,
 }
 
-const optionsContainer: SxStyleProp = {
-  justifyContent: ['center', 'flex-start'],
-  alignItems: 'center',
-  alignContent: 'center',
-  gap: '24px',
+const toolbar: SxStyleProp = {
   width: '100%',
+  flexDirection: ['column', 'row'],
+  alignItems: ['stretch', 'center'],
+  gap: ['12px', '12px'],
   flexWrap: 'wrap',
 }
 
+const filterWrap: SxStyleProp = {
+  flexShrink: 0,
+}
+
+const searchWrap: SxStyleProp = {
+  flex: 1,
+  minWidth: ['100%', '280px'],
+  alignItems: 'center',
+  gap: '8px',
+}
+
+const helpButton: SxStyleProp = {
+  alignItems: 'center',
+  justifyContent: 'center',
+  display: 'flex',
+  width: '24px',
+  height: '24px',
+  borderRadius: '50%',
+  border: '1px solid',
+  borderColor: 'muted.2',
+  backgroundColor: 'transparent',
+  color: 'muted.1',
+  fontSize: '12px',
+  fontWeight: 700,
+  cursor: 'help',
+  flexShrink: 0,
+  p: 0,
+  transition: '0.2s',
+  ':hover': {
+    borderColor: 'muted.0',
+    color: 'muted.0',
+  },
+  ':focus-visible': {
+    outline: 'none',
+    boxShadow: '0 0 0 2px rgba(20, 32, 50, 0.2)',
+  },
+}
+
 const noResults: SxStyleProp = {
-  py: '32px',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  py: ['40px', '56px'],
+  px: '24px',
+  mt: '8px',
   textAlign: 'center',
+  fontSize: '15px',
+  color: 'muted.1',
+  backgroundColor: 'muted.4',
+  borderRadius: '8px',
 }
 
 const resultsNumberContainer: SxStyleProp = {
-  fontSize: '1rem',
-  color: 'muted.0',
+  fontSize: '14px',
+  fontWeight: '600',
+  color: 'muted.1',
+  mb: ['24px', '32px'],
 }
 
 const yearBlock: SxStyleProp = {
@@ -100,6 +149,7 @@ const seeMoreButton: SxStyleProp = {
   ':hover': {
     borderColor: 'muted.0',
     color: 'secondary.hover',
+    boxShadow: '0 1px 2px rgba(20, 32, 50, 0.08)',
   },
   ':focus-visible': {
     outline: 'none',
@@ -124,7 +174,10 @@ export default {
   cardContainer,
   yearTimelineBody,
   yearVerticalRail,
-  optionsContainer,
+  toolbar,
+  filterWrap,
+  searchWrap,
+  helpButton,
   noResults,
   resultsNumberContainer,
   searchInput,

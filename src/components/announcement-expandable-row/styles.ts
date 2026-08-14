@@ -56,7 +56,14 @@ const mainColumn: SxStyleProp = {
   minWidth: 0,
   flexDirection: 'column',
   pl: ['12px', '16px'],
-  pr: '4px',
+  pr: ['12px', '16px'],
+  my: '-8px',
+  py: '8px',
+  borderRadius: '8px',
+  transition: 'background-color 0.15s ease',
+  ':hover': {
+    backgroundColor: 'muted.4',
+  },
 }
 
 const header: SxStyleProp = {
