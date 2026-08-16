@@ -7,6 +7,14 @@ import { useRef } from 'react'
 import { useIntl } from 'react-intl'
 import { LongArrowIcon } from '@vtexdocs/components'
 
+const cardLinkStyle = {
+  textDecoration: 'none',
+  color: 'inherit',
+  display: 'flex',
+  flex: 1,
+  minWidth: 0,
+} as const
+
 const DocumentationSectionCard = ({
   Icon,
   title,
@@ -19,40 +27,45 @@ const DocumentationSectionCard = ({
 
   return (
     <Link
-      style={styles.cardContainer}
       href={link}
       target={isExternalLink ? '_blank' : '_self'}
+      style={cardLinkStyle}
     >
-      <Flex sx={styles.infoContainer}>
-        <Icon sx={styles.icon} />
-        <Text className="title" sx={styles.title}>
-          {title}
-        </Text>
-        <Text
-          ref={descriptionRef}
-          className="description"
-          sx={styles.description}
-        >
-          {description}
-        </Text>
-      </Flex>
-      <Flex className="quickStartedContainer" sx={styles.quickStartedContainer}>
-        {!isExternalLink ? (
-          <Text className="learnMoreText" sx={styles.learnMoreText}>
-            {intl.formatMessage({
-              id: 'landing_page_documentation_card.learnMoreText',
-            })}
+      <Flex sx={styles.cardContainer}>
+        <Flex sx={styles.infoContainer}>
+          <Icon sx={styles.icon} />
+          <Text className="title" sx={styles.title}>
+            {title}
           </Text>
-        ) : (
-          <Flex sx={styles.accessPortal}>
-            <Text className="accessPortal" sx={styles.learnMoreText}>
+          <Text
+            ref={descriptionRef}
+            className="description"
+            sx={styles.description}
+          >
+            {description}
+          </Text>
+        </Flex>
+        <Flex
+          className="quickStartedContainer"
+          sx={styles.quickStartedContainer}
+        >
+          {!isExternalLink ? (
+            <Text className="learnMoreText" sx={styles.learnMoreText}>
               {intl.formatMessage({
-                id: 'landing_page_documentation_card.accessPortal',
+                id: 'landing_page_documentation_card.learnMoreText',
               })}
             </Text>
-            <LongArrowIcon size={18} />
-          </Flex>
-        )}
+          ) : (
+            <Flex sx={styles.accessPortal}>
+              <Text className="accessPortal" sx={styles.learnMoreText}>
+                {intl.formatMessage({
+                  id: 'landing_page_documentation_card.accessPortal',
+                })}
+              </Text>
+              <LongArrowIcon size={18} />
+            </Flex>
+          )}
+        </Flex>
       </Flex>
     </Link>
   )
