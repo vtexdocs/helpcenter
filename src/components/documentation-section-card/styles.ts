@@ -1,110 +1,117 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+import tokens from 'styles/theme-tokens'
+
+const { landing, grays } = tokens
+
 const cardContainer: SxStyleProp = {
   display: 'flex',
   flexDirection: 'column',
   flex: '1',
-  boxSizing: 'initial',
-  borderRadius: '8px',
-  border: '1px solid #E7E9EE',
-  transition: 'all 0.3s ease-out',
+  minWidth: ['100%', '240px'],
+  maxWidth: ['100%', '380px'],
+  height: '100%',
+  boxSizing: 'border-box',
+  borderRadius: landing.cardRadius,
+  border: `1px solid ${landing.border}`,
+  backgroundColor: 'white',
+  overflow: 'hidden',
+  transition:
+    'border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease',
   '.title, .description, .quickStartedContainer': {
-    transition: 'all 0.3s ease-out',
+    transition: 'color 0.2s ease, border-color 0.2s ease',
   },
 
   ':active, :hover': {
     cursor: 'pointer',
-    backgroundColor: 'white',
-    borderColor: 'muted.2',
-    boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.1)',
-    transition: 'all 0.3s ease-out',
+    borderColor: grays.cardHoverBorder,
+    boxShadow: landing.cardShadow,
+    transform: 'translateY(-2px)',
 
     '.title': {
-      color: '#000711',
+      color: landing.ink,
     },
 
     '.description': {
-      color: 'muted.0',
+      color: landing.body,
     },
 
     '.quickStartedContainer': {
-      borderColor: 'muted.2',
-    },
-
-    '.title, .description, .quickStartedContainer': {
-      transition: 'all 0.3s ease-out',
+      borderColor: grays.cardHoverBorder,
     },
   },
 }
 
 const infoContainer: SxStyleProp = {
-  py: '24px',
-  px: '16px',
+  py: '28px',
+  px: '24px',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   textAlign: 'center',
-  backgroundColor: '#FEFEFE',
-  borderTopLeftRadius: '8px',
-  borderTopRightRadius: '8px',
-  height: '100%',
+  backgroundColor: 'white',
+  flex: 1,
 }
 
 const icon: SxStyleProp = {
-  width: '24px',
+  width: '28px',
   height: 'auto',
+  color: landing.body,
+  path: {
+    stroke: landing.body,
+  },
 }
 
 const title: SxStyleProp = {
-  mt: ['8px'],
+  mt: '12px',
   mb: '8px',
-  fontSize: '22px',
-  lineHeight: '32px',
-  color: 'muted.0',
+  fontSize: landing.type.cardTitle,
+  lineHeight: landing.type.cardTitleLine,
+  color: landing.ink,
+  letterSpacing: '-0.01em',
 }
 
 const description: SxStyleProp = {
-  fontSize: '16px',
-  lineHeight: '22px',
-  color: 'muted.1',
+  fontSize: landing.type.cardBody,
+  lineHeight: landing.type.cardBodyLine,
+  color: landing.muted,
   overflow: 'hidden',
 }
 
 const quickStartedContainer: SxStyleProp = {
-  height: '68px',
+  minHeight: '56px',
   justifyContent: 'center',
   alignItems: 'center',
-  borderTop: '1px solid #E7E9EE',
-  borderBottomLeftRadius: '8px',
-  borderBottomRightRadius: '8px',
-  transition: 'all 0.3s ease-out',
+  borderTop: `1px solid ${landing.border}`,
+  backgroundColor: landing.surface,
+  transition: 'background-color 0.2s ease, border-color 0.2s ease',
 
   '.learnMoreText': {
-    transition: 'all 0.3s ease-out',
+    transition: 'color 0.2s ease',
   },
 
   ':active, :hover': {
-    backgroundColor: '#F8F7FC',
-    transition: 'all 0.3s ease-out',
-
     '.learnMoreText': {
-      color: '#c81e51',
-      transition: 'all 0.3s ease-out',
+      color: landing.ink,
     },
   },
 }
 
 const learnMoreText: SxStyleProp = {
-  fontSize: '16px',
-  lineHeight: '22px',
-  fontWeight: '400',
-  color: '#e31c58',
+  fontSize: landing.type.cardCta,
+  lineHeight: landing.type.cardCtaLine,
+  fontWeight: '500',
+  color: landing.body,
   textDecoration: 'none',
 }
 
 const accessPortal: SxStyleProp = {
-  columnGap: '5px',
+  columnGap: '6px',
   alignItems: 'center',
+  color: landing.body,
+  svg: {
+    color: 'inherit',
+  },
 }
 
 export default {

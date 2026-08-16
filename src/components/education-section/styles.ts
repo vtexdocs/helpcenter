@@ -1,19 +1,25 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+import tokens from 'styles/theme-tokens'
+
+const { landing } = tokens
+
 const container: SxStyleProp = {
-  pt: ['32px', '64px'],
-  pb: ['64px', '64px', '64px', '96px', '96px', '128px'],
-  px: ['18px', '32px', '96px'],
+  pt: [...landing.sectionPaddingY],
+  pb: [...landing.sectionPaddingY],
+  px: [...landing.sectionPaddingX],
   backgroundColor: '#FFFFFF',
-  borderTop: '1px solid #E7E9EE',
+  borderTop: `1px solid ${landing.border}`,
 }
 
 const title: SxStyleProp = {
-  fontSize: ['28px', '28px', '28px', '28px', '40px'],
-  lineHeight: ['30px', '38px', '38px', '38px', '50px'],
-  color: 'text',
+  fontSize: [...landing.type.sectionTitle],
+  lineHeight: [...landing.type.sectionTitleLine],
+  fontWeight: '400',
+  color: landing.ink,
   textAlign: 'center',
-  mb: ['0px', '0px', '0px', '0px', '64px'],
+  letterSpacing: '-0.02em',
+  mb: ['24px', '32px', '40px'],
 }
 
 const channelsContainer: SxStyleProp = {
