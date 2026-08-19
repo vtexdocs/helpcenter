@@ -8,11 +8,16 @@ import dynamic from 'next/dynamic'
 
 import styles from 'styles/documentation-page'
 import Header from 'components/header'
-import Footer from 'components/footer'
+import LocaleSwitcherFooter from 'components/locale-switcher-footer'
 
 import { SectionId } from 'utils/typings/unionTypes'
 import Script from 'next/script'
-import { CookieBar, LibraryContextProvider } from '@vtexdocs/components'
+import { CookieBar, Footer, LibraryContextProvider } from '@vtexdocs/components'
+import {
+  getDeveloperPortalURL,
+  getFeedbackURL,
+  getGithubURL,
+} from 'utils/get-url'
 
 const Sidebar = dynamic(
   () => import('@vtexdocs/components').then((mod) => mod.Sidebar),
@@ -130,7 +135,12 @@ export default function Layout({
           <Box sx={styles.mainContainer}>{children}</Box>
         </Flex>
         <EducationSection />
-        <Footer />
+        <Footer
+          githubUrl={getGithubURL()}
+          developerPortalUrl={getDeveloperPortalURL()}
+          feedbackUrl={getFeedbackURL(currentUrl)}
+          localeSwitcher={<LocaleSwitcherFooter />}
+        />
       </LibraryContextProvider>
     </ThemeProvider>
   )
