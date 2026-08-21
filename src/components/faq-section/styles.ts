@@ -1,54 +1,51 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+import tokens from 'styles/theme-tokens'
+
+const { landing } = tokens
+
 const sectionContainer: SxStyleProp = {
-  px: ['8px', '12px', '96px', '38px'],
-  paddingTop: ['0px', '32px'],
-  paddingBottom: ['32px', '42px', '54px', '102px', '102px', '48px'],
-  backgroundColor: 'muted.4',
-  alignItems: ['center', 'center', 'center', 'center', 'center', 'flex-start'],
+  px: [...landing.sectionPaddingX],
+  py: [...landing.sectionPaddingY],
+  backgroundColor: 'white',
+  borderTop: `1px solid ${landing.border}`,
+  alignItems: 'center',
   justifyContent: 'center',
-  flexDirection: ['column', 'column', 'column', 'column', 'column', 'row'],
+  flexDirection: 'column',
 }
 
 const titleContainer: SxStyleProp = {
-  maxWidth: ['324px', '324px', '479px'],
-  textAlign: ['center', 'center', 'center', 'center', 'center', 'start'],
+  maxWidth: '640px',
+  textAlign: 'center',
 }
 
 const title: SxStyleProp = {
-  fontSize: ['28px', '28px', '40px', '40px', '40px'],
-  mb: '8px',
-  color: '#4A4A4A',
-  mt: ['32px'],
+  fontSize: [...landing.type.sectionTitle],
+  lineHeight: [...landing.type.sectionTitleLine],
+  mb: '12px',
+  color: landing.ink,
+  letterSpacing: '-0.02em',
 }
 
 const description: SxStyleProp = {
-  fontSize: ['16px', '16px', '24px', '24px', '24px'],
+  fontSize: [...landing.type.sectionBody],
+  lineHeight: [...landing.type.sectionBodyLine],
   fontWeight: '400',
-  color: '#4A4A4A',
+  color: landing.body,
 }
 
 const cardsContainer: SxStyleProp = {
-  maxWidth: '1100px',
-  justifyContent: 'center',
-  flexWrap: 'wrap',
-  mt: ['16px', '32px'],
-  mb: ['24px', '40px'],
+  display: 'grid',
+  gridTemplateColumns: ['1fr', '1fr', 'repeat(2, minmax(0, 1fr))'],
+  width: '100%',
+  maxWidth: '900px',
+  mt: ['24px', '32px', '40px'],
+  mb: ['24px', '32px'],
   gap: '16px',
 }
 
 const button: SxStyleProp = {
-  transition: 'all 0.3s ease-out',
-}
-
-const leftButtonContainer: SxStyleProp = {
-  mt: '106px',
-  display: ['none', 'none', 'none', 'none', 'none', 'block'],
-}
-
-const bottomButtonContainer: SxStyleProp = {
-  display: ['block', 'block', 'block', 'block', 'block', 'none'],
-  transition: 'all 0.3s ease-out',
+  transition: 'all 0.2s ease-out',
 }
 
 export default {
@@ -57,7 +54,5 @@ export default {
   titleContainer,
   title,
   description,
-  leftButtonContainer,
-  bottomButtonContainer,
   button,
 }

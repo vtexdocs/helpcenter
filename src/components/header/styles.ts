@@ -1,5 +1,10 @@
 import type { SxStyleProp } from '@vtex/brand-ui'
 
+/** Feedback is the first item to hide as the viewport shrinks. */
+const FEEDBACK_VISIBLE_FROM = '1470px'
+/** Below this, only HamburgerMenu and localeSwitcher remain in the header. */
+const DESKTOP_NAV_FROM = '1024px'
+
 const menuContainer: SxStyleProp = {
   display: 'flex',
   width: 'max-content',
@@ -32,6 +37,7 @@ const headerContainer: SxStyleProp = {
 const headerBrand: SxStyleProp = {
   gridTemplateColumns: '1fr 1fr 0fr 1fr',
   width: '100%',
+  maxWidth: '100%',
   position: 'relative',
 }
 
@@ -61,15 +67,15 @@ const rightLinks: SxStyleProp = {
 
 const rightLinksItem: SxStyleProp = {
   display: 'none !important',
-  '@media screen and (min-width: 1470px)': {
+  [`@media screen and (min-width: ${FEEDBACK_VISIBLE_FROM})`]: {
     display: 'flex !important',
   },
   visibility: 'visible',
   alignItems: 'center',
   padding: '0 !important',
-  margin: '0 0 0 32px !important',
+  margin: '0 0 0 12px !important',
   svg: {
-    mr: '8px',
+    mr: '2px',
   },
 
   ':hover': {
@@ -82,7 +88,7 @@ const rightLinksItem: SxStyleProp = {
 
 const dropdownContainer: SxStyleProp = {
   display: 'none !important',
-  '@media screen and (min-width: 1470px)': {
+  [`@media screen and (min-width: ${DESKTOP_NAV_FROM})`]: {
     display: 'flex !important',
   },
   textTransform: 'none',
@@ -112,7 +118,7 @@ const dropdownButton: (active: boolean) => SxStyleProp = (active: boolean) => ({
 
 const rightButtonsText: SxStyleProp = {
   fontWeight: 'normal',
-  fontSize: '16px',
+  fontSize: '13px',
   lineHeight: '22px',
   fontFamily: 'VTEX Trust Medium !important',
   textTransform: 'none',
@@ -172,51 +178,95 @@ const arrowIconActive: SxStyleProp = {
   color: '#D71D55',
 }
 
-const localeSwitcherContainer: SxStyleProp = {
+const iconCell: SxStyleProp = {
   display: 'flex',
-  visibility: 'visible',
-  ml: [0, 0, 0, 0, 0],
-  pr: ['0px', 0],
-  zIndex: 1,
+  alignItems: 'center',
   justifyContent: 'center',
-  ' & button': {
+  alignSelf: 'stretch',
+  width: '56px',
+  minWidth: '56px',
+  maxWidth: '56px',
+  height: '100%',
+  flexShrink: 0,
+  [`@media screen and (min-width: ${DESKTOP_NAV_FROM})`]: {
+    width: 'auto',
+    minWidth: 0,
+    maxWidth: 'none',
+  },
+}
+
+const localeSwitcherContainer: SxStyleProp = {
+  ...iconCell,
+  zIndex: 1,
+  [`@media screen and (min-width: ${DESKTOP_NAV_FROM})`]: {
+    width: 'auto',
+    minWidth: 0,
+    maxWidth: 'none',
+    paddingLeft: '20px',
+    paddingRight: '12px',
+  },
+  '& button': {
     borderLeft: 'none !important',
-    padding: '0px',
+    padding: '0 !important',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    lineHeight: 0,
+    [`@media screen and (min-width: ${DESKTOP_NAV_FROM})`]: {
+      width: 'auto',
+      height: '24px',
+    },
   },
 }
 
 const containerHamburguerLocale: SxStyleProp = {
   display: 'flex',
-  padding: '8px',
   alignItems: 'center',
   height: '100%',
-  borderLeft: ['none', 'none', 'none', '1px solid #e7e9ed'],
-  marginLeft: ['0', '0', '0', '32px'],
-  gap: '20px',
-
-  '@media screen and (max-width: 1469px)': {
-    borderLeft: 'none',
-    marginLeft: '0',
+  paddingRight: 0,
+  borderLeft: 'none',
+  marginLeft: '0',
+  gap: 0,
+  [`@media screen and (min-width: ${DESKTOP_NAV_FROM})`]: {
+    borderLeft: '1px solid #e7e9ed',
+    marginLeft: '32px',
   },
 
   '& > :first-of-type': {
-    '& > button:first-of-type': {
-      borderLeft: 'none',
-      padding: '0px 0px 0px 0px',
-      width: '24px',
-      height: '24px',
-      '@media screen and (max-width: 1469px)': {
-        display: 'block !important',
+    ...iconCell,
+    '& button:first-of-type': {
+      borderLeft: 'none !important',
+      padding: '0px',
+      width: '56px !important',
+      minWidth: '56px',
+      maxWidth: '56px',
+      height: '100%',
+      display: 'flex !important',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: '#4A596B',
+      svg: {
+        rect: {
+          fill: '#4A596B',
+        },
+      },
+      ':hover': {
+        color: '#C81E51',
+        svg: {
+          rect: {
+            fill: '#C81E51',
+          },
+        },
+      },
+      [`@media screen and (min-width: ${DESKTOP_NAV_FROM})`]: {
+        display: 'none !important',
       },
     },
   },
 }
 
 const splitter: SxStyleProp = {
-  display: ['block', 'block', 'block', 'none'],
-  width: '1px',
-  height: '36px',
-  background: '#E7E9EE',
+  display: 'none',
 }
 
 export default {

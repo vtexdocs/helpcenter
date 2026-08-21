@@ -1,62 +1,109 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
 const localeLabel: SxStyleProp = {
-  pl: 2,
-  display: ['none', 'none', 'none', 'block'],
+  display: 'none',
+  alignItems: 'center',
+  height: '24px',
+  fontSize: '13px',
+  lineHeight: '24px',
+  fontFamily: 'VTEX Trust Medium !important',
+  color: 'inherit',
+  '@media screen and (min-width: 1024px)': {
+    display: 'flex',
+  },
 }
 
 const localeCaret: SxStyleProp = {
-  display: ['none', 'none', 'none', 'block'],
+  display: 'none',
+  color: 'inherit',
+  flexShrink: 0,
+  width: '16px',
+  height: '16px',
+  minWidth: '16px',
+  minHeight: '16px',
+  maxWidth: 'none',
+  '@media screen and (min-width: 1024px)': {
+    display: 'block',
+  },
 }
 
 const optionContainer: SxStyleProp = {
   position: 'absolute',
-  display: ['flex'],
+  display: 'flex',
   flexDirection: 'column',
-  width: '11rem',
-  top: 0,
-  right: '0',
-  px: 5,
-  mt: '5rem',
-  border: '1px solid #e7e9ed',
-  borderTop: 'none',
+  minWidth: '120px',
+  top: '100%',
+  right: 0,
+  py: '8px',
   backgroundColor: '#ffffff',
-  boxShadow: '0px 20px 25px rgba(20, 32, 50, 0.1)',
+  border: '1px solid #E7E9EE',
+  borderRadius: '8px',
+  boxShadow: '0px 4px 16px rgba(20, 32, 50, 0.12)',
+  zIndex: 10,
 }
 
-const baseLocaleSwitcher: SxStyleProp = {
-  alignItems: 'center',
+const option: SxStyleProp = {
   cursor: 'pointer',
-  bg: '#ffffff',
-  border: 'none',
-  outline: 'none',
+  px: '16px',
+  py: '8px',
+  color: '#4A596B',
+  fontSize: '14px',
+  lineHeight: '20px',
+  ':hover': {
+    color: '#C81E51',
+    backgroundColor: '#FFF3F6',
+  },
 }
+
+const optionActive: SxStyleProp = {
+  ...option,
+  color: '#E31C58',
+  fontWeight: 500,
+}
+
 const localeSwitcher: SxStyleProp = {
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  height: '100%',
   button: {
-    ...baseLocaleSwitcher,
-    display: ['flex'],
-    ':hover': {
-      color: '#142032',
-    },
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '6px',
+    width: '100%',
     height: '100%',
-    justifyContent: 'flex-start',
-    borderLeft: ['1px solid #e7e9ed'],
-    // ml: '40px',
+    padding: 0,
+    margin: 0,
+    lineHeight: 0,
+    cursor: 'pointer',
+    color: '#4A596B',
+    bg: 'transparent',
+    border: 'none',
+    outline: 'none',
+    whiteSpace: 'nowrap',
+    ':hover': {
+      color: '#C81E51',
+    },
   },
 }
 
 const iconGlobe: SxStyleProp = {
-  mb: ['0px', '0px', '0px', '3px'],
+  color: 'inherit',
+  flexShrink: 0,
+  display: 'block',
+  width: '24px',
+  height: '24px',
+  minWidth: '24px',
+  minHeight: '24px',
+  maxWidth: 'none',
 }
 
 const iconGlobeVisible: SxStyleProp = {
-  mb: ['0px', '0px', '0px', '3px'],
-  color: [
-    'var(--theme-ui-colors-primary-base, #E31C58)',
-    'var(--theme-ui-colors-primary-base, #E31C58)',
-    'var(--theme-ui-colors-primary-base, #E31C58)',
-    '#4A596B',
-  ],
+  ...iconGlobe,
+  color: '#E31C58',
 }
 
 export default {
@@ -64,7 +111,8 @@ export default {
   localeLabel,
   localeCaret,
   optionContainer,
+  option,
+  optionActive,
   localeSwitcher,
-  baseLocaleSwitcher,
   iconGlobe,
 }

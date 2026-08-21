@@ -17,7 +17,6 @@ const NewsletterSection = () => {
         </Text>
       </Flex>
       <Box sx={styles.imageContainer}>
-        {/* Desktop Image */}
         <Box sx={styles.desktopImageContainer}>
           <Image
             src={'/images/landing.png'}
@@ -27,7 +26,6 @@ const NewsletterSection = () => {
             style={{ objectFit: 'cover' }}
           />
         </Box>
-        {/* Mobile Image */}
         <Box sx={styles.mobileImageContainer}>
           <Image
             src={'/images/landing_mobile.png'}
@@ -38,6 +36,7 @@ const NewsletterSection = () => {
           />
         </Box>
       </Box>
+      <Box sx={styles.imageGradient} />
     </Box>
   )
 }

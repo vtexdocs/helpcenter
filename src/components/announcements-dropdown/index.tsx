@@ -2,7 +2,7 @@ import { Box, Flex, Text } from '@vtex/brand-ui'
 import Link from 'next/link'
 import { useIntl } from 'react-intl'
 import { getDaysElapsed } from 'utils/get-days-elapsed'
-import { Tag } from '@vtexdocs/components'
+import { ArrowRightIcon, Tag } from '@vtexdocs/components'
 import { getTagColorByLocalizedName } from 'utils/constants'
 import styles from './styles'
 
@@ -17,6 +17,12 @@ export interface AnnouncementDropdownItem {
 interface AnnouncementsDropdownProps {
   announcements: AnnouncementDropdownItem[]
 }
+
+const linkStyle = {
+  textDecoration: 'none',
+  color: 'inherit',
+  display: 'block',
+} as const
 
 const AnnouncementsDropdown = ({
   announcements,
@@ -35,42 +41,53 @@ const AnnouncementsDropdown = ({
         </Box>
 
         <Box sx={styles.announcementsList}>
-          {announcements.slice(0, 2).map((announcement, index) => (
-            <Link key={index} href={announcement.url} passHref>
+          {announcements.slice(0, 2).map((announcement) => (
+            <Link
+              key={announcement.url}
+              href={announcement.url}
+              style={linkStyle}
+            >
               <Box sx={styles.announcementItem}>
-                {announcement.author && (
-                  <Text sx={styles.authorName}>{announcement.author}</Text>
-                )}
                 {announcement.tags && announcement.tags.length > 0 && (
                   <Flex sx={styles.tagsContainer}>
-                    {announcement.tags.slice(0, 3).map((tag, tagIndex) => {
+                    {announcement.tags.slice(0, 3).map((tag) => {
                       const color = getTagColorByLocalizedName(tag) || 'Gray'
                       return (
-                        <Tag key={tagIndex} color={color}>
+                        <Tag key={tag} color={color}>
                           {tag}
                         </Tag>
                       )
                     })}
                   </Flex>
                 )}
-                <Text sx={styles.announcementTitle}>{announcement.title}</Text>
-                <Text sx={styles.announcementDate}>
-                  {`${getDaysElapsed(announcement.date)} ${intl.formatMessage({
-                    id: 'relese-note-days-elapsed',
-                  })}`}
+                <Text className="title" sx={styles.announcementTitle}>
+                  {announcement.title}
                 </Text>
+                <Flex sx={styles.metaRow}>
+                  {announcement.author && (
+                    <Text sx={styles.authorName}>{announcement.author}</Text>
+                  )}
+                  <Text className="date" sx={styles.announcementDate}>
+                    {`${getDaysElapsed(announcement.date)} ${intl.formatMessage(
+                      {
+                        id: 'relese-note-days-elapsed',
+                      }
+                    )}`}
+                  </Text>
+                </Flex>
               </Box>
             </Link>
           ))}
         </Box>
 
-        <Link href="/announcements" passHref>
+        <Link href="/announcements" style={linkStyle}>
           <Box sx={styles.viewAllButton}>
             <Text sx={styles.viewAllText}>
               {intl.formatMessage({
                 id: 'announcements_page.access_more',
               })}
             </Text>
+            <ArrowRightIcon sx={styles.viewAllIcon} />
           </Box>
         </Link>
       </Box>

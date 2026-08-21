@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import { IconProps } from '@vtex/brand-ui'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { Item } from '@vtexdocs/components'
+import { Item, ContributorsType } from '@vtexdocs/components'
 import { MouseEventHandler } from 'react'
 import {
   UpdatesTitle,
@@ -188,9 +188,4 @@ export interface TroubleshootingDataElement extends CardDataElement {
   symptomFilters?: string[]
 }
 
-export interface ContributorsType {
-  name: string
-  login: string
-  avatar: string
-  userPage: string
-}
+export type { ContributorsType }

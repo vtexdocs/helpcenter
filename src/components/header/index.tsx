@@ -144,7 +144,7 @@ const Header = () => {
           <Flex
             sx={{
               ...styles.dropdownContainer,
-              marginLeft: '32px',
+              marginLeft: '24px',
             }}
             onMouseOver={() => setShowAnnouncementsDropdown(true)}
             onMouseLeave={() => setShowAnnouncementsDropdown(false)}

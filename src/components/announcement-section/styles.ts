@@ -1,35 +1,42 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+import tokens from 'styles/theme-tokens'
+
+const { landing } = tokens
+
 const sectionContainer: SxStyleProp = {
-  px: ['18px', '32px'],
-  py: ['32px', '64px'],
+  px: [...landing.sectionPaddingX],
+  py: [...landing.sectionPaddingY],
   backgroundColor: 'muted.4',
   alignItems: 'center',
   flexDirection: 'column',
 }
 
 const title: SxStyleProp = {
-  fontSize: ['20px', '28px', '28px', '40px'],
-  lineHeight: ['30px', '38px', '38px', '50px'],
+  fontSize: [...landing.type.sectionTitle],
+  lineHeight: [...landing.type.sectionTitleLine],
   fontWeight: '400',
-  color: '#4A4A4A',
+  color: landing.ink,
   textAlign: 'center',
+  letterSpacing: '-0.02em',
 }
 
 const cardsContainer: SxStyleProp = {
   flexDirection: 'column',
   alignItems: 'center',
-  display: ['inline-block', 'inline-block', 'flex'],
-  width: ['auto', 'auto', '100%'],
+  display: 'flex',
+  width: '100%',
+  maxWidth: landing.contentMaxWidth,
 }
 
 const button: SxStyleProp = {
-  transition: 'all 0.3s ease-out',
+  transition: 'all 0.2s ease-out',
 }
 
 const buttonContainer: SxStyleProp = {
-  mt: ['18px', '32px'],
-  display: ['block', 'block', 'block', 'block', 'block', 'none'],
+  mt: ['24px', '32px'],
+  display: 'flex',
+  justifyContent: 'center',
 }
 
 export default {

@@ -12,38 +12,27 @@ const FaqSection = () => {
   return (
     <Flex sx={styles.sectionContainer}>
       <Box sx={styles.titleContainer}>
-        <Box>
-          <Text sx={styles.title}>
-            {intl.formatMessage({
-              id: 'landing_page_faq.title',
-            })}
-          </Text>
-          <Text sx={styles.description}>
-            {intl.formatMessage({
-              id: 'landing_page_faq.description',
-            })}
-          </Text>
-        </Box>
-        <Box sx={styles.leftButtonContainer}>
-          <Link href={'/faq'}>
-            <Button sx={styles.button}>
-              {intl.formatMessage({ id: 'landing_page_faq.button' })}
-            </Button>
-          </Link>
-        </Box>
+        <Text sx={styles.title}>
+          {intl.formatMessage({
+            id: 'landing_page_faq.title',
+          })}
+        </Text>
+        <Text sx={styles.description}>
+          {intl.formatMessage({
+            id: 'landing_page_faq.description',
+          })}
+        </Text>
       </Box>
-      <Flex sx={styles.cardsContainer} data-cy="faq-section-card-list">
+      <Box sx={styles.cardsContainer} data-cy="faq-section-card-list">
         {faqData(intl).map((card) => (
           <FaqSectionCard key={card.title} {...card} />
         ))}
-      </Flex>
-      <Box sx={styles.bottomButtonContainer}>
-        <Link href={'/faq'}>
-          <Button sx={styles.button}>
-            {intl.formatMessage({ id: 'landing_page_faq.button' })}
-          </Button>
-        </Link>
       </Box>
+      <Link href={'/faq'}>
+        <Button sx={styles.button}>
+          {intl.formatMessage({ id: 'landing_page_faq.button' })}
+        </Button>
+      </Link>
     </Flex>
   )
 }

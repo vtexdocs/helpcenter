@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
-import { Box, IconGlobe, Text, IconCaret, Flex } from '@vtex/brand-ui'
+import { Box, IconGlobe, Text, IconCaret } from '@vtex/brand-ui'
 import { LibraryContext } from '@vtexdocs/components'
 import { trackLocaleSwitch } from 'utils/analytics'
 import { findLocalizedSlug } from 'utils/find-localized-slug'
@@ -10,7 +10,6 @@ import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit'
 import { LocaleOption } from '@vtex/brand-ui/dist/components/Header/LocaleSwitcher'
 
 interface OptionProps {
-  screen: 'mobile' | 'large'
   option: LocaleOption
   active: boolean
   onClick?: () => void
@@ -97,12 +96,10 @@ export default function LocaleSwitcher() {
 
   const disclosure = useDisclosureState({ visible: false })
 
-  const Option = ({ screen, option, onClick, active }: OptionProps) => {
-    const variant = `localeSwitcher.${screen}.option`
-
+  const Option = ({ option, onClick, active }: OptionProps) => {
     return (
       <Box
-        variant={`${variant}${active ? '.active' : ''}`}
+        sx={active ? styles.optionActive : styles.option}
         role="presentation"
         onClick={onClick}
       >
@@ -122,23 +119,20 @@ export default function LocaleSwitcher() {
   return (
     <Box sx={styles.localeSwitcher}>
       <Disclosure {...disclosure}>
-        <Flex sx={{ alignItems: 'center' }}>
-          {renderGlobe(disclosure.visible)}
-          <Text sx={styles.localeLabel}>{router.locale?.toUpperCase()}</Text>
-        </Flex>
+        {renderGlobe(disclosure.visible)}
+        <Text sx={styles.localeLabel}>{router.locale?.toUpperCase()}</Text>
         <IconCaret
           sx={styles.localeCaret}
           direction={disclosure.visible ? 'up' : 'down'}
-          size={30}
+          size={16}
         />
       </Disclosure>
-      <Box sx={styles.optionContainer}>
-        <DisclosureContent {...disclosure}>
+      <DisclosureContent {...disclosure} sx={{ position: 'absolute' }}>
+        <Box sx={styles.optionContainer}>
           {options.map((option) => (
             <Option
               key={option.label}
               option={option}
-              screen="large"
               onClick={() => {
                 disclosure.hide()
                 handleOptionClick(option.value)
@@ -146,8 +140,8 @@ export default function LocaleSwitcher() {
               active={option.value === router.locale}
             />
           ))}
-        </DisclosureContent>
-      </Box>
+        </Box>
+      </DisclosureContent>
     </Box>
   )
 }

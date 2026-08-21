@@ -1,30 +1,41 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+import tokens from 'styles/theme-tokens'
+
+const { landing } = tokens
+
 const sectionContainer: SxStyleProp = {
   width: '100%',
-  paddingTop: ['28px', '54px', '54px', '80px'],
-  paddingBottom: ['24px', '52px', '52px', '48px'],
-  px: ['32px', '64px', '64px', '128px', '160px', '256px'],
-  margin: 'auto',
+  px: [...landing.sectionPaddingX],
+  py: [...landing.sectionPaddingY],
+  backgroundColor: 'white',
+  borderTop: `1px solid ${landing.border}`,
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'column',
 }
 
 const title: SxStyleProp = {
-  fontSize: ['28px', '28px', '28px', '40px'],
-  lineHeight: ['30px', '38px', '38px', '50px'],
+  fontSize: [...landing.type.sectionTitle],
+  lineHeight: [...landing.type.sectionTitleLine],
   fontWeight: '400',
-  color: '#4A4A4A',
-  mb: ['26px', '33px'],
+  color: landing.ink,
+  textAlign: 'center',
+  letterSpacing: '-0.02em',
+  mb: ['24px', '32px', '40px'],
 }
 
 const contentCards: SxStyleProp = {
-  flexWrap: 'wrap',
-  flexDirection: 'row',
-  justifyContent: 'center',
-  flex: '0 0 50%',
-  gap: '32px',
+  display: 'grid',
+  gridTemplateColumns: [
+    '1fr',
+    'repeat(2, minmax(0, 1fr))',
+    'repeat(2, minmax(0, 1fr))',
+    'repeat(4, minmax(0, 1fr))',
+  ],
+  width: '100%',
+  maxWidth: landing.contentMaxWidth,
+  gap: ['16px', '20px', '24px'],
 }
 
 export default {
