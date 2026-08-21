@@ -17910,6 +17910,50 @@
       {
         "from": "/pt/docs/tutorials/configurando-produto-similar-sugestoes-acessorios-e-genericos",
         "to": "/pt/docs/tutorials/configurar-acessorios-sugestoes-produtos-similares-e-mostrar-junto"
+      },
+      {
+        "from": "/docs/tutorials/changing-the-stores-registration-details",
+        "to": "/docs/tutorials/changing-the-store-information"
+      },
+      {
+        "from": "/es/docs/tutorials/modificar-los-datos-de-registro-de-la-tienda",
+        "to": "/es/docs/tutorials/modificar-datos-de-registro-de-la-tienda"
+      },
+      {
+        "from": "/pt/docs/tutorials/como-fazer-a-alteracao-do-meu-cnpj-novo",
+        "to": "/pt/docs/tutorials/alterar-o-cnpj-da-loja"
+      },
+      {
+        "from": "/docs/tutorials/how-do-i-change-my-cnpj",
+        "to": "/docs/tutorials/changing-the-stores-cnpj"
+      },
+      {
+        "from": "/es/docs/tutorials/como-cambiar-mi-cnpj-nuevo",
+        "to": "/es/docs/tutorials/cambiar-el-cnpj-de-la-tienda"
+      },
+      {
+        "from": "/pt/docs/tutorials/como-desbloquear-temporariamente-o-admin",
+        "to": "/pt/docs/tutorials/desbloquear-temporariamente-o-admin-vtex"
+      },
+      {
+        "from": "/docs/tutorials/how-to-temporarily-unblock-the-admin",
+        "to": "/docs/tutorials/temporarily-unblocking-the-vtex-admin"
+      },
+      {
+        "from": "/es/docs/tutorials/desbloqueio-temporal-del-admin",
+        "to": "/es/docs/tutorials/desbloquear-temporalmente-el-admin-vtex"
+      },
+      {
+        "from": "/pt/docs/tutorials/como-e-quando-recebo-minha-nota-fiscal-e-meu-boleto",
+        "to": "/pt/docs/tutorials/receber-a-fatura"
+      },
+      {
+        "from": "/docs/tutorials/how-and-when-do-i-receive-my-invoice",
+        "to": "/docs/tutorials/receiving-invoices"
+      },
+      {
+        "from": "/es/docs/tutorials/como-y-cuando-recibo-mi-factura-y-mi-boleto-bancario",
+        "to": "/es/docs/tutorials/recibir-la-factura"
       }
     ]
   }
