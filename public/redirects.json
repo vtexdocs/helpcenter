@@ -17886,6 +17886,18 @@
       {
         "from": "/pt/docs/tutorials/o-pagamento-foi-efetuado-porem-nao-identificado-o-que-devo-fazer",
         "to": "/pt/docs/tutorials/resolver-pagamento-de-fatura-nao-identificado"
+      },
+      {
+        "from": "/pt/docs/tutorials/como-alterar-banner",
+        "to": "/pt/docs/tutorials/configurar-um-banner-em-sua-loja-cms-portal-legado"
+      },
+      {
+        "from": "/es/docs/tutorials/como-modificar-banner",
+        "to": "/es/docs/tutorials/como-configurar-un-banner-en-tu-tienda-cms-portal-legado"
+      },
+      {
+        "from": "/docs/tutorials/how-to-alter-a-banner",
+        "to": "/docs/tutorials/how-to-configure-a-banner-in-your-cms-portal-legacy-store"
       }
     ]
   }
