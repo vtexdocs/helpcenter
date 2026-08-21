@@ -17888,6 +17888,18 @@
         "to": "/pt/docs/tutorials/resolver-pagamento-de-fatura-nao-identificado"
       },
       {
+        "from": "/docs/tutorials/configuring-a-discount-for-orders-prepaid-in-full",
+        "to": "/docs/tutorials/configuring-a-pay-in-full-discount"
+      },
+      {
+        "from": "/pt/docs/tutorials/faturas-categoria",
+        "to": "/pt/docs/tutorials/informacoes-de-faturamento-categoria"
+      },
+      {
+        "from": "/es/docs/tutorials/facturas-categoria",
+        "to": "/es/docs/tutorials/facturacion-categoria"
+      },
+      {
         "from": "/pt/docs/tutorials/como-alterar-banner",
         "to": "/pt/docs/tutorials/configurar-um-banner-em-sua-loja-cms-portal-legado"
       },
