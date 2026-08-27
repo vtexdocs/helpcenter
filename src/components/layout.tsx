@@ -136,6 +136,7 @@ export default function Layout({
         </Flex>
         <EducationSection />
         <Footer
+          variant="helpcenter"
           githubUrl={getGithubURL()}
           developerPortalUrl={getDeveloperPortalURL()}
           feedbackUrl={getFeedbackURL(currentUrl)}
