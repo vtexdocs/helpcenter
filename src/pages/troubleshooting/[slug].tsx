@@ -330,6 +330,7 @@ export const getStaticProps: GetStaticProps = async ({
         isListed,
         breadcrumbList,
         branch,
+        headingList,
         componentProps: {
           content: documentationContent,
           serialized: JSON.parse(JSON.stringify(serialized)),

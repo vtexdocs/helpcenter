@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import { Box, Flex, Text } from '@vtex/brand-ui'
+import { Box, Flex, Text, Link } from '@vtex/brand-ui'
 
-import FeedbackSection from 'components/feedback-section'
 import SeeAlsoSection from 'components/see-also-section'
 import {
+  AskAIMenu,
   Author,
   Breadcrumb,
   MarkdownRenderer,
@@ -12,6 +12,9 @@ import {
   OnThisPage,
   Tag,
   TimeToRead,
+  EditIcon,
+  FeedbackSection,
+  FeedbackModal,
 } from '@vtexdocs/components'
 
 import styles from 'styles/documentation-page'
@@ -19,18 +22,33 @@ import ArticlePagination from 'components/article-pagination'
 import { MarkDownProps } from 'utils/typings/types'
 import DateText from 'components/date-text'
 import PaymentProvidersTable from 'components/payment-providers-table'
-import CopyForLLM from 'components/copy-for-llm'
 import DataTable from 'components/datatable'
 import { DataTablesProvider } from 'components/datatable/context'
 import type { DataTablesData } from 'components/datatable/datatable.types'
-import { KnownIssueStatus } from 'utils/typings/unionTypes'
+import { KnownIssueStatus, SectionId } from 'utils/typings/unionTypes'
 import InsertAccountName from 'components/insert-account-name'
+import { useState } from 'react'
 
 import { useIntl } from 'react-intl'
+
+const HELP_CENTER_ORIGIN = 'https://help.vtex.com'
+const HELP_CENTER_CONTENT_RAW_BASE =
+  'https://raw.githubusercontent.com/vtexdocs/help-center-content/main/'
+const KNOWN_ISSUES_RAW_BASE =
+  'https://raw.githubusercontent.com/vtexdocs/known-issues/main/'
+const HELP_CENTER_PAGE_PATH: Record<SectionId, string> = {
+  tracks: 'docs/tracks',
+  tutorials: 'docs/tutorials',
+  faq: 'faq',
+  announcements: 'announcements',
+  'known-issues': 'known-issues',
+  troubleshooting: 'troubleshooting',
+}
 
 const ArticleRender = ({
   serialized,
   headings,
+  headingList,
   breadcrumbList,
   contributors,
   path,
@@ -40,9 +58,17 @@ const ArticleRender = ({
   type,
 }: MarkDownProps) => {
   const intl = useIntl()
+  const tocHeadings = headingList?.length ? headingList : headings
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const dataTablesData =
     (serialized.scope as { dataTablesData?: DataTablesData } | undefined)
       ?.dataTablesData ?? {}
+  const contentRepo =
+    type === 'known-issues' ? 'known-issues' : 'help-center-content'
+  const urlToEdit = `https://github.com/vtexdocs/${contentRepo}/edit/main/${path}`
+  const pageUrl = `${HELP_CENTER_ORIGIN}/${HELP_CENTER_PAGE_PATH[type]}/${slug}`
+
   return (
     <>
       <Head>
@@ -160,7 +186,6 @@ const ArticleRender = ({
                           }
                         />
                       )}
-                      <CopyForLLM section={type} slug={slug} path={path} />
                     </Flex>
                   </Box>
                 </Flex>
@@ -182,11 +207,17 @@ const ArticleRender = ({
           {type !== 'announcements' && (
             <Box sx={styles.bottomContributorsContainer}>
               <Box sx={styles.bottomContributorsDivider} />
-              <Contributors contributors={contributors} />
+              <Box sx={styles.bottomContributors}>
+                <Contributors contributors={contributors} />
+              </Box>
+              <FeedbackSection
+                slug={slug}
+                urlToEdit={urlToEdit}
+                pageUrl={pageUrl}
+              />
             </Box>
           )}
 
-          <FeedbackSection docPath={path} slug={slug} type={type} />
           {pagination && (
             <ArticlePagination
               hidePaginationNext={
@@ -206,9 +237,48 @@ const ArticleRender = ({
           {type !== 'announcements' && (
             <Contributors contributors={contributors} />
           )}
-          <TableOfContents headingList={headings} />
+          <TableOfContents headingList={tocHeadings}>
+            <Box sx={styles.divider}>
+              <FeedbackSection slug={slug} small suggestEdits={false} />
+              <Box
+                as="button"
+                onClick={() => setIsModalOpen(true)}
+                sx={styles.button}
+              >
+                <i className="fa-regular fa-comment"></i>{' '}
+                {intl.formatMessage({ id: 'feedback_modal.button' })}
+              </Box>
+            </Box>
+            <Box sx={styles.divider}>
+              <FeedbackModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                pageUrl={pageUrl}
+              />
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href={urlToEdit}
+                sx={styles.editContainer}
+              >
+                <EditIcon size={18} />
+                <Text>
+                  {intl.formatMessage({ id: 'feedback_section.edit' })}
+                </Text>
+              </Link>
+              <AskAIMenu
+                filePath={path}
+                pageUrl={pageUrl}
+                rawContentBaseUrl={
+                  type === 'known-issues'
+                    ? KNOWN_ISSUES_RAW_BASE
+                    : HELP_CENTER_CONTENT_RAW_BASE
+                }
+              />
+            </Box>
+          </TableOfContents>
         </Box>
-        <OnThisPage headingList={headings} />
+        <OnThisPage headingList={tocHeadings} />
       </Flex>
     </>
   )

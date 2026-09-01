@@ -1,8 +1,6 @@
 import { Box, Flex, Link, Text } from '@vtex/brand-ui'
 import { Breadcrumb } from '@vtexdocs/components'
 
-import FeedbackSection from 'components/feedback-section'
-
 import styles from 'styles/documentation-page'
 import { useIntl } from 'react-intl'
 import Head from 'next/head'
@@ -62,7 +60,6 @@ const ArticleIndexing = ({ ...props }) => {
               </article>
             </Box>
           </Box>
-          <FeedbackSection slug={props.slug} suggestEdits={false} />
         </Box>
       </Flex>
     </>
