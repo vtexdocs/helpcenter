@@ -26,18 +26,15 @@ import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/known-issues.png'
 import KnownIssueCard from 'components/known-issue-card'
 import Pagination from 'components/pagination'
-import { ListingFilter } from '@vtexdocs/components'
+import { Input, ListingFilter, SearchIcon, Tooltip } from '@vtexdocs/components'
 import {
   knownIssuesStatusFilter,
   knownIssuesModulesFilters,
   sortBy,
 } from 'utils/constants'
 import Select from 'components/select'
-import { Input } from '@vtexdocs/components'
-import { SearchIcon } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
-import Tooltip from 'components/tooltip'
 import {
   countTermMatches,
   getSearchTerms,

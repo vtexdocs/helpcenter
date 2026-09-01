@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Box, Text } from '@vtex/brand-ui'
 import { useIntl } from 'react-intl'
-import Tooltip from 'components/tooltip'
+import { Tooltip } from '@vtexdocs/components'
 import styles from './styles'
 
 interface InsertAccountNameProps {

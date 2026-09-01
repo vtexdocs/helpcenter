@@ -23,14 +23,16 @@ import Pagination from 'components/pagination'
 import Select from 'components/select'
 import { faqFilter, sortBy } from 'utils/constants'
 import FaqCard from 'components/faq-card'
-import { ListingFilter } from '@vtexdocs/components'
+import {
+  ChipFilter,
+  Input,
+  ListingFilter,
+  SearchIcon,
+  Tooltip,
+} from '@vtexdocs/components'
 import usePagination from '../../utils/hooks/usePagination'
-import { Input } from '@vtexdocs/components'
-import { SearchIcon } from '@vtexdocs/components'
-import ChipFilter from 'components/chip-filter'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
-import Tooltip from 'components/tooltip'
 import {
   countTermMatches,
   getSearchTerms,
@@ -56,9 +58,10 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
     [search, intl.locale]
   )
 
-  const chipCategories: string[] = faqFilter(intl).options.map(
-    (option) => option.name
-  )
+  const chipCategories = faqFilter(intl).options.map((option) => ({
+    type: option.id,
+    title: option.name,
+  }))
 
   const filteredResult = useMemo(() => {
     const data = faqData.filter((question) => {
@@ -177,26 +180,32 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
-            <ListingFilter
-              selectedCheckboxes={filters}
-              checkBoxFilter={faqFilter(intl)}
-              labels={{
-                button: intl.formatMessage({ id: 'filter_modal.title' }),
-                modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
-                remove: intl.formatMessage({ id: 'filter_modal.remove' }),
-                apply: intl.formatMessage({ id: 'filter_modal.button' }),
-              }}
-              onApply={(newFilters) => handleFilterApply(newFilters.checklist)}
-            />
-            <Select
-              label={intl.formatMessage({ id: 'sort.label' })}
-              value={sortByValue}
-              options={sortBy(intl)}
-              onSelect={(ordering) => setSortByValue(ordering as SortByType)}
-            />
+            <Box sx={styles.filterWrap}>
+              <ListingFilter
+                selectedCheckboxes={filters}
+                checkBoxFilter={faqFilter(intl)}
+                labels={{
+                  button: intl.formatMessage({ id: 'filter_modal.title' }),
+                  modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
+                  remove: intl.formatMessage({ id: 'filter_modal.remove' }),
+                  apply: intl.formatMessage({ id: 'filter_modal.button' }),
+                }}
+                onApply={(newFilters) =>
+                  handleFilterApply(newFilters.checklist)
+                }
+              />
+            </Box>
+            <Flex sx={styles.sortWrap}>
+              <Select
+                label={intl.formatMessage({ id: 'sort.label' })}
+                value={sortByValue}
+                options={sortBy(intl)}
+                onSelect={(ordering) => setSortByValue(ordering as SortByType)}
+              />
+            </Flex>
           </Flex>
-          <Flex sx={{ width: '100%', alignItems: 'center', gap: '8px' }}>
-            <Box sx={{ width: '100%' }}>
+          <Flex sx={styles.searchRow}>
+            <Box sx={styles.searchInputWrap}>
               <Input
                 Icon={SearchIcon}
                 placeholder={intl.formatMessage({
@@ -220,36 +229,23 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
                 aria-label={intl.formatMessage({
                   id: 'known_issues_page_search.priority_tooltip',
                 })}
-                sx={{
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  display: 'flex',
-                  width: '24px',
-                  height: '24px',
-                  borderRadius: '50%',
-                  border: '1px solid',
-                  borderColor: 'muted.2',
-                  backgroundColor: 'transparent',
-                  color: 'muted.0',
-                  fontSize: '12px',
-                  fontWeight: 700,
-                  cursor: 'help',
-                  flexShrink: 0,
-                  p: 0,
-                }}
+                sx={styles.helpButton}
               >
                 ?
               </Box>
             </Tooltip>
           </Flex>
-          <ChipFilter
-            removeCategory={handleFilterRemoval}
-            resetFilters={handleFilterReset}
-            filters={filters}
-            getCategoryAmount={getCategoryAmount}
-            categories={chipCategories}
-            applyCategory={handleCategoriesSelection}
-          />
+          <Box sx={styles.chipFilterContainer}>
+            <ChipFilter
+              removeCategory={handleFilterRemoval}
+              resetFilters={handleFilterReset}
+              filters={filters}
+              getCategoryAmount={getCategoryAmount}
+              categories={chipCategories}
+              applyCategory={handleCategoriesSelection}
+              allResultsLabel={intl.formatMessage({ id: 'chip.all_results' })}
+            />
+          </Box>
           <Flex sx={styles.cardContainer}>
             {!!filteredResult.length && (
               <Box sx={styles.resultsNumberContainer}>

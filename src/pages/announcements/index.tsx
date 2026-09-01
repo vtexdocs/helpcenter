@@ -16,11 +16,10 @@ import {
   announcementsTypeFilter,
   announcementsAreaFilter,
 } from 'utils/constants'
-import { Input, ListingFilter, SearchIcon } from '@vtexdocs/components'
+import { Input, ListingFilter, SearchIcon, Tooltip } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 import AnnouncementExpandableRow from 'components/announcement-expandable-row'
-import Tooltip from 'components/tooltip'
 import {
   countTermMatches,
   getSearchTerms,

@@ -17,12 +17,12 @@ import {
   Input,
   ListingFilter,
   SearchIcon,
+  Tooltip,
   TroubleshootingCard,
 } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch } from 'utils/fetchBatchGithubData'
 import { parseFrontmatter } from 'utils/fetchBatchGithubData'
-import Tooltip from 'components/tooltip'
 import {
   countTermMatches,
   getSearchTerms,

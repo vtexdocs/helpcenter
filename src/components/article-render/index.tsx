@@ -1,24 +1,23 @@
 import Head from 'next/head'
 import { Box, Flex, Text } from '@vtex/brand-ui'
-import Breadcrumb from 'components/breadcrumb'
 
 import FeedbackSection from 'components/feedback-section'
 import SeeAlsoSection from 'components/see-also-section'
 import {
+  Author,
+  Breadcrumb,
   MarkdownRenderer,
   TableOfContents,
   Contributors,
   OnThisPage,
   Tag,
+  TimeToRead,
 } from '@vtexdocs/components'
 
 import styles from 'styles/documentation-page'
 import ArticlePagination from 'components/article-pagination'
 import { MarkDownProps } from 'utils/typings/types'
-import CopyLinkButton from 'components/copy-link-button'
-import TimeToRead from 'components/TimeToRead'
 import DateText from 'components/date-text'
-import Author from 'components/author'
 import PaymentProvidersTable from 'components/payment-providers-table'
 import CopyForLLM from 'components/copy-for-llm'
 import DataTable from 'components/datatable'
@@ -74,7 +73,6 @@ const ArticleRender = ({
           <Box sx={styles.contentContainer}>
             <Flex sx={{ justifyContent: 'space-between' }}>
               <Breadcrumb breadcrumbList={breadcrumbList} />
-              <CopyLinkButton />
             </Flex>
             <Box sx={styles.textContainer}>
               <article>

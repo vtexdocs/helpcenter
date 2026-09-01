@@ -4,7 +4,6 @@ import {
   getLearningCenterURL,
   getDeveloperPortalURL,
   getSupportURL,
-  getFeedbackURL,
 } from 'utils/get-url'
 
 import {
@@ -25,7 +24,6 @@ import {
   TutorialsIcon,
   DeveloperPortalIcon,
   GearTroubleshootingIcon,
-  LongArrowIcon,
 } from '@vtexdocs/components'
 
 libraryConfig
@@ -97,22 +95,6 @@ export const updatesData = (intl: IntlShape) => {
       isExternalLink: true,
     },
   ]
-  return data
-}
-
-export const feedbackSectionData = (intl: IntlShape, currentUrl?: string) => {
-  const data: DocDataElement[] = [
-    {
-      id: 'Feedback',
-      Icon: LongArrowIcon,
-      title: intl.formatMessage({
-        id: 'landing_page_header_feedback.message',
-      }),
-      description: '',
-      link: getFeedbackURL(currentUrl),
-    },
-  ]
-
   return data
 }
 

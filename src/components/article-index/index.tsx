@@ -1,12 +1,11 @@
 import { Box, Flex, Link, Text } from '@vtex/brand-ui'
-import Breadcrumb from 'components/breadcrumb'
+import { Breadcrumb } from '@vtexdocs/components'
 
 import FeedbackSection from 'components/feedback-section'
 
 import styles from 'styles/documentation-page'
 import { useIntl } from 'react-intl'
 import Head from 'next/head'
-import CopyLinkButton from 'components/copy-link-button'
 
 const ArticleIndexing = ({ ...props }) => {
   const intl = useIntl()
@@ -24,7 +23,6 @@ const ArticleIndexing = ({ ...props }) => {
               {props.breadcrumbList.length > 0 && (
                 <Breadcrumb breadcrumbList={props.breadcrumbList} />
               )}
-              <CopyLinkButton />
             </Flex>
             <Box sx={styles.textContainer}>
               <article>

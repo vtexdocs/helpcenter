@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import { IconProps } from '@vtex/brand-ui'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { Item, ContributorsType } from '@vtexdocs/components'
+import { Item, ContributorsType, BreadcrumbItem } from '@vtexdocs/components'
 import { MouseEventHandler } from 'react'
 import {
   UpdatesTitle,
@@ -36,7 +36,7 @@ export type ArticlePageProps =
           name: string | null
         }
       }
-      breadcrumbList: { slug: string; name: string; type: string }[]
+      breadcrumbList: BreadcrumbItem[]
       mdFileExists: true
       componentProps: MarkDownProps
       headingList: Item[]
@@ -57,7 +57,7 @@ export type ArticlePageProps =
           name: string | null
         }
       }
-      breadcrumbList: { slug: string; name: string; type: string }[]
+      breadcrumbList: BreadcrumbItem[]
       mdFileExists: false
       componentProps: ArticleIndexingProps
       headingList?: Item[]
@@ -88,7 +88,7 @@ export interface MarkDownProps {
       name: string | null
     }
   }
-  breadcrumbList: { slug: string; name: string; type: string }[]
+  breadcrumbList: BreadcrumbItem[]
   headings: Item[]
   type: SectionId
 }
