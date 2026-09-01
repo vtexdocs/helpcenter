@@ -239,12 +239,7 @@ const ArticleRender = ({
           )}
           <TableOfContents headingList={tocHeadings}>
             <Box sx={styles.divider}>
-              <FeedbackSection
-                docPath={path}
-                slug={slug}
-                small={true}
-                suggestEdits={false}
-              />
+              <FeedbackSection slug={slug} small suggestEdits={false} />
               <Box
                 as="button"
                 onClick={() => setIsModalOpen(true)}
