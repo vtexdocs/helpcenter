@@ -5,7 +5,10 @@ const welcomeHeader: SxStyleProp = {
   position: ['initial', 'absolute'],
   mb: ['32px', 'initial'],
   zIndex: '1000',
-  width: ['320px', '345px', '345px', '345px', '345px', '720px'],
+  width: ['100%', '345px', '345px', '345px', '345px', '720px'],
+  maxWidth: '100%',
+  px: ['24px', 0],
+  boxSizing: 'border-box',
 }
 
 const welcomeSubtitle: SxStyleProp = {
@@ -23,6 +26,9 @@ const welcomeOuterContainer: SxStyleProp = {
 const welcomeInnerContainer: SxStyleProp = {
   flexDirection: ['column-reverse', 'row'],
   position: ['initial', 'relative'],
+  width: '100%',
+  maxWidth: '100%',
+  minWidth: 0,
   left: [
     'initial',
     'calc(50% - 544px / 2)',

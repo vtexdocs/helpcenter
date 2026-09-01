@@ -1,23 +1,31 @@
 import { Flex, Box } from '@vtex/brand-ui'
 import type { ReactElement } from 'react'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import useNavigation from 'utils/hooks/useNavigation'
 import { ThemeProvider } from '@vtex/brand-ui'
 import dynamic from 'next/dynamic'
 
 import styles from 'styles/documentation-page'
-import Header from 'components/header'
+import LocaleSwitcher from 'components/locale-switcher'
 import LocaleSwitcherFooter from 'components/locale-switcher-footer'
+import AnnouncementsMenu from 'components/announcements-menu'
 
 import { SectionId } from 'utils/typings/unionTypes'
 import Script from 'next/script'
-import { CookieBar, Footer, LibraryContextProvider } from '@vtexdocs/components'
+import {
+  AnnouncementBar,
+  CookieBar,
+  Footer,
+  Header,
+  LibraryContextProvider,
+} from '@vtexdocs/components'
 import {
   getDeveloperPortalURL,
   getFeedbackURL,
   getGithubURL,
 } from 'utils/get-url'
+import { PreviewContext } from 'utils/contexts/preview'
 
 const Sidebar = dynamic(
   () => import('@vtexdocs/components').then((mod) => mod.Sidebar),
@@ -25,7 +33,6 @@ const Sidebar = dynamic(
 ) as React.FC<{ parentsArray?: string[] }>
 import {
   menuDocumentationData,
-  feedbackSectionData,
   menuSupportData,
   updatesData,
 } from 'utils/constants'
@@ -58,7 +65,9 @@ export default function Layout({
   const { navigation } = useNavigation()
   const intl = useIntl()
   const router = useRouter()
+  const { branchPreview } = useContext(PreviewContext)
   const [currentUrl, setCurrentUrl] = useState<string>('')
+  const isBranchPreview = router.isPreview
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -89,7 +98,6 @@ export default function Layout({
           menuDocumentationData(intl),
           menuSupportData(intl),
           updatesData(intl),
-          feedbackSectionData(intl, currentUrl),
         ]}
         sectionSelected={sectionSelected ?? ''}
         fallback={navigation} // Use client-side loaded navigation (null during loading)
@@ -129,7 +137,26 @@ export default function Layout({
             }
           }}
         />
-        <Header />
+        <Header
+          variant="helpcenter"
+          feedbackUrl={getFeedbackURL(currentUrl)}
+          localeSwitcher={<LocaleSwitcher />}
+          extraRightLinks={<AnnouncementsMenu />}
+          announcement={
+            isBranchPreview ? (
+              <AnnouncementBar
+                closable={false}
+                type="warning"
+                label={`🚧 You are currently using branch ${branchPreview} in preview mode. This content may differ from the published version.`}
+                action={{
+                  button: 'EXIT PREVIEW MODE',
+                  href: '/api/disable-preview',
+                  target: '_self',
+                }}
+              />
+            ) : undefined
+          }
+        />
         <Flex sx={styles.container}>
           {!hideSidebar && <Sidebar parentsArray={parentsArray} />}
           <Box sx={styles.mainContainer}>{children}</Box>

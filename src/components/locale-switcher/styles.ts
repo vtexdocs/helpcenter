@@ -84,8 +84,11 @@ const localeSwitcher: SxStyleProp = {
     border: 'none',
     outline: 'none',
     whiteSpace: 'nowrap',
+    borderRadius: ['0', '0', '6px', '6px'],
+    transition: 'background-color 0.15s ease, color 0.15s ease',
     ':hover': {
       color: '#C81E51',
+      backgroundColor: ['transparent', 'transparent', '#FFF3F6', '#FFF3F6'],
     },
   },
 }

@@ -6,6 +6,8 @@ const selectContainer: SxStyleProp = {
   rowGap: '8px',
   alignItems: 'center',
   fontSize: '14px',
+  minWidth: 0,
+  maxWidth: '100%',
 }
 
 const select: SxStyleProp = {

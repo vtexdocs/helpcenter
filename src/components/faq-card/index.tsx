@@ -17,7 +17,7 @@ const FaqCard = ({
   const updatedAtDate = new Date(updatedAt)
 
   return (
-    <Link href={`faq/${slug}`}>
+    <Link href={`faq/${slug}`} sx={styles.link}>
       <Box sx={styles.container}>
         <Text sx={styles.title} className="title">
           {title}
