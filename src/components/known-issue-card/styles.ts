@@ -1,12 +1,24 @@
 import type { SxStyleProp } from '@vtex/brand-ui'
 
+const link: SxStyleProp = {
+  display: 'block',
+  width: '100%',
+  maxWidth: '100%',
+  minWidth: 0,
+  textDecoration: 'none',
+}
+
 const container: SxStyleProp = {
-  padding: ['24px 32px', '24px 32px', '24px 36px', '24px 64px'],
+  px: ['20px', '32px', '36px', '48px'],
+  py: ['20px', '24px'],
   flexDirection: 'column',
-  gap: '16px',
+  gap: ['12px', '16px'],
   borderRadius: '4px',
   border: '1px solid #E7E9EE',
-  width: ['320px', '544px', '720px'],
+  width: '100%',
+  maxWidth: '100%',
+  minWidth: 0,
+  boxSizing: 'border-box',
   transition: 'all 0.3s ease-out',
   ':hover': {
     cursor: 'pointer',
@@ -24,22 +36,27 @@ const container: SxStyleProp = {
 
 const topContainer: SxStyleProp = {
   justifyContent: 'space-between',
-  height: '30px',
   alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '8px',
+  width: '100%',
+  minWidth: 0,
 }
 
 const title: SxStyleProp = {
-  fontSize: ['14px', '20px'],
+  fontSize: ['16px', '18px', '20px'],
   fontWeight: '400',
-  lineHeight: ['22px', '30px'],
+  lineHeight: ['24px', '28px', '30px'],
   color: 'muted.0',
+  overflowWrap: 'anywhere',
 }
 
 const knownIssueModule: SxStyleProp = {
-  fontSize: ['14px', '18px'],
+  fontSize: ['14px', '16px'],
   fontWeight: '400',
-  lineHeight: ['16px', '30px'],
+  lineHeight: ['20px', '24px'],
   color: '#4A596B',
+  overflowWrap: 'anywhere',
 }
 
 const linkContainer: SxStyleProp = {
@@ -50,15 +67,20 @@ const linkContainer: SxStyleProp = {
 const id: SxStyleProp = {
   fontSize: ['14px', '16px'],
   color: 'muted.1',
+  overflowWrap: 'anywhere',
 }
 
 const datesContainer: SxStyleProp = {
   color: 'muted.1',
   width: '100%',
+  minWidth: 0,
   justifyContent: 'space-between',
+  flexWrap: 'wrap',
+  gap: '8px',
 }
 
 export default {
+  link,
   container,
   title,
   id,

@@ -16,10 +16,10 @@ const row: SxStyleProp = {
 }
 
 const dateColumn: SxStyleProp = {
-  width: ['72px', '88px', '104px'],
+  width: ['64px', '72px', '88px', '104px'],
   flexShrink: 0,
   pt: '3px',
-  pr: ['10px', '12px'],
+  pr: ['8px', '10px', '12px'],
   textAlign: 'right',
   fontSize: ['11px', '12px'],
   fontWeight: '600',
@@ -28,6 +28,7 @@ const dateColumn: SxStyleProp = {
   color: tokens.grays.dateLabel,
   textTransform: 'uppercase',
   display: 'block',
+  overflowWrap: 'anywhere',
 }
 
 const trackColumn: SxStyleProp = {
@@ -116,10 +117,12 @@ const typeTagsContainer: SxStyleProp = {
 const releaseTitle: SxStyleProp = {
   '& p': {
     mb: '8px',
-    fontSize: ['14px', '20px'],
+    fontSize: ['16px', '18px', '20px'],
+    lineHeight: ['24px', '26px', '30px'],
     color: 'muted.0',
     cursor: 'pointer',
     m: 0,
+    overflowWrap: 'anywhere',
   },
 }
 
@@ -136,12 +139,14 @@ const titleLink: SxStyleProp = {
 
 const body: SxStyleProp = {
   mt: '12px',
-  ml: ['30px', '34px'],
+  ml: ['0', '30px', '34px'],
   fontSize: ['14px', '15px'],
   lineHeight: '22px',
   fontWeight: '400',
   color: 'muted.0',
   maxWidth: '100%',
+  minWidth: 0,
+  overflowWrap: 'anywhere',
   letterSpacing: '-0.01em',
 }
 

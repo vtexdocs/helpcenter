@@ -21,7 +21,7 @@ const KnownIssueCard = ({
   const updatedAtDate = new Date(updatedAt)
 
   return (
-    <Link href={`known-issues/${slug}`}>
+    <Link href={`known-issues/${slug}`} sx={styles.link}>
       <Flex sx={styles.container}>
         <Flex sx={styles.topContainer}>
           <Tag color={kiStatus}>

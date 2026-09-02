@@ -14,6 +14,25 @@ const container: SxStyleProp = {
   minWidth: 0,
 }
 
+const listingCard: SxStyleProp = {
+  display: 'block',
+  width: '100%',
+  maxWidth: '100%',
+  minWidth: 0,
+  a: {
+    display: 'block',
+    width: '100%',
+    maxWidth: '100%',
+    minWidth: 0,
+  },
+  '& a > *': {
+    width: '100% !important',
+    maxWidth: '100% !important',
+    minWidth: 0,
+    boxSizing: 'border-box',
+  },
+}
+
 const cardContainer: SxStyleProp = {
   gap: '16px',
   flexDirection: 'column',
@@ -97,10 +116,12 @@ const resultsNumberContainer: SxStyleProp = {
   fontSize: '1rem',
   color: 'muted.0',
   width: '100%',
+  overflowWrap: 'anywhere',
 }
 
 export default {
   container,
+  listingCard,
   cardContainer,
   optionContainer,
   optionsContainer,

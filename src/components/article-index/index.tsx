@@ -17,7 +17,7 @@ const ArticleIndexing = ({ ...props }) => {
       <Flex sx={styles.innerContainer}>
         <Box sx={styles.articleBox}>
           <Box sx={styles.articleIndexContentContainer}>
-            <Flex sx={{ justifyContent: 'space-between' }}>
+            <Flex sx={styles.breadcrumbRow}>
               {props.breadcrumbList.length > 0 && (
                 <Breadcrumb breadcrumbList={props.breadcrumbList} />
               )}
