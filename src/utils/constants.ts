@@ -4,6 +4,7 @@ import {
   getLearningCenterURL,
   getDeveloperPortalURL,
   getSupportURL,
+  getFeedbackURL,
 } from 'utils/get-url'
 
 import {
@@ -24,6 +25,7 @@ import {
   TutorialsIcon,
   DeveloperPortalIcon,
   GearTroubleshootingIcon,
+  LongArrowIcon,
 } from '@vtexdocs/components'
 
 libraryConfig
@@ -69,30 +71,6 @@ export const updatesData = (intl: IntlShape) => {
         id: 'announcements_page.description',
       }),
       link: '/announcements',
-    },
-    {
-      id: 'Status',
-      Icon: GraphIcon,
-      title: intl.formatMessage({
-        id: 'menu_status.title',
-      }),
-      description: intl.formatMessage({
-        id: 'menu_status.description',
-      }),
-      link: 'https://status.vtex.com',
-      isExternalLink: true,
-    },
-    {
-      id: 'Developer Portal',
-      Icon: DeveloperPortalIcon,
-      title: intl.formatMessage({
-        id: 'documentation_developers_portal.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_developers_portal.description',
-      }),
-      link: 'https://developers.vtex.com/',
-      isExternalLink: true,
     },
   ]
   return data
@@ -141,6 +119,48 @@ export const menuSupportData = (intl: IntlShape) => {
       link: intl.formatMessage({
         id: 'sidebar_support_rules.link',
       }),
+    },
+  ]
+
+  return data
+}
+
+export const feedbackSectionData = (intl: IntlShape, currentUrl?: string) => {
+  const data: DocDataElement[] = [
+    {
+      id: 'Status',
+      Icon: GraphIcon,
+      title: intl.formatMessage({
+        id: 'menu_status.title',
+      }),
+      description: intl.formatMessage({
+        id: 'menu_status.description',
+      }),
+      link: 'https://status.vtex.com',
+      isExternalLink: true,
+    },
+    {
+      id: 'Feedback',
+      Icon: LongArrowIcon,
+      title: intl.formatMessage({
+        id: 'landing_page_header_feedback.message',
+      }),
+      description: intl.formatMessage({
+        id: 'landing_page_header_feedback.description',
+      }),
+      link: getFeedbackURL(currentUrl),
+    },
+    {
+      id: 'Developer Portal',
+      Icon: DeveloperPortalIcon,
+      title: intl.formatMessage({
+        id: 'documentation_developers_portal.title',
+      }),
+      description: intl.formatMessage({
+        id: 'documentation_developers_portal.description',
+      }),
+      link: 'https://developers.vtex.com/',
+      isExternalLink: true,
     },
   ]
 

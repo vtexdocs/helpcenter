@@ -1,12 +1,53 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+const localeSwitcher: SxStyleProp = {
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  height: 'calc(100% + 1px)',
+  cursor: 'pointer',
+}
+
+const dropdownButton: (active: boolean) => SxStyleProp = (active: boolean) => ({
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '6px',
+  width: ['100%', '100%', 'auto', 'auto'],
+  height: ['100%', '100%', '36px', '36px'],
+  px: [0, 0, '10px', '10px'],
+  margin: 0,
+  lineHeight: 0,
+  cursor: 'pointer',
+  color: active ? '#D71D55' : '#4A596B',
+  backgroundColor: active
+    ? ['transparent', 'transparent', '#FFF3F6', '#FFF3F6']
+    : 'transparent',
+  border: 'none',
+  outline: 'none',
+  whiteSpace: 'nowrap',
+  borderRadius: ['0', '0', '6px', '6px'],
+  transition: 'background-color 0.15s ease, color 0.15s ease',
+  svg: {
+    color: 'inherit',
+  },
+  ':hover': {
+    color: '#C81E51',
+    backgroundColor: ['transparent', 'transparent', '#FFF3F6', '#FFF3F6'],
+  },
+})
+
 const localeLabel: SxStyleProp = {
   display: 'none',
   alignItems: 'center',
   height: '24px',
   fontSize: '13px',
-  lineHeight: '24px',
+  lineHeight: '22px',
   fontFamily: 'VTEX Trust Medium !important',
+  fontWeight: 'normal',
+  textTransform: 'none',
   color: 'inherit',
   '@media screen and (min-width: 1024px)': {
     display: 'flex',
@@ -27,72 +68,6 @@ const localeCaret: SxStyleProp = {
   },
 }
 
-const optionContainer: SxStyleProp = {
-  position: 'absolute',
-  display: 'flex',
-  flexDirection: 'column',
-  minWidth: '120px',
-  top: '100%',
-  right: 0,
-  py: '8px',
-  backgroundColor: '#ffffff',
-  border: '1px solid #E7E9EE',
-  borderRadius: '8px',
-  boxShadow: '0px 4px 16px rgba(20, 32, 50, 0.12)',
-  zIndex: 10,
-}
-
-const option: SxStyleProp = {
-  cursor: 'pointer',
-  px: '16px',
-  py: '8px',
-  color: '#4A596B',
-  fontSize: '14px',
-  lineHeight: '20px',
-  ':hover': {
-    color: '#C81E51',
-    backgroundColor: '#FFF3F6',
-  },
-}
-
-const optionActive: SxStyleProp = {
-  ...option,
-  color: '#E31C58',
-  fontWeight: 500,
-}
-
-const localeSwitcher: SxStyleProp = {
-  position: 'relative',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '100%',
-  height: '100%',
-  button: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '6px',
-    width: '100%',
-    height: '100%',
-    padding: 0,
-    margin: 0,
-    lineHeight: 0,
-    cursor: 'pointer',
-    color: '#4A596B',
-    bg: 'transparent',
-    border: 'none',
-    outline: 'none',
-    whiteSpace: 'nowrap',
-    borderRadius: ['0', '0', '6px', '6px'],
-    transition: 'background-color 0.15s ease, color 0.15s ease',
-    ':hover': {
-      color: '#C81E51',
-      backgroundColor: ['transparent', 'transparent', '#FFF3F6', '#FFF3F6'],
-    },
-  },
-}
-
 const iconGlobe: SxStyleProp = {
   color: 'inherit',
   flexShrink: 0,
@@ -104,18 +79,57 @@ const iconGlobe: SxStyleProp = {
   maxWidth: 'none',
 }
 
-const iconGlobeVisible: SxStyleProp = {
-  ...iconGlobe,
-  color: '#E31C58',
+const outerContainer: SxStyleProp = {
+  cursor: 'initial',
+  top: 'calc(5rem + 1px)',
+  right: 0,
+  position: 'absolute',
+  filter: 'drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.1))',
+  clipPath: 'inset(0 -32px -32px -32px)',
+  borderRadius: '0px 0px 8px 8px',
+  border: '1px solid #E7E9EE',
+  borderTop: '0px',
+  background: 'white',
+  padding: '8px',
+  minWidth: '100px',
+  maxWidth: 'calc(100vw - 32px)',
+  zIndex: 10,
+}
+
+const innerContainer: SxStyleProp = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '4px',
+}
+
+const option: SxStyleProp = {
+  cursor: 'pointer',
+  padding: '12px',
+  borderRadius: '8px',
+  boxSizing: 'border-box',
+  color: '#142032',
+  fontSize: '14px',
+  lineHeight: '20px',
+  fontWeight: 500,
+  ':hover, :active': {
+    color: '#C81E51',
+    backgroundColor: '#FFF3F6',
+  },
+}
+
+const optionActive: SxStyleProp = {
+  ...option,
+  color: '#D71D55',
 }
 
 export default {
-  iconGlobeVisible,
+  localeSwitcher,
+  dropdownButton,
   localeLabel,
   localeCaret,
-  optionContainer,
+  iconGlobe,
+  outerContainer,
+  innerContainer,
   option,
   optionActive,
-  localeSwitcher,
-  iconGlobe,
 }

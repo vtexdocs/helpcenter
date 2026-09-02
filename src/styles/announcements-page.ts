@@ -9,8 +9,11 @@ const container: SxStyleProp = {
   alignItems: 'center',
   flexDirection: 'column',
   gap: '16px',
-  width: ['320px', '545px', '545px', '720px'],
-  maxWidth: '100vw',
+  width: '100%',
+  maxWidth: ['100%', '545px', '545px', '720px'],
+  px: ['16px', 0],
+  boxSizing: 'border-box',
+  minWidth: 0,
 }
 
 const cardContainer: SxStyleProp = {
@@ -19,11 +22,14 @@ const cardContainer: SxStyleProp = {
   justifyContent: 'flex-start',
   mb: '56px',
   width: '100%',
+  minWidth: 0,
+  maxWidth: '100%',
 }
 
 const yearTimelineBody: SxStyleProp = {
   position: 'relative',
   width: '100%',
+  minWidth: 0,
   flexDirection: 'column',
 }
 
@@ -34,13 +40,14 @@ const yearVerticalRail: SxStyleProp = {
   width: '2px',
   backgroundColor: tokens.grays.timelineRail,
   /** dateColumn width + trackColumn/2 − half line */
-  left: ['80px', '96px', '112px'],
+  left: ['72px', '80px', '96px', '112px'],
   top: 0,
   bottom: 0,
 }
 
 const toolbar: SxStyleProp = {
   width: '100%',
+  minWidth: 0,
   flexDirection: ['column', 'row'],
   alignItems: ['stretch', 'center'],
   gap: ['12px', '12px'],
@@ -53,7 +60,8 @@ const filterWrap: SxStyleProp = {
 
 const searchWrap: SxStyleProp = {
   flex: 1,
-  minWidth: ['100%', '280px'],
+  minWidth: 0,
+  width: ['100%', 'auto'],
   alignItems: 'center',
   gap: '8px',
 }
@@ -109,6 +117,7 @@ const resultsNumberContainer: SxStyleProp = {
 
 const yearBlock: SxStyleProp = {
   width: '100%',
+  minWidth: 0,
   flexDirection: 'column',
   gap: 0,
 }
@@ -121,9 +130,10 @@ const yearHeading: SxStyleProp = {
   fontWeight: '400',
   color: tokens.grays.yearHeading,
   width: 'auto',
+  maxWidth: '100%',
   display: 'inline-block',
   position: 'relative',
-  left: ['81px', '97px', '113px'],
+  left: ['73px', '81px', '97px', '113px'],
   transform: 'translateX(-50%)',
   textAlign: 'center',
   mb: ['20px', '24px'],

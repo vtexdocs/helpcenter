@@ -35,6 +35,7 @@ import {
   menuDocumentationData,
   menuSupportData,
   updatesData,
+  feedbackSectionData,
 } from 'utils/constants'
 import { useIntl } from 'react-intl'
 import EducationSection from './education-section'
@@ -97,6 +98,7 @@ export default function Layout({
         hamburguerMenuSections={[
           menuDocumentationData(intl),
           menuSupportData(intl),
+          feedbackSectionData(intl, currentUrl),
           updatesData(intl),
         ]}
         sectionSelected={sectionSelected ?? ''}
@@ -139,7 +141,6 @@ export default function Layout({
         />
         <Header
           variant="helpcenter"
-          feedbackUrl={getFeedbackURL(currentUrl)}
           localeSwitcher={<LocaleSwitcher />}
           extraRightLinks={<AnnouncementsMenu />}
           announcement={

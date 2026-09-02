@@ -17,6 +17,8 @@ const select: SxStyleProp = {
   fontSize: '14px',
   border: '1px solid #E7E9EE',
   outline: 'none',
+  maxWidth: '100%',
+  minWidth: 0,
 }
 
 export default { selectContainer, select }

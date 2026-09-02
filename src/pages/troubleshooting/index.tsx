@@ -152,33 +152,35 @@ const TroubleshootingPage: NextPage<Props> = ({
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
-            <ListingFilter
-              tagFilter={createDynamicTroubleshootingFilter(
-                'troubleshooting_filter_symptoms.title',
-                availableSymptomFilters
-              )}
-              checkBoxFilter={createDynamicTroubleshootingFilter(
-                'troubleshooting_filter_domains.title',
-                availableDomainFilters
-              )}
-              labels={{
-                button: intl.formatMessage({ id: 'filter_modal.title' }),
-                modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
-                remove: intl.formatMessage({ id: 'filter_modal.remove' }),
-                apply: intl.formatMessage({ id: 'filter_modal.button' }),
-              }}
-              onApply={(newFilters) =>
-                setFilters({
-                  domains: newFilters.checklist,
-                  symptoms: newFilters.tag,
-                })
-              }
-              selectedCheckboxes={filters.domains}
-              selectedTags={filters.symptoms}
-            />
+            <Box sx={styles.filterWrap}>
+              <ListingFilter
+                tagFilter={createDynamicTroubleshootingFilter(
+                  'troubleshooting_filter_symptoms.title',
+                  availableSymptomFilters
+                )}
+                checkBoxFilter={createDynamicTroubleshootingFilter(
+                  'troubleshooting_filter_domains.title',
+                  availableDomainFilters
+                )}
+                labels={{
+                  button: intl.formatMessage({ id: 'filter_modal.title' }),
+                  modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
+                  remove: intl.formatMessage({ id: 'filter_modal.remove' }),
+                  apply: intl.formatMessage({ id: 'filter_modal.button' }),
+                }}
+                onApply={(newFilters) =>
+                  setFilters({
+                    domains: newFilters.checklist,
+                    symptoms: newFilters.tag,
+                  })
+                }
+                selectedCheckboxes={filters.domains}
+                selectedTags={filters.symptoms}
+              />
+            </Box>
           </Flex>
-          <Flex sx={{ width: '100%', alignItems: 'center', gap: '8px' }}>
-            <Box sx={{ width: '100%' }}>
+          <Flex sx={styles.searchRow}>
+            <Box sx={styles.searchInputWrap}>
               <Input
                 placeholder={intl.formatMessage({
                   id: 'troubleshooting_page_search.placeholder',
@@ -202,23 +204,7 @@ const TroubleshootingPage: NextPage<Props> = ({
                 aria-label={intl.formatMessage({
                   id: 'known_issues_page_search.priority_tooltip',
                 })}
-                sx={{
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  display: 'flex',
-                  width: '24px',
-                  height: '24px',
-                  borderRadius: '50%',
-                  border: '1px solid',
-                  borderColor: 'muted.2',
-                  backgroundColor: 'transparent',
-                  color: 'muted.0',
-                  fontSize: '12px',
-                  fontWeight: 700,
-                  cursor: 'help',
-                  flexShrink: 0,
-                  p: 0,
-                }}
+                sx={styles.helpButton}
               >
                 ?
               </Box>
@@ -239,15 +225,16 @@ const TroubleshootingPage: NextPage<Props> = ({
               </Flex>
             )}
             {paginatedResult.map((troubleshoot, id) => (
-              <TroubleshootingCard
-                key={id}
-                variant="helpcenter"
-                basePath="troubleshooting"
-                title={troubleshoot.title}
-                slug={troubleshoot.slug}
-                domainFilters={troubleshoot.domainFilters}
-                symptomFilters={troubleshoot.symptomFilters}
-              />
+              <Box key={id} sx={styles.listingCard}>
+                <TroubleshootingCard
+                  variant="helpcenter"
+                  basePath="troubleshooting"
+                  title={troubleshoot.title}
+                  slug={troubleshoot.slug}
+                  domainFilters={troubleshoot.domainFilters}
+                  symptomFilters={troubleshoot.symptomFilters}
+                />
+              </Box>
             ))}
           </Flex>
           <Pagination

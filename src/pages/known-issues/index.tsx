@@ -178,37 +178,41 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
-            <ListingFilter
-              tagFilter={statusConfig}
-              checkBoxFilter={moduleConfig}
-              selectedCheckboxes={filters.modules}
-              selectedTags={filters.kiStatus}
-              labels={{
-                button: intl.formatMessage({ id: 'filter_modal.title' }),
-                modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
-                remove: intl.formatMessage({ id: 'filter_modal.remove' }),
-                apply: intl.formatMessage({ id: 'filter_modal.button' }),
-              }}
-              onApply={(newFilters) =>
-                setFilters({
-                  kiStatus: (newFilters.tag ?? []).map(
-                    (n: string) => statusNameToId[n] ?? n
-                  ),
-                  modules: (newFilters.checklist ?? []).map(
-                    (n: string) => moduleNameToId[n] ?? n
-                  ),
-                })
-              }
-            />
-            <Select
-              label={intl.formatMessage({ id: 'sort.label' })}
-              value={sortByValue}
-              options={sortBy(intl)}
-              onSelect={(ordering) => setSortByValue(ordering as SortByType)}
-            />
+            <Box sx={styles.filterWrap}>
+              <ListingFilter
+                tagFilter={statusConfig}
+                checkBoxFilter={moduleConfig}
+                selectedCheckboxes={filters.modules}
+                selectedTags={filters.kiStatus}
+                labels={{
+                  button: intl.formatMessage({ id: 'filter_modal.title' }),
+                  modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
+                  remove: intl.formatMessage({ id: 'filter_modal.remove' }),
+                  apply: intl.formatMessage({ id: 'filter_modal.button' }),
+                }}
+                onApply={(newFilters) =>
+                  setFilters({
+                    kiStatus: (newFilters.tag ?? []).map(
+                      (n: string) => statusNameToId[n] ?? n
+                    ),
+                    modules: (newFilters.checklist ?? []).map(
+                      (n: string) => moduleNameToId[n] ?? n
+                    ),
+                  })
+                }
+              />
+            </Box>
+            <Flex sx={styles.sortWrap}>
+              <Select
+                label={intl.formatMessage({ id: 'sort.label' })}
+                value={sortByValue}
+                options={sortBy(intl)}
+                onSelect={(ordering) => setSortByValue(ordering as SortByType)}
+              />
+            </Flex>
           </Flex>
-          <Flex sx={{ width: '100%', alignItems: 'center', gap: '8px' }}>
-            <Box sx={{ width: '100%' }}>
+          <Flex sx={styles.searchRow}>
+            <Box sx={styles.searchInputWrap}>
               <Input
                 placeholder={intl.formatMessage({
                   id: 'known_issues_page_search.placeholder',
@@ -232,23 +236,7 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
                 aria-label={intl.formatMessage({
                   id: 'known_issues_page_search.priority_tooltip',
                 })}
-                sx={{
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  display: 'flex',
-                  width: '24px',
-                  height: '24px',
-                  borderRadius: '50%',
-                  border: '1px solid',
-                  borderColor: 'muted.2',
-                  backgroundColor: 'transparent',
-                  color: 'muted.0',
-                  fontSize: '12px',
-                  fontWeight: 700,
-                  cursor: 'help',
-                  flexShrink: 0,
-                  p: 0,
-                }}
+                sx={styles.helpButton}
               >
                 ?
               </Box>

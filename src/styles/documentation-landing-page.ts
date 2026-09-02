@@ -14,13 +14,14 @@ const contentContainer: SxStyleProp = {
   mx: 'auto',
   mt: ['16px', '32px'],
   mb: ['32px', '64px'],
-  px: ['18px', 'initial'],
-  maxWidth: ['324px', 'initial'],
-  width: ['auto', '544px', '544px', '544px', '720px', '720px', '1400px'],
-  boxSizing: 'initial',
-  color: '#4A4A4A',
+  px: ['18px', 0],
+  width: '100%',
+  maxWidth: ['100%', '544px', '544px', '544px', '720px', '720px', '1400px'],
+  minWidth: 0,
+  boxSizing: 'border-box',
+  color: '#4A596B',
   lineHeight: ['22px', '24px'],
-  fontSize: ['16px', '18px'],
+  fontSize: '16px',
 }
 
 const subtitle: SxStyleProp = {
@@ -33,8 +34,20 @@ const subtitle: SxStyleProp = {
 }
 
 const cardsContainer: SxStyleProp = {
-  flexWrap: 'wrap',
-  justifyContent: 'space-between',
+  display: 'grid',
+  gridTemplateColumns: [
+    '1fr',
+    'repeat(2, minmax(0, 1fr))',
+    'repeat(2, minmax(0, 1fr))',
+    'repeat(2, minmax(0, 1fr))',
+    'repeat(2, minmax(0, 1fr))',
+    'repeat(2, minmax(0, 1fr))',
+    'repeat(3, minmax(0, 1fr))',
+  ],
+  gap: ['12px', '16px'],
+  width: '100%',
+  minWidth: 0,
+  alignItems: 'stretch',
 }
 
 const resourcesSectionContainer: SxStyleProp = {
@@ -50,11 +63,22 @@ const resourceContainer: SxStyleProp = {
 
 const contentTitle: SxStyleProp = {
   paddingBottom: '6px',
-  marginTop: '40px',
-  fontSize: ['18px', '22px'],
-  lineHeight: ['30px', '32px'],
+  marginTop: ['24px', '32px'],
+  mb: ['8px', '16px'],
+  fontSize: ['18px', '20px'],
+  lineHeight: ['26px', '28px'],
   fontWeight: '400',
-  color: '#4A4A4A',
+  color: '#142032',
+  overflowWrap: 'anywhere',
+}
+
+const contentIntro: SxStyleProp = {
+  mb: ['16px', '24px'],
+  fontSize: ['16px', '16px', '18px'],
+  lineHeight: ['24px', '24px', '26px'],
+  fontWeight: '400',
+  color: '#4A596B',
+  overflowWrap: 'anywhere',
 }
 
 const contentDescription: SxStyleProp = {
@@ -146,6 +170,7 @@ export default {
   resourceTitle,
   resourceDescription,
   contentTitle,
+  contentIntro,
   contentDescription,
   boxTip,
   boxTitle,

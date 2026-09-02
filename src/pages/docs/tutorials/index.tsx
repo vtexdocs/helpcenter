@@ -1,5 +1,5 @@
 import { Fragment, useContext } from 'react'
-import { Box, Flex, Text } from '@vtex/brand-ui'
+import { Box, Text } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 import { SectionId } from 'utils/typings/unionTypes'
 import PageHeader from 'components/page-header'
@@ -8,7 +8,7 @@ import styles from 'styles/documentation-landing-page'
 import Head from 'next/head'
 import { PreviewContext } from 'utils/contexts/preview'
 import { useIntl } from 'react-intl'
-import WhatsNextCardTutorial from 'components/whats-next-card/tutorials'
+import { WhatsNextCard } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 
 interface Props {
@@ -21,14 +21,16 @@ const ContentSection = ({ id, length }: { id: string; length: number }) => {
 
   return (
     <>
-      <Text>{intl.formatMessage({ id: `${id}.title` })}</Text>
-      <Flex sx={styles.cardsContainer}>
+      <Text sx={styles.contentIntro}>
+        {intl.formatMessage({ id: `${id}.title` })}
+      </Text>
+      <Box sx={styles.cardsContainer}>
         {Array(length)
           .fill('')
           .map((_, index) => {
             if (!intl.messages[`${id}.content.${index}.title`]) return <></>
             return (
-              <WhatsNextCardTutorial
+              <WhatsNextCard
                 title={intl.formatMessage({
                   id: `${id}.content.${index}.title`,
                 })}
@@ -42,7 +44,7 @@ const ContentSection = ({ id, length }: { id: string; length: number }) => {
               />
             )
           })}
-      </Flex>
+      </Box>
     </>
   )
 }

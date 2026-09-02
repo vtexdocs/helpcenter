@@ -15,6 +15,7 @@ import {
   EditIcon,
   FeedbackSection,
   FeedbackModal,
+  CopyHeadingLink,
 } from '@vtexdocs/components'
 
 import styles from 'styles/documentation-page'
@@ -68,6 +69,10 @@ const ArticleRender = ({
     type === 'known-issues' ? 'known-issues' : 'help-center-content'
   const urlToEdit = `https://github.com/vtexdocs/${contentRepo}/edit/main/${path}`
   const pageUrl = `${HELP_CENTER_ORIGIN}/${HELP_CENTER_PAGE_PATH[type]}/${slug}`
+  const rawContentBaseUrl =
+    type === 'known-issues'
+      ? KNOWN_ISSUES_RAW_BASE
+      : HELP_CENTER_CONTENT_RAW_BASE
 
   return (
     <>
@@ -97,7 +102,7 @@ const ArticleRender = ({
       <Flex sx={styles.innerContainer}>
         <Box sx={styles.articleBox}>
           <Box sx={styles.contentContainer}>
-            <Flex sx={{ justifyContent: 'space-between' }}>
+            <Flex sx={styles.breadcrumbRow}>
               <Breadcrumb breadcrumbList={breadcrumbList} />
             </Flex>
             <Box sx={styles.textContainer}>
@@ -106,6 +111,7 @@ const ArticleRender = ({
                   <>
                     <Text sx={styles.documentationTitle} className="title">
                       {serialized.frontmatter?.title}
+                      <CopyHeadingLink />
                     </Text>
                     {type == 'announcements' && contributors[0]?.avatar && (
                       <Author contributor={contributors[0]} />
@@ -119,75 +125,66 @@ const ArticleRender = ({
                 </header>
 
                 {type == 'known-issues' && (
-                  <Flex
-                    sx={{
-                      flexDirection: 'column',
-                    }}
-                  >
-                    {/* Top row: ID and Tags */}
-                    <Flex
-                      sx={{
-                        alignItems: 'center',
-                        width: '100%',
-                        gap: '12px',
-                      }}
+                  <Flex sx={styles.knownIssueMeta}>
+                    <Text>{serialized.frontmatter?.productTeam}</Text>
+                    <Text>•</Text>
+                    <Text>ID: {serialized.frontmatter?.internalReference}</Text>
+                    <Tag
+                      sx={{ marginLeft: ['0', 'auto'] }}
+                      color={
+                        serialized.frontmatter?.kiStatus as KnownIssueStatus
+                      }
                     >
-                      <Text>{serialized.frontmatter?.productTeam}</Text>
-                      <Text>•</Text>
-                      <Text>
-                        ID: {serialized.frontmatter?.internalReference}
-                      </Text>
-                      <Tag
-                        sx={{ marginLeft: 'auto' }}
-                        color={
+                      {intl.formatMessage({
+                        id: `known_issues_filter_status.${(
                           serialized.frontmatter?.kiStatus as KnownIssueStatus
-                        }
-                      >
-                        {intl.formatMessage({
-                          id: `known_issues_filter_status.${(
-                            serialized.frontmatter?.kiStatus as KnownIssueStatus
-                          )
-                            .toLowerCase()
-                            .replace(' ', '_')}`,
-                        })}
-                      </Tag>
-                    </Flex>
+                        )
+                          .toLowerCase()
+                          .replace(' ', '_')}`,
+                      })}
+                    </Tag>
                   </Flex>
                 )}
-                <Flex
-                  sx={{
-                    justifyContent: 'space-between',
-                    alignItems: 'self-start',
-                    marginBottom: '24px',
-                    marginTop: '4px',
-                  }}
-                >
-                  <Box>
-                    {type !== 'tracks' && type !== 'tutorials' && (
-                      <Flex sx={{ alignItems: 'center' }}>
-                        <DateText
-                          createdAt={
-                            new Date(String(serialized.frontmatter?.createdAt))
-                          }
-                          updatedAt={
-                            new Date(String(serialized.frontmatter?.updatedAt))
-                          }
-                        />
-                      </Flex>
-                    )}
-                    <Flex sx={{ alignItems: 'center' }}>
-                      {serialized?.frontmatter?.readingTime && (
-                        <TimeToRead
-                          minutes={
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            (serialized?.frontmatter?.readingTime as any)
-                              ?.text ||
-                            String(serialized?.frontmatter?.readingTime)
-                          }
-                        />
-                      )}
+                <Flex sx={styles.articleMeta}>
+                  {type !== 'tracks' && type !== 'tutorials' && (
+                    <Flex sx={{ alignItems: 'center', flexWrap: 'wrap' }}>
+                      <DateText
+                        createdAt={
+                          new Date(String(serialized.frontmatter?.createdAt))
+                        }
+                        updatedAt={
+                          new Date(String(serialized.frontmatter?.updatedAt))
+                        }
+                      />
                     </Flex>
-                  </Box>
+                  )}
+                  <Flex sx={styles.readingTimeRow}>
+                    {serialized?.frontmatter?.readingTime && (
+                      <TimeToRead
+                        minutes={
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          (serialized?.frontmatter?.readingTime as any)?.text ||
+                          String(serialized?.frontmatter?.readingTime)
+                        }
+                      />
+                    )}
+                    <Flex sx={styles.articleActions}>
+                      <Box
+                        as="button"
+                        type="button"
+                        onClick={() => setIsModalOpen(true)}
+                        sx={styles.articleFeedbackButton}
+                      >
+                        <i className="fa-regular fa-comment"></i>{' '}
+                        {intl.formatMessage({ id: 'feedback_modal.button' })}
+                      </Box>
+                      <AskAIMenu
+                        filePath={path}
+                        pageUrl={pageUrl}
+                        rawContentBaseUrl={rawContentBaseUrl}
+                      />
+                    </Flex>
+                  </Flex>
                 </Flex>
                 <DataTablesProvider value={dataTablesData}>
                   <MarkdownRenderer
@@ -206,7 +203,6 @@ const ArticleRender = ({
 
           {type !== 'announcements' && (
             <Box sx={styles.bottomContributorsContainer}>
-              <Box sx={styles.bottomContributorsDivider} />
               <Box sx={styles.bottomContributors}>
                 <Contributors contributors={contributors} />
               </Box>
@@ -240,21 +236,6 @@ const ArticleRender = ({
           <TableOfContents headingList={tocHeadings}>
             <Box sx={styles.divider}>
               <FeedbackSection slug={slug} small suggestEdits={false} />
-              <Box
-                as="button"
-                onClick={() => setIsModalOpen(true)}
-                sx={styles.button}
-              >
-                <i className="fa-regular fa-comment"></i>{' '}
-                {intl.formatMessage({ id: 'feedback_modal.button' })}
-              </Box>
-            </Box>
-            <Box sx={styles.divider}>
-              <FeedbackModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                pageUrl={pageUrl}
-              />
               <Link
                 target="_blank"
                 rel="noopener noreferrer"
@@ -266,19 +247,15 @@ const ArticleRender = ({
                   {intl.formatMessage({ id: 'feedback_section.edit' })}
                 </Text>
               </Link>
-              <AskAIMenu
-                filePath={path}
-                pageUrl={pageUrl}
-                rawContentBaseUrl={
-                  type === 'known-issues'
-                    ? KNOWN_ISSUES_RAW_BASE
-                    : HELP_CENTER_CONTENT_RAW_BASE
-                }
-              />
             </Box>
           </TableOfContents>
         </Box>
         <OnThisPage headingList={tocHeadings} />
+        <FeedbackModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          pageUrl={pageUrl}
+        />
       </Flex>
     </>
   )
