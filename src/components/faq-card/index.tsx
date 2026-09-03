@@ -3,8 +3,7 @@ import { Box, Text, Link } from '@vtex/brand-ui'
 import type { FaqCardDataElement } from 'utils/typings/types'
 
 import styles from './styles'
-import { Tag } from '@vtexdocs/components'
-import DateText from 'components/date-text'
+import { DateText, Tag } from '@vtexdocs/components'
 
 const FaqCard = ({
   title,

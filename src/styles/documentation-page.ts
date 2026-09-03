@@ -90,10 +90,10 @@ const articleBox: SxStyleProp = {
     },
   },
   header: {
-    marginTop: '16px',
+    marginTop: ['8px', '16px'],
     borderBottom: '1px solid #E7E9EE',
-    marginBottom: '18px',
-    pb: '18px',
+    marginBottom: ['8px', '12px'],
+    pb: ['12px', '16px'],
   },
   h2: {
     fontSize: '1.375em',
@@ -186,31 +186,63 @@ const breadcrumbRow: SxStyleProp = {
   minWidth: 0,
 }
 
-const articleMeta: SxStyleProp = {
-  flexDirection: 'column',
-  alignItems: 'stretch',
-  gap: '8px',
-  marginBottom: '24px',
-  marginTop: '4px',
+const articleHeaderExtra: SxStyleProp = {
+  mt: ['8px', '10px'],
   width: '100%',
   minWidth: 0,
 }
 
-const readingTimeRow: SxStyleProp = {
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  flexWrap: 'wrap',
-  gap: '12px',
+const articleMeta: SxStyleProp = {
+  flexDirection: 'column-reverse',
+  justifyContent: 'flex-start',
+  alignItems: 'stretch',
+  gap: '10px',
+  marginBottom: ['16px', '20px'],
+  marginTop: '0',
   width: '100%',
   minWidth: 0,
+  '@media screen and (min-width: 40em)': {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: '8px 16px',
+  },
+}
+
+const articleMetaInfo: SxStyleProp = {
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+  gap: '2px',
+  minWidth: 0,
+  width: '100%',
+  flex: '0 0 auto',
+  '@media screen and (min-width: 40em)': {
+    width: 'auto',
+    flex: '1 1 auto',
+  },
+}
+
+const articleReadingTime: SxStyleProp = {
+  color: tokens.landing.muted,
+  fontSize: '13px',
+  lineHeight: '20px',
+  '& > *': {
+    color: 'inherit !important',
+    fontSize: 'inherit !important',
+    lineHeight: 'inherit !important',
+  },
 }
 
 const articleActions: SxStyleProp = {
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'flex-start',
   gap: '8px',
   flexShrink: 0,
-  ml: 'auto',
+  ml: 0,
+  width: '100%',
   minWidth: 0,
   '& > div': {
     width: 'max-content',
@@ -219,29 +251,11 @@ const articleActions: SxStyleProp = {
   '& [role="menu"]': {
     right: 0,
   },
-}
-
-const articleFeedbackButton: SxStyleProp = {
-  mt: 0,
-  px: 3,
-  minHeight: 36,
-  background: '#fff',
-  borderRadius: '4px',
-  cursor: 'pointer',
-  fontSize: 12,
-  height: 'min-content',
-  textTransform: 'none',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  gap: 3,
-  width: 'max-content',
-  maxWidth: '180px',
-  flexShrink: 0,
-  whiteSpace: 'nowrap',
-  color: 'muted.0',
-  border: '1px solid #E7E9EE',
-  '&:hover': { backgroundColor: '#F8F7FC', color: '#000711' },
+  '@media screen and (min-width: 40em)': {
+    justifyContent: 'flex-end',
+    ml: 'auto',
+    width: 'auto',
+  },
 }
 
 const knownIssueMeta: SxStyleProp = {
@@ -249,8 +263,31 @@ const knownIssueMeta: SxStyleProp = {
   flexWrap: 'wrap',
   width: '100%',
   minWidth: 0,
-  gap: '8px 12px',
-  rowGap: '8px',
+  gap: '8px',
+  mt: '16px',
+  color: tokens.landing.body,
+  fontSize: tokens.landing.type.meta,
+  lineHeight: tokens.landing.type.metaLine,
+}
+
+const knownIssueMetaInfo: SxStyleProp = {
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '6px 8px',
+  minWidth: 0,
+  flex: '0 1 auto',
+  '@media screen and (min-width: 40em)': {
+    flex: '1 1 auto',
+  },
+}
+
+const knownIssueMetaId: SxStyleProp = {
+  color: tokens.landing.muted,
+}
+
+const knownIssueMetaSeparator: SxStyleProp = {
+  color: tokens.grays.caretIcon,
+  flexShrink: 0,
 }
 
 const bottomContributorsContainer: SxStyleProp = {
@@ -401,14 +438,7 @@ const cardItemExcerpt: SxStyleProp = {
 
 const editContainer: SxStyleProp = {
   my: 3,
-  alignItems: 'center',
   gap: 2,
-  fontSize: 12,
-  ':hover': {
-    color: '#000711 !important',
-  },
-  color: '#4A596B !important',
-  display: 'flex',
 }
 
 const button: SxStyleProp = {
@@ -449,11 +479,15 @@ export default {
   releaseAction,
   documentationExcerpt,
   breadcrumbRow,
+  articleHeaderExtra,
   articleMeta,
-  readingTimeRow,
+  articleMetaInfo,
+  articleReadingTime,
   articleActions,
-  articleFeedbackButton,
   knownIssueMeta,
+  knownIssueMetaInfo,
+  knownIssueMetaId,
+  knownIssueMetaSeparator,
   innerContainer,
   infoContainer,
   divider,
