@@ -1,6 +1,8 @@
 import { useContext, useEffect } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { Item } from '@vtexdocs/components'
+import { Flex, Text } from '@vtex/brand-ui'
+import { Item, Tag } from '@vtexdocs/components'
+import { useIntl } from 'react-intl'
 import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 
 import { getLogger } from 'utils/logging/log-util'
@@ -24,7 +26,8 @@ import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { isCategoryCover } from 'utils/article-page/getPagination'
 import { sanitizeArray } from 'utils/sanitizeArrays'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
-import type { SectionId } from 'utils/typings/unionTypes'
+import type { KnownIssueStatus, SectionId } from 'utils/typings/unionTypes'
+import styles from 'styles/documentation-page'
 import {
   getArticleRevalidateTime,
   getCategoryCoverRevalidateTime,
@@ -35,6 +38,37 @@ const docsPathsGLOBAL: Record<
   string,
   { locale: string; path: string }[]
 > | null = null
+
+const KnownIssueMeta = ({
+  productTeam,
+  internalReference,
+  kiStatus,
+}: {
+  productTeam?: string
+  internalReference?: string
+  kiStatus?: KnownIssueStatus
+}) => {
+  const intl = useIntl()
+
+  return (
+    <Flex sx={styles.knownIssueMeta}>
+      <Flex sx={styles.knownIssueMetaInfo}>
+        <Text>{productTeam}</Text>
+        <Text sx={styles.knownIssueMetaSeparator}>•</Text>
+        <Text sx={styles.knownIssueMetaId}>ID: {internalReference}</Text>
+      </Flex>
+      {kiStatus && (
+        <Tag sx={{ marginLeft: ['0', 'auto'] }} color={kiStatus}>
+          {intl.formatMessage({
+            id: `known_issues_filter_status.${kiStatus
+              .toLowerCase()
+              .replace(' ', '_')}`,
+          })}
+        </Tag>
+      )}
+    </Flex>
+  )
+}
 
 const KnownIssuePage: NextPage<ArticlePageProps> = ({
   mdFileExists,
@@ -67,7 +101,20 @@ const KnownIssuePage: NextPage<ArticlePageProps> = ({
       contributors={componentProps.contributors}
       seeAlsoData={componentProps.seeAlsoData}
       path={componentProps.path}
-    />
+      showSuggestEdits={false}
+    >
+      <KnownIssueMeta
+        productTeam={
+          componentProps.serialized.frontmatter?.productTeam as string
+        }
+        internalReference={
+          componentProps.serialized.frontmatter?.internalReference as string
+        }
+        kiStatus={
+          componentProps.serialized.frontmatter?.kiStatus as KnownIssueStatus
+        }
+      />
+    </ArticleRender>
   ) : (
     <ArticleIndex
       breadcrumbList={breadcrumbList}

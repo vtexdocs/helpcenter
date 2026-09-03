@@ -66,6 +66,9 @@ const AnnouncementPage: NextPage<ArticlePageProps> = ({
       contributors={componentProps.contributors}
       seeAlsoData={componentProps.seeAlsoData}
       path={componentProps.path}
+      showAuthor
+      showContributors={false}
+      showSuggestEdits={false}
     />
   ) : (
     <ArticleIndex
