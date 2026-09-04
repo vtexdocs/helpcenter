@@ -17966,6 +17966,22 @@
       {
         "from": "/es/docs/tutorials/como-y-cuando-recibo-mi-factura-y-mi-boleto-bancario",
         "to": "/es/docs/tutorials/recibir-la-factura"
+      },
+      {
+        "from": "/docs/tutorials/roles-and-permissions",
+        "to": "/docs/tutorials/cms-roles-and-permissions"
+      },
+      {
+        "from": "/en/docs/tutorials/roles-and-permissions",
+        "to": "/en/docs/tutorials/cms-roles-and-permissions"
+      },
+      {
+        "from": "/es/docs/tutorials/roles-y-permisos",
+        "to": "/es/docs/tutorials/cms-roles-y-permisos"
+      },
+      {
+        "from": "/pt/docs/tutorials/perfis-de-acesso-e-permissoes",
+        "to": "/pt/docs/tutorials/cms-perfis-de-acesso-e-permissoes"
       }
     ]
   }
