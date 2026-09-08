@@ -30,10 +30,12 @@ export type ArticlePageProps =
         previousDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
         nextDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
       }
       breadcrumbList: BreadcrumbItem[]
@@ -51,10 +53,12 @@ export type ArticlePageProps =
         previousDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
         nextDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
       }
       breadcrumbList: BreadcrumbItem[]
@@ -82,10 +86,12 @@ export interface MarkDownProps {
     previousDoc: {
       slug: string | null
       name: string | null
+      createdAt?: string
     }
     nextDoc: {
       slug: string | null
       name: string | null
+      createdAt?: string
     }
   }
   breadcrumbList: BreadcrumbItem[]
@@ -102,8 +108,12 @@ export interface ArticleRenderProps extends MarkDownProps {
   showFeedbackSection?: boolean
   showSuggestEdits?: boolean
   showArticlePagination?: boolean
+  paginationPreviousChildren?: ReactNode
+  paginationNextChildren?: ReactNode
   showTableOfContents?: boolean
-  showDateText?: boolean
+  showCreatedAt?: boolean
+  createdAtFormat?: 'long' | 'published'
+  showUpdatedAt?: boolean
 }
 
 // Article Index Types

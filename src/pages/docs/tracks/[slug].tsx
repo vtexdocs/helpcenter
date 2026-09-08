@@ -74,7 +74,7 @@ const TrackPage: NextPage<ArticlePageProps> = ({
       contributors={componentProps.contributors}
       seeAlsoData={componentProps.seeAlsoData}
       path={componentProps.path}
-      showDateText={false}
+      showCreatedAt={false}
     />
   ) : (
     <ArticleIndex

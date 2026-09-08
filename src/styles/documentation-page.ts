@@ -161,9 +161,11 @@ const articleIndexContentContainer: SxStyleProp = {
 }
 
 const documentationTitle: SxStyleProp = {
-  marginTop: '16px',
-  fontSize: ['24px', '28px'],
-  lineHeight: ['32px', '36px'],
+  display: 'block',
+  marginTop: ['16px', '16px', '24px'],
+  marginBottom: 0,
+  fontSize: ['28px', '28px', '36px'],
+  lineHeight: ['36px', '36px', '44px'],
   fontWeight: '400',
   color: '#142032',
   overflowWrap: 'anywhere',

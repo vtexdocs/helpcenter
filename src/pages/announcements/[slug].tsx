@@ -26,6 +26,7 @@ import {
 import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { sanitizeArray } from 'utils/sanitizeArrays'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
+import { withPaginationCreatedAt } from 'utils/article-page/withPaginationCreatedAt'
 import { getMessages } from 'utils/get-messages'
 import type { SectionId } from 'utils/typings/unionTypes'
 import { getCategoryCoverRevalidateTime } from 'utils/config'
@@ -67,8 +68,11 @@ const AnnouncementPage: NextPage<ArticlePageProps> = ({
       seeAlsoData={componentProps.seeAlsoData}
       path={componentProps.path}
       showAuthor
+      showCreatedAt
+      showUpdatedAt
       showContributors={false}
       showSuggestEdits={false}
+      pagination={pagination}
     />
   ) : (
     <ArticleIndex
@@ -195,7 +199,17 @@ export const getStaticProps: GetStaticProps = async ({
   let parentsArrayName: string[] = []
   let parentsArrayType: string[] = []
   let categoryTitle = ''
-  let pagination = {}
+  let pagination: {
+    previousDoc: {
+      slug: string | null
+      name: string | null
+      createdAt?: string
+    }
+    nextDoc: { slug: string | null; name: string | null; createdAt?: string }
+  } = {
+    previousDoc: { slug: null, name: null },
+    nextDoc: { slug: null, name: null },
+  }
 
   if (isListed) {
     const {
@@ -221,13 +235,17 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArrayType,
       'announcements'
     )
-    pagination = getPagination({
+    const sidebarPagination = getPagination({
       contentType: 'announcements',
       sidebarfallback,
       currentLocale: effectiveLocale,
       slug,
       logger,
     }).pagination
+    pagination = {
+      previousDoc: sidebarPagination.nextDoc,
+      nextDoc: sidebarPagination.previousDoc,
+    }
 
     if (isAnnouncementCategory.length > 0 && !mdFileExists) {
       //Se existe a categoria, mas a slug está em outro locale, redireciona
@@ -331,12 +349,22 @@ export const getStaticProps: GetStaticProps = async ({
     const contributor = githubLogin ? await fetchGitHubUser(githubLogin) : null
     const contributors = [contributor]
     logger.info(`Processing ${slug}`)
-    const seeAlsoData = await getSeeAlsoData(
-      serialized?.frontmatter?.seeAlso as string[],
-      docsPaths,
-      effectiveLocale,
-      logger
-    )
+    const [seeAlsoData, paginationWithDates] = await Promise.all([
+      getSeeAlsoData(
+        serialized?.frontmatter?.seeAlso as string[],
+        docsPaths,
+        effectiveLocale,
+        logger
+      ),
+      withPaginationCreatedAt({
+        pagination,
+        docsPaths,
+        locale: effectiveLocale as 'en' | 'pt' | 'es',
+        branch,
+        sectionSelected,
+        logger,
+      }),
+    ])
     logger.info(`Generating markdown file for: ${slug}`)
 
     // Sanitize arrays to remove any undefined values that might cause JSON serialization errors
@@ -352,7 +380,7 @@ export const getStaticProps: GetStaticProps = async ({
         sectionSelected,
         parentsArray: sanitizedParentsArray,
         slug,
-        pagination,
+        pagination: paginationWithDates,
         isListed,
         breadcrumbList,
         branch,

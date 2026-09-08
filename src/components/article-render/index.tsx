@@ -1,6 +1,5 @@
 import { ArticleRender as ArticleLayout } from '@vtexdocs/components'
 
-import SeeAlsoSection from 'components/see-also-section'
 import PaymentProvidersTable from 'components/payment-providers-table'
 import DataTable from 'components/datatable'
 import { DataTablesProvider } from 'components/datatable/context'
@@ -36,6 +35,8 @@ const ArticleRender = ({
   path,
   seeAlsoData,
   pagination,
+  paginationPreviousChildren,
+  paginationNextChildren,
   slug,
   type,
   children,
@@ -47,7 +48,9 @@ const ArticleRender = ({
   showSuggestEdits,
   showArticlePagination,
   showTableOfContents,
-  showDateText,
+  showCreatedAt,
+  createdAtFormat,
+  showUpdatedAt,
 }: ArticleRenderProps) => {
   const dataTablesData =
     (serialized.scope as { dataTablesData?: DataTablesData } | undefined)
@@ -70,6 +73,8 @@ const ArticleRender = ({
       contributors={contributors}
       path={path}
       pagination={pagination}
+      paginationPreviousChildren={paginationPreviousChildren}
+      paginationNextChildren={paginationNextChildren}
       slug={slug}
       type={type}
       pageUrl={pageUrl}
@@ -81,11 +86,7 @@ const ArticleRender = ({
           {markdown}
         </DataTablesProvider>
       )}
-      seeAlso={
-        serialized.frontmatter?.seeAlso ? (
-          <SeeAlsoSection docs={seeAlsoData} />
-        ) : undefined
-      }
+      seeAlso={seeAlsoData}
       showReadingTime={showReadingTime}
       showAskAIMenu={showAskAIMenu}
       showAuthor={showAuthor}
@@ -94,7 +95,9 @@ const ArticleRender = ({
       showSuggestEdits={showSuggestEdits}
       showArticlePagination={showArticlePagination}
       showTableOfContents={showTableOfContents}
-      showDateText={showDateText}
+      showCreatedAt={showCreatedAt}
+      createdAtFormat={createdAtFormat}
+      showUpdatedAt={showUpdatedAt}
     >
       {children}
     </ArticleLayout>

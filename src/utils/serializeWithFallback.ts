@@ -2,13 +2,15 @@ import { remarkCodeHike } from '@code-hike/mdx'
 import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
-import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
-import remarkMermaid from 'utils/remark_plugins/mermaid'
+import { Item } from '@vtexdocs/components'
+import {
+  remarkBlockquote,
+  remarkMermaid,
+  remarkReadingTime,
+} from '@vtexdocs/components/remark'
 import theme from 'styles/code-hike-theme'
 import remarkImages from 'utils/remark_plugins/plaiceholder'
 import getHeadings from 'utils/article-page/getHeadings'
-import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
-import { Item } from '@vtexdocs/components'
 import { type CompileOptions as OriginalCompileOptions } from '@mdx-js/mdx'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'

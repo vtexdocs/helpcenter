@@ -23,19 +23,30 @@ const cardContainer: SxStyleProp = {
 }
 
 const titleContainer: SxStyleProp = {
+  alignItems: 'flex-start',
+  gap: '12px',
+}
+
+const seeAlsoIcon: SxStyleProp = {
+  display: 'flex',
   alignItems: 'center',
+  justifyContent: 'center',
+  flexShrink: 0,
+  width: '32px',
+  height: '32px',
+  borderRadius: '8px',
+  backgroundColor: '#F4F5F7',
 }
 
 const title: SxStyleProp = {
-  ml: '8px',
-  color: 'muted.0',
+  color: '#142032',
 }
 
 const description: SxStyleProp = {
-  ml: '32px',
-  fontSize: '16px',
-  lineHeight: '18px',
-  color: 'muted.1',
+  mt: '2px',
+  fontSize: '12px',
+  lineHeight: '16px',
+  color: '#5E6E84',
 }
 
 export default {
@@ -43,4 +54,5 @@ export default {
   description,
   title,
   titleContainer,
+  seeAlsoIcon,
 }

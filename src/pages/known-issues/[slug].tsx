@@ -102,6 +102,9 @@ const KnownIssuePage: NextPage<ArticlePageProps> = ({
       seeAlsoData={componentProps.seeAlsoData}
       path={componentProps.path}
       showSuggestEdits={false}
+      showCreatedAt
+      createdAtFormat="published"
+      showUpdatedAt
     >
       <KnownIssueMeta
         productTeam={
