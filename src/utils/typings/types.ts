@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import { IconProps } from '@vtex/brand-ui'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { Item, ContributorsType, BreadcrumbItem } from '@vtexdocs/components'
-import { MouseEventHandler } from 'react'
+import { MouseEventHandler, ReactNode } from 'react'
 import {
   UpdatesTitle,
   ResourceTitle,
@@ -30,10 +30,12 @@ export type ArticlePageProps =
         previousDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
         nextDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
       }
       breadcrumbList: BreadcrumbItem[]
@@ -51,10 +53,12 @@ export type ArticlePageProps =
         previousDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
         nextDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
       }
       breadcrumbList: BreadcrumbItem[]
@@ -82,15 +86,34 @@ export interface MarkDownProps {
     previousDoc: {
       slug: string | null
       name: string | null
+      createdAt?: string
     }
     nextDoc: {
       slug: string | null
       name: string | null
+      createdAt?: string
     }
   }
   breadcrumbList: BreadcrumbItem[]
   headings: Item[]
   type: SectionId
+}
+
+export interface ArticleRenderProps extends MarkDownProps {
+  children?: ReactNode
+  showReadingTime?: boolean
+  showAskAIMenu?: boolean
+  showAuthor?: boolean
+  showContributors?: boolean
+  showFeedbackSection?: boolean
+  showSuggestEdits?: boolean
+  showArticlePagination?: boolean
+  paginationPreviousChildren?: ReactNode
+  paginationNextChildren?: ReactNode
+  showTableOfContents?: boolean
+  showCreatedAt?: boolean
+  createdAtFormat?: 'long' | 'published'
+  showUpdatedAt?: boolean
 }
 
 // Article Index Types

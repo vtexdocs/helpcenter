@@ -41,7 +41,6 @@ const FaqPage: NextPage<ArticlePageProps> = ({
   sectionSelected,
   isListed,
   branch,
-  pagination,
   breadcrumbList,
   componentProps,
   headingList,
@@ -66,17 +65,15 @@ const FaqPage: NextPage<ArticlePageProps> = ({
       contributors={componentProps.contributors}
       seeAlsoData={componentProps.seeAlsoData}
       path={componentProps.path}
+      showCreatedAt={false}
     />
   ) : (
     <ArticleIndex
       breadcrumbList={breadcrumbList}
       name={componentProps?.name ?? ''}
       children={componentProps?.children}
-      hidePaginationNext={componentProps?.hidePaginationNext}
-      hidePaginationPrevious={componentProps?.hidePaginationPrevious}
       isListed={isListed}
       slug={slug}
-      pagination={pagination}
     />
   )
 }
@@ -272,7 +269,6 @@ export const getStaticProps: GetStaticProps = async ({
         componentProps: {
           name: categoryTitle || slug,
           children: childrenList,
-          hidePaginationNext: !childrenList.length,
         },
         locale: effectiveLocale,
       },

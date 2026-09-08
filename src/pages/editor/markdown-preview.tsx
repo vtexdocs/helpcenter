@@ -6,13 +6,16 @@ import PageHeader from 'components/page-header'
 import type { Page } from 'utils/typings/types'
 import image from '../../../public/images/editor.png'
 import { serialize } from 'next-mdx-remote/serialize'
+import type { SerializeMdxOptions } from 'utils/serializeWithFallback'
 
 import remarkGFM from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import hljsCurl from 'highlightjs-curl'
-import remarkBlockquote from 'utils/remark_plugins/rehypeBlockquote'
-import remarkMermaid from 'utils/remark_plugins/mermaid'
-import { remarkReadingTime } from 'utils/remark_plugins/remarkReadingTime'
+import {
+  remarkBlockquote,
+  remarkMermaid,
+  remarkReadingTime,
+} from '@vtexdocs/components/remark'
 
 import styles from 'styles/document-editor'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
@@ -120,7 +123,7 @@ async function serializing(
         ],
         format: 'mdx',
         development: process.env.NODE_ENV === 'development',
-      },
+      } as SerializeMdxOptions,
     })
     serialized = JSON.parse(JSON.stringify(serialized))
   } catch (e) {
