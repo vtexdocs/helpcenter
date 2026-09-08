@@ -17982,6 +17982,42 @@
       {
         "from": "/pt/docs/tutorials/perfis-de-acesso-e-permissoes",
         "to": "/pt/docs/tutorials/cms-perfis-de-acesso-e-permissoes"
+      },
+      {
+        "from": "/pt/faq/por-que-o-zoom-da-minha-loja-nao-funciona",
+        "to": "/pt/docs/tutorials/configurando-zoom-e-miniaturas-em-lojas-cms-portal-legado"
+      },
+      {
+        "from": "/es/faq/por-que-no-funciona-el-zoom-de-mi-tienda",
+        "to": "/es/docs/tutorials/configurar-zoom-y-miniaturas-en-tiendas-cms-portal-legado"
+      },
+      {
+        "from": "/faq/why-is-my-stores-zoom-not-working",
+        "to": "/docs/tutorials/configuring-zoom-and-thumbnails-in-cms-portal-legacy-stores"
+      },
+      {
+        "from": "/pt/faq/porque-a-imagem-thumb-esta-em-baixa-qualidade",
+        "to": "/pt/docs/tutorials/configurando-zoom-e-miniaturas-em-lojas-cms-portal-legado"
+      },
+      {
+        "from": "/es/faq/por-que-la-imagen-thumb-esta-en-baja-calidad",
+        "to": "/es/docs/tutorials/configurar-zoom-y-miniaturas-en-tiendas-cms-portal-legado"
+      },
+      {
+        "from": "/faq/why-is-the-thumb-image-of-poor-quality",
+        "to": "/docs/tutorials/configuring-zoom-and-thumbnails-in-cms-portal-legacy-stores"
+      },
+      {
+        "from": "/docs/tutorials/setting-up-the-standard-size-for-the-zoom-image",
+        "to": "/docs/tutorials/configuring-zoom-and-thumbnails-in-cms-portal-legacy-stores"
+      },
+      {
+        "from": "/es/docs/tutorials/configurar-el-tamano-estandar-de-la-imagen-de-zoom",
+        "to": "/es/docs/tutorials/configurar-zoom-y-miniaturas-en-tiendas-cms-portal-legado"
+      },
+      {
+        "from": "/pt/docs/tutorials/configurar-o-tamanho-padrao-da-imagem-de-zoom",
+        "to": "/pt/docs/tutorials/configurando-zoom-e-miniaturas-em-lojas-cms-portal-legado"
       }
     ]
   }
