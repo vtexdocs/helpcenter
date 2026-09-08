@@ -18018,6 +18018,10 @@
       {
         "from": "/pt/docs/tutorials/configurar-o-tamanho-padrao-da-imagem-de-zoom",
         "to": "/pt/docs/tutorials/configurando-zoom-e-miniaturas-em-lojas-cms-portal-legado"
+      },
+      {
+        "from": "/es/docs/tracks/tiendas-transfronterizas-cross-border",
+        "to": "/es/docs/tracks/tiendas-internacionales-cross-border"
       }
     ]
   }
