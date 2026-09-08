@@ -7,7 +7,7 @@ import {
 } from 'utils/announcementTypeTags'
 
 import styles from './styles'
-import Tag from 'components/tag'
+import { Tag } from '@vtexdocs/components'
 import { useIntl } from 'react-intl'
 import DateText from 'components/date-text'
 

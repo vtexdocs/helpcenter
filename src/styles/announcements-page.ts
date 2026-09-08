@@ -9,8 +9,11 @@ const container: SxStyleProp = {
   alignItems: 'center',
   flexDirection: 'column',
   gap: '16px',
-  width: ['320px', '545px', '545px', '720px'],
-  maxWidth: '100vw',
+  width: '100%',
+  maxWidth: ['100%', '545px', '545px', '720px'],
+  px: ['16px', 0],
+  boxSizing: 'border-box',
+  minWidth: 0,
 }
 
 const cardContainer: SxStyleProp = {
@@ -19,11 +22,14 @@ const cardContainer: SxStyleProp = {
   justifyContent: 'flex-start',
   mb: '56px',
   width: '100%',
+  minWidth: 0,
+  maxWidth: '100%',
 }
 
 const yearTimelineBody: SxStyleProp = {
   position: 'relative',
   width: '100%',
+  minWidth: 0,
   flexDirection: 'column',
 }
 
@@ -34,23 +40,79 @@ const yearVerticalRail: SxStyleProp = {
   width: '2px',
   backgroundColor: tokens.grays.timelineRail,
   /** dateColumn width + trackColumn/2 − half line */
-  left: ['80px', '96px', '112px'],
+  left: ['72px', '80px', '96px', '112px'],
   top: 0,
   bottom: 0,
 }
 
-const optionsContainer: SxStyleProp = {
-  justifyContent: ['center', 'flex-start'],
-  alignItems: 'center',
-  alignContent: 'center',
-  gap: '24px',
+const toolbar: SxStyleProp = {
   width: '100%',
+  minWidth: 0,
+  flexDirection: ['column', 'row'],
+  alignItems: ['stretch', 'center'],
+  gap: ['12px', '12px'],
   flexWrap: 'wrap',
 }
 
+const filterWrap: SxStyleProp = {
+  flexShrink: 0,
+}
+
+const searchWrap: SxStyleProp = {
+  flex: 1,
+  minWidth: 0,
+  width: ['100%', 'auto'],
+  alignItems: 'center',
+  gap: '8px',
+}
+
+const helpButton: SxStyleProp = {
+  alignItems: 'center',
+  justifyContent: 'center',
+  display: 'flex',
+  width: '24px',
+  height: '24px',
+  borderRadius: '50%',
+  border: '1px solid',
+  borderColor: 'muted.2',
+  backgroundColor: 'transparent',
+  color: 'muted.1',
+  fontSize: '12px',
+  fontWeight: 700,
+  cursor: 'help',
+  flexShrink: 0,
+  p: 0,
+  transition: '0.2s',
+  ':hover': {
+    borderColor: 'muted.0',
+    color: 'muted.0',
+  },
+  ':focus-visible': {
+    outline: 'none',
+    boxShadow: '0 0 0 2px rgba(20, 32, 50, 0.2)',
+  },
+}
+
 const noResults: SxStyleProp = {
-  py: '32px',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  py: ['40px', '56px'],
+  px: '24px',
+  mt: '8px',
   textAlign: 'center',
+  fontSize: '15px',
+  color: 'muted.1',
+  backgroundColor: 'muted.4',
+  borderRadius: '8px',
+}
+
+const resultsNumberContainer: SxStyleProp = {
+  fontSize: '14px',
+  fontWeight: '600',
+  color: 'muted.1',
+  mb: ['24px', '32px'],
 }
 
 const resultsNumberContainer: SxStyleProp = {
@@ -60,6 +122,7 @@ const resultsNumberContainer: SxStyleProp = {
 
 const yearBlock: SxStyleProp = {
   width: '100%',
+  minWidth: 0,
   flexDirection: 'column',
   gap: 0,
 }
@@ -72,9 +135,10 @@ const yearHeading: SxStyleProp = {
   fontWeight: '400',
   color: tokens.grays.yearHeading,
   width: 'auto',
+  maxWidth: '100%',
   display: 'inline-block',
   position: 'relative',
-  left: ['81px', '97px', '113px'],
+  left: ['73px', '81px', '97px', '113px'],
   transform: 'translateX(-50%)',
   textAlign: 'center',
   mb: ['20px', '24px'],
@@ -100,6 +164,7 @@ const seeMoreButton: SxStyleProp = {
   ':hover': {
     borderColor: 'muted.0',
     color: 'secondary.hover',
+    boxShadow: '0 1px 2px rgba(20, 32, 50, 0.08)',
   },
   ':focus-visible': {
     outline: 'none',
@@ -124,7 +189,10 @@ export default {
   cardContainer,
   yearTimelineBody,
   yearVerticalRail,
-  optionsContainer,
+  toolbar,
+  filterWrap,
+  searchWrap,
+  helpButton,
   noResults,
   resultsNumberContainer,
   searchInput,

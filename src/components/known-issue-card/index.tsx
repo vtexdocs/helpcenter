@@ -3,7 +3,7 @@ import { Flex, Text, Link } from '@vtex/brand-ui'
 import type { KnownIssueDataElement } from 'utils/typings/types'
 
 import styles from './styles'
-import Tag from 'components/tag'
+import { Tag } from '@vtexdocs/components'
 import DateText from 'components/date-text'
 import { useIntl } from 'react-intl'
 
@@ -21,7 +21,7 @@ const KnownIssueCard = ({
   const updatedAtDate = new Date(updatedAt)
 
   return (
-    <Link href={`known-issues/${slug}`}>
+    <Link href={`known-issues/${slug}`} sx={styles.link}>
       <Flex sx={styles.container}>
         <Flex sx={styles.topContainer}>
           <Tag color={kiStatus}>

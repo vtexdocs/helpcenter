@@ -313,6 +313,8 @@ export const getStaticProps: GetStaticProps = async ({
       headingList,
       logger,
       path: effectiveMdFilePath || mdFilePath,
+      branch,
+      locale: effectiveLocale,
     })
     if (!serialized) {
       logger.error(
@@ -351,6 +353,7 @@ export const getStaticProps: GetStaticProps = async ({
         isListed,
         breadcrumbList,
         branch,
+        headingList,
         componentProps: {
           content: documentationContent,
           serialized: JSON.parse(JSON.stringify(serialized)),

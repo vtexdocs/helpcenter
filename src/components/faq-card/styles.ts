@@ -1,14 +1,25 @@
 import type { SxStyleProp } from '@vtex/brand-ui'
 
+const link: SxStyleProp = {
+  display: 'block',
+  width: '100%',
+  maxWidth: '100%',
+  minWidth: 0,
+  textDecoration: 'none',
+}
+
 const container: SxStyleProp = {
-  px: ['32px', '32px', '36px', '64px'],
-  py: '24px',
+  px: ['20px', '32px', '36px', '64px'],
+  py: ['20px', '24px'],
   display: 'flex',
   flexDirection: 'column',
-  gap: '16px',
+  gap: ['12px', '16px'],
   borderRadius: '4px',
   border: '1px solid #E7E9EE',
-  width: ['320px', '544px', '720px'],
+  width: '100%',
+  maxWidth: '100%',
+  minWidth: 0,
+  boxSizing: 'border-box',
   transition: 'all 0.3s ease-out',
   ':hover': {
     cursor: 'pointer',
@@ -25,18 +36,22 @@ const container: SxStyleProp = {
 }
 
 const title: SxStyleProp = {
-  fontSize: ['14px', '20px'],
+  fontSize: ['16px', '18px', '20px'],
   fontWeight: '400',
-  lineHeight: ['22px', '30px'],
+  lineHeight: ['24px', '28px', '30px'],
   color: 'muted.0',
+  overflowWrap: 'break-word',
+  wordBreak: 'break-word',
 }
 
 const tag: SxStyleProp = {
   width: 'max-content',
+  maxWidth: '100%',
   px: '8px',
 }
 
 export default {
+  link,
   container,
   title,
   tag,

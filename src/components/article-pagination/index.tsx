@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Grid, Text, Box } from '@vtex/brand-ui'
+import { Flex, Text, Box } from '@vtex/brand-ui'
 import { useIntl } from 'react-intl'
 import styles from './styles'
 
@@ -27,59 +27,62 @@ const ArticlePagination = ({
   const intl = useIntl()
   const { locale } = useRouter()
 
+  const showPrevious =
+    !hidePaginationPrevious &&
+    Boolean(pagination?.previousDoc?.slug) &&
+    Boolean(pagination?.previousDoc?.name)
+  const showNext =
+    !hidePaginationNext &&
+    Boolean(pagination?.nextDoc?.slug) &&
+    Boolean(pagination?.nextDoc?.name)
+
   return (
-    <Box sx={styles.mainContainer}>
-      <Grid sx={styles.flexContainer}>
-        {!hidePaginationPrevious &&
-          pagination?.previousDoc?.slug &&
-          pagination?.previousDoc?.name && (
+    <Box as="nav" sx={styles.mainContainer}>
+      <Flex sx={styles.flexContainer}>
+        {showPrevious && (
+          <Box sx={styles.paginationLinkPrevious}>
             <Link
-              style={styles.paginationLinkPrevious}
-              href={pagination?.previousDoc?.slug}
+              style={styles.linkReset}
+              href={pagination.previousDoc.slug as string}
               locale={locale}
             >
               <Box sx={styles.paginationBox}>
-                <Text sx={styles.paginationText}>
-                  {pagination?.previousDoc?.name}
-                </Text>
                 <Text sx={styles.subTitle}>
                   {`« ${intl.formatMessage({
                     id: 'article_pagination.previous',
                     defaultMessage: 'Previous',
                   })}`}
                 </Text>
+                <Text sx={styles.paginationText}>
+                  {pagination.previousDoc.name}
+                </Text>
               </Box>
             </Link>
-          )}
+          </Box>
+        )}
 
-        {!hidePaginationNext &&
-          pagination?.nextDoc?.slug &&
-          pagination?.nextDoc?.name && (
+        {showNext && (
+          <Box sx={styles.paginationLinkNext}>
             <Link
-              style={styles.paginationLinkNext}
-              href={pagination?.nextDoc?.slug}
+              style={styles.linkReset}
+              href={pagination.nextDoc.slug as string}
               locale={locale}
             >
-              <Box
-                sx={
-                  !hidePaginationPrevious
-                    ? styles.paginationBox
-                    : styles.justNext
-                }
-              >
-                <Text sx={styles.paginationText}>
-                  {pagination?.nextDoc?.name}
-                </Text>
+              <Box sx={styles.paginationBoxNext}>
                 <Text sx={styles.subTitle}>
                   {`${intl.formatMessage({
                     id: 'article_pagination.next',
                     defaultMessage: 'Next',
                   })} »`}
                 </Text>
+                <Text sx={styles.paginationText}>
+                  {pagination.nextDoc.name}
+                </Text>
               </Box>
             </Link>
-          )}
-      </Grid>
+          </Box>
+        )}
+      </Flex>
     </Box>
   )
 }

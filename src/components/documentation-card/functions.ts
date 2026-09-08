@@ -7,21 +7,25 @@ const cardContainer = (containerType: string) => {
       ? ['308px', '442px', '444px', '480px']
       : containerType === 'mobile'
       ? '100%'
-      : ['324px', '544px', '544px', '544px', '544px', '720px', '1400px']
+      : ['100%', '100%', '544px', '544px', '544px', '720px', '1400px']
 
   const textWidth =
     containerType === 'dropdown'
       ? ['276px', '410px', '412px', '432px']
       : containerType === 'mobile'
       ? '90%'
-      : ['276px', '496px', '496px', '496px', '496px', '672px', '1352px']
+      : ['100%', '100%', '496px', '496px', '496px', '672px', '1352px']
 
   const cardContainer: SxStyleProp = {
     ...styles.cardContainer,
     width: containerWidth,
+    maxWidth: '100%',
+    minWidth: 0,
+    boxSizing: 'border-box',
 
     '.title, .description': {
       width: textWidth,
+      maxWidth: '100%',
     },
   }
 

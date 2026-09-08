@@ -12,6 +12,7 @@ import { Item } from '@vtexdocs/components'
 import { type CompileOptions as OriginalCompileOptions } from '@mdx-js/mdx'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { getDataTablesData } from 'utils/getDataTablesData'
 
 export type SerializeMdxOptions = Omit<
   OriginalCompileOptions,
@@ -23,11 +24,15 @@ export async function serializeWithFallback({
   headingList,
   logger,
   path,
+  branch,
+  locale,
 }: {
   content: string
   headingList: Item[]
   logger: { warn: (msg: string) => void; error: (msg: string) => void }
   path: string
+  branch?: string
+  locale?: string
 }) {
   const mdxOptionsBase = (format: 'md' | 'mdx', headingList: Item[] = []) => ({
     remarkPlugins: [
@@ -46,24 +51,23 @@ export async function serializeWithFallback({
     format,
   })
 
+  let serialized: MDXRemoteSerializeResult | null = null
+
   try {
-    // Try to serialize as MDX first
-    const serialized: MDXRemoteSerializeResult = await serialize(content, {
+    serialized = await serialize(content, {
       parseFrontmatter: true,
       mdxOptions: mdxOptionsBase('mdx', headingList) as SerializeMdxOptions,
     })
-    return serialized
   } catch (error) {
     logger.warn(
       `MDX serialization failed for ${path}, falling back to MD.\n${error}`
     )
 
     try {
-      const serialized: MDXRemoteSerializeResult = await serialize(content, {
+      serialized = await serialize(content, {
         parseFrontmatter: true,
         mdxOptions: mdxOptionsBase('md', headingList) as SerializeMdxOptions,
       })
-      return serialized
     } catch (fallbackError) {
       logger.error(
         `Both MDX and MD serialization failed for ${path}\n${fallbackError}`
@@ -71,4 +75,22 @@ export async function serializeWithFallback({
       return null
     }
   }
+
+  if (serialized && branch && locale) {
+    try {
+      const dataTablesData = await getDataTablesData({
+        content,
+        branch,
+        locale,
+        logger,
+      })
+      if (Object.keys(dataTablesData).length > 0) {
+        serialized.scope = { ...(serialized.scope ?? {}), dataTablesData }
+      }
+    } catch (error) {
+      logger.warn(`Failed to attach DataTable data for ${path}\n${error}`)
+    }
+  }
+
+  return serialized
 }

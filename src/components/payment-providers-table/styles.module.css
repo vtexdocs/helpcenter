@@ -1,0 +1,178 @@
+.container {
+  margin: 24px 0;
+  /* Cap the whole block (filters, table, pagination) at 80% of the column
+     so the table doesn't feel too wide on large screens. */
+  width: 80%;
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 100%;
+  }
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6f7173;
+}
+
+.field input,
+.field select {
+  font: inherit;
+  font-weight: 400;
+  color: #3a3b3c;
+  padding: 8px 10px;
+  border: 1px solid #e3e4e6;
+  border-radius: 6px;
+  background: #fff;
+  min-width: 170px;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 2px solid #f71963;
+  outline-offset: 1px;
+}
+
+.count {
+  font-size: 13px;
+  color: #6f7173;
+  margin: 0 0 8px;
+}
+
+.table {
+  /* The Help Center global stylesheet sets `table { display: inline-block }`,
+     which makes the inner table box shrink-wrap to its content regardless of
+     `width`. Restore the proper display so the width applies. */
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #e3e4e6;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table th {
+  background: #f8f7fc;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.table th button {
+  font: inherit;
+  font-weight: 650;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 10px 12px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.table th button span {
+  color: #f71963;
+  font-size: 11px;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #fbfbfc;
+}
+
+.table tbody tr:hover {
+  background: #fff0f5;
+}
+
+.country {
+  white-space: nowrap;
+}
+
+.country img {
+  border-radius: 2px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  margin-right: 8px;
+  vertical-align: -3px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badgeYes {
+  background: #e6f7ee;
+  color: #137d52;
+}
+
+.badgeNo {
+  background: #f3f3f4;
+  color: #6f7173;
+}
+
+.empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: #6f7173;
+}
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #3a3b3c;
+}
+
+.pagination button {
+  font: inherit;
+  padding: 6px 12px;
+  border: 1px solid #e3e4e6;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #3a3b3c;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: #f71963;
+  color: #f71963;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .field {
+    flex: 1 1 100%;
+  }
+
+  .field input,
+  .field select {
+    min-width: 0;
+    width: 100%;
+  }
+}

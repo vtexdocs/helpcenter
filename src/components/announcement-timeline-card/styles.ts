@@ -1,33 +1,39 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+import tokens from 'styles/theme-tokens'
+
+const { landing } = tokens
+
 const cardContainer: SxStyleProp = {
-  mt: ['16px', '24px', '24px', '32px'],
-  px: ['16px', '24px', '24px', '48px'],
-  py: ['16px', '64px', '64px'],
-  justifyContent: 'flex-start',
+  width: '100%',
+  px: ['20px', '28px', '40px'],
+  py: ['24px', '36px', '48px'],
+  justifyContent: 'space-between',
+  alignItems: ['flex-start', 'flex-start', 'flex-start'],
   backgroundColor: 'white',
-  borderRadius: '8px',
-  border: '1px solid #E7E9EE',
-  transition: 'all 0.3s ease-out',
-  color: '#5E6E84',
-  columnGap: '96px',
-  rowGap: '64px',
+  borderRadius: landing.cardRadius,
+  border: `1px solid ${landing.border}`,
+  color: landing.muted,
+  columnGap: ['32px', '48px', '72px'],
+  rowGap: ['24px', '32px'],
   flexWrap: 'wrap',
 }
 
 const title: SxStyleProp = {
-  fontSize: '22px',
-  lineHeight: '22px',
+  fontSize: landing.type.cardTitle,
+  lineHeight: landing.type.cardTitleLine,
   gap: '10px',
-  textAlign: 'top',
+  alignItems: 'center',
+  color: landing.ink,
+  letterSpacing: '-0.01em',
 }
 
 const description: SxStyleProp = {
-  color: 'muted.1',
-  fontSize: '16px',
-  lineHeight: '22px',
+  color: landing.body,
+  fontSize: landing.type.cardBody,
+  lineHeight: landing.type.cardBodyLine,
   ml: '34px',
-  mt: '4px',
+  mt: '8px',
 }
 
 const icon: SxStyleProp = {
@@ -42,7 +48,9 @@ const releaseContainer: SxStyleProp = {
 }
 
 const timelineContainer: SxStyleProp = {
-  display: ['none', 'block', 'block', 'block', 'block', 'block'],
+  display: 'block',
+  flex: 1,
+  minWidth: ['100%', '100%', '280px'],
 }
 
 const timeLineBar: SxStyleProp = {
@@ -65,32 +73,34 @@ const timeLineBar: SxStyleProp = {
     padding: '0',
     '& > :nth-of-type(2)': {
       mt: '10px',
-      mb: '32px',
+      mb: '28px',
     },
   },
 }
 
 const timelineTitle: SxStyleProp = {
-  fontSize: '18px',
-  transition: 'all .35s',
-  color: '#5B6E84',
+  fontSize: landing.type.cardBody,
+  lineHeight: landing.type.cardBodyLine,
+  transition: 'color .2s ease',
+  color: landing.body,
   ':hover': {
-    color: '#142032',
+    color: landing.ink,
   },
 }
 
 const content: SxStyleProp = {
-  color: 'muted.1',
-  fontSize: '16px',
-  lineHeight: '22px',
+  color: landing.muted,
+  fontSize: landing.type.meta,
+  lineHeight: landing.type.metaLine,
   flexDirection: 'column',
 }
 
 const newTitle: SxStyleProp = {
   margin: '0',
-  color: '#F71963',
-  fontSize: '16px',
-  lineHeight: '18px',
+  color: landing.pink,
+  fontSize: landing.type.meta,
+  lineHeight: landing.type.metaLine,
+  fontWeight: '500',
 }
 
 const placeholder: SxStyleProp = {

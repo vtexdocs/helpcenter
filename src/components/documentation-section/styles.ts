@@ -1,27 +1,36 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+import tokens from 'styles/theme-tokens'
+
+const { landing } = tokens
+
 const sectionContainer: SxStyleProp = {
-  paddingTop: ['0px', '32px'],
-  paddingBottom: ['24px', '52px', '52px', '48px'],
+  width: '100%',
+  maxWidth: landing.contentMaxWidth,
+  px: [...landing.sectionPaddingX],
+  pt: [...landing.sectionPaddingY],
+  pb: ['40px', '56px', '64px'],
   margin: 'auto',
 }
 
 const title: SxStyleProp = {
-  fontSize: ['28px', '28px', '28px', '40px'],
-  lineHeight: ['30px', '38px', '38px', '50px'],
+  fontSize: [...landing.type.sectionTitle],
+  lineHeight: [...landing.type.sectionTitleLine],
   fontWeight: '400',
-  color: '#4A4A4A',
+  color: landing.ink,
   textAlign: 'center',
-  mt: ['32px'],
-  mb: ['24px', '52px', '52px', '48px', '32px'],
+  letterSpacing: '-0.02em',
+  mb: ['24px', '32px', '40px'],
 }
 
 const cardsContainer: SxStyleProp = {
-  width: ['80%', '60%', '70%', '60%', '35rem', '35rem'],
+  width: '100%',
+  maxWidth: '800px',
   margin: 'auto',
   flexWrap: 'wrap',
-  gap: ['12px', '32px'],
+  gap: ['16px', '24px'],
   alignItems: 'stretch',
+  justifyContent: 'center',
 }
 
 export default {

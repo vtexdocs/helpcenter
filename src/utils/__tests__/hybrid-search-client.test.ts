@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest'
 import {
   clampLimit,
   createHybridSearchClient,
@@ -94,6 +93,54 @@ describe('createHybridSearchClient', () => {
     expect(String(fetchImpl.mock.calls[0][0])).not.toContain('locale=')
   })
 
+  it('forwards doctype to the upstream URL when provided', async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ results: [] }),
+    })
+    const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+    await client.search({ q: 'foo', doctype: 'tutorials' })
+
+    const url = String(fetchImpl.mock.calls[0][0])
+    expect(url).toContain('doctype=tutorials')
+  })
+
+  it.each([
+    'tracks',
+    'tutorials',
+    'faq',
+    'known-issues',
+    'troubleshooting',
+    'announcements',
+  ])('forwards allowlisted doctype "%s" unchanged', async (doctype) => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ results: [] }),
+    })
+    const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+    await client.search({ q: 'foo', doctype })
+
+    const url = new URL(String(fetchImpl.mock.calls[0][0]))
+    expect(url.searchParams.get('doctype')).toBe(doctype)
+  })
+
+  it('omits doctype when not provided', async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ results: [] }),
+    })
+    const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+    await client.search({ q: 'foo' })
+
+    expect(String(fetchImpl.mock.calls[0][0])).not.toContain('doctype=')
+  })
+
   it('throws HybridSearchError with upstreamStatus on non-OK responses', async () => {
     const fetchImpl = vi.fn().mockResolvedValue({
       ok: false,
@@ -126,6 +173,111 @@ describe('createHybridSearchClient', () => {
     await expect(client.search({ q: 'foo' })).rejects.toMatchObject({
       name: 'HybridSearchError',
       message: 'Hybrid search failed',
+    })
+  })
+
+  describe('counts()', () => {
+    const upstreamCountsPayload = {
+      counts: {
+        tracks: 1,
+        tutorial: 5,
+        faq: 2,
+        troubleshooting: 0,
+        announcements: 3,
+      },
+      total: 11,
+    }
+
+    it('exposes counts() and hits /api/hybrid-search/counts with q, source, and locale', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => upstreamCountsPayload,
+      })
+      const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+      expect(client.counts).toBeDefined()
+      expect(typeof client.counts).toBe('function')
+
+      const data = await client.counts({ q: 'foo', locale: 'pt' })
+
+      const url = String(fetchImpl.mock.calls[0][0])
+      expect(url).toContain(
+        'https://hs.test.example.com/api/hybrid-search/counts'
+      )
+      expect(url).toContain('q=foo')
+      expect(url).toContain('source=help-center')
+      expect(url).toContain('locale=pt')
+      expect(url).not.toContain('limit=')
+
+      const init = fetchImpl.mock.calls[0][1] as RequestInit
+      expect(init.headers).toMatchObject({
+        'X-Internal-Access-Key': 'test-key',
+        Accept: 'application/json',
+      })
+
+      expect(data).toEqual(upstreamCountsPayload)
+    })
+
+    it('omits locale when not provided', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => upstreamCountsPayload,
+      })
+      const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+      await client.counts({ q: 'foo' })
+
+      expect(String(fetchImpl.mock.calls[0][0])).not.toContain('locale=')
+    })
+
+    it('rejects with HybridSearchError when q is empty', async () => {
+      const fetchImpl = vi.fn()
+      const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+      await expect(client.counts({ q: '' })).rejects.toBeInstanceOf(
+        HybridSearchError
+      )
+      await expect(client.counts({ q: '   ' })).rejects.toBeInstanceOf(
+        HybridSearchError
+      )
+      expect(fetchImpl).not.toHaveBeenCalled()
+    })
+
+    it('throws HybridSearchError with upstreamStatus on non-OK responses', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue({
+        ok: false,
+        status: 401,
+      })
+      const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+      await expect(client.counts({ q: 'foo' })).rejects.toMatchObject({
+        name: 'HybridSearchError',
+        upstreamStatus: 401,
+      })
+    })
+
+    it('translates aborts into a "timed out" HybridSearchError', async () => {
+      const abortError = new Error('The operation was aborted')
+      abortError.name = 'AbortError'
+      const fetchImpl = vi.fn().mockRejectedValue(abortError)
+      const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+      await expect(client.counts({ q: 'foo' })).rejects.toMatchObject({
+        name: 'HybridSearchError',
+        message: expect.stringContaining('timed out'),
+      })
+    })
+
+    it('wraps unexpected errors in HybridSearchError', async () => {
+      const fetchImpl = vi.fn().mockRejectedValue(new Error('boom'))
+      const client = createHybridSearchClient({ ...baseConfig, fetchImpl })
+
+      await expect(client.counts({ q: 'foo' })).rejects.toMatchObject({
+        name: 'HybridSearchError',
+        message: 'Hybrid search failed',
+      })
     })
   })
 })

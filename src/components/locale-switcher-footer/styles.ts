@@ -1,5 +1,7 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+const DESKTOP_FROM = '1024px'
+
 const localeLabel: SxStyleProp = {
   color: 'white',
   pl: 2,
@@ -11,15 +13,19 @@ const optionContainer: SxStyleProp = {
   position: 'absolute',
   display: 'flex',
   flexDirection: 'column',
-  marginRight: '10px',
   top: 'auto',
-  right: '0',
+  left: 0,
+  right: 'auto',
   bottom: '100%',
   px: 5,
   borderTop: 'none',
   backgroundColor: '#ffffff',
   boxShadow: '0px 20px 25px rgba(20, 32, 50, 0.1)',
   zIndex: 5,
+  [`@media screen and (min-width: ${DESKTOP_FROM})`]: {
+    left: 'auto',
+    right: 0,
+  },
 }
 
 const baseLocaleSwitcher: SxStyleProp = {

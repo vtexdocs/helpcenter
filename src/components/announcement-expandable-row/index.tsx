@@ -2,7 +2,7 @@ import { Box, Flex, IconCaret, Link, Text } from '@vtex/brand-ui'
 import { useState } from 'react'
 import { useIntl } from 'react-intl'
 
-import Tag from 'components/tag'
+import { Tag } from '@vtexdocs/components'
 import {
   announcementTypeTagColorMap,
   filterAnnouncementTypeTags,
@@ -18,6 +18,7 @@ interface Props {
   publishedAt: Date
   synopsis?: string
   tags?: string[]
+  defaultOpen?: boolean
 }
 
 const AnnouncementExpandableRow = ({
@@ -26,9 +27,10 @@ const AnnouncementExpandableRow = ({
   publishedAt,
   synopsis,
   tags,
+  defaultOpen = false,
 }: Props) => {
   const intl = useIntl()
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(defaultOpen)
 
   const synopsisText = synopsis?.trim()
   const hasSynopsis = Boolean(synopsisText)

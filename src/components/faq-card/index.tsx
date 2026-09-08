@@ -3,7 +3,7 @@ import { Box, Text, Link } from '@vtex/brand-ui'
 import type { FaqCardDataElement } from 'utils/typings/types'
 
 import styles from './styles'
-import Tag from 'components/tag'
+import { Tag } from '@vtexdocs/components'
 import DateText from 'components/date-text'
 
 const FaqCard = ({
@@ -17,7 +17,7 @@ const FaqCard = ({
   const updatedAtDate = new Date(updatedAt)
 
   return (
-    <Link href={`faq/${slug}`}>
+    <Link href={`faq/${slug}`} sx={styles.link}>
       <Box sx={styles.container}>
         <Text sx={styles.title} className="title">
           {title}
