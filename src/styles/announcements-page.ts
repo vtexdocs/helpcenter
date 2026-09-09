@@ -115,11 +115,6 @@ const resultsNumberContainer: SxStyleProp = {
   mb: ['24px', '32px'],
 }
 
-const resultsNumberContainer: SxStyleProp = {
-  fontSize: '1rem',
-  color: 'muted.0',
-}
-
 const yearBlock: SxStyleProp = {
   width: '100%',
   minWidth: 0,
