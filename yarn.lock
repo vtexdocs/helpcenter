@@ -3434,7 +3434,7 @@
   resolved "https://registry.yarnpkg.com/@vtex/tsconfig/-/tsconfig-0.6.0.tgz#c9dfffc95d2ef55195237411f9c15269ca30b2a5"
   integrity sha512-SVQBxaSdEVdpJFja1aVTIiZBgpQKePyYOUWGzcYq6LYkSWqSbz2LoC7TuLUsmfweYmVkv8+4eVuxcDpQVEpq1A==
 
-"@vtexdocs/components@https://github.com/vtexdocs/components.git#254ae371e954f083d2d88e433205373a98bb7297":
+"@vtexdocs/components@https://github.com/vtexdocs/components.git#EDU-18458-ki-search":
   version "7.0.3"
   resolved "https://github.com/vtexdocs/components.git#254ae371e954f083d2d88e433205373a98bb7297"
   dependencies:
