@@ -81,7 +81,7 @@ const iconGlobe: SxStyleProp = {
 
 const outerContainer: SxStyleProp = {
   cursor: 'initial',
-  top: 'calc(5rem + 1px)',
+  top: '5rem',
   right: 0,
   position: 'absolute',
   filter: 'drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.1))',

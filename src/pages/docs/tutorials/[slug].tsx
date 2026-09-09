@@ -79,6 +79,7 @@ const TutorialPage: NextPage<ArticlePageProps> = ({
       contributors={componentProps.contributors}
       seeAlsoData={componentProps.seeAlsoData}
       path={componentProps.path}
+      showCreatedAt={false}
     />
   ) : (
     <ArticleIndexing

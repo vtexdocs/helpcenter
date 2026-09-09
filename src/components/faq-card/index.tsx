@@ -4,25 +4,14 @@ import type { FaqCardDataElement } from 'utils/typings/types'
 
 import styles from './styles'
 import { Tag } from '@vtexdocs/components'
-import DateText from 'components/date-text'
 
-const FaqCard = ({
-  title,
-  productTeam,
-  slug,
-  createdAt,
-  updatedAt,
-}: FaqCardDataElement) => {
-  const createdAtDate = new Date(createdAt)
-  const updatedAtDate = new Date(updatedAt)
-
+const FaqCard = ({ title, productTeam, slug }: FaqCardDataElement) => {
   return (
     <Link href={`faq/${slug}`} sx={styles.link}>
       <Box sx={styles.container}>
         <Text sx={styles.title} className="title">
           {title}
         </Text>
-        <DateText createdAt={createdAtDate} updatedAt={updatedAtDate} />
         <Tag color={'Gray'} sx={styles.tag}>
           {productTeam}
         </Tag>
