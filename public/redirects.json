@@ -18022,6 +18022,18 @@
       {
         "from": "/es/docs/tracks/tiendas-transfronterizas-cross-border",
         "to": "/es/docs/tracks/tiendas-internacionales-cross-border"
+      },
+      {
+        "from": "/pt/docs/tutorials/vtex-pick-and-pack-fulfillment",
+        "to": "/pt/docs/tutorials/vtex-pick-and-pack"
+      },
+      {
+        "from": "/docs/tutorials/vtex-pick-and-pack-fulfillment",
+        "to": "/docs/tutorials/vtex-pick-and-pack"
+      },
+      {
+        "from": "/es/docs/tutorials/vtex-pick-and-pack-fulfillment",
+        "to": "/es/docs/tutorials/vtex-pick-and-pack"
       }
     ]
   }
