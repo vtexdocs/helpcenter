@@ -1081,6 +1081,24 @@ to = "/pt/docs/tracks/meta-business-extension"
 
 [[redirects]]
 force = true
+from = "/pt/docs/tutorials/ativar-skus-em-massa"
+status = 308
+to = "/pt/docs/tutorials/importar-e-exportar-produtos-e-skus-via-planilha"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/activar-skus-en-massa"
+status = 308
+to = "/es/docs/tutorials/importar-y-exportar-productos-y-skus-mediante-plantilla"
+
+[[redirects]]
+force = true
+from = "/docs/tutorials/activating-skus-in-bulk"
+status = 308
+to = "/docs/tutorials/importing-and-exporting-products-and-skus-using-a-spreadsheet"
+
+[[redirects]]
+force = true
 from = "/es/docs/tracks/facebook-business-extension"
 status = 308
 to = "/es/docs/tracks/meta-business-extension"
