@@ -34113,14 +34113,14 @@
                 },
                 {
                   "name": {
-                    "en": "WhatsApp: VTEX CX Platform Express integration",
-                    "es": "WhatsApp: Integración express con VTEX CX Platform",
-                    "pt": "WhatsApp: Integração Expressa no VTEX CX Platform"
+                    "en": "WhatsApp: VTEX CX Platform integration",
+                    "es": "WhatsApp: Integración con VTEX CX Platform",
+                    "pt": "WhatsApp: Integração com o VTEX CX Platform"
                   },
                   "slug": {
-                    "en": "whatsapp-vtex-cx-platform-express-integration",
-                    "es": "whatsapp-integracion-express-con-vtex-cx-platform",
-                    "pt": "whatsapp-integracao-expressa-no-vtex-cx-platform"
+                    "en": "whatsapp-vtex-cx-platform-integration",
+                    "es": "whatsapp-integracion-con-vtex-cx-platform",
+                    "pt": "whatsapp-integracao-com-o-vtex-cx-platform"
                   },
                   "origin": "",
                   "type": "markdown",
@@ -38667,6 +38667,21 @@
                 "en": "app-settings-are-not-erased-when-you-delete-the-app",
                 "es": "la-configuracion-de-la-aplicacion-no-se-borra-al-eliminarla",
                 "pt": "as-configuracoes-do-aplicativo-nao-sao-apagadas-quando-voce-exclui-o-aplicativo"
+              },
+              "origin": "",
+              "type": "markdown",
+              "children": []
+            },
+            {
+              "name": {
+                "en": "Builder-hub error when trying to publish an app",
+                "es": "Error de Builder-hub al intentar publicar una aplicación.",
+                "pt": "Erro do Builder-hub ao tentar publicar um aplicativo"
+              },
+              "slug": {
+                "en": "builderhub-error-when-trying-to-publish-an-app",
+                "es": "error-de-builderhub-al-intentar-publicar-una-aplicacion",
+                "pt": "erro-do-builderhub-ao-tentar-publicar-um-aplicativo"
               },
               "origin": "",
               "type": "markdown",
