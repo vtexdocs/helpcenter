@@ -26,6 +26,11 @@ import {
   DeveloperPortalIcon,
   GearTroubleshootingIcon,
   LongArrowIcon,
+  AddedIcon,
+  RemovedIcon,
+  InfoIcon,
+  ImprovedIcon,
+  BreakingChangeIcon,
 } from '@vtexdocs/components'
 
 libraryConfig
@@ -489,30 +494,35 @@ export const announcementsTypeFilter = (intl: IntlShape) => {
         name: intl.formatMessage({
           id: 'announcements_filter_type.new_feature',
         }),
+        Icon: AddedIcon,
       },
       {
         id: ids.improvement,
         name: intl.formatMessage({
           id: 'announcements_filter_type.improvement',
         }),
+        Icon: ImprovedIcon,
       },
       {
         id: ids.breaking_change,
         name: intl.formatMessage({
           id: 'announcements_filter_type.breaking_change',
         }),
+        Icon: BreakingChangeIcon,
       },
       {
         id: ids.deprecation,
         name: intl.formatMessage({
           id: 'announcements_filter_type.deprecation',
         }),
+        Icon: RemovedIcon,
       },
       {
         id: ids.security_update,
         name: intl.formatMessage({
           id: 'announcements_filter_type.security_update',
         }),
+        Icon: InfoIcon,
       },
     ],
   }
