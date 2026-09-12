@@ -3434,14 +3434,15 @@
   resolved "https://registry.yarnpkg.com/@vtex/tsconfig/-/tsconfig-0.6.0.tgz#c9dfffc95d2ef55195237411f9c15269ca30b2a5"
   integrity sha512-SVQBxaSdEVdpJFja1aVTIiZBgpQKePyYOUWGzcYq6LYkSWqSbz2LoC7TuLUsmfweYmVkv8+4eVuxcDpQVEpq1A==
 
-"@vtexdocs/components@https://github.com/vtexdocs/components.git#v6.2.0":
-  version "6.2.0"
-  resolved "https://github.com/vtexdocs/components.git#a5f231e711603c5f087a01a56de52e8212b2eb94"
+"@vtexdocs/components@https://github.com/vtexdocs/components.git#EDU-18458-ki-search":
+  version "7.0.3"
+  resolved "https://github.com/vtexdocs/components.git#254ae371e954f083d2d88e433205373a98bb7297"
   dependencies:
     "@code-hike/mdx" "^0.9.0"
     "@vtex/brand-ui" "^0.46.1"
     copy-text-to-clipboard "^3.0.1"
     html-react-parser "^3.0.15"
+    mdast-util-to-string "^3.2.0"
     mermaid "^10.1.0"
     next "13.2.4"
     next-mdx-remote "^4.1.0"
@@ -3453,9 +3454,12 @@
     react-router-dom "^6.15.0"
     react-share "^5.1.0"
     react-svg-pan-zoom "^3.12.1"
+    reading-time "^1.5.0"
     search-insights "^2.3.0"
     standard-version "^9.5.0"
     swr "^1.3.0"
+    unist-builder "^3.0.1"
+    unist-util-visit "^4.1.1"
 
 "@webassemblyjs/ast@1.14.1", "@webassemblyjs/ast@^1.14.1":
   version "1.14.1"
@@ -8917,7 +8921,7 @@ mdast-util-to-markdown@^1.0.0, mdast-util-to-markdown@^1.3.0:
     unist-util-visit "^4.0.0"
     zwitch "^2.0.0"
 
-mdast-util-to-string@^3.0.0, mdast-util-to-string@^3.1.0:
+mdast-util-to-string@^3.0.0, mdast-util-to-string@^3.1.0, mdast-util-to-string@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/mdast-util-to-string/-/mdast-util-to-string-3.2.0.tgz#66f7bb6324756741c5f47a53557f0cbf16b6f789"
   integrity sha512-V4Zn/ncyN1QNSqSBxTrMOLpjr+IKdHl2v3KVLoWmDPscP4r9GcCi71gjgvUV1SFSKh92AjAG4peFuBl2/YgCJg==
@@ -9545,7 +9549,7 @@ next-tick@^1.1.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"
   integrity sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==
 
-next@13.2.4, next@^13.0.5, next@^13.5.11:
+next@13.2.4, next@13.5.11, next@^13.0.5:
   version "13.5.11"
   resolved "https://registry.yarnpkg.com/next/-/next-13.5.11.tgz#a021e849c5748fb6e2a4447585614e0c0e6c778d"
   integrity sha512-WUPJ6WbAX9tdC86kGTu92qkrRdgRqVrY++nwM+shmWQwmyxt4zhZfR59moXSI4N8GDYCBY3lIAqhzjDd4rTC8Q==
