@@ -12,16 +12,16 @@ export const announcementTypeTagColorMap: Record<string, AnnouncementTagColor> =
     Improvement: 'Closed',
     'Breaking change': 'Scheduled',
     Deprecation: 'Deprecation',
-    'Security update': 'Backlog',
+    'Security update': 'Gray',
     'Nueva funcionalidad': 'Fixed',
     Mejora: 'Closed',
     'Cambio disruptivo': 'Scheduled',
     Descontinuación: 'Deprecation',
-    'Actualización de seguridad': 'Backlog',
+    'Actualización de seguridad': 'Gray',
     'Nova funcionalidade': 'Fixed',
     Melhoria: 'Closed',
     Descontinuação: 'Deprecation',
-    'Atualização de segurança': 'Backlog',
+    'Atualização de segurança': 'Gray',
   }
 
 export function filterAnnouncementTypeTags(
@@ -38,8 +38,8 @@ const announcementTypeDotColors: Record<
   Fixed: { backgroundColor: '#DFF5DB', borderColor: '#9FCDB4' },
   Closed: { backgroundColor: '#DEE8FE', borderColor: '#A5C0FF' },
   Scheduled: { backgroundColor: '#FFF3DA', borderColor: '#FFD581' },
-  Gray: { backgroundColor: '#E7E9EE', borderColor: '#A1AAB7' },
-  Deprecation: { backgroundColor: '#FCEAF2', borderColor: '#E8A5BE' },
+  Gray: { backgroundColor: '#ECEFF2', borderColor: '#C5CDD6' },
+  Deprecation: { backgroundColor: '#F8E3E3', borderColor: '#E5A3A3' },
   Backlog: { backgroundColor: '#E9E9E9', borderColor: '#D3D3D3' },
 }
 

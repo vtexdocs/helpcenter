@@ -1,5 +1,4 @@
-import { Box, Flex, IconCaret, Link, Text } from '@vtex/brand-ui'
-import { useState } from 'react'
+import { Box, Flex, Link, Text } from '@vtex/brand-ui'
 import { useIntl } from 'react-intl'
 
 import { Tag } from '@vtexdocs/components'
@@ -8,7 +7,6 @@ import {
   filterAnnouncementTypeTags,
   getAnnouncementTypeDotColors,
 } from 'utils/announcementTypeTags'
-import tokens from 'styles/theme-tokens'
 
 import styles from './styles'
 
@@ -18,7 +16,7 @@ interface Props {
   publishedAt: Date
   synopsis?: string
   tags?: string[]
-  defaultOpen?: boolean
+  productTeam?: string
 }
 
 const AnnouncementExpandableRow = ({
@@ -27,29 +25,19 @@ const AnnouncementExpandableRow = ({
   publishedAt,
   synopsis,
   tags,
-  defaultOpen = false,
+  productTeam,
 }: Props) => {
   const intl = useIntl()
-  const [open, setOpen] = useState(defaultOpen)
 
   const synopsisText = synopsis?.trim()
-  const hasSynopsis = Boolean(synopsisText)
-
   const typeTags = filterAnnouncementTypeTags(tags)
   const dotColors = getAnnouncementTypeDotColors(tags)
+  const showLabels = typeTags.length > 0 || Boolean(productTeam)
 
-  const dateSideLabel = intl
-    .formatDate(publishedAt, { month: 'long', day: 'numeric' })
-    .toLocaleUpperCase(intl.locale)
-
-  const toggleLabel = intl.formatMessage(
-    {
-      id: open
-        ? 'announcement_expandable_row.collapse'
-        : 'announcement_expandable_row.expand',
-    },
-    { title }
-  )
+  const dateSideLabel = intl.formatDate(publishedAt, {
+    month: 'short',
+    day: 'numeric',
+  })
 
   return (
     <Flex sx={styles.row}>
@@ -64,50 +52,26 @@ const AnnouncementExpandableRow = ({
         />
       </Flex>
 
-      <Flex sx={styles.mainColumn}>
-        <Flex sx={styles.header}>
-          {hasSynopsis ? (
-            <Box
-              as="button"
-              type="button"
-              aria-expanded={open}
-              aria-label={toggleLabel}
-              onClick={() => setOpen((v) => !v)}
-              sx={styles.caretButton}
-            >
-              <IconCaret
-                color={tokens.grays.caretIcon}
-                direction={open ? 'down' : 'right'}
-                size={18}
-              />
-            </Box>
-          ) : (
-            <Box sx={{ ...styles.caretWrap, width: '20px' }} />
-          )}
-          <Flex sx={styles.textBlock}>
-            {typeTags.length > 0 ? (
-              <Flex sx={styles.typeTagsContainer}>
-                {typeTags.map((tag) => (
-                  <Tag key={tag} color={announcementTypeTagColorMap[tag]}>
-                    {tag}
-                  </Tag>
-                ))}
-              </Flex>
-            ) : null}
-            <Link
-              href={articleLink}
-              sx={{ ...styles.titleLink, ...styles.releaseTitle }}
-            >
-              <Text as="p">{title}</Text>
-            </Link>
-          </Flex>
-        </Flex>
-        {hasSynopsis && open ? (
+      <Link href={articleLink} sx={styles.cardLink}>
+        <Text as="h3" sx={styles.releaseTitle}>
+          {title}
+        </Text>
+        {synopsisText ? (
           <Text as="p" sx={styles.body}>
             {synopsisText}
           </Text>
         ) : null}
-      </Flex>
+        {showLabels ? (
+          <Flex sx={styles.labels}>
+            {typeTags.map((tag) => (
+              <Tag key={tag} color={announcementTypeTagColorMap[tag]}>
+                {tag}
+              </Tag>
+            ))}
+            {productTeam ? <Tag color="Gray">{productTeam}</Tag> : null}
+          </Flex>
+        ) : null}
+      </Link>
     </Flex>
   )
 }

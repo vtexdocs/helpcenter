@@ -191,6 +191,7 @@ export interface AnnouncementDataElement extends CardDataElement {
   url: string
   synopsis?: string
   tags: string[]
+  productTeam?: string
 }
 
 export interface KnownIssueDataElement extends CardDataElement {

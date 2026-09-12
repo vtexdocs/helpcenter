@@ -8,12 +8,25 @@ const container: SxStyleProp = {
   mb: ['32px', '64px'],
   alignItems: 'center',
   flexDirection: 'column',
-  gap: '16px',
+  gap: '20px',
   width: '100%',
-  maxWidth: ['100%', '545px', '545px', '720px'],
+  maxWidth: ['100%', '545px', '720px', '720px'],
   px: ['16px', 0],
   boxSizing: 'border-box',
   minWidth: 0,
+}
+
+const stickyControls: SxStyleProp = {
+  position: 'sticky',
+  top: '64px',
+  zIndex: 3,
+  width: '100%',
+  minWidth: 0,
+  flexDirection: 'column',
+  gap: '12px',
+  backgroundColor: '#FFFFFF',
+  pt: '8px',
+  pb: '12px',
 }
 
 const cardContainer: SxStyleProp = {
@@ -31,6 +44,14 @@ const yearTimelineBody: SxStyleProp = {
   width: '100%',
   minWidth: 0,
   flexDirection: 'column',
+  gap: 0,
+}
+
+const yearItems: SxStyleProp = {
+  width: '100%',
+  minWidth: 0,
+  flexDirection: 'column',
+  gap: ['16px', '18px'],
 }
 
 const yearVerticalRail: SxStyleProp = {
@@ -39,10 +60,10 @@ const yearVerticalRail: SxStyleProp = {
   pointerEvents: 'none',
   width: '2px',
   backgroundColor: tokens.grays.timelineRail,
-  /** dateColumn width + trackColumn/2 − half line */
-  left: ['72px', '80px', '96px', '112px'],
-  top: 0,
-  bottom: 0,
+  left: tokens.timeline.railLeft,
+  top: '10px',
+  bottom: '12px',
+  borderRadius: '1px',
 }
 
 const toolbar: SxStyleProp = {
@@ -56,12 +77,14 @@ const toolbar: SxStyleProp = {
 
 const filterWrap: SxStyleProp = {
   flexShrink: 0,
+  display: 'flex',
+  alignItems: 'center',
 }
 
 const searchWrap: SxStyleProp = {
   flex: 1,
   minWidth: 0,
-  width: ['100%', 'auto'],
+  width: '100%',
   alignItems: 'center',
   gap: '8px',
 }
@@ -93,6 +116,19 @@ const helpButton: SxStyleProp = {
   },
 }
 
+const chipFilterContainer: SxStyleProp = {
+  width: '100%',
+  minWidth: 0,
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: '12px',
+}
+
+const chipFilterList: SxStyleProp = {
+  flex: 1,
+  minWidth: 0,
+}
+
 const noResults: SxStyleProp = {
   flexDirection: 'column',
   alignItems: 'center',
@@ -109,10 +145,10 @@ const noResults: SxStyleProp = {
 }
 
 const resultsNumberContainer: SxStyleProp = {
-  fontSize: '14px',
-  fontWeight: '600',
+  fontSize: '13px',
+  fontWeight: '500',
   color: 'muted.1',
-  mb: ['24px', '32px'],
+  mb: ['16px', '20px'],
 }
 
 const yearBlock: SxStyleProp = {
@@ -122,22 +158,47 @@ const yearBlock: SxStyleProp = {
   gap: 0,
 }
 
+const yearHeadingRow: SxStyleProp = {
+  width: '100%',
+  flexDirection: 'row',
+  alignItems: 'center',
+  minWidth: 0,
+  mb: '12px',
+}
+
+const yearHeadingTrack: SxStyleProp = {
+  width: tokens.timeline.trackWidth,
+  flexShrink: 0,
+  alignItems: 'center',
+  justifyContent: 'center',
+}
+
+const yearRailNode: SxStyleProp = {
+  width: '8px',
+  height: '8px',
+  minWidth: '8px',
+  minHeight: '8px',
+  flexShrink: 0,
+  borderRadius: '50%',
+  backgroundColor: tokens.grays.dateLabel,
+  boxShadow: '0 0 0 3px #FFFFFF',
+  position: 'relative',
+  zIndex: 2,
+}
+
 const yearHeading: SxStyleProp = {
+  width: tokens.timeline.dateColumnWidth,
+  flexShrink: 0,
+  pr: tokens.timeline.dateColumnPaddingRight,
+  m: 0,
+  textAlign: 'right',
   fontFamily:
     "'VTEX Trust Regular', -apple-system, system-ui, BlinkMacSystemFont, sans-serif",
-  fontSize: ['18px', '19px', '20px'],
-  lineHeight: '1.2',
+  fontSize: '14px',
+  lineHeight: '18px',
   fontWeight: '400',
-  color: tokens.grays.yearHeading,
-  width: 'auto',
-  maxWidth: '100%',
-  display: 'inline-block',
-  position: 'relative',
-  left: ['73px', '81px', '97px', '113px'],
-  transform: 'translateX(-50%)',
-  textAlign: 'center',
-  mb: ['20px', '24px'],
-  letterSpacing: '-0.01em',
+  color: tokens.landing.ink,
+  whiteSpace: 'nowrap',
 }
 
 const seeMoreButton: SxStyleProp = {
@@ -181,17 +242,24 @@ const searchInput: SxStyleProp = {
 
 export default {
   container,
+  stickyControls,
   cardContainer,
   yearTimelineBody,
+  yearItems,
   yearVerticalRail,
   toolbar,
   filterWrap,
   searchWrap,
   helpButton,
+  chipFilterContainer,
+  chipFilterList,
   noResults,
   resultsNumberContainer,
   searchInput,
   yearBlock,
+  yearHeadingRow,
+  yearHeadingTrack,
+  yearRailNode,
   yearHeading,
   seeMoreButton,
 }
