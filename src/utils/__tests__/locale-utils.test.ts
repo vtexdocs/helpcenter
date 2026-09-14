@@ -1,6 +1,8 @@
 import {
   safeDecodeURIComponent,
   extractLocaleFromPath,
+  extractLocaleFromNextDataPath,
+  extractLocaleFromRequestPath,
   removeLocaleFromPath,
   ALLOWED_LOCALES,
 } from '../locale-utils'
@@ -54,6 +56,35 @@ describe('extractLocaleFromPath', () => {
 
   it('returns null for / (root)', () => {
     expect(extractLocaleFromPath('/')).toBeNull()
+  })
+})
+
+describe('extractLocaleFromNextDataPath', () => {
+  it('extracts pt from a localized data request', () => {
+    expect(
+      extractLocaleFromNextDataPath(
+        '/_next/data/build-123/pt/docs/tracks/amazon.json'
+      )
+    ).toBe('pt')
+  })
+
+  it('returns null for default-locale data requests without a locale segment', () => {
+    expect(
+      extractLocaleFromNextDataPath(
+        '/_next/data/build-123/docs/tracks/amazon.json'
+      )
+    ).toBeNull()
+  })
+})
+
+describe('extractLocaleFromRequestPath', () => {
+  it('reads locale from page paths and data paths', () => {
+    expect(extractLocaleFromRequestPath('/es/docs/tracks/amazon')).toBe('es')
+    expect(
+      extractLocaleFromRequestPath(
+        '/_next/data/build-123/pt/docs/tracks/amazon.json'
+      )
+    ).toBe('pt')
   })
 })
 

@@ -15,11 +15,17 @@ COMPONENTS_GIT_SHA = "a5f231e711603c5f087a01a56de52e8212b2eb94"
 [[plugins]]
     package = "@netlify/plugin-nextjs"
 
+# Prefixed `_next/data` JSON is the English static file for shared slugs.
+# This runs before origin so PT/ES client navigations get the HTML locale.
+[[edge_functions]]
+  path = "/_next/data/*"
+  function = "fix-next-data-locale"
+
 # All redirect cases are handled by the redirect-from-old-portal edge function.
 # Catch-all for hostname redirects (must be first to handle newhelp.vtex.com -> help.vtex.com)
 [[edge_functions]]
   path = "/*"
-  excludedPath = ["/netlify-prerender-function*", "/.netlify/*", "/__netlify/*"]
+  excludedPath = ["/netlify-prerender-function*", "/.netlify/*", "/__netlify/*", "/_next/*"]
   function = "redirect-from-old-portal"
 
 [[edge_functions]]

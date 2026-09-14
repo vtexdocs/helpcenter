@@ -45,7 +45,9 @@ function MyApp({ Component, pageProps }: Props) {
           isPreview={pageProps.isPreview ?? false}
           sectionSelected={pageProps.sectionSelected}
           parentsArray={pageProps.parentsArray}
-          locale={(pageProps.locale ?? currentLocale) as 'en' | 'pt' | 'es'}
+          locale={
+            (currentLocale || pageProps.locale || 'en') as 'en' | 'pt' | 'es'
+          }
         >
           <ErrorBoundary>
             <Suspense fallback={<SuspenseFallback branch={pageProps.branch} />}>

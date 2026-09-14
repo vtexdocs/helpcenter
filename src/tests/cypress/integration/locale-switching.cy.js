@@ -83,4 +83,19 @@ describe('Locale Switching Tests', () => {
     cy.url({ timeout: 15000 }).should('include', '/es/')
     cy.get('button').contains('ES').should('be.visible')
   })
+
+  it('should keep PT locale when the sidebar opens a slug shared with EN and ES', () => {
+    cy.visitWithRetry('/pt/docs/tracks/visao-geral-da-integracao-da-amazon')
+    cy.get('button').contains('PT').should('be.visible')
+
+    cy.get('a[href="/pt/docs/tracks/amazon"]')
+      .filter(':visible')
+      .first()
+      .scrollIntoView()
+      .click({ force: true })
+
+    cy.url({ timeout: 15000 }).should('include', '/pt/docs/tracks/amazon')
+    cy.url().should('not.include', '/es/')
+    cy.get('button').contains('PT').should('be.visible')
+  })
 })

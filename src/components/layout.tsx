@@ -26,6 +26,7 @@ import {
   getGithubURL,
 } from 'utils/get-url'
 import { PreviewContext } from 'utils/contexts/preview'
+import { extractLocaleFromPath } from 'utils/locale-utils'
 
 const Sidebar = dynamic(
   () => import('@vtexdocs/components').then((mod) => mod.Sidebar),
@@ -79,7 +80,12 @@ export default function Layout({
   const supportedLocales = ['en', 'pt', 'es'] as const
   type SupportedLocale = (typeof supportedLocales)[number]
 
-  const localeCandidates = [locale, router.locale, intl.locale]
+  const localeCandidates = [
+    extractLocaleFromPath(router.asPath),
+    router.locale,
+    locale,
+    intl.locale,
+  ]
 
   const derivedLocale = (localeCandidates.find(
     (candidate): candidate is SupportedLocale =>
