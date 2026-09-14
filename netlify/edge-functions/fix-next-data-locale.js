@@ -1,6 +1,7 @@
 import {
   htmlPathFromPrefixedNextData,
   isNextPageDataPayload,
+  isRedirectStatus,
   pageDataFromHtml,
   parsePrefixedNextDataPath,
   shouldRebuildPrefixedData,
@@ -9,10 +10,13 @@ import {
 const INTERNAL_HTML_FETCH_HEADER = 'x-internal-html-fetch'
 
 /**
- * Netlify serves `/_next/data/{build}/pt/docs/tracks/amazon.json` from the
- * English static file when the slug also exists in the default locale.
+ * Netlify often runs the English `_next/data` handler for prefixed pt/es URLs.
+ *
+ * Shared with EN (amazon): English JSON is served as-is.
+ * Shared only PT+ES (instalar-customer-credit): EN GSP has no markdown and
+ * returns a redirect / `__N_REDIRECT` to the English sibling slug.
  * Unique pt/es slugs already have the right JSON — pass those through.
- * Shared slugs are rebuilt from the working HTML `__NEXT_DATA__`.
+ * Everything else is rebuilt from the working HTML `__NEXT_DATA__`.
  *
  * The HTML fetch must skip bot middleware: Netlify fetch is classified as a
  * bot and would otherwise return `/api/llm-content` JSON, which Next treats
@@ -39,22 +43,28 @@ export default async (request, context) => {
   }
 
   if (originRes) {
-    const originType = originRes.headers.get('content-type') || ''
-    if (originType.includes('application/json')) {
-      let data
-      try {
-        data = await originRes.clone().json()
-      } catch {
+    const originFailed =
+      isRedirectStatus(originRes.status) ||
+      originRes.status === 404 ||
+      Boolean(originRes.headers.get('x-nextjs-redirect'))
+    if (!originFailed) {
+      const originType = originRes.headers.get('content-type') || ''
+      if (originType.includes('application/json')) {
+        let data
+        try {
+          data = await originRes.clone().json()
+        } catch {
+          return originRes
+        }
+        if (
+          isNextPageDataPayload(data) &&
+          !shouldRebuildPrefixedData(parsed.locale, data)
+        ) {
+          return jsonFromValue(data, originRes, 'origin-ok')
+        }
+      } else if (originRes.ok) {
         return originRes
       }
-      if (!isNextPageDataPayload(data)) {
-        return originRes
-      }
-      if (!shouldRebuildPrefixedData(parsed.locale, data)) {
-        return jsonFromValue(data, originRes, 'origin-ok')
-      }
-    } else {
-      return originRes
     }
   }
 

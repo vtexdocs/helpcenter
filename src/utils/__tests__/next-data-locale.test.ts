@@ -1,6 +1,8 @@
 import {
   htmlPathFromPrefixedNextData,
+  isLocaleRedirectPayload,
   isNextPageDataPayload,
+  isRedirectStatus,
   pageDataFromHtml,
   parsePrefixedNextDataPath,
   shouldRebuildPrefixedData,
@@ -109,6 +111,47 @@ describe('shouldRebuildPrefixedData', () => {
 
   it('does not rebuild when locale cannot be inferred', () => {
     expect(shouldRebuildPrefixedData('pt', { pageProps: {} })).toBe(false)
+  })
+
+  it('rebuilds when GSP redirected a PT+ES slug to the English sibling', () => {
+    expect(
+      shouldRebuildPrefixedData('pt', {
+        pageProps: {
+          __N_REDIRECT: '/docs/tracks/installing-customer-credit',
+          __N_REDIRECT_STATUS: 308,
+        },
+      })
+    ).toBe(true)
+    expect(
+      shouldRebuildPrefixedData('es', {
+        __N_REDIRECT: '/en/docs/tracks/installing-customer-credit',
+        pageProps: {},
+      })
+    ).toBe(true)
+  })
+
+  it('rebuilds when the English handler returned notFound', () => {
+    expect(shouldRebuildPrefixedData('pt', { notFound: true })).toBe(true)
+  })
+})
+
+describe('isLocaleRedirectPayload', () => {
+  it('detects Next data redirects', () => {
+    expect(
+      isLocaleRedirectPayload({
+        pageProps: { __N_REDIRECT: '/docs/tracks/installing-customer-credit' },
+      })
+    ).toBe(true)
+    expect(isLocaleRedirectPayload({ pageProps: { locale: 'pt' } })).toBe(false)
+  })
+})
+
+describe('isRedirectStatus', () => {
+  it('matches 3xx only', () => {
+    expect(isRedirectStatus(307)).toBe(true)
+    expect(isRedirectStatus(308)).toBe(true)
+    expect(isRedirectStatus(200)).toBe(false)
+    expect(isRedirectStatus(404)).toBe(false)
   })
 })
 

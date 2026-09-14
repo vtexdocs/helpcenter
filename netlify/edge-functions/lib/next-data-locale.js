@@ -43,11 +43,24 @@ export function servedLocaleFromPageData(data) {
   return match ? match[1] : null
 }
 
+export function isRedirectStatus(status) {
+  return status >= 300 && status < 400
+}
+
+export function isLocaleRedirectPayload(data) {
+  return Boolean(data?.__N_REDIRECT || data?.pageProps?.__N_REDIRECT)
+}
+
 /**
- * Shared slugs are the only case where Netlify returns English JSON for a
- * pt/es data URL. Unique-locale slugs already have the right static file.
+ * Rebuild pt/es data when Netlify ran the English handler:
+ * - slug also in EN → static English JSON (`pageProps.locale === 'en'`)
+ * - slug only in PT+ES → GSP redirect / `__N_REDIRECT` to the EN sibling
+ * Unique-locale slugs already have the right static file.
  */
 export function shouldRebuildPrefixedData(urlLocale, data) {
+  if (isLocaleRedirectPayload(data) || data?.notFound === true) {
+    return true
+  }
   const servedLocale = servedLocaleFromPageData(data)
   return Boolean(servedLocale && servedLocale !== urlLocale)
 }
