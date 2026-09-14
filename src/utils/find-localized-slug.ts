@@ -18,7 +18,7 @@ function searchDocument(
     if (result !== null) return result
   }
 
-  if (typeof doc.slug === 'object') {
+  if (typeof doc.slug === 'object' && doc.type !== 'divider') {
     const slugObj = doc.slug as LocalizedSlug
     const match = Object.values(slugObj).find((s) => s === decodedSlug)
     if (match) {

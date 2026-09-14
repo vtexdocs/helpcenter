@@ -17522,6 +17522,78 @@
       {
         "from": "/es/docs/tutorials/vtex-pick-and-pack-fulfillment",
         "to": "/es/docs/tutorials/vtex-pick-and-pack"
+      },
+      {
+        "from": "/en/docs/tracks/adaptador-vtex",
+        "to": "/en/docs/tutorials/adaptador-vtex"
+      },
+      {
+        "from": "/en/docs/tracks/como-funciona-o-adaptador-vtex",
+        "to": "/en/docs/tutorials/como-funciona-o-adaptador-vtex"
+      },
+      {
+        "from": "/en/docs/tracks/login-e-senha",
+        "to": "/en/docs/tutorials/login-e-senha"
+      },
+      {
+        "from": "/en/docs/tracks/configurar-adaptador",
+        "to": "/en/docs/tutorials/configurar-adaptador"
+      },
+      {
+        "from": "/en/docs/tracks/configurar-erps",
+        "to": "/en/docs/tutorials/configurar-erps"
+      },
+      {
+        "from": "/en/docs/tracks/monitor-da-integracao",
+        "to": "/en/docs/tutorials/monitor-da-integracao"
+      },
+      {
+        "from": "/es/docs/tracks/adaptador-vtex",
+        "to": "/es/docs/tutorials/adaptador-vtex"
+      },
+      {
+        "from": "/es/docs/tracks/como-funciona-o-adaptador-vtex",
+        "to": "/es/docs/tutorials/como-funciona-o-adaptador-vtex"
+      },
+      {
+        "from": "/es/docs/tracks/login-e-senha",
+        "to": "/es/docs/tutorials/login-e-senha"
+      },
+      {
+        "from": "/es/docs/tracks/configurar-adaptador",
+        "to": "/es/docs/tutorials/configurar-adaptador"
+      },
+      {
+        "from": "/es/docs/tracks/configurar-erps",
+        "to": "/es/docs/tutorials/configurar-erps"
+      },
+      {
+        "from": "/es/docs/tracks/monitor-da-integracao",
+        "to": "/es/docs/tutorials/monitor-da-integracao"
+      },
+      {
+        "from": "/pt/docs/tracks/adaptador-vtex",
+        "to": "/pt/docs/tutorials/adaptador-vtex"
+      },
+      {
+        "from": "/pt/docs/tracks/como-funciona-o-adaptador-vtex",
+        "to": "/pt/docs/tutorials/como-funciona-o-adaptador-vtex"
+      },
+      {
+        "from": "/pt/docs/tracks/login-e-senha",
+        "to": "/pt/docs/tutorials/login-e-senha"
+      },
+      {
+        "from": "/pt/docs/tracks/configurar-adaptador",
+        "to": "/pt/docs/tutorials/configurar-adaptador"
+      },
+      {
+        "from": "/pt/docs/tracks/configurar-erps",
+        "to": "/pt/docs/tutorials/configurar-erps"
+      },
+      {
+        "from": "/pt/docs/tracks/monitor-da-integracao",
+        "to": "/pt/docs/tutorials/monitor-da-integracao"
       }
     ]
   }
