@@ -52,6 +52,10 @@ export function shouldRebuildPrefixedData(urlLocale, data) {
   return Boolean(servedLocale && servedLocale !== urlLocale)
 }
 
+export function isNextPageDataPayload(data) {
+  return Boolean(data && typeof data === 'object' && data.pageProps)
+}
+
 export function pageDataFromHtml(html) {
   const idIndex = html.indexOf('id="__NEXT_DATA__"')
   if (idIndex === -1) {

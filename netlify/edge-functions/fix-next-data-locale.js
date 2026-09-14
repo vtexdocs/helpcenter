@@ -1,15 +1,22 @@
 import {
   htmlPathFromPrefixedNextData,
+  isNextPageDataPayload,
   pageDataFromHtml,
   parsePrefixedNextDataPath,
   shouldRebuildPrefixedData,
 } from './lib/next-data-locale.js'
+
+const INTERNAL_HTML_FETCH_HEADER = 'x-internal-html-fetch'
 
 /**
  * Netlify serves `/_next/data/{build}/pt/docs/tracks/amazon.json` from the
  * English static file when the slug also exists in the default locale.
  * Unique pt/es slugs already have the right JSON — pass those through.
  * Shared slugs are rebuilt from the working HTML `__NEXT_DATA__`.
+ *
+ * The HTML fetch must skip bot middleware: Netlify fetch is classified as a
+ * bot and would otherwise return `/api/llm-content` JSON, which Next treats
+ * as a failed data route (client 500).
  */
 export default async (request, context) => {
   const url = new URL(request.url)
@@ -40,6 +47,9 @@ export default async (request, context) => {
       } catch {
         return originRes
       }
+      if (!isNextPageDataPayload(data)) {
+        return originRes
+      }
       if (!shouldRebuildPrefixedData(parsed.locale, data)) {
         return jsonFromValue(data, originRes, 'origin-ok')
       }
@@ -48,16 +58,31 @@ export default async (request, context) => {
     }
   }
 
+  const rebuilt = await rebuildFromHtml(url, parsed.locale, request)
+  if (rebuilt) {
+    return rebuilt
+  }
+
+  return originRes || context.next()
+}
+
+async function rebuildFromHtml(url, locale, request) {
   const pagePath = htmlPathFromPrefixedNextData(url.pathname)
   if (!pagePath) {
-    return originRes || context.next()
+    return null
   }
 
   const pageUrl = new URL(pagePath, url.origin)
   pageUrl.search = url.search
 
   const headers = new Headers()
-  headers.set('accept', 'text/html, application/json')
+  headers.set('accept', 'text/html')
+  headers.set(INTERNAL_HTML_FETCH_HEADER, '1')
+  headers.set(
+    'user-agent',
+    request.headers.get('user-agent') ||
+      'Mozilla/5.0 (compatible; HelpCenterLocaleFix/1.0)'
+  )
   const cookie = request.headers.get('cookie')
   if (cookie) {
     headers.set('cookie', cookie)
@@ -67,26 +92,34 @@ export default async (request, context) => {
   try {
     pageRes = await fetch(pageUrl, { headers, redirect: 'follow' })
   } catch {
-    return originRes || context.next()
+    return null
   }
 
   if (!pageRes.ok) {
-    return originRes || context.next()
+    return null
   }
 
   const contentType = pageRes.headers.get('content-type') || ''
   if (contentType.includes('application/json')) {
-    const body = await pageRes.arrayBuffer()
-    return new Response(body, {
-      status: 200,
-      headers: jsonResponseHeaders(pageRes, 'origin-json'),
-    })
+    let data
+    try {
+      data = await pageRes.json()
+    } catch {
+      return null
+    }
+    if (
+      isNextPageDataPayload(data) &&
+      !shouldRebuildPrefixedData(locale, data)
+    ) {
+      return jsonFromValue(data, pageRes, 'origin-json')
+    }
+    return null
   }
 
   const html = await pageRes.text()
   const payload = pageDataFromHtml(html)
   if (!payload) {
-    return originRes || context.next()
+    return null
   }
 
   return new Response(JSON.stringify(payload), {

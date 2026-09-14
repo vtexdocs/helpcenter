@@ -1,5 +1,6 @@
 import {
   htmlPathFromPrefixedNextData,
+  isNextPageDataPayload,
   pageDataFromHtml,
   parsePrefixedNextDataPath,
   shouldRebuildPrefixedData,
@@ -108,5 +109,18 @@ describe('shouldRebuildPrefixedData', () => {
 
   it('does not rebuild when locale cannot be inferred', () => {
     expect(shouldRebuildPrefixedData('pt', { pageProps: {} })).toBe(false)
+  })
+})
+
+describe('isNextPageDataPayload', () => {
+  it('accepts Next data JSON and rejects llm-content JSON', () => {
+    expect(isNextPageDataPayload({ pageProps: { locale: 'pt' } })).toBe(true)
+    expect(
+      isNextPageDataPayload({
+        section: 'tracks',
+        requestedLocale: 'es',
+        content: 'Amazon',
+      })
+    ).toBe(false)
   })
 })

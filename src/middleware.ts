@@ -107,6 +107,10 @@ function handleBotDetection(
   request: NextRequest,
   userAgent: string | null
 ): NextResponse {
+  if (request.headers.get('x-internal-html-fetch') === '1') {
+    return NextResponse.next()
+  }
+
   if (!isbot(userAgent)) {
     return NextResponse.next()
   }
