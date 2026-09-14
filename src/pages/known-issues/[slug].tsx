@@ -18,6 +18,7 @@ import { fetchFileContributors } from 'utils/fetchFileContributors'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import { resolveSlugFromKiFormat } from 'utils/resolveSlugFromKiFormat'
 import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
+import { resolveEffectiveLocale } from 'utils/article-page/resolveEffectiveLocale'
 import ArticleIndex from 'components/article-index'
 import ArticleRender from 'components/article-render'
 import { ArticlePageProps } from 'utils/typings/types'
@@ -182,7 +183,10 @@ export const getStaticProps: GetStaticProps = async ({
     docsPathsGLOBAL,
   })
   const { keyPath, flattenedSidebar, sidebarfallback } =
-    await getSidebarMetadata(sectionSelected, resolvedSlug, { branch })
+    await getSidebarMetadata(sectionSelected, resolvedSlug, {
+      branch,
+      locale: currentLocale,
+    })
   const isKICover = isCategoryCover(slug, sidebarfallback)
 
   if (!mdFileExists && isKICover.length === 0) {
@@ -192,38 +196,21 @@ export const getStaticProps: GetStaticProps = async ({
     return { notFound: true }
   }
 
-  // Fix for Netlify i18n routing bug: when Netlify incorrectly routes a locale-specific
-  // slug to the wrong locale handler (e.g., PT slug routed to EN handler), we need to
-  // serve the content with the correct locale instead of redirecting (which would cause
-  // an infinite loop since Netlify would misroute the redirect too).
-  let effectiveLocale = currentLocale
-  let effectiveMdFilePath = mdFilePath
+  const { effectiveLocale, effectiveMdFilePath: resolvedMdPath } =
+    resolveEffectiveLocale({
+      currentLocale,
+      mdFileExists,
+      mdFileExistsForCurrentLocale,
+      docsPathsForSlug: docsPaths[slug],
+      categoryLocales: isKICover,
+    })
+  const effectiveMdFilePath = resolvedMdPath || mdFilePath
 
-  // Fix for markdown files: detect when slug belongs to a different locale
-  if (!mdFileExistsForCurrentLocale && mdFileExists && docsPaths[slug]) {
-    const availableLocale = docsPaths[slug][0]?.locale as
-      | 'en'
-      | 'pt'
-      | 'es'
-      | undefined
-    if (availableLocale && availableLocale !== currentLocale) {
-      logger.info(
-        `Netlify i18n bug detected: slug ${slug} belongs to locale ${availableLocale}, ` +
-          `but was routed to ${currentLocale} handler. Serving content with correct locale.`
-      )
-      effectiveLocale = availableLocale
-      effectiveMdFilePath = docsPaths[slug][0]?.path || ''
-    }
-  }
-
-  // Fix for category pages: detect when the category slug belongs to a different locale
-  if (isKICover.length > 0 && !isKICover.includes(currentLocale)) {
-    const categoryLocale = isKICover[0] as 'en' | 'pt' | 'es'
+  if (effectiveLocale !== currentLocale) {
     logger.info(
-      `Netlify i18n bug detected for category: slug ${slug} belongs to locale ${categoryLocale}, ` +
+      `Netlify i18n bug detected: slug ${slug} belongs to locale ${effectiveLocale}, ` +
         `but was routed to ${currentLocale} handler. Serving content with correct locale.`
     )
-    effectiveLocale = categoryLocale
   }
 
   if (!mdFileExistsForCurrentLocale && isKICover.length === 0) {

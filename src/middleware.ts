@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { isbot } from 'isbot'
 import { isSearchEngineBot } from './utils/searchEngineBotsWhitelist'
+import { extractLocaleFromRequestPath } from './utils/locale-utils'
 
 export const config = {
   matcher: [
@@ -44,7 +45,7 @@ function parsePathToSectionAndSlug(
   return null
 }
 
-function parseNextDataPath(pathname: string): {
+export function parseNextDataPath(pathname: string): {
   locale: string
   section: string
   slug: string
@@ -78,25 +79,61 @@ function parseNextDataPath(pathname: string): {
   return null
 }
 
+function applyLocaleCookies(response: NextResponse, locale: string) {
+  response.cookies.set('NEXT_LOCALE', locale, { path: '/' })
+  response.cookies.set('nf_lang', locale, { path: '/' })
+  return response
+}
+
+function rewriteWithLocale(
+  request: NextRequest,
+  locale: string,
+  pathname?: string
+) {
+  const rewriteUrl = request.nextUrl.clone()
+  if (pathname) {
+    rewriteUrl.pathname = pathname
+  }
+  try {
+    rewriteUrl.locale = locale
+  } catch {
+    if (pathname && !pathname.startsWith(`/${locale}/`)) {
+      rewriteUrl.pathname = `/${locale}${pathname}`
+    }
+  }
+  return rewriteUrl
+}
+
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+  const rawPathname = new URL(request.url).pathname
   const userAgent = request.headers.get('user-agent')
 
-  if (pathname.startsWith('/_next/data/')) {
+  if (
+    pathname.startsWith('/_next/data/') ||
+    rawPathname.startsWith('/_next/data/')
+  ) {
     return handleNextDataRequest(request)
+  }
+
+  const localeResponse = enforceUrlLocale(request)
+  if (localeResponse) {
+    return localeResponse
   }
 
   return handleBotDetection(request, userAgent)
 }
 
 /**
- * For _next/data requests, ensure the locale from the URL path is properly
- * propagated to the request. This works around Netlify's i18n routing bug
- * where it incorrectly routes locale-specific slugs to the default locale handler.
+ * For _next/data requests, force the locale encoded in the data URL onto the
+ * Next.js request. Using a plain URL with `/pt/...` in the pathname lets
+ * Netlify serve the default-locale page when the same slug exists in EN/ES/PT.
  */
 function handleNextDataRequest(request: NextRequest): NextResponse {
-  const pathname = request.nextUrl.pathname
-  const parsed = parseNextDataPath(pathname)
+  const rawPathname = new URL(request.url).pathname
+  const parsed =
+    parseNextDataPath(rawPathname) ||
+    parseNextDataPath(request.nextUrl.pathname)
 
   if (!parsed) {
     return NextResponse.next()
@@ -106,7 +143,7 @@ function handleNextDataRequest(request: NextRequest): NextResponse {
 
   if (shouldLogLocaleRouting) {
     console.info('[locale-routing] Processing _next/data request', {
-      pathname,
+      pathname: rawPathname,
       urlLocale,
       slug,
       section,
@@ -118,23 +155,55 @@ function handleNextDataRequest(request: NextRequest): NextResponse {
       ? `/docs/${section}`
       : `/${section}`
 
-  const rewriteUrl = new URL(request.url)
-  rewriteUrl.pathname = `/${urlLocale}${sectionPath}/${slug}`
+  const rewriteUrl = rewriteWithLocale(
+    request,
+    urlLocale,
+    `${sectionPath}/${slug}`
+  )
   rewriteUrl.searchParams.set('__nextDataReq', '1')
 
   if (shouldLogLocaleRouting) {
     console.info('[locale-routing] Rewriting to ensure correct locale', {
-      from: pathname,
+      from: rawPathname,
       to: rewriteUrl.pathname,
       urlLocale,
     })
   }
 
   const response = NextResponse.rewrite(rewriteUrl)
+  applyLocaleCookies(response, urlLocale)
   response.headers.set('X-Locale-Routing-Fix', 'rewrite-applied')
   response.headers.set('X-URL-Locale', urlLocale)
-  response.headers.set('X-Original-Path', pathname)
+  response.headers.set('X-Original-Path', rawPathname)
 
+  return response
+}
+
+function enforceUrlLocale(request: NextRequest): NextResponse | null {
+  const rawPathname = new URL(request.url).pathname
+  const urlLocale = extractLocaleFromRequestPath(rawPathname)
+  if (!urlLocale) {
+    return null
+  }
+
+  const nextLocale = request.nextUrl.locale
+  if (!nextLocale || nextLocale === urlLocale) {
+    return null
+  }
+
+  if (shouldLogLocaleRouting) {
+    console.info('[locale-routing] URL locale disagrees with Next locale', {
+      rawPathname,
+      urlLocale,
+      nextLocale,
+    })
+  }
+
+  const rewriteUrl = rewriteWithLocale(request, urlLocale)
+  const response = NextResponse.rewrite(rewriteUrl)
+  applyLocaleCookies(response, urlLocale)
+  response.headers.set('X-Locale-Routing-Fix', 'url-locale-enforced')
+  response.headers.set('X-URL-Locale', urlLocale)
   return response
 }
 

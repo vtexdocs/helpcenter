@@ -34,6 +34,25 @@ export const extractLocaleFromPath = (
   return null
 }
 
+export const extractLocaleFromNextDataPath = (
+  pathname: string
+): AllowedLocale | null => {
+  const match = pathname.match(/^\/_next\/data\/[^/]+\/(en|pt|es)(?:\/|$)/)
+  if (match && ALLOWED_LOCALES.includes(match[1] as AllowedLocale)) {
+    return match[1] as AllowedLocale
+  }
+  return null
+}
+
+export const extractLocaleFromRequestPath = (
+  pathname: string
+): AllowedLocale | null => {
+  if (pathname.startsWith('/_next/data/')) {
+    return extractLocaleFromNextDataPath(pathname)
+  }
+  return extractLocaleFromPath(pathname)
+}
+
 export const removeLocaleFromPath = (pathname: string): string => {
   const currentLocale = extractLocaleFromPath(pathname)
   if (currentLocale) {

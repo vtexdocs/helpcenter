@@ -27,10 +27,20 @@ const filterSlugs = (obj: { [key: string]: string }) => {
 
 export const getKeyByValue = (
   object: { [x: string]: string },
-  value: string
+  value: string,
+  locale?: string
 ) => {
   const slugsObject = filterSlugs(object)
-  return Object.keys(slugsObject).find((key) => object[key] === value)
+  const matchingKeys = Object.keys(slugsObject).filter(
+    (key) => object[key] === value
+  )
+  if (locale) {
+    const localizedKey = matchingKeys.find((key) =>
+      key.endsWith(`.slug.${locale}`)
+    )
+    if (localizedKey) return localizedKey
+  }
+  return matchingKeys[0]
 }
 
 export const getKeysByValue = (
