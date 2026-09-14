@@ -11,12 +11,6 @@ export const config = {
     '/faq/:path*',
     '/known-issues/:path*',
     '/troubleshooting/:path*',
-    '/_next/data/:buildId/:locale/docs/tutorials/:slug*.json',
-    '/_next/data/:buildId/:locale/docs/tracks/:slug*.json',
-    '/_next/data/:buildId/:locale/announcements/:slug*.json',
-    '/_next/data/:buildId/:locale/faq/:slug*.json',
-    '/_next/data/:buildId/:locale/known-issues/:slug*.json',
-    '/_next/data/:buildId/:locale/troubleshooting/:slug*.json',
   ],
 }
 
@@ -39,40 +33,6 @@ function parsePathToSectionAndSlug(
     const match = pathname.match(pattern)
     if (match) {
       return { section: match[1], slug: match[2], locale }
-    }
-  }
-
-  return null
-}
-
-export function parseNextDataPath(pathname: string): {
-  locale: string
-  section: string
-  slug: string
-  buildId: string
-} | null {
-  const docsPattern =
-    /^\/_next\/data\/([^/]+)\/(en|pt|es)\/docs\/(tutorials|tracks)\/([^/]+)\.json$/
-  const otherPattern =
-    /^\/_next\/data\/([^/]+)\/(en|pt|es)\/(announcements|faq|known-issues|troubleshooting)\/([^/]+)\.json$/
-
-  let match = pathname.match(docsPattern)
-  if (match) {
-    return {
-      buildId: match[1],
-      locale: match[2],
-      section: match[3],
-      slug: match[4],
-    }
-  }
-
-  match = pathname.match(otherPattern)
-  if (match) {
-    return {
-      buildId: match[1],
-      locale: match[2],
-      section: match[3],
-      slug: match[4],
     }
   }
 
@@ -105,16 +65,7 @@ function rewriteWithLocale(
 }
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname
-  const rawPathname = new URL(request.url).pathname
   const userAgent = request.headers.get('user-agent')
-
-  if (
-    pathname.startsWith('/_next/data/') ||
-    rawPathname.startsWith('/_next/data/')
-  ) {
-    return handleNextDataRequest(request)
-  }
 
   const localeResponse = enforceUrlLocale(request)
   if (localeResponse) {
@@ -122,61 +73,6 @@ export function middleware(request: NextRequest) {
   }
 
   return handleBotDetection(request, userAgent)
-}
-
-/**
- * For _next/data requests, force the locale encoded in the data URL onto the
- * Next.js request. Using a plain URL with `/pt/...` in the pathname lets
- * Netlify serve the default-locale page when the same slug exists in EN/ES/PT.
- */
-function handleNextDataRequest(request: NextRequest): NextResponse {
-  const rawPathname = new URL(request.url).pathname
-  const parsed =
-    parseNextDataPath(rawPathname) ||
-    parseNextDataPath(request.nextUrl.pathname)
-
-  if (!parsed) {
-    return NextResponse.next()
-  }
-
-  const { locale: urlLocale, slug, section } = parsed
-
-  if (shouldLogLocaleRouting) {
-    console.info('[locale-routing] Processing _next/data request', {
-      pathname: rawPathname,
-      urlLocale,
-      slug,
-      section,
-    })
-  }
-
-  const sectionPath =
-    section === 'tutorials' || section === 'tracks'
-      ? `/docs/${section}`
-      : `/${section}`
-
-  const rewriteUrl = rewriteWithLocale(
-    request,
-    urlLocale,
-    `${sectionPath}/${slug}`
-  )
-  rewriteUrl.searchParams.set('__nextDataReq', '1')
-
-  if (shouldLogLocaleRouting) {
-    console.info('[locale-routing] Rewriting to ensure correct locale', {
-      from: rawPathname,
-      to: rewriteUrl.pathname,
-      urlLocale,
-    })
-  }
-
-  const response = NextResponse.rewrite(rewriteUrl)
-  applyLocaleCookies(response, urlLocale)
-  response.headers.set('X-Locale-Routing-Fix', 'rewrite-applied')
-  response.headers.set('X-URL-Locale', urlLocale)
-  response.headers.set('X-Original-Path', rawPathname)
-
-  return response
 }
 
 function enforceUrlLocale(request: NextRequest): NextResponse | null {
