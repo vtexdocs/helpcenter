@@ -204,6 +204,7 @@ export interface KnownIssueDataElement extends CardDataElement {
 export interface FaqCardDataElement extends CardDataElement {
   slug: string
   productTeam: string
+  excerpt?: string
 }
 
 export interface TroubleshootingDataElement extends CardDataElement {
