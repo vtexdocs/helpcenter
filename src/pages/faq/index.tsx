@@ -2,7 +2,7 @@ import { Box, Flex } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 
 import { FaqCardDataElement } from 'utils/typings/types'
-import { SortByType, LocaleType } from 'utils/typings/unionTypes'
+import { LocaleType } from 'utils/typings/unionTypes'
 import Head from 'next/head'
 import styles from 'styles/filterable-cards-page'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -20,16 +20,8 @@ import PageHeader from 'components/page-header'
 import { useIntl } from 'react-intl'
 import faqImage from '../../../public/images/faq.png'
 import Pagination from 'components/pagination'
-import Select from 'components/select'
-import { faqFilter, sortBy } from 'utils/constants'
 import FaqCard from 'components/faq-card'
-import {
-  ChipFilter,
-  Input,
-  ListingFilter,
-  SearchIcon,
-  Tooltip,
-} from '@vtexdocs/components'
+import { ChipFilter, Input, SearchIcon, Tooltip } from '@vtexdocs/components'
 import usePagination from '../../utils/hooks/usePagination'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
@@ -52,16 +44,26 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const [pageIndex, setPageIndex] = useState({ curr: 1, total: 1 })
   const [filters, setFilters] = useState<string[]>([])
   const [search, setSearch] = useState<string>('')
-  const [sortByValue, setSortByValue] = useState<SortByType>('newest')
   const searchTerms = useMemo(
     () => getSearchTerms(search, intl.locale),
     [search, intl.locale]
   )
 
-  const chipCategories = faqFilter(intl).options.map((option) => ({
-    type: option.id,
-    title: option.name,
-  }))
+  const chipCategories = useMemo(() => {
+    const teams = new Set<string>()
+
+    faqData.forEach((faq) => {
+      const team = faq.productTeam?.trim()
+      if (team) teams.add(team)
+    })
+
+    return [...teams]
+      .sort((a, b) => a.localeCompare(b, intl.locale, { sensitivity: 'base' }))
+      .map((team) => ({
+        type: team,
+        title: team,
+      }))
+  }, [faqData, intl.locale])
 
   const filteredResult = useMemo(() => {
     const data = faqData.filter((question) => {
@@ -89,16 +91,13 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
         return matchCountB - matchCountA
       }
 
-      const dateA =
-        sortByValue === 'newest' ? new Date(b.createdAt) : new Date(b.updatedAt)
-      const dateB =
-        sortByValue === 'newest' ? new Date(a.createdAt) : new Date(a.updatedAt)
-
-      return dateA.getTime() - dateB.getTime()
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     })
 
     return sorted
-  }, [filters, sortByValue, searchTerms, faqData])
+  }, [filters, searchTerms, faqData])
+
+  const hasActiveFilters = filters.length > 0 || search.trim().length > 0
 
   useEffect(() => {
     setPageIndex({
@@ -116,10 +115,6 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
   const handleClick = useCallback(({ selected }: { selected: number }) => {
     setPageIndex((prev) => ({ ...prev, curr: selected }))
   }, [])
-
-  function handleFilterApply(filters: string[]) {
-    setFilters(filters)
-  }
 
   function handleCategoriesSelection(category: string) {
     setFilters([...filters, category])
@@ -179,30 +174,19 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
           priority
         />
         <Flex sx={styles.container}>
-          <Flex sx={styles.optionsContainer}>
-            <Box sx={styles.filterWrap}>
-              <ListingFilter
-                selectedCheckboxes={filters}
-                checkBoxFilter={faqFilter(intl)}
-                labels={{
-                  button: intl.formatMessage({ id: 'filter_modal.title' }),
-                  modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
-                  remove: intl.formatMessage({ id: 'filter_modal.remove' }),
-                  apply: intl.formatMessage({ id: 'filter_modal.button' }),
-                }}
-                onApply={(newFilters) =>
-                  handleFilterApply(newFilters.checklist)
-                }
+          <Flex sx={styles.chipFilterContainer}>
+            <Box sx={styles.chipFilterList}>
+              <ChipFilter
+                removeCategory={handleFilterRemoval}
+                resetFilters={handleFilterReset}
+                filters={filters}
+                getCategoryAmount={getCategoryAmount}
+                categories={chipCategories}
+                applyCategory={handleCategoriesSelection}
+                allResultsLabel={intl.formatMessage({ id: 'chip.all_results' })}
+                hideEmptyCategories
               />
             </Box>
-            <Flex sx={styles.sortWrap}>
-              <Select
-                label={intl.formatMessage({ id: 'sort.label' })}
-                value={sortByValue}
-                options={sortBy(intl)}
-                onSelect={(ordering) => setSortByValue(ordering as SortByType)}
-              />
-            </Flex>
           </Flex>
           <Flex sx={styles.searchRow}>
             <Box sx={styles.searchInputWrap}>
@@ -220,7 +204,7 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
               label={intl.formatMessage({
                 id: 'known_issues_page_search.priority_tooltip',
                 defaultMessage:
-                  'Resultados priorizam titulos com maior quantidade de termos correspondentes; em empate, aplica-se a ordenacao selecionada.',
+                  'Resultados priorizam titulos com maior quantidade de termos correspondentes; em empate, os mais novos aparecem primeiro.',
               })}
             >
               <Box
@@ -235,20 +219,9 @@ const FaqPage: NextPage<Props> = ({ faqData, branch }) => {
               </Box>
             </Tooltip>
           </Flex>
-          <Box sx={styles.chipFilterContainer}>
-            <ChipFilter
-              removeCategory={handleFilterRemoval}
-              resetFilters={handleFilterReset}
-              filters={filters}
-              getCategoryAmount={getCategoryAmount}
-              categories={chipCategories}
-              applyCategory={handleCategoriesSelection}
-              allResultsLabel={intl.formatMessage({ id: 'chip.all_results' })}
-            />
-          </Box>
           <Flex sx={styles.cardContainer}>
-            {!!filteredResult.length && (
-              <Box sx={styles.resultsNumberContainer}>
+            {hasActiveFilters && (
+              <Box sx={styles.resultsNumber}>
                 {filteredResult.length}{' '}
                 {intl.formatMessage({ id: 'faq_page.results_found' })}
               </Box>
@@ -321,6 +294,10 @@ export const getStaticProps: GetStaticProps = async ({
             updatedAt: String(frontmatter.updatedAt),
             status: String(frontmatter.status),
             productTeam: String(frontmatter.productTeam || ''),
+            ...(typeof frontmatter.excerpt === 'string' &&
+            frontmatter.excerpt.trim()
+              ? { excerpt: frontmatter.excerpt.trim() }
+              : {}),
           }
         }
 

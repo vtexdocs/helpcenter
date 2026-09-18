@@ -1,5 +1,9 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
+import tokens from 'styles/theme-tokens'
+
+const { landing } = tokens
+
 const container: SxStyleProp = {
   mx: 'auto',
   mt: ['16px', '32px'],
@@ -34,10 +38,10 @@ const listingCard: SxStyleProp = {
 }
 
 const cardContainer: SxStyleProp = {
-  gap: '16px',
+  gap: '12px',
   flexDirection: 'column',
-  justifyContent: 'space-between',
-  alignItems: 'center',
+  justifyContent: 'flex-start',
+  alignItems: 'stretch',
   mb: ['56px', '86px'],
   width: '100%',
   minWidth: 0,
@@ -54,10 +58,19 @@ const optionsContainer: SxStyleProp = {
 
 const filterWrap: SxStyleProp = {
   flexShrink: 0,
+  display: 'flex',
+  alignItems: 'center',
+}
+
+const listingFilterButton: SxStyleProp = {
+  height: '32px',
+  borderRadius: '16px',
+  px: '12px',
 }
 
 const sortWrap: SxStyleProp = {
   minWidth: 0,
+  flexShrink: 0,
   ml: ['0', 'auto'],
   maxWidth: '100%',
 }
@@ -74,13 +87,21 @@ const searchRow: SxStyleProp = {
   width: '100%',
   minWidth: 0,
   alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '8px 12px',
+}
+
+const searchToolbar: SxStyleProp = {
+  flex: 1,
+  minWidth: ['100%', 0],
+  width: ['100%', 'auto'],
+  alignItems: 'center',
   gap: '8px',
 }
 
 const searchInputWrap: SxStyleProp = {
-  width: '100%',
+  flex: '1 1 240px',
   minWidth: 0,
-  flex: 1,
 }
 
 const helpButton: SxStyleProp = {
@@ -91,9 +112,9 @@ const helpButton: SxStyleProp = {
   height: '24px',
   borderRadius: '50%',
   border: '1px solid',
-  borderColor: 'muted.2',
+  borderColor: landing.border,
   backgroundColor: 'transparent',
-  color: 'muted.0',
+  color: landing.body,
   fontSize: '12px',
   fontWeight: 700,
   cursor: 'help',
@@ -104,18 +125,54 @@ const helpButton: SxStyleProp = {
 const chipFilterContainer: SxStyleProp = {
   width: '100%',
   minWidth: 0,
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: '12px',
+}
+
+const chipFilterList: SxStyleProp = {
+  flex: 1,
+  minWidth: 0,
+  svg: {
+    width: '16px',
+    height: '16px',
+    minWidth: '16px',
+    minHeight: '16px',
+    color: landing.body,
+  },
 }
 
 const noResults: SxStyleProp = {
   py: '32px',
   textAlign: 'center',
   width: '100%',
+  color: landing.muted,
+  fontSize: landing.type.meta,
+  lineHeight: landing.type.metaLine,
+}
+
+const resultsRow: SxStyleProp = {
+  width: '100%',
+  minWidth: 0,
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  gap: '12px',
+  flexWrap: 'wrap',
 }
 
 const resultsNumberContainer: SxStyleProp = {
-  fontSize: '1rem',
-  color: 'muted.0',
+  fontSize: landing.type.meta,
+  lineHeight: landing.type.metaLine,
+  color: landing.muted,
   width: '100%',
+  overflowWrap: 'anywhere',
+}
+
+const resultsNumber: SxStyleProp = {
+  fontSize: landing.type.meta,
+  lineHeight: landing.type.metaLine,
+  color: landing.muted,
+  minWidth: 0,
   overflowWrap: 'anywhere',
 }
 
@@ -126,11 +183,16 @@ export default {
   optionContainer,
   optionsContainer,
   filterWrap,
+  listingFilterButton,
   sortWrap,
   searchRow,
+  searchToolbar,
   searchInputWrap,
   helpButton,
   chipFilterContainer,
+  chipFilterList,
   noResults,
+  resultsRow,
   resultsNumberContainer,
+  resultsNumber,
 }
