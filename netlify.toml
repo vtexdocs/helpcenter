@@ -1150,3 +1150,21 @@ force = true
 from = "/docs/tutorials/how-to-manage-users"
 status = 308
 to = "/en/docs/tutorials/managing-admin-users"
+
+[[redirects]]
+force = true
+from = "/en/known-issues/incorrect-coupon-expired-messaged-displayed-in-the-checkout-when-using-a-promotion-that-isarchived-true"
+status = 308
+to = "/en/known-issues/coupon-not-working-with-message-coupon-has-expired"
+
+[[redirects]]
+force = true
+from = "/pt/known-issues/mensagem-incorreta-cupom-expirado-exibida-na-finalizacao-da-compra-ao-usar-uma-promocao-cujo-atributo-isarchived-true"
+status = 308
+to = "/pt/known-issues/o-cupom-nao-esta-funcionando-e-aparece-a-mensagem-o-cupom-expirou"
+
+[[redirects]]
+force = true
+from = "/es/known-issues/aparece-un-mensaje-erroneo-de-cupon-caducado-en-la-pagina-de-pago-al-utilizar-una-promocion-cuyo-valor-isarchived-es-true"
+status = 308
+to = "/es/known-issues/el-cupon-no-funciona-y-aparece-el-mensaje-el-cupon-ha-caducado"
