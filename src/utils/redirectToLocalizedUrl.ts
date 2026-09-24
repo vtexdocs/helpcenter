@@ -1,11 +1,11 @@
 import { GetStaticPropsResult } from 'next'
 import { ContributorsType } from './typings/types'
-import { Item } from '@vtexdocs/components'
+import { Item, BreadcrumbItem } from '@vtexdocs/components'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 interface Props {
   sectionSelected: string
-  breadcrumbList: { slug: string; name: string; type: string }[]
+  breadcrumbList: BreadcrumbItem[]
   content: string
   serialized: MDXRemoteSerializeResult
   contributors: ContributorsType[]

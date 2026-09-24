@@ -1,6 +1,9 @@
 import { SxStyleProp } from '@vtex/brand-ui'
 
 const container: SxStyleProp = {
+  width: '100%',
+  maxWidth: '100%',
+  minWidth: 0,
   '.page-item': {
     borderRadius: '4px',
     maxHeight: '24px',
@@ -24,14 +27,16 @@ const container: SxStyleProp = {
   '.pagination': {
     listStyle: 'none',
     display: 'flex',
-    gap: '15px',
-    fontSize: '18px',
+    gap: ['6px', '12px', '15px'],
+    fontSize: ['14px', '16px', '18px'],
     lineHeight: '24px',
     alignItems: 'center',
     justifyContent: 'center',
     padding: '0',
     flexWrap: 'wrap',
-    mx: '24px',
+    mx: ['0', '16px', '24px'],
+    maxWidth: '100%',
+    boxSizing: 'border-box',
   },
   '.active': {
     backgroundColor: '#FFE0EF',

@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 import { IconProps } from '@vtex/brand-ui'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { Item } from '@vtexdocs/components'
-import { MouseEventHandler } from 'react'
+import { Item, ContributorsType, BreadcrumbItem } from '@vtexdocs/components'
+import { MouseEventHandler, ReactNode } from 'react'
 import {
   UpdatesTitle,
   ResourceTitle,
@@ -30,13 +30,15 @@ export type ArticlePageProps =
         previousDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
         nextDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
       }
-      breadcrumbList: { slug: string; name: string; type: string }[]
+      breadcrumbList: BreadcrumbItem[]
       mdFileExists: true
       componentProps: MarkDownProps
       headingList: Item[]
@@ -51,13 +53,15 @@ export type ArticlePageProps =
         previousDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
         nextDoc: {
           slug: string | null
           name: string | null
+          createdAt?: string
         }
       }
-      breadcrumbList: { slug: string; name: string; type: string }[]
+      breadcrumbList: BreadcrumbItem[]
       mdFileExists: false
       componentProps: ArticleIndexingProps
       headingList?: Item[]
@@ -82,15 +86,34 @@ export interface MarkDownProps {
     previousDoc: {
       slug: string | null
       name: string | null
+      createdAt?: string
     }
     nextDoc: {
       slug: string | null
       name: string | null
+      createdAt?: string
     }
   }
-  breadcrumbList: { slug: string; name: string; type: string }[]
+  breadcrumbList: BreadcrumbItem[]
   headings: Item[]
   type: SectionId
+}
+
+export interface ArticleRenderProps extends MarkDownProps {
+  children?: ReactNode
+  showReadingTime?: boolean
+  showAskAIMenu?: boolean
+  showAuthor?: boolean
+  showContributors?: boolean
+  showFeedbackSection?: boolean
+  showSuggestEdits?: boolean
+  showArticlePagination?: boolean
+  paginationPreviousChildren?: ReactNode
+  paginationNextChildren?: ReactNode
+  showTableOfContents?: boolean
+  showCreatedAt?: boolean
+  createdAtFormat?: 'long' | 'published'
+  showUpdatedAt?: boolean
 }
 
 // Article Index Types
@@ -168,6 +191,7 @@ export interface AnnouncementDataElement extends CardDataElement {
   url: string
   synopsis?: string
   tags: string[]
+  productTeam?: string
 }
 
 export interface KnownIssueDataElement extends CardDataElement {
@@ -180,6 +204,7 @@ export interface KnownIssueDataElement extends CardDataElement {
 export interface FaqCardDataElement extends CardDataElement {
   slug: string
   productTeam: string
+  excerpt?: string
 }
 
 export interface TroubleshootingDataElement extends CardDataElement {
@@ -188,9 +213,4 @@ export interface TroubleshootingDataElement extends CardDataElement {
   symptomFilters?: string[]
 }
 
-export interface ContributorsType {
-  name: string
-  login: string
-  avatar: string
-  userPage: string
-}
+export type { ContributorsType }

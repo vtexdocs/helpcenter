@@ -5,15 +5,27 @@ included_files = ["node_modules/sharp/**/*", "node_modules/@img/**/*", "./github
 
 [build.environment]
 NODE_VERSION = "20"
+# Cache-key fingerprint for the pinned @vtexdocs/components ref. Bump this in
+# lockstep with the ref in package.json on every intentional components bump so
+# the build cache changes and the git dependency is refetched (paired with the
+# preinstall purge in package.json). Value = the commit that the pinned tag
+# (v6.2.0) resolves to.
+COMPONENTS_GIT_SHA = "a5f231e711603c5f087a01a56de52e8212b2eb94"
 
 [[plugins]]
     package = "@netlify/plugin-nextjs"
+
+# Prefixed `_next/data` JSON is the English static file for shared slugs.
+# This runs before origin so PT/ES client navigations get the HTML locale.
+[[edge_functions]]
+  path = "/_next/data/*"
+  function = "fix-next-data-locale"
 
 # All redirect cases are handled by the redirect-from-old-portal edge function.
 # Catch-all for hostname redirects (must be first to handle newhelp.vtex.com -> help.vtex.com)
 [[edge_functions]]
   path = "/*"
-  excludedPath = ["/netlify-prerender-function*", "/.netlify/*", "/__netlify/*"]
+  excludedPath = ["/netlify-prerender-function*", "/.netlify/*", "/__netlify/*", "/_next/*"]
   function = "redirect-from-old-portal"
 
 [[edge_functions]]
@@ -187,6 +199,30 @@ to = "/docs/tutorials/extensibility-in-vtex-sales-app"
 
 [[redirects]]
 force = true
+from = "/en/docs/tutorials/extensibility-in-vtex-sales-app"
+status = 308
+to = "/docs/tutorials/vtex-sales-app-extensibility-en"
+
+[[redirects]]
+force = true
+from = "/docs/tutorials/extensibility-in-vtex-sales-app"
+status = 308
+to = "/docs/tutorials/vtex-sales-app-extensibility-en"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/extensibilidade-no-vtex-sales-app"
+status = 308
+to = "/pt/docs/tutorials/vtex-sales-app-extensibility-pt"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/extensibilidad-en-vtex-sales-app"
+status = 308
+to = "/es/docs/tutorials/vtex-sales-app-extensibility-es"
+
+[[redirects]]
+force = true
 from = "/pt/docs/tutorials/importar-e-exportar-produtos-e-skus-via-planilha-beta"
 status = 308
 to = "/docs/tutorials/importar-e-exportar-produtos-e-skus-via-planilha"
@@ -286,6 +322,30 @@ force = true
 from = "/pt/docs/tutorials/importar-e-exportar-dimagens-de-produtos-e-skus-via-planilha-beta"
 status = 308
 to = "/docs/tutorials/importar-e-exportar-imagens-de-produtos-e-skus-via-planilha"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/vtex-intelligent-search-configuracoes-multi-idioma-beta"
+status = 308
+to = "/pt/docs/tutorials/vtex-intelligent-search-configuracoes-multi-idioma"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/vtex-intelligent-search-multilanguage-settings-beta"
+status = 308
+to = "/en/docs/tutorials/vtex-intelligent-search-multilanguage-settings"
+
+[[redirects]]
+force = true
+from = "/docs/tutorials/vtex-intelligent-search-multilanguage-settings-beta"
+status = 308
+to = "/en/docs/tutorials/vtex-intelligent-search-multilanguage-settings"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/vtex-intelligent-search-configuracion-multidioma-beta"
+status = 308
+to = "/es/docs/tutorials/vtex-intelligent-search-configuracion-multidioma"
 
 [[redirects]]
 force = true
@@ -958,3 +1018,195 @@ force = true
 from = "/es/known-issues/error-al-procesar-el-segundo-reembolso-del-mismo-valor-que-el-primero-la-tarjeta-regalo-ya-ha-sido-reembolsada"
 status = 308
 to = "/es/known-issues/se-ha-producido-un-error-al-procesar-el-segundo-reembolso-o-la-segunda-cancelacion-con-el-mismo-importe-que-el-primero"
+
+[[redirects]]
+force = true
+from = "/known-issues/rewriter-not-receiving-routes-updated-from-the-catalog"
+status = 308
+to = "/known-issues/rewriter-not-receiving-route-updates-from-the-catalog"
+
+[[redirects]]
+force = true
+from = "/pt/known-issues/o-reescritor-nao-esta-recebendo-rotas-atualizadas-do-catalogo"
+status = 308
+to = "/pt/known-issues/o-rewriter-nao-esta-recebendo-atualizacoes-de-rota-do-catalogo"
+
+[[redirects]]
+force = true
+from = "/es/known-issues/el-reescritor-no-recibe-las-rutas-actualizadas-desde-el-catalogo"
+status = 308
+to = "/es/known-issues/el-rewriter-no-recibe-actualizaciones-de-ruta-del-catalogo"
+
+[[redirects]]
+force = true
+from = "/known-issues/rewriter-is-not-receiving-url-updates"
+status = 308
+to = "/known-issues/rewriter-not-receiving-route-updates-from-the-catalog"
+
+[[redirects]]
+force = true
+from = "/pt/known-issues/o-reescritor-nao-esta-recebendo-atualizacoes-de-url"
+status = 308
+to = "/pt/known-issues/o-rewriter-nao-esta-recebendo-atualizacoes-de-rota-do-catalogo"
+
+[[redirects]]
+force = true
+from = "/es/known-issues/el-reescribidor-no-recibe-actualizaciones-de-url"
+status = 308
+to = "/es/known-issues/el-rewriter-no-recibe-actualizaciones-de-ruta-del-catalogo"
+
+[[redirects]]
+force = true
+from = "/en/docs/tracks/integration-with-facebook-business-extension"
+status = 308
+to = "/en/docs/tracks/integration-with-meta-business-extension"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tracks/integracao-com-o-facebook-business-extension"
+status = 308
+to = "/pt/docs/tracks/integracao-com-o-meta-business-extension"
+
+[[redirects]]
+force = true
+from = "/es/docs/tracks/integracion-con-facebook-business-extension"
+status = 308
+to = "/es/docs/tracks/integracion-con-meta-business-extension"
+
+[[redirects]]
+force = true
+from = "/en/docs/tracks/facebook-business-extension"
+status = 308
+to = "/en/docs/tracks/meta-business-extension"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tracks/facebook-business-extension"
+status = 308
+to = "/pt/docs/tracks/meta-business-extension"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/ativar-skus-em-massa"
+status = 308
+to = "/pt/docs/tutorials/importar-e-exportar-produtos-e-skus-via-planilha"
+
+[[redirects]]
+force = true
+from = "/es/docs/tutorials/activar-skus-en-massa"
+status = 308
+to = "/es/docs/tutorials/importar-y-exportar-productos-y-skus-mediante-plantilla"
+
+[[redirects]]
+force = true
+from = "/docs/tutorials/activating-skus-in-bulk"
+status = 308
+to = "/docs/tutorials/importing-and-exporting-products-and-skus-using-a-spreadsheet"
+
+[[redirects]]
+force = true
+from = "/es/docs/tracks/facebook-business-extension"
+status = 308
+to = "/es/docs/tracks/meta-business-extension"
+
+[[redirects]]
+force = true
+from = "/en/docs/tracks/integration-with-facebook-business-extension-overview"
+status = 308
+to = "/en/docs/tracks/integration-with-meta-business-extension-overview"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tracks/visao-geral-da-integracao-com-o-facebook-business-extension"
+status = 308
+to = "/pt/docs/tracks/visao-geral-da-integracao-com-o-meta-business-extension"
+
+[[redirects]]
+force = true
+from = "/es/docs/tracks/vision-general-de-la-integracion-con-facebook-business-extension"
+status = 308
+to = "/es/docs/tracks/vision-general-de-la-integracion-con-meta-business-extension"
+
+[[redirects]]
+force = true
+from = "/en/docs/tracks/installing-the-facebook-business-extension-e-conversions-api-app"
+status = 308
+to = "/en/docs/tracks/installing-the-meta-business-extension-e-conversions-api-app"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tracks/instalar-a-app-facebook-business-extension-e-conversions-api"
+status = 308
+to = "/pt/docs/tracks/instalar-a-app-meta-business-extension-e-conversions-api"
+
+[[redirects]]
+force = true
+from = "/es/docs/tracks/instalar-la-aplicacion-facebook-business-extension-e-conversions-api"
+status = 308
+to = "/es/docs/tracks/instalar-la-aplicacion-meta-business-extension-e-conversions-api"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/integracao-com-o-facebook-business-extension-fbe"
+status = 308
+to = "/pt/docs/tracks/integracao-com-o-meta-business-extension"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/buying-policies"
+status = 308
+to = "/pt/docs/tutorials/politicas-de-compras"
+
+[[redirects]]
+force = true
+from = "/pt/docs/tutorials/adicionar-ou-editar-buying-policies"
+status = 308
+to = "/pt/docs/tutorials/adicionar-ou-editar-politicas-de-compras"
+
+[[redirects]]
+force = true
+from = "/en/docs/tutorials/how-to-manage-users"
+status = 308
+to = "/en/docs/tutorials/managing-admin-users"
+
+[[redirects]]
+force = true
+from = "/docs/tutorials/how-to-manage-users"
+status = 308
+to = "/en/docs/tutorials/managing-admin-users"
+
+[[redirects]]
+force = true
+from = "/en/known-issues/incorrect-coupon-expired-messaged-displayed-in-the-checkout-when-using-a-promotion-that-isarchived-true"
+status = 308
+to = "/en/known-issues/coupon-not-working-with-message-coupon-has-expired"
+
+[[redirects]]
+force = true
+from = "/pt/known-issues/mensagem-incorreta-cupom-expirado-exibida-na-finalizacao-da-compra-ao-usar-uma-promocao-cujo-atributo-isarchived-true"
+status = 308
+to = "/pt/known-issues/o-cupom-nao-esta-funcionando-e-aparece-a-mensagem-o-cupom-expirou"
+
+[[redirects]]
+force = true
+from = "/es/known-issues/aparece-un-mensaje-erroneo-de-cupon-caducado-en-la-pagina-de-pago-al-utilizar-una-promocion-cuyo-valor-isarchived-es-true"
+status = 308
+to = "/es/known-issues/el-cupon-no-funciona-y-aparece-el-mensaje-el-cupon-ha-caducado"
+
+[[redirects]]
+force = true
+from = "/en/known-issues/error-exporting-prices-with-metadata"
+status = 308
+to = "/en/known-issues/merchants-are-not-receiving-the-fixed-price-report"
+
+[[redirects]]
+force = true
+from = "/pt/known-issues/erro-ao-exportar-precos-com-metadados"
+status = 308
+to = "/pt/known-issues/os-comerciantes-nao-estao-recebendo-o-relatorio-de-preco-fixo"
+
+[[redirects]]
+force = true
+from = "/es/known-issues/error-al-exportar-precios-con-metadatos"
+status = 308
+to = "/es/known-issues/los-comerciantes-no-reciben-el-informe-de-precios-fijos"

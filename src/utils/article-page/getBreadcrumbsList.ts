@@ -1,5 +1,7 @@
+import { BreadcrumbItem } from '@vtexdocs/components'
+
 export function getBreadcrumbsList(
-  breadcrumbList: { slug: string; name: string; type: string }[],
+  breadcrumbList: BreadcrumbItem[],
   parents: string[],
   parentsNames: string[],
   parentsTypes: string[],

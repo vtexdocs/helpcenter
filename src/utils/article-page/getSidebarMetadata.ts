@@ -3,6 +3,7 @@ import { flattenJSON, getKeyByValue } from '../navigation-utils'
 
 type SidebarMetadataOptions = {
   branch?: string
+  locale?: string
 }
 
 export async function getSidebarMetadata(
@@ -15,7 +16,7 @@ export async function getSidebarMetadata(
     (item: { documentation: string }) => item.documentation === sectionSelected
   )
   const flat = flattenJSON(filtered)
-  const keyPath = getKeyByValue(flat, slug) as string
+  const keyPath = getKeyByValue(flat, slug, options.locale) as string
 
   return {
     keyPath,

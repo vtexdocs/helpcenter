@@ -1,6 +1,8 @@
 import { useContext, useEffect } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { Item } from '@vtexdocs/components'
+import { Flex, Text } from '@vtex/brand-ui'
+import { Item, Tag } from '@vtexdocs/components'
+import { useIntl } from 'react-intl'
 import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 
 import { getLogger } from 'utils/logging/log-util'
@@ -16,6 +18,7 @@ import { fetchFileContributors } from 'utils/fetchFileContributors'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import { resolveSlugFromKiFormat } from 'utils/resolveSlugFromKiFormat'
 import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
+import { resolveEffectiveLocale } from 'utils/article-page/resolveEffectiveLocale'
 import ArticleIndex from 'components/article-index'
 import ArticleRender from 'components/article-render'
 import { ArticlePageProps } from 'utils/typings/types'
@@ -24,7 +27,8 @@ import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { isCategoryCover } from 'utils/article-page/getPagination'
 import { sanitizeArray } from 'utils/sanitizeArrays'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
-import type { SectionId } from 'utils/typings/unionTypes'
+import type { KnownIssueStatus, SectionId } from 'utils/typings/unionTypes'
+import styles from 'styles/documentation-page'
 import {
   getArticleRevalidateTime,
   getCategoryCoverRevalidateTime,
@@ -35,6 +39,37 @@ const docsPathsGLOBAL: Record<
   string,
   { locale: string; path: string }[]
 > | null = null
+
+const KnownIssueMeta = ({
+  productTeam,
+  internalReference,
+  kiStatus,
+}: {
+  productTeam?: string
+  internalReference?: string
+  kiStatus?: KnownIssueStatus
+}) => {
+  const intl = useIntl()
+
+  return (
+    <Flex sx={styles.knownIssueMeta}>
+      <Flex sx={styles.knownIssueMetaInfo}>
+        <Text>{productTeam}</Text>
+        <Text sx={styles.knownIssueMetaSeparator}>•</Text>
+        <Text sx={styles.knownIssueMetaId}>ID: {internalReference}</Text>
+      </Flex>
+      {kiStatus && (
+        <Tag sx={{ marginLeft: ['0', 'auto'] }} color={kiStatus}>
+          {intl.formatMessage({
+            id: `known_issues_filter_status.${kiStatus
+              .toLowerCase()
+              .replace(' ', '_')}`,
+          })}
+        </Tag>
+      )}
+    </Flex>
+  )
+}
 
 const KnownIssuePage: NextPage<ArticlePageProps> = ({
   mdFileExists,
@@ -67,7 +102,23 @@ const KnownIssuePage: NextPage<ArticlePageProps> = ({
       contributors={componentProps.contributors}
       seeAlsoData={componentProps.seeAlsoData}
       path={componentProps.path}
-    />
+      showSuggestEdits={false}
+      showCreatedAt
+      createdAtFormat="published"
+      showUpdatedAt
+    >
+      <KnownIssueMeta
+        productTeam={
+          componentProps.serialized.frontmatter?.productTeam as string
+        }
+        internalReference={
+          componentProps.serialized.frontmatter?.internalReference as string
+        }
+        kiStatus={
+          componentProps.serialized.frontmatter?.kiStatus as KnownIssueStatus
+        }
+      />
+    </ArticleRender>
   ) : (
     <ArticleIndex
       breadcrumbList={breadcrumbList}
@@ -132,7 +183,10 @@ export const getStaticProps: GetStaticProps = async ({
     docsPathsGLOBAL,
   })
   const { keyPath, flattenedSidebar, sidebarfallback } =
-    await getSidebarMetadata(sectionSelected, resolvedSlug, { branch })
+    await getSidebarMetadata(sectionSelected, resolvedSlug, {
+      branch,
+      locale: currentLocale,
+    })
   const isKICover = isCategoryCover(slug, sidebarfallback)
 
   if (!mdFileExists && isKICover.length === 0) {
@@ -142,38 +196,21 @@ export const getStaticProps: GetStaticProps = async ({
     return { notFound: true }
   }
 
-  // Fix for Netlify i18n routing bug: when Netlify incorrectly routes a locale-specific
-  // slug to the wrong locale handler (e.g., PT slug routed to EN handler), we need to
-  // serve the content with the correct locale instead of redirecting (which would cause
-  // an infinite loop since Netlify would misroute the redirect too).
-  let effectiveLocale = currentLocale
-  let effectiveMdFilePath = mdFilePath
+  const { effectiveLocale, effectiveMdFilePath: resolvedMdPath } =
+    resolveEffectiveLocale({
+      currentLocale,
+      mdFileExists,
+      mdFileExistsForCurrentLocale,
+      docsPathsForSlug: docsPaths[slug],
+      categoryLocales: isKICover,
+    })
+  const effectiveMdFilePath = resolvedMdPath || mdFilePath
 
-  // Fix for markdown files: detect when slug belongs to a different locale
-  if (!mdFileExistsForCurrentLocale && mdFileExists && docsPaths[slug]) {
-    const availableLocale = docsPaths[slug][0]?.locale as
-      | 'en'
-      | 'pt'
-      | 'es'
-      | undefined
-    if (availableLocale && availableLocale !== currentLocale) {
-      logger.info(
-        `Netlify i18n bug detected: slug ${slug} belongs to locale ${availableLocale}, ` +
-          `but was routed to ${currentLocale} handler. Serving content with correct locale.`
-      )
-      effectiveLocale = availableLocale
-      effectiveMdFilePath = docsPaths[slug][0]?.path || ''
-    }
-  }
-
-  // Fix for category pages: detect when the category slug belongs to a different locale
-  if (isKICover.length > 0 && !isKICover.includes(currentLocale)) {
-    const categoryLocale = isKICover[0] as 'en' | 'pt' | 'es'
+  if (effectiveLocale !== currentLocale) {
     logger.info(
-      `Netlify i18n bug detected for category: slug ${slug} belongs to locale ${categoryLocale}, ` +
+      `Netlify i18n bug detected: slug ${slug} belongs to locale ${effectiveLocale}, ` +
         `but was routed to ${currentLocale} handler. Serving content with correct locale.`
     )
-    effectiveLocale = categoryLocale
   }
 
   if (!mdFileExistsForCurrentLocale && isKICover.length === 0) {
@@ -313,6 +350,8 @@ export const getStaticProps: GetStaticProps = async ({
       headingList,
       logger,
       path: effectiveMdFilePath || mdFilePath,
+      branch,
+      locale: effectiveLocale,
     })
     if (!serialized) {
       logger.error(
@@ -348,6 +387,7 @@ export const getStaticProps: GetStaticProps = async ({
         isListed,
         breadcrumbList,
         branch,
+        headingList,
         componentProps: {
           content: documentationContent,
           serialized: JSON.parse(JSON.stringify(serialized)),

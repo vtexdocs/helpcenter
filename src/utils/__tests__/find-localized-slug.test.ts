@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest'
 import { findLocalizedSlug } from '../find-localized-slug'
 import type { NavbarItem } from 'types/navigation'
 
@@ -28,6 +27,28 @@ const mockNavbar: NavbarItem[] = [
             origin: '',
             type: 'category',
             children: [
+              {
+                name: {
+                  en: 'Agent APIs',
+                  es: 'Agent APIs',
+                  pt: 'Agent APIs',
+                },
+                slug: {
+                  en: 'agent-apis',
+                  es: 'agent-apis',
+                  pt: 'agent-apis',
+                },
+                type: 'divider',
+                children: [
+                  {
+                    name: { en: 'MCP', es: 'MCP', pt: 'MCP' },
+                    slug: { en: 'mcp', es: 'mcp-es', pt: 'mcp-pt' },
+                    origin: '',
+                    type: 'markdown',
+                    children: [],
+                  },
+                ],
+              },
               {
                 name: {
                   en: 'My Article',
@@ -121,5 +142,13 @@ describe('findLocalizedSlug', () => {
 
   it('returns original slug for empty navbar', () => {
     expect(findLocalizedSlug([], 'anything', 'en')).toBe('anything')
+  })
+
+  it('ignores the divider id, which is not a real doc', () => {
+    expect(findLocalizedSlug(mockNavbar, 'agent-apis', 'pt')).toBe('agent-apis')
+  })
+
+  it('localizes docs nested inside a divider', () => {
+    expect(findLocalizedSlug(mockNavbar, 'mcp', 'pt')).toBe('mcp-pt')
   })
 })

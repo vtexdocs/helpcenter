@@ -4,19 +4,27 @@ import tokens from 'styles/theme-tokens'
 
 const container: SxStyleProp = {
   width: '100%',
+  minWidth: 0,
   backgroundColor: 'white',
+  maxWidth: '2024px',
+  mx: 'auto',
 }
 
 const mainContainer: SxStyleProp = {
   justifyContent: 'center',
   width: '100%',
+  minWidth: 0,
 }
 
 const innerContainer: SxStyleProp = {
   justifyContent: 'center',
-  pt: ['28px', '64px'],
+  width: '100%',
+  minWidth: 0,
+  boxSizing: 'border-box',
+  pt: ['24px', '32px', '3em'],
   mx: 'auto',
-  px: ['auto', '5em', '7em', '7em', '7em', '7em', '20em'],
+  px: ['18px', '24px', '32px', '40px', '48px', '64px', '20em'],
+  pb: ['48px', '64px', '72px'],
 }
 
 const infoContainer: SxStyleProp = {
@@ -31,49 +39,104 @@ const infoContainer: SxStyleProp = {
 
 const articleBox: SxStyleProp = {
   fontSize: '1em',
-  lineHeight: '1.375em',
-  width: ['100%', 'auto'],
+  lineHeight: '1.75em',
+  flex: '1 1 auto',
+  width: '100%',
+  minWidth: 0,
+  maxWidth: '100%',
+  color: 'rgb(51, 65, 85)',
+  overflowWrap: 'anywhere',
+  img: {
+    maxWidth: '100%',
+    height: 'auto',
+  },
+  pre: {
+    maxWidth: '100%',
+    overflowX: 'auto',
+  },
+  iframe: {
+    maxWidth: '100%',
+  },
   a: {
     color: '#E31C58',
     textDecoration: 'none',
+    fontWeight: '500',
   },
   ul: {
+    pl: '1.5em',
+    mt: '1.25em',
+    mb: '1.25em',
     li: {
+      mt: '0.5em',
+      mb: '0.5em',
+    },
+    listStyleType: 'disc',
+    'ul, ol': {
       mt: '0.5em',
       mb: '0.5em',
     },
   },
   ol: {
+    pl: '1.5em',
+    mt: '1.25em',
+    mb: '1.25em',
     li: {
+      mt: '0.5em',
+      mb: '0.5em',
+    },
+    'ul, ol': {
       mt: '0.5em',
       mb: '0.5em',
     },
   },
   header: {
+    marginTop: ['8px', '16px'],
     borderBottom: '1px solid #E7E9EE',
-    marginBottom: '18px',
-    pb: '18px',
-  },
-  h1: {
-    fontSize: '1.75em',
-    fontWeight: '400',
-    lineHeight: '2.375em',
-    overflowWrap: 'anywhere',
+    marginBottom: ['8px', '12px'],
+    pb: ['12px', '16px'],
   },
   h2: {
     fontSize: '1.375em',
-    lineHeight: '2em',
-    fontWeight: '400',
-    mt: '1.3em',
-    mb: '0.875em',
+    lineHeight: '1.3em',
+    fontWeight: '700',
+    mt: ['1.5em', '2em'],
+    mb: ['0.75em', '1em'],
     overflowWrap: 'anywhere',
+    color: 'rgb(15, 23, 42)',
   },
   h3: {
     fontSize: '1.125em',
     fontWeight: '600',
-    lineHeight: '1.875em',
+    lineHeight: '1.6em',
+    mt: '1.6em',
+    mb: '0.6em',
+    overflowWrap: 'anywhere',
+  },
+  h4: {
+    fontSize: '1em',
+    fontWeight: '600',
+    lineHeight: '1.5em',
     mt: '1.5em',
-    mb: '1em',
+    mb: '0.5em',
+    color: 'rgb(15, 23, 42)',
+    overflowWrap: 'anywhere',
+  },
+  h5: {
+    fontSize: '0.9375em',
+    fontWeight: '600',
+    lineHeight: '1.5em',
+    mt: '1.25em',
+    mb: '0.5em',
+    color: 'rgb(71, 85, 105)',
+    overflowWrap: 'anywhere',
+  },
+  h6: {
+    fontSize: '0.9375em',
+    fontWeight: '600',
+    lineHeight: '1.5em',
+    mt: '1.25em',
+    mb: '0.5em',
+    color: 'rgb(100, 116, 139)',
     overflowWrap: 'anywhere',
   },
   strong: {
@@ -82,13 +145,14 @@ const articleBox: SxStyleProp = {
   },
   hr: {
     border: '0.5px solid #E7E9EE',
+    my: ['2em', '3em'],
   },
 }
 
 const contentContainer: SxStyleProp = {
   width: '100%',
-  px: ['1.125em', 'initial'],
-  minWidth: ['0px', '470px', '470px'],
+  minWidth: 0,
+  maxWidth: '100%',
 }
 
 const articleIndexContentContainer: SxStyleProp = {
@@ -97,33 +161,179 @@ const articleIndexContentContainer: SxStyleProp = {
 }
 
 const documentationTitle: SxStyleProp = {
-  marginTop: '16px',
-  fontSize: '1.75em',
-  lineHeight: ['30px', '38px'],
+  display: 'block',
+  marginTop: ['16px', '16px', '24px'],
+  marginBottom: 0,
+  fontSize: ['28px', '28px', '36px'],
+  lineHeight: ['36px', '36px', '44px'],
   fontWeight: '400',
+  color: '#142032',
+  overflowWrap: 'anywhere',
 }
 
 const documentationExcerpt: SxStyleProp = {
   color: '#A1A8B3',
-  padding: '8px 0 24px',
-  lineHeight: '18px',
+  padding: ['8px 0 16px', '8px 0 24px'],
+  lineHeight: ['20px', '22px'],
   fontWeight: '400',
+  overflowWrap: 'anywhere',
+}
+
+const breadcrumbRow: SxStyleProp = {
+  justifyContent: 'space-between',
+  alignItems: 'flex-start',
+  flexWrap: 'wrap',
+  gap: '8px',
+  width: '100%',
+  minWidth: 0,
+}
+
+const articleHeaderExtra: SxStyleProp = {
+  mt: ['8px', '10px'],
+  width: '100%',
+  minWidth: 0,
+}
+
+const articleMeta: SxStyleProp = {
+  flexDirection: 'column-reverse',
+  justifyContent: 'flex-start',
+  alignItems: 'stretch',
+  gap: '10px',
+  marginBottom: ['16px', '20px'],
+  marginTop: '0',
+  width: '100%',
+  minWidth: 0,
+  '@media screen and (min-width: 40em)': {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: '8px 16px',
+  },
+}
+
+const articleMetaInfo: SxStyleProp = {
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+  gap: '2px',
+  minWidth: 0,
+  width: '100%',
+  flex: '0 0 auto',
+  '@media screen and (min-width: 40em)': {
+    width: 'auto',
+    flex: '1 1 auto',
+  },
+}
+
+const articleReadingTime: SxStyleProp = {
+  color: tokens.landing.muted,
+  fontSize: '13px',
+  lineHeight: '20px',
+  '& > *': {
+    color: 'inherit !important',
+    fontSize: 'inherit !important',
+    lineHeight: 'inherit !important',
+  },
+}
+
+const articleActions: SxStyleProp = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  gap: '8px',
+  flexShrink: 0,
+  ml: 0,
+  width: '100%',
+  minWidth: 0,
+  '& > div': {
+    width: 'max-content',
+    flexShrink: 0,
+  },
+  '& [role="menu"]': {
+    right: 0,
+  },
+  '@media screen and (min-width: 40em)': {
+    justifyContent: 'flex-end',
+    ml: 'auto',
+    width: 'auto',
+  },
+}
+
+const knownIssueMeta: SxStyleProp = {
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  width: '100%',
+  minWidth: 0,
+  gap: '8px',
+  mt: '16px',
+  color: tokens.landing.body,
+  fontSize: tokens.landing.type.meta,
+  lineHeight: tokens.landing.type.metaLine,
+}
+
+const knownIssueMetaInfo: SxStyleProp = {
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '6px 8px',
+  minWidth: 0,
+  flex: '0 1 auto',
+  '@media screen and (min-width: 40em)': {
+    flex: '1 1 auto',
+  },
+}
+
+const knownIssueMetaId: SxStyleProp = {
+  color: tokens.landing.muted,
+}
+
+const knownIssueMetaSeparator: SxStyleProp = {
+  color: tokens.grays.caretIcon,
+  flexShrink: 0,
 }
 
 const bottomContributorsContainer: SxStyleProp = {
-  display: ['none', 'initial', 'initial', 'initial', 'none'],
+  display: ['flex', 'flex', 'flex', 'flex', 'none'],
+  flexDirection: 'column',
+  alignItems: 'center',
+  width: '100%',
+  minWidth: 0,
+  pt: ['20px', '24px'],
+  gap: ['24px', '24px'],
+  '[data-cy="feedback-section"]': {
+    marginTop: '0',
+    marginBottom: '0',
+    gap: '12px',
+    '& > div:first-of-type': {
+      borderBottom: 'none',
+      paddingBottom: 0,
+      marginBottom: 0,
+      marginTop: 0,
+    },
+  },
 }
 
-const bottomContributorsDivider: SxStyleProp = {
-  mx: 'auto',
-  my: '32px',
-  height: '1px',
-  width: '162px',
-  backgroundColor: '#E7E9EE',
+const bottomContributors: SxStyleProp = {
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  '& > div': {
+    alignItems: 'center !important',
+    width: 'auto !important',
+    mb: '0 !important',
+  },
+  '[data-cy="contributors-container"]': {
+    display: 'flex !important',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    width: 'auto !important',
+    maxWidth: '232px',
+  },
 }
 
 const rightContainer: SxStyleProp = {
-  ml: ['38px', '38px', '48px', '48px', '58px', '68px', '200px'],
+  ml: [0, 0, 0, 0, '48px', '68px', '200px'],
   display: [
     'none !important',
     'none !important',
@@ -131,7 +341,8 @@ const rightContainer: SxStyleProp = {
     'none !important',
     'initial !important',
   ],
-  minWidth: [0, 0, 0, 0, '139px', '184px', '284px'],
+  flexShrink: 0,
+  width: [0, 0, 0, 0, '240px', '240px', '284px'],
 }
 
 const releaseAction: SxStyleProp = {
@@ -142,8 +353,9 @@ const releaseAction: SxStyleProp = {
 }
 
 const divider: SxStyleProp = {
-  marginTop: '20px',
-  borderBottom: '1px solid #E7E9EE',
+  borderTop: '1px solid #E7E9EE',
+  pt: 4,
+  mt: 4,
 }
 
 const flexContainer: SxStyleProp = {
@@ -173,9 +385,11 @@ const indexContainer: SxStyleProp = {
 
 const textContainer: SxStyleProp = {
   width: '100%',
+  minWidth: 0,
+  maxWidth: '100%',
   gap: '8px',
-  pb: '43px',
-  mb: '64px',
+  pb: ['16px', '24px', '32px'],
+  mb: ['8px', '24px', '48px'],
 }
 
 const titleContainer: SxStyleProp = {
@@ -224,6 +438,30 @@ const cardItemExcerpt: SxStyleProp = {
   color: 'muted.1',
 }
 
+const editContainer: SxStyleProp = {
+  my: 3,
+  gap: 2,
+}
+
+const button: SxStyleProp = {
+  mt: '8px',
+  px: 3,
+  minHeight: 36,
+  background: '#fff',
+  borderRadius: '4px',
+  cursor: 'pointer',
+  fontSize: 12,
+  height: 'min-content',
+  textTransform: 'none',
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 3,
+  width: '100%',
+  color: 'muted.0',
+  border: '1px solid #E7E9EE',
+  '&:hover': { backgroundColor: '#F8F7FC', color: '#000711' },
+}
+
 export default {
   linksContainer,
   cardItem,
@@ -238,14 +476,26 @@ export default {
   contentContainer,
   documentationTitle,
   bottomContributorsContainer,
-  bottomContributorsDivider,
+  bottomContributors,
   rightContainer,
   releaseAction,
   documentationExcerpt,
+  breadcrumbRow,
+  articleHeaderExtra,
+  articleMeta,
+  articleMetaInfo,
+  articleReadingTime,
+  articleActions,
+  knownIssueMeta,
+  knownIssueMetaInfo,
+  knownIssueMetaId,
+  knownIssueMetaSeparator,
   innerContainer,
   infoContainer,
   divider,
   flexContainer,
   detailedInfo,
   id,
+  editContainer,
+  button,
 }

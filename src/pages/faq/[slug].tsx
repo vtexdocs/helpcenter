@@ -16,6 +16,7 @@ import { fetchRawMarkdown } from 'utils/fetchRawMarkdown'
 import { extractStaticPropsParams } from 'utils/extractStaticPropsParams'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
+import { resolveEffectiveLocale } from 'utils/article-page/resolveEffectiveLocale'
 import { isCategoryCover } from 'utils/article-page/getPagination'
 import { sanitizeArray } from 'utils/sanitizeArrays'
 import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
@@ -41,7 +42,6 @@ const FaqPage: NextPage<ArticlePageProps> = ({
   sectionSelected,
   isListed,
   branch,
-  pagination,
   breadcrumbList,
   componentProps,
   headingList,
@@ -66,17 +66,15 @@ const FaqPage: NextPage<ArticlePageProps> = ({
       contributors={componentProps.contributors}
       seeAlsoData={componentProps.seeAlsoData}
       path={componentProps.path}
+      showCreatedAt={false}
     />
   ) : (
     <ArticleIndex
       breadcrumbList={breadcrumbList}
       name={componentProps?.name ?? ''}
       children={componentProps?.children}
-      hidePaginationNext={componentProps?.hidePaginationNext}
-      hidePaginationPrevious={componentProps?.hidePaginationPrevious}
       isListed={isListed}
       slug={slug}
-      pagination={pagination}
     />
   )
 }
@@ -114,7 +112,10 @@ export const getStaticProps: GetStaticProps = async ({
   })
 
   const { keyPath, flattenedSidebar, sidebarfallback } =
-    await getSidebarMetadata(sectionSelected, slug, { branch })
+    await getSidebarMetadata(sectionSelected, slug, {
+      branch,
+      locale: currentLocale,
+    })
 
   const isFaqCover = isCategoryCover(slug, sidebarfallback)
 
@@ -125,38 +126,21 @@ export const getStaticProps: GetStaticProps = async ({
     return { notFound: true }
   }
 
-  // Fix for Netlify i18n routing bug: when Netlify incorrectly routes a locale-specific
-  // slug to the wrong locale handler (e.g., PT slug routed to EN handler), we need to
-  // serve the content with the correct locale instead of redirecting (which would cause
-  // an infinite loop since Netlify would misroute the redirect too).
-  let effectiveLocale = currentLocale
-  let effectiveMdFilePath = mdFilePath
+  const { effectiveLocale, effectiveMdFilePath: resolvedMdPath } =
+    resolveEffectiveLocale({
+      currentLocale,
+      mdFileExists,
+      mdFileExistsForCurrentLocale,
+      docsPathsForSlug: docsPaths[slug],
+      categoryLocales: isFaqCover,
+    })
+  const effectiveMdFilePath = resolvedMdPath || mdFilePath
 
-  // Fix for markdown files: detect when slug belongs to a different locale
-  if (!mdFileExistsForCurrentLocale && mdFileExists && docsPaths[slug]) {
-    const availableLocale = docsPaths[slug][0]?.locale as
-      | 'en'
-      | 'pt'
-      | 'es'
-      | undefined
-    if (availableLocale && availableLocale !== currentLocale) {
-      logger.info(
-        `Netlify i18n bug detected: slug ${slug} belongs to locale ${availableLocale}, ` +
-          `but was routed to ${currentLocale} handler. Serving content with correct locale.`
-      )
-      effectiveLocale = availableLocale
-      effectiveMdFilePath = docsPaths[slug][0]?.path || ''
-    }
-  }
-
-  // Fix for category pages: detect when the category slug belongs to a different locale
-  if (isFaqCover.length > 0 && !isFaqCover.includes(currentLocale)) {
-    const categoryLocale = isFaqCover[0] as 'en' | 'pt' | 'es'
+  if (effectiveLocale !== currentLocale) {
     logger.info(
-      `Netlify i18n bug detected for category: slug ${slug} belongs to locale ${categoryLocale}, ` +
+      `Netlify i18n bug detected: slug ${slug} belongs to locale ${effectiveLocale}, ` +
         `but was routed to ${currentLocale} handler. Serving content with correct locale.`
     )
-    effectiveLocale = categoryLocale
   }
 
   if (!mdFileExistsForCurrentLocale && isFaqCover.length === 0) {
@@ -272,7 +256,6 @@ export const getStaticProps: GetStaticProps = async ({
         componentProps: {
           name: categoryTitle || slug,
           children: childrenList,
-          hidePaginationNext: !childrenList.length,
         },
         locale: effectiveLocale,
       },
@@ -296,6 +279,8 @@ export const getStaticProps: GetStaticProps = async ({
       headingList,
       logger,
       path: effectiveMdFilePath || mdFilePath,
+      branch,
+      locale: effectiveLocale,
     })
     if (!serialized) {
       logger.error(
@@ -331,6 +316,7 @@ export const getStaticProps: GetStaticProps = async ({
         isListed,
         breadcrumbList,
         branch,
+        headingList,
         componentProps: {
           content: documentationContent,
           serialized: JSON.parse(JSON.stringify(serialized)),

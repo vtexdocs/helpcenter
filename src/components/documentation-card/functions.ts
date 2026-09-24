@@ -2,39 +2,52 @@ import { SxStyleProp } from '@vtex/brand-ui'
 import styles from './styles'
 
 const cardContainer = (containerType: string) => {
-  const containerWidth =
-    containerType === 'dropdown'
-      ? ['308px', '442px', '444px', '480px']
-      : containerType === 'mobile'
-      ? '100%'
-      : ['324px', '544px', '544px', '544px', '544px', '720px', '1400px']
-
-  const textWidth =
-    containerType === 'dropdown'
-      ? ['276px', '410px', '412px', '432px']
-      : containerType === 'mobile'
-      ? '90%'
-      : ['276px', '496px', '496px', '496px', '496px', '672px', '1352px']
+  const isSeeAlso = containerType === 'see-also'
 
   const cardContainer: SxStyleProp = {
     ...styles.cardContainer,
-    width: containerWidth,
-
-    '.title, .description': {
-      width: textWidth,
-    },
+    ...(isSeeAlso
+      ? {
+          my: 0,
+          width: '100%',
+          maxWidth: '100%',
+          minWidth: 0,
+          height: '100%',
+          padding: '12px 14px',
+          borderRadius: '8px',
+          border: '1px solid #E7E9EE',
+          boxSizing: 'border-box',
+          transition:
+            'border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease',
+          ':active, :hover': {
+            borderRadius: '8px',
+            borderColor: '#CCCED8',
+            backgroundColor: '#F8F7FC',
+            boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.06)',
+          },
+          '.title, .description': {
+            width: '100%',
+            maxWidth: '100%',
+          },
+        }
+      : {
+          width:
+            containerType === 'dropdown'
+              ? ['308px', '442px', '444px', '480px']
+              : '100%',
+          maxWidth: '100%',
+          minWidth: 0,
+          boxSizing: 'border-box',
+        }),
   }
 
   return cardContainer
 }
 
 const titleContainer = (containerType: string) => {
-  const marginBottom =
-    containerType === 'dropdown' ? ['5px', '5px', '5px', '1px'] : '8px'
-
   const titleContainer: SxStyleProp = {
     ...styles.titleContainer,
-    marginBottom,
+    marginBottom: containerType === 'see-also' ? 0 : '8px',
   }
 
   return titleContainer
@@ -44,11 +57,14 @@ const cardTitle = (containerType: string) => {
   const titleAttributes =
     containerType === 'see-also'
       ? {
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
+          fontSize: '15px',
+          lineHeight: '22px',
+          fontWeight: 500,
+          whiteSpace: 'normal',
           overflow: 'hidden',
-          fontSize: '18px',
-          lineHeight: '24px',
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
         }
       : {
           fontSize: '16px',

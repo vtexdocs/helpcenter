@@ -5,7 +5,19 @@ const welcomeHeader: SxStyleProp = {
   position: ['initial', 'absolute'],
   mb: ['32px', 'initial'],
   zIndex: '1000',
-  width: ['320px', '345px', '345px', '345px', '345px', '720px'],
+  left: [
+    'auto',
+    'max(16px, calc(50% - 544px / 2))',
+    'max(16px, calc(50% - 544px / 2))',
+    'max(16px, calc(50% - 544px / 2))',
+    'max(16px, calc(50% - 720px / 2))',
+    'max(16px, calc(50% - 720px / 2))',
+    'max(16px, calc(50% - 1400px / 2))',
+  ],
+  width: ['100%', '345px', '345px', '345px', '345px', '720px'],
+  maxWidth: ['100%', 'calc(100% - 32px)'],
+  px: ['24px', 0],
+  boxSizing: 'border-box',
 }
 
 const welcomeHeaderLong: SxStyleProp = {
@@ -13,7 +25,19 @@ const welcomeHeaderLong: SxStyleProp = {
   position: ['initial', 'absolute'],
   mb: ['32px', 'initial'],
   zIndex: '1000',
-  width: ['320px', '450px', '450px', '450px', '450px', '720px'],
+  left: [
+    'auto',
+    'max(16px, calc(50% - 544px / 2))',
+    'max(16px, calc(50% - 544px / 2))',
+    'max(16px, calc(50% - 544px / 2))',
+    'max(16px, calc(50% - 720px / 2))',
+    'max(16px, calc(50% - 720px / 2))',
+    'max(16px, calc(50% - 1400px / 2))',
+  ],
+  width: ['100%', '450px', '450px', '450px', '450px', '720px'],
+  maxWidth: ['100%', 'calc(100% - 32px)'],
+  px: ['24px', 0],
+  boxSizing: 'border-box',
 }
 
 const welcomeSubtitle: SxStyleProp = {
@@ -21,7 +45,8 @@ const welcomeSubtitle: SxStyleProp = {
   fontSize: ['16px', '18px'],
   fontWeight: '400',
   color: '#A1A8B3',
-  lineHeight: ['22px', '24px'],
+  lineHeight: ['24px', '26px'],
+  overflowWrap: 'anywhere',
 }
 
 const welcomeSubtitleLong: SxStyleProp = {
@@ -30,6 +55,7 @@ const welcomeSubtitleLong: SxStyleProp = {
   fontWeight: '400',
   color: '#A1A8B3',
   lineHeight: ['18px', '20px'],
+  overflowWrap: 'anywhere',
 }
 
 const welcomeSubtitleLongSecondParagraph: SxStyleProp = {
@@ -44,27 +70,23 @@ const welcomeOuterContainer: SxStyleProp = {
 const welcomeInnerContainer: SxStyleProp = {
   flexDirection: ['column-reverse', 'row'],
   position: ['initial', 'relative'],
-  left: [
-    'initial',
-    'calc(50% - 544px / 2)',
-    'calc(50% - 544px / 2)',
-    'calc(50% - 544px / 2)',
-    'calc(50% - 720px / 2)',
-    'calc(50% - 720px / 2)',
-    'calc(50% - 1400px / 2)',
-  ],
+  width: '100%',
+  maxWidth: '100%',
+  minWidth: 0,
+  boxSizing: 'border-box',
   justifyContent: 'space-between',
   alignItems: ['center', 'initial'],
 }
 
 const welcomeText: SxStyleProp = {
-  boxSizing: 'initial',
+  boxSizing: 'border-box',
   textAlign: ['center', 'initial'],
-  fontSize: ['22px', '28px'],
+  fontSize: ['24px', '28px'],
   fontWeight: '400',
-  lineHeight: ['30px', '38px'],
+  lineHeight: ['32px', '36px'],
   paddingBottom: '8px',
   color: '#142032',
+  overflowWrap: 'anywhere',
 }
 
 const welcomeImageOuterContainer: SxStyleProp = {
@@ -85,7 +107,7 @@ const welcomeImageInnerContainer: SxStyleProp = {
     '-863px',
   ],
   top: ['-92px', '-122px'],
-  width: ['500px', '592px'],
+  width: ['min(500px, 100%)', '592px'],
   height: ['128px', '250px'],
 }
 

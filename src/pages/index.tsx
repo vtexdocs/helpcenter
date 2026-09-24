@@ -1,4 +1,4 @@
-import { Grid } from '@vtex/brand-ui'
+import { Box, Grid } from '@vtex/brand-ui'
 import type { Page } from 'utils/typings/types'
 
 import NewsletterSection from 'components/newsletter-section'
@@ -6,7 +6,7 @@ import DocumentationSection from 'components/documentation-section'
 import AnnouncementSection from 'components/announcement-section'
 import SupportSection from 'components/support-section'
 import FaqSection from 'components/faq-section'
-import SubscriptionList from 'components/subscription-list'
+import { SubscriptionList } from '@vtexdocs/components'
 
 import { getDocsPaths as getAnnouncementsPaths } from 'utils/getDocsPaths'
 import Head from 'next/head'
@@ -54,13 +54,15 @@ const Home: Page<Props> = ({ branch, announcementTimelineData }) => {
       <Grid sx={styles.grid}>
         <NewsletterSection />
         <DocumentationSection />
-        <FaqSection />
         <SupportSection />
         <AnnouncementSection
           annoucementsAmout={5}
           announcements={announcementTimelineData}
         />
-        <SubscriptionList />
+        <FaqSection />
+        <Box sx={styles.subscriptionList}>
+          <SubscriptionList />
+        </Box>
       </Grid>
     </>
   )

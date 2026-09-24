@@ -10,11 +10,22 @@ export interface LocalizedSlug {
   pt: string
 }
 
+export type NavigationNodeType =
+  | 'markdown'
+  | 'category'
+  | 'divider'
+  | 'link'
+  | 'track'
+
 export interface Document {
   slug: string | LocalizedSlug
   name: LocalizedText
-  type: string
-  origin: string
+  /**
+   * `markdown`: article; `category`: expandable group (optional cover page);
+   * `divider`: section title in the sidebar with no associated doc.
+   */
+  type: NavigationNodeType | string
+  origin?: string
   children: Document[]
 }
 

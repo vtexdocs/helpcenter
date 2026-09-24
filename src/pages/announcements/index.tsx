@@ -16,11 +16,16 @@ import {
   announcementsTypeFilter,
   announcementsAreaFilter,
 } from 'utils/constants'
-import { Input, ListingFilter, SearchIcon } from '@vtexdocs/components'
+import {
+  ChipFilter,
+  Input,
+  ListingFilter,
+  SearchIcon,
+  Tooltip,
+} from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 import { fetchBatch, parseFrontmatter } from 'utils/fetchBatchGithubData'
 import AnnouncementExpandableRow from 'components/announcement-expandable-row'
-import Tooltip from 'components/tooltip'
 import {
   countTermMatches,
   getSearchTerms,
@@ -33,6 +38,14 @@ interface Props {
 }
 
 const ANNOUNCEMENTS_PAGE_SIZE = 20
+
+function getAnnouncementSearchFields(announcement: AnnouncementDataElement) {
+  return [
+    announcement.title ?? '',
+    announcement.synopsis ?? '',
+    announcement.tags.length > 0 ? announcement.tags.join(' ') : '',
+  ].map((s) => String(s).toLowerCase())
+}
 
 const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
   const intl = useIntl()
@@ -61,15 +74,19 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
 
   const typeConfig = useMemo(() => announcementsTypeFilter(intl), [intl])
   const areaConfig = useMemo(() => announcementsAreaFilter(intl), [intl])
+  const typeChipCategories = useMemo(
+    () =>
+      typeConfig.options.map((option) => ({
+        type: option.id,
+        title: option.name,
+        Icon: option.Icon,
+      })),
+    [typeConfig]
+  )
 
   const filteredResult = useMemo(() => {
     const data = announcementsData.filter((announcement) => {
-      const fields = [
-        announcement.title ?? '',
-        announcement.synopsis ?? '',
-        announcement.tags.length > 0 ? announcement.tags.join(' ') : '',
-      ].map((s) => String(s).toLowerCase())
-
+      const fields = getAnnouncementSearchFields(announcement)
       const matchesSearch = itemMatchesAnyTerm(searchTerms, fields)
 
       const matchesType =
@@ -84,24 +101,69 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
     })
 
     return data.sort((a, b) => {
-      const fieldsA = [
-        a.title ?? '',
-        a.synopsis ?? '',
-        a.tags.length > 0 ? a.tags.join(' ') : '',
-      ].map((s) => String(s).toLowerCase())
-      const fieldsB = [
-        b.title ?? '',
-        b.synopsis ?? '',
-        b.tags.length > 0 ? b.tags.join(' ') : '',
-      ].map((s) => String(s).toLowerCase())
-      const matchA = countTermMatches(searchTerms, fieldsA)
-      const matchB = countTermMatches(searchTerms, fieldsB)
+      const matchA = countTermMatches(
+        searchTerms,
+        getAnnouncementSearchFields(a)
+      )
+      const matchB = countTermMatches(
+        searchTerms,
+        getAnnouncementSearchFields(b)
+      )
       if (matchA !== matchB) {
         return matchB - matchA
       }
       return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     })
   }, [searchTerms, filters, announcementsData])
+
+  function handleTypeApply(category: string) {
+    setFilters((prev) =>
+      prev.type.includes(category)
+        ? prev
+        : { ...prev, type: [...prev.type, category] }
+    )
+  }
+
+  function handleTypeReset() {
+    setFilters((prev) => ({ ...prev, type: [] }))
+  }
+
+  function handleTypeRemoval(category: string) {
+    setFilters((prev) => ({
+      ...prev,
+      type: prev.type.filter((type) => type !== category),
+    }))
+  }
+
+  function getTypeCategoryAmount(category: string): number {
+    return announcementsData.filter((announcement) => {
+      if (!announcement.tags.includes(category)) return false
+
+      const matchesSearch = itemMatchesAnyTerm(
+        searchTerms,
+        getAnnouncementSearchFields(announcement)
+      )
+      const matchesArea =
+        filters.area.length === 0 ||
+        filters.area.some((area) => announcement.tags.includes(area))
+
+      return matchesSearch && matchesArea
+    }).length
+  }
+
+  const allResultsCount = useMemo(() => {
+    return announcementsData.filter((announcement) => {
+      const matchesSearch = itemMatchesAnyTerm(
+        searchTerms,
+        getAnnouncementSearchFields(announcement)
+      )
+      const matchesArea =
+        filters.area.length === 0 ||
+        filters.area.some((area) => announcement.tags.includes(area))
+
+      return matchesSearch && matchesArea
+    }).length
+  }, [announcementsData, searchTerms, filters.area])
 
   const timelineAnnouncements = useMemo(
     () =>
@@ -111,6 +173,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
         articleLink: announcement.url,
         synopsis: announcement.synopsis,
         tags: announcement.tags,
+        productTeam: announcement.productTeam,
       })),
     [filteredResult]
   )
@@ -129,6 +192,7 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
       articleLink: string
       synopsis?: string
       tags?: string[]
+      productTeam?: string
     }
 
     const bucket = new Map<string, TimelineItem[]>()
@@ -179,74 +243,85 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
           })}
         />
         <Flex sx={styles.container}>
-          <Flex sx={styles.optionsContainer}>
-            <ListingFilter
-              tagFilter={typeConfig}
-              checkBoxFilter={areaConfig}
-              selectedTags={filters.type}
-              selectedCheckboxes={filters.area}
-              labels={{
-                button: intl.formatMessage({ id: 'filter_modal.title' }),
-                modalTitle: intl.formatMessage({ id: 'filter_modal.title' }),
-                remove: intl.formatMessage({ id: 'filter_modal.remove' }),
-                apply: intl.formatMessage({ id: 'filter_modal.button' }),
-              }}
-              onApply={(newFilters) =>
-                setFilters({
-                  type: newFilters.tag ?? [],
-                  area: newFilters.checklist ?? [],
-                })
-              }
-            />
-          </Flex>
-          <Flex sx={{ width: '100%', alignItems: 'center', gap: '8px' }}>
-            <Box sx={{ width: '100%' }}>
-              <Input
-                placeholder={intl.formatMessage({
-                  id: 'announcements_page_search.placeholder',
-                })}
-                Icon={SearchIcon}
-                value={searchTerm}
-                onChange={(value) => setSearchTerm(value)}
-              />
-            </Box>
-            <Tooltip
-              placement="top"
-              label={intl.formatMessage({
-                id: 'known_issues_page_search.priority_tooltip',
-                defaultMessage:
-                  'Resultados priorizam titulos com maior quantidade de termos correspondentes; em empate, aplica-se a ordenacao por data de criacao.',
-              })}
-            >
-              <Box
-                as="button"
-                type="button"
-                aria-label={intl.formatMessage({
-                  id: 'known_issues_page_search.priority_tooltip',
-                })}
-                sx={{
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  display: 'flex',
-                  width: '24px',
-                  height: '24px',
-                  borderRadius: '50%',
-                  border: '1px solid',
-                  borderColor: 'muted.2',
-                  backgroundColor: 'transparent',
-                  color: 'muted.0',
-                  fontSize: '12px',
-                  fontWeight: 700,
-                  cursor: 'help',
-                  flexShrink: 0,
-                  p: 0,
-                }}
-              >
-                ?
+          <Flex sx={styles.stickyControls}>
+            <Flex sx={styles.chipFilterContainer}>
+              <Box sx={styles.filterWrap}>
+                <ListingFilter
+                  checkBoxFilter={areaConfig}
+                  selectedCheckboxes={filters.area}
+                  labels={{
+                    button: intl.formatMessage({ id: 'filter_modal.title' }),
+                    modalTitle: intl.formatMessage({
+                      id: 'filter_modal.title',
+                    }),
+                    remove: intl.formatMessage({ id: 'filter_modal.remove' }),
+                    apply: intl.formatMessage({ id: 'filter_modal.button' }),
+                  }}
+                  onApply={(newFilters) =>
+                    setFilters((prev) => ({
+                      ...prev,
+                      area: newFilters.checklist ?? [],
+                    }))
+                  }
+                />
               </Box>
-            </Tooltip>
+              <Box sx={styles.chipFilterList}>
+                <ChipFilter
+                  filters={filters.type}
+                  categories={typeChipCategories}
+                  applyCategory={handleTypeApply}
+                  resetFilters={handleTypeReset}
+                  removeCategory={handleTypeRemoval}
+                  getCategoryAmount={getTypeCategoryAmount}
+                  allResultsCount={allResultsCount}
+                  allResultsLabel={intl.formatMessage({
+                    id: 'chip.all_results',
+                  })}
+                  hideEmptyCategories
+                />
+              </Box>
+            </Flex>
+            <Flex sx={styles.toolbar}>
+              <Flex sx={styles.searchWrap}>
+                <Box sx={{ flex: 1, minWidth: 0 }}>
+                  <Input
+                    placeholder={intl.formatMessage({
+                      id: 'announcements_page_search.placeholder',
+                    })}
+                    Icon={SearchIcon}
+                    value={searchTerm}
+                    onChange={(value) => setSearchTerm(value)}
+                  />
+                </Box>
+                <Tooltip
+                  placement="top"
+                  label={intl.formatMessage({
+                    id: 'known_issues_page_search.priority_tooltip',
+                    defaultMessage:
+                      'Resultados priorizam titulos com maior quantidade de termos correspondentes; em empate, aplica-se a ordenacao por data de criacao.',
+                  })}
+                >
+                  <Box
+                    as="button"
+                    type="button"
+                    aria-label={intl.formatMessage({
+                      id: 'known_issues_page_search.priority_tooltip',
+                    })}
+                    sx={styles.helpButton}
+                  >
+                    ?
+                  </Box>
+                </Tooltip>
+              </Flex>
+            </Flex>
           </Flex>
           <Flex sx={styles.cardContainer}>
+            {!!filteredResult.length && searchTerm.trim() !== '' && (
+              <Box sx={styles.resultsNumberContainer}>
+                {filteredResult.length}{' '}
+                {intl.formatMessage({ id: 'announcements_page.results_found' })}
+              </Box>
+            )}
             {filteredResult.length === 0 && (
               <Flex sx={styles.noResults}>
                 {intl.formatMessage({ id: 'announcements_page_result.empty' })}
@@ -256,24 +331,35 @@ const AnnouncementsPage: NextPage<Props> = ({ announcementsData, branch }) => {
               timelineByYear.map((yearGroup, yearIndex) => (
                 <Flex
                   key={yearGroup.yearKey}
+                  id={`announcements-${yearGroup.yearKey}`}
                   sx={{
                     ...styles.yearBlock,
-                    ...(yearIndex > 0 ? { mt: ['48px', '56px'] } : {}),
+                    ...(yearIndex > 0 ? { mt: ['36px', '44px'] } : {}),
                   }}
                 >
-                  <Text sx={styles.yearHeading}>{yearGroup.label}</Text>
                   <Flex sx={styles.yearTimelineBody}>
                     <Box sx={styles.yearVerticalRail} aria-hidden />
-                    {yearGroup.announcements.map((item) => (
-                      <AnnouncementExpandableRow
-                        key={item.articleLink}
-                        title={item.title}
-                        articleLink={item.articleLink}
-                        publishedAt={item.publishedAt}
-                        synopsis={item.synopsis}
-                        tags={item.tags}
-                      />
-                    ))}
+                    <Flex sx={styles.yearHeadingRow}>
+                      <Text as="h2" sx={styles.yearHeading}>
+                        {yearGroup.label}
+                      </Text>
+                      <Flex sx={styles.yearHeadingTrack}>
+                        <Box sx={styles.yearRailNode} aria-hidden />
+                      </Flex>
+                    </Flex>
+                    <Flex sx={styles.yearItems}>
+                      {yearGroup.announcements.map((item) => (
+                        <AnnouncementExpandableRow
+                          key={item.articleLink}
+                          title={item.title}
+                          articleLink={item.articleLink}
+                          publishedAt={item.publishedAt}
+                          synopsis={item.synopsis}
+                          tags={item.tags}
+                          productTeam={item.productTeam}
+                        />
+                      ))}
+                    </Flex>
                   </Flex>
                 </Flex>
               ))}
@@ -365,6 +451,11 @@ export const getStaticProps: GetStaticProps = async ({
           updatedAt: String(frontmatter.updatedAt),
           status: String(frontmatter.status),
           tags,
+        }
+
+        const productTeam = String(frontmatter.productTeam ?? '').trim()
+        if (productTeam) {
+          base.productTeam = productTeam
         }
 
         const synopsis = getAnnouncementSynopsis(frontmatter, currentLocale)

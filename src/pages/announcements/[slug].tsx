@@ -19,6 +19,7 @@ import { fetchGitHubUser } from 'utils/fetchGithubUser'
 import ArticleRender from 'components/article-render'
 import ArticleIndex from 'components/article-index'
 import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
+import { resolveEffectiveLocale } from 'utils/article-page/resolveEffectiveLocale'
 import {
   getPagination,
   isCategoryCover,
@@ -26,6 +27,7 @@ import {
 import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { sanitizeArray } from 'utils/sanitizeArrays'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
+import { withPaginationCreatedAt } from 'utils/article-page/withPaginationCreatedAt'
 import { getMessages } from 'utils/get-messages'
 import type { SectionId } from 'utils/typings/unionTypes'
 import { getCategoryCoverRevalidateTime } from 'utils/config'
@@ -66,6 +68,12 @@ const AnnouncementPage: NextPage<ArticlePageProps> = ({
       contributors={componentProps.contributors}
       seeAlsoData={componentProps.seeAlsoData}
       path={componentProps.path}
+      showAuthor
+      showCreatedAt
+      showUpdatedAt
+      showContributors={false}
+      showSuggestEdits={false}
+      pagination={pagination}
     />
   ) : (
     <ArticleIndex
@@ -115,7 +123,10 @@ export const getStaticProps: GetStaticProps = async ({
   })
 
   const { keyPath, flattenedSidebar, sidebarfallback } =
-    await getSidebarMetadata(sectionSelected, slug, { branch })
+    await getSidebarMetadata(sectionSelected, slug, {
+      branch,
+      locale: currentLocale,
+    })
 
   const isAnnouncementCategory = isCategoryCover(slug, sidebarfallback)
 
@@ -126,41 +137,21 @@ export const getStaticProps: GetStaticProps = async ({
     return { notFound: true }
   }
 
-  // Fix for Netlify i18n routing bug: when Netlify incorrectly routes a locale-specific
-  // slug to the wrong locale handler (e.g., PT slug routed to EN handler), we need to
-  // serve the content with the correct locale instead of redirecting (which would cause
-  // an infinite loop since Netlify would misroute the redirect too).
-  let effectiveLocale = currentLocale
-  let effectiveMdFilePath = mdFilePath
+  const { effectiveLocale, effectiveMdFilePath: resolvedMdPath } =
+    resolveEffectiveLocale({
+      currentLocale,
+      mdFileExists,
+      mdFileExistsForCurrentLocale,
+      docsPathsForSlug: docsPaths[slug],
+      categoryLocales: isAnnouncementCategory,
+    })
+  const effectiveMdFilePath = resolvedMdPath || mdFilePath
 
-  // Fix for markdown files: detect when slug belongs to a different locale
-  if (!mdFileExistsForCurrentLocale && mdFileExists && docsPaths[slug]) {
-    const availableLocale = docsPaths[slug][0]?.locale as
-      | 'en'
-      | 'pt'
-      | 'es'
-      | undefined
-    if (availableLocale && availableLocale !== currentLocale) {
-      logger.info(
-        `Netlify i18n bug detected: slug ${slug} belongs to locale ${availableLocale}, ` +
-          `but was routed to ${currentLocale} handler. Serving content with correct locale.`
-      )
-      effectiveLocale = availableLocale
-      effectiveMdFilePath = docsPaths[slug][0]?.path || ''
-    }
-  }
-
-  // Fix for category pages: detect when the category slug belongs to a different locale
-  if (
-    isAnnouncementCategory.length > 0 &&
-    !isAnnouncementCategory.includes(currentLocale)
-  ) {
-    const categoryLocale = isAnnouncementCategory[0] as 'en' | 'pt' | 'es'
+  if (effectiveLocale !== currentLocale) {
     logger.info(
-      `Netlify i18n bug detected for category: slug ${slug} belongs to locale ${categoryLocale}, ` +
+      `Netlify i18n bug detected: slug ${slug} belongs to locale ${effectiveLocale}, ` +
         `but was routed to ${currentLocale} handler. Serving content with correct locale.`
     )
-    effectiveLocale = categoryLocale
   }
 
   if (!mdFileExistsForCurrentLocale && isAnnouncementCategory.length === 0) {
@@ -192,7 +183,17 @@ export const getStaticProps: GetStaticProps = async ({
   let parentsArrayName: string[] = []
   let parentsArrayType: string[] = []
   let categoryTitle = ''
-  let pagination = {}
+  let pagination: {
+    previousDoc: {
+      slug: string | null
+      name: string | null
+      createdAt?: string
+    }
+    nextDoc: { slug: string | null; name: string | null; createdAt?: string }
+  } = {
+    previousDoc: { slug: null, name: null },
+    nextDoc: { slug: null, name: null },
+  }
 
   if (isListed) {
     const {
@@ -218,13 +219,17 @@ export const getStaticProps: GetStaticProps = async ({
       parentsArrayType,
       'announcements'
     )
-    pagination = getPagination({
+    const sidebarPagination = getPagination({
       contentType: 'announcements',
       sidebarfallback,
       currentLocale: effectiveLocale,
       slug,
       logger,
     }).pagination
+    pagination = {
+      previousDoc: sidebarPagination.nextDoc,
+      nextDoc: sidebarPagination.previousDoc,
+    }
 
     if (isAnnouncementCategory.length > 0 && !mdFileExists) {
       //Se existe a categoria, mas a slug está em outro locale, redireciona
@@ -313,6 +318,8 @@ export const getStaticProps: GetStaticProps = async ({
       headingList,
       logger,
       path: effectiveMdFilePath || mdFilePath,
+      branch,
+      locale: effectiveLocale,
     })
     if (!serialized) {
       logger.error(
@@ -326,12 +333,22 @@ export const getStaticProps: GetStaticProps = async ({
     const contributor = githubLogin ? await fetchGitHubUser(githubLogin) : null
     const contributors = [contributor]
     logger.info(`Processing ${slug}`)
-    const seeAlsoData = await getSeeAlsoData(
-      serialized?.frontmatter?.seeAlso as string[],
-      docsPaths,
-      effectiveLocale,
-      logger
-    )
+    const [seeAlsoData, paginationWithDates] = await Promise.all([
+      getSeeAlsoData(
+        serialized?.frontmatter?.seeAlso as string[],
+        docsPaths,
+        effectiveLocale,
+        logger
+      ),
+      withPaginationCreatedAt({
+        pagination,
+        docsPaths,
+        locale: effectiveLocale as 'en' | 'pt' | 'es',
+        branch,
+        sectionSelected,
+        logger,
+      }),
+    ])
     logger.info(`Generating markdown file for: ${slug}`)
 
     // Sanitize arrays to remove any undefined values that might cause JSON serialization errors
@@ -347,10 +364,11 @@ export const getStaticProps: GetStaticProps = async ({
         sectionSelected,
         parentsArray: sanitizedParentsArray,
         slug,
-        pagination,
+        pagination: paginationWithDates,
         isListed,
         breadcrumbList,
         branch,
+        headingList,
         componentProps: {
           content: documentationContent,
           serialized: JSON.parse(JSON.stringify(serialized)),

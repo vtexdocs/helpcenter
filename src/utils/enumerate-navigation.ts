@@ -26,11 +26,13 @@ const enumerateChildren = (
   document: Document,
   enumerate: boolean
 ): Document[] => {
-  const children = document.children.map((currDoc, index) => {
-    if (enumerate) {
-      currDoc.name = enumerateName(currDoc.name, index + 1)
+  let enumerableIndex = 0
+  const children = (document.children || []).map((currDoc) => {
+    if (enumerate && currDoc.type !== 'divider') {
+      enumerableIndex += 1
+      currDoc.name = enumerateName(currDoc.name, enumerableIndex)
       if (typeof currDoc.slug === 'object') {
-        currDoc.slug = enumerateSlug(currDoc.slug, index + 1)
+        currDoc.slug = enumerateSlug(currDoc.slug, enumerableIndex)
       }
     }
     currDoc.children = enumerateChildren(

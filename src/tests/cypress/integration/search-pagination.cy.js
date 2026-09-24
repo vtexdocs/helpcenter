@@ -1,17 +1,9 @@
 /// <reference types="cypress" />
 
 describe('Search pagination / infinite scroll', () => {
-  before(() => {
-    cy.request({
-      url: '/docs/tutorials/about-the-admin-category',
-      timeout: 90000,
-      failOnStatusCode: false,
-    })
-  })
-
   beforeEach(() => {
     cy.viewport(1366, 768)
-    cy.visit('/docs/tutorials/about-the-admin-category')
+    cy.visitWithRetry('/docs/tutorials/about-the-admin-category')
     cy.submitSearch('api')
     cy.get('.searchCardTitle').should('have.length.greaterThan', 0)
   })
@@ -20,9 +12,7 @@ describe('Search pagination / infinite scroll', () => {
     cy.get('.searchCardTitle')
       .its('length')
       .then((firstPageCount) => {
-        cy.intercept('POST', /algolia\.net/).as('algoliaNextPage')
         cy.scrollTo('bottom')
-        cy.wait('@algoliaNextPage')
         cy.get('.searchCardTitle').should(
           'have.length.greaterThan',
           firstPageCount
@@ -37,9 +27,7 @@ describe('Search pagination / infinite scroll', () => {
       const firstPageTitles = new Set(
         [...$firstPage].map((el) => el.textContent.trim())
       )
-      cy.intercept('POST', /algolia\.net/).as('algoliaNextPage')
       cy.scrollTo('bottom')
-      cy.wait('@algoliaNextPage')
       cy.get('.searchCardTitle').should(
         'have.length.greaterThan',
         firstPageTitles.size
@@ -57,9 +45,7 @@ describe('Search pagination / infinite scroll', () => {
     cy.get('.searchCardTitle')
       .its('length')
       .then((initialCount) => {
-        cy.intercept('POST', /algolia\.net/).as('algoliaNextPage')
         cy.scrollTo('bottom')
-        cy.wait('@algoliaNextPage')
         cy.get('.searchCardTitle').should(
           'have.length.greaterThan',
           initialCount

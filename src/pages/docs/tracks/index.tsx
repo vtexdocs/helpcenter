@@ -1,5 +1,5 @@
 import { Fragment, useContext } from 'react'
-import { Box, Flex, Text } from '@vtex/brand-ui'
+import { Box, Text } from '@vtex/brand-ui'
 import { GetStaticProps, NextPage } from 'next'
 import { SectionId } from 'utils/typings/unionTypes'
 import PageHeader from 'components/page-header'
@@ -8,7 +8,7 @@ import styles from 'styles/documentation-landing-page'
 import Head from 'next/head'
 import { PreviewContext } from 'utils/contexts/preview'
 import { useIntl } from 'react-intl'
-import WhatsNextCard from 'components/whats-next-card'
+import { WhatsNextCard } from '@vtexdocs/components'
 import { getISRRevalidateTime } from 'utils/config'
 
 interface Props {
@@ -24,7 +24,7 @@ const ContentSection = ({ id, length }: { id: string; length: number }) => {
       <Text sx={styles.contentTitle}>
         {intl.formatMessage({ id: `${id}.title` })}
       </Text>
-      <Flex sx={styles.cardsContainer}>
+      <Box sx={styles.cardsContainer}>
         {Array(length)
           .fill('')
           .map((_, index) => {
@@ -47,7 +47,7 @@ const ContentSection = ({ id, length }: { id: string; length: number }) => {
               />
             )
           })}
-      </Flex>
+      </Box>
     </>
   )
 }

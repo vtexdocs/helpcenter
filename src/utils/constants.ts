@@ -13,6 +13,7 @@ import {
   FaqDataElement,
   IconComponent,
 } from './typings/types'
+import { knownIssueStatusIcons } from 'components/known-issue-status-icons'
 import { IntlShape } from 'react-intl'
 import libraryConfig from './libraryConfig'
 import {
@@ -26,6 +27,11 @@ import {
   DeveloperPortalIcon,
   GearTroubleshootingIcon,
   LongArrowIcon,
+  AddedIcon,
+  RemovedIcon,
+  InfoIcon,
+  ImprovedIcon,
+  BreakingChangeIcon,
 } from '@vtexdocs/components'
 
 libraryConfig
@@ -72,47 +78,7 @@ export const updatesData = (intl: IntlShape) => {
       }),
       link: '/announcements',
     },
-    {
-      id: 'Status',
-      Icon: GraphIcon,
-      title: intl.formatMessage({
-        id: 'menu_status.title',
-      }),
-      description: intl.formatMessage({
-        id: 'menu_status.description',
-      }),
-      link: 'https://status.vtex.com',
-      isExternalLink: true,
-    },
-    {
-      id: 'Developer Portal',
-      Icon: DeveloperPortalIcon,
-      title: intl.formatMessage({
-        id: 'documentation_developers_portal.title',
-      }),
-      description: intl.formatMessage({
-        id: 'documentation_developers_portal.description',
-      }),
-      link: 'https://developers.vtex.com/',
-      isExternalLink: true,
-    },
   ]
-  return data
-}
-
-export const feedbackSectionData = (intl: IntlShape, currentUrl?: string) => {
-  const data: DocDataElement[] = [
-    {
-      id: 'Feedback',
-      Icon: LongArrowIcon,
-      title: intl.formatMessage({
-        id: 'landing_page_header_feedback.message',
-      }),
-      description: '',
-      link: getFeedbackURL(currentUrl),
-    },
-  ]
-
   return data
 }
 
@@ -159,6 +125,48 @@ export const menuSupportData = (intl: IntlShape) => {
       link: intl.formatMessage({
         id: 'sidebar_support_rules.link',
       }),
+    },
+  ]
+
+  return data
+}
+
+export const feedbackSectionData = (intl: IntlShape, currentUrl?: string) => {
+  const data: DocDataElement[] = [
+    {
+      id: 'Status',
+      Icon: GraphIcon,
+      title: intl.formatMessage({
+        id: 'menu_status.title',
+      }),
+      description: intl.formatMessage({
+        id: 'menu_status.description',
+      }),
+      link: 'https://status.vtex.com',
+      isExternalLink: true,
+    },
+    {
+      id: 'Feedback',
+      Icon: LongArrowIcon,
+      title: intl.formatMessage({
+        id: 'landing_page_header_feedback.message',
+      }),
+      description: intl.formatMessage({
+        id: 'landing_page_header_feedback.description',
+      }),
+      link: getFeedbackURL(currentUrl),
+    },
+    {
+      id: 'Developer Portal',
+      Icon: DeveloperPortalIcon,
+      title: intl.formatMessage({
+        id: 'documentation_developers_portal.title',
+      }),
+      description: intl.formatMessage({
+        id: 'documentation_developers_portal.description',
+      }),
+      link: 'https://developers.vtex.com/',
+      isExternalLink: true,
     },
   ]
 
@@ -270,30 +278,36 @@ export const knownIssuesStatusFilter = (intl: IntlShape) => {
     }),
     options: [
       {
-        id: 'Unknown',
-        name: intl.formatMessage({ id: 'known_issues_filter_status.unknown' }),
-      },
-      {
-        id: 'Closed',
-        name: intl.formatMessage({ id: 'known_issues_filter_status.closed' }),
-      },
-      {
         id: 'Fixed',
         name: intl.formatMessage({ id: 'known_issues_filter_status.fixed' }),
-      },
-      {
-        id: 'Backlog',
-        name: intl.formatMessage({ id: 'known_issues_filter_status.backlog' }),
+        Icon: knownIssueStatusIcons.Fixed,
       },
       {
         id: 'Scheduled',
         name: intl.formatMessage({
           id: 'known_issues_filter_status.scheduled',
         }),
+        Icon: knownIssueStatusIcons.Scheduled,
+      },
+      {
+        id: 'Closed',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.closed' }),
+        Icon: knownIssueStatusIcons.Closed,
+      },
+      {
+        id: 'Backlog',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.backlog' }),
+        Icon: knownIssueStatusIcons.Backlog,
+      },
+      {
+        id: 'Unknown',
+        name: intl.formatMessage({ id: 'known_issues_filter_status.unknown' }),
+        Icon: knownIssueStatusIcons.Unknown,
       },
       {
         id: 'No_Fix',
         name: intl.formatMessage({ id: 'known_issues_filter_status.no_fix' }),
+        Icon: knownIssueStatusIcons.No_Fix,
       },
     ],
   }
@@ -487,30 +501,35 @@ export const announcementsTypeFilter = (intl: IntlShape) => {
         name: intl.formatMessage({
           id: 'announcements_filter_type.new_feature',
         }),
+        Icon: AddedIcon,
       },
       {
         id: ids.improvement,
         name: intl.formatMessage({
           id: 'announcements_filter_type.improvement',
         }),
+        Icon: ImprovedIcon,
       },
       {
         id: ids.breaking_change,
         name: intl.formatMessage({
           id: 'announcements_filter_type.breaking_change',
         }),
+        Icon: BreakingChangeIcon,
       },
       {
         id: ids.deprecation,
         name: intl.formatMessage({
           id: 'announcements_filter_type.deprecation',
         }),
+        Icon: RemovedIcon,
       },
       {
         id: ids.security_update,
         name: intl.formatMessage({
           id: 'announcements_filter_type.security_update',
         }),
+        Icon: InfoIcon,
       },
     ],
   }
@@ -616,68 +635,6 @@ export const sortBy = (intl: IntlShape) => {
       content: intl.formatMessage({ id: 'sort.newest' }),
     },
   ]
-
-  return data
-}
-
-export const faqFilter = (intl: IntlShape) => {
-  const data = {
-    name: intl.formatMessage({ id: 'faq_filter.title' }),
-    options: [
-      {
-        id: 'Shopping',
-        name: 'Shopping',
-      },
-      {
-        id: 'Post-purchase',
-        name: 'Post-purchase',
-      },
-      {
-        id: 'Marketing & Merchandising',
-        name: 'Marketing & Merchandising',
-      },
-      {
-        id: 'Financial',
-        name: 'Financial',
-      },
-      {
-        id: 'Channels',
-        name: 'Channels',
-      },
-      {
-        id: 'VTEX IO',
-        name: 'VTEX IO',
-      },
-      {
-        id: 'Master Data',
-        name: 'Master Data',
-      },
-      {
-        id: 'Identity',
-        name: 'Identity',
-      },
-      {
-        id: 'Reliability',
-        name: 'Reliability',
-      },
-      {
-        id: 'Others',
-        name: 'Others',
-      },
-      {
-        id: 'Apps',
-        name: 'Apps',
-      },
-      {
-        id: 'Billing',
-        name: 'Billing',
-      },
-      {
-        id: 'Management',
-        name: 'Management',
-      },
-    ],
-  }
 
   return data
 }
