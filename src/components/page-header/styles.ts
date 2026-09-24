@@ -16,7 +16,7 @@ const welcomeHeaderLong: SxStyleProp = {
   position: ['initial', 'absolute'],
   mb: ['32px', 'initial'],
   zIndex: '1000',
-  width: ['100%', '450px', '450px', '450px', '450px', '720px'],
+  width: ['100%', '340px', '350px', '350px', '450px', '600px'],
   maxWidth: ['100%', 'calc(100% - 32px)'],
   px: ['24px', 0],
   boxSizing: 'border-box',
