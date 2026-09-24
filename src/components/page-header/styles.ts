@@ -8,12 +8,33 @@ const welcomeHeader: SxStyleProp = {
   width: ['320px', '345px', '345px', '345px', '345px', '720px'],
 }
 
+const welcomeHeaderLong: SxStyleProp = {
+  pt: ['initial', '100px'],
+  position: ['initial', 'absolute'],
+  mb: ['32px', 'initial'],
+  zIndex: '1000',
+  width: ['320px', '450px', '450px', '450px', '450px', '720px'],
+}
+
 const welcomeSubtitle: SxStyleProp = {
   textAlign: ['center', 'initial'],
   fontSize: ['16px', '18px'],
   fontWeight: '400',
   color: '#A1A8B3',
   lineHeight: ['22px', '24px'],
+}
+
+const welcomeSubtitleLong: SxStyleProp = {
+  textAlign: ['center', 'initial'],
+  fontSize: ['12px', '14px'],
+  fontWeight: '400',
+  color: '#A1A8B3',
+  lineHeight: ['18px', '20px'],
+}
+
+const welcomeSubtitleLongSecondParagraph: SxStyleProp = {
+  ...welcomeSubtitleLong,
+  mt: '12px',
 }
 
 const welcomeOuterContainer: SxStyleProp = {
@@ -91,7 +112,10 @@ const divider: () => SxStyleProp = () => ({
 
 export default {
   welcomeHeader,
+  welcomeHeaderLong,
   welcomeSubtitle,
+  welcomeSubtitleLong,
+  welcomeSubtitleLongSecondParagraph,
   welcomeOuterContainer,
   welcomeInnerContainer,
   welcomeText,

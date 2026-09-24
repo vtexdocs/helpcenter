@@ -173,11 +173,15 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           description={intl.formatMessage({
             id: 'known_issues_page.subtitle',
           })}
+          descriptionLine2={intl.formatMessage({
+            id: 'known_issues_page.subtitle_2',
+          })}
           imageUrl={startHereImage}
           imageAlt={intl.formatMessage({
             id: 'known_issues_page.title',
           })}
           priority
+          longDescription
         />
         <Flex sx={styles.container}>
           <Flex sx={styles.optionsContainer}>
