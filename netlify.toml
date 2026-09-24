@@ -1192,3 +1192,21 @@ force = true
 from = "/es/known-issues/aparece-un-mensaje-erroneo-de-cupon-caducado-en-la-pagina-de-pago-al-utilizar-una-promocion-cuyo-valor-isarchived-es-true"
 status = 308
 to = "/es/known-issues/el-cupon-no-funciona-y-aparece-el-mensaje-el-cupon-ha-caducado"
+
+[[redirects]]
+force = true
+from = "/en/known-issues/error-exporting-prices-with-metadata"
+status = 308
+to = "/en/known-issues/merchants-are-not-receiving-the-fixed-price-report"
+
+[[redirects]]
+force = true
+from = "/pt/known-issues/erro-ao-exportar-precos-com-metadados"
+status = 308
+to = "/pt/known-issues/os-comerciantes-nao-estao-recebendo-o-relatorio-de-preco-fixo"
+
+[[redirects]]
+force = true
+from = "/es/known-issues/error-al-exportar-precios-con-metadatos"
+status = 308
+to = "/es/known-issues/los-comerciantes-no-reciben-el-informe-de-precios-fijos"
