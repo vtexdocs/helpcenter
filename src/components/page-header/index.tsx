@@ -25,7 +25,13 @@ const PageHeader = ({
   return (
     <Fragment>
       <Box sx={styles.welcomeOuterContainer}>
-        <Flex sx={styles.welcomeInnerContainer}>
+        <Flex
+          sx={
+            longDescription
+              ? styles.welcomeInnerContainerLong
+              : styles.welcomeInnerContainer
+          }
+        >
           <Box
             sx={
               longDescription ? styles.welcomeHeaderLong : styles.welcomeHeader

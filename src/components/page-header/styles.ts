@@ -5,15 +5,6 @@ const welcomeHeader: SxStyleProp = {
   position: ['initial', 'absolute'],
   mb: ['32px', 'initial'],
   zIndex: '1000',
-  left: [
-    'auto',
-    'max(16px, calc(50% - 544px / 2))',
-    'max(16px, calc(50% - 544px / 2))',
-    'max(16px, calc(50% - 544px / 2))',
-    'max(16px, calc(50% - 720px / 2))',
-    'max(16px, calc(50% - 720px / 2))',
-    'max(16px, calc(50% - 1400px / 2))',
-  ],
   width: ['100%', '345px', '345px', '345px', '345px', '720px'],
   maxWidth: ['100%', 'calc(100% - 32px)'],
   px: ['24px', 0],
@@ -25,15 +16,6 @@ const welcomeHeaderLong: SxStyleProp = {
   position: ['initial', 'absolute'],
   mb: ['32px', 'initial'],
   zIndex: '1000',
-  left: [
-    'auto',
-    'max(16px, calc(50% - 544px / 2))',
-    'max(16px, calc(50% - 544px / 2))',
-    'max(16px, calc(50% - 544px / 2))',
-    'max(16px, calc(50% - 720px / 2))',
-    'max(16px, calc(50% - 720px / 2))',
-    'max(16px, calc(50% - 1400px / 2))',
-  ],
   width: ['100%', '450px', '450px', '450px', '450px', '720px'],
   maxWidth: ['100%', 'calc(100% - 32px)'],
   px: ['24px', 0],
@@ -51,15 +33,20 @@ const welcomeSubtitle: SxStyleProp = {
 
 const welcomeSubtitleLong: SxStyleProp = {
   textAlign: ['center', 'initial'],
-  fontSize: ['12px', '14px'],
+  fontSize: ['14px', '16px'],
   fontWeight: '400',
   color: '#A1A8B3',
-  lineHeight: ['18px', '20px'],
+  lineHeight: ['22px', '24px'],
   overflowWrap: 'anywhere',
 }
 
 const welcomeSubtitleLongSecondParagraph: SxStyleProp = {
-  ...welcomeSubtitleLong,
+  textAlign: ['center', 'initial'],
+  fontSize: ['14px', '16px'],
+  fontWeight: '400',
+  color: '#A1A8B3',
+  lineHeight: ['22px', '24px'],
+  overflowWrap: 'anywhere',
   mt: '12px',
 }
 
@@ -70,12 +57,26 @@ const welcomeOuterContainer: SxStyleProp = {
 const welcomeInnerContainer: SxStyleProp = {
   flexDirection: ['column-reverse', 'row'],
   position: ['initial', 'relative'],
+  left: [
+    'initial',
+    'max(16px, calc(50% - 545px / 2))',
+    'max(16px, calc(50% - 720px / 2))',
+    'max(16px, calc(50% - 720px / 2))',
+    'max(16px, calc(50% - 720px / 2))',
+    'max(16px, calc(50% - 720px / 2))',
+    'max(16px, calc(50% - 720px / 2))',
+  ],
   width: '100%',
   maxWidth: '100%',
   minWidth: 0,
   boxSizing: 'border-box',
   justifyContent: 'space-between',
   alignItems: ['center', 'initial'],
+}
+
+const welcomeInnerContainerLong: SxStyleProp = {
+  ...welcomeInnerContainer,
+  minHeight: ['auto', '300px'],
 }
 
 const welcomeText: SxStyleProp = {
@@ -140,6 +141,7 @@ export default {
   welcomeSubtitleLongSecondParagraph,
   welcomeOuterContainer,
   welcomeInnerContainer,
+  welcomeInnerContainerLong,
   welcomeText,
   welcomeImageOuterContainer,
   welcomeImageInnerContainer,
