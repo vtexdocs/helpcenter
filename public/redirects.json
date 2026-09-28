@@ -17594,6 +17594,38 @@
       {
         "from": "/pt/docs/tracks/monitor-da-integracao",
         "to": "/pt/docs/tutorials/monitor-da-integracao"
+      },
+      {
+        "from": "/en/docs/tutorials/personal-shopper-overview",
+        "to": "/en/announcements/2026-09-22-personal-shopper-will-be-discontinued"
+      },
+      {
+        "from": "/docs/tutorials/personal-shopper-overview",
+        "to": "/en/announcements/2026-09-22-personal-shopper-will-be-discontinued"
+      },
+      {
+        "from": "/pt/docs/tutorials/visao-geral-do-personal-shopper",
+        "to": "/pt/announcements/2026-09-22-personal-shopper-sera-descontinuado"
+      },
+      {
+        "from": "/es/docs/tutorials/personal-shopper-vision-general",
+        "to": "/es/announcements/2026-09-22-personal-shopper-sera-descontinuado"
+      },
+      {
+        "from": "/en/tutorial/personal-shopper-overview--12dC0UMD0C6x6kw43LF8MH",
+        "to": "/en/announcements/2026-09-22-personal-shopper-will-be-discontinued"
+      },
+      {
+        "from": "/tutorial/personal-shopper-overview--12dC0UMD0C6x6kw43LF8MH",
+        "to": "/en/announcements/2026-09-22-personal-shopper-will-be-discontinued"
+      },
+      {
+        "from": "/pt/tutorial/visao-geral-do-personal-shopper--12dC0UMD0C6x6kw43LF8MH",
+        "to": "/pt/announcements/2026-09-22-personal-shopper-sera-descontinuado"
+      },
+      {
+        "from": "/es/tutorial/personal-shopper-vision-general--12dC0UMD0C6x6kw43LF8MH",
+        "to": "/es/announcements/2026-09-22-personal-shopper-sera-descontinuado"
       }
     ]
   }
