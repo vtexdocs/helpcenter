@@ -370,6 +370,7 @@
   "announcements_filter_area.vtex_ads": "VTEX Ads",
   "announcements_filter_area.b2b_buyer_portal": "B2B Buyer Portal",
   "announcements_filter_area.vtex_sales_app": "VTEX Sales App",
+  "announcements_filter_area.billing": "Faturamento",
   "search_result.empty": "Nenhum resultado encontrado. Tente usar outros filtros.",
   "faq_filter.title": "Produtos",
   "faq_page.results_found": "resultados encontrados",
