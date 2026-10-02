@@ -22,6 +22,7 @@ import {
 import { getDocsPaths as getKnownIssuesPaths } from 'utils/getDocsPaths'
 import { getLogger } from 'utils/logging/log-util'
 import PageHeader from 'components/page-header'
+import KnownIssuesCallout from 'components/known-issues-callout'
 import { useIntl } from 'react-intl'
 import startHereImage from '../../../public/images/known-issues.png'
 import KnownIssueCard from 'components/known-issue-card'
@@ -170,17 +171,16 @@ const KnownIssuesPage: NextPage<Props> = ({ knownIssuesData, branch }) => {
           description={intl.formatMessage({
             id: 'known_issues_page.subtitle',
           })}
-          descriptionLine2={intl.formatMessage({
-            id: 'known_issues_page.subtitle_2',
-          })}
           imageUrl={startHereImage}
           imageAlt={intl.formatMessage({
             id: 'known_issues_page.title',
           })}
           priority
-          longDescription
         />
         <Flex sx={styles.container}>
+          <KnownIssuesCallout>
+            {intl.formatMessage({ id: 'known_issues_page.callout' })}
+          </KnownIssuesCallout>
           <Flex sx={styles.optionsContainer}>
             <Box sx={styles.filterWrap}>
               <ListingFilter

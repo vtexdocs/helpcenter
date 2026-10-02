@@ -11,17 +11,6 @@ const welcomeHeader: SxStyleProp = {
   boxSizing: 'border-box',
 }
 
-const welcomeHeaderLong: SxStyleProp = {
-  pt: ['initial', '100px'],
-  position: ['initial', 'absolute'],
-  mb: ['32px', 'initial'],
-  zIndex: '1000',
-  width: ['100%', '340px', '350px', '350px', '450px', '600px'],
-  maxWidth: ['100%', 'calc(100% - 32px)'],
-  px: ['24px', 0],
-  boxSizing: 'border-box',
-}
-
 const welcomeSubtitle: SxStyleProp = {
   textAlign: ['center', 'initial'],
   fontSize: ['16px', '18px'],
@@ -29,25 +18,6 @@ const welcomeSubtitle: SxStyleProp = {
   color: '#A1A8B3',
   lineHeight: ['24px', '26px'],
   overflowWrap: 'anywhere',
-}
-
-const welcomeSubtitleLong: SxStyleProp = {
-  textAlign: ['center', 'initial'],
-  fontSize: ['14px', '16px'],
-  fontWeight: '400',
-  color: '#A1A8B3',
-  lineHeight: ['22px', '24px'],
-  overflowWrap: 'anywhere',
-}
-
-const welcomeSubtitleLongSecondParagraph: SxStyleProp = {
-  textAlign: ['center', 'initial'],
-  fontSize: ['14px', '16px'],
-  fontWeight: '400',
-  color: '#A1A8B3',
-  lineHeight: ['22px', '24px'],
-  overflowWrap: 'anywhere',
-  mt: '12px',
 }
 
 const welcomeOuterContainer: SxStyleProp = {
@@ -72,11 +42,6 @@ const welcomeInnerContainer: SxStyleProp = {
   boxSizing: 'border-box',
   justifyContent: 'space-between',
   alignItems: ['center', 'initial'],
-}
-
-const welcomeInnerContainerLong: SxStyleProp = {
-  ...welcomeInnerContainer,
-  minHeight: ['auto', '300px'],
 }
 
 const welcomeText: SxStyleProp = {
@@ -135,13 +100,9 @@ const divider: () => SxStyleProp = () => ({
 
 export default {
   welcomeHeader,
-  welcomeHeaderLong,
   welcomeSubtitle,
-  welcomeSubtitleLong,
-  welcomeSubtitleLongSecondParagraph,
   welcomeOuterContainer,
   welcomeInnerContainer,
-  welcomeInnerContainerLong,
   welcomeText,
   welcomeImageOuterContainer,
   welcomeImageInnerContainer,
