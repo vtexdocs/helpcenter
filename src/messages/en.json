@@ -371,6 +371,7 @@
   "announcements_filter_area.vtex_ads": "VTEX Ads",
   "announcements_filter_area.b2b_buyer_portal": "B2B Buyer Portal",
   "announcements_filter_area.vtex_sales_app": "VTEX Sales App",
+  "announcements_filter_area.billing": "Billing",
   "search_result.empty": "No results found. Try using other filters.",
   "faq_filter.title": "Products",
   "faq_page.results_found": "results found",
