@@ -10,8 +10,8 @@ const container: SxStyleProp = {
   flexDirection: 'column',
   gap: '20px',
   width: '100%',
-  maxWidth: ['100%', '545px', '720px', '720px'],
-  px: ['16px', 0],
+  maxWidth: ['100%', '609px', '784px', '784px'],
+  px: ['16px', '32px'],
   boxSizing: 'border-box',
   minWidth: 0,
 }

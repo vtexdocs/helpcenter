@@ -27,6 +27,7 @@ import {
 } from 'utils/get-url'
 import { PreviewContext } from 'utils/contexts/preview'
 import { extractLocaleFromPath } from 'utils/locale-utils'
+import { assistantExamples } from 'utils/assistant-examples'
 
 const Sidebar = dynamic(
   () => import('@vtexdocs/components').then((mod) => mod.Sidebar),
@@ -163,6 +164,11 @@ export default function Layout({
               />
             ) : undefined
           }
+          showAssistant
+          assistant={{
+            streamUrl: '/api/assistant/stream',
+            examples: assistantExamples(intl),
+          }}
         />
         <Flex sx={styles.container}>
           {!hideSidebar && <Sidebar parentsArray={parentsArray} />}
