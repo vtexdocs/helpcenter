@@ -42,6 +42,12 @@ import {
 import { useIntl } from 'react-intl'
 import EducationSection from './education-section'
 
+const blackFridayAnnouncementSlugs = {
+  en: '2026-10-06-black-friday-2026-get-your-store-ready-with-our-best-practices-guide',
+  pt: '2026-10-06-black-friday-2026-prepare-sua-loja-com-nosso-guia-de-boas-praticas',
+  es: '2026-10-06-black-friday-2026-prepara-tu-tienda-con-nuestra-guia-de-buenas-practicas',
+} as const
+
 interface Props {
   // ❌ REMOVED: sidebarfallback prop (navigation now loaded client-side)
   children: ReactElement
@@ -162,7 +168,24 @@ export default function Layout({
                   target: '_self',
                 }}
               />
-            ) : undefined
+            ) : (
+              <AnnouncementBar
+                closable
+                type="new"
+                label={intl.formatMessage({ id: 'announcement_bar.label' })}
+                action={{
+                  button: intl.formatMessage({
+                    id: 'announcement_bar.button',
+                  }),
+                  href: `${
+                    derivedLocale === 'en' ? '' : `/${derivedLocale}`
+                  }/announcements/${
+                    blackFridayAnnouncementSlugs[derivedLocale]
+                  }`,
+                  target: '_self',
+                }}
+              />
+            )
           }
           showAssistant
           assistant={{
