@@ -25,21 +25,7 @@ const title: SxStyleProp = {
   mb: ['24px', '32px', '40px'],
 }
 
-const contentCards: SxStyleProp = {
-  display: 'grid',
-  gridTemplateColumns: [
-    '1fr',
-    'repeat(2, minmax(0, 1fr))',
-    'repeat(2, minmax(0, 1fr))',
-    'repeat(4, minmax(0, 1fr))',
-  ],
-  width: '100%',
-  maxWidth: landing.contentMaxWidth,
-  gap: ['16px', '20px', '24px'],
-}
-
 export default {
   sectionContainer,
-  contentCards,
   title,
 }

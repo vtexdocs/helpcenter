@@ -1,9 +1,9 @@
-import { Box, Flex, Text } from '@vtex/brand-ui'
+import { Flex, Text } from '@vtex/brand-ui'
+import { SectionCard, SectionCardGrid } from '@vtexdocs/components'
 
 import styles from './styles'
 import { FormattedMessage, useIntl } from 'react-intl'
 import { menuSupportData } from 'utils/constants'
-import SupportSectionCard from 'components/support-section-card'
 
 const SupportSection = () => {
   const intl = useIntl()
@@ -13,11 +13,19 @@ const SupportSection = () => {
       <Text sx={styles.title}>
         <FormattedMessage id="landing_page_support.title" />
       </Text>
-      <Box sx={styles.contentCards}>
+      <SectionCardGrid>
         {menuSupportData(intl).map((support) => (
-          <SupportSectionCard {...support} key={support.title} />
+          <SectionCard
+            key={support.title}
+            {...support}
+            ctaLabel={intl.formatMessage({
+              id: support.isExternalLink
+                ? 'landing_page_documentation_card.accessPortal'
+                : 'landing_page_documentation_card.learnMoreText',
+            })}
+          />
         ))}
-      </Box>
+      </SectionCardGrid>
     </Flex>
   )
 }
