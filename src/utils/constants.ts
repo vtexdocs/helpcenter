@@ -559,6 +559,7 @@ const areaTagsByLocale: Record<string, Record<string, string>> = {
     vtex_ads: 'VTEX Ads',
     b2b_buyer_portal: 'B2B Buyer Portal',
     vtex_sales_app: 'VTEX Sales App',
+    billing: 'Billing',
   },
   es: {
     admin: 'Admin',
@@ -581,6 +582,7 @@ const areaTagsByLocale: Record<string, Record<string, string>> = {
     vtex_ads: 'VTEX Ads',
     b2b_buyer_portal: 'B2B Buyer Portal',
     vtex_sales_app: 'VTEX Sales App',
+    billing: 'Facturación',
   },
   pt: {
     admin: 'Admin',
@@ -603,6 +605,7 @@ const areaTagsByLocale: Record<string, Record<string, string>> = {
     vtex_ads: 'VTEX Ads',
     b2b_buyer_portal: 'B2B Buyer Portal',
     vtex_sales_app: 'VTEX Sales App',
+    billing: 'Faturamento',
   },
 }
 
