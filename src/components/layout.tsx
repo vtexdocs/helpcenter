@@ -28,6 +28,7 @@ import {
 import { PreviewContext } from 'utils/contexts/preview'
 import { extractLocaleFromPath } from 'utils/locale-utils'
 import { assistantExamples } from 'utils/assistant-examples'
+import { getCategoryCoverHref } from 'utils/navigation-utils'
 
 const Sidebar = dynamic(
   () => import('@vtexdocs/components').then((mod) => mod.Sidebar),
@@ -118,6 +119,7 @@ export default function Layout({
         fallback={navigation} // Use client-side loaded navigation (null during loading)
         isPreview={isPreview}
         locale={derivedLocale}
+        getCategoryHref={getCategoryCoverHref}
       >
         <iframe
           src="https://www.googletagmanager.com/ns.html?id=GTM-K2NM75K"

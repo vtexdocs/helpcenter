@@ -1,7 +1,6 @@
 import { useEffect, useContext, startTransition } from 'react'
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next'
-import { Item } from '@vtexdocs/components'
-
+import { ArticleIndexing, Item } from '@vtexdocs/components'
 import { getDocsPaths as getTutorialsPaths } from 'utils/getDocsPaths'
 import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -19,7 +18,7 @@ import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
 import { resolveEffectiveLocale } from 'utils/article-page/resolveEffectiveLocale'
 import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import { sanitizeArray } from 'utils/sanitizeArrays'
-import ArticleIndexing from 'components/article-index'
+import { toArticleIndexingItems } from 'utils/article-page/toArticleIndexingItems'
 import ArticleRender from 'components/article-render'
 import {
   getPagination,
@@ -84,14 +83,10 @@ const TutorialPage: NextPage<ArticlePageProps> = ({
     />
   ) : (
     <ArticleIndexing
+      type={sectionSelected}
+      title={componentProps?.name ?? ''}
+      items={toArticleIndexingItems(componentProps?.children)}
       breadcrumbList={breadcrumbList}
-      name={componentProps?.name ?? ''}
-      children={componentProps?.children}
-      hidePaginationNext={componentProps?.hidePaginationNext}
-      hidePaginationPrevious={componentProps?.hidePaginationPrevious}
-      isListed={isListed}
-      slug={slug}
-      pagination={pagination}
     />
   )
 }
