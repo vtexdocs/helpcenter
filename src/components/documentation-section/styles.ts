@@ -23,7 +23,18 @@ const title: SxStyleProp = {
   mb: ['24px', '32px', '40px'],
 }
 
+const cardsContainer: SxStyleProp = {
+  width: '100%',
+  maxWidth: '800px',
+  margin: 'auto',
+  flexWrap: 'wrap',
+  gap: ['16px', '24px'],
+  alignItems: 'stretch',
+  justifyContent: 'center',
+}
+
 export default {
+  cardsContainer,
   sectionContainer,
   title,
 }

@@ -1,5 +1,6 @@
-import { Box, Text } from '@vtex/brand-ui'
-import { SectionCard, SectionCardGrid } from '@vtexdocs/components'
+import { Box, Flex, Text } from '@vtex/brand-ui'
+
+import DocumentationSectionCard from '../documentation-section-card'
 
 import { menuDocumentationData } from 'utils/constants'
 
@@ -15,19 +16,14 @@ const DocumentationSection = () => {
           id: 'landing_page_documentation.title',
         })}
       </Text>
-      <SectionCardGrid data-cy="documentation-section-card-list">
+      <Flex
+        sx={styles.cardsContainer}
+        data-cy="documentation-section-card-list"
+      >
         {menuDocumentationData(intl).map((card) => (
-          <SectionCard
-            key={card.title}
-            {...card}
-            ctaLabel={intl.formatMessage({
-              id: card.isExternalLink
-                ? 'landing_page_documentation_card.accessPortal'
-                : 'landing_page_documentation_card.learnMoreText',
-            })}
-          />
+          <DocumentationSectionCard key={card.title} {...card} />
         ))}
-      </SectionCardGrid>
+      </Flex>
     </Box>
   )
 }
