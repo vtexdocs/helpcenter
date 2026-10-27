@@ -1,4 +1,4 @@
-import { Item } from '@vtexdocs/components'
+import { ArticleIndexing, Item } from '@vtexdocs/components'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { useContext, useEffect } from 'react'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -17,8 +17,8 @@ import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
 import { resolveEffectiveLocale } from 'utils/article-page/resolveEffectiveLocale'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
 import { isCategoryCover } from 'utils/article-page/getPagination'
+import { toArticleIndexingItems } from 'utils/article-page/toArticleIndexingItems'
 import ArticleRender from 'components/article-render'
-import ArticleIndex from 'components/article-index'
 import { ArticlePageProps } from 'utils/typings/types'
 import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { sanitizeArray } from 'utils/sanitizeArrays'
@@ -39,7 +39,6 @@ const TroubleshootingPage: NextPage<ArticlePageProps> = ({
   sectionSelected,
   isListed,
   branch,
-  pagination,
   breadcrumbList,
   componentProps,
   headingList,
@@ -66,15 +65,11 @@ const TroubleshootingPage: NextPage<ArticlePageProps> = ({
       path={componentProps.path}
     />
   ) : (
-    <ArticleIndex
+    <ArticleIndexing
+      type={sectionSelected}
+      title={componentProps?.name ?? ''}
+      items={toArticleIndexingItems(componentProps?.children)}
       breadcrumbList={breadcrumbList}
-      name={componentProps?.name ?? ''}
-      children={componentProps?.children}
-      hidePaginationNext={componentProps?.hidePaginationNext}
-      hidePaginationPrevious={componentProps?.hidePaginationPrevious}
-      isListed={isListed}
-      slug={slug}
-      pagination={pagination}
     />
   )
 }

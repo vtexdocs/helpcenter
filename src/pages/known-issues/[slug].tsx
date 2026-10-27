@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Flex, Text } from '@vtex/brand-ui'
-import { Item, Tag } from '@vtexdocs/components'
+import { ArticleIndexing, Item, Tag } from '@vtexdocs/components'
 import { useIntl } from 'react-intl'
 import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 
@@ -19,7 +19,7 @@ import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import { resolveSlugFromKiFormat } from 'utils/resolveSlugFromKiFormat'
 import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
 import { resolveEffectiveLocale } from 'utils/article-page/resolveEffectiveLocale'
-import ArticleIndex from 'components/article-index'
+import { toArticleIndexingItems } from 'utils/article-page/toArticleIndexingItems'
 import ArticleRender from 'components/article-render'
 import { ArticlePageProps } from 'utils/typings/types'
 import { PreviewContext } from 'utils/contexts/preview'
@@ -77,7 +77,6 @@ const KnownIssuePage: NextPage<ArticlePageProps> = ({
   sectionSelected,
   isListed,
   branch,
-  pagination,
   breadcrumbList,
   componentProps,
   headingList,
@@ -120,15 +119,11 @@ const KnownIssuePage: NextPage<ArticlePageProps> = ({
       />
     </ArticleRender>
   ) : (
-    <ArticleIndex
+    <ArticleIndexing
+      type={sectionSelected}
+      title={componentProps?.name ?? ''}
+      items={toArticleIndexingItems(componentProps?.children)}
       breadcrumbList={breadcrumbList}
-      name={componentProps?.name ?? ''}
-      children={componentProps?.children}
-      hidePaginationNext={componentProps?.hidePaginationNext}
-      hidePaginationPrevious={componentProps?.hidePaginationPrevious}
-      isListed={isListed}
-      slug={slug}
-      pagination={pagination}
     />
   )
 }

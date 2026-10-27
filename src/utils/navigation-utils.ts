@@ -177,3 +177,28 @@ export function computeParents(
 
   return { parentsArray, parentsArrayName, parentsArrayType, categoryTitle }
 }
+
+const CATEGORY_COVER_PREFIXES = [
+  'docs/tutorials',
+  'docs/tracks',
+  'announcements',
+  'faq',
+  'known-issues',
+  'troubleshooting',
+]
+
+/**
+ * Returns the category cover URL for sidebar categories so that clicking a
+ * category navigates to its cover page (in addition to expanding it).
+ */
+export const getCategoryCoverHref = ({
+  slug,
+  slugPrefix,
+}: {
+  slug: string
+  slugPrefix: string
+}): string | null => {
+  const prefix = slugPrefix.replace(/^\/+|\/+$/g, '')
+  if (!slug || !CATEGORY_COVER_PREFIXES.includes(prefix)) return null
+  return `/${prefix}/${slug}`
+}
