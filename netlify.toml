@@ -1210,3 +1210,21 @@ force = true
 from = "/es/known-issues/error-al-exportar-precios-con-metadatos"
 status = 308
 to = "/es/known-issues/los-comerciantes-no-reciben-el-informe-de-precios-fijos"
+
+[[redirects]]
+force = true
+from = "/en/known-issues/regex-conflict-causes-us-to-misidentify-mastercard-as-visa"
+status = 308
+to = "/en/known-issues/outdated-card-brand-regex-causes-brand-misidentification-at-checkout"
+
+[[redirects]]
+force = true
+from = "/pt/known-issues/o-conflito-de-regex-nos-faz-identificar-erroneamente-mastercard-como-visa"
+status = 308
+to = "/pt/known-issues/expressoes-regulares-desatualizadas-para-marcas-de-cartoes-causam-identificacao-incorreta-da-marca-no-caixa"
+
+[[redirects]]
+force = true
+from = "/es/known-issues/un-conflicto-de-regex-hace-que-identifiquemos-erroneamente-mastercard-como-visa"
+status = 308
+to = "/es/known-issues/la-expresion-regular-de-marca-de-tarjeta-obsoleta-provoca-una-identificacion-erronea-de-la-marca-en-el-momento-del-pago"
