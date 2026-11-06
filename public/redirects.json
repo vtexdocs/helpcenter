@@ -17674,6 +17674,10 @@
       {
         "from": "/es/tutorial/instalar-el-visa-checkout-en-la-extension-store",
         "to": "/es/docs/tutorials/que-es-una-cartera-digital"
+      },
+      {
+        "from": "/en/announcements/2026-10-08-cartera-de-credito-sigue-el-credito-que-compensa-tu-cargo-de-master-data",
+        "to": "/en/announcements/2026-10-08-cartera-de-credito-monitorea-el-credito-que-descuenta-tu-cobro-de-master-data"
       }
     ]
   }
