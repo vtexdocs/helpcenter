@@ -17628,6 +17628,54 @@
         "to": "/es/announcements/2026-09-22-personal-shopper-sera-descontinuado"
       },
       {
+        "from": "/pt/faq/corrigir-erro-de-redirecionamento-no-pagseguro",
+        "to": "/pt/docs/tutorials/configurar-o-pagseguro-v3"
+      },
+      {
+        "from": "/en/faq/fix-redirect-error-in-pagseguro",
+        "to": "/en/docs/tutorials/setting-up-pagseguro-v3"
+      },
+      {
+        "from": "/es/faq/corregir-error-de-redirecionamento-en-pagseguro",
+        "to": "/es/docs/tutorials/configurar-el-pagseguro-v3"
+      },
+      {
+        "from": "/pt/faq/pedidos-feitos-com-visa-checkout-nao-aparecem-na-area-de-meus-pedidos",
+        "to": "/pt/docs/tutorials/o-que-e-uma-carteira-digital-e-wallet"
+      },
+      {
+        "from": "/en/faq/visa-checkout-orders-do-not-appear-in-my-orders-section",
+        "to": "/en/docs/tutorials/what-is-an-e-wallet"
+      },
+      {
+        "from": "/es/faq/pedidos-realizados-con-visa-checkout-no-aparecen-en-el-area-de-mis-pedidos",
+        "to": "/es/docs/tutorials/que-es-una-cartera-digital"
+      },
+      {
+        "from": "/pt/docs/tutorials/instalar-o-visa-checkout-na-extension-store",
+        "to": "/pt/docs/tutorials/o-que-e-uma-carteira-digital-e-wallet"
+      },
+      {
+        "from": "/pt/tutorial/instalar-o-visa-checkout-na-extension-store",
+        "to": "/pt/docs/tutorials/o-que-e-uma-carteira-digital-e-wallet"
+      },
+      {
+        "from": "/en/docs/tutorials/install-visa-checkout-in-the-extension-store",
+        "to": "/en/docs/tutorials/what-is-an-e-wallet"
+      },
+      {
+        "from": "/en/tutorial/install-visa-checkout-in-the-extension-store",
+        "to": "/en/docs/tutorials/what-is-an-e-wallet"
+      },
+      {
+        "from": "/es/docs/tutorials/instalar-el-visa-checkout-en-la-extension-store",
+        "to": "/es/docs/tutorials/que-es-una-cartera-digital"
+      },
+      {
+        "from": "/es/tutorial/instalar-el-visa-checkout-en-la-extension-store",
+        "to": "/es/docs/tutorials/que-es-una-cartera-digital"
+      },
+      {
         "from": "/en/announcements/2026-10-08-cartera-de-credito-sigue-el-credito-que-compensa-tu-cargo-de-master-data",
         "to": "/en/announcements/2026-10-08-cartera-de-credito-monitorea-el-credito-que-descuenta-tu-cobro-de-master-data"
       }
