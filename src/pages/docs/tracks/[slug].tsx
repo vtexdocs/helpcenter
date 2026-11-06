@@ -1,7 +1,6 @@
 import { useEffect, useContext } from 'react'
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next' // MODIFIED: Changed GetServerSideProps to GetStaticProps
-import { Item } from '@vtexdocs/components'
-
+import { ArticleIndexing, Item } from '@vtexdocs/components'
 import {
   getDocsPaths as getTracksPaths,
   // getStaticPathsForDocType, // Removed unused import
@@ -26,7 +25,7 @@ import {
   isCategoryCover,
 } from 'utils/article-page/getPagination'
 import { sanitizeArray } from 'utils/sanitizeArrays'
-import ArticleIndex from 'components/article-index'
+import { toArticleIndexingItems } from 'utils/article-page/toArticleIndexingItems'
 import ArticleRender from 'components/article-render'
 import { ArticlePageProps } from 'utils/typings/types'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
@@ -78,15 +77,11 @@ const TrackPage: NextPage<ArticlePageProps> = ({
       showCreatedAt={false}
     />
   ) : (
-    <ArticleIndex
+    <ArticleIndexing
+      type={sectionSelected}
+      title={componentProps?.name ?? ''}
+      items={toArticleIndexingItems(componentProps?.children)}
       breadcrumbList={breadcrumbList}
-      name={componentProps?.name ?? ''}
-      children={componentProps?.children}
-      hidePaginationNext={componentProps?.hidePaginationNext}
-      hidePaginationPrevious={componentProps?.hidePaginationPrevious}
-      isListed={isListed}
-      slug={slug}
-      pagination={pagination}
     />
   )
 }

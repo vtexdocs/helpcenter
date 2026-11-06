@@ -1,8 +1,7 @@
 import { useEffect, useContext } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 
-import { Item } from '@vtexdocs/components'
-
+import { ArticleIndexing, Item } from '@vtexdocs/components'
 import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
@@ -17,7 +16,7 @@ import escapeCurlyBraces from 'utils/escapeCurlyBraces'
 import { contentfulAuthor } from 'utils/constants'
 import { fetchGitHubUser } from 'utils/fetchGithubUser'
 import ArticleRender from 'components/article-render'
-import ArticleIndex from 'components/article-index'
+import { toArticleIndexingItems } from 'utils/article-page/toArticleIndexingItems'
 import { getSidebarMetadata } from 'utils/article-page/getSidebarMetadata'
 import { resolveEffectiveLocale } from 'utils/article-page/resolveEffectiveLocale'
 import {
@@ -76,15 +75,11 @@ const AnnouncementPage: NextPage<ArticlePageProps> = ({
       pagination={pagination}
     />
   ) : (
-    <ArticleIndex
+    <ArticleIndexing
+      type={sectionSelected}
+      title={componentProps?.name ?? ''}
+      items={toArticleIndexingItems(componentProps?.children)}
       breadcrumbList={breadcrumbList}
-      name={componentProps?.name ?? ''}
-      children={componentProps?.children}
-      hidePaginationNext={componentProps?.hidePaginationNext}
-      hidePaginationPrevious={componentProps?.hidePaginationPrevious}
-      isListed={isListed}
-      slug={slug}
-      pagination={pagination}
     />
   )
 }

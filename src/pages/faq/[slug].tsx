@@ -1,8 +1,7 @@
 import { useEffect, useContext } from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 
-import { Item } from '@vtexdocs/components'
-
+import { ArticleIndexing, Item } from '@vtexdocs/components'
 import replaceHTMLBlocks from 'utils/article-page/replaceHTMLBlocks'
 import { PreviewContext } from 'utils/contexts/preview'
 
@@ -21,8 +20,8 @@ import { isCategoryCover } from 'utils/article-page/getPagination'
 import { sanitizeArray } from 'utils/sanitizeArrays'
 import { getBreadcrumbsList } from 'utils/article-page/getBreadcrumbsList'
 import { getSeeAlsoData } from 'utils/article-page/getSeeAlsoData'
+import { toArticleIndexingItems } from 'utils/article-page/toArticleIndexingItems'
 import ArticleRender from 'components/article-render'
-import ArticleIndex from 'components/article-index'
 import type { SectionId } from 'utils/typings/unionTypes'
 import { ArticlePageProps } from 'utils/typings/types'
 import {
@@ -69,12 +68,11 @@ const FaqPage: NextPage<ArticlePageProps> = ({
       showCreatedAt={false}
     />
   ) : (
-    <ArticleIndex
+    <ArticleIndexing
+      type={sectionSelected}
+      title={componentProps?.name ?? ''}
+      items={toArticleIndexingItems(componentProps?.children)}
       breadcrumbList={breadcrumbList}
-      name={componentProps?.name ?? ''}
-      children={componentProps?.children}
-      isListed={isListed}
-      slug={slug}
     />
   )
 }
