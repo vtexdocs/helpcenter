@@ -85,7 +85,7 @@ async function openResourcesPullRequest(
     title: 'chore: update License Manager resources',
     head: branch,
     base: BASE_BRANCH,
-    body: `Atualiza as tabelas de recursos do License Manager.\n\nArquivos: ${Object.keys(
+    body: `Updates the License Manager resources tables.\n\nFiles: ${Object.keys(
       files
     )
       .map((fileName) => `\`${TARGET_PATH}/${fileName}\``)
