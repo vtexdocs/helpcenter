@@ -655,7 +655,7 @@
       },
       {
         "from": "/tutorial/match-de-anuncios-mercado-livre--1C4HjNLbNk2Y6evD0luXMr",
-        "to": "/pt/docs/tracks/match-de-anuncios-mercado-livre"
+        "to": "/pt/docs/tutorials/match-de-anuncios-mercado-livre"
       },
       {
         "from": "/en/announcements/vtex-provides-klarna-pay-now-and-klarna-pay-later-payment-methods-for-the--1YAcV4TEeNlhL49jvdX2w1",
@@ -1035,7 +1035,7 @@
       },
       {
         "from": "/tracks/cadastro-da-integracao-do-mercado-livre--4YvYdgICMosaEgISOYogsi",
-        "to": "/pt/docs/tracks/cadastro-da-integracao-do-mercado-livre"
+        "to": "/pt/docs/tutorials/cadastro-da-integracao-do-mercado-livre"
       },
       {
         "from": "/pt/tutorial/trabalhando-com-a-api-rest-do-master-data--3Je8Rn3TOocwGoWIaEugq2",
@@ -1283,7 +1283,7 @@
       },
       {
         "from": "/pt/tutorial/anuncios-enviados-oportunidades-de-buybox--1hO9eI1th47EGxQoTzGewC",
-        "to": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR"
+        "to": "/pt/docs/tutorials/match-de-anuncios-mercado-livre"
       },
       {
         "from": "/tutorial/como-configurar-un-saleschannel-y-definir-un-default-sla-para-los-pedidos-recurrentes--4AyJBkwoMEgCkKIAMomekK",
@@ -1455,7 +1455,7 @@
       },
       {
         "from": "/tracks/configurar-logistica-para-o-mercado-livre--4551ZlEQI8qmiSWieigoKy",
-        "to": "/pt/docs/tracks/configurar-logistica-para-o-mercado-livre"
+        "to": "/pt/docs/tutorials/configurar-logistica-para-o-mercado-livre"
       },
       {
         "from": "/tracks/catalogo-101--5AF0XfnjfWeopIFBgs3LIQ/6UjLHdAT5YLuflki10SXLr",
@@ -2183,7 +2183,7 @@
       },
       {
         "from": "/tutorial/como-integrar-com-o-mercado-livre--nLRn5ZnBZLIswKSyYh6HO",
-        "to": "/pt/docs/tutorials/como-funciona-a-integracao-do-mercado-livre"
+        "to": "/pt/docs/tutorials/mercado-livre"
       },
       {
         "from": "/pt/tutorial/como-fazer-a-alteracao-do-meu-cnpj",
@@ -2255,7 +2255,7 @@
       },
       {
         "from": "/pt/tutorial/sent-offers-buybox-opportunities-beta--1hO9eI1th47EGxQoTzGewC",
-        "to": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR"
+        "to": "/pt/docs/tutorials/match-de-anuncios-mercado-livre"
       },
       {
         "from": "/tutorial/como-puedo-hacer-un-seguimiento-de-mis-disputas--1PTRwcsS5OfXG6yPkegZBp",
@@ -2475,7 +2475,7 @@
       },
       {
         "from": "/pt/tracks/mapear-categorias-e-atributos-dos-produtos-para-o-mercado-livre-mapper--5XNeiye4rS4oao2MueSUeA",
-        "to": "/pt/docs/tracks/mapear-categorias-e-atributos-dos-produtos-para-o-mercado-livre-mapper"
+        "to": "/pt/docs/tutorials/mapear-categorias-e-atributos-dos-produtos-para-o-mercado-livre-mapper"
       },
       {
         "from": "/tutorial/configurar-pagamentos-com-apple-pay--5L3NWMgvdKswWQa6eIc008",
@@ -2495,7 +2495,7 @@
       },
       {
         "from": "/tutorial/anuncios-enviados-oportunidades-de-buybox--1hO9eI1th47EGxQoTzGewC",
-        "to": "/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR"
+        "to": "/pt/docs/tutorials/match-de-anuncios-mercado-livre"
       },
       {
         "from": "/faq/como-configurar-controle-de-avaliacao-e-resenha",
@@ -2807,7 +2807,7 @@
       },
       {
         "from": "/pt/tutorial/gerenciamento-de-anuncios--7MRb9S78aBdZjFGpbuffpE",
-        "to": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR"
+        "to": "/pt/docs/tutorials/match-de-anuncios-mercado-livre"
       },
       {
         "from": "/faq/como-achar-nsu-e-tid-do-pedido",
@@ -3207,7 +3207,7 @@
       },
       {
         "from": "/pt/tutorial/interaction-details--5qC6XPkyUsYPd0dqKHQNlf",
-        "to": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR"
+        "to": "/pt/docs/tutorials/match-de-anuncios-mercado-livre"
       },
       {
         "from": "/faq/quais-os-tipos-de-split-de-pagamento-entre-sellers",
@@ -3239,7 +3239,7 @@
       },
       {
         "from": "/autorizar-integracao-do-mercado-livre-no-painel-da-vtex--4leBEAd22Icm46kGeiGgak",
-        "to": "/pt/docs/tracks/autorizar-integracao-do-mercado-livre-no-painel-da-vtex"
+        "to": "/pt/docs/tutorials/autorizar-integracao-do-mercado-livre-no-painel-da-vtex"
       },
       {
         "from": "/faq/como-solicitar-a-segunda-via-do-meu-boleto-de-cobranca",
@@ -3435,7 +3435,7 @@
       },
       {
         "from": "/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA",
-        "to": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA"
+        "to": "/pt/docs/tutorials/mapear-categorias-e-atributos-dos-produtos-para-o-mercado-livre-mapper"
       },
       {
         "from": "/v4/docs/promotions-overview--6ZSwEn2PJQ5qs0Az2EPbd3",
@@ -3903,7 +3903,7 @@
       },
       {
         "from": "/tutorial/offer-details--4FF9QYAewqAn610mDHwb0P",
-        "to": "/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR"
+        "to": "/pt/docs/tutorials/match-de-anuncios-mercado-livre"
       },
       {
         "from": "/tutorial/como-configurar-boleto-registrado--frequentlyAskedQuestions_2867",
@@ -4499,7 +4499,7 @@
       },
       {
         "from": "/tutorial/sent-offers-buybox-opportunities-beta--1hO9eI1th47EGxQoTzGewC",
-        "to": "/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR"
+        "to": "/pt/docs/tutorials/match-de-anuncios-mercado-livre"
       },
       {
         "from": "/faq/como-fazer-a-alteracao-do-meu-cnpj",
@@ -6415,7 +6415,7 @@
       },
       {
         "from": "/es/tutorial/mapeo-de-categor%C3%ADas-y-variaciones--6d5DFl6MZasoKickqkOUo4",
-        "to": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA"
+        "to": "/es/docs/tutorials/mapear-categorias-y-atributos-de-los-productos-para-mercado-libre-mapper"
       },
       {
         "from": "/pt/tutorial/como-integrar-um-provedor-de-gift-card-externo-a-vtex--tutorials_450",
@@ -6431,7 +6431,7 @@
       },
       {
         "from": "/pt/tutorial/mapeamento-de-categorias-e-variacoes--6d5DFl6MZasoKickqkOUo4",
-        "to": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA"
+        "to": "/pt/docs/tutorials/mapear-categorias-e-atributos-dos-produtos-para-o-mercado-livre-mapper"
       },
       {
         "from": "/tracks/vtex-io-getting-started--2qYWraccosS2ayg2kusaUo/1dEVfBkRxoO62i0Ge6mYoG",
@@ -7519,7 +7519,7 @@
       },
       {
         "from": "/tracks/autorizar-integracao-do-mercado-livre-no-painel-da-vtex--4leBEAd22Icm46kGeiGgak",
-        "to": "/pt/docs/tracks/autorizar-integracao-do-mercado-livre-no-painel-da-vtex"
+        "to": "/pt/docs/tutorials/autorizar-integracao-do-mercado-livre-no-painel-da-vtex"
       },
       {
         "from": "/faq/when-should-i-group-products-in-the-same-shipment",
@@ -10173,7 +10173,7 @@
       },
       {
         "from": "/faq/untitled-entry-2019-03-26-at-07-10-38",
-        "to": "/es/faq/por-que-mis-pedidos-no-integran-con-el-mercado-libre"
+        "to": "/es/docs/tutorials/por-que-mis-pedidos-no-integran-con-el-mercado-libre"
       },
       {
         "from": "/faq/como-funciona-el-flujo-de-captura-programada-para-las-compras-realizadas-con",
@@ -11317,7 +11317,7 @@
       },
       {
         "from": "/faq/por-que-meus-pedidos-não-integram-com-o-mercado-livre",
-        "to": "/pt/faq/por-que-meus-pedidos-nao-integram-com-o-mercado-livre"
+        "to": "/pt/docs/tutorials/por-que-meus-pedidos-nao-integram-com-o-mercado-livre"
       },
       {
         "from": "/faq/como-funciona-o-fluxo-de-captura-agendada-para-compras-realizadas-com-duas",
@@ -12563,7 +12563,7 @@
       },
       {
         "from": "/tracks/mercado-libre-integration-set-up",
-        "to": "/en/docs/tracks/mercado-libre-marketplace"
+        "to": "/en/docs/tutorials/mercado-libre"
       },
       {
         "from": "/tracks/netshoes-integration-set-up",
@@ -12751,7 +12751,7 @@
       },
       {
         "from": "/tracks/configurar-integracao-do-mercado-livre",
-        "to": "/pt/docs/tracks/mercado-livre-marketplace"
+        "to": "/pt/docs/tutorials/mercado-livre"
       },
       {
         "from": "/tracks/integracao-com-a-casas-bahia-marketplace",
@@ -12891,7 +12891,7 @@
       },
       {
         "from": "/tracks/configurar-integracion-con-mercado-libre",
-        "to": "/es/docs/tracks/mercado-libre-marketplace"
+        "to": "/es/docs/tutorials/mercado-libre"
       },
       {
         "from": "/tracks/configurar-integracion-netshoes",
@@ -14087,123 +14087,123 @@
       },
       {
         "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/2MR2USqcvDGaoAkGNdCfGi",
-        "to": "/en/docs/tracks/ad-types-classic-and-premium"
+        "to": "/en/docs/tutorials/ad-types-classic-and-premium"
       },
       {
         "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/2MR2USqcvDGaoAkGNdCfGi",
-        "to": "/pt/docs/tracks/tipos-de-anuncio-classico-e-premium"
+        "to": "/pt/docs/tutorials/tipos-de-anuncio-classico-e-premium"
       },
       {
         "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/2MR2USqcvDGaoAkGNdCfGi",
-        "to": "/es/docs/tracks/tipos-de-anuncios-clasico-y-premium"
+        "to": "/es/docs/tutorials/tipos-de-anuncios-clasico-y-premium"
       },
       {
         "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/4leBEAd22Icm46kGeiGgak",
-        "to": "/en/docs/tracks/authorizing-mercado-livre-integration-in-vtex-panel"
+        "to": "/en/docs/tutorials/authorizing-mercado-livre-integration-in-vtex-panel"
       },
       {
         "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4leBEAd22Icm46kGeiGgak",
-        "to": "/pt/docs/tracks/autorizar-integracao-do-mercado-livre-no-painel-da-vtex"
+        "to": "/pt/docs/tutorials/autorizar-integracao-do-mercado-livre-no-painel-da-vtex"
       },
       {
         "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/4leBEAd22Icm46kGeiGgak",
-        "to": "/es/docs/tracks/autorizar-la-integracion-de-mercado-libre-en-el-panel-de-vtex"
+        "to": "/es/docs/tutorials/autorizar-la-integracion-de-mercado-libre-en-el-panel-de-vtex"
       },
       {
         "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/1ivH7sJoS771wZFMkaFdpt",
-        "to": "/en/docs/tracks/configuring-price-divergence-rule-mercado-libre"
+        "to": "/en/docs/tutorials/configuring-price-divergence-rule-mercado-libre"
       },
       {
         "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/1ivH7sJoS771wZFMkaFdpt",
-        "to": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-mercado-livre"
+        "to": "/pt/docs/tutorials/configurar-regra-de-divergencia-de-valores-mercado-livre"
       },
       {
         "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/1ivH7sJoS771wZFMkaFdpt",
-        "to": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios-mercado-libre"
+        "to": "/es/docs/tutorials/configurar-regla-de-divergencia-de-precios-mercado-libre"
       },
       {
         "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/6T5EBd0pXLftDqGvWxarR8",
-        "to": "/en/docs/tracks/defining-the-shipping-strategy"
+        "to": "/en/docs/tutorials/defining-the-shipping-strategy"
       },
       {
         "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/6T5EBd0pXLftDqGvWxarR8",
-        "to": "/pt/docs/tracks/definicao-da-estrategia-de-envio"
+        "to": "/pt/docs/tutorials/definicao-da-estrategia-de-envio"
       },
       {
         "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/6T5EBd0pXLftDqGvWxarR8",
-        "to": "/es/docs/tracks/definir-la-estrategia-de-envio"
+        "to": "/es/docs/tutorials/definir-la-estrategia-de-envio"
       },
       {
         "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA",
-        "to": "/en/docs/tracks/mapping-product-categories-and-attributes-to-mercado-libre"
+        "to": "/en/docs/tutorials/mapping-product-categories-and-attributes-to-mercado-libre"
       },
       {
         "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA",
-        "to": "/pt/docs/tracks/mapear-categorias-e-atributos-dos-produtos-para-o-mercado-livre-mapper"
+        "to": "/pt/docs/tutorials/mapear-categorias-e-atributos-dos-produtos-para-o-mercado-livre-mapper"
       },
       {
         "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA",
-        "to": "/es/docs/tracks/mapear-categorias-y-atributos-de-los-productos-para-mercado-libre-mapper"
+        "to": "/es/docs/tutorials/mapear-categorias-y-atributos-de-los-productos-para-mercado-libre-mapper"
       },
       {
         "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR",
-        "to": "/en/docs/tracks/match-offers-mercado-livre"
+        "to": "/en/docs/tutorials/match-offers-mercado-livre"
       },
       {
         "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR",
-        "to": "/pt/docs/tracks/match-de-anuncios-mercado-livre"
+        "to": "/pt/docs/tutorials/match-de-anuncios-mercado-livre"
       },
       {
         "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR",
-        "to": "/es/docs/tracks/match-de-anuncios-de-mercado-libre"
+        "to": "/es/docs/tutorials/match-de-anuncios-de-mercado-libre"
       },
       {
         "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/51oWBHvVxSs8eAwLQhSbSd",
-        "to": "/en/docs/tracks/mercado-libre-marketplace"
+        "to": "/en/docs/tutorials/mercado-libre"
       },
       {
         "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/51oWBHvVxSs8eAwLQhSbSd",
-        "to": "/pt/docs/tracks/mercado-livre-marketplace"
+        "to": "/pt/docs/tutorials/mercado-livre"
       },
       {
         "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/51oWBHvVxSs8eAwLQhSbSd",
-        "to": "/es/docs/tracks/mercado-libre-marketplace"
+        "to": "/es/docs/tutorials/mercado-libre"
       },
       {
         "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/4YvYdgICMosaEgISOYogsi",
-        "to": "/en/docs/tracks/register-mercado-livre-integration"
+        "to": "/en/docs/tutorials/register-mercado-livre-integration"
       },
       {
         "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4YvYdgICMosaEgISOYogsi",
-        "to": "/pt/docs/tracks/cadastro-da-integracao-do-mercado-livre"
+        "to": "/pt/docs/tutorials/cadastro-da-integracao-do-mercado-livre"
       },
       {
         "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/4YvYdgICMosaEgISOYogsi",
-        "to": "/es/docs/tracks/registro-de-la-integracion-de-mercado-libre"
+        "to": "/es/docs/tutorials/registro-de-la-integracion-de-mercado-libre"
       },
       {
         "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/15NZiQstCET8zyQUIa7nhw",
-        "to": "/en/docs/tracks/setting-up-a-trade-policy-for-mercado-livre"
+        "to": "/en/docs/tutorials/setting-up-a-trade-policy-for-mercado-livre"
       },
       {
         "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/15NZiQstCET8zyQUIa7nhw",
-        "to": "/pt/docs/tracks/configurar-politica-comercial-para-o-mercado-livre"
+        "to": "/pt/docs/tutorials/configurar-politica-comercial-para-o-mercado-livre"
       },
       {
         "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/15NZiQstCET8zyQUIa7nhw",
-        "to": "/es/docs/tracks/configurar-politica-comercial-para-mercado-libre"
+        "to": "/es/docs/tutorials/configurar-politica-comercial-para-mercado-libre"
       },
       {
         "from": "/en/tracks/mercado-libre-integration-set-up--2YfvI3Jxe0CGIKoWIGQEIq/4551ZlEQI8qmiSWieigoKy",
-        "to": "/en/docs/tracks/setting-up-the-logistics-for-mercado-livre"
+        "to": "/en/docs/tutorials/setting-up-the-logistics-for-mercado-livre"
       },
       {
         "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4551ZlEQI8qmiSWieigoKy",
-        "to": "/pt/docs/tracks/configurar-logistica-para-o-mercado-livre"
+        "to": "/pt/docs/tutorials/configurar-logistica-para-o-mercado-livre"
       },
       {
         "from": "/es/tracks/configurar-integracion-con-mercado-libre--2YfvI3Jxe0CGIKoWIGQEIq/4551ZlEQI8qmiSWieigoKy",
-        "to": "/es/docs/tracks/configurar-la-logistica-para-mercado-libre"
+        "to": "/es/docs/tutorials/configurar-la-logistica-para-mercado-libre"
       },
       {
         "from": "/en/tracks/netshoes-integration-set-up--5Ua87lhFg4m0kEcuyqmcCm/6vQYuUfZVGDzDJjrvPczeh",
@@ -14471,15 +14471,15 @@
       },
       {
         "from": "/en/tracks/what-features-does-the-integration-offer--2YfvI3Jxe0CGIKoWIGQEIq/5DIYlh0eXB9ClfQFC3l3Mr",
-        "to": "/en/docs/tracks/what-features-does-the-integration-offer"
+        "to": "/en/docs/tutorials/mercado-libre"
       },
       {
         "from": "/pt/tracks/quais-sao-as-funcionalidades-que-a-integracao-oferece--2YfvI3Jxe0CGIKoWIGQEIq/5DIYlh0eXB9ClfQFC3l3Mr",
-        "to": "/pt/docs/tracks/quais-sao-as-funcionalidades-que-a-integracao-oferece"
+        "to": "/pt/docs/tutorials/mercado-livre"
       },
       {
         "from": "/es/tracks/que-funcionalidades-ofrece-la-integracion--2YfvI3Jxe0CGIKoWIGQEIq/5DIYlh0eXB9ClfQFC3l3Mr",
-        "to": "/es/docs/tracks/que-funcionalidades-ofrece-la-integracion"
+        "to": "/es/docs/tutorials/mercado-libre"
       },
       {
         "from": "/en/tracks/wish-integration--50hbG4bzhSIhjz1lzqI1g4/2aF61hBlTKNXJlhN6aowbM",
@@ -17726,6 +17726,374 @@
       {
         "from": "/es/tutorial/tarjeta-de-credito-flujo-basico-de-un-pago",
         "to": "/es/docs/tracks/flujo-de-pago-por-tarjeta-de-credito"
+      },
+      {
+        "from": "/pt/docs/tutorials/como-funciona-a-integracao-do-mercado-livre",
+        "to": "/pt/docs/tutorials/mercado-livre"
+      },
+      {
+        "from": "/en/docs/tutorials/how-mercado-livre-integration-works",
+        "to": "/en/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/es/docs/tutorials/como-funciona-la-integracion-del-mercado-libre",
+        "to": "/es/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/pt/docs/tracks/configurar-integracao-do-mercado-livre",
+        "to": "/pt/docs/tutorials/mercado-livre"
+      },
+      {
+        "from": "/en/docs/tracks/mercado-libre-integration-set-up",
+        "to": "/en/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/es/docs/tracks/configurar-integracion-con-mercado-libre",
+        "to": "/es/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5DIYlh0eXB9ClfQFC3l3Mr",
+        "to": "/pt/docs/tutorials/mercado-livre"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5KINOatgzeS48IGwaAK8IE",
+        "to": "/pt/docs/tutorials/como-configurar-loja-guarda-chuva-na-integracao-com-o-mercado-livre"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/aO9gr94WJ26K4SweiIEiA",
+        "to": "/pt/docs/tutorials/como-configurar-multiplas-contas-na-integracao-com-o-mercado-livre"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/frequentlyAskedQuestions_4462",
+        "to": "/pt/docs/tutorials/por-que-meu-produto-foi-categorizado-errado-no-mercado-livre"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/2i5VkaYevgzwpXakSlMejO",
+        "to": "/pt/docs/tutorials/por-que-meus-pedidos-nao-integram-com-o-mercado-livre"
+      },
+      {
+        "from": "/pt/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/frequentlyAskedQuestions_3800",
+        "to": "/pt/docs/tutorials/por-que-o-mercado-livre-retorna-erros-de-atributo-apos-o-mapeamento"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/2MR2USqcvDGaoAkGNdCfGi",
+        "to": "/en/docs/tutorials/ad-types-classic-and-premium"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4leBEAd22Icm46kGeiGgak",
+        "to": "/en/docs/tutorials/authorizing-mercado-livre-integration-in-vtex-panel"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/1ivH7sJoS771wZFMkaFdpt",
+        "to": "/en/docs/tutorials/configuring-price-divergence-rule-mercado-libre"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/6T5EBd0pXLftDqGvWxarR8",
+        "to": "/en/docs/tutorials/defining-the-shipping-strategy"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA",
+        "to": "/en/docs/tutorials/mapping-product-categories-and-attributes-to-mercado-libre"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR",
+        "to": "/en/docs/tutorials/match-offers-mercado-livre"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4YvYdgICMosaEgISOYogsi",
+        "to": "/en/docs/tutorials/register-mercado-livre-integration"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/15NZiQstCET8zyQUIa7nhw",
+        "to": "/en/docs/tutorials/setting-up-a-trade-policy-for-mercado-livre"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4551ZlEQI8qmiSWieigoKy",
+        "to": "/en/docs/tutorials/setting-up-the-logistics-for-mercado-livre"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/51oWBHvVxSs8eAwLQhSbSd",
+        "to": "/en/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5DIYlh0eXB9ClfQFC3l3Mr",
+        "to": "/en/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5KINOatgzeS48IGwaAK8IE",
+        "to": "/en/docs/tutorials/how-to-configure-a-top-level-store-in-the-integration-with-mercado-livre"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/aO9gr94WJ26K4SweiIEiA",
+        "to": "/en/docs/tutorials/how-to-set-up-multiple-accounts-in-the-mercado-livre-integration"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/frequentlyAskedQuestions_4462",
+        "to": "/en/docs/tutorials/why-has-my-product-been-wrongly-categorized-on-mercado-livre"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/2i5VkaYevgzwpXakSlMejO",
+        "to": "/en/docs/tutorials/why-are-my-orders-not-integrating-with-mercado-livre"
+      },
+      {
+        "from": "/en/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/frequentlyAskedQuestions_3800",
+        "to": "/en/docs/tutorials/why-does-mercado-livre-return-attribution-errors-after-mapping"
+      },
+      {
+        "from": "/pt/docs/tracks/autorizar-integracao-do-mercado-livre-no-painel-da-vtex",
+        "to": "/pt/docs/tutorials/autorizar-integracao-do-mercado-livre-no-painel-da-vtex"
+      },
+      {
+        "from": "/pt/docs/tracks/cadastro-da-integracao-do-mercado-livre",
+        "to": "/pt/docs/tutorials/cadastro-da-integracao-do-mercado-livre"
+      },
+      {
+        "from": "/pt/docs/tracks/configurar-logistica-para-o-mercado-livre",
+        "to": "/pt/docs/tutorials/configurar-logistica-para-o-mercado-livre"
+      },
+      {
+        "from": "/pt/docs/tracks/configurar-politica-comercial-para-o-mercado-livre",
+        "to": "/pt/docs/tutorials/configurar-politica-comercial-para-o-mercado-livre"
+      },
+      {
+        "from": "/pt/docs/tracks/configurar-regra-de-divergencia-de-valores-mercado-livre",
+        "to": "/pt/docs/tutorials/configurar-regra-de-divergencia-de-valores-mercado-livre"
+      },
+      {
+        "from": "/pt/docs/tracks/definicao-da-estrategia-de-envio",
+        "to": "/pt/docs/tutorials/definicao-da-estrategia-de-envio"
+      },
+      {
+        "from": "/pt/docs/tracks/mapear-categorias-e-atributos-dos-produtos-para-o-mercado-livre-mapper",
+        "to": "/pt/docs/tutorials/mapear-categorias-e-atributos-dos-produtos-para-o-mercado-livre-mapper"
+      },
+      {
+        "from": "/pt/docs/tracks/match-de-anuncios-mercado-livre",
+        "to": "/pt/docs/tutorials/match-de-anuncios-mercado-livre"
+      },
+      {
+        "from": "/pt/docs/tracks/tipos-de-anuncio-classico-e-premium",
+        "to": "/pt/docs/tutorials/tipos-de-anuncio-classico-e-premium"
+      },
+      {
+        "from": "/pt/docs/tracks/mercado-livre-marketplace",
+        "to": "/pt/docs/tutorials/mercado-livre"
+      },
+      {
+        "from": "/pt/docs/tracks/quais-sao-as-funcionalidades-que-a-integracao-oferece",
+        "to": "/pt/docs/tutorials/mercado-livre"
+      },
+      {
+        "from": "/pt/faq/como-configurar-loja-guarda-chuva-na-integracao-com-o-mercado-livre",
+        "to": "/pt/docs/tutorials/como-configurar-loja-guarda-chuva-na-integracao-com-o-mercado-livre"
+      },
+      {
+        "from": "/pt/faq/como-configurar-multiplas-contas-na-integracao-com-o-mercado-livre",
+        "to": "/pt/docs/tutorials/como-configurar-multiplas-contas-na-integracao-com-o-mercado-livre"
+      },
+      {
+        "from": "/pt/faq/por-que-meu-produto-foi-categorizado-errado-no-mercado-livre",
+        "to": "/pt/docs/tutorials/por-que-meu-produto-foi-categorizado-errado-no-mercado-livre"
+      },
+      {
+        "from": "/pt/faq/por-que-meus-pedidos-nao-integram-com-o-mercado-livre",
+        "to": "/pt/docs/tutorials/por-que-meus-pedidos-nao-integram-com-o-mercado-livre"
+      },
+      {
+        "from": "/pt/faq/por-que-o-mercado-livre-retorna-erros-de-atributo-apos-o-mapeamento",
+        "to": "/pt/docs/tutorials/por-que-o-mercado-livre-retorna-erros-de-atributo-apos-o-mapeamento"
+      },
+      {
+        "from": "/en/docs/tracks/ad-types-classic-and-premium",
+        "to": "/en/docs/tutorials/ad-types-classic-and-premium"
+      },
+      {
+        "from": "/en/docs/tracks/authorizing-mercado-livre-integration-in-vtex-panel",
+        "to": "/en/docs/tutorials/authorizing-mercado-livre-integration-in-vtex-panel"
+      },
+      {
+        "from": "/en/docs/tracks/configuring-price-divergence-rule-mercado-libre",
+        "to": "/en/docs/tutorials/configuring-price-divergence-rule-mercado-libre"
+      },
+      {
+        "from": "/en/docs/tracks/defining-the-shipping-strategy",
+        "to": "/en/docs/tutorials/defining-the-shipping-strategy"
+      },
+      {
+        "from": "/en/docs/tracks/mapping-product-categories-and-attributes-to-mercado-libre",
+        "to": "/en/docs/tutorials/mapping-product-categories-and-attributes-to-mercado-libre"
+      },
+      {
+        "from": "/en/docs/tracks/match-offers-mercado-livre",
+        "to": "/en/docs/tutorials/match-offers-mercado-livre"
+      },
+      {
+        "from": "/en/docs/tracks/register-mercado-livre-integration",
+        "to": "/en/docs/tutorials/register-mercado-livre-integration"
+      },
+      {
+        "from": "/en/docs/tracks/setting-up-a-trade-policy-for-mercado-livre",
+        "to": "/en/docs/tutorials/setting-up-a-trade-policy-for-mercado-livre"
+      },
+      {
+        "from": "/en/docs/tracks/setting-up-the-logistics-for-mercado-livre",
+        "to": "/en/docs/tutorials/setting-up-the-logistics-for-mercado-livre"
+      },
+      {
+        "from": "/en/docs/tracks/mercado-libre-marketplace",
+        "to": "/en/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/en/docs/tracks/what-features-does-the-integration-offer",
+        "to": "/en/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/en/faq/how-to-configure-a-top-level-store-in-the-integration-with-mercado-livre",
+        "to": "/en/docs/tutorials/how-to-configure-a-top-level-store-in-the-integration-with-mercado-livre"
+      },
+      {
+        "from": "/en/faq/how-to-set-up-multiple-accounts-in-the-mercado-livre-integration",
+        "to": "/en/docs/tutorials/how-to-set-up-multiple-accounts-in-the-mercado-livre-integration"
+      },
+      {
+        "from": "/en/faq/why-has-my-product-been-wrongly-categorized-on-mercado-livre",
+        "to": "/en/docs/tutorials/why-has-my-product-been-wrongly-categorized-on-mercado-livre"
+      },
+      {
+        "from": "/en/faq/why-are-my-orders-not-integrating-with-mercado-livre",
+        "to": "/en/docs/tutorials/why-are-my-orders-not-integrating-with-mercado-livre"
+      },
+      {
+        "from": "/en/faq/why-does-mercado-livre-return-attribution-errors-after-mapping",
+        "to": "/en/docs/tutorials/why-does-mercado-livre-return-attribution-errors-after-mapping"
+      },
+      {
+        "from": "/es/docs/tracks/autorizar-la-integracion-de-mercado-libre-en-el-panel-de-vtex",
+        "to": "/es/docs/tutorials/autorizar-la-integracion-de-mercado-libre-en-el-panel-de-vtex"
+      },
+      {
+        "from": "/es/docs/tracks/configurar-la-logistica-para-mercado-libre",
+        "to": "/es/docs/tutorials/configurar-la-logistica-para-mercado-libre"
+      },
+      {
+        "from": "/es/docs/tracks/configurar-politica-comercial-para-mercado-libre",
+        "to": "/es/docs/tutorials/configurar-politica-comercial-para-mercado-libre"
+      },
+      {
+        "from": "/es/docs/tracks/configurar-regla-de-divergencia-de-precios-mercado-libre",
+        "to": "/es/docs/tutorials/configurar-regla-de-divergencia-de-precios-mercado-libre"
+      },
+      {
+        "from": "/es/docs/tracks/definir-la-estrategia-de-envio",
+        "to": "/es/docs/tutorials/definir-la-estrategia-de-envio"
+      },
+      {
+        "from": "/es/docs/tracks/mapear-categorias-y-atributos-de-los-productos-para-mercado-libre-mapper",
+        "to": "/es/docs/tutorials/mapear-categorias-y-atributos-de-los-productos-para-mercado-libre-mapper"
+      },
+      {
+        "from": "/es/docs/tracks/match-de-anuncios-de-mercado-libre",
+        "to": "/es/docs/tutorials/match-de-anuncios-de-mercado-libre"
+      },
+      {
+        "from": "/es/docs/tracks/registro-de-la-integracion-de-mercado-libre",
+        "to": "/es/docs/tutorials/registro-de-la-integracion-de-mercado-libre"
+      },
+      {
+        "from": "/es/docs/tracks/tipos-de-anuncios-clasico-y-premium",
+        "to": "/es/docs/tutorials/tipos-de-anuncios-clasico-y-premium"
+      },
+      {
+        "from": "/es/docs/tracks/mercado-libre-marketplace",
+        "to": "/es/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/es/docs/tracks/que-funcionalidades-ofrece-la-integracion",
+        "to": "/es/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/es/faq/como-configurar-la-tienda-paraguas-en-la-integracion-con-el-mercado-libre",
+        "to": "/es/docs/tutorials/como-configurar-la-tienda-paraguas-en-la-integracion-con-el-mercado-libre"
+      },
+      {
+        "from": "/es/faq/como-configurar-multiples-cuentas-en-la-integracion-con-el-mercado-libre",
+        "to": "/es/docs/tutorials/como-configurar-multiples-cuentas-en-la-integracion-con-el-mercado-libre"
+      },
+      {
+        "from": "/es/faq/por-que-el-mercado-livre-retorna-errores-de-atributo-tras-el-mapeo",
+        "to": "/es/docs/tutorials/por-que-el-mercado-livre-retorna-errores-de-atributo-tras-el-mapeo"
+      },
+      {
+        "from": "/es/faq/por-que-mi-producto-fue-categorizado-equivocadamente-en-mercado-livre",
+        "to": "/es/docs/tutorials/por-que-mi-producto-fue-categorizado-equivocadamente-en-mercado-livre"
+      },
+      {
+        "from": "/es/faq/por-que-mis-pedidos-no-integran-con-el-mercado-libre",
+        "to": "/es/docs/tutorials/por-que-mis-pedidos-no-integran-con-el-mercado-libre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4leBEAd22Icm46kGeiGgak",
+        "to": "/es/docs/tutorials/autorizar-la-integracion-de-mercado-libre-en-el-panel-de-vtex"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4551ZlEQI8qmiSWieigoKy",
+        "to": "/es/docs/tutorials/configurar-la-logistica-para-mercado-libre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/15NZiQstCET8zyQUIa7nhw",
+        "to": "/es/docs/tutorials/configurar-politica-comercial-para-mercado-libre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/1ivH7sJoS771wZFMkaFdpt",
+        "to": "/es/docs/tutorials/configurar-regla-de-divergencia-de-precios-mercado-libre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/6T5EBd0pXLftDqGvWxarR8",
+        "to": "/es/docs/tutorials/definir-la-estrategia-de-envio"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5XNeiye4rS4oao2MueSUeA",
+        "to": "/es/docs/tutorials/mapear-categorias-y-atributos-de-los-productos-para-mercado-libre-mapper"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/43uD4LPU5PLUWe11IaWwyR",
+        "to": "/es/docs/tutorials/match-de-anuncios-de-mercado-libre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/4YvYdgICMosaEgISOYogsi",
+        "to": "/es/docs/tutorials/registro-de-la-integracion-de-mercado-libre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/2MR2USqcvDGaoAkGNdCfGi",
+        "to": "/es/docs/tutorials/tipos-de-anuncios-clasico-y-premium"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/51oWBHvVxSs8eAwLQhSbSd",
+        "to": "/es/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5DIYlh0eXB9ClfQFC3l3Mr",
+        "to": "/es/docs/tutorials/mercado-libre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/5KINOatgzeS48IGwaAK8IE",
+        "to": "/es/docs/tutorials/como-configurar-la-tienda-paraguas-en-la-integracion-con-el-mercado-libre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/aO9gr94WJ26K4SweiIEiA",
+        "to": "/es/docs/tutorials/como-configurar-multiples-cuentas-en-la-integracion-con-el-mercado-libre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/frequentlyAskedQuestions_4462",
+        "to": "/es/docs/tutorials/por-que-mi-producto-fue-categorizado-equivocadamente-en-mercado-livre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/2i5VkaYevgzwpXakSlMejO",
+        "to": "/es/docs/tutorials/por-que-mis-pedidos-no-integran-con-el-mercado-libre"
+      },
+      {
+        "from": "/es/tracks/configurar-integracao-do-mercado-livre--2YfvI3Jxe0CGIKoWIGQEIq/frequentlyAskedQuestions_3800",
+        "to": "/es/docs/tutorials/por-que-el-mercado-livre-retorna-errores-de-atributo-tras-el-mapeo"
       }
     ]
   }
